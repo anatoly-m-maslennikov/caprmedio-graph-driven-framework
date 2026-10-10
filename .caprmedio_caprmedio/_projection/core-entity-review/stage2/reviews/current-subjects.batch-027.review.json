@@ -1,0 +1,3104 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-2018",
+  "batch_id": "current-subjects.batch-027",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-027.json",
+  "input_batch_sha256": "5225f026f92e9c04cca69dd5b8f5245d26cb2be64ef3aa4fe85ce7d1bb59e989",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": {
+    "frozen_candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "consolidated_review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    "preparation_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    "review_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  },
+  "source_reviews": [
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+      "full_file_sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+      "atom_id": "CA-R-978",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-979-CORE_META_MODEL-GENERAL-REQUIREMENT--default-scope-units-to-unordered.md",
+      "full_file_sha256": "3f17b0012af73d9f8720916da5ca304fd846474e4f17754d0b957bfa79ca8ec1",
+      "atom_id": "CA-R-979",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-980-CORE_META_MODEL-REQUIREMENT--default-unordered-scope-unit-label-to-feature.md",
+      "full_file_sha256": "7cf1579c1f5c3f87514fdd51239532b34ff39857919588bce64c8f7206600dce",
+      "atom_id": "CA-R-980",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-981-CORE_META_MODEL-REQUIREMENT--default-navigational-order-chronologically.md",
+      "full_file_sha256": "be1ff82e2d16f92e5137d713ee1d3bcf74c9782ac93e8be16bc4fa0945a18575",
+      "atom_id": "CA-R-981",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+      "full_file_sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+      "atom_id": "CA-R-982",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+      "full_file_sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4",
+      "atom_id": "CA-R-983",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md",
+      "full_file_sha256": "42669320fd794a333d707b349797f5d596df95b67c0e027be2e6a8084908e39a",
+      "atom_id": "CA-R-991",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+      "full_file_sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+      "atom_id": "CA-R-992",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+      "full_file_sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+      "atom_id": "CA-R-997",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md",
+      "full_file_sha256": "d10f530533646e4e9546c1db181c82d00afb7bacd1475918c8afcee4fd4e87d7",
+      "atom_id": "CA-R-999",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+      "full_file_sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+      "atom_id": "CAPRMEDIO-R-791",
+      "version": 15,
+      "quarantined": true,
+      "findings": [
+        "missing_or_invalid_atom_id"
+      ],
+      "main_content_read": true,
+      "finding_dispositions": [
+        {
+          "finding": "missing_or_invalid_atom_id",
+          "reason": "Retained as an input finding; this derived review does not repair source metadata."
+        }
+      ],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md",
+      "full_file_sha256": "c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5",
+      "atom_id": "CA-M-111",
+      "version": 25,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md",
+      "full_file_sha256": "86b21d1fd3d11fae92d60f901cd1026201711d3a7801a16350c5049efc41e595",
+      "atom_id": "CA-M-112",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+      "full_file_sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+      "atom_id": "CA-M-113",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "full_file_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "atom_id": "CA-M-114",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "full_file_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "atom_id": "CA-M-115",
+      "version": 23,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+      "full_file_sha256": "e0eff5e7fcfbe3a2384f00b3a195829e49136e5ecbda2a929e5cc6ff83d4a22d",
+      "atom_id": "CA-M-116",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "full_file_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "atom_id": "CA-M-120",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-121-CORE_META_MODEL-METHOD--evaluate-scope-expressions.md",
+      "full_file_sha256": "6b5139e9e507051863dcac7faa4eb75fb70cd38592e68bf05914e9dc6accdb14",
+      "atom_id": "CA-M-121",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md",
+      "full_file_sha256": "f9c8e95aaf79f92b2c92d3cedfdf173870102cac58f6a134fedb830cfe3c5197",
+      "atom_id": "CA-M-122",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md#subjects.depends_on[0]",
+      "old_value": "Operator",
+      "quarantined": false,
+      "source_atom_id": "CA-R-978",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+      "source_sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+      "source_version": 17,
+      "decision": "proposed",
+      "proposed_value": "Actor/Operator",
+      "confidence": 0.95,
+      "reason": "The current Claim defines Navigational Order Number as an Operator-controlled navigation label for one Scope Unit. The candidate explicitly lists Operator as an Actor Type, while the current Claims use the Operator as the independent decision-maker. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+          "sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e098d5e9fafb800061eb569bdc1eaecc9b2d388c8578774388d789e468f16413",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/2",
+          "reason": "Actor is a confirmed root for who performs work."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "Operator is an explicit Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains an Actor Type, not a Scope Unit or an execution record.",
+        "The current override/decision authority stays distinct from a storage or grammar change."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md#subjects.depends_on[1]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-978",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+      "source_sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "The current Claim defines Navigational Order Number as an Operator-controlled navigation label for one Scope Unit. The candidate confirms the current identity or boundary but does not establish a more specific safe candidate value, so the exact current Subject value is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+          "sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e098d5e9fafb800061eb569bdc1eaecc9b2d388c8578774388d789e468f16413",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Scope Unit' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md#subjects.governs",
+      "old_value": "Navigational Order Number",
+      "quarantined": false,
+      "source_atom_id": "CA-R-978",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+      "source_sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim defines Navigational Order Number as an Operator-controlled navigation label for one Scope Unit. The candidate establishes no identity or bearer-qualified field for Navigational Order Number.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+          "sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e098d5e9fafb800061eb569bdc1eaecc9b2d388c8578774388d789e468f16413",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Navigational Order Number' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-979-CORE_META_MODEL-GENERAL-REQUIREMENT--default-scope-units-to-unordered.md#subjects.governs",
+      "old_value": "Scope Unit/Type",
+      "quarantined": false,
+      "source_atom_id": "CA-R-979",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-979-CORE_META_MODEL-GENERAL-REQUIREMENT--default-scope-units-to-unordered.md",
+      "source_sha256": "3f17b0012af73d9f8720916da5ca304fd846474e4f17754d0b957bfa79ca8ec1",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim defines Unordered as every new Scope Unit's default Type value. The candidate confirms Scope Unit identity and Label continuity but establishes neither a Scope Unit Type Property nor the Ordered/Unordered allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-979-CORE_META_MODEL-GENERAL-REQUIREMENT--default-scope-units-to-unordered.md",
+          "sha256": "3f17b0012af73d9f8720916da5ca304fd846474e4f17754d0b957bfa79ca8ec1",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "fa13046bc99bb9d281d8d797686f3583ac2183fa02ea92cbce2d9903baeef873",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Scope Unit/Type' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-980-CORE_META_MODEL-REQUIREMENT--default-unordered-scope-unit-label-to-feature.md#subjects.depends_on[0]",
+      "old_value": "Scope Unit/Type: Unordered",
+      "quarantined": false,
+      "source_atom_id": "CA-R-980",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-980-CORE_META_MODEL-REQUIREMENT--default-unordered-scope-unit-label-to-feature.md",
+      "source_sha256": "7cf1579c1f5c3f87514fdd51239532b34ff39857919588bce64c8f7206600dce",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim assigns Feature as the default Label of an Unordered Scope Unit. The candidate confirms Scope Unit identity and Label continuity but establishes neither a Scope Unit Type Property nor the Ordered/Unordered allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-980-CORE_META_MODEL-REQUIREMENT--default-unordered-scope-unit-label-to-feature.md",
+          "sha256": "7cf1579c1f5c3f87514fdd51239532b34ff39857919588bce64c8f7206600dce",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "c02e76999b68e89f9a2e415b434ab8a4a49edb7d8fcfc256eccf508da8fff672",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Scope Unit/Type: Unordered' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten.",
+        "The qualified Property-to-allowed-value domain is not collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-980-CORE_META_MODEL-REQUIREMENT--default-unordered-scope-unit-label-to-feature.md#subjects.governs",
+      "old_value": "Scope Unit/Label",
+      "quarantined": false,
+      "source_atom_id": "CA-R-980",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-980-CORE_META_MODEL-REQUIREMENT--default-unordered-scope-unit-label-to-feature.md",
+      "source_sha256": "7cf1579c1f5c3f87514fdd51239532b34ff39857919588bce64c8f7206600dce",
+      "source_version": 15,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Label",
+      "confidence": 0.9,
+      "reason": "The current Claim assigns Feature as the default Label of an Unordered Scope Unit. The candidate confirms Label as a changeable Scope Unit attribute whose change preserves the stable Scope Unit ID. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-980-CORE_META_MODEL-REQUIREMENT--default-unordered-scope-unit-label-to-feature.md",
+          "sha256": "7cf1579c1f5c3f87514fdd51239532b34ff39857919588bce64c8f7206600dce",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "c02e76999b68e89f9a2e415b434ab8a4a49edb7d8fcfc256eccf508da8fff672",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is a confirmed root ownership boundary."
+        },
+        {
+          "pointer": "#/entity_identity_model/scope_unit_rename/rename",
+          "reason": "A Label change updates the Scope Unit suffix without creating a replacement unit."
+        }
+      ],
+      "preserved_distinctions": [
+        "Label remains a Scope Unit dependent attribute, not Scope Unit identity or Type.",
+        "The source's default/override meaning and allowed-value domain are retained."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-981-CORE_META_MODEL-REQUIREMENT--default-navigational-order-chronologically.md#subjects.depends_on[0]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-981",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-981-CORE_META_MODEL-REQUIREMENT--default-navigational-order-chronologically.md",
+      "source_sha256": "be1ff82e2d16f92e5137d713ee1d3bcf74c9782ac93e8be16bc4fa0945a18575",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "The current Claim derives a non-Project Scope Unit's default navigation number from sibling creation position. The candidate confirms the current identity or boundary but does not establish a more specific safe candidate value, so the exact current Subject value is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-981-CORE_META_MODEL-REQUIREMENT--default-navigational-order-chronologically.md",
+          "sha256": "be1ff82e2d16f92e5137d713ee1d3bcf74c9782ac93e8be16bc4fa0945a18575",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "191db482dd71f04dd5cc3d89dc6aedd864362a910fe4f051cbccf6c067fd54b1",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Scope Unit' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-981-CORE_META_MODEL-REQUIREMENT--default-navigational-order-chronologically.md#subjects.governs",
+      "old_value": "Navigational Order Number",
+      "quarantined": false,
+      "source_atom_id": "CA-R-981",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-981-CORE_META_MODEL-REQUIREMENT--default-navigational-order-chronologically.md",
+      "source_sha256": "be1ff82e2d16f92e5137d713ee1d3bcf74c9782ac93e8be16bc4fa0945a18575",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim derives a non-Project Scope Unit's default navigation number from sibling creation position. The candidate establishes no identity or bearer-qualified field for Navigational Order Number.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-981-CORE_META_MODEL-REQUIREMENT--default-navigational-order-chronologically.md",
+          "sha256": "be1ff82e2d16f92e5137d713ee1d3bcf74c9782ac93e8be16bc4fa0945a18575",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "191db482dd71f04dd5cc3d89dc6aedd864362a910fe4f051cbccf6c067fd54b1",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Navigational Order Number' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md#subjects.depends_on[0]",
+      "old_value": "Operator",
+      "quarantined": false,
+      "source_atom_id": "CA-R-982",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+      "source_sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+      "source_version": 15,
+      "decision": "proposed",
+      "proposed_value": "Actor/Operator",
+      "confidence": 0.95,
+      "reason": "The current Claim lets the Operator replace a Scope Unit Label independently of its Type. The candidate explicitly lists Operator as an Actor Type, while the current Claims use the Operator as the independent decision-maker. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+          "sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "27fa0b52f6810c78830435290d355f0c9f6eb2af9dc0fcbae7bdc4fc2eee204c",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/2",
+          "reason": "Actor is a confirmed root for who performs work."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "Operator is an explicit Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains an Actor Type, not a Scope Unit or an execution record.",
+        "The current override/decision authority stays distinct from a storage or grammar change."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md#subjects.depends_on[1]",
+      "old_value": "Scope Unit/Type",
+      "quarantined": false,
+      "source_atom_id": "CA-R-982",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+      "source_sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim lets the Operator replace a Scope Unit Label independently of its Type. The candidate confirms Scope Unit identity and Label continuity but establishes neither a Scope Unit Type Property nor the Ordered/Unordered allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+          "sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "27fa0b52f6810c78830435290d355f0c9f6eb2af9dc0fcbae7bdc4fc2eee204c",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Scope Unit/Type' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md#subjects.governs",
+      "old_value": "Scope Unit/Label",
+      "quarantined": false,
+      "source_atom_id": "CA-R-982",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+      "source_sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+      "source_version": 15,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Label",
+      "confidence": 0.9,
+      "reason": "The current Claim lets the Operator replace a Scope Unit Label independently of its Type. The candidate confirms Label as a changeable Scope Unit attribute whose change preserves the stable Scope Unit ID. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+          "sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "27fa0b52f6810c78830435290d355f0c9f6eb2af9dc0fcbae7bdc4fc2eee204c",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is a confirmed root ownership boundary."
+        },
+        {
+          "pointer": "#/entity_identity_model/scope_unit_rename/rename",
+          "reason": "A Label change updates the Scope Unit suffix without creating a replacement unit."
+        }
+      ],
+      "preserved_distinctions": [
+        "Label remains a Scope Unit dependent attribute, not Scope Unit identity or Type.",
+        "The source's default/override meaning and allowed-value domain are retained."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md#subjects.depends_on[0]",
+      "old_value": "Operator",
+      "quarantined": false,
+      "source_atom_id": "CA-R-983",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+      "source_sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4",
+      "source_version": 14,
+      "decision": "proposed",
+      "proposed_value": "Actor/Operator",
+      "confidence": 0.95,
+      "reason": "The current Claim lets the Operator replace a non-Project Scope Unit's Navigational Order Number. The candidate explicitly lists Operator as an Actor Type, while the current Claims use the Operator as the independent decision-maker. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+          "sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "182377651170ebd3f248979a2b92d2ac9f34fdd102bdf93dc42be05b94104b70",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/2",
+          "reason": "Actor is a confirmed root for who performs work."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "Operator is an explicit Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains an Actor Type, not a Scope Unit or an execution record.",
+        "The current override/decision authority stays distinct from a storage or grammar change."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md#subjects.governs",
+      "old_value": "Scope Unit/Navigational Order Number",
+      "quarantined": false,
+      "source_atom_id": "CA-R-983",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+      "source_sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim lets the Operator replace a non-Project Scope Unit's Navigational Order Number. The candidate establishes no Navigational Order Number dependent field or scope-qualified navigation domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+          "sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "182377651170ebd3f248979a2b92d2ac9f34fdd102bdf93dc42be05b94104b70",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Scope Unit/Navigational Order Number' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role: Plan/Type: Plan",
+      "quarantined": false,
+      "source_atom_id": "CA-R-991",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md",
+      "source_sha256": "42669320fd794a333d707b349797f5d596df95b67c0e027be2e6a8084908e39a",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim gives Work Sequence Number a Plan navigation meaning and explicitly excludes execution order. The candidate retains Plan as a role meaning but establishes no Plan Type Property or qualified Work Sequence, Subtype, Decomposition or Blocking domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md",
+          "sha256": "42669320fd794a333d707b349797f5d596df95b67c0e027be2e6a8084908e39a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "b4dac9b44a183e864ad1287cd51fb8c61db9d5e47e7ec177916e4248db822b41",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Content Role: Plan/Type: Plan' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten.",
+        "The qualified Property-to-allowed-value domain is not collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md#subjects.depends_on[1]",
+      "old_value": "Hub Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-991",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md",
+      "source_sha256": "42669320fd794a333d707b349797f5d596df95b67c0e027be2e6a8084908e39a",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim gives Work Sequence Number a Plan navigation meaning and explicitly excludes execution order. The candidate establishes no Hub or Work Sequence Number identity, owner path or allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md",
+          "sha256": "42669320fd794a333d707b349797f5d596df95b67c0e027be2e6a8084908e39a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "b4dac9b44a183e864ad1287cd51fb8c61db9d5e47e7ec177916e4248db822b41",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Hub Atom' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md#subjects.governs",
+      "old_value": "Atom/Content Role: Plan/Type: Plan/Work Sequence Number",
+      "quarantined": false,
+      "source_atom_id": "CA-R-991",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md",
+      "source_sha256": "42669320fd794a333d707b349797f5d596df95b67c0e027be2e6a8084908e39a",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim gives Work Sequence Number a Plan navigation meaning and explicitly excludes execution order. The candidate retains Plan as a role meaning but establishes no Plan Type Property or qualified Work Sequence, Subtype, Decomposition or Blocking domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md",
+          "sha256": "42669320fd794a333d707b349797f5d596df95b67c0e027be2e6a8084908e39a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "b4dac9b44a183e864ad1287cd51fb8c61db9d5e47e7ec177916e4248db822b41",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Content Role: Plan/Type: Plan/Work Sequence Number' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten.",
+        "The qualified Property-to-allowed-value domain is not collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role: Plan/Type: Plan",
+      "quarantined": false,
+      "source_atom_id": "CA-R-992",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+      "source_sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim keeps Work Sequence Number distinct from Atom identity, scope, claim target, type, subtype, decomposition and blocking. The candidate retains Plan as a role meaning but establishes no Plan Type Property or qualified Work Sequence, Subtype, Decomposition or Blocking domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+          "sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "c28fba99e225cd83eac7b7005d533ac09339120be9aebdc1631f488c37a49afa",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Content Role: Plan/Type: Plan' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten.",
+        "The qualified Property-to-allowed-value domain is not collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md#subjects.depends_on[1]",
+      "old_value": "Atom/Content Role: Plan/Type: Plan/Work Sequence Number",
+      "quarantined": false,
+      "source_atom_id": "CA-R-992",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+      "source_sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim keeps Work Sequence Number distinct from Atom identity, scope, claim target, type, subtype, decomposition and blocking. The candidate retains Plan as a role meaning but establishes no Plan Type Property or qualified Work Sequence, Subtype, Decomposition or Blocking domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+          "sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "c28fba99e225cd83eac7b7005d533ac09339120be9aebdc1631f488c37a49afa",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Content Role: Plan/Type: Plan/Work Sequence Number' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten.",
+        "The qualified Property-to-allowed-value domain is not collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md#subjects.depends_on[2]",
+      "old_value": "Atom/Content Role: Plan/Type: Plan/Subtype",
+      "quarantined": false,
+      "source_atom_id": "CA-R-992",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+      "source_sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim keeps Work Sequence Number distinct from Atom identity, scope, claim target, type, subtype, decomposition and blocking. The candidate retains Plan as a role meaning but establishes no Plan Type Property or qualified Work Sequence, Subtype, Decomposition or Blocking domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+          "sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "c28fba99e225cd83eac7b7005d533ac09339120be9aebdc1631f488c37a49afa",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Content Role: Plan/Type: Plan/Subtype' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten.",
+        "The qualified Property-to-allowed-value domain is not collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md#subjects.depends_on[3]",
+      "old_value": "Atom/Content Role: Plan/Type: Plan/Decomposition",
+      "quarantined": false,
+      "source_atom_id": "CA-R-992",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+      "source_sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim keeps Work Sequence Number distinct from Atom identity, scope, claim target, type, subtype, decomposition and blocking. The candidate retains Plan as a role meaning but establishes no Plan Type Property or qualified Work Sequence, Subtype, Decomposition or Blocking domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+          "sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "c28fba99e225cd83eac7b7005d533ac09339120be9aebdc1631f488c37a49afa",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Content Role: Plan/Type: Plan/Decomposition' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten.",
+        "The qualified Property-to-allowed-value domain is not collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md#subjects.depends_on[4]",
+      "old_value": "Atom/Content Role: Plan/Type: Plan/Blocking",
+      "quarantined": false,
+      "source_atom_id": "CA-R-992",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+      "source_sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim keeps Work Sequence Number distinct from Atom identity, scope, claim target, type, subtype, decomposition and blocking. The candidate retains Plan as a role meaning but establishes no Plan Type Property or qualified Work Sequence, Subtype, Decomposition or Blocking domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+          "sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "c28fba99e225cd83eac7b7005d533ac09339120be9aebdc1631f488c37a49afa",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Content Role: Plan/Type: Plan/Blocking' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten.",
+        "The qualified Property-to-allowed-value domain is not collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md#subjects.depends_on[5]",
+      "old_value": "Atom/Scope",
+      "quarantined": false,
+      "source_atom_id": "CA-R-992",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+      "source_sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim keeps Work Sequence Number distinct from Atom identity, scope, claim target, type, subtype, decomposition and blocking. The candidate distinguishes Substance Scope applicability from Scope Unit ownership but does not establish an Atom Scope owner path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+          "sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "c28fba99e225cd83eac7b7005d533ac09339120be9aebdc1631f488c37a49afa",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Scope' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md#subjects.depends_on[6]",
+      "old_value": "Atom/Claim/Target Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-992",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+      "source_sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim keeps Work Sequence Number distinct from Atom identity, scope, claim target, type, subtype, decomposition and blocking. The candidate gives Claim an RMED role meaning but does not establish a generic Atom Claim owner path or a Claim Target Scope Unit property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+          "sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "c28fba99e225cd83eac7b7005d533ac09339120be9aebdc1631f488c37a49afa",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Claim/Target Scope Unit' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md#subjects.governs",
+      "old_value": "Work Sequence Number",
+      "quarantined": false,
+      "source_atom_id": "CA-R-992",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+      "source_sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim keeps Work Sequence Number distinct from Atom identity, scope, claim target, type, subtype, decomposition and blocking. The candidate establishes no Hub or Work Sequence Number identity, owner path or allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+          "sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "c28fba99e225cd83eac7b7005d533ac09339120be9aebdc1631f488c37a49afa",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Work Sequence Number' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role: Plan/Type: Plan",
+      "quarantined": false,
+      "source_atom_id": "CA-R-997",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+      "source_sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim requires a supplied Work Sequence Number to be a unique positive ordinal among the relevant direct Plans. The candidate retains Plan as a role meaning but establishes no Plan Type Property or qualified Work Sequence, Subtype, Decomposition or Blocking domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+          "sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "19fba5fb30eb622a6b504cce98e70baedb4f6837a02f99a99434014d567fda8e",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Content Role: Plan/Type: Plan' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten.",
+        "The qualified Property-to-allowed-value domain is not collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md#subjects.depends_on[1]",
+      "old_value": "Atom/Content Role: Plan/Type: Plan/Work Sequence Number",
+      "quarantined": false,
+      "source_atom_id": "CA-R-997",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+      "source_sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim requires a supplied Work Sequence Number to be a unique positive ordinal among the relevant direct Plans. The candidate retains Plan as a role meaning but establishes no Plan Type Property or qualified Work Sequence, Subtype, Decomposition or Blocking domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+          "sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "19fba5fb30eb622a6b504cce98e70baedb4f6837a02f99a99434014d567fda8e",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Content Role: Plan/Type: Plan/Work Sequence Number' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten.",
+        "The qualified Property-to-allowed-value domain is not collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md#subjects.depends_on[2]",
+      "old_value": "Hub Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-997",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+      "source_sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim requires a supplied Work Sequence Number to be a unique positive ordinal among the relevant direct Plans. The candidate establishes no Hub or Work Sequence Number identity, owner path or allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+          "sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "19fba5fb30eb622a6b504cce98e70baedb4f6837a02f99a99434014d567fda8e",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Hub Atom' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md#subjects.governs",
+      "old_value": "Work Sequence Number",
+      "quarantined": false,
+      "source_atom_id": "CA-R-997",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+      "source_sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim requires a supplied Work Sequence Number to be a unique positive ordinal among the relevant direct Plans. The candidate establishes no Hub or Work Sequence Number identity, owner path or allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+          "sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "19fba5fb30eb622a6b504cce98e70baedb4f6837a02f99a99434014d567fda8e",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Work Sequence Number' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md#subjects.depends_on[0]",
+      "old_value": "Governed Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-999",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md",
+      "source_sha256": "d10f530533646e4e9546c1db181c82d00afb7bacd1475918c8afcee4fd4e87d7",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim defines Scope Expression as a deterministic expression selecting Governed Entities through identities, operators and predicates. The candidate supplies roots and graph boundaries but does not establish this broad contextual label as a canonical Entity identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md",
+          "sha256": "d10f530533646e4e9546c1db181c82d00afb7bacd1475918c8afcee4fd4e87d7",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "cc3053e677ac9666f65552fc8053fb06028624797aa366dcd5fccf1ff4ba114c",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Governed Entity' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md#subjects.governs",
+      "old_value": "Scope Expression",
+      "quarantined": false,
+      "source_atom_id": "CA-R-999",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md",
+      "source_sha256": "d10f530533646e4e9546c1db181c82d00afb7bacd1475918c8afcee4fd4e87d7",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim defines Scope Expression as a deterministic expression selecting Governed Entities through identities, operators and predicates. The candidate establishes Scope Unit ownership and recursive nesting but no Scope Expression, evaluation or structural-coordinate identity/path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md",
+          "sha256": "d10f530533646e4e9546c1db181c82d00afb7bacd1475918c8afcee4fd4e87d7",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "cc3053e677ac9666f65552fc8053fb06028624797aa366dcd5fccf1ff4ba114c",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Scope Expression' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md#subjects.depends_on[0]",
+      "old_value": "scope-topology",
+      "quarantined": true,
+      "source_atom_id": "CAPRMEDIO-R-791",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+      "source_sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim defines Structural Coordinate as a derived locator for an Ordered Scope Unit. The candidate establishes Scope Unit ownership and recursive nesting but no Scope Expression, evaluation or structural-coordinate identity/path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+          "sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "8a3cb571247491936876e9c445a08df2f1f0647889ce8e38fbcb63e8b12ad24b",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'scope-topology' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md#subjects.governs",
+      "old_value": "Structural Coordinate",
+      "quarantined": true,
+      "source_atom_id": "CAPRMEDIO-R-791",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+      "source_sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Claim defines Structural Coordinate as a derived locator for an Ordered Scope Unit. The candidate establishes Scope Unit ownership and recursive nesting but no Scope Expression, evaluation or structural-coordinate identity/path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+          "sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "8a3cb571247491936876e9c445a08df2f1f0647889ce8e38fbcb63e8b12ad24b",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Structural Coordinate' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md#subjects.depends_on[0]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-M-111",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md",
+      "source_sha256": "c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5",
+      "source_version": 25,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines the independent CCE contribution, target applicability and derived Summary authoring boundary. The candidate gives Claim an RMED role meaning but does not establish a generic Atom Claim owner path or a Claim Target Scope Unit property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md",
+          "sha256": "c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "709f1e60e663bbeadb2b6c31984ba17c03d283aac36246bca8f9cc9054d0ac83",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Claim' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md#subjects.depends_on[1]",
+      "old_value": "CCE",
+      "quarantined": false,
+      "source_atom_id": "CA-M-111",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md",
+      "source_sha256": "c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5",
+      "source_version": 25,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines the independent CCE contribution, target applicability and derived Summary authoring boundary. The candidate establishes no CCE owner, operator or condition-expression identity; the current controlled-language semantics cannot safely supply one.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md",
+          "sha256": "c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "709f1e60e663bbeadb2b6c31984ba17c03d283aac36246bca8f9cc9054d0ac83",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'CCE' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md#subjects.depends_on[2]",
+      "old_value": "Atom/Summary",
+      "quarantined": false,
+      "source_atom_id": "CA-M-111",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md",
+      "source_sha256": "c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5",
+      "source_version": 25,
+      "decision": "proposed",
+      "proposed_value": "Atom.Summary",
+      "confidence": 0.95,
+      "reason": "The current Method defines the independent CCE contribution, target applicability and derived Summary authoring boundary. The candidate provides Atom.Summary as its exact dependent-Entity example, consistent with the current Methods' derived navigation Summary boundary. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md",
+          "sha256": "c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "709f1e60e663bbeadb2b6c31984ba17c03d283aac36246bca8f9cc9054d0ac83",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/compact_examples/1",
+          "reason": "The exact candidate example is Atom.Summary."
+        },
+        {
+          "pointer": "#/dependent_entities/notation_boundary",
+          "reason": "The candidate marks this as display notation rather than native grammar admission."
+        }
+      ],
+      "preserved_distinctions": [
+        "Summary remains a derived navigation value, not another authoritative Claim or Translation.",
+        "The Atom remains the bearer; no Artifact display prefix is added."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md#subjects.governs",
+      "old_value": "Atom Claim Authoring",
+      "quarantined": false,
+      "source_atom_id": "CA-M-111",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md",
+      "source_sha256": "c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5",
+      "source_version": 25,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines the independent CCE contribution, target applicability and derived Summary authoring boundary. The current Method is procedural, but the candidate does not establish this named authoring method as an Operation subtype identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md",
+          "sha256": "c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "709f1e60e663bbeadb2b6c31984ba17c03d283aac36246bca8f9cc9054d0ac83",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom Claim Authoring' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md#subjects.depends_on[0]",
+      "old_value": "CCE",
+      "quarantined": false,
+      "source_atom_id": "CA-M-112",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md",
+      "source_sha256": "86b21d1fd3d11fae92d60f901cd1026201711d3a7801a16350c5049efc41e595",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method requires English as the base language for CAPRMEDIO Project meaning. The candidate establishes no CCE owner, operator or condition-expression identity; the current controlled-language semantics cannot safely supply one.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md",
+          "sha256": "86b21d1fd3d11fae92d60f901cd1026201711d3a7801a16350c5049efc41e595",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "93e18af9ea871ffec99d79fab2b3c3801bde7c478df33eb61029ef3d7c517fd8",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'CCE' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md#subjects.governs",
+      "old_value": "language",
+      "quarantined": false,
+      "source_atom_id": "CA-M-112",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md",
+      "source_sha256": "86b21d1fd3d11fae92d60f901cd1026201711d3a7801a16350c5049efc41e595",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method requires English as the base language for CAPRMEDIO Project meaning. The candidate does not select this content-role, model or language identity as a confirmed Entity or dependent-field mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md",
+          "sha256": "86b21d1fd3d11fae92d60f901cd1026201711d3a7801a16350c5049efc41e595",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "93e18af9ea871ffec99d79fab2b3c3801bde7c478df33eb61029ef3d7c517fd8",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'language' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md#subjects.depends_on[0]",
+      "old_value": "artifact-model",
+      "quarantined": false,
+      "source_atom_id": "CA-M-113",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+      "source_sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method constrains authoring a Claim in controlled English, including terms and CCE operators. The candidate does not select this content-role, model or language identity as a confirmed Entity or dependent-field mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+          "sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+          "start_line": 32,
+          "end_line": 53,
+          "span_sha256": "d3c5d77ce83a96f84f75d464dfa648d98c181b567eb4b700d71ef7d558a05624",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'artifact-model' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md#subjects.depends_on[1]",
+      "old_value": "CCE",
+      "quarantined": false,
+      "source_atom_id": "CA-M-113",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+      "source_sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method constrains authoring a Claim in controlled English, including terms and CCE operators. The candidate establishes no CCE owner, operator or condition-expression identity; the current controlled-language semantics cannot safely supply one.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+          "sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+          "start_line": 32,
+          "end_line": 53,
+          "span_sha256": "d3c5d77ce83a96f84f75d464dfa648d98c181b567eb4b700d71ef7d558a05624",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'CCE' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md#subjects.depends_on[2]",
+      "old_value": "Author",
+      "quarantined": false,
+      "source_atom_id": "CA-M-113",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+      "source_sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method constrains authoring a Claim in controlled English, including terms and CCE operators. The candidate establishes Actor and named examples but does not establish this authoring or generation role as an Actor Type identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+          "sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+          "start_line": 32,
+          "end_line": 53,
+          "span_sha256": "d3c5d77ce83a96f84f75d464dfa648d98c181b567eb4b700d71ef7d558a05624",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Author' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md#subjects.depends_on[3]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-M-113",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+      "source_sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method constrains authoring a Claim in controlled English, including terms and CCE operators. The candidate gives Claim an RMED role meaning but does not establish a generic Atom Claim owner path or a Claim Target Scope Unit property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+          "sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+          "start_line": 32,
+          "end_line": 53,
+          "span_sha256": "d3c5d77ce83a96f84f75d464dfa648d98c181b567eb4b700d71ef7d558a05624",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Claim' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md#subjects.governs",
+      "old_value": "language",
+      "quarantined": false,
+      "source_atom_id": "CA-M-113",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+      "source_sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method constrains authoring a Claim in controlled English, including terms and CCE operators. The candidate does not select this content-role, model or language identity as a confirmed Entity or dependent-field mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+          "sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+          "start_line": 32,
+          "end_line": 53,
+          "span_sha256": "d3c5d77ce83a96f84f75d464dfa648d98c181b567eb4b700d71ef7d558a05624",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'language' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[0]",
+      "old_value": "Projection/Type: Catalog",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The candidate confirms Projection authority boundaries but does not establish a Projection Type Property or Catalog allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Projection/Type: Catalog' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten.",
+        "The qualified Property-to-allowed-value domain is not collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 10,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[10]",
+      "old_value": "Action",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The current Method only mentions this operation concept as a prerequisite; it does not establish the identity meaning needed to map it to an Operation subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Action' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 11,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[11]",
+      "old_value": "Workflow",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The current Method only mentions this operation concept as a prerequisite; it does not establish the identity meaning needed to map it to an Operation subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Workflow' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[1]",
+      "old_value": "Generator",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The candidate establishes Actor and named examples but does not establish this authoring or generation role as an Actor Type identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Generator' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[2]",
+      "old_value": "Definition Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The candidate keeps Terms in a separate graph and establishes no cross-graph mapping for this qualified terminology meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Definition Atom' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[3]",
+      "old_value": "Governed Term",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The candidate keeps Terms in a separate graph and establishes no cross-graph mapping for this qualified terminology meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Governed Term' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[4]",
+      "old_value": "Project",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The candidate supplies roots and graph boundaries but does not establish this broad contextual label as a canonical Entity identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Project' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[5]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The candidate gives Claim an RMED role meaning but does not establish a generic Atom Claim owner path or a Claim Target Scope Unit property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Claim' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[6]",
+      "old_value": "Subject",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "Subject",
+      "confidence": 0.95,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The candidate confirms the current identity or boundary but does not establish a more specific safe candidate value, so the exact current Subject value is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Subject' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 7,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[7]",
+      "old_value": "Subject Path",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "Subject Path",
+      "confidence": 0.95,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The candidate confirms the current identity or boundary but does not establish a more specific safe candidate value, so the exact current Subject value is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Subject Path' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 8,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[8]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The candidate supplies roots and graph boundaries but does not establish this broad contextual label as a canonical Entity identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Entity' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 9,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[9]",
+      "old_value": "Term",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "Term",
+      "confidence": 0.95,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The candidate confirms the current identity or boundary but does not establish a more specific safe candidate value, so the exact current Subject value is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Term' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.governs",
+      "old_value": "Terminology Projection Derivation",
+      "quarantined": false,
+      "source_atom_id": "CA-M-114",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives a terminology Projection from active Definition Atoms while preserving Term-definition authority boundaries. The candidate keeps Terms in a separate graph and establishes no cross-graph mapping for this qualified terminology meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Terminology Projection Derivation' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md#subjects.depends_on[0]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-M-115",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "source_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "source_version": 23,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "The current Method defines the independently replaceable Atom Claim boundary and its Target Scope Unit handling. The candidate confirms the current identity or boundary but does not establish a more specific safe candidate value, so the exact current Subject value is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+          "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "6b33d45b1d7594433981b0d76a5b2e4cb81bb9a5e56a3dc6ba3ae4b3ed0b2abb",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md#subjects.depends_on[1]",
+      "old_value": "Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-M-115",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "source_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "source_version": 23,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines the independently replaceable Atom Claim boundary and its Target Scope Unit handling. The candidate's RMED Claim role label does not establish a generic Claim identity or permitted mapping for the current method context.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+          "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "6b33d45b1d7594433981b0d76a5b2e4cb81bb9a5e56a3dc6ba3ae4b3ed0b2abb",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Claim' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md#subjects.depends_on[2]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-M-115",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "source_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "source_version": 23,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines the independently replaceable Atom Claim boundary and its Target Scope Unit handling. The candidate gives Claim an RMED role meaning but does not establish a generic Atom Claim owner path or a Claim Target Scope Unit property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+          "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "6b33d45b1d7594433981b0d76a5b2e4cb81bb9a5e56a3dc6ba3ae4b3ed0b2abb",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Claim' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md#subjects.depends_on[3]",
+      "old_value": "CCE",
+      "quarantined": false,
+      "source_atom_id": "CA-M-115",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "source_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "source_version": 23,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines the independently replaceable Atom Claim boundary and its Target Scope Unit handling. The candidate establishes no CCE owner, operator or condition-expression identity; the current controlled-language semantics cannot safely supply one.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+          "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "6b33d45b1d7594433981b0d76a5b2e4cb81bb9a5e56a3dc6ba3ae4b3ed0b2abb",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'CCE' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md#subjects.depends_on[4]",
+      "old_value": "Author",
+      "quarantined": false,
+      "source_atom_id": "CA-M-115",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "source_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "source_version": 23,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines the independently replaceable Atom Claim boundary and its Target Scope Unit handling. The candidate establishes Actor and named examples but does not establish this authoring or generation role as an Actor Type identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+          "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "6b33d45b1d7594433981b0d76a5b2e4cb81bb9a5e56a3dc6ba3ae4b3ed0b2abb",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Author' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md#subjects.depends_on[5]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-M-115",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "source_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "source_version": 23,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "The current Method defines the independently replaceable Atom Claim boundary and its Target Scope Unit handling. The candidate confirms the current identity or boundary but does not establish a more specific safe candidate value, so the exact current Subject value is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+          "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "6b33d45b1d7594433981b0d76a5b2e4cb81bb9a5e56a3dc6ba3ae4b3ed0b2abb",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Scope Unit' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md#subjects.depends_on[6]",
+      "old_value": "Atom/Claim/Target Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-M-115",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "source_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "source_version": 23,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines the independently replaceable Atom Claim boundary and its Target Scope Unit handling. The candidate gives Claim an RMED role meaning but does not establish a generic Atom Claim owner path or a Claim Target Scope Unit property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+          "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "6b33d45b1d7594433981b0d76a5b2e4cb81bb9a5e56a3dc6ba3ae4b3ed0b2abb",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Claim/Target Scope Unit' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 7,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md#subjects.depends_on[7]",
+      "old_value": "Relational Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-M-115",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "source_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "source_version": 23,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines the independently replaceable Atom Claim boundary and its Target Scope Unit handling. The candidate establishes Relation as a root but does not establish Relational Atom as a subtype or owner-qualified identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+          "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "6b33d45b1d7594433981b0d76a5b2e4cb81bb9a5e56a3dc6ba3ae4b3ed0b2abb",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Relational Atom' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md#subjects.governs",
+      "old_value": "Atom Claim Boundary Authoring",
+      "quarantined": false,
+      "source_atom_id": "CA-M-115",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "source_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "source_version": 23,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines the independently replaceable Atom Claim boundary and its Target Scope Unit handling. The current Method is procedural, but the candidate does not establish this named authoring method as an Operation subtype identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+          "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "6b33d45b1d7594433981b0d76a5b2e4cb81bb9a5e56a3dc6ba3ae4b3ed0b2abb",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom Claim Boundary Authoring' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md#subjects.depends_on[0]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-M-116",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+      "source_sha256": "e0eff5e7fcfbe3a2384f00b3a195829e49136e5ecbda2a929e5cc6ff83d4a22d",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives navigation Summary and Translation values from the Claim without adding authority. The candidate gives Claim an RMED role meaning but does not establish a generic Atom Claim owner path or a Claim Target Scope Unit property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+          "sha256": "e0eff5e7fcfbe3a2384f00b3a195829e49136e5ecbda2a929e5cc6ff83d4a22d",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "edee30de0f1842a96323085456b1b496bc1e3fd114539341cd4d8d915cb0d3ac",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Claim' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md#subjects.depends_on[1]",
+      "old_value": "Atom/Summary",
+      "quarantined": false,
+      "source_atom_id": "CA-M-116",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+      "source_sha256": "e0eff5e7fcfbe3a2384f00b3a195829e49136e5ecbda2a929e5cc6ff83d4a22d",
+      "source_version": 14,
+      "decision": "proposed",
+      "proposed_value": "Atom.Summary",
+      "confidence": 0.95,
+      "reason": "The current Method derives navigation Summary and Translation values from the Claim without adding authority. The candidate provides Atom.Summary as its exact dependent-Entity example, consistent with the current Methods' derived navigation Summary boundary. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+          "sha256": "e0eff5e7fcfbe3a2384f00b3a195829e49136e5ecbda2a929e5cc6ff83d4a22d",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "edee30de0f1842a96323085456b1b496bc1e3fd114539341cd4d8d915cb0d3ac",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/compact_examples/1",
+          "reason": "The exact candidate example is Atom.Summary."
+        },
+        {
+          "pointer": "#/dependent_entities/notation_boundary",
+          "reason": "The candidate marks this as display notation rather than native grammar admission."
+        }
+      ],
+      "preserved_distinctions": [
+        "Summary remains a derived navigation value, not another authoritative Claim or Translation.",
+        "The Atom remains the bearer; no Artifact display prefix is added."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md#subjects.depends_on[2]",
+      "old_value": "Translation",
+      "quarantined": false,
+      "source_atom_id": "CA-M-116",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+      "source_sha256": "e0eff5e7fcfbe3a2384f00b3a195829e49136e5ecbda2a929e5cc6ff83d4a22d",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives navigation Summary and Translation values from the Claim without adding authority. The candidate keeps Terms in a separate graph and establishes no cross-graph mapping for this qualified terminology meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+          "sha256": "e0eff5e7fcfbe3a2384f00b3a195829e49136e5ecbda2a929e5cc6ff83d4a22d",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "edee30de0f1842a96323085456b1b496bc1e3fd114539341cd4d8d915cb0d3ac",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Translation' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md#subjects.governs",
+      "old_value": "Atom Claim Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-M-116",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+      "source_sha256": "e0eff5e7fcfbe3a2384f00b3a195829e49136e5ecbda2a929e5cc6ff83d4a22d",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method derives navigation Summary and Translation values from the Claim without adding authority. Neither the current source nor the candidate establishes a separately identified Projection lifecycle or subtype for those derived navigation values.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+          "sha256": "e0eff5e7fcfbe3a2384f00b3a195829e49136e5ecbda2a929e5cc6ff83d4a22d",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "edee30de0f1842a96323085456b1b496bc1e3fd114539341cd4d8d915cb0d3ac",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom Claim Projection' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md#subjects.depends_on[0]",
+      "old_value": "Relation Kind",
+      "quarantined": false,
+      "source_atom_id": "CA-M-120",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "source_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "source_version": 14,
+      "decision": "proposed",
+      "proposed_value": "Relation Type",
+      "confidence": 0.95,
+      "reason": "The current Method compiles a non-authoritative direct-relation registry without inventing graph ownership, endpoint types or native relation kinds. The candidate confirms Relation Type and Relation Kind are the same concept, while the current Method preserves graph-specific ownership and endpoint constraints. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/relation_type_model/name_variants",
+          "reason": "Relation Type and Relation Kind are the candidate's explicit name variants."
+        },
+        {
+          "pointer": "#/relation_type_model/endpoint_boundary",
+          "reason": "The candidate retains each Relation Type's endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation Type remains distinct from Relation instances and from registry metadata.",
+        "Graph context and endpoint constraints remain required; no native catalogue admission is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md#subjects.depends_on[1]",
+      "old_value": "Relation Kind/Metadata",
+      "quarantined": false,
+      "source_atom_id": "CA-M-120",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "source_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method compiles a non-authoritative direct-relation registry without inventing graph ownership, endpoint types or native relation kinds. The candidate retains Relation Type endpoint boundaries but establishes neither this metadata/registry identity nor an Authority Property path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Relation Kind/Metadata' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md#subjects.depends_on[2]",
+      "old_value": "CAPRMEDIO Graph",
+      "quarantined": false,
+      "source_atom_id": "CA-M-120",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "source_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method compiles a non-authoritative direct-relation registry without inventing graph ownership, endpoint types or native relation kinds. The candidate supplies roots and graph boundaries but does not establish this broad contextual label as a canonical Entity identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'CAPRMEDIO Graph' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md#subjects.depends_on[3]",
+      "old_value": "Applicable Methodology",
+      "quarantined": false,
+      "source_atom_id": "CA-M-120",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "source_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "source_version": 14,
+      "decision": "proposed",
+      "proposed_value": "Projection/Applicable Methodology",
+      "confidence": 0.9,
+      "reason": "The current Method compiles a non-authoritative direct-relation registry without inventing graph ownership, endpoint types or native relation kinds. The candidate defines Applicable Methodology as a whole-set, one-to-one derived Projection with its own lifecycle and no source authority. The mapping remains non-executable.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/applicable_methodology/form",
+          "reason": "Applicable Methodology is a one-to-one Projection of source Atoms."
+        },
+        {
+          "pointer": "#/applicable_methodology/instance_boundary",
+          "reason": "The candidate makes the Projection a distinct Entity instance."
+        },
+        {
+          "pointer": "#/applicable_methodology/authority",
+          "reason": "Derived view facts do not become authoritative source facts."
+        }
+      ],
+      "preserved_distinctions": [
+        "Applicable Methodology remains a derived Projection, not a Scope Unit or source authority.",
+        "Projected current/archived membership remains distinct from Atom identity and version history."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md#subjects.depends_on[4]",
+      "old_value": "Relation/authority",
+      "quarantined": false,
+      "source_atom_id": "CA-M-120",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "source_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method compiles a non-authoritative direct-relation registry without inventing graph ownership, endpoint types or native relation kinds. The candidate retains Relation Type endpoint boundaries but establishes neither this metadata/registry identity nor an Authority Property path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Relation/authority' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md#subjects.depends_on[5]",
+      "old_value": "Atom/Content Role: Requirement",
+      "quarantined": false,
+      "source_atom_id": "CA-M-120",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "source_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method compiles a non-authoritative direct-relation registry without inventing graph ownership, endpoint types or native relation kinds. The candidate does not select this content-role, model or language identity as a confirmed Entity or dependent-field mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Atom/Content Role: Requirement' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten.",
+        "The qualified Property-to-allowed-value domain is not collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md#subjects.depends_on[6]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-M-120",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "source_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.95,
+      "reason": "The current Method compiles a non-authoritative direct-relation registry without inventing graph ownership, endpoint types or native relation kinds. The candidate confirms the current identity or boundary but does not establish a more specific safe candidate value, so the exact current Subject value is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Projection' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 7,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md#subjects.depends_on[7]",
+      "old_value": "Generator",
+      "quarantined": false,
+      "source_atom_id": "CA-M-120",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "source_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method compiles a non-authoritative direct-relation registry without inventing graph ownership, endpoint types or native relation kinds. The candidate establishes Actor and named examples but does not establish this authoring or generation role as an Actor Type identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Generator' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 8,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md#subjects.depends_on[8]",
+      "old_value": "Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-M-120",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "source_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "The current Method compiles a non-authoritative direct-relation registry without inventing graph ownership, endpoint types or native relation kinds. The candidate confirms the current identity or boundary but does not establish a more specific safe candidate value, so the exact current Subject value is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Relation' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 9,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md#subjects.depends_on[9]",
+      "old_value": "Single Source of Truth",
+      "quarantined": false,
+      "source_atom_id": "CA-M-120",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "source_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Single Source of Truth",
+      "confidence": 0.95,
+      "reason": "The current Method compiles a non-authoritative direct-relation registry without inventing graph ownership, endpoint types or native relation kinds. The candidate confirms the current identity or boundary but does not establish a more specific safe candidate value, so the exact current Subject value is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Single Source of Truth' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md#subjects.governs",
+      "old_value": "Relation Kind/registry compilation",
+      "quarantined": false,
+      "source_atom_id": "CA-M-120",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "source_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method compiles a non-authoritative direct-relation registry without inventing graph ownership, endpoint types or native relation kinds. The candidate retains Relation Type endpoint boundaries but establishes neither this metadata/registry identity nor an Authority Property path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Relation Kind/registry compilation' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred.",
+        "Existing hierarchy and owner qualification are not mechanically rewritten."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-121-CORE_META_MODEL-METHOD--evaluate-scope-expressions.md#subjects.depends_on[0]",
+      "old_value": "Scope Expression",
+      "quarantined": false,
+      "source_atom_id": "CA-M-121",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-121-CORE_META_MODEL-METHOD--evaluate-scope-expressions.md",
+      "source_sha256": "6b5139e9e507051863dcac7faa4eb75fb70cd38592e68bf05914e9dc6accdb14",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines evaluation semantics for Scope Expression identities, selectors, set operators and predicates. The candidate establishes Scope Unit ownership and recursive nesting but no Scope Expression, evaluation or structural-coordinate identity/path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-121-CORE_META_MODEL-METHOD--evaluate-scope-expressions.md",
+          "sha256": "6b5139e9e507051863dcac7faa4eb75fb70cd38592e68bf05914e9dc6accdb14",
+          "start_line": 18,
+          "end_line": 36,
+          "span_sha256": "77bab3e729339f3414320b318344b979056a5003f14bc24f351b8ccd7517366a",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Scope Expression' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-121-CORE_META_MODEL-METHOD--evaluate-scope-expressions.md#subjects.governs",
+      "old_value": "Scope Expression Evaluation",
+      "quarantined": false,
+      "source_atom_id": "CA-M-121",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-121-CORE_META_MODEL-METHOD--evaluate-scope-expressions.md",
+      "source_sha256": "6b5139e9e507051863dcac7faa4eb75fb70cd38592e68bf05914e9dc6accdb14",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines evaluation semantics for Scope Expression identities, selectors, set operators and predicates. The candidate establishes Scope Unit ownership and recursive nesting but no Scope Expression, evaluation or structural-coordinate identity/path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-121-CORE_META_MODEL-METHOD--evaluate-scope-expressions.md",
+          "sha256": "6b5139e9e507051863dcac7faa4eb75fb70cd38592e68bf05914e9dc6accdb14",
+          "start_line": 18,
+          "end_line": 36,
+          "span_sha256": "77bab3e729339f3414320b318344b979056a5003f14bc24f351b8ccd7517366a",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'Scope Expression Evaluation' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md#subjects.depends_on[0]",
+      "old_value": "CCE Condition Expression",
+      "quarantined": false,
+      "source_atom_id": "CA-M-122",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md",
+      "source_sha256": "f9c8e95aaf79f92b2c92d3cedfdf173870102cac58f6a134fedb830cfe3c5197",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines evaluation semantics for CCE condition expressions and their logical operators. The candidate establishes no CCE owner, operator or condition-expression identity; the current controlled-language semantics cannot safely supply one.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md",
+          "sha256": "f9c8e95aaf79f92b2c92d3cedfdf173870102cac58f6a134fedb830cfe3c5197",
+          "start_line": 21,
+          "end_line": 49,
+          "span_sha256": "7802b0928a150fb6151a56e7af08e3b1737467d1dd2147f656f118ac931e7e78",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'CCE Condition Expression' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md#subjects.depends_on[1]",
+      "old_value": "CCE Operator",
+      "quarantined": false,
+      "source_atom_id": "CA-M-122",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md",
+      "source_sha256": "f9c8e95aaf79f92b2c92d3cedfdf173870102cac58f6a134fedb830cfe3c5197",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines evaluation semantics for CCE condition expressions and their logical operators. The candidate establishes no CCE owner, operator or condition-expression identity; the current controlled-language semantics cannot safely supply one.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md",
+          "sha256": "f9c8e95aaf79f92b2c92d3cedfdf173870102cac58f6a134fedb830cfe3c5197",
+          "start_line": 21,
+          "end_line": 49,
+          "span_sha256": "7802b0928a150fb6151a56e7af08e3b1737467d1dd2147f656f118ac931e7e78",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'CCE Operator' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md#subjects.governs",
+      "old_value": "CCE Condition Expression Evaluation",
+      "quarantined": false,
+      "source_atom_id": "CA-M-122",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md",
+      "source_sha256": "f9c8e95aaf79f92b2c92d3cedfdf173870102cac58f6a134fedb830cfe3c5197",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "The current Method defines evaluation semantics for CCE condition expressions and their logical operators. The candidate establishes no CCE owner, operator or condition-expression identity; the current controlled-language semantics cannot safely supply one.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md",
+          "sha256": "f9c8e95aaf79f92b2c92d3cedfdf173870102cac58f6a134fedb830cfe3c5197",
+          "start_line": 21,
+          "end_line": 49,
+          "span_sha256": "7802b0928a150fb6151a56e7af08e3b1737467d1dd2147f656f118ac931e7e78",
+          "reason": "The complete live Main Content supplies the owning source meaning evidence; frozen evidence remains separate comparison material."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject text 'CCE Condition Expression Evaluation' remains distinct from candidate display notation.",
+        "No source rewrite, native Subject grammar admission, Relation admission, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}

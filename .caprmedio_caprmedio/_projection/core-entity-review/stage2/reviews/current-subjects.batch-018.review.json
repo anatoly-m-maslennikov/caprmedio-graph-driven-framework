@@ -1,0 +1,1972 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-2009",
+  "batch_id": "current-subjects.batch-018",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-018.json",
+  "input_batch_sha256": "bbf87eb23c081da1e8b721eacb3b1dec45c6a0a877e5af5cb8ebe1122186c215",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  ],
+  "source_reviews": [
+    {
+      "atom_id": "CA-R-1657",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "e20f9b5f022621de57a7efe519c5ebbf24a6e69d4f4aa4ce70516b2a2ce6b468",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-CORE-REQUIREMENT--require-acyclic-structural-ownership.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 01:42:14 +0400",
+      "updated_at_type": "str",
+      "version": 18,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1658",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "594a30cc1e597486912beb347ad0a857167b5bbbc428ba06c18ea482b9990ccb",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 01:42:39 +0400",
+      "updated_at_type": "str",
+      "version": 17,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1659",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "d693f0772b0a5e8f2cab511e0aa15fc4472d815ab97cd71869fd3935d9bb9a0c",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-REQUIREMENT--derive-inverse-structural-ownership.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 01:43:25 +0400",
+      "updated_at_type": "str",
+      "version": 17,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1660",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 01:43:51 +0400",
+      "updated_at_type": "str",
+      "version": 17,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1661",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "250e0b3b4d5d2bead9ad7525244f626eb085336af369af7087e5ff7278ca05f6",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 01:44:16 +0400",
+      "updated_at_type": "str",
+      "version": 17,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1664",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "0ae2f08278a54534fa50c76bc773598da83104ca003d4eedeb3364a6f3c3d486",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 01:51:15 +0400",
+      "updated_at_type": "str",
+      "version": 22,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1669",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "a4a988041eef39c22aece23978739261e3f543dc94580fec54cbb50712e54f7b",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1669-CORE_META_MODEL-GENERAL--classify-implementation-methods-by-their-claims.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 01:51:15 +0400",
+      "updated_at_type": "str",
+      "version": 18,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1670",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "9debaf5de7e6d1e0b40433a2c7af1f9bb081ef73b6d58be69a569e410192cdb4",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1670-CORE_META_MODEL-GENERAL--restrict-implementation-decisions-to-standard-tier.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 01:51:15 +0400",
+      "updated_at_type": "str",
+      "version": 18,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1671",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "021856089fca024124250c3bd2519f3037b7d993d9719db07d026af9c5cfb5d1",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1671-CORE_META_MODEL-REQUIREMENT--permit-orphan-implementation-decisions.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 01:51:15 +0400",
+      "updated_at_type": "str",
+      "version": 16,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1672",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "77c703549e168c4d45e6bbf6f3840b4713a69347a757c3913eb85ad089afd900",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-REQUIREMENT--permit-terminal-implementation-methods.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 01:51:15 +0400",
+      "updated_at_type": "str",
+      "version": 16,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1676",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "c08978c43d93b0d8b0a04f10a9f2087d51ab1432431336ae169ab6e98e5cb275",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-01 21:44:50 +0400",
+      "updated_at_type": "str",
+      "version": 20,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1677",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "cc874266ba373e0ceadc086d9942236d06828a6a33ee1777bff2b0df0b2b8aee",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 02:00:11 +0400",
+      "updated_at_type": "str",
+      "version": 20,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1678",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "e5d7d1292f7294287414b2e1466a01b6b2bcafaebbac4d36be8c08cd1e46aef0",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1678-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-scale-operational-mechanisms-to-risk.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-01 21:46:54 +0400",
+      "updated_at_type": "str",
+      "version": 18,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1679",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "4da3310a6d4eac613f4bf23e2b9fccb1abc42cdd9b16738cb5bfa36e19146d18",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1679-CORE_META_MODEL-CORE--requirement-bound-effect-guarantees.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 02:00:11 +0400",
+      "updated_at_type": "str",
+      "version": 17,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1680",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "c3dbfd40a5eddfbb83545b24d75808972ff10506424dd39a194ddcfd0c18ba77",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1680-CORE_META_MODEL--requirement-bound-recursive-self-hosting.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 02:00:11 +0400",
+      "updated_at_type": "str",
+      "version": 19,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1681",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "ed7fdce7978319f7ebf7b05f0eea277cdd5682845ae8000cd6b58902d3a3d68b",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL-CORE--admit-implementation-independent-core-rules.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 02:00:11 +0400",
+      "updated_at_type": "str",
+      "version": 22,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1682",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 02:00:11 +0400",
+      "updated_at_type": "str",
+      "version": 23,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1683",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 02:00:11 +0400",
+      "updated_at_type": "str",
+      "version": 24,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1684",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "92f5d8efb9c837e4646dbb57a5b27b853e128c6e77df774795400508798fe196",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL-CORE--separate-analysis-from-factual-execution-records.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 02:00:11 +0400",
+      "updated_at_type": "str",
+      "version": 18,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1685",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "54efd56b966ecfd7b91c769fc1ae8da4ed43c74f3936d806c671096ad99f6dc3",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1685-CORE_META_MODEL-GENERAL--requirement-keep-product-framing-optional.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-03 02:00:11 +0400",
+      "updated_at_type": "str",
+      "version": 19,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-CORE-REQUIREMENT--require-acyclic-structural-ownership.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1657",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-CORE-REQUIREMENT--require-acyclic-structural-ownership.md",
+      "source_sha256": "e20f9b5f022621de57a7efe519c5ebbf24a6e69d4f4aa4ce70516b2a2ce6b468",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 18-30) states: the directed graph formed by active `structural_parent` relations **must** be acyclic. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-CORE-REQUIREMENT--require-acyclic-structural-ownership.md",
+          "sha256": "e20f9b5f022621de57a7efe519c5ebbf24a6e69d4f4aa4ce70516b2a2ce6b468",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "bbb097465f493856e3cec848baa5e721aaa843bee3bd332d055dacaa21ac4325",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'atom-boundary', field 'depends_on', and index 0 remain individually accounted for.",
+        "The original identity 'atom-boundary', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate defines Artifact/Atom as a dependent-entity boundary, but the captured sources do not establish a safe replacement for this qualified identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-CORE-REQUIREMENT--require-acyclic-structural-ownership.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1657",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-CORE-REQUIREMENT--require-acyclic-structural-ownership.md",
+      "source_sha256": "e20f9b5f022621de57a7efe519c5ebbf24a6e69d4f4aa4ce70516b2a2ce6b468",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 18-30) states: the directed graph formed by active `structural_parent` relations **must** be acyclic. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-CORE-REQUIREMENT--require-acyclic-structural-ownership.md",
+          "sha256": "e20f9b5f022621de57a7efe519c5ebbf24a6e69d4f4aa4ce70516b2a2ce6b468",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "bbb097465f493856e3cec848baa5e721aaa843bee3bd332d055dacaa21ac4325",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'relation-model', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'relation-model', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate selects typed Relations with constrained endpoints, but the captured source does not establish this broad label's exact relation catalogue or ownership."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md#subjects.depends_on[0]",
+      "old_value": "authority",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1658",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+      "source_sha256": "594a30cc1e597486912beb347ad0a857167b5bbbc428ba06c18ea482b9990ccb",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 18-30) states: a Scope Unit **must not** own a descendant Scope Unit through a stored structural-parent relation **when** another active Scope Unit lies between them. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+          "sha256": "594a30cc1e597486912beb347ad0a857167b5bbbc428ba06c18ea482b9990ccb",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "13c007eb2372af2b04849227de23d3a15ed936bd68e3b3102d049e62402d4a6a",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'authority', field 'depends_on', and index 0 remain individually accounted for.",
+        "The original identity 'authority', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate separates source authority, Scope Unit ownership, and derived Projection views, but the captured source does not establish this label's exact owner or relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md#subjects.governs",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1658",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+      "source_sha256": "594a30cc1e597486912beb347ad0a857167b5bbbc428ba06c18ea482b9990ccb",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 18-30) states: a Scope Unit **must not** own a descendant Scope Unit through a stored structural-parent relation **when** another active Scope Unit lies between them. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+          "sha256": "594a30cc1e597486912beb347ad0a857167b5bbbc428ba06c18ea482b9990ccb",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "13c007eb2372af2b04849227de23d3a15ed936bd68e3b3102d049e62402d4a6a",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'scope-topology', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'scope-topology', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate selects Scope Unit ownership, recursive nesting, and stable IDs, but the captured source does not establish this broad topology identity's exact path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-REQUIREMENT--derive-inverse-structural-ownership.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1659",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-REQUIREMENT--derive-inverse-structural-ownership.md",
+      "source_sha256": "d693f0772b0a5e8f2cab511e0aa15fc4472d815ab97cd71869fd3935d9bb9a0c",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 20-32) states: CAPRMEDIO **must** derive the inverse `structural_children` view from stored `structural_parent` relations **and** **must not** persist that inverse separately. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-REQUIREMENT--derive-inverse-structural-ownership.md",
+          "sha256": "d693f0772b0a5e8f2cab511e0aa15fc4472d815ab97cd71869fd3935d9bb9a0c",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "a2c6e4974139c7e1e9be50c6da9195cc226b49b08a50e42adcbee5166d98f7af",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'atom-boundary', field 'depends_on', and index 0 remain individually accounted for.",
+        "The original identity 'atom-boundary', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate defines Artifact/Atom as a dependent-entity boundary, but the captured sources do not establish a safe replacement for this qualified identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-REQUIREMENT--derive-inverse-structural-ownership.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1659",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-REQUIREMENT--derive-inverse-structural-ownership.md",
+      "source_sha256": "d693f0772b0a5e8f2cab511e0aa15fc4472d815ab97cd71869fd3935d9bb9a0c",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 20-32) states: CAPRMEDIO **must** derive the inverse `structural_children` view from stored `structural_parent` relations **and** **must not** persist that inverse separately. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-REQUIREMENT--derive-inverse-structural-ownership.md",
+          "sha256": "d693f0772b0a5e8f2cab511e0aa15fc4472d815ab97cd71869fd3935d9bb9a0c",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "a2c6e4974139c7e1e9be50c6da9195cc226b49b08a50e42adcbee5166d98f7af",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'relation-model', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'relation-model', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate selects typed Relations with constrained endpoints, but the captured source does not establish this broad label's exact relation catalogue or ownership."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md#subjects.depends_on[0]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1660",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+      "source_sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.9,
+      "reason": "The current Main Content directly gives this exact Subject its bounded meaning, while the candidate supplies no more-specific replacement identity. Retain the exact current label without adding an Artifact/Scope Unit display prefix or treating a grouping as a new dependent Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+          "sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2d893a9ab3774cc023cc1c721be33dfc26baac42f1ec62ec1b3ee85e10a7d5d5",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Scope Unit', field 'depends_on', and index 0 remain individually accounted for.",
+        "Logical declaration establishes the unit; a native physical layout does not change declared parentage, Type, Name or Local Order.",
+        "R1757 defines a Structural Entity providing an Atom ownership boundary and possible child units; R1484 distinguishes declaration from Goal coverage and Carrier materialization.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md#subjects.depends_on[1]",
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1660",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+      "source_sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "Project Structure",
+      "confidence": 0.9,
+      "reason": "The current Main Content directly gives this exact Subject its bounded meaning, while the candidate supplies no more-specific replacement identity. Retain the exact current label without adding an Artifact/Scope Unit display prefix or treating a grouping as a new dependent Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+          "sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2d893a9ab3774cc023cc1c721be33dfc26baac42f1ec62ec1b3ee85e10a7d5d5",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Project Structure', field 'depends_on', and index 1 remain individually accounted for.",
+        "Authoritative non-Atom accepted Scope Unit declaration Artifact with one canonical TOML Carrier and candidate/active separation.",
+        "Declarations differ from observations and Goals.",
+        "The seven-root comparison keeps this as an Artifact or dependent-Entity display path; the path is not a native edge, Subject migration, or new root."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md#subjects.depends_on[2]",
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1660",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+      "source_sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "Structural Entity",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 20-32) states: the Structural Parent Relation **must** be the kind-independent Structural ownership relation directed from a child **to** its immediate parent. Project Structure owns Scope Unit parent declarations; structural graph views derive the corresponding `structural_parent` edge **without** maintaining a second source. a Carrier's physical containment **must not** silently replace a declared logical parent. The frozen consolidated review has no selected replacement path; retain the exact existing Subject rather than turn a grouping, path, or label into a new candidate identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+          "sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2d893a9ab3774cc023cc1c721be33dfc26baac42f1ec62ec1b3ee85e10a7d5d5",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Structural Entity', field 'depends_on', and index 2 remain individually accounted for.",
+        "Structural Entity remains distinct from its Carrier and from any binding metadata.",
+        "The captured identity is not replaced by a heading-derived candidate subtype."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md#subjects.governs",
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1660",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+      "source_sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 20-32) states: the Structural Parent Relation **must** be the kind-independent Structural ownership relation directed from a child **to** its immediate parent. Project Structure owns Scope Unit parent declarations; structural graph views derive the corresponding `structural_parent` edge **without** maintaining a second source. a Carrier's physical containment **must not** silently replace a declared logical parent. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+          "sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2d893a9ab3774cc023cc1c721be33dfc26baac42f1ec62ec1b3ee85e10a7d5d5",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Structural Parent Relation', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'Structural Parent Relation', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured parent-relation occurrence does not establish the exact candidate Relation direction, graph ownership, or permitted endpoints."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md#subjects.depends_on[0]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1661",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md",
+      "source_sha256": "250e0b3b4d5d2bead9ad7525244f626eb085336af369af7087e5ff7278ca05f6",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.9,
+      "reason": "The current Main Content directly gives this exact Subject its bounded meaning, while the candidate supplies no more-specific replacement identity. Retain the exact current label without adding an Artifact/Scope Unit display prefix or treating a grouping as a new dependent Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md",
+          "sha256": "250e0b3b4d5d2bead9ad7525244f626eb085336af369af7087e5ff7278ca05f6",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "cb8e282ac77471a01aabbfb139ced3961300876c9a5711124f7097802144d33e",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Scope Unit', field 'depends_on', and index 0 remain individually accounted for.",
+        "Logical declaration establishes the unit; a native physical layout does not change declared parentage, Type, Name or Local Order.",
+        "R1757 defines a Structural Entity providing an Atom ownership boundary and possible child units; R1484 distinguishes declaration from Goal coverage and Carrier materialization.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md#subjects.depends_on[1]",
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1661",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md",
+      "source_sha256": "250e0b3b4d5d2bead9ad7525244f626eb085336af369af7087e5ff7278ca05f6",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 22-36) states: **every** Structural Path **must** be derived from active Scope Unit identities **and** their declared Structural Parent Relations. a retained representation for readability **must** remain derived **and** consistent with those authoritative inputs under CA-R-1485. it **must not** independently establish **or** change structural ancestry. permitted storage follows the applicable Delivery authority; this rule does **not** admit another authored Project Structure field. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md",
+          "sha256": "250e0b3b4d5d2bead9ad7525244f626eb085336af369af7087e5ff7278ca05f6",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "cb8e282ac77471a01aabbfb139ced3961300876c9a5711124f7097802144d33e",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Structural Parent Relation', field 'depends_on', and index 1 remain individually accounted for.",
+        "The original identity 'Structural Parent Relation', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured parent-relation occurrence does not establish the exact candidate Relation direction, graph ownership, or permitted endpoints."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md#subjects.depends_on[2]",
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1661",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md",
+      "source_sha256": "250e0b3b4d5d2bead9ad7525244f626eb085336af369af7087e5ff7278ca05f6",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "Project Structure",
+      "confidence": 0.9,
+      "reason": "The current Main Content directly gives this exact Subject its bounded meaning, while the candidate supplies no more-specific replacement identity. Retain the exact current label without adding an Artifact/Scope Unit display prefix or treating a grouping as a new dependent Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md",
+          "sha256": "250e0b3b4d5d2bead9ad7525244f626eb085336af369af7087e5ff7278ca05f6",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "cb8e282ac77471a01aabbfb139ced3961300876c9a5711124f7097802144d33e",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Project Structure', field 'depends_on', and index 2 remain individually accounted for.",
+        "Authoritative non-Atom accepted Scope Unit declaration Artifact with one canonical TOML Carrier and candidate/active separation.",
+        "Declarations differ from observations and Goals.",
+        "The seven-root comparison keeps this as an Artifact or dependent-Entity display path; the path is not a native edge, Subject migration, or new root."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md#subjects.governs",
+      "old_value": "Structural Path",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1661",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md",
+      "source_sha256": "250e0b3b4d5d2bead9ad7525244f626eb085336af369af7087e5ff7278ca05f6",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "Structural Path",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 22-36) states: **every** Structural Path **must** be derived from active Scope Unit identities **and** their declared Structural Parent Relations. a retained representation for readability **must** remain derived **and** consistent with those authoritative inputs under CA-R-1485. it **must not** independently establish **or** change structural ancestry. permitted storage follows the applicable Delivery authority; this rule does **not** admit another authored Project Structure field. The frozen consolidated review has no selected replacement path; retain the exact existing Subject rather than turn a grouping, path, or label into a new candidate identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md",
+          "sha256": "250e0b3b4d5d2bead9ad7525244f626eb085336af369af7087e5ff7278ca05f6",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "cb8e282ac77471a01aabbfb139ced3961300876c9a5711124f7097802144d33e",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Structural Path', field 'governs', and index None remain individually accounted for.",
+        "A captured structural path remains distinct from a Carrier filename or path.",
+        "Path notation does not replace the original identity or source references."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md#subjects.depends_on[0]",
+      "old_value": "artifact-catalog",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1664",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "source_sha256": "0ae2f08278a54534fa50c76bc773598da83104ca003d4eedeb3364a6f3c3d486",
+      "source_version": 22,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 20-32) states: Rationale **must** be registered as an internal value of `Atom/Content Role: Analysis/Type` that owns **`=1`** explanatory conclusion **without** establishing **or** modifying normative specification. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md",
+          "sha256": "0ae2f08278a54534fa50c76bc773598da83104ca003d4eedeb3364a6f3c3d486",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "adb0e7a886b304614b649f5acd2541ec13d28e899e9830800dc930a17a93acee",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'artifact-catalog', field 'depends_on', and index 0 remain individually accounted for.",
+        "The original identity 'artifact-catalog', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate selects Artifact as a root, but the captured source does not establish whether this identity is the root itself, a definition, or a derived catalog/view."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md#subjects.governs",
+      "old_value": "Atom/Content Role: Analysis/Type: Rationale",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1664",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "source_sha256": "0ae2f08278a54534fa50c76bc773598da83104ca003d4eedeb3364a6f3c3d486",
+      "source_version": 22,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 20-32) states: Rationale **must** be registered as an internal value of `Atom/Content Role: Analysis/Type` that owns **`=1`** explanatory conclusion without establishing or modifying normative specification. The pinned candidate's Analysis-to-Question role label does not establish that Substance replaces the Atom Content Role bearer or that Question carries the Analysis-qualified Type domain; a display crosswalk would lose the explicit Analysis domain and change the property bearer.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md",
+          "sha256": "0ae2f08278a54534fa50c76bc773598da83104ca003d4eedeb3364a6f3c3d486",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "adb0e7a886b304614b649f5acd2541ec13d28e899e9830800dc930a17a93acee",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Atom/Content Role: Analysis/Type: Rationale', field 'governs', and index None remain individually accounted for.",
+        "The explicit Analysis-qualified Content Role and its Type bearer remain separate from the candidate Substance umbrella and Question label.",
+        "It explains a conclusion while expressly avoiding normative specification authority.",
+        "No candidate field or allowed-value rule establishes a safe replacement without changing the Type bearer."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1669-CORE_META_MODEL-GENERAL--classify-implementation-methods-by-their-claims.md#subjects.governs",
+      "old_value": "applicability",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1669",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1669-CORE_META_MODEL-GENERAL--classify-implementation-methods-by-their-claims.md",
+      "source_sha256": "a4a988041eef39c22aece23978739261e3f543dc94580fec54cbb50712e54f7b",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 19-31) states: an Implementation Method qualified under CA-R-1767-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-implementation-methods-from-implementation-decisions **must** receive its Local Tier from its complete Claim under the applicable Local Tier definitions **and** classification Method; reusability alone **must not** force Core **or** prevent a concrete reusable realization procedure from occupying Standard. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1669-CORE_META_MODEL-GENERAL--classify-implementation-methods-by-their-claims.md",
+          "sha256": "a4a988041eef39c22aece23978739261e3f543dc94580fec54cbb50712e54f7b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "b2a2a12ff264736f450809395ebf85c401a07cddf7ea8df9362e90e1a02f0e9c",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'applicability', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'applicability', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured source does not establish the exact candidate mapping for 'applicability'; no subtype, edge, or replacement identity is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1670-CORE_META_MODEL-GENERAL--restrict-implementation-decisions-to-standard-tier.md#subjects.governs",
+      "old_value": "applicability",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1670",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1670-CORE_META_MODEL-GENERAL--restrict-implementation-decisions-to-standard-tier.md",
+      "source_sha256": "9debaf5de7e6d1e0b40433a2c7af1f9bb081ef73b6d58be69a569e410192cdb4",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 19-31) states: an `implementation_decision` Atom **must** be admitted **only** at the Standard applicability tier of its Structural scope. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1670-CORE_META_MODEL-GENERAL--restrict-implementation-decisions-to-standard-tier.md",
+          "sha256": "9debaf5de7e6d1e0b40433a2c7af1f9bb081ef73b6d58be69a569e410192cdb4",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "76278b1ff899d4f128ceaab6e7bbc59e2fa6188f71b52290698426905bb8ef22",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'applicability', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'applicability', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured source does not establish the exact candidate mapping for 'applicability'; no subtype, edge, or replacement identity is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1671-CORE_META_MODEL-REQUIREMENT--permit-orphan-implementation-decisions.md#subjects.governs",
+      "old_value": "requirement-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1671",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1671-CORE_META_MODEL-REQUIREMENT--permit-orphan-implementation-decisions.md",
+      "source_sha256": "021856089fca024124250c3bd2519f3037b7d993d9719db07d026af9c5cfb5d1",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 20-32) states: `implementation_decision` **must** be registered as orphan-permitted, so an active Implementation Decision **may** have no parent Implementation Method even **in** strict authority mode. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1671-CORE_META_MODEL-REQUIREMENT--permit-orphan-implementation-decisions.md",
+          "sha256": "021856089fca024124250c3bd2519f3037b7d993d9719db07d026af9c5cfb5d1",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "9ffa12066e91535d5ba45e2711d09ac4d7186f3a00b8ff244ea56fdb4a40b44b",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'requirement-topology', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'requirement-topology', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate keeps R content and Scope Unit topology distinct, but the captured source does not establish this label's exact topology view."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-REQUIREMENT--permit-terminal-implementation-methods.md#subjects.governs",
+      "old_value": "requirement-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1672",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-REQUIREMENT--permit-terminal-implementation-methods.md",
+      "source_sha256": "77c703549e168c4d45e6bbf6f3840b4713a69347a757c3913eb85ad089afd900",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 20-32) states: `implementation_method` **must** be registered as terminal-permitted, so an active Implementation Method **may** remain childless **after** its local Implementation Decisions have been losslessly absorbed **and** archived. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-REQUIREMENT--permit-terminal-implementation-methods.md",
+          "sha256": "77c703549e168c4d45e6bbf6f3840b4713a69347a757c3913eb85ad089afd900",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "71f7084a3ff2ac2006fc46b4f656a1e5d3864e06d618d9287e38d16646cf8fe7",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'requirement-topology', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'requirement-topology', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate keeps R content and Scope Unit topology distinct, but the captured source does not establish this label's exact topology view."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1676",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md",
+      "source_sha256": "c08978c43d93b0d8b0a04f10a9f2087d51ab1432431336ae169ab6e98e5cb275",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 20-32) states: **if** a direct relation is authored by an Active Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery) **and** targets an Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery), **then** the target Atom **must** be Active. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md",
+          "sha256": "c08978c43d93b0d8b0a04f10a9f2087d51ab1432431336ae169ab6e98e5cb275",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "f2d3f5531ae549cd717162d5b2251ce3605d0ccad5d4e7dc20292fb0f58274b8",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'atom-boundary', field 'depends_on', and index 0 remain individually accounted for.",
+        "The original identity 'atom-boundary', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate defines Artifact/Atom as a dependent-entity boundary, but the captured sources do not establish a safe replacement for this qualified identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1676",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md",
+      "source_sha256": "c08978c43d93b0d8b0a04f10a9f2087d51ab1432431336ae169ab6e98e5cb275",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 20-32) states: **if** a direct relation is authored by an Active Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery) **and** targets an Atom with Content Role **in** (Requirement, Method, Evaluation, Delivery), **then** the target Atom **must** be Active. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md",
+          "sha256": "c08978c43d93b0d8b0a04f10a9f2087d51ab1432431336ae169ab6e98e5cb275",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "f2d3f5531ae549cd717162d5b2251ce3605d0ccad5d4e7dc20292fb0f58274b8",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'relation-model', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'relation-model', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate selects typed Relations with constrained endpoints, but the captured source does not establish this broad label's exact relation catalogue or ownership."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md#subjects.governs",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1677",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md",
+      "source_sha256": "cc874266ba373e0ceadc086d9942236d06828a6a33ee1777bff2b0df0b2b8aee",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 19-31) states: the validator **must** validate **every** encoded Structural coordinate **and** **every** of its components against the active authority defining that coordinate. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md",
+          "sha256": "cc874266ba373e0ceadc086d9942236d06828a6a33ee1777bff2b0df0b2b8aee",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "f0faeddffe7e3e5accd2cae5e7cad3f4f0d4c4a193dee1645114059acd949bdd",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'scope-topology', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'scope-topology', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate selects Scope Unit ownership, recursive nesting, and stable IDs, but the captured source does not establish this broad topology identity's exact path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1678-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-scale-operational-mechanisms-to-risk.md#subjects.governs",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1678",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1678-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-scale-operational-mechanisms-to-risk.md",
+      "source_sha256": "e5d7d1292f7294287414b2e1466a01b6b2bcafaebbac4d36be8c08cd1e46aef0",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 19-31) states: CAPRMEDIO **must** require operational mechanisms **to** be proportional **to** explicit failure risk **and** a declared authoritative-state boundary. CAPRMEDIO **must not** mandate one recovery **or** durability mechanism for **every** Project. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1678-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-scale-operational-mechanisms-to-risk.md",
+          "sha256": "e5d7d1292f7294287414b2e1466a01b6b2bcafaebbac4d36be8c08cd1e46aef0",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "e091402c8845b70f02701b2a33996dfded31093bb6c3cffbd1a949f1563c3e9d",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'scope-topology', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'scope-topology', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate selects Scope Unit ownership, recursive nesting, and stable IDs, but the captured source does not establish this broad topology identity's exact path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1679-CORE_META_MODEL-CORE--requirement-bound-effect-guarantees.md#subjects.governs",
+      "old_value": "evaluation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1679",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1679-CORE_META_MODEL-CORE--requirement-bound-effect-guarantees.md",
+      "source_sha256": "4da3310a6d4eac613f4bf23e2b9fccb1abc42cdd9b16738cb5bfa36e19146d18",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 17-29) states: CAPRMEDIO permits an effect guarantee **only** **when** its scope, assumptions, owner, temporal boundary, **and** enforcement conditions are explicit. a bounded local guarantee **must** never be presented as universal exactly-once execution. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1679-CORE_META_MODEL-CORE--requirement-bound-effect-guarantees.md",
+          "sha256": "4da3310a6d4eac613f4bf23e2b9fccb1abc42cdd9b16738cb5bfa36e19146d18",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "7ff81c6b442cd3f8f5c477c3ab7eb800a763c2587bae824e5c49e01a1f79b2a9",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'evaluation', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'evaluation', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate treats Evaluation as a role-centred view and actual checks as Executions, but the captured source does not establish this identity's exact path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1680-CORE_META_MODEL--requirement-bound-recursive-self-hosting.md#subjects.governs",
+      "old_value": "framework-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1680",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1680-CORE_META_MODEL--requirement-bound-recursive-self-hosting.md",
+      "source_sha256": "c3dbfd40a5eddfbb83545b24d75808972ff10506424dd39a194ddcfd0c18ba77",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 21-35) states: CAPRMEDIO applies the same structural constitution **and** governance semantics **to** its own repository while keeping native reusable framework source, project authority, **and** non-authoritative convenience locators under distinct owners. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1680-CORE_META_MODEL--requirement-bound-recursive-self-hosting.md",
+          "sha256": "c3dbfd40a5eddfbb83545b24d75808972ff10506424dd39a194ddcfd0c18ba77",
+          "start_line": 21,
+          "end_line": 35,
+          "span_sha256": "b261fcdd1cf917ebf69d93dc0fa9924b124924a27b0efad337077a8f43a3253f",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'framework-boundary', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'framework-boundary', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL-CORE--admit-implementation-independent-core-rules.md#subjects.governs",
+      "old_value": "authority",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1681",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL-CORE--admit-implementation-independent-core-rules.md",
+      "source_sha256": "ed7fdce7978319f7ebf7b05f0eea277cdd5682845ae8000cd6b58902d3a3d68b",
+      "source_version": 22,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 19-31) states: a reusable model rule belongs **in** CORE_META_MODEL **only** **when** it establishes reusable methodology authority **and** remains independent of implementation choices outside the Entity explicitly governed by its Claim. a Carrier format, mechanism, portability boundary, **or** external constraint **may** be named **when** that Entity itself is governed, but **must not** become a hidden prerequisite of unrelated Claims. project-specific implementation choices **must not** be imported as reusable methodology authority. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL-CORE--admit-implementation-independent-core-rules.md",
+          "sha256": "ed7fdce7978319f7ebf7b05f0eea277cdd5682845ae8000cd6b58902d3a3d68b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "38c5ebf6daa1c33a17432f2883d7a6aadae8465626bae8b3671aa5d188d95150",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'authority', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'authority', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate separates source authority, Scope Unit ownership, and derived Projection views, but the captured source does not establish this label's exact owner or relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md#subjects.depends_on[0]",
+      "old_value": "Spec Content Roles",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1682",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+      "source_sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+      "source_version": 23,
+      "decision": "unchanged",
+      "proposed_value": "Spec Content Roles",
+      "confidence": 0.9,
+      "reason": "The current Main Content directly gives this exact Subject its bounded meaning, while the candidate supplies no more-specific replacement identity. Retain the exact current label without adding an Artifact/Scope Unit display prefix or treating a grouping as a new dependent Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+          "sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "9fd4932de9ab6633d10cd9537a6238fc6d0f7195feee3a90eb3593d13525f167",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Spec Content Roles', field 'depends_on', and index 0 remain individually accounted for.",
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "Substance role labels remain qualified content views; optional general Details do not erase role/type-required content."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md#subjects.depends_on[1]",
+      "old_value": "Change Content Roles",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1682",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+      "source_sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+      "source_version": 23,
+      "decision": "unchanged",
+      "proposed_value": "Change Content Roles",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 24-36) states: applicable Active Requirement, Method, Evaluation, **and** Delivery Atoms across **all** Governance loci collectively form the Project's normative Spec for governed Entities, including Change content **and** Implementation; particular Change content, actual realizations, **and** execution evidence remain distinct from the specification governing them. The frozen consolidated review has no selected replacement path; retain the exact existing Subject rather than turn a grouping, path, or label into a new candidate identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+          "sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "9fd4932de9ab6633d10cd9537a6238fc6d0f7195feee3a90eb3593d13525f167",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Change Content Roles', field 'depends_on', and index 1 remain individually accounted for.",
+        "The four-role change grouping is distinct from one Content Role value or an actual change execution.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Heading/grouping/alias context does not create an Entity or native Relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md#subjects.depends_on[2]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1682",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+      "source_sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+      "source_version": 23,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 24-36) states: applicable Active Requirement, Method, Evaluation, **and** Delivery Atoms across **all** Governance loci collectively form the Project's normative Spec for governed Entities, including Change content **and** Implementation; particular Change content, actual realizations, **and** execution evidence remain distinct from the specification governing them. The frozen consolidated review has no selected replacement path; retain the exact existing Subject rather than turn a grouping, path, or label into a new candidate identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+          "sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "9fd4932de9ab6633d10cd9537a6238fc6d0f7195feee3a90eb3593d13525f167",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Entity', field 'depends_on', and index 2 remain individually accounted for.",
+        "Entity",
+        "The seven-root candidate boundary is preserved; generic Entity vocabulary does not add another root or Artifact ownership.",
+        "A heading, alias or display grouping is not itself a new Entity or native relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md#subjects.depends_on[3]",
+      "old_value": "Implementation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1682",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+      "source_sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+      "source_version": 23,
+      "decision": "unchanged",
+      "proposed_value": "Implementation",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 24-36) states: applicable Active Requirement, Method, Evaluation, **and** Delivery Atoms across **all** Governance loci collectively form the Project's normative Spec for governed Entities, including Change content **and** Implementation; particular Change content, actual realizations, **and** execution evidence remain distinct from the specification governing them. The frozen consolidated review has no selected replacement path; retain the exact existing Subject rather than turn a grouping, path, or label into a new candidate identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+          "sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "9fd4932de9ab6633d10cd9537a6238fc6d0f7195feee3a90eb3593d13525f167",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Implementation', field 'depends_on', and index 3 remain individually accounted for.",
+        "separates observed Implementation facts from proposed refactoring decisions and bars treating observed behavior as a Requirement",
+        "observed implementation evidence, not a promoted requirement",
+        "Preserve observed Implementation facts separately from refactoring decisions in the M/O view; this is not an Execution root."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md#subjects.depends_on[4]",
+      "old_value": "Journal/Record",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1682",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+      "source_sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+      "source_version": 23,
+      "decision": "unchanged",
+      "proposed_value": "Journal/Record",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 24-36) states: applicable Active Requirement, Method, Evaluation, **and** Delivery Atoms across **all** Governance loci collectively form the Project's normative Spec for governed Entities, including Change content **and** Implementation; particular Change content, actual realizations, **and** execution evidence remain distinct from the specification governing them. The frozen consolidated review has no selected replacement path; retain the exact existing Subject rather than turn a grouping, path, or label into a new candidate identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+          "sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "9fd4932de9ab6633d10cd9537a6238fc6d0f7195feee3a90eb3593d13525f167",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Journal/Record', field 'depends_on', and index 4 remain individually accounted for.",
+        "requires a Journal Carrier's ordered Records to be append-only and forbids rewriting an admitted Record",
+        "an admitted ordered Journal Record, not an editable Carrier fragment",
+        "Keep the ordered Journal Record distinct from the event or Execution it may record; append-only and historical references remain qualified."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md#subjects.governs",
+      "old_value": "authority",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1682",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+      "source_sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+      "source_version": 23,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 24-36) states: applicable Active Requirement, Method, Evaluation, **and** Delivery Atoms across **all** Governance loci collectively form the Project's normative Spec for governed Entities, including Change content **and** Implementation; particular Change content, actual realizations, **and** execution evidence remain distinct from the specification governing them. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+          "sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "9fd4932de9ab6633d10cd9537a6238fc6d0f7195feee3a90eb3593d13525f167",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'authority', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'authority', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate separates source authority, Scope Unit ownership, and derived Projection views, but the captured source does not establish this label's exact owner or relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md#subjects.depends_on[0]",
+      "old_value": "Spec Content Roles",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1683",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "source_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "source_version": 24,
+      "decision": "unchanged",
+      "proposed_value": "Spec Content Roles",
+      "confidence": 0.9,
+      "reason": "The current Main Content directly gives this exact Subject its bounded meaning, while the candidate supplies no more-specific replacement identity. Retain the exact current label without adding an Artifact/Scope Unit display prefix or treating a grouping as a new dependent Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Spec Content Roles', field 'depends_on', and index 0 remain individually accounted for.",
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "Substance role labels remain qualified content views; optional general Details do not erase role/type-required content."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md#subjects.depends_on[1]",
+      "old_value": "Change Content Roles",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1683",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "source_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "source_version": 24,
+      "decision": "unchanged",
+      "proposed_value": "Change Content Roles",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 28-40) states: CAPRMEDIO **must** distinguish RMED Spec authority for governed Entities; CAPO Change content under CA-R-1549, including specific reusable Operations definitions under CA-R-1530; concrete Implementation; actual executions **and** their Journal Records carrying facts, state changes, **and** Claim-bound evidence; **and** Verification judgments about sufficiency **and** currentness. Evaluation results, evidence, dashboards, **and** Verification judgments **may** support, challenge, **or** invalidate reliance on a Claim, but **must not** themselves establish, edit, replace, **or** override semantic authority. The frozen consolidated review has no selected replacement path; retain the exact existing Subject rather than turn a grouping, path, or label into a new candidate identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Change Content Roles', field 'depends_on', and index 1 remain individually accounted for.",
+        "The four-role change grouping is distinct from one Content Role value or an actual change execution.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Heading/grouping/alias context does not create an Entity or native Relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md#subjects.depends_on[2]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1683",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "source_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "source_version": 24,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 28-40) states: CAPRMEDIO **must** distinguish RMED Spec authority for governed Entities; CAPO Change content under CA-R-1549, including specific reusable Operations definitions under CA-R-1530; concrete Implementation; actual executions **and** their Journal Records carrying facts, state changes, **and** Claim-bound evidence; **and** Verification judgments about sufficiency **and** currentness. Evaluation results, evidence, dashboards, **and** Verification judgments **may** support, challenge, **or** invalidate reliance on a Claim, but **must not** themselves establish, edit, replace, **or** override semantic authority. The frozen consolidated review has no selected replacement path; retain the exact existing Subject rather than turn a grouping, path, or label into a new candidate identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Entity', field 'depends_on', and index 2 remain individually accounted for.",
+        "Entity",
+        "The seven-root candidate boundary is preserved; generic Entity vocabulary does not add another root or Artifact ownership.",
+        "A heading, alias or display grouping is not itself a new Entity or native relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md#subjects.depends_on[3]",
+      "old_value": "Implementation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1683",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "source_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "source_version": 24,
+      "decision": "unchanged",
+      "proposed_value": "Implementation",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 28-40) states: CAPRMEDIO **must** distinguish RMED Spec authority for governed Entities; CAPO Change content under CA-R-1549, including specific reusable Operations definitions under CA-R-1530; concrete Implementation; actual executions **and** their Journal Records carrying facts, state changes, **and** Claim-bound evidence; **and** Verification judgments about sufficiency **and** currentness. Evaluation results, evidence, dashboards, **and** Verification judgments **may** support, challenge, **or** invalidate reliance on a Claim, but **must not** themselves establish, edit, replace, **or** override semantic authority. The frozen consolidated review has no selected replacement path; retain the exact existing Subject rather than turn a grouping, path, or label into a new candidate identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Implementation', field 'depends_on', and index 3 remain individually accounted for.",
+        "separates observed Implementation facts from proposed refactoring decisions and bars treating observed behavior as a Requirement",
+        "observed implementation evidence, not a promoted requirement",
+        "Preserve observed Implementation facts separately from refactoring decisions in the M/O view; this is not an Execution root."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md#subjects.depends_on[4]",
+      "old_value": "Action",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1683",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "source_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "source_version": 24,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "The current Main Content Claim distinguishes reusable Operations definitions, executions, and authority, but it does not define this exact Subject's identity, bearer, or candidate path. Do not infer an Action or Actor mapping from a frontmatter dependency or from a broad candidate root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Action', field 'depends_on', and index 4 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "An Action's semantic atomicity is independently governed responsibility, not an invocation count or a physical processing unit.",
+        "Execution Kind and Agentic remain qualified operation-definition values, not new roots or actual runs."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md#subjects.depends_on[5]",
+      "old_value": "Workflow",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1683",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "source_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "source_version": 24,
+      "decision": "unchanged",
+      "proposed_value": "Workflow",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 28-40) states: CAPRMEDIO **must** distinguish RMED Spec authority for governed Entities; CAPO Change content under CA-R-1549, including specific reusable Operations definitions under CA-R-1530; concrete Implementation; actual executions **and** their Journal Records carrying facts, state changes, **and** Claim-bound evidence; **and** Verification judgments about sufficiency **and** currentness. Evaluation results, evidence, dashboards, **and** Verification judgments **may** support, challenge, **or** invalidate reliance on a Claim, but **must not** themselves establish, edit, replace, **or** override semantic authority. The frozen consolidated review has no selected replacement path; retain the exact existing Subject rather than turn a grouping, path, or label into a new candidate identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Workflow', field 'depends_on', and index 5 remain individually accounted for.",
+        "Reusable Workflow definitions remain distinct from Workflow Run instances.",
+        "Repeatability is an Operator choice; no automatic O-Atom or repeatability rule is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md#subjects.depends_on[6]",
+      "old_value": "Actor",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1683",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "source_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "source_version": 24,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "The current Main Content Claim distinguishes reusable Operations definitions, executions, and authority, but it does not define this exact Subject's identity, bearer, or candidate path. Do not infer an Action or Actor mapping from a frontmatter dependency or from a broad candidate root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Actor', field 'depends_on', and index 6 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Actor remains distinct from AI Agent conflict/authorization behavior and from the reusable Action.",
+        "Actor means who performs work; generic Actor Type is not one specific performer."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 7,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md#subjects.depends_on[7]",
+      "old_value": "Journal/Record",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1683",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "source_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "source_version": 24,
+      "decision": "unchanged",
+      "proposed_value": "Journal/Record",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 28-40) states: CAPRMEDIO **must** distinguish RMED Spec authority for governed Entities; CAPO Change content under CA-R-1549, including specific reusable Operations definitions under CA-R-1530; concrete Implementation; actual executions **and** their Journal Records carrying facts, state changes, **and** Claim-bound evidence; **and** Verification judgments about sufficiency **and** currentness. Evaluation results, evidence, dashboards, **and** Verification judgments **may** support, challenge, **or** invalidate reliance on a Claim, but **must not** themselves establish, edit, replace, **or** override semantic authority. The frozen consolidated review has no selected replacement path; retain the exact existing Subject rather than turn a grouping, path, or label into a new candidate identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Journal/Record', field 'depends_on', and index 7 remain individually accounted for.",
+        "requires a Journal Carrier's ordered Records to be append-only and forbids rewriting an admitted Record",
+        "an admitted ordered Journal Record, not an editable Carrier fragment",
+        "Keep the ordered Journal Record distinct from the event or Execution it may record; append-only and historical references remain qualified."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 8,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md#subjects.depends_on[8]",
+      "old_value": "Verification",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1683",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "source_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "source_version": 24,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 28-40) states: CAPRMEDIO **must** distinguish RMED Spec authority for governed Entities; CAPO Change content under CA-R-1549, including specific reusable Operations definitions under CA-R-1530; concrete Implementation; actual executions **and** their Journal Records carrying facts, state changes, **and** Claim-bound evidence; **and** Verification judgments about sufficiency **and** currentness. Evaluation results, evidence, dashboards, **and** Verification judgments **may** support, challenge, **or** invalidate reliance on a Claim, but **must not** themselves establish, edit, replace, **or** override semantic authority. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'Verification', field 'depends_on', and index 8 remain individually accounted for.",
+        "The original identity 'Verification', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured Verification meanings span several source roles; the candidate permits Execution checks but does not establish this exact identity's path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md#subjects.governs",
+      "old_value": "authority",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1683",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "source_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "source_version": 24,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 28-40) states: CAPRMEDIO **must** distinguish RMED Spec authority for governed Entities; CAPO Change content under CA-R-1549, including specific reusable Operations definitions under CA-R-1530; concrete Implementation; actual executions **and** their Journal Records carrying facts, state changes, **and** Claim-bound evidence; **and** Verification judgments about sufficiency **and** currentness. Evaluation results, evidence, dashboards, **and** Verification judgments **may** support, challenge, **or** invalidate reliance on a Claim, but **must not** themselves establish, edit, replace, **or** override semantic authority. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'authority', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'authority', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate separates source authority, Scope Unit ownership, and derived Projection views, but the captured source does not establish this label's exact owner or relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL-CORE--separate-analysis-from-factual-execution-records.md#subjects.governs",
+      "old_value": "evaluation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1684",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL-CORE--separate-analysis-from-factual-execution-records.md",
+      "source_sha256": "92f5d8efb9c837e4646dbb57a5b27b853e128c6e77df774795400508798fe196",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 17-37) states: factual Journal Records carry what occurred, was measured, **or** was reported during execution **or** operation, with available provenance **and** context. their evidence **may** include logs, complaints, tickets, errors, execution outputs, measurements, delivery outcomes, **and** externally received operational reports. a factual Record does **not** explain causes, justify a choice, synthesize implications, **or** prescribe Spec **or** Operations authority. Analysis interprets Concerns, factual Records, Requirements, Methods, Evaluation, Delivery, Implementations, **or** Operations. it **may** compare alternatives, investigate causes, synthesize findings, explain implications, **and** provide rationale for a governed Claim. **when** one Carrier mixes factual input with interpretation, the factual Record **and** interpretive Analysis remain separate governed contributions with explicit references. factual execution Records **and** interpretive Analysis are **not** reusable Operations definitions. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL-CORE--separate-analysis-from-factual-execution-records.md",
+          "sha256": "92f5d8efb9c837e4646dbb57a5b27b853e128c6e77df774795400508798fe196",
+          "start_line": 17,
+          "end_line": 37,
+          "span_sha256": "27bb3631042a8abd28a8585054bfcd8efe0980915f3166265224d4def9249cf1",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'evaluation', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'evaluation', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate treats Evaluation as a role-centred view and actual checks as Executions, but the captured source does not establish this identity's exact path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1685-CORE_META_MODEL-GENERAL--requirement-keep-product-framing-optional.md#subjects.governs",
+      "old_value": "development-flow",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1685",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1685-CORE_META_MODEL-GENERAL--requirement-keep-product-framing-optional.md",
+      "source_sha256": "54efd56b966ecfd7b91c769fc1ae8da4ed43c74f3936d806c671096ad99f6dc3",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 19-37) states: User Stories **and** intended Outcomes remain optional framing, while measured **or** reported outcomes remain factual observations rather than reusable Operations definitions. The frozen consolidated review exposes no supported exact candidate path; do not invent a root, relation catalogue, topology, owner, or view mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1685-CORE_META_MODEL-GENERAL--requirement-keep-product-framing-optional.md",
+          "sha256": "54efd56b966ecfd7b91c769fc1ae8da4ed43c74f3936d806c671096ad99f6dc3",
+          "start_line": 19,
+          "end_line": 37,
+          "span_sha256": "2623859e69024c6494a59e0928edc2547fae4e202171bf096a4bfec64dcaa663",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; no key, body, grammar, or native relation changes.",
+        "Exact old Subject 'development-flow', field 'governs', and index None remain individually accounted for.",
+        "The original identity 'development-flow', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The candidate has no dedicated root for this broad contextual label, and the captured source does not establish a dependent field, relation, or view mapping."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "review_summary": {
+    "source_count": 20,
+    "occurrence_count": 45,
+    "decisions": {
+    "proposed": 0,
+      "unchanged": 17,
+    "unresolved": 28
+    },
+    "quarantined_sources": 0,
+    "unresolved_identities": [
+      "Action",
+    "Actor",
+    "Atom/Content Role: Analysis/Type: Rationale",
+      "Structural Parent Relation",
+      "Verification",
+      "applicability",
+      "artifact-catalog",
+      "atom-boundary",
+      "authority",
+      "development-flow",
+      "evaluation",
+      "framework-boundary",
+      "relation-model",
+      "requirement-topology",
+      "scope-topology"
+    ],
+    "boundary": "All rows are non-executable display/research records only; no current source, grammar, native relation, key, identity, migration, or runtime change is authorized."
+  }
+}

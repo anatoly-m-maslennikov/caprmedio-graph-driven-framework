@@ -1,0 +1,2782 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-1997",
+  "batch_id": "current-subjects.batch-006",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-006.json",
+  "input_batch_sha256": "2709fcec356fcd262ffa50263bbc220c59a6a446e5f57ff60899ee857620c4ec",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": {
+    "operator_candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "consolidated_review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    "current_subjects_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    "current_subjects_review_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  },
+  "source_reviews": [
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1311-CORE_META_MODEL-CORE-REQUIREMENT--keep-prior-status-transitions-in-the-journal.md",
+      "full_file_sha256": "021bf1e06d382195c487286784208e033e54f4351f9a57a915019c5cbb975671",
+      "atom_id": "CA-R-1311",
+      "version": 13,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1311-CORE_META_MODEL-CORE-REQUIREMENT--keep-prior-status-transitions-in-the-journal.md",
+        "sha256": "021bf1e06d382195c487286784208e033e54f4351f9a57a915019c5cbb975671",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "8b3bdfdd3bbab93d68c6eb7e1414dc28a087a95b25131c8affb3818a6fa4406a",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md",
+      "full_file_sha256": "a125b9d20d08aeb1e96bcae739a56b73ade837a764b9688967a7458af4743ba7",
+      "atom_id": "CA-R-1312",
+      "version": 14,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md",
+        "sha256": "a125b9d20d08aeb1e96bcae739a56b73ade837a764b9688967a7458af4743ba7",
+        "start_line": 20,
+        "end_line": 30,
+        "span_sha256": "9a0455d333afdda62ac4771de686419a68ccecbb70cf405c2f05a57811277644",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md",
+      "full_file_sha256": "8691f06ec8fb80a7b8faff2cb4a4b86a6f041399da572a4b73bfe9097d5dd949",
+      "atom_id": "CA-R-1313",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md",
+        "sha256": "8691f06ec8fb80a7b8faff2cb4a4b86a6f041399da572a4b73bfe9097d5dd949",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "8f75fc9a95044146475c4709ee7362632deb8f542a0923d5a27b63c124f552bc",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+      "full_file_sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+      "atom_id": "CA-R-1314",
+      "version": 13,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+        "sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "c26c7168557daefca8674df42efe874915ff10e8d05b0b5124724b907eb8a186",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+      "full_file_sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+      "atom_id": "CA-R-1315",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+        "sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "d5845f9b8c123969e6a06aceab4548a8e452b6172fed94050abde93eeafcd6b3",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1316-CORE_META_MODEL-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md",
+      "full_file_sha256": "77786415b5ba50bfb57de0cc935ff689e6736fdf4ad8b0049fe78abb51050daa",
+      "atom_id": "CA-R-1316",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1316-CORE_META_MODEL-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md",
+        "sha256": "77786415b5ba50bfb57de0cc935ff689e6736fdf4ad8b0049fe78abb51050daa",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "24e1b6a2835c36ef1f1c53ed01131f7203817df3d756c397dc987c819a61d369",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+      "full_file_sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+      "atom_id": "CA-R-1317",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+        "sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+        "start_line": 25,
+        "end_line": 39,
+        "span_sha256": "e87bbb706e50467e874dbc59e199f538097f1360ca5544f1d60e43fb49ab8843",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term.md",
+      "full_file_sha256": "b30f5d73b9c4aff8cfc69c228a2ed4759c9d260297162cea46d0f42b75dd6e6b",
+      "atom_id": "CA-R-1318",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term.md",
+        "sha256": "b30f5d73b9c4aff8cfc69c228a2ed4759c9d260297162cea46d0f42b75dd6e6b",
+        "start_line": 18,
+        "end_line": 32,
+        "span_sha256": "8444305a87c97690d8277d47f7fb1ae9511b051f6214d31bd71576fa569df9c0",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+      "full_file_sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+      "atom_id": "CA-R-1319",
+      "version": 10,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+        "sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "1a3bba1d5da1976d8f222acca350c245c877b91b0161d416d0051890e8a88a4e",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1320-CORE_META_MODEL-CORE-REQUIREMENT--define-general-term.md",
+      "full_file_sha256": "bc3942892725d065570cd0a36e8f0d7c55c74b5027e0f2a6d14cc83e9422ba02",
+      "atom_id": "CA-R-1320",
+      "version": 10,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1320-CORE_META_MODEL-CORE-REQUIREMENT--define-general-term.md",
+        "sha256": "bc3942892725d065570cd0a36e8f0d7c55c74b5027e0f2a6d14cc83e9422ba02",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "9cf6d4ca5c9a91d33e16e84393da8ecbee5314d3ef61f8ed33674c8dff4ac33b",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "full_file_sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+      "atom_id": "CA-R-1321",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+        "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+        "start_line": 22,
+        "end_line": 32,
+        "span_sha256": "b7cc2d307e1eb26961760bb27a8eb6c727b43d1d7f79a4d368e50de683b52148",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "full_file_sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+      "atom_id": "CA-R-1324",
+      "version": 10,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+        "sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "05d70b80aff277cb4c880059aeacd66f5691c7e150f2552c9701b7bb3a613075",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-CORE-REQUIREMENT--keep-composite-subject-expressions-out-of-terminology.md",
+      "full_file_sha256": "c98ea34d029dfa6f5c2b828e13e61156c316da8dfaa8fdc56adbdeb8ebcf504d",
+      "atom_id": "CA-R-1325",
+      "version": 8,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-CORE-REQUIREMENT--keep-composite-subject-expressions-out-of-terminology.md",
+        "sha256": "c98ea34d029dfa6f5c2b828e13e61156c316da8dfaa8fdc56adbdeb8ebcf504d",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "7ea2d3bbdeb553251f903283d44ca57aeeb30fd8f3142a2ad7b4b2dc91cb0b02",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+      "full_file_sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+      "atom_id": "CA-R-1335",
+      "version": 13,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+        "sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+        "start_line": 22,
+        "end_line": 36,
+        "span_sha256": "d1aa2fbeb2750072a9fd0844bfe376010ef457d210e35d0b5f5898ed3aed2326",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-CORE-REQUIREMENT--define-concern-content-role.md",
+      "full_file_sha256": "183c825c8f7aa504f00060f9a64b1e2d5c021921b905c9f5266cdcbc133f3eb0",
+      "atom_id": "CA-R-1336",
+      "version": 10,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-CORE-REQUIREMENT--define-concern-content-role.md",
+        "sha256": "183c825c8f7aa504f00060f9a64b1e2d5c021921b905c9f5266cdcbc133f3eb0",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "b66a6e9c6357164ae57727464f850a1800ba0b1491a3b1fccb1f773185cc3f3f",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md",
+      "full_file_sha256": "4d1a31335812edb8411132162bdd2a8448797fb7326d9fa6b1020d2c4ebf293f",
+      "atom_id": "CA-R-1337",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md",
+        "sha256": "4d1a31335812edb8411132162bdd2a8448797fb7326d9fa6b1020d2c4ebf293f",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "eee1f200e4c049662bfca299225a8d780e780b26bd45cf8b447d6ebdc2b102a0",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md",
+      "full_file_sha256": "a9d8d9aa6a147c03136a12ac3acb9b3cb9eeb90978f4cf1734bcc8fe955ce975",
+      "atom_id": "CA-R-1338",
+      "version": 12,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md",
+        "sha256": "a9d8d9aa6a147c03136a12ac3acb9b3cb9eeb90978f4cf1734bcc8fe955ce975",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "bdec7845dc7698ecf1f6f2e1646e46fe407e51c0be04a5126e1b49069810f0c1",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+      "full_file_sha256": "8c0b6d76eb5023a58e9b830e744cc85c4d436bac9e1ec0cf8a0a7868ae174b63",
+      "atom_id": "CA-R-1339",
+      "version": 11,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+        "sha256": "8c0b6d76eb5023a58e9b830e744cc85c4d436bac9e1ec0cf8a0a7868ae174b63",
+        "start_line": 20,
+        "end_line": 36,
+        "span_sha256": "0e75f1e15f7f1c21e8ec7cfbcbbf849f2283e96e51e85231c6ba1d752164863d",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+      "full_file_sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+      "atom_id": "CA-R-1340",
+      "version": 13,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+        "sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+        "start_line": 23,
+        "end_line": 35,
+        "span_sha256": "73086c9bda62a9d4639fcf152df7451a592fd3ceb2411bf970f9fde35cee3558",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+      "full_file_sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+      "atom_id": "CA-R-1341",
+      "version": 10,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+        "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "612cdd055326b56ee61abb970d32702fdf21a1b91549c0a88309c3ffe72e221e",
+        "reason": "Entire current Main Content was read for the source-specific occurrence review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1311-CORE_META_MODEL-CORE-REQUIREMENT--keep-prior-status-transitions-in-the-journal.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1311-CORE_META_MODEL-CORE-REQUIREMENT--keep-prior-status-transitions-in-the-journal.md",
+      "source_atom_id": "CA-R-1311",
+      "source_version": 13,
+      "source_sha256": "021bf1e06d382195c487286784208e033e54f4351f9a57a915019c5cbb975671",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Journal",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Journal",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires the current Status Property while preserving prior Status transitions through Journal events. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1311-CORE_META_MODEL-CORE-REQUIREMENT--keep-prior-status-transitions-in-the-journal.md",
+          "sha256": "021bf1e06d382195c487286784208e033e54f4351f9a57a915019c5cbb975671",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "8b3bdfdd3bbab93d68c6eb7e1414dc28a087a95b25131c8affb3818a6fa4406a",
+          "reason": "Current Main Content for CA-R-1311 requires the current Status Property while preserving prior Status transitions through Journal events; that is the live meaning reviewed for 'Journal'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Journal'.",
+        "Preserves source CA-R-1311 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1311-CORE_META_MODEL-CORE-REQUIREMENT--keep-prior-status-transitions-in-the-journal.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1311-CORE_META_MODEL-CORE-REQUIREMENT--keep-prior-status-transitions-in-the-journal.md",
+      "source_atom_id": "CA-R-1311",
+      "source_version": 13,
+      "source_sha256": "021bf1e06d382195c487286784208e033e54f4351f9a57a915019c5cbb975671",
+      "field": "governs",
+      "index": null,
+      "old_value": "Artifact/Revision/Status",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires the current Status Property while preserving prior Status transitions through Journal events. The current content uses a Status associated with an Artifact Revision, while the candidate makes Revision a separate root and expressly excludes Artifact/Revision.  It supplies no admitted Subject expression that retains both the Revision and Status distinctions. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1311-CORE_META_MODEL-CORE-REQUIREMENT--keep-prior-status-transitions-in-the-journal.md",
+          "sha256": "021bf1e06d382195c487286784208e033e54f4351f9a57a915019c5cbb975671",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "8b3bdfdd3bbab93d68c6eb7e1414dc28a087a95b25131c8affb3818a6fa4406a",
+          "reason": "Current Main Content for CA-R-1311 requires the current Status Property while preserving prior Status transitions through Journal events; that is the live meaning reviewed for 'Artifact/Revision/Status'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Artifact/Revision/Status'.",
+        "Preserves source CA-R-1311 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md",
+      "source_atom_id": "CA-R-1312",
+      "source_version": 14,
+      "source_sha256": "a125b9d20d08aeb1e96bcae739a56b73ade837a764b9688967a7458af4743ba7",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Action",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content keeps an Artifact Revision Status value distinct from an Action or Workflow, including its Steps, that may establish it. The current content distinguishes an Action from the execution that may establish a Status value, while the candidate names Action Run only as an Execution kind; mapping Action would conflate definition and actual run. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md",
+          "sha256": "a125b9d20d08aeb1e96bcae739a56b73ade837a764b9688967a7458af4743ba7",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "9a0455d333afdda62ac4771de686419a68ccecbb70cf405c2f05a57811277644",
+          "reason": "Current Main Content for CA-R-1312 keeps an Artifact Revision Status value distinct from an Action or Workflow, including its Steps, that may establish it; that is the live meaning reviewed for 'Action'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Action'.",
+        "Preserves source CA-R-1312 version 14 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md",
+      "source_atom_id": "CA-R-1312",
+      "source_version": 14,
+      "source_sha256": "a125b9d20d08aeb1e96bcae739a56b73ade837a764b9688967a7458af4743ba7",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Workflow",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content keeps an Artifact Revision Status value distinct from an Action or Workflow, including its Steps, that may establish it. The current content distinguishes a Workflow from the execution that may establish a Status value, while the candidate does not give a lossless Workflow definition identity separate from Workflow Run. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md",
+          "sha256": "a125b9d20d08aeb1e96bcae739a56b73ade837a764b9688967a7458af4743ba7",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "9a0455d333afdda62ac4771de686419a68ccecbb70cf405c2f05a57811277644",
+          "reason": "Current Main Content for CA-R-1312 keeps an Artifact Revision Status value distinct from an Action or Workflow, including its Steps, that may establish it; that is the live meaning reviewed for 'Workflow'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Workflow'.",
+        "Preserves source CA-R-1312 version 14 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md",
+      "source_atom_id": "CA-R-1312",
+      "source_version": 14,
+      "source_sha256": "a125b9d20d08aeb1e96bcae739a56b73ade837a764b9688967a7458af4743ba7",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Step",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content keeps an Artifact Revision Status value distinct from an Action or Workflow, including its Steps, that may establish it. The current content preserves a Step's role inside a Workflow, while the candidate only names Step Run as an Execution kind and gives no lossless Step definition identity. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md",
+          "sha256": "a125b9d20d08aeb1e96bcae739a56b73ade837a764b9688967a7458af4743ba7",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "9a0455d333afdda62ac4771de686419a68ccecbb70cf405c2f05a57811277644",
+          "reason": "Current Main Content for CA-R-1312 keeps an Artifact Revision Status value distinct from an Action or Workflow, including its Steps, that may establish it; that is the live meaning reviewed for 'Step'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Step'.",
+        "Preserves source CA-R-1312 version 14 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md",
+      "source_atom_id": "CA-R-1312",
+      "source_version": 14,
+      "source_sha256": "a125b9d20d08aeb1e96bcae739a56b73ade837a764b9688967a7458af4743ba7",
+      "field": "governs",
+      "index": null,
+      "old_value": "Artifact/Revision/Status",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content keeps an Artifact Revision Status value distinct from an Action or Workflow, including its Steps, that may establish it. The current content uses a Status associated with an Artifact Revision, while the candidate makes Revision a separate root and expressly excludes Artifact/Revision.  It supplies no admitted Subject expression that retains both the Revision and Status distinctions. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md",
+          "sha256": "a125b9d20d08aeb1e96bcae739a56b73ade837a764b9688967a7458af4743ba7",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "9a0455d333afdda62ac4771de686419a68ccecbb70cf405c2f05a57811277644",
+          "reason": "Current Main Content for CA-R-1312 keeps an Artifact Revision Status value distinct from an Action or Workflow, including its Steps, that may establish it; that is the live meaning reviewed for 'Artifact/Revision/Status'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Artifact/Revision/Status'.",
+        "Preserves source CA-R-1312 version 14 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md",
+      "source_atom_id": "CA-R-1313",
+      "source_version": 12,
+      "source_sha256": "8691f06ec8fb80a7b8faff2cb4a4b86a6f041399da572a4b73bfe9097d5dd949",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Extension",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Extension",
+      "confidence": 0.95,
+      "reason": "Current Main Content permits an Extension or Project Configuration to add Status values and transition rules only under one complete qualified Artifact Type or Atom Content Role and Type path. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md",
+          "sha256": "8691f06ec8fb80a7b8faff2cb4a4b86a6f041399da572a4b73bfe9097d5dd949",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "8f75fc9a95044146475c4709ee7362632deb8f542a0923d5a27b63c124f552bc",
+          "reason": "Current Main Content for CA-R-1313 permits an Extension or Project Configuration to add Status values and transition rules only under one complete qualified Artifact Type or Atom Content Role and Type path; that is the live meaning reviewed for 'Extension'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Extension'.",
+        "Preserves source CA-R-1313 version 12 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md",
+      "source_atom_id": "CA-R-1313",
+      "source_version": 12,
+      "source_sha256": "8691f06ec8fb80a7b8faff2cb4a4b86a6f041399da572a4b73bfe9097d5dd949",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project Configuration",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Project Configuration",
+      "confidence": 0.95,
+      "reason": "Current Main Content permits an Extension or Project Configuration to add Status values and transition rules only under one complete qualified Artifact Type or Atom Content Role and Type path. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md",
+          "sha256": "8691f06ec8fb80a7b8faff2cb4a4b86a6f041399da572a4b73bfe9097d5dd949",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "8f75fc9a95044146475c4709ee7362632deb8f542a0923d5a27b63c124f552bc",
+          "reason": "Current Main Content for CA-R-1313 permits an Extension or Project Configuration to add Status values and transition rules only under one complete qualified Artifact Type or Atom Content Role and Type path; that is the live meaning reviewed for 'Project Configuration'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Project Configuration'.",
+        "Preserves source CA-R-1313 version 12 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md",
+      "source_atom_id": "CA-R-1313",
+      "source_version": 12,
+      "source_sha256": "8691f06ec8fb80a7b8faff2cb4a4b86a6f041399da572a4b73bfe9097d5dd949",
+      "field": "governs",
+      "index": null,
+      "old_value": "Artifact/Revision/Status",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content permits an Extension or Project Configuration to add Status values and transition rules only under one complete qualified Artifact Type or Atom Content Role and Type path. The current content uses a Status associated with an Artifact Revision, while the candidate makes Revision a separate root and expressly excludes Artifact/Revision.  It supplies no admitted Subject expression that retains both the Revision and Status distinctions. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1313-CORE_META_MODEL-CORE-REQUIREMENT--keep-qualified-status-domains-open.md",
+          "sha256": "8691f06ec8fb80a7b8faff2cb4a4b86a6f041399da572a4b73bfe9097d5dd949",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "8f75fc9a95044146475c4709ee7362632deb8f542a0923d5a27b63c124f552bc",
+          "reason": "Current Main Content for CA-R-1313 permits an Extension or Project Configuration to add Status values and transition rules only under one complete qualified Artifact Type or Atom Content Role and Type path; that is the live meaning reviewed for 'Artifact/Revision/Status'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Artifact/Revision/Status'.",
+        "Preserves source CA-R-1313 version 12 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+      "source_atom_id": "CA-R-1314",
+      "source_version": 13,
+      "source_sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Revision",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires every Applicable Methodology member to retain one direct DERIVED_FROM relation to its exact source Atom Revision. The candidate rules support 'Revision' while retaining the source distinction; this is a non-executable candidate mapping, not grammar or native-relation adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+          "sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c26c7168557daefca8674df42efe874915ff10e8d05b0b5124724b907eb8a186",
+          "reason": "Current Main Content for CA-R-1314 requires every Applicable Methodology member to retain one direct DERIVED_FROM relation to its exact source Atom Revision; that is the live meaning reviewed for 'Atom/Revision'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The current source's Atom is a narrower Artifact."
+        },
+        {
+          "pointer": "/root_entities/4",
+          "reason": "Revision is confirmed as a separate historical root and excludes Atom/Revision."
+        }
+      ],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role while mapping 'Atom/Revision' to the candidate identity 'Revision'.",
+        "Preserves source CA-R-1314 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+      "source_atom_id": "CA-R-1314",
+      "source_version": 13,
+      "source_sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "DERIVED_FROM",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Relation/DERIVED_FROM",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires every Applicable Methodology member to retain one direct DERIVED_FROM relation to its exact source Atom Revision. The candidate rules support 'Relation/DERIVED_FROM' while retaining the source distinction; this is a non-executable candidate mapping, not grammar or native-relation adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+          "sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c26c7168557daefca8674df42efe874915ff10e8d05b0b5124724b907eb8a186",
+          "reason": "Current Main Content for CA-R-1314 requires every Applicable Methodology member to retain one direct DERIVED_FROM relation to its exact source Atom Revision; that is the live meaning reviewed for 'DERIVED_FROM'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "Relation is a confirmed root Entity for typed connections."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "Relation Type and Relation Kind are one confirmed concept with endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role while mapping 'DERIVED_FROM' to the candidate identity 'Relation/DERIVED_FROM'.",
+        "Preserves source CA-R-1314 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+      "source_atom_id": "CA-R-1314",
+      "source_version": 13,
+      "source_sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+      "field": "governs",
+      "index": null,
+      "old_value": "Applicable Methodology/Member",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires every Applicable Methodology member to retain one direct DERIVED_FROM relation to its exact source Atom Revision. The candidate says Projection members are derived Atom instances, not merely entries, but does not retain a candidate identity that carries both the membership and exact source-Revision qualification. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+          "sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c26c7168557daefca8674df42efe874915ff10e8d05b0b5124724b907eb8a186",
+          "reason": "Current Main Content for CA-R-1314 requires every Applicable Methodology member to retain one direct DERIVED_FROM relation to its exact source Atom Revision; that is the live meaning reviewed for 'Applicable Methodology/Member'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Applicable Methodology/Member'.",
+        "Preserves source CA-R-1314 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+      "source_atom_id": "CA-R-1315",
+      "source_version": 16,
+      "source_sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits Applicable Methodology membership to current Active Atom Revisions with a role in the stated RMEDO set. The candidate names Substance as an umbrella but does not confirm that Content Role is a lossless Substance identity. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+          "sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d5845f9b8c123969e6a06aceab4548a8e452b6172fed94050abde93eeafcd6b3",
+          "reason": "Current Main Content for CA-R-1315 limits Applicable Methodology membership to current Active Atom Revisions with a role in the stated RMEDO set; that is the live meaning reviewed for 'Atom/Content Role'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Atom/Content Role'.",
+        "Preserves source CA-R-1315 version 16 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+      "source_atom_id": "CA-R-1315",
+      "source_version": 16,
+      "source_sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Entity/Type/Status",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits Applicable Methodology membership to current Active Atom Revisions with a role in the stated RMEDO set. The frozen consolidated review records a captured-evidence gap for Entity/Type/Status, and the current source does not supply an admitted candidate replacement. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+          "sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d5845f9b8c123969e6a06aceab4548a8e452b6172fed94050abde93eeafcd6b3",
+          "reason": "Current Main Content for CA-R-1315 limits Applicable Methodology membership to current Active Atom Revisions with a role in the stated RMEDO set; that is the live meaning reviewed for 'Entity/Type/Status'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Entity/Type/Status'.",
+        "Preserves source CA-R-1315 version 16 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+      "source_atom_id": "CA-R-1315",
+      "source_version": 16,
+      "source_sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Applicable Methodology/Member Selection",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits Applicable Methodology membership to current Active Atom Revisions with a role in the stated RMEDO set. The live source selects only current Active RMEDO revisions, whereas the confirmed candidate requires every source Atom to be projected somewhere; no target preserves this incompatible selection condition. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+          "sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d5845f9b8c123969e6a06aceab4548a8e452b6172fed94050abde93eeafcd6b3",
+          "reason": "Current Main Content for CA-R-1315 limits Applicable Methodology membership to current Active Atom Revisions with a role in the stated RMEDO set; that is the live meaning reviewed for 'Applicable Methodology/Member Selection'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Applicable Methodology/Member Selection'.",
+        "Preserves source CA-R-1315 version 16 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1316-CORE_META_MODEL-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1316-CORE_META_MODEL-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md",
+      "source_atom_id": "CA-R-1316",
+      "source_version": 11,
+      "source_sha256": "77786415b5ba50bfb57de0cc935ff689e6736fdf4ad8b0049fe78abb51050daa",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content forbids synthesis or merging of source Claims during Applicable Methodology compilation. Claim is a role label in the candidate, not a confirmed Substance allowed-value domain; recoding Atom/Claim would invent that domain. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1316-CORE_META_MODEL-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md",
+          "sha256": "77786415b5ba50bfb57de0cc935ff689e6736fdf4ad8b0049fe78abb51050daa",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "24e1b6a2835c36ef1f1c53ed01131f7203817df3d756c397dc987c819a61d369",
+          "reason": "Current Main Content for CA-R-1316 forbids synthesis or merging of source Claims during Applicable Methodology compilation; that is the live meaning reviewed for 'Atom/Claim'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Atom/Claim'.",
+        "Preserves source CA-R-1316 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1316-CORE_META_MODEL-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1316-CORE_META_MODEL-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md",
+      "source_atom_id": "CA-R-1316",
+      "source_version": 11,
+      "source_sha256": "77786415b5ba50bfb57de0cc935ff689e6736fdf4ad8b0049fe78abb51050daa",
+      "field": "governs",
+      "index": null,
+      "old_value": "Applicable Methodology Compilation/Claim Transformation",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content forbids synthesis or merging of source Claims during Applicable Methodology compilation. The candidate confirms one-to-one projection and no source-claim merge, but does not define a candidate identity for the source-specific compilation/transformation process. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1316-CORE_META_MODEL-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md",
+          "sha256": "77786415b5ba50bfb57de0cc935ff689e6736fdf4ad8b0049fe78abb51050daa",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "24e1b6a2835c36ef1f1c53ed01131f7203817df3d756c397dc987c819a61d369",
+          "reason": "Current Main Content for CA-R-1316 forbids synthesis or merging of source Claims during Applicable Methodology compilation; that is the live meaning reviewed for 'Applicable Methodology Compilation/Claim Transformation'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Applicable Methodology Compilation/Claim Transformation'.",
+        "Preserves source CA-R-1316 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+      "source_atom_id": "CA-R-1317",
+      "source_version": 11,
+      "source_sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Applicable Methodology/Conflict",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Applicable Methodology/Conflict",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires compilation to fail closed when a conflict or its bound actual Operator approval is unresolved. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+          "sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "e87bbb706e50467e874dbc59e199f538097f1360ca5544f1d60e43fb49ab8843",
+          "reason": "Current Main Content for CA-R-1317 requires compilation to fail closed when a conflict or its bound actual Operator approval is unresolved; that is the live meaning reviewed for 'Applicable Methodology/Conflict'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Applicable Methodology/Conflict'.",
+        "Preserves source CA-R-1317 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+      "source_atom_id": "CA-R-1317",
+      "source_version": 11,
+      "source_sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Applicable Methodology/Source Frontier Digest",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Applicable Methodology/Source Frontier Digest",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires compilation to fail closed when a conflict or its bound actual Operator approval is unresolved. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+          "sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "e87bbb706e50467e874dbc59e199f538097f1360ca5544f1d60e43fb49ab8843",
+          "reason": "Current Main Content for CA-R-1317 requires compilation to fail closed when a conflict or its bound actual Operator approval is unresolved; that is the live meaning reviewed for 'Applicable Methodology/Source Frontier Digest'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Applicable Methodology/Source Frontier Digest'.",
+        "Preserves source CA-R-1317 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+      "source_atom_id": "CA-R-1317",
+      "source_version": 11,
+      "source_sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Operator",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires compilation to fail closed when a conflict or its bound actual Operator approval is unresolved. The candidate rules support 'Actor.Type: Operator' while retaining the source distinction; this is a non-executable candidate mapping, not grammar or native-relation adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+          "sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "e87bbb706e50467e874dbc59e199f538097f1360ca5544f1d60e43fb49ab8843",
+          "reason": "Current Main Content for CA-R-1317 requires compilation to fail closed when a conflict or its bound actual Operator approval is unresolved; that is the live meaning reviewed for 'Operator'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor is a confirmed root Entity."
+        },
+        {
+          "pointer": "/entity_identity_model/actor/type_examples/1",
+          "reason": "Operator is a confirmed Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role while mapping 'Operator' to the candidate identity 'Actor.Type: Operator'.",
+        "Preserves source CA-R-1317 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+      "source_atom_id": "CA-R-1317",
+      "source_version": 11,
+      "source_sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Journal/Record",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Journal.Record",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires compilation to fail closed when a conflict or its bound actual Operator approval is unresolved. The candidate rules support 'Journal.Record' while retaining the source distinction; this is a non-executable candidate mapping, not grammar or native-relation adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+          "sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "e87bbb706e50467e874dbc59e199f538097f1360ca5544f1d60e43fb49ab8843",
+          "reason": "Current Main Content for CA-R-1317 requires compilation to fail closed when a conflict or its bound actual Operator approval is unresolved; that is the live meaning reviewed for 'Journal/Record'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/history_model/journal_role",
+          "reason": "Journal records what happened; a record is not the event itself."
+        },
+        {
+          "pointer": "/history_model/relation_proposal/connections/1",
+          "reason": "The confirmed candidate explicitly uses Journal.Record for RECORDS Execution."
+        }
+      ],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role while mapping 'Journal/Record' to the candidate identity 'Journal.Record'.",
+        "Preserves source CA-R-1317 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+      "source_atom_id": "CA-R-1317",
+      "source_version": 11,
+      "source_sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Methodology Source/Expansion Boundary",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Methodology Source/Expansion Boundary",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires compilation to fail closed when a conflict or its bound actual Operator approval is unresolved. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+          "sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "e87bbb706e50467e874dbc59e199f538097f1360ca5544f1d60e43fb49ab8843",
+          "reason": "Current Main Content for CA-R-1317 requires compilation to fail closed when a conflict or its bound actual Operator approval is unresolved; that is the live meaning reviewed for 'Methodology Source/Expansion Boundary'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Methodology Source/Expansion Boundary'.",
+        "Preserves source CA-R-1317 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+      "source_atom_id": "CA-R-1317",
+      "source_version": 11,
+      "source_sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+      "field": "governs",
+      "index": null,
+      "old_value": "Applicable Methodology",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Applicable Methodology",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires compilation to fail closed when a conflict or its bound actual Operator approval is unresolved. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1317-CORE_META_MODEL-REQUIREMENT--fail-closed-on-unresolved-methodology-conflicts.md",
+          "sha256": "a0432e87f6bee925c4e4762ee11fafd03e77a8a85e5056da691221fc11fa37ae",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "e87bbb706e50467e874dbc59e199f538097f1360ca5544f1d60e43fb49ab8843",
+          "reason": "Current Main Content for CA-R-1317 requires compilation to fail closed when a conflict or its bound actual Operator approval is unresolved; that is the live meaning reviewed for 'Applicable Methodology'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Applicable Methodology'.",
+        "Preserves source CA-R-1317 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term.md",
+      "source_atom_id": "CA-R-1318",
+      "source_version": 11,
+      "source_sha256": "b30f5d73b9c4aff8cfc69c228a2ed4759c9d260297162cea46d0f42b75dd6e6b",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Project",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Term as a Project-specific word or phrase with a consistent meaning. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term.md",
+          "sha256": "b30f5d73b9c4aff8cfc69c228a2ed4759c9d260297162cea46d0f42b75dd6e6b",
+          "start_line": 18,
+          "end_line": 32,
+          "span_sha256": "8444305a87c97690d8277d47f7fb1ae9511b051f6214d31bd71576fa569df9c0",
+          "reason": "Current Main Content for CA-R-1318 defines a Term as a Project-specific word or phrase with a consistent meaning; that is the live meaning reviewed for 'Project'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Project'.",
+        "Preserves source CA-R-1318 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term.md",
+      "source_atom_id": "CA-R-1318",
+      "source_version": 11,
+      "source_sha256": "b30f5d73b9c4aff8cfc69c228a2ed4759c9d260297162cea46d0f42b75dd6e6b",
+      "field": "governs",
+      "index": null,
+      "old_value": "Term",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Term",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Term as a Project-specific word or phrase with a consistent meaning. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term.md",
+          "sha256": "b30f5d73b9c4aff8cfc69c228a2ed4759c9d260297162cea46d0f42b75dd6e6b",
+          "start_line": 18,
+          "end_line": 32,
+          "span_sha256": "8444305a87c97690d8277d47f7fb1ae9511b051f6214d31bd71576fa569df9c0",
+          "reason": "Current Main Content for CA-R-1318 defines a Term as a Project-specific word or phrase with a consistent meaning; that is the live meaning reviewed for 'Term'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Term'.",
+        "Preserves source CA-R-1318 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+      "source_atom_id": "CA-R-1319",
+      "source_version": 10,
+      "source_sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Definition Atom",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines a Governed Term as a Term whose project-specific meaning is owned by one active Definition Atom. The current content names Definition Atom as the owner of a Governed Term meaning, but neither it nor the candidate establishes its root, property, or ownership mapping. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+          "sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1a3bba1d5da1976d8f222acca350c245c877b91b0161d416d0051890e8a88a4e",
+          "reason": "Current Main Content for CA-R-1319 defines a Governed Term as a Term whose project-specific meaning is owned by one active Definition Atom; that is the live meaning reviewed for 'Definition Atom'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Definition Atom'.",
+        "Preserves source CA-R-1319 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+      "source_atom_id": "CA-R-1319",
+      "source_version": 10,
+      "source_sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Term",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Term",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Governed Term as a Term whose project-specific meaning is owned by one active Definition Atom. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+          "sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1a3bba1d5da1976d8f222acca350c245c877b91b0161d416d0051890e8a88a4e",
+          "reason": "Current Main Content for CA-R-1319 defines a Governed Term as a Term whose project-specific meaning is owned by one active Definition Atom; that is the live meaning reviewed for 'Term'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Term'.",
+        "Preserves source CA-R-1319 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+      "source_atom_id": "CA-R-1319",
+      "source_version": 10,
+      "source_sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Project",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Project",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Governed Term as a Term whose project-specific meaning is owned by one active Definition Atom. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+          "sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1a3bba1d5da1976d8f222acca350c245c877b91b0161d416d0051890e8a88a4e",
+          "reason": "Current Main Content for CA-R-1319 defines a Governed Term as a Term whose project-specific meaning is owned by one active Definition Atom; that is the live meaning reviewed for 'Project'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Project'.",
+        "Preserves source CA-R-1319 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+      "source_atom_id": "CA-R-1319",
+      "source_version": 10,
+      "source_sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+      "field": "governs",
+      "index": null,
+      "old_value": "Governed Term",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Governed Term",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Governed Term as a Term whose project-specific meaning is owned by one active Definition Atom. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+          "sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1a3bba1d5da1976d8f222acca350c245c877b91b0161d416d0051890e8a88a4e",
+          "reason": "Current Main Content for CA-R-1319 defines a Governed Term as a Term whose project-specific meaning is owned by one active Definition Atom; that is the live meaning reviewed for 'Governed Term'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Governed Term'.",
+        "Preserves source CA-R-1319 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1320-CORE_META_MODEL-CORE-REQUIREMENT--define-general-term.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1320-CORE_META_MODEL-CORE-REQUIREMENT--define-general-term.md",
+      "source_atom_id": "CA-R-1320",
+      "source_version": 10,
+      "source_sha256": "bc3942892725d065570cd0a36e8f0d7c55c74b5027e0f2a6d14cc83e9422ba02",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Project",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a General Term as a word or phrase used in its ordinary English meaning. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1320-CORE_META_MODEL-CORE-REQUIREMENT--define-general-term.md",
+          "sha256": "bc3942892725d065570cd0a36e8f0d7c55c74b5027e0f2a6d14cc83e9422ba02",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "9cf6d4ca5c9a91d33e16e84393da8ecbee5314d3ef61f8ed33674c8dff4ac33b",
+          "reason": "Current Main Content for CA-R-1320 defines a General Term as a word or phrase used in its ordinary English meaning; that is the live meaning reviewed for 'Project'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Project'.",
+        "Preserves source CA-R-1320 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1320-CORE_META_MODEL-CORE-REQUIREMENT--define-general-term.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1320-CORE_META_MODEL-CORE-REQUIREMENT--define-general-term.md",
+      "source_atom_id": "CA-R-1320",
+      "source_version": 10,
+      "source_sha256": "bc3942892725d065570cd0a36e8f0d7c55c74b5027e0f2a6d14cc83e9422ba02",
+      "field": "governs",
+      "index": null,
+      "old_value": "General Term",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "General Term",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a General Term as a word or phrase used in its ordinary English meaning. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1320-CORE_META_MODEL-CORE-REQUIREMENT--define-general-term.md",
+          "sha256": "bc3942892725d065570cd0a36e8f0d7c55c74b5027e0f2a6d14cc83e9422ba02",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "9cf6d4ca5c9a91d33e16e84393da8ecbee5314d3ef61f8ed33674c8dff4ac33b",
+          "reason": "Current Main Content for CA-R-1320 defines a General Term as a word or phrase used in its ordinary English meaning; that is the live meaning reviewed for 'General Term'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'General Term'.",
+        "Preserves source CA-R-1320 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "source_atom_id": "CA-R-1321",
+      "source_version": 12,
+      "source_sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Entity",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Subject Expression as a reference to one Entity formed from Term references and registered relation syntax. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "b7cc2d307e1eb26961760bb27a8eb6c727b43d1d7f79a4d368e50de683b52148",
+          "reason": "Current Main Content for CA-R-1321 defines a Subject Expression as a reference to one Entity formed from Term references and registered relation syntax; that is the live meaning reviewed for 'Entity'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Entity'.",
+        "Preserves source CA-R-1321 version 12 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "source_atom_id": "CA-R-1321",
+      "source_version": 12,
+      "source_sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Term",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Term",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Subject Expression as a reference to one Entity formed from Term references and registered relation syntax. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "b7cc2d307e1eb26961760bb27a8eb6c727b43d1d7f79a4d368e50de683b52148",
+          "reason": "Current Main Content for CA-R-1321 defines a Subject Expression as a reference to one Entity formed from Term references and registered relation syntax; that is the live meaning reviewed for 'Term'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Term'.",
+        "Preserves source CA-R-1321 version 12 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "source_atom_id": "CA-R-1321",
+      "source_version": 12,
+      "source_sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Property",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Property",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Subject Expression as a reference to one Entity formed from Term references and registered relation syntax. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "b7cc2d307e1eb26961760bb27a8eb6c727b43d1d7f79a4d368e50de683b52148",
+          "reason": "Current Main Content for CA-R-1321 defines a Subject Expression as a reference to one Entity formed from Term references and registered relation syntax; that is the live meaning reviewed for 'Property'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Property'.",
+        "Preserves source CA-R-1321 version 12 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "source_atom_id": "CA-R-1321",
+      "source_version": 12,
+      "source_sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Subject",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Subject",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Subject Expression as a reference to one Entity formed from Term references and registered relation syntax. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "b7cc2d307e1eb26961760bb27a8eb6c727b43d1d7f79a4d368e50de683b52148",
+          "reason": "Current Main Content for CA-R-1321 defines a Subject Expression as a reference to one Entity formed from Term references and registered relation syntax; that is the live meaning reviewed for 'Subject'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Subject'.",
+        "Preserves source CA-R-1321 version 12 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "source_atom_id": "CA-R-1321",
+      "source_version": 12,
+      "source_sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Atom",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Subject Expression as a reference to one Entity formed from Term references and registered relation syntax. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "b7cc2d307e1eb26961760bb27a8eb6c727b43d1d7f79a4d368e50de683b52148",
+          "reason": "Current Main Content for CA-R-1321 defines a Subject Expression as a reference to one Entity formed from Term references and registered relation syntax; that is the live meaning reviewed for 'Atom'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Atom'.",
+        "Preserves source CA-R-1321 version 12 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "source_atom_id": "CA-R-1321",
+      "source_version": 12,
+      "source_sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+      "field": "governs",
+      "index": null,
+      "old_value": "Subject Expression",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Subject Expression",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Subject Expression as a reference to one Entity formed from Term references and registered relation syntax. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "b7cc2d307e1eb26961760bb27a8eb6c727b43d1d7f79a4d368e50de683b52148",
+          "reason": "Current Main Content for CA-R-1321 defines a Subject Expression as a reference to one Entity formed from Term references and registered relation syntax; that is the live meaning reviewed for 'Subject Expression'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Subject Expression'.",
+        "Preserves source CA-R-1321 version 12 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "source_atom_id": "CA-R-1324",
+      "source_version": 10,
+      "source_sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Subject Expression",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Subject Expression",
+      "confidence": 0.95,
+      "reason": "Current Main Content forbids slash and colon in a Term name used in a Subject Expression. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+          "sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "05d70b80aff277cb4c880059aeacd66f5691c7e150f2552c9701b7bb3a613075",
+          "reason": "Current Main Content for CA-R-1324 forbids slash and colon in a Term name used in a Subject Expression; that is the live meaning reviewed for 'Subject Expression'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Subject Expression'.",
+        "Preserves source CA-R-1324 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "source_atom_id": "CA-R-1324",
+      "source_version": 10,
+      "source_sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+      "field": "governs",
+      "index": null,
+      "old_value": "Term/name",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content forbids slash and colon in a Term name used in a Subject Expression. The current source constrains a Term name, but the frozen consolidated review records no positive mapping for its owning Term field or a native property relation. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+          "sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "05d70b80aff277cb4c880059aeacd66f5691c7e150f2552c9701b7bb3a613075",
+          "reason": "Current Main Content for CA-R-1324 forbids slash and colon in a Term name used in a Subject Expression; that is the live meaning reviewed for 'Term/name'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Term/name'.",
+        "Preserves source CA-R-1324 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-CORE-REQUIREMENT--keep-composite-subject-expressions-out-of-terminology.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-CORE-REQUIREMENT--keep-composite-subject-expressions-out-of-terminology.md",
+      "source_atom_id": "CA-R-1325",
+      "source_version": 8,
+      "source_sha256": "c98ea34d029dfa6f5c2b828e13e61156c316da8dfaa8fdc56adbdeb8ebcf504d",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Subject Expression",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Subject Expression",
+      "confidence": 0.95,
+      "reason": "Current Main Content forbids terminology or vocabulary Catalogs from classifying one complete composite Subject Expression as one Term. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-CORE-REQUIREMENT--keep-composite-subject-expressions-out-of-terminology.md",
+          "sha256": "c98ea34d029dfa6f5c2b828e13e61156c316da8dfaa8fdc56adbdeb8ebcf504d",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "7ea2d3bbdeb553251f903283d44ca57aeeb30fd8f3142a2ad7b4b2dc91cb0b02",
+          "reason": "Current Main Content for CA-R-1325 forbids terminology or vocabulary Catalogs from classifying one complete composite Subject Expression as one Term; that is the live meaning reviewed for 'Subject Expression'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Subject Expression'.",
+        "Preserves source CA-R-1325 version 8 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-CORE-REQUIREMENT--keep-composite-subject-expressions-out-of-terminology.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-CORE-REQUIREMENT--keep-composite-subject-expressions-out-of-terminology.md",
+      "source_atom_id": "CA-R-1325",
+      "source_version": 8,
+      "source_sha256": "c98ea34d029dfa6f5c2b828e13e61156c316da8dfaa8fdc56adbdeb8ebcf504d",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Term",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Term",
+      "confidence": 0.95,
+      "reason": "Current Main Content forbids terminology or vocabulary Catalogs from classifying one complete composite Subject Expression as one Term. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-CORE-REQUIREMENT--keep-composite-subject-expressions-out-of-terminology.md",
+          "sha256": "c98ea34d029dfa6f5c2b828e13e61156c316da8dfaa8fdc56adbdeb8ebcf504d",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "7ea2d3bbdeb553251f903283d44ca57aeeb30fd8f3142a2ad7b4b2dc91cb0b02",
+          "reason": "Current Main Content for CA-R-1325 forbids terminology or vocabulary Catalogs from classifying one complete composite Subject Expression as one Term; that is the live meaning reviewed for 'Term'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Term'.",
+        "Preserves source CA-R-1325 version 8 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-CORE-REQUIREMENT--keep-composite-subject-expressions-out-of-terminology.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-CORE-REQUIREMENT--keep-composite-subject-expressions-out-of-terminology.md",
+      "source_atom_id": "CA-R-1325",
+      "source_version": 8,
+      "source_sha256": "c98ea34d029dfa6f5c2b828e13e61156c316da8dfaa8fdc56adbdeb8ebcf504d",
+      "field": "governs",
+      "index": null,
+      "old_value": "Projection/Type: Catalog",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Projection/Type: Catalog",
+      "confidence": 0.95,
+      "reason": "Current Main Content forbids terminology or vocabulary Catalogs from classifying one complete composite Subject Expression as one Term. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1325-CORE_META_MODEL-CORE-REQUIREMENT--keep-composite-subject-expressions-out-of-terminology.md",
+          "sha256": "c98ea34d029dfa6f5c2b828e13e61156c316da8dfaa8fdc56adbdeb8ebcf504d",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "7ea2d3bbdeb553251f903283d44ca57aeeb30fd8f3142a2ad7b4b2dc91cb0b02",
+          "reason": "Current Main Content for CA-R-1325 forbids terminology or vocabulary Catalogs from classifying one complete composite Subject Expression as one Term; that is the live meaning reviewed for 'Projection/Type: Catalog'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Projection/Type: Catalog'.",
+        "Preserves source CA-R-1325 version 8 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+      "source_atom_id": "CA-R-1335",
+      "source_version": 13,
+      "source_sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Projection",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+          "sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "d1aa2fbeb2750072a9fd0844bfe376010ef457d210e35d0b5f5898ed3aed2326",
+          "reason": "Current Main Content for CA-R-1335 defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges; that is the live meaning reviewed for 'Projection'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Projection'.",
+        "Preserves source CA-R-1335 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+      "source_atom_id": "CA-R-1335",
+      "source_version": 13,
+      "source_sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Term",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Term",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+          "sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "d1aa2fbeb2750072a9fd0844bfe376010ef457d210e35d0b5f5898ed3aed2326",
+          "reason": "Current Main Content for CA-R-1335 defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges; that is the live meaning reviewed for 'Term'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Term'.",
+        "Preserves source CA-R-1335 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+      "source_atom_id": "CA-R-1335",
+      "source_version": 13,
+      "source_sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Relation Kind",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Relation Kind",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+          "sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "d1aa2fbeb2750072a9fd0844bfe376010ef457d210e35d0b5f5898ed3aed2326",
+          "reason": "Current Main Content for CA-R-1335 defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges; that is the live meaning reviewed for 'Relation Kind'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Relation Kind'.",
+        "Preserves source CA-R-1335 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+      "source_atom_id": "CA-R-1335",
+      "source_version": 13,
+      "source_sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Relation",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+          "sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "d1aa2fbeb2750072a9fd0844bfe376010ef457d210e35d0b5f5898ed3aed2326",
+          "reason": "Current Main Content for CA-R-1335 defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges; that is the live meaning reviewed for 'Relation'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Relation'.",
+        "Preserves source CA-R-1335 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+      "source_atom_id": "CA-R-1335",
+      "source_version": 13,
+      "source_sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "CAPRMEDIO Graph",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges. The candidate confirms a separate graph boundary but does not establish CAPRMEDIO Graph as a dependent property of Projection. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+          "sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "d1aa2fbeb2750072a9fd0844bfe376010ef457d210e35d0b5f5898ed3aed2326",
+          "reason": "Current Main Content for CA-R-1335 defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges; that is the live meaning reviewed for 'CAPRMEDIO Graph'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'CAPRMEDIO Graph'.",
+        "Preserves source CA-R-1335 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+      "source_atom_id": "CA-R-1335",
+      "source_version": 13,
+      "source_sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+      "field": "governs",
+      "index": null,
+      "old_value": "Projection/Type: Terms Graph",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Projection.Type: Terms Graph",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges. The candidate rules support 'Projection.Type: Terms Graph' while retaining the source distinction; this is a non-executable candidate mapping, not grammar or native-relation adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+          "sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "d1aa2fbeb2750072a9fd0844bfe376010ef457d210e35d0b5f5898ed3aed2326",
+          "reason": "Current Main Content for CA-R-1335 defines Terms Graph as a Projection Type whose instances are derived CAPRMEDIO Graphs with native Term nodes and admitted Relation edges; that is the live meaning reviewed for 'Projection/Type: Terms Graph'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/terms_graph_boundary/decision",
+          "reason": "Terms are confirmed to belong to a separate graph."
+        },
+        {
+          "pointer": "/projection_member_model/member_instances",
+          "reason": "Projection is confirmed to contain derived instances."
+        }
+      ],
+      "preserved_distinctions": [
+        "Preserves the governs relation role while mapping 'Projection/Type: Terms Graph' to the candidate identity 'Projection.Type: Terms Graph'.",
+        "Preserves source CA-R-1335 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-CORE-REQUIREMENT--define-concern-content-role.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-CORE-REQUIREMENT--define-concern-content-role.md",
+      "source_atom_id": "CA-R-1336",
+      "source_version": 10,
+      "source_sha256": "183c825c8f7aa504f00060f9a64b1e2d5c021921b905c9f5266cdcbc133f3eb0",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Concern as the Content Role of an Atom Claim identifying a question, conflict, or problem. The candidate names Substance as an umbrella but does not confirm that Content Role is a lossless Substance identity. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-CORE-REQUIREMENT--define-concern-content-role.md",
+          "sha256": "183c825c8f7aa504f00060f9a64b1e2d5c021921b905c9f5266cdcbc133f3eb0",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "b66a6e9c6357164ae57727464f850a1800ba0b1491a3b1fccb1f773185cc3f3f",
+          "reason": "Current Main Content for CA-R-1336 defines Concern as the Content Role of an Atom Claim identifying a question, conflict, or problem; that is the live meaning reviewed for 'Atom/Content Role'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Atom/Content Role'.",
+        "Preserves source CA-R-1336 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-CORE-REQUIREMENT--define-concern-content-role.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-CORE-REQUIREMENT--define-concern-content-role.md",
+      "source_atom_id": "CA-R-1336",
+      "source_version": 10,
+      "source_sha256": "183c825c8f7aa504f00060f9a64b1e2d5c021921b905c9f5266cdcbc133f3eb0",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Claim",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Concern as the Content Role of an Atom Claim identifying a question, conflict, or problem. Claim is a candidate role label, not a confirmed generic dependent-field target for this source occurrence. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-CORE-REQUIREMENT--define-concern-content-role.md",
+          "sha256": "183c825c8f7aa504f00060f9a64b1e2d5c021921b905c9f5266cdcbc133f3eb0",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "b66a6e9c6357164ae57727464f850a1800ba0b1491a3b1fccb1f773185cc3f3f",
+          "reason": "Current Main Content for CA-R-1336 defines Concern as the Content Role of an Atom Claim identifying a question, conflict, or problem; that is the live meaning reviewed for 'Claim'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Claim'.",
+        "Preserves source CA-R-1336 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-CORE-REQUIREMENT--define-concern-content-role.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-CORE-REQUIREMENT--define-concern-content-role.md",
+      "source_atom_id": "CA-R-1336",
+      "source_version": 10,
+      "source_sha256": "183c825c8f7aa504f00060f9a64b1e2d5c021921b905c9f5266cdcbc133f3eb0",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Content Role: Concern",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Concern as the Content Role of an Atom Claim identifying a question, conflict, or problem. The Concern-to-Issue role label does not establish an allowed-value domain of Substance. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1336-CORE_META_MODEL-CORE-REQUIREMENT--define-concern-content-role.md",
+          "sha256": "183c825c8f7aa504f00060f9a64b1e2d5c021921b905c9f5266cdcbc133f3eb0",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "b66a6e9c6357164ae57727464f850a1800ba0b1491a3b1fccb1f773185cc3f3f",
+          "reason": "Current Main Content for CA-R-1336 defines Concern as the Content Role of an Atom Claim identifying a question, conflict, or problem; that is the live meaning reviewed for 'Atom/Content Role: Concern'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Atom/Content Role: Concern'.",
+        "Preserves source CA-R-1336 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md",
+      "source_atom_id": "CA-R-1337",
+      "source_version": 11,
+      "source_sha256": "4d1a31335812edb8411132162bdd2a8448797fb7326d9fa6b1020d2c4ebf293f",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Analysis as the Content Role of an Atom Claim establishing non-normative findings, explanations, comparisons, or rationales. The candidate names Substance as an umbrella but does not confirm that Content Role is a lossless Substance identity. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md",
+          "sha256": "4d1a31335812edb8411132162bdd2a8448797fb7326d9fa6b1020d2c4ebf293f",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "eee1f200e4c049662bfca299225a8d780e780b26bd45cf8b447d6ebdc2b102a0",
+          "reason": "Current Main Content for CA-R-1337 defines Analysis as the Content Role of an Atom Claim establishing non-normative findings, explanations, comparisons, or rationales; that is the live meaning reviewed for 'Atom/Content Role'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Atom/Content Role'.",
+        "Preserves source CA-R-1337 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md",
+      "source_atom_id": "CA-R-1337",
+      "source_version": 11,
+      "source_sha256": "4d1a31335812edb8411132162bdd2a8448797fb7326d9fa6b1020d2c4ebf293f",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Claim",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Analysis as the Content Role of an Atom Claim establishing non-normative findings, explanations, comparisons, or rationales. Claim is a candidate role label, not a confirmed generic dependent-field target for this source occurrence. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md",
+          "sha256": "4d1a31335812edb8411132162bdd2a8448797fb7326d9fa6b1020d2c4ebf293f",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "eee1f200e4c049662bfca299225a8d780e780b26bd45cf8b447d6ebdc2b102a0",
+          "reason": "Current Main Content for CA-R-1337 defines Analysis as the Content Role of an Atom Claim establishing non-normative findings, explanations, comparisons, or rationales; that is the live meaning reviewed for 'Claim'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Claim'.",
+        "Preserves source CA-R-1337 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md",
+      "source_atom_id": "CA-R-1337",
+      "source_version": 11,
+      "source_sha256": "4d1a31335812edb8411132162bdd2a8448797fb7326d9fa6b1020d2c4ebf293f",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Content Role: Analysis",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Analysis as the Content Role of an Atom Claim establishing non-normative findings, explanations, comparisons, or rationales. The Analysis-to-Question role label does not establish an allowed-value domain of Substance. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md",
+          "sha256": "4d1a31335812edb8411132162bdd2a8448797fb7326d9fa6b1020d2c4ebf293f",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "eee1f200e4c049662bfca299225a8d780e780b26bd45cf8b447d6ebdc2b102a0",
+          "reason": "Current Main Content for CA-R-1337 defines Analysis as the Content Role of an Atom Claim establishing non-normative findings, explanations, comparisons, or rationales; that is the live meaning reviewed for 'Atom/Content Role: Analysis'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Atom/Content Role: Analysis'.",
+        "Preserves source CA-R-1337 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md",
+      "source_atom_id": "CA-R-1338",
+      "source_version": 12,
+      "source_sha256": "a9d8d9aa6a147c03136a12ac3acb9b3cb9eeb90978f4cf1734bcc8fe955ce975",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Plan as the Content Role of an Atom Claim stating bounded intended work or an intended outcome. The candidate names Substance as an umbrella but does not confirm that Content Role is a lossless Substance identity. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md",
+          "sha256": "a9d8d9aa6a147c03136a12ac3acb9b3cb9eeb90978f4cf1734bcc8fe955ce975",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "bdec7845dc7698ecf1f6f2e1646e46fe407e51c0be04a5126e1b49069810f0c1",
+          "reason": "Current Main Content for CA-R-1338 defines Plan as the Content Role of an Atom Claim stating bounded intended work or an intended outcome; that is the live meaning reviewed for 'Atom/Content Role'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Atom/Content Role'.",
+        "Preserves source CA-R-1338 version 12 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md",
+      "source_atom_id": "CA-R-1338",
+      "source_version": 12,
+      "source_sha256": "a9d8d9aa6a147c03136a12ac3acb9b3cb9eeb90978f4cf1734bcc8fe955ce975",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Claim",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Plan as the Content Role of an Atom Claim stating bounded intended work or an intended outcome. Claim is a candidate role label, not a confirmed generic dependent-field target for this source occurrence. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md",
+          "sha256": "a9d8d9aa6a147c03136a12ac3acb9b3cb9eeb90978f4cf1734bcc8fe955ce975",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "bdec7845dc7698ecf1f6f2e1646e46fe407e51c0be04a5126e1b49069810f0c1",
+          "reason": "Current Main Content for CA-R-1338 defines Plan as the Content Role of an Atom Claim stating bounded intended work or an intended outcome; that is the live meaning reviewed for 'Claim'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Claim'.",
+        "Preserves source CA-R-1338 version 12 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md",
+      "source_atom_id": "CA-R-1338",
+      "source_version": 12,
+      "source_sha256": "a9d8d9aa6a147c03136a12ac3acb9b3cb9eeb90978f4cf1734bcc8fe955ce975",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Content Role: Plan",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Plan as the Content Role of an Atom Claim stating bounded intended work or an intended outcome. The Plan-to-Objective role label does not establish an allowed-value domain of Substance. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1338-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-content-role.md",
+          "sha256": "a9d8d9aa6a147c03136a12ac3acb9b3cb9eeb90978f4cf1734bcc8fe955ce975",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "bdec7845dc7698ecf1f6f2e1646e46fe407e51c0be04a5126e1b49069810f0c1",
+          "reason": "Current Main Content for CA-R-1338 defines Plan as the Content Role of an Atom Claim stating bounded intended work or an intended outcome; that is the live meaning reviewed for 'Atom/Content Role: Plan'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Atom/Content Role: Plan'.",
+        "Preserves source CA-R-1338 version 12 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+      "source_atom_id": "CA-R-1339",
+      "source_version": 11,
+      "source_sha256": "8c0b6d76eb5023a58e9b830e744cc85c4d436bac9e1ec0cf8a0a7868ae174b63",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Requirement as the Content Role of an Atom Claim defining an Entity model or required result by meaning and value. The candidate names Substance as an umbrella but does not confirm that Content Role is a lossless Substance identity. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+          "sha256": "8c0b6d76eb5023a58e9b830e744cc85c4d436bac9e1ec0cf8a0a7868ae174b63",
+          "start_line": 20,
+          "end_line": 36,
+          "span_sha256": "0e75f1e15f7f1c21e8ec7cfbcbbf849f2283e96e51e85231c6ba1d752164863d",
+          "reason": "Current Main Content for CA-R-1339 defines Requirement as the Content Role of an Atom Claim defining an Entity model or required result by meaning and value; that is the live meaning reviewed for 'Atom/Content Role'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Atom/Content Role'.",
+        "Preserves source CA-R-1339 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+      "source_atom_id": "CA-R-1339",
+      "source_version": 11,
+      "source_sha256": "8c0b6d76eb5023a58e9b830e744cc85c4d436bac9e1ec0cf8a0a7868ae174b63",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Requirement as the Content Role of an Atom Claim defining an Entity model or required result by meaning and value. Claim is a role label in the candidate, not a confirmed Substance allowed-value domain; recoding Atom/Claim would invent that domain. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+          "sha256": "8c0b6d76eb5023a58e9b830e744cc85c4d436bac9e1ec0cf8a0a7868ae174b63",
+          "start_line": 20,
+          "end_line": 36,
+          "span_sha256": "0e75f1e15f7f1c21e8ec7cfbcbbf849f2283e96e51e85231c6ba1d752164863d",
+          "reason": "Current Main Content for CA-R-1339 defines Requirement as the Content Role of an Atom Claim defining an Entity model or required result by meaning and value; that is the live meaning reviewed for 'Atom/Claim'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Atom/Claim'.",
+        "Preserves source CA-R-1339 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+      "source_atom_id": "CA-R-1339",
+      "source_version": 11,
+      "source_sha256": "8c0b6d76eb5023a58e9b830e744cc85c4d436bac9e1ec0cf8a0a7868ae174b63",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Entity",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Requirement as the Content Role of an Atom Claim defining an Entity model or required result by meaning and value. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+          "sha256": "8c0b6d76eb5023a58e9b830e744cc85c4d436bac9e1ec0cf8a0a7868ae174b63",
+          "start_line": 20,
+          "end_line": 36,
+          "span_sha256": "0e75f1e15f7f1c21e8ec7cfbcbbf849f2283e96e51e85231c6ba1d752164863d",
+          "reason": "Current Main Content for CA-R-1339 defines Requirement as the Content Role of an Atom Claim defining an Entity model or required result by meaning and value; that is the live meaning reviewed for 'Entity'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Entity'.",
+        "Preserves source CA-R-1339 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+      "source_atom_id": "CA-R-1339",
+      "source_version": 11,
+      "source_sha256": "8c0b6d76eb5023a58e9b830e744cc85c4d436bac9e1ec0cf8a0a7868ae174b63",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Content Role: Requirement",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Requirement as the Content Role of an Atom Claim defining an Entity model or required result by meaning and value. The frozen consolidated review records only 82 percent confidence and calls for review; no replacement Subject value is supported. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1339-CORE_META_MODEL-CORE-REQUIREMENT--define-requirement-content-role.md",
+          "sha256": "8c0b6d76eb5023a58e9b830e744cc85c4d436bac9e1ec0cf8a0a7868ae174b63",
+          "start_line": 20,
+          "end_line": 36,
+          "span_sha256": "0e75f1e15f7f1c21e8ec7cfbcbbf849f2283e96e51e85231c6ba1d752164863d",
+          "reason": "Current Main Content for CA-R-1339 defines Requirement as the Content Role of an Atom Claim defining an Entity model or required result by meaning and value; that is the live meaning reviewed for 'Atom/Content Role: Requirement'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Atom/Content Role: Requirement'.",
+        "Preserves source CA-R-1339 version 11 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+      "source_atom_id": "CA-R-1340",
+      "source_version": 13,
+      "source_sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow. The candidate names Substance as an umbrella but does not confirm that Content Role is a lossless Substance identity. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+          "sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "73086c9bda62a9d4639fcf152df7451a592fd3ceb2411bf970f9fde35cee3558",
+          "reason": "Current Main Content for CA-R-1340 defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow; that is the live meaning reviewed for 'Atom/Content Role'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Atom/Content Role'.",
+        "Preserves source CA-R-1340 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+      "source_atom_id": "CA-R-1340",
+      "source_version": 13,
+      "source_sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow. Claim is a role label in the candidate, not a confirmed Substance allowed-value domain; recoding Atom/Claim would invent that domain. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+          "sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "73086c9bda62a9d4639fcf152df7451a592fd3ceb2411bf970f9fde35cee3558",
+          "reason": "Current Main Content for CA-R-1340 defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow; that is the live meaning reviewed for 'Atom/Claim'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Atom/Claim'.",
+        "Preserves source CA-R-1340 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+      "source_atom_id": "CA-R-1340",
+      "source_version": 13,
+      "source_sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Spec",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow. The frozen consolidated review records a captured-evidence gap for Spec; the current Method definition invokes accepted Spec authority without defining a candidate identity. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+          "sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "73086c9bda62a9d4639fcf152df7451a592fd3ceb2411bf970f9fde35cee3558",
+          "reason": "Current Main Content for CA-R-1340 defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow; that is the live meaning reviewed for 'Spec'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Spec'.",
+        "Preserves source CA-R-1340 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+      "source_atom_id": "CA-R-1340",
+      "source_version": 13,
+      "source_sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Implementation",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Implementation",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow. The frozen candidate and review do not identify a different meaning for this identity, so its exact source identity is retained unchanged rather than converted from an unsupported display path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+          "sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "73086c9bda62a9d4639fcf152df7451a592fd3ceb2411bf970f9fde35cee3558",
+          "reason": "Current Main Content for CA-R-1340 defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow; that is the live meaning reviewed for 'Implementation'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Implementation'.",
+        "Preserves source CA-R-1340 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+      "source_atom_id": "CA-R-1340",
+      "source_version": 13,
+      "source_sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Action",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow. The current content distinguishes an Action from the execution that may establish a Status value, while the candidate names Action Run only as an Execution kind; mapping Action would conflate definition and actual run. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+          "sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "73086c9bda62a9d4639fcf152df7451a592fd3ceb2411bf970f9fde35cee3558",
+          "reason": "Current Main Content for CA-R-1340 defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow; that is the live meaning reviewed for 'Action'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Action'.",
+        "Preserves source CA-R-1340 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+      "source_atom_id": "CA-R-1340",
+      "source_version": 13,
+      "source_sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Workflow",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow. The current content distinguishes a Workflow from the execution that may establish a Status value, while the candidate does not give a lossless Workflow definition identity separate from Workflow Run. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+          "sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "73086c9bda62a9d4639fcf152df7451a592fd3ceb2411bf970f9fde35cee3558",
+          "reason": "Current Main Content for CA-R-1340 defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow; that is the live meaning reviewed for 'Workflow'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Workflow'.",
+        "Preserves source CA-R-1340 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+      "source_atom_id": "CA-R-1340",
+      "source_version": 13,
+      "source_sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Content Role: Method",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow. The M view is not a confirmed Atom allowed-value domain for Method. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1340-CORE_META_MODEL-CORE-REQUIREMENT--define-method-content-role.md",
+          "sha256": "4758c73050eb598900b3164ef7dda1e252bce776670bfe192e203d82b6acd314",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "73086c9bda62a9d4639fcf152df7451a592fd3ceb2411bf970f9fde35cee3558",
+          "reason": "Current Main Content for CA-R-1340 defines Method as the Content Role of an Atom Claim establishing reusable authorship, construction, or Implementation choices without defining a particular Action or Workflow; that is the live meaning reviewed for 'Atom/Content Role: Method'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Atom/Content Role: Method'.",
+        "Preserves source CA-R-1340 version 13 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+      "source_atom_id": "CA-R-1341",
+      "source_version": 10,
+      "source_sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Evaluation as the Content Role of an Atom Claim establishing a falsifiable check, acceptance criterion, or disposition rule. The candidate names Substance as an umbrella but does not confirm that Content Role is a lossless Substance identity. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "612cdd055326b56ee61abb970d32702fdf21a1b91549c0a88309c3ffe72e221e",
+          "reason": "Current Main Content for CA-R-1341 defines Evaluation as the Content Role of an Atom Claim establishing a falsifiable check, acceptance criterion, or disposition rule; that is the live meaning reviewed for 'Atom/Content Role'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Atom/Content Role'.",
+        "Preserves source CA-R-1341 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+      "source_atom_id": "CA-R-1341",
+      "source_version": 10,
+      "source_sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Claim",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Evaluation as the Content Role of an Atom Claim establishing a falsifiable check, acceptance criterion, or disposition rule. Claim is a candidate role label, not a confirmed generic dependent-field target for this source occurrence. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "612cdd055326b56ee61abb970d32702fdf21a1b91549c0a88309c3ffe72e221e",
+          "reason": "Current Main Content for CA-R-1341 defines Evaluation as the Content Role of an Atom Claim establishing a falsifiable check, acceptance criterion, or disposition rule; that is the live meaning reviewed for 'Claim'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the depends_on relation role and the source meaning of 'Claim'.",
+        "Preserves source CA-R-1341 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+      "source_atom_id": "CA-R-1341",
+      "source_version": 10,
+      "source_sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Content Role: Evaluation",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Evaluation as the Content Role of an Atom Claim establishing a falsifiable check, acceptance criterion, or disposition rule. The E view is not a confirmed Atom allowed-value domain for Evaluation. This is a source/candidate evidence gap, not an Operator choice.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "612cdd055326b56ee61abb970d32702fdf21a1b91549c0a88309c3ffe72e221e",
+          "reason": "Current Main Content for CA-R-1341 defines Evaluation as the Content Role of an Atom Claim establishing a falsifiable check, acceptance criterion, or disposition rule; that is the live meaning reviewed for 'Atom/Content Role: Evaluation'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Preserves the governs relation role and the source meaning of 'Atom/Content Role: Evaluation'.",
+        "Preserves source CA-R-1341 version 10 as an Active Requirement owned by CORE_META_MODEL.",
+        "Does not collapse a slash or colon qualification, an allowed-value domain, or a carrier/storage convention."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}

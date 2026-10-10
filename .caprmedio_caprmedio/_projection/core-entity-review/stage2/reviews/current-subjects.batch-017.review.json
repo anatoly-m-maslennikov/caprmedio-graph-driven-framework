@@ -1,0 +1,3001 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-2008",
+  "batch_id": "current-subjects.batch-017",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-017.json",
+  "input_batch_sha256": "44c4e7f67dd1c8df5b13d29a77b58538b05a0e1ebc6dbe377d2ab0b5186721e6",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  ],
+  "source_reviews": [
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md",
+      "full_file_sha256": "7104d89f8b8d86133f9e88283a553e1b5ef0f16669858a5530e65ade72e211cd",
+      "atom_id": "CA-R-1629",
+      "version": 22,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion.md",
+      "full_file_sha256": "98377265ae66b7bbf53def7f98fa0024ef1ee875c0b1bddb9958760e34750a2b",
+      "atom_id": "CA-R-1630",
+      "version": 26,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-REQUIREMENT--configure-optional-projection-activation.md",
+      "full_file_sha256": "73fcadf29541c6ae3d019f4581a6a72996ff39d54cbb15a93a391ae53429cdd6",
+      "atom_id": "CA-R-1631",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md",
+      "full_file_sha256": "345d4038af3b7fd708ddc9111280c32afd65fe7ac8f0cb70ac83948054b52a88",
+      "atom_id": "CA-R-1632",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+      "full_file_sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+      "atom_id": "CA-R-1633",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+      "full_file_sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+      "atom_id": "CA-R-1634",
+      "version": 26,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+      "full_file_sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+      "atom_id": "CA-R-1638",
+      "version": 27,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-CORE-REQUIREMENT--register-derived-from-relation.md",
+      "full_file_sha256": "a22c2bf49acb072295d3eab10999e0f0ff9ca3258bc035f42d08142e9252ab0a",
+      "atom_id": "CA-R-1639",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md",
+      "full_file_sha256": "996e199076e7e039b094cec23394cdfa22412dd12f69676585ba008c7713dac5",
+      "atom_id": "CA-R-1643",
+      "version": 22,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+      "full_file_sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+      "atom_id": "CA-R-1644",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md",
+      "full_file_sha256": "3e10153314d2dc0953b1b2d53f34f78ff8870ba006bf70091fbe8ed9f34a148a",
+      "atom_id": "CA-R-1646",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1647-CORE_META_MODEL-REQUIREMENT--generate-the-proof-currentness-catalog.md",
+      "full_file_sha256": "1e5fe234fc77b0b02471640d9553c6affdd2a599bbefb17a913dbf46f8e25bba",
+      "atom_id": "CA-R-1647",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1648-CORE_META_MODEL-REQUIREMENT--use-external-analysis-atoms-as-review-envelopes.md",
+      "full_file_sha256": "8369f556bea4300ccfd986d3a4aed5a9747cf77e6a7e113085698caca65b8b8e",
+      "atom_id": "CA-R-1648",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md",
+      "full_file_sha256": "e955bf3d0d5506d326d761c8372d0c9d1b1a9c0c73c3475adb5891a1e812542b",
+      "atom_id": "CA-R-1649",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-GENERAL-REQUIREMENT--define-the-bounded-session-state-envelope.md",
+      "full_file_sha256": "600a62b7febd9ee2e57e8366747a1e03d6df6047e4d7627eef4583b7182c0795",
+      "atom_id": "CA-R-1650",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+      "full_file_sha256": "b803ff9c8c7843b076bfd4cec278ae20d3fc217b9750958b3e4fa317d7a19225",
+      "atom_id": "CA-R-1652",
+      "version": 22,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1653-CORE_META_MODEL-REQUIREMENT--register-related-to-for-casual-mode.md",
+      "full_file_sha256": "3eaa9aab888e393f88d9e432ff8138ac2dbe04536f418b769a0386708727cca5",
+      "atom_id": "CA-R-1653",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-REQUIREMENT--register-feature-realization-relation-kind.md",
+      "full_file_sha256": "28ff8f32783d05401da1b6a3f8d0e71e79545120da43dae1d166910079326d67",
+      "atom_id": "CA-R-1654",
+      "version": 22,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "full_file_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "atom_id": "CA-R-1655",
+      "version": 25,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1656-CORE_META_MODEL-CORE-REQUIREMENT--require-one-parent-scope-unit.md",
+      "full_file_sha256": "6a614abce4b566b19ca12c91d90d0e66e73a7220e0d396d846133f4bc3cf2e54",
+      "atom_id": "CA-R-1656",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role: Concern",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1629",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md",
+      "source_sha256": "7104d89f8b8d86133f9e88283a553e1b5ef0f16669858a5530e65ade72e211cd",
+      "source_version": 22,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Concern",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Effective priority conflict selection') establishes 'Atom/Content Role: Concern' as a bearer-qualified field or context. The proposed 'Atom.Content Role: Concern' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current depends_on role of 'Atom/Content Role: Concern' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md",
+          "sha256": "7104d89f8b8d86133f9e88283a553e1b5ef0f16669858a5530e65ade72e211cd",
+          "start_line": 21,
+          "end_line": 46,
+          "span_sha256": "9ad1e6c61bd0eaf3e1c15cbb6e77cf39a724a58eb11d11fada1568c49418465d",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md#subjects.depends_on[1]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1629",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md",
+      "source_sha256": "7104d89f8b8d86133f9e88283a553e1b5ef0f16669858a5530e65ade72e211cd",
+      "source_version": 22,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Effective priority conflict selection') directly supports the exact current Subject 'Scope Unit', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Scope Unit' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md",
+          "sha256": "7104d89f8b8d86133f9e88283a553e1b5ef0f16669858a5530e65ade72e211cd",
+          "start_line": 21,
+          "end_line": 46,
+          "span_sha256": "9ad1e6c61bd0eaf3e1c15cbb6e77cf39a724a58eb11d11fada1568c49418465d",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md#subjects.depends_on[2]",
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1629",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md",
+      "source_sha256": "7104d89f8b8d86133f9e88283a553e1b5ef0f16669858a5530e65ade72e211cd",
+      "source_version": 22,
+      "decision": "unchanged",
+      "proposed_value": "Framework Instance Settings",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Effective priority conflict selection') directly supports the exact current Subject 'Framework Instance Settings', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Framework Instance Settings' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md",
+          "sha256": "7104d89f8b8d86133f9e88283a553e1b5ef0f16669858a5530e65ade72e211cd",
+          "start_line": 21,
+          "end_line": 46,
+          "span_sha256": "9ad1e6c61bd0eaf3e1c15cbb6e77cf39a724a58eb11d11fada1568c49418465d",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md#subjects.depends_on[3]",
+      "old_value": "Operator",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1629",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md",
+      "source_sha256": "7104d89f8b8d86133f9e88283a553e1b5ef0f16669858a5530e65ade72e211cd",
+      "source_version": 22,
+      "decision": "unchanged",
+      "proposed_value": "Operator",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Effective priority conflict selection') directly supports the exact current Subject 'Operator', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Operator' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md",
+          "sha256": "7104d89f8b8d86133f9e88283a553e1b5ef0f16669858a5530e65ade72e211cd",
+          "start_line": 21,
+          "end_line": 46,
+          "span_sha256": "9ad1e6c61bd0eaf3e1c15cbb6e77cf39a724a58eb11d11fada1568c49418465d",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md#subjects.governs",
+      "old_value": "Priority",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1629",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md",
+      "source_sha256": "7104d89f8b8d86133f9e88283a553e1b5ef0f16669858a5530e65ade72e211cd",
+      "source_version": 22,
+      "decision": "proposed",
+      "proposed_value": "Atom.Priority",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Effective priority conflict selection') establishes 'Priority' as a bearer-qualified field or context. The proposed 'Atom.Priority' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current governs role of 'Priority' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1629-CORE_META_MODEL-REQUIREMENT--effective-priority-conflict-selection.md",
+          "sha256": "7104d89f8b8d86133f9e88283a553e1b5ef0f16669858a5530e65ade72e211cd",
+          "start_line": 21,
+          "end_line": 46,
+          "span_sha256": "9ad1e6c61bd0eaf3e1c15cbb6e77cf39a724a58eb11d11fada1568c49418465d",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion.md#subjects.depends_on[0]",
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1630",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion.md",
+      "source_sha256": "98377265ae66b7bbf53def7f98fa0024ef1ee875c0b1bddb9958760e34750a2b",
+      "source_version": 26,
+      "decision": "unchanged",
+      "proposed_value": "Framework Instance Settings",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Gate atomic admission and promotion') directly supports the exact current Subject 'Framework Instance Settings', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Framework Instance Settings' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion.md",
+          "sha256": "98377265ae66b7bbf53def7f98fa0024ef1ee875c0b1bddb9958760e34750a2b",
+          "start_line": 23,
+          "end_line": 43,
+          "span_sha256": "70261d00956a843d54220df8e75c84ad38652a089ed96e5f1d3a449f19d56df4",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion.md#subjects.depends_on[1]",
+      "old_value": "Default Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1630",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion.md",
+      "source_sha256": "98377265ae66b7bbf53def7f98fa0024ef1ee875c0b1bddb9958760e34750a2b",
+      "source_version": 26,
+      "decision": "unchanged",
+      "proposed_value": "Default Settings",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Gate atomic admission and promotion') directly supports the exact current Subject 'Default Settings', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Default Settings' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion.md",
+          "sha256": "98377265ae66b7bbf53def7f98fa0024ef1ee875c0b1bddb9958760e34750a2b",
+          "start_line": 23,
+          "end_line": 43,
+          "span_sha256": "70261d00956a843d54220df8e75c84ad38652a089ed96e5f1d3a449f19d56df4",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion.md#subjects.governs",
+      "old_value": "lifecycle",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1630",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion.md",
+      "source_sha256": "98377265ae66b7bbf53def7f98fa0024ef1ee875c0b1bddb9958760e34750a2b",
+      "source_version": 26,
+      "decision": "unchanged",
+      "proposed_value": "lifecycle",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Gate atomic admission and promotion') directly supports the exact current Subject 'lifecycle', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current governs value 'lifecycle' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1630-CORE_META_MODEL-REQUIREMENT--gate-atomic-admission-and-promotion.md",
+          "sha256": "98377265ae66b7bbf53def7f98fa0024ef1ee875c0b1bddb9958760e34750a2b",
+          "start_line": 23,
+          "end_line": 43,
+          "span_sha256": "70261d00956a843d54220df8e75c84ad38652a089ed96e5f1d3a449f19d56df4",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-REQUIREMENT--configure-optional-projection-activation.md#subjects.depends_on[0]",
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1631",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-REQUIREMENT--configure-optional-projection-activation.md",
+      "source_sha256": "73fcadf29541c6ae3d019f4581a6a72996ff39d54cbb15a93a391ae53429cdd6",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "Framework Instance Settings",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Configure Optional Projection Activation') directly supports the exact current Subject 'Framework Instance Settings', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Framework Instance Settings' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-REQUIREMENT--configure-optional-projection-activation.md",
+          "sha256": "73fcadf29541c6ae3d019f4581a6a72996ff39d54cbb15a93a391ae53429cdd6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "7c45ed38785bab831fc7aea56bbd4b3631534321c6d8ee9e521199ae79084128",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-REQUIREMENT--configure-optional-projection-activation.md#subjects.depends_on[1]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1631",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-REQUIREMENT--configure-optional-projection-activation.md",
+      "source_sha256": "73fcadf29541c6ae3d019f4581a6a72996ff39d54cbb15a93a391ae53429cdd6",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Configure Optional Projection Activation') directly supports the exact current Subject 'Projection', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Projection' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-REQUIREMENT--configure-optional-projection-activation.md",
+          "sha256": "73fcadf29541c6ae3d019f4581a6a72996ff39d54cbb15a93a391ae53429cdd6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "7c45ed38785bab831fc7aea56bbd4b3631534321c6d8ee9e521199ae79084128",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-REQUIREMENT--configure-optional-projection-activation.md#subjects.governs",
+      "old_value": "Optional Projection/Activation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1631",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-REQUIREMENT--configure-optional-projection-activation.md",
+      "source_sha256": "73fcadf29541c6ae3d019f4581a6a72996ff39d54cbb15a93a391ae53429cdd6",
+      "source_version": 20,
+      "decision": "proposed",
+      "proposed_value": "Optional Projection.Activation",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Configure Optional Projection Activation') establishes 'Optional Projection/Activation' as a bearer-qualified field or context. The proposed 'Optional Projection.Activation' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current governs role of 'Optional Projection/Activation' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1631-CORE_META_MODEL-REQUIREMENT--configure-optional-projection-activation.md",
+          "sha256": "73fcadf29541c6ae3d019f4581a6a72996ff39d54cbb15a93a391ae53429cdd6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "7c45ed38785bab831fc7aea56bbd4b3631534321c6d8ee9e521199ae79084128",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1632",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md",
+      "source_sha256": "345d4038af3b7fd708ddc9111280c32afd65fe7ac8f0cb70ac83948054b52a88",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "atom-boundary",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Classify lineage impact with four dispositions') directly supports the exact current Subject 'atom-boundary', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'atom-boundary' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md",
+          "sha256": "345d4038af3b7fd708ddc9111280c32afd65fe7ac8f0cb70ac83948054b52a88",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "3ddd62ee0be11d68dfe1fd5dba8822c42a8ea10c9ee0fd8ec886ba310bd93c60",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1632",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md",
+      "source_sha256": "345d4038af3b7fd708ddc9111280c32afd65fe7ac8f0cb70ac83948054b52a88",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "relation-model",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Classify lineage impact with four dispositions') directly supports the exact current Subject 'relation-model', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current governs value 'relation-model' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md",
+          "sha256": "345d4038af3b7fd708ddc9111280c32afd65fe7ac8f0cb70ac83948054b52a88",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "3ddd62ee0be11d68dfe1fd5dba8822c42a8ea10c9ee0fd8ec886ba310bd93c60",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md#subjects.depends_on[0]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1633",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+      "source_sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Record one Lineage Impact Analysis per changed atom revision') directly supports the exact current Subject 'Atom', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Atom' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+          "sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "a24e961ce51614a73b033b5f299e23ee82a0995b598b5a340877d0fc38b33b9e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md#subjects.depends_on[1]",
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1633",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+      "source_sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+      "source_version": 20,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Record one Lineage Impact Analysis per changed atom revision') defines an immutable governed-meaning Revision rather than an Artifact Property. The latest candidate records Revision as the separate historical root; this proposal preserves the Artifact-specific lifecycle profile without extending Atom-only Version or Updated At obligations.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "The latest candidate explicitly makes Revision a historical root and excludes Artifact/Revision; current Main Content supplies the Artifact-specific Revision profile."
+        }
+      ],
+      "preserved_distinctions": [
+        "Artifact-specific Revision lifecycle metadata remains distinct from Atom-only Version and Updated At obligations.",
+        "Revision remains historical, not an Artifact property, subtype, or new native relation admission."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+          "sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "a24e961ce51614a73b033b5f299e23ee82a0995b598b5a340877d0fc38b33b9e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md#subjects.depends_on[2]",
+      "old_value": "Atom Change Classification",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1633",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+      "source_sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+      "source_version": 20,
+      "decision": "proposed",
+      "proposed_value": "Atom.Change Classification",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Record one Lineage Impact Analysis per changed atom revision') establishes 'Atom Change Classification' as a bearer-qualified field or context. The proposed 'Atom.Change Classification' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current depends_on role of 'Atom Change Classification' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+          "sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "a24e961ce51614a73b033b5f299e23ee82a0995b598b5a340877d0fc38b33b9e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md#subjects.depends_on[3]",
+      "old_value": "Carrier-Only Recoding",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1633",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+      "source_sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "Carrier-Only Recoding",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Record one Lineage Impact Analysis per changed atom revision') directly supports the exact current Subject 'Carrier-Only Recoding', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Carrier-Only Recoding' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+          "sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "a24e961ce51614a73b033b5f299e23ee82a0995b598b5a340877d0fc38b33b9e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md#subjects.depends_on[4]",
+      "old_value": "Verification",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1633",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+      "source_sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "Verification",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Record one Lineage Impact Analysis per changed atom revision') directly supports the exact current Subject 'Verification', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Verification' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+          "sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "a24e961ce51614a73b033b5f299e23ee82a0995b598b5a340877d0fc38b33b9e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md#subjects.governs",
+      "old_value": "Lineage Impact Analysis",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1633",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+      "source_sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "Lineage Impact Analysis",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Record one Lineage Impact Analysis per changed atom revision') directly supports the exact current Subject 'Lineage Impact Analysis', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current governs value 'Lineage Impact Analysis' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-GENERAL-REQUIREMENT--record-one-lineage-impact-analysis-per-changed-atom-revision.md",
+          "sha256": "bd6d8f8d72e05f3a90e490e1d0d3804f2843a8fc7a42b3bec6b4f1944366cfdd",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "a24e961ce51614a73b033b5f299e23ee82a0995b598b5a340877d0fc38b33b9e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md#subjects.depends_on[0]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1634",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+      "source_sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+      "source_version": 26,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Register Catalog, Map, and Hub as Type Values under Projection') directly supports the exact current Subject 'Projection', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Projection' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+          "sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "c3d34e7277468c71517018ae3075432c1cee71d038b74db17dba32fd8912d4cb",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md#subjects.depends_on[1]",
+      "old_value": "Type",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1634",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+      "source_sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+      "source_version": 26,
+      "decision": "unchanged",
+      "proposed_value": "Type",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Register Catalog, Map, and Hub as Type Values under Projection') directly supports the exact current Subject 'Type', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Type' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+          "sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "c3d34e7277468c71517018ae3075432c1cee71d038b74db17dba32fd8912d4cb",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md#subjects.depends_on[2]",
+      "old_value": "Projection/Type: Catalog",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1634",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+      "source_sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+      "source_version": 26,
+      "decision": "proposed",
+      "proposed_value": "Projection.Type: Catalog",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Register Catalog, Map, and Hub as Type Values under Projection') establishes 'Projection/Type: Catalog' as a bearer-qualified field or context. The proposed 'Projection.Type: Catalog' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current depends_on role of 'Projection/Type: Catalog' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+          "sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "c3d34e7277468c71517018ae3075432c1cee71d038b74db17dba32fd8912d4cb",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md#subjects.depends_on[3]",
+      "old_value": "Projection/Type: Map",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1634",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+      "source_sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+      "source_version": 26,
+      "decision": "proposed",
+      "proposed_value": "Projection.Type: Map",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Register Catalog, Map, and Hub as Type Values under Projection') establishes 'Projection/Type: Map' as a bearer-qualified field or context. The proposed 'Projection.Type: Map' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current depends_on role of 'Projection/Type: Map' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+          "sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "c3d34e7277468c71517018ae3075432c1cee71d038b74db17dba32fd8912d4cb",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md#subjects.depends_on[4]",
+      "old_value": "Projection/Type: Hub",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1634",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+      "source_sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+      "source_version": 26,
+      "decision": "proposed",
+      "proposed_value": "Projection.Type: Hub",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Register Catalog, Map, and Hub as Type Values under Projection') establishes 'Projection/Type: Hub' as a bearer-qualified field or context. The proposed 'Projection.Type: Hub' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current depends_on role of 'Projection/Type: Hub' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+          "sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "c3d34e7277468c71517018ae3075432c1cee71d038b74db17dba32fd8912d4cb",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md#subjects.depends_on[5]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1634",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+      "source_sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+      "source_version": 26,
+      "decision": "proposed",
+      "proposed_value": "Atom.Substance",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Register Catalog, Map, and Hub as Type Values under Projection') uses 'Atom/Claim' for the Atom's independently replaceable Claim and its derived comparison field. The latest candidate selects Substance as the content umbrella, so 'Atom.Substance' preserves that owner/field distinction without treating Claim as an allowed-value admission.",
+      "candidate_basis": [
+        {
+          "pointer": "/content_direction",
+          "reason": "The latest candidate names Substance as the content umbrella and RMED Claim as a role label; current Main Content supplies the Claim and signature meaning without adding a colon value-domain assertion."
+        }
+      ],
+      "preserved_distinctions": [
+        "Claim remains the current role label and is not asserted as an allowed value of Substance.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+          "sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "c3d34e7277468c71517018ae3075432c1cee71d038b74db17dba32fd8912d4cb",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md#subjects.governs",
+      "old_value": "Projection/Type",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1634",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+      "source_sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+      "source_version": 26,
+      "decision": "proposed",
+      "proposed_value": "Projection.Type",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Register Catalog, Map, and Hub as Type Values under Projection') establishes 'Projection/Type' as a bearer-qualified field or context. The proposed 'Projection.Type' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current governs role of 'Projection/Type' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1634-CORE_META_MODEL-GENERAL--register-catalog-map-and-hub-as-type-values-under-projection.md",
+          "sha256": "bd9a77fd4ccf72bcd78441f710af014c613bca8a53aab8d22f16e3d132f338f8",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "c3d34e7277468c71517018ae3075432c1cee71d038b74db17dba32fd8912d4cb",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md#subjects.depends_on[0]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1638",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+      "source_sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+      "source_version": 27,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Register the Implementation Overview Projection') directly supports the exact current Subject 'Projection', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Projection' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+          "sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+          "start_line": 27,
+          "end_line": 47,
+          "span_sha256": "c330f11af093100cdef0a5ab924511de6b326fd5c3ef9b311d5832cfd8981dc4",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md#subjects.depends_on[1]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1638",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+      "source_sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+      "source_version": 27,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Register the Implementation Overview Projection') directly supports the exact current Subject 'Atom', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Atom' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+          "sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+          "start_line": 27,
+          "end_line": 47,
+          "span_sha256": "c330f11af093100cdef0a5ab924511de6b326fd5c3ef9b311d5832cfd8981dc4",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md#subjects.depends_on[2]",
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1638",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+      "source_sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+      "source_version": 27,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Register the Implementation Overview Projection') defines an immutable governed-meaning Revision rather than an Artifact Property. The latest candidate records Revision as the separate historical root; this proposal preserves the Artifact-specific lifecycle profile without extending Atom-only Version or Updated At obligations.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "The latest candidate explicitly makes Revision a historical root and excludes Artifact/Revision; current Main Content supplies the Artifact-specific Revision profile."
+        }
+      ],
+      "preserved_distinctions": [
+        "Artifact-specific Revision lifecycle metadata remains distinct from Atom-only Version and Updated At obligations.",
+        "Revision remains historical, not an Artifact property, subtype, or new native relation admission."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+          "sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+          "start_line": 27,
+          "end_line": 47,
+          "span_sha256": "c330f11af093100cdef0a5ab924511de6b326fd5c3ef9b311d5832cfd8981dc4",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md#subjects.depends_on[3]",
+      "old_value": "Implementation Binding",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1638",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+      "source_sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+      "source_version": 27,
+      "decision": "unchanged",
+      "proposed_value": "Implementation Binding",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Register the Implementation Overview Projection') directly supports the exact current Subject 'Implementation Binding', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Implementation Binding' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+          "sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+          "start_line": 27,
+          "end_line": 47,
+          "span_sha256": "c330f11af093100cdef0a5ab924511de6b326fd5c3ef9b311d5832cfd8981dc4",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md#subjects.depends_on[4]",
+      "old_value": "Journal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1638",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+      "source_sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+      "source_version": 27,
+      "decision": "unchanged",
+      "proposed_value": "Journal",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Register the Implementation Overview Projection') directly supports the exact current Subject 'Journal', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Journal' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+          "sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+          "start_line": 27,
+          "end_line": 47,
+          "span_sha256": "c330f11af093100cdef0a5ab924511de6b326fd5c3ef9b311d5832cfd8981dc4",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md#subjects.depends_on[5]",
+      "old_value": "Implementation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1638",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+      "source_sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+      "source_version": 27,
+      "decision": "unchanged",
+      "proposed_value": "Implementation",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Register the Implementation Overview Projection') directly supports the exact current Subject 'Implementation', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Implementation' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+          "sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+          "start_line": 27,
+          "end_line": 47,
+          "span_sha256": "c330f11af093100cdef0a5ab924511de6b326fd5c3ef9b311d5832cfd8981dc4",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md#subjects.depends_on[6]",
+      "old_value": "Verification",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1638",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+      "source_sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+      "source_version": 27,
+      "decision": "unchanged",
+      "proposed_value": "Verification",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Register the Implementation Overview Projection') directly supports the exact current Subject 'Verification', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Verification' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+          "sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+          "start_line": 27,
+          "end_line": 47,
+          "span_sha256": "c330f11af093100cdef0a5ab924511de6b326fd5c3ef9b311d5832cfd8981dc4",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md#subjects.governs",
+      "old_value": "Projection/Type: Implementation Overview",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1638",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+      "source_sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+      "source_version": 27,
+      "decision": "proposed",
+      "proposed_value": "Projection.Type: Implementation Overview",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Register the Implementation Overview Projection') establishes 'Projection/Type: Implementation Overview' as a bearer-qualified field or context. The proposed 'Projection.Type: Implementation Overview' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current governs role of 'Projection/Type: Implementation Overview' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1638-CORE_META_MODEL-CORE-REQUIREMENT--register-the-implementation-overview-projection.md",
+          "sha256": "b6e8d268fc9546c9ae843a22b79f0f39f8c78362545fc86728a8dd314a35b099",
+          "start_line": 27,
+          "end_line": 47,
+          "span_sha256": "c330f11af093100cdef0a5ab924511de6b326fd5c3ef9b311d5832cfd8981dc4",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-CORE-REQUIREMENT--register-derived-from-relation.md#subjects.depends_on[0]",
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1639",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-CORE-REQUIREMENT--register-derived-from-relation.md",
+      "source_sha256": "a22c2bf49acb072295d3eab10999e0f0ff9ca3258bc035f42d08142e9252ab0a",
+      "source_version": 20,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Register derived_from relation') defines an immutable governed-meaning Revision rather than an Artifact Property. The latest candidate records Revision as the separate historical root; this proposal preserves the Artifact-specific lifecycle profile without extending Atom-only Version or Updated At obligations.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "The latest candidate explicitly makes Revision a historical root and excludes Artifact/Revision; current Main Content supplies the Artifact-specific Revision profile."
+        }
+      ],
+      "preserved_distinctions": [
+        "Artifact-specific Revision lifecycle metadata remains distinct from Atom-only Version and Updated At obligations.",
+        "Revision remains historical, not an Artifact property, subtype, or new native relation admission."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-CORE-REQUIREMENT--register-derived-from-relation.md",
+          "sha256": "a22c2bf49acb072295d3eab10999e0f0ff9ca3258bc035f42d08142e9252ab0a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "9be5a292371f46d6580b126fe44e1fa99c2700591ab780ca4d470ef6f04251dc",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-CORE-REQUIREMENT--register-derived-from-relation.md#subjects.governs",
+      "old_value": "DERIVED_FROM",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1639",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-CORE-REQUIREMENT--register-derived-from-relation.md",
+      "source_sha256": "a22c2bf49acb072295d3eab10999e0f0ff9ca3258bc035f42d08142e9252ab0a",
+      "source_version": 20,
+      "decision": "proposed",
+      "proposed_value": "Relation/DERIVED_FROM",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Register derived_from relation') explicitly defines 'DERIVED_FROM' as a typed relation or relation kind. The proposed 'Relation/DERIVED_FROM' uses slash only for the candidate Relation broader-to-narrower family and preserves endpoint constraints.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The latest candidate defines Relation as the root for typed Entity connections; current Main Content establishes this specific relation meaning, without admitting it natively."
+        }
+      ],
+      "preserved_distinctions": [
+        "Typed relation direction, endpoint constraints, and relation-kind context remain distinct from a concrete fact.",
+        "No native relation admission, endpoint expansion, or display-only Artifact prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-CORE-REQUIREMENT--register-derived-from-relation.md",
+          "sha256": "a22c2bf49acb072295d3eab10999e0f0ff9ca3258bc035f42d08142e9252ab0a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "9be5a292371f46d6580b126fe44e1fa99c2700591ab780ca4d470ef6f04251dc",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md#subjects.depends_on[0]",
+      "old_value": "Work Journal/Event",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1643",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md",
+      "source_sha256": "996e199076e7e039b094cec23394cdfa22412dd12f69676585ba008c7713dac5",
+      "source_version": 22,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content ('Register Type Values for Work Journal Events') gives the live meaning for 'Work Journal/Event', but the frozen candidate does not establish a safe target without losing its qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on identity 'Work Journal/Event' remains visible without an invented replacement.",
+        "No native relation, display-only prefix, or Atom-only lifecycle rule is inferred."
+      ],
+      "question": "Does this identify an actual Execution event, a Journal.Record field, or an event entity distinct from both?",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md",
+          "sha256": "996e199076e7e039b094cec23394cdfa22412dd12f69676585ba008c7713dac5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "d817ffb934b841230769d93273badd3de364eed297f8f4f6e464f25f0d075268",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md#subjects.governs",
+      "old_value": "Work Journal/Event/Type",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1643",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md",
+      "source_sha256": "996e199076e7e039b094cec23394cdfa22412dd12f69676585ba008c7713dac5",
+      "source_version": 22,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content ('Register Type Values for Work Journal Events') gives the live meaning for 'Work Journal/Event/Type', but the frozen candidate does not establish a safe target without losing its qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs identity 'Work Journal/Event/Type' remains visible without an invented replacement.",
+        "No native relation, display-only prefix, or Atom-only lifecycle rule is inferred."
+      ],
+      "question": "What is the bearer of this Type allowed-value domain: a Work Journal Event, a Journal.Record, or an Execution?",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md",
+          "sha256": "996e199076e7e039b094cec23394cdfa22412dd12f69676585ba008c7713dac5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "d817ffb934b841230769d93273badd3de364eed297f8f4f6e464f25f0d075268",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md#subjects.depends_on[0]",
+      "old_value": "Journal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1644",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+      "source_sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "Journal",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Recover Work Journal coverage without invention') directly supports the exact current Subject 'Journal', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Journal' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+          "sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+          "start_line": 21,
+          "end_line": 42,
+          "span_sha256": "09613c33577fb980bc02a49045080c915645dc526665e4faedf44cc3fd194f99",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md#subjects.depends_on[1]",
+      "old_value": "Artifact/Carrier",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1644",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+      "source_sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content ('Recover Work Journal coverage without invention') gives the live meaning for 'Artifact/Carrier', but the frozen candidate does not establish a safe target without losing its qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on identity 'Artifact/Carrier' remains visible without an invented replacement.",
+        "No native relation, display-only prefix, or Atom-only lifecycle rule is inferred."
+      ],
+      "question": "Does this name an Artifact-bound Carrier subject or the independent Carrier root governed by delivery policy?",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+          "sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+          "start_line": 21,
+          "end_line": 42,
+          "span_sha256": "09613c33577fb980bc02a49045080c915645dc526665e4faedf44cc3fd194f99",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md#subjects.depends_on[2]",
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1644",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+      "source_sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+      "source_version": 17,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Recover Work Journal coverage without invention') defines an immutable governed-meaning Revision rather than an Artifact Property. The latest candidate records Revision as the separate historical root; this proposal preserves the Artifact-specific lifecycle profile without extending Atom-only Version or Updated At obligations.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "The latest candidate explicitly makes Revision a historical root and excludes Artifact/Revision; current Main Content supplies the Artifact-specific Revision profile."
+        }
+      ],
+      "preserved_distinctions": [
+        "Artifact-specific Revision lifecycle metadata remains distinct from Atom-only Version and Updated At obligations.",
+        "Revision remains historical, not an Artifact property, subtype, or new native relation admission."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+          "sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+          "start_line": 21,
+          "end_line": 42,
+          "span_sha256": "09613c33577fb980bc02a49045080c915645dc526665e4faedf44cc3fd194f99",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md#subjects.depends_on[3]",
+      "old_value": "Actor",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1644",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+      "source_sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "Actor",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Recover Work Journal coverage without invention') directly supports the exact current Subject 'Actor', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Actor' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+          "sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+          "start_line": 21,
+          "end_line": 42,
+          "span_sha256": "09613c33577fb980bc02a49045080c915645dc526665e4faedf44cc3fd194f99",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md#subjects.governs",
+      "old_value": "Journal/Record",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1644",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+      "source_sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+      "source_version": 17,
+      "decision": "proposed",
+      "proposed_value": "Journal.Record",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Recover Work Journal coverage without invention') establishes 'Journal/Record' as a bearer-qualified field or context. The proposed 'Journal.Record' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/history_model/relation_proposal/connections/1",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current governs role of 'Journal/Record' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+          "sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+          "start_line": 21,
+          "end_line": 42,
+          "span_sha256": "09613c33577fb980bc02a49045080c915645dc526665e4faedf44cc3fd194f99",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md#subjects.depends_on[0]",
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1646",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md",
+      "source_sha256": "3e10153314d2dc0953b1b2d53f34f78ff8870ba006bf70091fbe8ed9f34a148a",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Bind proof records to dependency frontiers') defines an immutable governed-meaning Revision rather than an Artifact Property. The latest candidate records Revision as the separate historical root; this proposal preserves the Artifact-specific lifecycle profile without extending Atom-only Version or Updated At obligations.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "The latest candidate explicitly makes Revision a historical root and excludes Artifact/Revision; current Main Content supplies the Artifact-specific Revision profile."
+        }
+      ],
+      "preserved_distinctions": [
+        "Artifact-specific Revision lifecycle metadata remains distinct from Atom-only Version and Updated At obligations.",
+        "Revision remains historical, not an Artifact property, subtype, or new native relation admission."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md",
+          "sha256": "3e10153314d2dc0953b1b2d53f34f78ff8870ba006bf70091fbe8ed9f34a148a",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "0f7172f766fe84ce002ecaa888d4ca57bff67af5a88b7a8a6441b42a3a98042a",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md#subjects.depends_on[1]",
+      "old_value": "Atom/Content Role: Implementation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1646",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md",
+      "source_sha256": "3e10153314d2dc0953b1b2d53f34f78ff8870ba006bf70091fbe8ed9f34a148a",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Implementation",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Bind proof records to dependency frontiers') establishes 'Atom/Content Role: Implementation' as a bearer-qualified field or context. The proposed 'Atom.Content Role: Implementation' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current depends_on role of 'Atom/Content Role: Implementation' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md",
+          "sha256": "3e10153314d2dc0953b1b2d53f34f78ff8870ba006bf70091fbe8ed9f34a148a",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "0f7172f766fe84ce002ecaa888d4ca57bff67af5a88b7a8a6441b42a3a98042a",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md#subjects.depends_on[2]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1646",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md",
+      "source_sha256": "3e10153314d2dc0953b1b2d53f34f78ff8870ba006bf70091fbe8ed9f34a148a",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Bind proof records to dependency frontiers') directly supports the exact current Subject 'Projection', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Projection' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md",
+          "sha256": "3e10153314d2dc0953b1b2d53f34f78ff8870ba006bf70091fbe8ed9f34a148a",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "0f7172f766fe84ce002ecaa888d4ca57bff67af5a88b7a8a6441b42a3a98042a",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md#subjects.depends_on[3]",
+      "old_value": "Carrier",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1646",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md",
+      "source_sha256": "3e10153314d2dc0953b1b2d53f34f78ff8870ba006bf70091fbe8ed9f34a148a",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "Carrier",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Bind proof records to dependency frontiers') directly supports the exact current Subject 'Carrier', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Carrier' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md",
+          "sha256": "3e10153314d2dc0953b1b2d53f34f78ff8870ba006bf70091fbe8ed9f34a148a",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "0f7172f766fe84ce002ecaa888d4ca57bff67af5a88b7a8a6441b42a3a98042a",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md#subjects.governs",
+      "old_value": "Evidence",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1646",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md",
+      "source_sha256": "3e10153314d2dc0953b1b2d53f34f78ff8870ba006bf70091fbe8ed9f34a148a",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "Evidence",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Bind proof records to dependency frontiers') directly supports the exact current Subject 'Evidence', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current governs value 'Evidence' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1646-CORE_META_MODEL-REQUIREMENT--bind-proof-records-to-dependency-frontiers.md",
+          "sha256": "3e10153314d2dc0953b1b2d53f34f78ff8870ba006bf70091fbe8ed9f34a148a",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "0f7172f766fe84ce002ecaa888d4ca57bff67af5a88b7a8a6441b42a3a98042a",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1647-CORE_META_MODEL-REQUIREMENT--generate-the-proof-currentness-catalog.md#subjects.governs",
+      "old_value": "evaluation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1647",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1647-CORE_META_MODEL-REQUIREMENT--generate-the-proof-currentness-catalog.md",
+      "source_sha256": "1e5fe234fc77b0b02471640d9553c6affdd2a599bbefb17a913dbf46f8e25bba",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "evaluation",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Generate the proof currentness Catalog') directly supports the exact current Subject 'evaluation', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current governs value 'evaluation' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1647-CORE_META_MODEL-REQUIREMENT--generate-the-proof-currentness-catalog.md",
+          "sha256": "1e5fe234fc77b0b02471640d9553c6affdd2a599bbefb17a913dbf46f8e25bba",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "b5c2f0f184910e77db2f9aadcc76e2b5ef12d1206885827e9dca2614a01846c2",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1648-CORE_META_MODEL-REQUIREMENT--use-external-analysis-atoms-as-review-envelopes.md#subjects.governs",
+      "old_value": "external-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1648",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1648-CORE_META_MODEL-REQUIREMENT--use-external-analysis-atoms-as-review-envelopes.md",
+      "source_sha256": "8369f556bea4300ccfd986d3a4aed5a9747cf77e6a7e113085698caca65b8b8e",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "external-boundary",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Use external Analysis Atoms as review envelopes') directly supports the exact current Subject 'external-boundary', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current governs value 'external-boundary' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1648-CORE_META_MODEL-REQUIREMENT--use-external-analysis-atoms-as-review-envelopes.md",
+          "sha256": "8369f556bea4300ccfd986d3a4aed5a9747cf77e6a7e113085698caca65b8b8e",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "5d4a2898d9f98ac20879a357117ac23e8947f88a848702451917c6f1b76dfed4",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md#subjects.depends_on[0]",
+      "old_value": "Work Journal/Action",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1649",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md",
+      "source_sha256": "e955bf3d0d5506d326d761c8372d0c9d1b1a9c0c73c3475adb5891a1e812542b",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content ('Journal Projection Rebuild Events') gives the live meaning for 'Work Journal/Action', but the frozen candidate does not establish a safe target without losing its qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on identity 'Work Journal/Action' remains visible without an invented replacement.",
+        "No native relation, display-only prefix, or Atom-only lifecycle rule is inferred."
+      ],
+      "question": "Is this an Execution kind, a Journal.Record field, or another historical entity; the current source does not establish a safe candidate path?",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md",
+          "sha256": "e955bf3d0d5506d326d761c8372d0c9d1b1a9c0c73c3475adb5891a1e812542b",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "557505b658dee03484453271a36b4fd519c385b963f77eb69141e62bb082cf9e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md#subjects.depends_on[1]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1649",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md",
+      "source_sha256": "e955bf3d0d5506d326d761c8372d0c9d1b1a9c0c73c3475adb5891a1e812542b",
+      "source_version": 19,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Journal Projection Rebuild Events') directly supports the exact current Subject 'Projection', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Projection' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md",
+          "sha256": "e955bf3d0d5506d326d761c8372d0c9d1b1a9c0c73c3475adb5891a1e812542b",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "557505b658dee03484453271a36b4fd519c385b963f77eb69141e62bb082cf9e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md#subjects.depends_on[2]",
+      "old_value": "Journal/Record",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1649",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md",
+      "source_sha256": "e955bf3d0d5506d326d761c8372d0c9d1b1a9c0c73c3475adb5891a1e812542b",
+      "source_version": 19,
+      "decision": "proposed",
+      "proposed_value": "Journal.Record",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Journal Projection Rebuild Events') establishes 'Journal/Record' as a bearer-qualified field or context. The proposed 'Journal.Record' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/history_model/relation_proposal/connections/1",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current depends_on role of 'Journal/Record' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md",
+          "sha256": "e955bf3d0d5506d326d761c8372d0c9d1b1a9c0c73c3475adb5891a1e812542b",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "557505b658dee03484453271a36b4fd519c385b963f77eb69141e62bb082cf9e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md#subjects.governs",
+      "old_value": "Projection Rebuild",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1649",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md",
+      "source_sha256": "e955bf3d0d5506d326d761c8372d0c9d1b1a9c0c73c3475adb5891a1e812542b",
+      "source_version": 19,
+      "decision": "proposed",
+      "proposed_value": "Execution/Projection Rebuild",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Journal Projection Rebuild Events') describes 'Projection Rebuild' as an actual rebuild occurrence with a recorded outcome. The proposed 'Execution/Projection Rebuild' places that run under the candidate Execution root using broader-to-narrower slash notation.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The latest candidate defines Execution as one actual run of an Operation; current Main Content establishes the rebuild as an occurrence distinct from its Journal record or Projection."
+        }
+      ],
+      "preserved_distinctions": [
+        "The actual run remains distinct from its reusable Operation definition, Projection, and Journal record.",
+        "No run-kind native admission or persistence mechanism is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md",
+          "sha256": "e955bf3d0d5506d326d761c8372d0c9d1b1a9c0c73c3475adb5891a1e812542b",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "557505b658dee03484453271a36b4fd519c385b963f77eb69141e62bb082cf9e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-GENERAL-REQUIREMENT--define-the-bounded-session-state-envelope.md#subjects.depends_on[0]",
+      "old_value": "runtime",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1650",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-GENERAL-REQUIREMENT--define-the-bounded-session-state-envelope.md",
+      "source_sha256": "600a62b7febd9ee2e57e8366747a1e03d6df6047e4d7627eef4583b7182c0795",
+      "source_version": 19,
+      "decision": "unchanged",
+      "proposed_value": "runtime",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Define the bounded session-state envelope') directly supports the exact current Subject 'runtime', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'runtime' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-GENERAL-REQUIREMENT--define-the-bounded-session-state-envelope.md",
+          "sha256": "600a62b7febd9ee2e57e8366747a1e03d6df6047e4d7627eef4583b7182c0795",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "0c2275faafcd6f38a76adc206c655c69ffa76ab290ceb6623ef4c1ec617181b8",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-GENERAL-REQUIREMENT--define-the-bounded-session-state-envelope.md#subjects.governs",
+      "old_value": "Session-State Envelope",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1650",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-GENERAL-REQUIREMENT--define-the-bounded-session-state-envelope.md",
+      "source_sha256": "600a62b7febd9ee2e57e8366747a1e03d6df6047e4d7627eef4583b7182c0795",
+      "source_version": 19,
+      "decision": "unchanged",
+      "proposed_value": "Session-State Envelope",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Define the bounded session-state envelope') directly supports the exact current Subject 'Session-State Envelope', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current governs value 'Session-State Envelope' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-GENERAL-REQUIREMENT--define-the-bounded-session-state-envelope.md",
+          "sha256": "600a62b7febd9ee2e57e8366747a1e03d6df6047e4d7627eef4583b7182c0795",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "0c2275faafcd6f38a76adc206c655c69ffa76ab290ceb6623ef4c1ec617181b8",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md#subjects.depends_on[0]",
+      "old_value": "Confidence Threshold",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1652",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+      "source_sha256": "b803ff9c8c7843b076bfd4cec278ae20d3fc217b9750958b3e4fa317d7a19225",
+      "source_version": 22,
+      "decision": "unchanged",
+      "proposed_value": "Confidence Threshold",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Configure necessary-information confidence threshold') directly supports the exact current Subject 'Confidence Threshold', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Confidence Threshold' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+          "sha256": "b803ff9c8c7843b076bfd4cec278ae20d3fc217b9750958b3e4fa317d7a19225",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "4f3d8f210c3fad593009f7eb0f24b4c3478b37b1546f6e4ed28b69dc29c3706d",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md#subjects.depends_on[1]",
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1652",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+      "source_sha256": "b803ff9c8c7843b076bfd4cec278ae20d3fc217b9750958b3e4fa317d7a19225",
+      "source_version": 22,
+      "decision": "unchanged",
+      "proposed_value": "Framework Instance Settings",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Configure necessary-information confidence threshold') directly supports the exact current Subject 'Framework Instance Settings', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Framework Instance Settings' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+          "sha256": "b803ff9c8c7843b076bfd4cec278ae20d3fc217b9750958b3e4fa317d7a19225",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "4f3d8f210c3fad593009f7eb0f24b4c3478b37b1546f6e4ed28b69dc29c3706d",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md#subjects.depends_on[2]",
+      "old_value": "Operator",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1652",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+      "source_sha256": "b803ff9c8c7843b076bfd4cec278ae20d3fc217b9750958b3e4fa317d7a19225",
+      "source_version": 22,
+      "decision": "unchanged",
+      "proposed_value": "Operator",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Configure necessary-information confidence threshold') directly supports the exact current Subject 'Operator', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Operator' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+          "sha256": "b803ff9c8c7843b076bfd4cec278ae20d3fc217b9750958b3e4fa317d7a19225",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "4f3d8f210c3fad593009f7eb0f24b4c3478b37b1546f6e4ed28b69dc29c3706d",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md#subjects.governs",
+      "old_value": "Framework Instance Settings/Confidence/Necessary Information Threshold",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1652",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+      "source_sha256": "b803ff9c8c7843b076bfd4cec278ae20d3fc217b9750958b3e4fa317d7a19225",
+      "source_version": 22,
+      "decision": "proposed",
+      "proposed_value": "Framework Instance Settings.Confidence.Necessary Information Threshold",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Configure necessary-information confidence threshold') establishes 'Framework Instance Settings/Confidence/Necessary Information Threshold' as a bearer-qualified field or context. The proposed 'Framework Instance Settings.Confidence.Necessary Information Threshold' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current governs role of 'Framework Instance Settings/Confidence/Necessary Information Threshold' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1652-CORE_META_MODEL-GENERAL--configure-necessary-information-confidence-threshold.md",
+          "sha256": "b803ff9c8c7843b076bfd4cec278ae20d3fc217b9750958b3e4fa317d7a19225",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "4f3d8f210c3fad593009f7eb0f24b4c3478b37b1546f6e4ed28b69dc29c3706d",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1653-CORE_META_MODEL-REQUIREMENT--register-related-to-for-casual-mode.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1653",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1653-CORE_META_MODEL-REQUIREMENT--register-related-to-for-casual-mode.md",
+      "source_sha256": "3eaa9aab888e393f88d9e432ff8138ac2dbe04536f418b769a0386708727cca5",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "atom-boundary",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Register related to for casual mode') directly supports the exact current Subject 'atom-boundary', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'atom-boundary' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1653-CORE_META_MODEL-REQUIREMENT--register-related-to-for-casual-mode.md",
+          "sha256": "3eaa9aab888e393f88d9e432ff8138ac2dbe04536f418b769a0386708727cca5",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "978ae92a1b31a8fe7b8ba0692ecfb059bb5482d9a83dc359d94da543939df83e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1653-CORE_META_MODEL-REQUIREMENT--register-related-to-for-casual-mode.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1653",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1653-CORE_META_MODEL-REQUIREMENT--register-related-to-for-casual-mode.md",
+      "source_sha256": "3eaa9aab888e393f88d9e432ff8138ac2dbe04536f418b769a0386708727cca5",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "relation-model",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Register related to for casual mode') directly supports the exact current Subject 'relation-model', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'relation-model' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1653-CORE_META_MODEL-REQUIREMENT--register-related-to-for-casual-mode.md",
+          "sha256": "3eaa9aab888e393f88d9e432ff8138ac2dbe04536f418b769a0386708727cca5",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "978ae92a1b31a8fe7b8ba0692ecfb059bb5482d9a83dc359d94da543939df83e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1653-CORE_META_MODEL-REQUIREMENT--register-related-to-for-casual-mode.md#subjects.governs",
+      "old_value": "Related To Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1653",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1653-CORE_META_MODEL-REQUIREMENT--register-related-to-for-casual-mode.md",
+      "source_sha256": "3eaa9aab888e393f88d9e432ff8138ac2dbe04536f418b769a0386708727cca5",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Relation/Related To Relation",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Register related to for casual mode') explicitly defines 'Related To Relation' as a typed relation or relation kind. The proposed 'Relation/Related To Relation' uses slash only for the candidate Relation broader-to-narrower family and preserves endpoint constraints.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The latest candidate defines Relation as the root for typed Entity connections; current Main Content establishes this specific relation meaning, without admitting it natively."
+        }
+      ],
+      "preserved_distinctions": [
+        "Typed relation direction, endpoint constraints, and relation-kind context remain distinct from a concrete fact.",
+        "No native relation admission, endpoint expansion, or display-only Artifact prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1653-CORE_META_MODEL-REQUIREMENT--register-related-to-for-casual-mode.md",
+          "sha256": "3eaa9aab888e393f88d9e432ff8138ac2dbe04536f418b769a0386708727cca5",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "978ae92a1b31a8fe7b8ba0692ecfb059bb5482d9a83dc359d94da543939df83e",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-REQUIREMENT--register-feature-realization-relation-kind.md#subjects.depends_on[0]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1654",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-REQUIREMENT--register-feature-realization-relation-kind.md",
+      "source_sha256": "28ff8f32783d05401da1b6a3f8d0e71e79545120da43dae1d166910079326d67",
+      "source_version": 22,
+      "decision": "unchanged",
+      "proposed_value": "atom-boundary",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Register feature realization relation kind') directly supports the exact current Subject 'atom-boundary', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'atom-boundary' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-REQUIREMENT--register-feature-realization-relation-kind.md",
+          "sha256": "28ff8f32783d05401da1b6a3f8d0e71e79545120da43dae1d166910079326d67",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "7972cb250af155fca9bf5c5ba0087bad7b684530b271a30585182a0e58a68e39",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-REQUIREMENT--register-feature-realization-relation-kind.md#subjects.depends_on[1]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1654",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-REQUIREMENT--register-feature-realization-relation-kind.md",
+      "source_sha256": "28ff8f32783d05401da1b6a3f8d0e71e79545120da43dae1d166910079326d67",
+      "source_version": 22,
+      "decision": "unchanged",
+      "proposed_value": "relation-model",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Register feature realization relation kind') directly supports the exact current Subject 'relation-model', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'relation-model' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-REQUIREMENT--register-feature-realization-relation-kind.md",
+          "sha256": "28ff8f32783d05401da1b6a3f8d0e71e79545120da43dae1d166910079326d67",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "7972cb250af155fca9bf5c5ba0087bad7b684530b271a30585182a0e58a68e39",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-REQUIREMENT--register-feature-realization-relation-kind.md#subjects.governs",
+      "old_value": "Feature Realization Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1654",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-REQUIREMENT--register-feature-realization-relation-kind.md",
+      "source_sha256": "28ff8f32783d05401da1b6a3f8d0e71e79545120da43dae1d166910079326d67",
+      "source_version": 22,
+      "decision": "proposed",
+      "proposed_value": "Relation/Feature Realization Relation",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Register feature realization relation kind') explicitly defines 'Feature Realization Relation' as a typed relation or relation kind. The proposed 'Relation/Feature Realization Relation' uses slash only for the candidate Relation broader-to-narrower family and preserves endpoint constraints.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The latest candidate defines Relation as the root for typed Entity connections; current Main Content establishes this specific relation meaning, without admitting it natively."
+        }
+      ],
+      "preserved_distinctions": [
+        "Typed relation direction, endpoint constraints, and relation-kind context remain distinct from a concrete fact.",
+        "No native relation admission, endpoint expansion, or display-only Artifact prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1654-CORE_META_MODEL-REQUIREMENT--register-feature-realization-relation-kind.md",
+          "sha256": "28ff8f32783d05401da1b6a3f8d0e71e79545120da43dae1d166910079326d67",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "7972cb250af155fca9bf5c5ba0087bad7b684530b271a30585182a0e58a68e39",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md#subjects.depends_on[0]",
+      "old_value": "Artifact",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "source_version": 25,
+      "decision": "unchanged",
+      "proposed_value": "Artifact",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Resolve Artifact Classification from Authority and Configuration') directly supports the exact current Subject 'Artifact', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Artifact' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+          "start_line": 28,
+          "end_line": 45,
+          "span_sha256": "ed9561adae8e539f3676b05a9ad61a629a33aa8f15d05ab8daee16c6ecd2f9f1",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 10,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md#subjects.depends_on[10]",
+      "old_value": "Authority Mode",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "source_version": 25,
+      "decision": "unchanged",
+      "proposed_value": "Authority Mode",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Resolve Artifact Classification from Authority and Configuration') directly supports the exact current Subject 'Authority Mode', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Authority Mode' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+          "start_line": 28,
+          "end_line": 45,
+          "span_sha256": "ed9561adae8e539f3676b05a9ad61a629a33aa8f15d05ab8daee16c6ecd2f9f1",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md#subjects.depends_on[1]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "source_version": 25,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Resolve Artifact Classification from Authority and Configuration') directly supports the exact current Subject 'Atom', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Atom' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+          "start_line": 28,
+          "end_line": 45,
+          "span_sha256": "ed9561adae8e539f3676b05a9ad61a629a33aa8f15d05ab8daee16c6ecd2f9f1",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md#subjects.depends_on[2]",
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "source_version": 25,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role",
+      "confidence": 0.95,
+      "reason": "Current Main Content ('Resolve Artifact Classification from Authority and Configuration') establishes 'Atom/Content Role' as a bearer-qualified field or context. The proposed 'Atom.Content Role' preserves every lexical component and allowed-value qualifier while using the confirmed candidate's dot qualification; it neither asserts a native relation nor adds a display-only prefix.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The latest candidate confirms dependent-Entity identity as owner selector plus dependent field; current Main Content supplies the bearer/field meaning needed for this non-executable mapping proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lexical identity and current depends_on role of 'Atom/Content Role' remain preserved.",
+        "Bearer qualification changes from slash to dot only where current meaning supplies the owner/field distinction.",
+        "No native relation, display-only Artifact prefix, carrier registry, or domain assignment is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+          "start_line": 28,
+          "end_line": 45,
+          "span_sha256": "ed9561adae8e539f3676b05a9ad61a629a33aa8f15d05ab8daee16c6ecd2f9f1",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md#subjects.depends_on[3]",
+      "old_value": "Type",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "source_version": 25,
+      "decision": "unchanged",
+      "proposed_value": "Type",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Resolve Artifact Classification from Authority and Configuration') directly supports the exact current Subject 'Type', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Type' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+          "start_line": 28,
+          "end_line": 45,
+          "span_sha256": "ed9561adae8e539f3676b05a9ad61a629a33aa8f15d05ab8daee16c6ecd2f9f1",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md#subjects.depends_on[4]",
+      "old_value": "Applicable Methodology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "source_version": 25,
+      "decision": "unchanged",
+      "proposed_value": "Applicable Methodology",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Resolve Artifact Classification from Authority and Configuration') directly supports the exact current Subject 'Applicable Methodology', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Applicable Methodology' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+          "start_line": 28,
+          "end_line": 45,
+          "span_sha256": "ed9561adae8e539f3676b05a9ad61a629a33aa8f15d05ab8daee16c6ecd2f9f1",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md#subjects.depends_on[5]",
+      "old_value": "Project Configuration",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "source_version": 25,
+      "decision": "unchanged",
+      "proposed_value": "Project Configuration",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Resolve Artifact Classification from Authority and Configuration') directly supports the exact current Subject 'Project Configuration', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Project Configuration' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+          "start_line": 28,
+          "end_line": 45,
+          "span_sha256": "ed9561adae8e539f3676b05a9ad61a629a33aa8f15d05ab8daee16c6ecd2f9f1",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md#subjects.depends_on[6]",
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "source_version": 25,
+      "decision": "unchanged",
+      "proposed_value": "Project Structure",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Resolve Artifact Classification from Authority and Configuration') directly supports the exact current Subject 'Project Structure', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Project Structure' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+          "start_line": 28,
+          "end_line": 45,
+          "span_sha256": "ed9561adae8e539f3676b05a9ad61a629a33aa8f15d05ab8daee16c6ecd2f9f1",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 7,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md#subjects.depends_on[7]",
+      "old_value": "Scope Unit Graph",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "source_version": 25,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit Graph",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Resolve Artifact Classification from Authority and Configuration') directly supports the exact current Subject 'Scope Unit Graph', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Scope Unit Graph' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+          "start_line": 28,
+          "end_line": 45,
+          "span_sha256": "ed9561adae8e539f3676b05a9ad61a629a33aa8f15d05ab8daee16c6ecd2f9f1",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 8,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md#subjects.depends_on[8]",
+      "old_value": "Journal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "source_version": 25,
+      "decision": "unchanged",
+      "proposed_value": "Journal",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Resolve Artifact Classification from Authority and Configuration') directly supports the exact current Subject 'Journal', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Journal' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+          "start_line": 28,
+          "end_line": 45,
+          "span_sha256": "ed9561adae8e539f3676b05a9ad61a629a33aa8f15d05ab8daee16c6ecd2f9f1",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 9,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md#subjects.depends_on[9]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "source_version": 25,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Resolve Artifact Classification from Authority and Configuration') directly supports the exact current Subject 'Projection', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'Projection' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+          "start_line": 28,
+          "end_line": 45,
+          "span_sha256": "ed9561adae8e539f3676b05a9ad61a629a33aa8f15d05ab8daee16c6ecd2f9f1",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md#subjects.governs",
+      "old_value": "Artifact Classification Resolution",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1655",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "source_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "source_version": 25,
+      "decision": "unchanged",
+      "proposed_value": "Artifact Classification Resolution",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Resolve Artifact Classification from Authority and Configuration') directly supports the exact current Subject 'Artifact Classification Resolution', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current governs value 'Artifact Classification Resolution' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+          "sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+          "start_line": 28,
+          "end_line": 45,
+          "span_sha256": "ed9561adae8e539f3676b05a9ad61a629a33aa8f15d05ab8daee16c6ecd2f9f1",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1656-CORE_META_MODEL-CORE-REQUIREMENT--require-one-parent-scope-unit.md#subjects.depends_on[0]",
+      "old_value": "authority",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1656",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1656-CORE_META_MODEL-CORE-REQUIREMENT--require-one-parent-scope-unit.md",
+      "source_sha256": "6a614abce4b566b19ca12c91d90d0e66e73a7220e0d396d846133f4bc3cf2e54",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "authority",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Require one parent Scope Unit') directly supports the exact current Subject 'authority', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current depends_on value 'authority' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1656-CORE_META_MODEL-CORE-REQUIREMENT--require-one-parent-scope-unit.md",
+          "sha256": "6a614abce4b566b19ca12c91d90d0e66e73a7220e0d396d846133f4bc3cf2e54",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "f7b48c24c695f8bac43b6f2dba548002c9af7963ecdfd37bcf76758a6abe4aa7",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1656-CORE_META_MODEL-CORE-REQUIREMENT--require-one-parent-scope-unit.md#subjects.governs",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1656",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1656-CORE_META_MODEL-CORE-REQUIREMENT--require-one-parent-scope-unit.md",
+      "source_sha256": "6a614abce4b566b19ca12c91d90d0e66e73a7220e0d396d846133f4bc3cf2e54",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "scope-topology",
+      "confidence": 0.99,
+      "reason": "Current Main Content ('Require one parent Scope Unit') directly supports the exact current Subject 'scope-topology', and the frozen candidate supplies no more specific semantic correction for this occurrence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exact current governs value 'scope-topology' is retained.",
+        "The Requirement Atom's current role, owner, qualifiers, domains, and relation kind are not rewritten.",
+        "No native grammar, relation admission, carrier registry, or display-only prefix is inferred."
+      ],
+      "question": null,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1656-CORE_META_MODEL-CORE-REQUIREMENT--require-one-parent-scope-unit.md",
+          "sha256": "6a614abce4b566b19ca12c91d90d0e66e73a7220e0d396d846133f4bc3cf2e54",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "f7b48c24c695f8bac43b6f2dba548002c9af7963ecdfd37bcf76758a6abe4aa7",
+          "reason": "Complete current Main Content read; it supplies the live requirement meaning for this Subject occurrence."
+        }
+      ],
+      "executable": false
+    }
+  ]
+}
+

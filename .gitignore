@@ -24,8 +24,11 @@ __pycache__/
 /.codex/hooks.json
 /.caprmedio_runtime/
 /.caprmedio_tmp/
+.caprmedio_tmp/
 /.caprmedio_install/workflow_orchestrator/
 /.caprmedio_install/mcp_hot_reload/
+/.caprmedio_install/project_mcp/
+/.caprmedio_install/runtime_locks/
 
 # Retain local release candidates and rollback sources outside version control.
 /.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/_release_materialized/

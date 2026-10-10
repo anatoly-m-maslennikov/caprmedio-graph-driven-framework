@@ -1,0 +1,2645 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-2017",
+  "batch_id": "current-subjects.batch-026",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-026.json",
+  "input_batch_sha256": "673ac4a753e0719e1d3d2ba90823247b22122f480829374cb424b1ab4f747648",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": {
+    "frozen_candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "consolidated_review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    "source_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    "review_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  },
+  "source_reviews": [
+    {
+      "atom_id": "CA-R-932",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:01:00 +0400",
+      "updated_at_type": "str",
+      "version": 21,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+        "sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+        "start_line": 24,
+        "end_line": 36,
+        "span_sha256": "6049777b5d585413eaa6fc91997bbf065bba0bc68705d126deca9804f485b472"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-933",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:01:00 +0400",
+      "updated_at_type": "str",
+      "version": 17,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+        "sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+        "start_line": 21,
+        "end_line": 32,
+        "span_sha256": "a57786e7e81ec798c5b799717e372fdfd353afad4777165bb9944d68ae229ff0"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-934",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "c5f6d7a48534dabf92a4fd3eee2ab4090d9a502da927e376c053d21e362ebce5",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:01:00 +0400",
+      "updated_at_type": "str",
+      "version": 15,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md",
+        "sha256": "c5f6d7a48534dabf92a4fd3eee2ab4090d9a502da927e376c053d21e362ebce5",
+        "start_line": 21,
+        "end_line": 32,
+        "span_sha256": "2cdb9f9ba3945b257ff6ed8499a3b9db69240a1cfe280f24d85e86105e02ad12"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-935",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "f80a465a2002c5988cedd9d92e850104cfaedb61e01b85dbe472143dee67398a",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:01:00 +0400",
+      "updated_at_type": "str",
+      "version": 18,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+        "sha256": "f80a465a2002c5988cedd9d92e850104cfaedb61e01b85dbe472143dee67398a",
+        "start_line": 22,
+        "end_line": 33,
+        "span_sha256": "4bade355d0153caf498374ea89482b835e6aed66564984331109a8a10f0f8bb3"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-940",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "656da0b5aa9efd3b16737e68ba2f390b2f9a7bd4ea7b2e460fc963d95f98a296",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-09-29 05:38:16 +0000",
+      "updated_at_type": "str",
+      "version": 15,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md",
+        "sha256": "656da0b5aa9efd3b16737e68ba2f390b2f9a7bd4ea7b2e460fc963d95f98a296",
+        "start_line": 20,
+        "end_line": 30,
+        "span_sha256": "e803bd0a032db7832e05a4f9f814bce81d14a1fa658bb8903545aa96a09c9d14"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-941",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:01:00 +0400",
+      "updated_at_type": "str",
+      "version": 15,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+        "sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815",
+        "start_line": 21,
+        "end_line": 32,
+        "span_sha256": "6cabdc82bbfdd916724d58d3bcf0846ebf96ab890dfd81b0ce95bbcf1b24eddc"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-942",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:01:00 +0400",
+      "updated_at_type": "str",
+      "version": 17,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md",
+        "sha256": "1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb",
+        "start_line": 19,
+        "end_line": 30,
+        "span_sha256": "b4917dd30eb4ebc4561d7d21844973af61a9639c0b25ffeaea91358e99745c2d"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-944",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "deb00175c1cdaa1877f7982b191b4f2bba2599b236a55969dcfc321c580324a8",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-944-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-direction.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:01:00 +0400",
+      "updated_at_type": "str",
+      "version": 19,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-944-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-direction.md",
+        "sha256": "deb00175c1cdaa1877f7982b191b4f2bba2599b236a55969dcfc321c580324a8",
+        "start_line": 21,
+        "end_line": 32,
+        "span_sha256": "e7fba92f074372d1d3876c0ff03407f880ca11a27ee7506a3c6b2e56133b6fb5"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-945",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:01:00 +0400",
+      "updated_at_type": "str",
+      "version": 18,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+        "sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+        "start_line": 23,
+        "end_line": 34,
+        "span_sha256": "0be6c8b09e15362c7e4330eac5b62d4274c4957632e72cd98d44b3f7803b8dfd"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-947",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:01:00 +0400",
+      "updated_at_type": "str",
+      "version": 20,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+        "sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+        "start_line": 26,
+        "end_line": 37,
+        "span_sha256": "9a02191b87c262c28905a34c2c9a117493b108d3c989033439ddea46b4762dfe"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-951",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:01:00 +0400",
+      "updated_at_type": "str",
+      "version": 17,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+        "sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+        "start_line": 21,
+        "end_line": 32,
+        "span_sha256": "99fa670e7ad29266d43eb32e2860bddf47ebdb926682c035d81aed7d4a5ec273"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-954",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "97a867d7d3a9383fb1b4209f38edc5ffbec3a30acd021d1bc0bd37b11afc8a28",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-CORE-REQUIREMENT--target-one-implementation-result-with-each-demand.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:01:00 +0400",
+      "updated_at_type": "str",
+      "version": 16,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-CORE-REQUIREMENT--target-one-implementation-result-with-each-demand.md",
+        "sha256": "97a867d7d3a9383fb1b4209f38edc5ffbec3a30acd021d1bc0bd37b11afc8a28",
+        "start_line": 20,
+        "end_line": 31,
+        "span_sha256": "4d9d5dcf901c2b707f0fd44379eb1800457d965472293b8c8c515d7726f94214"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-960",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:09:50 +0400",
+      "updated_at_type": "str",
+      "version": 14,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+        "sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "41ef94ece6116d337c66ca5bfaa92f7c168e4eb24c1a0cbc2826f06a8b5c51ae"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-961",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "e4db439ce97bc33c3d1d7048f8c55e4fb4262502ea1600eccd393c34618df5fb",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:09:50 +0400",
+      "updated_at_type": "str",
+      "version": 13,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md",
+        "sha256": "e4db439ce97bc33c3d1d7048f8c55e4fb4262502ea1600eccd393c34618df5fb",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "0a464bef5825f5ec7498106506226cbc05df854a3eb17da0326ab42f63ab6544"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-962",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "2c1fceec5acedbcb559e49119a2bd6ded3da5fa2eb5d75a466b2dfc3688fa6f0",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:09:50 +0400",
+      "updated_at_type": "str",
+      "version": 14,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md",
+        "sha256": "2c1fceec5acedbcb559e49119a2bd6ded3da5fa2eb5d75a466b2dfc3688fa6f0",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "156bbf8c7057b8123f54b655511daf064d88ba5540b31710b7079b1fadfb9a12"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-964",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "e6e4df66b66aea2a5c71699793ba3b517fa5e974b9910184b29d2049982e11dc",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:09:50 +0400",
+      "updated_at_type": "str",
+      "version": 14,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+        "sha256": "e6e4df66b66aea2a5c71699793ba3b517fa5e974b9910184b29d2049982e11dc",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "9a8bae52694f1ee822a964245fb00c8acc3bf51297fbd37fb703af80340567a3"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-970",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "8d3fe614f7f2ee4c205fb6590b23e2cb25a3049819cf1ff11787134b3d9b6135",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:09:50 +0400",
+      "updated_at_type": "str",
+      "version": 17,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md",
+        "sha256": "8d3fe614f7f2ee4c205fb6590b23e2cb25a3049819cf1ff11787134b3d9b6135",
+        "start_line": 21,
+        "end_line": 33,
+        "span_sha256": "93165ba6211c3e2efc9b183b6cf5b6fa6d83313942939b7b93a15424271032cb"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-971",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "369fe868f538c2d16e46f13875cd62f5422637145d3fd46535b29f02d2c61bdb",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:09:50 +0400",
+      "updated_at_type": "str",
+      "version": 15,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md",
+        "sha256": "369fe868f538c2d16e46f13875cd62f5422637145d3fd46535b29f02d2c61bdb",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "058aea3b7a3822ac66d7b182afe3c7fa11d17b10abbf284803f6cfd36b614bac"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-972",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:09:50 +0400",
+      "updated_at_type": "str",
+      "version": 18,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+        "sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+        "start_line": 21,
+        "end_line": 33,
+        "span_sha256": "f6a37ced2321dbd6b96ca34d7eb4601c9a01afe099f44a0feff437444697b6dd"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-976",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "cef8bce8abbd9b30a617d75864af9f6d1a263f56d55004edb5381a98d202a0f5",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 21:09:50 +0400",
+      "updated_at_type": "str",
+      "version": 16,
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md",
+        "sha256": "cef8bce8abbd9b30a617d75864af9f6d1a263f56d55004edb5381a98d202a0f5",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "5323c15435d1361a7eba44e037c1122e31fbab4c812f4a99bb285dec374d2353"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md#subjects.depends_on[0]",
+      "old_value": "Relational Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-932",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+      "source_sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim uses the qualified Relational Atom meaning for Demand, but the candidate selects only the broader Atom and no Relational qualifier or value-domain mapping; reducing it to Atom would erase the qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+          "sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "6049777b5d585413eaa6fc91997bbf065bba0bc68705d126deca9804f485b472",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md#subjects.depends_on[1]",
+      "old_value": "Consumer",
+      "quarantined": false,
+      "source_atom_id": "CA-R-932",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+      "source_sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content identifies a Consumer Scope Unit, but the candidate selects no qualified Consumer role or property path; reducing it to Scope Unit would erase the consumer-side role.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+          "sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "6049777b5d585413eaa6fc91997bbf065bba0bc68705d126deca9804f485b472",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md#subjects.depends_on[2]",
+      "old_value": "Producer",
+      "quarantined": false,
+      "source_atom_id": "CA-R-932",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+      "source_sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content identifies a Producer Claim Target Scope Unit, but the candidate selects no qualified Producer role or property path; reducing it to Scope Unit would erase the producer-side role.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+          "sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "6049777b5d585413eaa6fc91997bbf065bba0bc68705d126deca9804f485b472",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md#subjects.depends_on[3]",
+      "old_value": "Atom/Scope",
+      "quarantined": false,
+      "source_atom_id": "CA-R-932",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+      "source_sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The candidate distinguishes Scope Unit ownership from applicability Scope, but does not select a full Atom Scope property path; a bare Scope Unit would conflate the two meanings.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+          "sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "6049777b5d585413eaa6fc91997bbf065bba0bc68705d126deca9804f485b472",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md#subjects.depends_on[4]",
+      "old_value": "Atom/Claim/Target Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-932",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+      "source_sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content identifies the Scope Unit addressed by an Atom Claim. The candidate has no selected Claim-target property path, so a bare Scope Unit would erase target qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+          "sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "6049777b5d585413eaa6fc91997bbf065bba0bc68705d126deca9804f485b472",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md#subjects.governs",
+      "old_value": "Atom/Content Role: Requirement/Type: Demand",
+      "quarantined": false,
+      "source_atom_id": "CA-R-932",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+      "source_sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content uses the jointly qualified Requirement and Demand role. The candidate supplies no selected Content Role or Type value-domain mapping, so a bare Atom would erase the qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+          "sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "6049777b5d585413eaa6fc91997bbf065bba0bc68705d126deca9804f485b472",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md#subjects.depends_on[0]",
+      "old_value": "Consumer/Goal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-933",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+      "source_sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content requires a Consumer's accepted Goal, while the candidate has no selected qualified Consumer-Goal path; a bare Actor, Scope Unit, or Claim would collapse the role distinction.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+          "sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "a57786e7e81ec798c5b799717e372fdfd353afad4777165bb9944d68ae229ff0",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md#subjects.depends_on[1]",
+      "old_value": "Producer/Result",
+      "quarantined": false,
+      "source_atom_id": "CA-R-933",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+      "source_sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content constrains an exact Producer result, while the candidate has no selected result identity or qualified Producer-result path.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+          "sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "a57786e7e81ec798c5b799717e372fdfd353afad4777165bb9944d68ae229ff0",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md#subjects.governs",
+      "old_value": "Atom/Content Role: Requirement/Type: Demand/Producer Result",
+      "quarantined": false,
+      "source_atom_id": "CA-R-933",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+      "source_sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content keeps Demand and Producer Result qualifications together, but the candidate supplies no selected role/property mapping for that qualified result.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+          "sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "a57786e7e81ec798c5b799717e372fdfd353afad4777165bb9944d68ae229ff0",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md#subjects.depends_on[0]",
+      "old_value": "authority",
+      "quarantined": false,
+      "source_atom_id": "CA-R-934",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md",
+      "source_sha256": "c5f6d7a48534dabf92a4fd3eee2ab4090d9a502da927e376c053d21e362ebce5",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim constrains Producer authority, but the candidate's broad authority boundaries do not select this exact authority relation, owner, or property.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md",
+          "sha256": "c5f6d7a48534dabf92a4fd3eee2ab4090d9a502da927e376c053d21e362ebce5",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "2cdb9f9ba3945b257ff6ed8499a3b9db69240a1cfe280f24d85e86105e02ad12",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md#subjects.depends_on[1]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-934",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md",
+      "source_sha256": "c5f6d7a48534dabf92a4fd3eee2ab4090d9a502da927e376c053d21e362ebce5",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim relies on an Atom boundary, but the candidate's Artifact/Atom lifecycle boundary does not select a replacement for this qualified model identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md",
+          "sha256": "c5f6d7a48534dabf92a4fd3eee2ab4090d9a502da927e376c053d21e362ebce5",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "2cdb9f9ba3945b257ff6ed8499a3b9db69240a1cfe280f24d85e86105e02ad12",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-934",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md",
+      "source_sha256": "c5f6d7a48534dabf92a4fd3eee2ab4090d9a502da927e376c053d21e362ebce5",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claims constrain relations, but the candidate deliberately leaves the minimal typed relation catalogue for review and does not select this broad model identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-934-CORE_META_MODEL-CORE-REQUIREMENT--preserve-producer-authority-outside-demanded-result.md",
+          "sha256": "c5f6d7a48534dabf92a4fd3eee2ab4090d9a502da927e376c053d21e362ebce5",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "2cdb9f9ba3945b257ff6ed8499a3b9db69240a1cfe280f24d85e86105e02ad12",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md#subjects.depends_on[0]",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-935",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+      "source_sha256": "f80a465a2002c5988cedd9d92e850104cfaedb61e01b85dbe472143dee67398a",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claims concern Scope Unit topology, but the candidate does not select a canonical property, relation, or view for this broad topology identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+          "sha256": "f80a465a2002c5988cedd9d92e850104cfaedb61e01b85dbe472143dee67398a",
+          "start_line": 22,
+          "end_line": 33,
+          "span_sha256": "4bade355d0153caf498374ea89482b835e6aed66564984331109a8a10f0f8bb3",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md#subjects.depends_on[1]",
+      "old_value": "Atom/Scope",
+      "quarantined": false,
+      "source_atom_id": "CA-R-935",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+      "source_sha256": "f80a465a2002c5988cedd9d92e850104cfaedb61e01b85dbe472143dee67398a",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The candidate distinguishes Scope Unit ownership from applicability Scope, but does not select a full Atom Scope property path; a bare Scope Unit would conflate the two meanings.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+          "sha256": "f80a465a2002c5988cedd9d92e850104cfaedb61e01b85dbe472143dee67398a",
+          "start_line": 22,
+          "end_line": 33,
+          "span_sha256": "4bade355d0153caf498374ea89482b835e6aed66564984331109a8a10f0f8bb3",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md#subjects.depends_on[2]",
+      "old_value": "Atom/Claim/Target Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-935",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+      "source_sha256": "f80a465a2002c5988cedd9d92e850104cfaedb61e01b85dbe472143dee67398a",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content identifies the Scope Unit addressed by an Atom Claim. The candidate has no selected Claim-target property path, so a bare Scope Unit would erase target qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+          "sha256": "f80a465a2002c5988cedd9d92e850104cfaedb61e01b85dbe472143dee67398a",
+          "start_line": 22,
+          "end_line": 33,
+          "span_sha256": "4bade355d0153caf498374ea89482b835e6aed66564984331109a8a10f0f8bb3",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-935",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+      "source_sha256": "f80a465a2002c5988cedd9d92e850104cfaedb61e01b85dbe472143dee67398a",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claims constrain relations, but the candidate deliberately leaves the minimal typed relation catalogue for review and does not select this broad model identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+          "sha256": "f80a465a2002c5988cedd9d92e850104cfaedb61e01b85dbe472143dee67398a",
+          "start_line": 22,
+          "end_line": 33,
+          "span_sha256": "4bade355d0153caf498374ea89482b835e6aed66564984331109a8a10f0f8bb3",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md#subjects.depends_on[0]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-940",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md",
+      "source_sha256": "656da0b5aa9efd3b16737e68ba2f390b2f9a7bd4ea7b2e460fc963d95f98a296",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim requires human readability of an Atom Claim, but the candidate's Substance umbrella and RMED Claim role label do not select this separate Claim field or its precise qualifier.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and source-specific constraints are preserved; no unsupported separate Claim-field replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md",
+          "sha256": "656da0b5aa9efd3b16737e68ba2f390b2f9a7bd4ea7b2e460fc963d95f98a296",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "e803bd0a032db7832e05a4f9f814bce81d14a1fa658bb8903545aa96a09c9d14",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md#subjects.governs",
+      "old_value": "language",
+      "quarantined": false,
+      "source_atom_id": "CA-R-940",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md",
+      "source_sha256": "656da0b5aa9efd3b16737e68ba2f390b2f9a7bd4ea7b2e460fc963d95f98a296",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claims impose human readability and precise interpretation, but the candidate does not select a language entity or property path for this label.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md",
+          "sha256": "656da0b5aa9efd3b16737e68ba2f390b2f9a7bd4ea7b2e460fc963d95f98a296",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "e803bd0a032db7832e05a4f9f814bce81d14a1fa658bb8903545aa96a09c9d14",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md#subjects.depends_on[0]",
+      "old_value": "artifact-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-941",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+      "source_sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim concerns precise Atom Claim interpretation, but the candidate does not establish whether artifact-model denotes a root, model, or derived view.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+          "sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "6cabdc82bbfdd916724d58d3bcf0846ebf96ab890dfd81b0ce95bbcf1b24eddc",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md#subjects.depends_on[1]",
+      "old_value": "CCE",
+      "quarantined": false,
+      "source_atom_id": "CA-R-941",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+      "source_sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Main Content does not supply CCE's specific governed meaning, and the candidate does not select a CCE entity, method, or property mapping.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+          "sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "6cabdc82bbfdd916724d58d3bcf0846ebf96ab890dfd81b0ce95bbcf1b24eddc",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md#subjects.governs",
+      "old_value": "language",
+      "quarantined": false,
+      "source_atom_id": "CA-R-941",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+      "source_sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claims impose human readability and precise interpretation, but the candidate does not select a language entity or property path for this label.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+          "sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "6cabdc82bbfdd916724d58d3bcf0846ebf96ab890dfd81b0ce95bbcf1b24eddc",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md#subjects.depends_on[0]",
+      "old_value": "Owned Atoms",
+      "quarantined": false,
+      "source_atom_id": "CA-R-942",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md",
+      "source_sha256": "1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim defines a selected ownership collection. The candidate confirms Scope Unit ownership of Atoms but does not select whether this collection is a dependent property, Projection, or contextual view.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md",
+          "sha256": "1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb",
+          "start_line": 19,
+          "end_line": 30,
+          "span_sha256": "b4917dd30eb4ebc4561d7d21844973af61a9639c0b25ffeaea91358e99745c2d",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md#subjects.depends_on[1]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-942",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md",
+      "source_sha256": "1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb",
+      "source_version": 17,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "The current Main Content uses Scope Unit as the ownership, target, or named bearer boundary, which is already the candidate's exact root identity; no semantic replacement is required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Scope Unit remains distinct from Atom ownership, applicability Scope, Name, Label, and carrier location."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md",
+          "sha256": "1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb",
+          "start_line": 19,
+          "end_line": 30,
+          "span_sha256": "b4917dd30eb4ebc4561d7d21844973af61a9639c0b25ffeaea91358e99745c2d",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md#subjects.governs",
+      "old_value": "Subtree-owned Atoms",
+      "quarantined": false,
+      "source_atom_id": "CA-R-942",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md",
+      "source_sha256": "1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim defines a recursive union of owned Atoms. The candidate confirms recursive Scope Unit nesting but does not select the union as a dependent property, Projection, or contextual view.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md",
+          "sha256": "1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb",
+          "start_line": 19,
+          "end_line": 30,
+          "span_sha256": "b4917dd30eb4ebc4561d7d21844973af61a9639c0b25ffeaea91358e99745c2d",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-944-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-direction.md#subjects.depends_on[0]",
+      "old_value": "Atom/Scope",
+      "quarantined": false,
+      "source_atom_id": "CA-R-944",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-944-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-direction.md",
+      "source_sha256": "deb00175c1cdaa1877f7982b191b4f2bba2599b236a55969dcfc321c580324a8",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The candidate distinguishes Scope Unit ownership from applicability Scope, but does not select a full Atom Scope property path; a bare Scope Unit would conflate the two meanings.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-944-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-direction.md",
+          "sha256": "deb00175c1cdaa1877f7982b191b4f2bba2599b236a55969dcfc321c580324a8",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "e7fba92f074372d1d3876c0ff03407f880ca11a27ee7506a3c6b2e56133b6fb5",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-944-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-direction.md#subjects.depends_on[1]",
+      "old_value": "Atom/Claim/Target Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-944",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-944-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-direction.md",
+      "source_sha256": "deb00175c1cdaa1877f7982b191b4f2bba2599b236a55969dcfc321c580324a8",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content identifies the Scope Unit addressed by an Atom Claim. The candidate has no selected Claim-target property path, so a bare Scope Unit would erase target qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-944-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-direction.md",
+          "sha256": "deb00175c1cdaa1877f7982b191b4f2bba2599b236a55969dcfc321c580324a8",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "e7fba92f074372d1d3876c0ff03407f880ca11a27ee7506a3c6b2e56133b6fb5",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-944-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-direction.md#subjects.governs",
+      "old_value": "Atom/Content Role: Requirement/Type: Demand/Direction",
+      "quarantined": false,
+      "source_atom_id": "CA-R-944",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-944-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-direction.md",
+      "source_sha256": "deb00175c1cdaa1877f7982b191b4f2bba2599b236a55969dcfc321c580324a8",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content defines a Demand direction, while the candidate supplies no selected Direction property or Demand value-domain mapping.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-944-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-direction.md",
+          "sha256": "deb00175c1cdaa1877f7982b191b4f2bba2599b236a55969dcfc321c580324a8",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "e7fba92f074372d1d3876c0ff03407f880ca11a27ee7506a3c6b2e56133b6fb5",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md#subjects.depends_on[0]",
+      "old_value": "Producer",
+      "quarantined": false,
+      "source_atom_id": "CA-R-945",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+      "source_sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content identifies a Producer Claim Target Scope Unit, but the candidate selects no qualified Producer role or property path; reducing it to Scope Unit would erase the producer-side role.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+          "sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+          "start_line": 23,
+          "end_line": 34,
+          "span_sha256": "0be6c8b09e15362c7e4330eac5b62d4274c4957632e72cd98d44b3f7803b8dfd",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md#subjects.depends_on[1]",
+      "old_value": "Consumer",
+      "quarantined": false,
+      "source_atom_id": "CA-R-945",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+      "source_sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content identifies a Consumer Scope Unit, but the candidate selects no qualified Consumer role or property path; reducing it to Scope Unit would erase the consumer-side role.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+          "sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+          "start_line": 23,
+          "end_line": 34,
+          "span_sha256": "0be6c8b09e15362c7e4330eac5b62d4274c4957632e72cd98d44b3f7803b8dfd",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md#subjects.depends_on[2]",
+      "old_value": "Atom/Scope",
+      "quarantined": false,
+      "source_atom_id": "CA-R-945",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+      "source_sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The candidate distinguishes Scope Unit ownership from applicability Scope, but does not select a full Atom Scope property path; a bare Scope Unit would conflate the two meanings.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+          "sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+          "start_line": 23,
+          "end_line": 34,
+          "span_sha256": "0be6c8b09e15362c7e4330eac5b62d4274c4957632e72cd98d44b3f7803b8dfd",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md#subjects.depends_on[3]",
+      "old_value": "Atom/Claim/Target Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-945",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+      "source_sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content identifies the Scope Unit addressed by an Atom Claim. The candidate has no selected Claim-target property path, so a bare Scope Unit would erase target qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+          "sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+          "start_line": 23,
+          "end_line": 34,
+          "span_sha256": "0be6c8b09e15362c7e4330eac5b62d4274c4957632e72cd98d44b3f7803b8dfd",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md#subjects.governs",
+      "old_value": "Producer Result/Flow Direction",
+      "quarantined": false,
+      "source_atom_id": "CA-R-945",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+      "source_sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim defines a direction between qualified Producer and Consumer Scope Unit roles, but the candidate does not select the relation kind, endpoints, or a Flow Direction property path.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+          "sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+          "start_line": 23,
+          "end_line": 34,
+          "span_sha256": "0be6c8b09e15362c7e4330eac5b62d4274c4957632e72cd98d44b3f7803b8dfd",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role: Requirement/Type: Goal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-947",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+      "source_sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content uses a Goal-qualified Requirement Atom. The candidate's RMED Claim label does not select a Goal role mapping, so replacing it would collapse the qualified meaning.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+          "sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+          "start_line": 26,
+          "end_line": 37,
+          "span_sha256": "9a02191b87c262c28905a34c2c9a117493b108d3c989033439ddea46b4762dfe",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md#subjects.depends_on[1]",
+      "old_value": "Atom/Scope",
+      "quarantined": false,
+      "source_atom_id": "CA-R-947",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+      "source_sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The candidate distinguishes Scope Unit ownership from applicability Scope, but does not select a full Atom Scope property path; a bare Scope Unit would conflate the two meanings.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+          "sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+          "start_line": 26,
+          "end_line": 37,
+          "span_sha256": "9a02191b87c262c28905a34c2c9a117493b108d3c989033439ddea46b4762dfe",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md#subjects.depends_on[2]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-947",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+      "source_sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "The current Main Content uses Scope Unit as the ownership, target, or named bearer boundary, which is already the candidate's exact root identity; no semantic replacement is required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Scope Unit remains distinct from Atom ownership, applicability Scope, Name, Label, and carrier location."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+          "sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+          "start_line": 26,
+          "end_line": 37,
+          "span_sha256": "9a02191b87c262c28905a34c2c9a117493b108d3c989033439ddea46b4762dfe",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md#subjects.depends_on[3]",
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "source_atom_id": "CA-R-947",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+      "source_sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim invokes authoritative Project Structure, but the candidate does not select whether it is an Artifact type, a dependent entity, or a carrier-backed declaration.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+          "sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+          "start_line": 26,
+          "end_line": 37,
+          "span_sha256": "9a02191b87c262c28905a34c2c9a117493b108d3c989033439ddea46b4762dfe",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md#subjects.depends_on[4]",
+      "old_value": "Project",
+      "quarantined": false,
+      "source_atom_id": "CA-R-947",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+      "source_sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim refers to the Project Scope Unit. The candidate confirms Scope Unit but does not select Project as a narrower kind; a bare Scope Unit would erase the root-Project qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+          "sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+          "start_line": 26,
+          "end_line": 37,
+          "span_sha256": "9a02191b87c262c28905a34c2c9a117493b108d3c989033439ddea46b4762dfe",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md#subjects.governs",
+      "old_value": "Atom/Claim/Target Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-947",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+      "source_sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content identifies the Scope Unit addressed by an Atom Claim. The candidate has no selected Claim-target property path, so a bare Scope Unit would erase target qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+          "sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+          "start_line": 26,
+          "end_line": 37,
+          "span_sha256": "9a02191b87c262c28905a34c2c9a117493b108d3c989033439ddea46b4762dfe",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md#subjects.depends_on[0]",
+      "old_value": "Consumer/Goal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-951",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+      "source_sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content requires a Consumer's accepted Goal, while the candidate has no selected qualified Consumer-Goal path; a bare Actor, Scope Unit, or Claim would collapse the role distinction.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+          "sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "99fa670e7ad29266d43eb32e2860bddf47ebdb926682c035d81aed7d4a5ec273",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md#subjects.depends_on[1]",
+      "old_value": "Producer/Result",
+      "quarantined": false,
+      "source_atom_id": "CA-R-951",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+      "source_sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content constrains an exact Producer result, while the candidate has no selected result identity or qualified Producer-result path.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+          "sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "99fa670e7ad29266d43eb32e2860bddf47ebdb926682c035d81aed7d4a5ec273",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md#subjects.governs",
+      "old_value": "Atom/Content Role: Requirement/Type: Demand/Admission",
+      "quarantined": false,
+      "source_atom_id": "CA-R-951",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+      "source_sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content treats admission as a qualified Demand condition. The candidate supplies no selected Demand Admission property or value domain.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+          "sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "99fa670e7ad29266d43eb32e2860bddf47ebdb926682c035d81aed7d4a5ec273",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-CORE-REQUIREMENT--target-one-implementation-result-with-each-demand.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role: Implementation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-954",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-CORE-REQUIREMENT--target-one-implementation-result-with-each-demand.md",
+      "source_sha256": "97a867d7d3a9383fb1b4209f38edc5ffbec3a30acd021d1bc0bd37b11afc8a28",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content refers to an Implementation result, but the candidate supplies no selected Implementation role mapping; it must not be conflated with an Operation or actual Execution.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-CORE-REQUIREMENT--target-one-implementation-result-with-each-demand.md",
+          "sha256": "97a867d7d3a9383fb1b4209f38edc5ffbec3a30acd021d1bc0bd37b11afc8a28",
+          "start_line": 20,
+          "end_line": 31,
+          "span_sha256": "4d9d5dcf901c2b707f0fd44379eb1800457d965472293b8c8c515d7726f94214",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-CORE-REQUIREMENT--target-one-implementation-result-with-each-demand.md#subjects.governs",
+      "old_value": "Atom/Content Role: Requirement/Type: Demand/Producer Result",
+      "quarantined": false,
+      "source_atom_id": "CA-R-954",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-CORE-REQUIREMENT--target-one-implementation-result-with-each-demand.md",
+      "source_sha256": "97a867d7d3a9383fb1b4209f38edc5ffbec3a30acd021d1bc0bd37b11afc8a28",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current content keeps Demand and Producer Result qualifications together, but the candidate supplies no selected role/property mapping for that qualified result.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-CORE-REQUIREMENT--target-one-implementation-result-with-each-demand.md",
+          "sha256": "97a867d7d3a9383fb1b4209f38edc5ffbec3a30acd021d1bc0bd37b11afc8a28",
+          "start_line": 20,
+          "end_line": 31,
+          "span_sha256": "4d9d5dcf901c2b707f0fd44379eb1800457d965472293b8c8c515d7726f94214",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md#subjects.depends_on[0]",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-960",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+      "source_sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claims concern Scope Unit topology, but the candidate does not select a canonical property, relation, or view for this broad topology identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+          "sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "41ef94ece6116d337c66ca5bfaa92f7c168e4eb24c1a0cbc2826f06a8b5c51ae",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md#subjects.depends_on[1]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-960",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+      "source_sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim relies on an Atom boundary, but the candidate's Artifact/Atom lifecycle boundary does not select a replacement for this qualified model identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+          "sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "41ef94ece6116d337c66ca5bfaa92f7c168e4eb24c1a0cbc2826f06a8b5c51ae",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md#subjects.depends_on[2]",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-960",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+      "source_sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claims constrain relations, but the candidate deliberately leaves the minimal typed relation catalogue for review and does not select this broad model identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+          "sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "41ef94ece6116d337c66ca5bfaa92f7c168e4eb24c1a0cbc2826f06a8b5c51ae",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md#subjects.governs",
+      "old_value": "Child Composition",
+      "quarantined": false,
+      "source_atom_id": "CA-R-960",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+      "source_sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+      "source_version": 14,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Child Composition",
+      "confidence": 0.93,
+      "reason": "The current Claim defines Child Composition as the classification of one Scope Unit's direct children. The candidate confirms Scope Unit nesting and the dependent-Property model, supporting this bearer-qualified property path.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/name",
+          "reason": "Scope Unit is the confirmed bearer root."
+        },
+        {
+          "pointer": "/root_entities/1/nesting",
+          "reason": "The candidate explicitly permits recursive Scope Unit nesting."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "A classified property belongs to its owning Entity rather than becoming a root."
+        }
+      ],
+      "preserved_distinctions": [
+        "The classification concerns direct children only; it does not assert a relation type, physical folder structure, or recursive-descendant rule."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+          "sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "41ef94ece6116d337c66ca5bfaa92f7c168e4eb24c1a0cbc2826f06a8b5c51ae",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md#subjects.depends_on[0]",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-961",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md",
+      "source_sha256": "e4db439ce97bc33c3d1d7048f8c55e4fb4262502ea1600eccd393c34618df5fb",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claims concern Scope Unit topology, but the candidate does not select a canonical property, relation, or view for this broad topology identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md",
+          "sha256": "e4db439ce97bc33c3d1d7048f8c55e4fb4262502ea1600eccd393c34618df5fb",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "0a464bef5825f5ec7498106506226cbc05df854a3eb17da0326ab42f63ab6544",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md#subjects.governs",
+      "old_value": "Project Boundary Position",
+      "quarantined": false,
+      "source_atom_id": "CA-R-961",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md",
+      "source_sha256": "e4db439ce97bc33c3d1d7048f8c55e4fb4262502ea1600eccd393c34618df5fb",
+      "source_version": 13,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Project Boundary Position",
+      "confidence": 0.92,
+      "reason": "The current Claim defines Project Boundary Position of a Scope Unit. The candidate confirms Scope Unit as the root and treats properties as dependent Entities, so the qualified property path preserves the PROJECT versus BOOTSTRAP_SEED value domain.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/name",
+          "reason": "Scope Unit is the confirmed bearer root."
+        },
+        {
+          "pointer": "/entity_identity_model/scope_unit",
+          "reason": "The candidate confirms Scope Unit identity separately from its properties."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "A Property is a dependent Entity of its bearer."
+        }
+      ],
+      "preserved_distinctions": [
+        "PROJECT and BOOTSTRAP_SEED remain values of the position property, not Scope Unit subtypes or new roots."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md",
+          "sha256": "e4db439ce97bc33c3d1d7048f8c55e4fb4262502ea1600eccd393c34618df5fb",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "0a464bef5825f5ec7498106506226cbc05df854a3eb17da0326ab42f63ab6544",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md#subjects.depends_on[0]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-962",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md",
+      "source_sha256": "2c1fceec5acedbcb559e49119a2bd6ded3da5fa2eb5d75a466b2dfc3688fa6f0",
+      "source_version": 14,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "The current Main Content uses Scope Unit as the ownership, target, or named bearer boundary, which is already the candidate's exact root identity; no semantic replacement is required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Scope Unit remains distinct from Atom ownership, applicability Scope, Name, Label, and carrier location."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md",
+          "sha256": "2c1fceec5acedbcb559e49119a2bd6ded3da5fa2eb5d75a466b2dfc3688fa6f0",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "156bbf8c7057b8123f54b655511daf064d88ba5540b31710b7079b1fadfb9a12",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md#subjects.governs",
+      "old_value": "Scope Unit/Name",
+      "quarantined": false,
+      "source_atom_id": "CA-R-962",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md",
+      "source_sha256": "2c1fceec5acedbcb559e49119a2bd6ded3da5fa2eb5d75a466b2dfc3688fa6f0",
+      "source_version": 14,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Name",
+      "confidence": 0.96,
+      "reason": "The current Claims require exactly one authoritative, Project-unique Scope Unit Name and keep readable renderings nonauthoritative. The candidate confirms stable Scope Unit identity while allowing its Name suffix to change, so the dependent property notation is exact.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/name",
+          "reason": "Scope Unit is the confirmed bearer root."
+        },
+        {
+          "pointer": "/entity_identity_model/scope_unit_rename/rename",
+          "reason": "The candidate explicitly distinguishes stable Scope Unit ID from its changeable Name."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Name is retained as a dependent property rather than an independent root."
+        }
+      ],
+      "preserved_distinctions": [
+        "The stable Scope Unit ID remains distinct from Name, readable rendering, and metadata folder path."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md",
+          "sha256": "2c1fceec5acedbcb559e49119a2bd6ded3da5fa2eb5d75a466b2dfc3688fa6f0",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "156bbf8c7057b8123f54b655511daf064d88ba5540b31710b7079b1fadfb9a12",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md#subjects.depends_on[0]",
+      "old_value": "semantics",
+      "quarantined": false,
+      "source_atom_id": "CA-R-964",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+      "source_sha256": "e6e4df66b66aea2a5c71699793ba3b517fa5e974b9910184b29d2049982e11dc",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim uses semantics as a governing context, but the candidate selects no exact entity, property, or relation meaning for this broad label.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+          "sha256": "e6e4df66b66aea2a5c71699793ba3b517fa5e974b9910184b29d2049982e11dc",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "9a8bae52694f1ee822a964245fb00c8acc3bf51297fbd37fb703af80340567a3",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md#subjects.depends_on[1]",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-964",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+      "source_sha256": "e6e4df66b66aea2a5c71699793ba3b517fa5e974b9910184b29d2049982e11dc",
+      "source_version": 14,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claims concern Scope Unit topology, but the candidate does not select a canonical property, relation, or view for this broad topology identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+          "sha256": "e6e4df66b66aea2a5c71699793ba3b517fa5e974b9910184b29d2049982e11dc",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "9a8bae52694f1ee822a964245fb00c8acc3bf51297fbd37fb703af80340567a3",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md#subjects.governs",
+      "old_value": "Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-964",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+      "source_sha256": "e6e4df66b66aea2a5c71699793ba3b517fa5e974b9910184b29d2049982e11dc",
+      "source_version": 14,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.97,
+      "reason": "The current Claim explicitly defines the governed shorthand Unit to mean Scope Unit. The candidate's Scope Unit root supplies the exact same referent without creating a second identity.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/name",
+          "reason": "Scope Unit is the candidate's exact root name."
+        }
+      ],
+      "preserved_distinctions": [
+        "Unit remains only the governed shorthand; it does not create another root, identifier, or carrier."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+          "sha256": "e6e4df66b66aea2a5c71699793ba3b517fa5e974b9910184b29d2049982e11dc",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "9a8bae52694f1ee822a964245fb00c8acc3bf51297fbd37fb703af80340567a3",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md#subjects.depends_on[0]",
+      "old_value": "Project",
+      "quarantined": false,
+      "source_atom_id": "CA-R-970",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md",
+      "source_sha256": "8d3fe614f7f2ee4c205fb6590b23e2cb25a3049819cf1ff11787134b3d9b6135",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim refers to the Project Scope Unit. The candidate confirms Scope Unit but does not select Project as a narrower kind; a bare Scope Unit would erase the root-Project qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md",
+          "sha256": "8d3fe614f7f2ee4c205fb6590b23e2cb25a3049819cf1ff11787134b3d9b6135",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "93165ba6211c3e2efc9b183b6cf5b6fa6d83313942939b7b93a15424271032cb",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md#subjects.governs",
+      "old_value": "Scope Unit/Name",
+      "quarantined": false,
+      "source_atom_id": "CA-R-970",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md",
+      "source_sha256": "8d3fe614f7f2ee4c205fb6590b23e2cb25a3049819cf1ff11787134b3d9b6135",
+      "source_version": 17,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Name",
+      "confidence": 0.96,
+      "reason": "The current Claims require exactly one authoritative, Project-unique Scope Unit Name and keep readable renderings nonauthoritative. The candidate confirms stable Scope Unit identity while allowing its Name suffix to change, so the dependent property notation is exact.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/name",
+          "reason": "Scope Unit is the confirmed bearer root."
+        },
+        {
+          "pointer": "/entity_identity_model/scope_unit_rename/rename",
+          "reason": "The candidate explicitly distinguishes stable Scope Unit ID from its changeable Name."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Name is retained as a dependent property rather than an independent root."
+        }
+      ],
+      "preserved_distinctions": [
+        "The stable Scope Unit ID remains distinct from Name, readable rendering, and metadata folder path."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md",
+          "sha256": "8d3fe614f7f2ee4c205fb6590b23e2cb25a3049819cf1ff11787134b3d9b6135",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "93165ba6211c3e2efc9b183b6cf5b6fa6d83313942939b7b93a15424271032cb",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md#subjects.depends_on[0]",
+      "old_value": "Authority",
+      "quarantined": false,
+      "source_atom_id": "CA-R-971",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md",
+      "source_sha256": "369fe868f538c2d16e46f13875cd62f5422637145d3fd46535b29f02d2c61bdb",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim rejects an independent authority for readable renderings; the candidate does not select the exact Authority identity or a qualified replacement.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md",
+          "sha256": "369fe868f538c2d16e46f13875cd62f5422637145d3fd46535b29f02d2c61bdb",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "058aea3b7a3822ac66d7b182afe3c7fa11d17b10abbf284803f6cfd36b614bac",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md#subjects.governs",
+      "old_value": "Scope Unit/Name",
+      "quarantined": false,
+      "source_atom_id": "CA-R-971",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md",
+      "source_sha256": "369fe868f538c2d16e46f13875cd62f5422637145d3fd46535b29f02d2c61bdb",
+      "source_version": 15,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Name",
+      "confidence": 0.96,
+      "reason": "The current Claims require exactly one authoritative, Project-unique Scope Unit Name and keep readable renderings nonauthoritative. The candidate confirms stable Scope Unit identity while allowing its Name suffix to change, so the dependent property notation is exact.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/name",
+          "reason": "Scope Unit is the confirmed bearer root."
+        },
+        {
+          "pointer": "/entity_identity_model/scope_unit_rename/rename",
+          "reason": "The candidate explicitly distinguishes stable Scope Unit ID from its changeable Name."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Name is retained as a dependent property rather than an independent root."
+        }
+      ],
+      "preserved_distinctions": [
+        "The stable Scope Unit ID remains distinct from Name, readable rendering, and metadata folder path."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md",
+          "sha256": "369fe868f538c2d16e46f13875cd62f5422637145d3fd46535b29f02d2c61bdb",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "058aea3b7a3822ac66d7b182afe3c7fa11d17b10abbf284803f6cfd36b614bac",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md#subjects.depends_on[0]",
+      "old_value": "Label",
+      "quarantined": false,
+      "source_atom_id": "CA-R-972",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+      "source_sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Label",
+      "confidence": 0.94,
+      "reason": "The current Claim says Label is the Property borne by a Scope Unit. The candidate's Scope Unit root and dependent-Property model therefore support the explicit bearer-qualified property path.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/name",
+          "reason": "Scope Unit is the confirmed bearer root."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "A Property is a dependent Entity of its bearer."
+        },
+        {
+          "pointer": "/entity_identity_model/scope_unit_rename/metadata_scope_unit_folder_format",
+          "reason": "The candidate preserves Label separately from the stable Scope Unit ID and Name."
+        }
+      ],
+      "preserved_distinctions": [
+        "Label remains a Scope Unit property; its defaults and override authority are not collapsed into the property identity."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+          "sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "f6a37ced2321dbd6b96ca34d7eb4601c9a01afe099f44a0feff437444697b6dd",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md#subjects.depends_on[1]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-972",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+      "source_sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "The current Main Content uses Scope Unit as the ownership, target, or named bearer boundary, which is already the candidate's exact root identity; no semantic replacement is required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Scope Unit remains distinct from Atom ownership, applicability Scope, Name, Label, and carrier location."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+          "sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "f6a37ced2321dbd6b96ca34d7eb4601c9a01afe099f44a0feff437444697b6dd",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md#subjects.depends_on[2]",
+      "old_value": "Operator",
+      "quarantined": false,
+      "source_atom_id": "CA-R-972",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+      "source_sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Actor/Operator",
+      "confidence": 0.93,
+      "reason": "The current Claim retains separately governed Operator override authority. The candidate lists Operator as an Actor Type, and slash notation expresses the narrower kind under Actor without turning authority into the Actor.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2/name",
+          "reason": "Actor is the confirmed root for performers."
+        },
+        {
+          "pointer": "/entity_identity_model/actor/type_examples/1",
+          "reason": "Operator is an exact confirmed Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator as an Actor Type remains distinct from its override authority, registry evidence, and an actual Execution."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+          "sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "f6a37ced2321dbd6b96ca34d7eb4601c9a01afe099f44a0feff437444697b6dd",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md#subjects.depends_on[3]",
+      "old_value": "Scope Unit/Type",
+      "quarantined": false,
+      "source_atom_id": "CA-R-972",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+      "source_sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Main Content says Scope Unit-specific defaults remain separately governed but does not establish the Type's owned meaning, and the candidate supplies no selected Type property/value domain.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+          "sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "f6a37ced2321dbd6b96ca34d7eb4601c9a01afe099f44a0feff437444697b6dd",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md#subjects.governs",
+      "old_value": "Scope Unit/Label",
+      "quarantined": false,
+      "source_atom_id": "CA-R-972",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+      "source_sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Label",
+      "confidence": 0.96,
+      "reason": "The current Claim directly defines Scope Unit/Label as the Label Property borne by a Scope Unit. Candidate Scope Unit and the dependent-Property model support the same meaning with dot notation.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/name",
+          "reason": "Scope Unit is the confirmed bearer root."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Label is a dependent property of its bearer."
+        },
+        {
+          "pointer": "/entity_identity_model/scope_unit_rename/metadata_scope_unit_folder_format",
+          "reason": "The candidate preserves Label independently of Name and stable ID."
+        }
+      ],
+      "preserved_distinctions": [
+        "Label remains qualified to its Scope Unit and does not establish parentage, authority, or Scope Unit Type."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+          "sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "f6a37ced2321dbd6b96ca34d7eb4601c9a01afe099f44a0feff437444697b6dd",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md#subjects.depends_on[0]",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-976",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md",
+      "source_sha256": "cef8bce8abbd9b30a617d75864af9f6d1a263f56d55004edb5381a98d202a0f5",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claims concern Scope Unit topology, but the candidate does not select a canonical property, relation, or view for this broad topology identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md",
+          "sha256": "cef8bce8abbd9b30a617d75864af9f6d1a263f56d55004edb5381a98d202a0f5",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "5323c15435d1361a7eba44e037c1122e31fbab4c812f4a99bb285dec374d2353",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md#subjects.depends_on[1]",
+      "old_value": "atom-boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-976",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md",
+      "source_sha256": "cef8bce8abbd9b30a617d75864af9f6d1a263f56d55004edb5381a98d202a0f5",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claim relies on an Atom boundary, but the candidate's Artifact/Atom lifecycle boundary does not select a replacement for this qualified model identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md",
+          "sha256": "cef8bce8abbd9b30a617d75864af9f6d1a263f56d55004edb5381a98d202a0f5",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "5323c15435d1361a7eba44e037c1122e31fbab4c812f4a99bb285dec374d2353",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md#subjects.governs",
+      "old_value": "relation-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-976",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md",
+      "source_sha256": "cef8bce8abbd9b30a617d75864af9f6d1a263f56d55004edb5381a98d202a0f5",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.75,
+      "reason": "The current Claims constrain relations, but the candidate deliberately leaves the minimal typed relation catalogue for review and does not select this broad model identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The existing qualified identity and its source-specific constraints are preserved; no unsupported replacement is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md",
+          "sha256": "cef8bce8abbd9b30a617d75864af9f6d1a263f56d55004edb5381a98d202a0f5",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "5323c15435d1361a7eba44e037c1122e31fbab4c812f4a99bb285dec374d2353",
+          "reason": "The owning current Main Content supplies the reviewed meaning for this occurrence."
+        }
+      ]
+    }
+  ]
+}

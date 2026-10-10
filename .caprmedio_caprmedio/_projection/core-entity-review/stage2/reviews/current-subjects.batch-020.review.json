@@ -1,0 +1,1641 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-2011",
+  "batch_id": "current-subjects.batch-020",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-020.json",
+  "input_batch_sha256": "9bc5b92ab6a6a2dcc67e94bc953fe2991f042413a10a632522f21d1fc25e16a0",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": {
+    "frozen_candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "consolidated_review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    "source_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    "review_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  },
+  "source_reviews": [
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+      "full_file_sha256": "f588c8bd8c3ba37bbcc14c4bec37d6fd617267690337812ae5967f4899de7a6a",
+      "atom_id": "CA-R-1708",
+      "version": 24,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+        "sha256": "f588c8bd8c3ba37bbcc14c4bec37d6fd617267690337812ae5967f4899de7a6a",
+        "start_line": 22,
+        "end_line": 34,
+        "span_sha256": "4b0e98b2676447ef169a9455128e05de0f6fb195cdbf215c377f678c3bfb2c22"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md",
+      "full_file_sha256": "77358bb1255d3e82877764480f0d6667e93ce7f4268572101ce129232a3879aa",
+      "atom_id": "CA-R-1709",
+      "version": 24,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md",
+        "sha256": "77358bb1255d3e82877764480f0d6667e93ce7f4268572101ce129232a3879aa",
+        "start_line": 20,
+        "end_line": 39,
+        "span_sha256": "3d1d7e00724a0ba4d42d41f5318d3739dc68472c31dc3f456a9bc479602fdda9"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1710-CORE_META_MODEL-CORE-REQUIREMENT--route-priority-and-tier-by-content-role.md",
+      "full_file_sha256": "e9938f530a5723c689f8a51dc2a1f6b24540cdcb30be1dd4997d4da2eadc40ed",
+      "atom_id": "CA-R-1710",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1710-CORE_META_MODEL-CORE-REQUIREMENT--route-priority-and-tier-by-content-role.md",
+        "sha256": "e9938f530a5723c689f8a51dc2a1f6b24540cdcb30be1dd4997d4da2eadc40ed",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "228a78fcfed25cacbb3ab4246517717a5a53457d404429d477864bb08c0f7f47"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1712-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-enacted-release-and-runtime-facts-from-operations-authority.md",
+      "full_file_sha256": "7091d37967c64e940ec60b366b398ed03a650122747fedb9bd5584097d640bec",
+      "atom_id": "CA-R-1712",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1712-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-enacted-release-and-runtime-facts-from-operations-authority.md",
+        "sha256": "7091d37967c64e940ec60b366b398ed03a650122747fedb9bd5584097d640bec",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "36d748e796406a30e07122254923cdc6a8fb1595d7bc5620f92ef518b42284ec"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1713-CORE_META_MODEL-CORE-REQUIREMENT--keep-confidence-subordinate-to-authority.md",
+      "full_file_sha256": "6438447ca285421ba933fa1edca12f975412aa71d332b27846022460d23cab5d",
+      "atom_id": "CA-R-1713",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1713-CORE_META_MODEL-CORE-REQUIREMENT--keep-confidence-subordinate-to-authority.md",
+        "sha256": "6438447ca285421ba933fa1edca12f975412aa71d332b27846022460d23cab5d",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "d4bbf4bb060b647b282079c866d60a37484d5342e4a5314cfa016dc1d53a9b82"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md",
+      "full_file_sha256": "6722d656d27277ff69ca6f0515405e728ab8aa279295ad1e5a1421bfab25d661",
+      "atom_id": "CA-R-1714",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md",
+        "sha256": "6722d656d27277ff69ca6f0515405e728ab8aa279295ad1e5a1421bfab25d661",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "e8f832af48e2598ed62c9d91f2c7ff56522035b3ab544f7c035bb74bade3b8d1"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1715-CORE_META_MODEL-CORE-REQUIREMENT--preserve-unfinished-operative-work-as-plan.md",
+      "full_file_sha256": "0fc3ca21872f618306504bf5c9dd33e97220548deb94171b1ff133f02c05cf90",
+      "atom_id": "CA-R-1715",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1715-CORE_META_MODEL-CORE-REQUIREMENT--preserve-unfinished-operative-work-as-plan.md",
+        "sha256": "0fc3ca21872f618306504bf5c9dd33e97220548deb94171b1ff133f02c05cf90",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "95e9e4f3ee1dcb0d9134357d62551908f518452271d7b55d536580c553260168"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1716-CORE_META_MODEL-CORE-REQUIREMENT--allow-proposal-of-prmedo-change-from-active-content-roles.md",
+      "full_file_sha256": "3d02899b083ed41f6eba2862245ad157f6eb16202bda5b9e8a19ec83571e5388",
+      "atom_id": "CA-R-1716",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1716-CORE_META_MODEL-CORE-REQUIREMENT--allow-proposal-of-prmedo-change-from-active-content-roles.md",
+        "sha256": "3d02899b083ed41f6eba2862245ad157f6eb16202bda5b9e8a19ec83571e5388",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "65d2fd23d64bc094e14cca6fcda219236b5760b435be433a3a196194d1fb2923"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1717-CORE_META_MODEL-CORE-REQUIREMENT--keep-data-stages-orthogonal-to-artifact-semantics.md",
+      "full_file_sha256": "88967d4e454da2e93e3f2e1594af83056f1c65d837859075a1767b124e0e3639",
+      "atom_id": "CA-R-1717",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1717-CORE_META_MODEL-CORE-REQUIREMENT--keep-data-stages-orthogonal-to-artifact-semantics.md",
+        "sha256": "88967d4e454da2e93e3f2e1594af83056f1c65d837859075a1767b124e0e3639",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "de7db1f48f696ec44ec71284886d7e5a286a364ace1f5c0639a7dee45288c2f5"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1718-CORE_META_MODEL-CORE-REQUIREMENT--preserve-strict-semantic-distinctions.md",
+      "full_file_sha256": "8c1f01707e9351c60b463546ba29910910ee35fbe1f03cccdfc99324c4e979f1",
+      "atom_id": "CA-R-1718",
+      "version": 23,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1718-CORE_META_MODEL-CORE-REQUIREMENT--preserve-strict-semantic-distinctions.md",
+        "sha256": "8c1f01707e9351c60b463546ba29910910ee35fbe1f03cccdfc99324c4e979f1",
+        "start_line": 20,
+        "end_line": 43,
+        "span_sha256": "c6bbb161b7197cec10b5124dc770e9cafcadd7b429d9e5a4ba2b4fa5c664ed6b"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1719-CORE_META_MODEL-CORE-REQUIREMENT--preserve-bounded-meaning-across-structural-scales.md",
+      "full_file_sha256": "cbdc087fb652f6a770bf760e3ca295063cfbacc76101238d2a8522aaf6dc04a8",
+      "atom_id": "CA-R-1719",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1719-CORE_META_MODEL-CORE-REQUIREMENT--preserve-bounded-meaning-across-structural-scales.md",
+        "sha256": "cbdc087fb652f6a770bf760e3ca295063cfbacc76101238d2a8522aaf6dc04a8",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "72ddc7b1d340aa40de80343772793d769a10ae8e43d047de720fdbf46aafc5a4"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "full_file_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "atom_id": "CA-R-1720",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+        "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+        "start_line": 30,
+        "end_line": 46,
+        "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1721-CORE_META_MODEL-CORE-REQUIREMENT--allow-scope-sets-to-vary-by-structural-owner.md",
+      "full_file_sha256": "d3b24b9f205216d06ac75e8b731f72f58ddf4dfb641f31fb2760bf1e91fe3fb9",
+      "atom_id": "CA-R-1721",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1721-CORE_META_MODEL-CORE-REQUIREMENT--allow-scope-sets-to-vary-by-structural-owner.md",
+        "sha256": "d3b24b9f205216d06ac75e8b731f72f58ddf4dfb641f31fb2760bf1e91fe3fb9",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "9a2fc66c821b0313766c34512647a953261dac3252310e4ffe74e045814f5734"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+      "full_file_sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+      "atom_id": "CA-R-1722",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+        "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+        "start_line": 23,
+        "end_line": 37,
+        "span_sha256": "67f4584167b039ff8e745c4e0bf2dfc835cff0238bcbed7e4b2d341aee398087"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL-GENERAL--define-extension-identity-and-compatibility.md",
+      "full_file_sha256": "9e3140d1a438a4c40df90e14ba21c5bfb74f8a73f142548df493401691e45263",
+      "atom_id": "CA-R-1723",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL-GENERAL--define-extension-identity-and-compatibility.md",
+        "sha256": "9e3140d1a438a4c40df90e14ba21c5bfb74f8a73f142548df493401691e45263",
+        "start_line": 19,
+        "end_line": 29,
+        "span_sha256": "3d4fad33a76ea5537f1bbe479f0bdb47705ad311ba1e210a4e0ca39f0344e970"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+      "full_file_sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+      "atom_id": "CA-R-1724",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+        "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "7c444811e278c2a554aad6a9eca47f74ced72894770f0fa533bf8e3c880c8290"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1725-CORE_META_MODEL-GENERAL--review-external-analysis-before-project-adoption.md",
+      "full_file_sha256": "b08bd6d3a0943a477c88845212db648b45468b0126908450b51f790557cfafbd",
+      "atom_id": "CA-R-1725",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1725-CORE_META_MODEL-GENERAL--review-external-analysis-before-project-adoption.md",
+        "sha256": "b08bd6d3a0943a477c88845212db648b45468b0126908450b51f790557cfafbd",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "c58d5edd4fac8cf89015468627e6723ee2911bc30d1767ab1a5066985dd38aed"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1726-CORE_META_MODEL-CORE--concerns-have-active-and-solved-states.md",
+      "full_file_sha256": "505e111f237d44f902e909fd80b4e21fc1d6585a3162b67ba8cd41ae08e00f36",
+      "atom_id": "CA-R-1726",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1726-CORE_META_MODEL-CORE--concerns-have-active-and-solved-states.md",
+        "sha256": "505e111f237d44f902e909fd80b4e21fc1d6585a3162b67ba8cd41ae08e00f36",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "2437fbf3b38ccca18473b655e146dfd35e297fd380914af3467f6f6d11ca01e2"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+      "full_file_sha256": "da651037ee1fbf6d3bf947f75e3649a2ffaf7b17f2a52c42433845e6a46be4d5",
+      "atom_id": "CA-R-1727",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+        "sha256": "da651037ee1fbf6d3bf947f75e3649a2ffaf7b17f2a52c42433845e6a46be4d5",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "d5e7bb14261c016028ec83c1b56eff51b2482bd861c7caffc00907378bf929f4"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL-CORE--record-every-projection-rebuild-in-a-journal.md",
+      "full_file_sha256": "0d0381c928e5f95cb49a5b86201ec156332515241ee0c81d1c517526751adc53",
+      "atom_id": "CA-R-1728",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL-CORE--record-every-projection-rebuild-in-a-journal.md",
+        "sha256": "0d0381c928e5f95cb49a5b86201ec156332515241ee0c81d1c517526751adc53",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "84f9a9ef7668be319ae7e5b2cfb07bcfe947ba658ea23ade6aed907e1c43df3d"
+      },
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md#subjects.depends_on[0]",
+      "old_value": "Artifact",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1708",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+      "source_sha256": "f588c8bd8c3ba37bbcc14c4bec37d6fd617267690337812ae5967f4899de7a6a",
+      "source_version": 24,
+      "decision": "unchanged",
+      "proposed_value": "Artifact",
+      "confidence": 0.92,
+      "reason": "The Claim requires every Artifact to have exactly one authority-admitted Type. The frozen candidate confirms this same identity and supplies no semantic correction; retaining the exact current value is the least-changing result.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The current identity remains distinct; no display-only prefix or topic alias is introduced."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+          "sha256": "f588c8bd8c3ba37bbcc14c4bec37d6fd617267690337812ae5967f4899de7a6a",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "4b0e98b2676447ef169a9455128e05de0f6fb195cdbf215c377f678c3bfb2c22",
+          "reason": "Current Main Content supports retaining this exact current identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md#subjects.depends_on[1]",
+      "old_value": "Type",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1708",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+      "source_sha256": "f588c8bd8c3ba37bbcc14c4bec37d6fd617267690337812ae5967f4899de7a6a",
+      "source_version": 24,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim requires every Artifact to have exactly one authority-admitted Type. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+          "sha256": "f588c8bd8c3ba37bbcc14c4bec37d6fd617267690337812ae5967f4899de7a6a",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "4b0e98b2676447ef169a9455128e05de0f6fb195cdbf215c377f678c3bfb2c22",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md#subjects.governs",
+      "old_value": "Artifact/Type",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1708",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+      "source_sha256": "f588c8bd8c3ba37bbcc14c4bec37d6fd617267690337812ae5967f4899de7a6a",
+      "source_version": 24,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim requires every Artifact to have exactly one authority-admitted Type. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+          "sha256": "f588c8bd8c3ba37bbcc14c4bec37d6fd617267690337812ae5967f4899de7a6a",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "4b0e98b2676447ef169a9455128e05de0f6fb195cdbf215c377f678c3bfb2c22",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md#subjects.depends_on[0]",
+      "old_value": "semantics",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1709",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md",
+      "source_sha256": "77358bb1255d3e82877764480f0d6667e93ce7f4268572101ce129232a3879aa",
+      "source_version": 24,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim defines two Governance Origin values for where a governed Artifact's primary meaning is owned. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md",
+          "sha256": "77358bb1255d3e82877764480f0d6667e93ce7f4268572101ce129232a3879aa",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "3d1d7e00724a0ba4d42d41f5318d3739dc68472c31dc3f456a9bc479602fdda9",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md#subjects.governs",
+      "old_value": "Governance Origin",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1709",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md",
+      "source_sha256": "77358bb1255d3e82877764480f0d6667e93ce7f4268572101ce129232a3879aa",
+      "source_version": 24,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim defines two Governance Origin values for where a governed Artifact's primary meaning is owned. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md",
+          "sha256": "77358bb1255d3e82877764480f0d6667e93ce7f4268572101ce129232a3879aa",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "3d1d7e00724a0ba4d42d41f5318d3739dc68472c31dc3f456a9bc479602fdda9",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1710-CORE_META_MODEL-CORE-REQUIREMENT--route-priority-and-tier-by-content-role.md#subjects.governs",
+      "old_value": "authority",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1710",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1710-CORE_META_MODEL-CORE-REQUIREMENT--route-priority-and-tier-by-content-role.md",
+      "source_sha256": "e9938f530a5723c689f8a51dc2a1f6b24540cdcb30be1dd4997d4da2eadc40ed",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim keeps Concern priority, Plan blocking, and Atom Local Tier as distinct coordinates. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1710-CORE_META_MODEL-CORE-REQUIREMENT--route-priority-and-tier-by-content-role.md",
+          "sha256": "e9938f530a5723c689f8a51dc2a1f6b24540cdcb30be1dd4997d4da2eadc40ed",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "228a78fcfed25cacbb3ab4246517717a5a53457d404429d477864bb08c0f7f47",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1712-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-enacted-release-and-runtime-facts-from-operations-authority.md#subjects.governs",
+      "old_value": "semantics",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1712",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1712-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-enacted-release-and-runtime-facts-from-operations-authority.md",
+      "source_sha256": "7091d37967c64e940ec60b366b398ed03a650122747fedb9bd5584097d640bec",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim treats release and runtime facts as operational facts carried by Journal Records, distinct from reusable authority. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1712-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-enacted-release-and-runtime-facts-from-operations-authority.md",
+          "sha256": "7091d37967c64e940ec60b366b398ed03a650122747fedb9bd5584097d640bec",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "36d748e796406a30e07122254923cdc6a8fb1595d7bc5620f92ef518b42284ec",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1713-CORE_META_MODEL-CORE-REQUIREMENT--keep-confidence-subordinate-to-authority.md#subjects.governs",
+      "old_value": "authority",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1713",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1713-CORE_META_MODEL-CORE-REQUIREMENT--keep-confidence-subordinate-to-authority.md",
+      "source_sha256": "6438447ca285421ba933fa1edca12f975412aa71d332b27846022460d23cab5d",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim prevents Execution confidence from creating or replacing Operator authority. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1713-CORE_META_MODEL-CORE-REQUIREMENT--keep-confidence-subordinate-to-authority.md",
+          "sha256": "6438447ca285421ba933fa1edca12f975412aa71d332b27846022460d23cab5d",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "d4bbf4bb060b647b282079c866d60a37484d5342e4a5314cfa016dc1d53a9b82",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md#subjects.governs",
+      "old_value": "development-flow",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1714",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md",
+      "source_sha256": "6722d656d27277ff69ca6f0515405e728ab8aa279295ad1e5a1421bfab25d661",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim distinguishes an ephemeral operative plan from a persisted Plan Artifact. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md",
+          "sha256": "6722d656d27277ff69ca6f0515405e728ab8aa279295ad1e5a1421bfab25d661",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "e8f832af48e2598ed62c9d91f2c7ff56522035b3ab544f7c035bb74bade3b8d1",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1715-CORE_META_MODEL-CORE-REQUIREMENT--preserve-unfinished-operative-work-as-plan.md#subjects.governs",
+      "old_value": "development-flow",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1715",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1715-CORE_META_MODEL-CORE-REQUIREMENT--preserve-unfinished-operative-work-as-plan.md",
+      "source_sha256": "0fc3ca21872f618306504bf5c9dd33e97220548deb94171b1ff133f02c05cf90",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim reconciles unfinished operative actions into an applicable governed Plan. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1715-CORE_META_MODEL-CORE-REQUIREMENT--preserve-unfinished-operative-work-as-plan.md",
+          "sha256": "0fc3ca21872f618306504bf5c9dd33e97220548deb94171b1ff133f02c05cf90",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "95e9e4f3ee1dcb0d9134357d62551908f518452271d7b55d536580c553260168",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1716-CORE_META_MODEL-CORE-REQUIREMENT--allow-proposal-of-prmedo-change-from-active-content-roles.md#subjects.governs",
+      "old_value": "development-flow",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1716",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1716-CORE_META_MODEL-CORE-REQUIREMENT--allow-proposal-of-prmedo-change-from-active-content-roles.md",
+      "source_sha256": "3d02899b083ed41f6eba2862245ad157f6eb16202bda5b9e8a19ec83571e5388",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim limits establishment of PRMEDO authority changes to Operator-approved authority. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1716-CORE_META_MODEL-CORE-REQUIREMENT--allow-proposal-of-prmedo-change-from-active-content-roles.md",
+          "sha256": "3d02899b083ed41f6eba2862245ad157f6eb16202bda5b9e8a19ec83571e5388",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "65d2fd23d64bc094e14cca6fcda219236b5760b435be433a3a196194d1fb2923",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1717-CORE_META_MODEL-CORE-REQUIREMENT--keep-data-stages-orthogonal-to-artifact-semantics.md#subjects.governs",
+      "old_value": "artifact-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1717",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1717-CORE_META_MODEL-CORE-REQUIREMENT--keep-data-stages-orthogonal-to-artifact-semantics.md",
+      "source_sha256": "88967d4e454da2e93e3f2e1594af83056f1c65d837859075a1767b124e0e3639",
+      "source_version": 17,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim keeps generated-data stages separate from Artifact forms, roles, origins, coordinates, and authority. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1717-CORE_META_MODEL-CORE-REQUIREMENT--keep-data-stages-orthogonal-to-artifact-semantics.md",
+          "sha256": "88967d4e454da2e93e3f2e1594af83056f1c65d837859075a1767b124e0e3639",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "de7db1f48f696ec44ec71284886d7e5a286a364ace1f5c0639a7dee45288c2f5",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1718-CORE_META_MODEL-CORE-REQUIREMENT--preserve-strict-semantic-distinctions.md#subjects.governs",
+      "old_value": "semantics",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1718",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1718-CORE_META_MODEL-CORE-REQUIREMENT--preserve-strict-semantic-distinctions.md",
+      "source_sha256": "8c1f01707e9351c60b463546ba29910910ee35fbe1f03cccdfc99324c4e979f1",
+      "source_version": 23,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim preserves independently governed meanings and forbids identity collapse from co-location or workflow. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1718-CORE_META_MODEL-CORE-REQUIREMENT--preserve-strict-semantic-distinctions.md",
+          "sha256": "8c1f01707e9351c60b463546ba29910910ee35fbe1f03cccdfc99324c4e979f1",
+          "start_line": 20,
+          "end_line": 43,
+          "span_sha256": "c6bbb161b7197cec10b5124dc770e9cafcadd7b429d9e5a4ba2b4fa5c664ed6b",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1719-CORE_META_MODEL-CORE-REQUIREMENT--preserve-bounded-meaning-across-structural-scales.md#subjects.governs",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1719",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1719-CORE_META_MODEL-CORE-REQUIREMENT--preserve-bounded-meaning-across-structural-scales.md",
+      "source_sha256": "cbdc087fb652f6a770bf760e3ca295063cfbacc76101238d2a8522aaf6dc04a8",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim preserves bounded meaning over recursive structural scopes without widening authority or coverage. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1719-CORE_META_MODEL-CORE-REQUIREMENT--preserve-bounded-meaning-across-structural-scales.md",
+          "sha256": "cbdc087fb652f6a770bf760e3ca295063cfbacc76101238d2a8522aaf6dc04a8",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "72ddc7b1d340aa40de80343772793d769a10ae8e43d047de720fdbf46aafc5a4",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[0]",
+      "old_value": "Step Run",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1720",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Execution/Step Run",
+      "confidence": 0.95,
+      "reason": "The Claim requires one Project Work Journal for governed provenance events, including Workflow Runs and Step Runs. The body identifies Step Runs as governed provenance events. The candidate makes Execution the actual-run root and lists Step Run as its proposed kind; the slash form preserves the broader-to-narrower run-kind distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6/name",
+          "reason": "Names the actual-run root Execution."
+        },
+        {
+          "pointer": "/root_entities/6/proposed_kinds/1",
+          "reason": "Names Step Run as an Execution kind."
+        },
+        {
+          "pointer": "/root_entities/6/definition_boundary",
+          "reason": "Keeps actual Execution distinct from an Operation definition."
+        }
+      ],
+      "preserved_distinctions": [
+        "Step Run remains an Execution kind, not a dependent property or an Operation definition."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Current Main Content supports this run-kind proposal."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 10,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[10]",
+      "old_value": "Atom/Content Role: Delivery",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1720",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim requires one Project Work Journal for governed provenance events, including Workflow Runs and Step Runs. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[1]",
+      "old_value": "Workflow Run",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1720",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Execution/Workflow Run",
+      "confidence": 0.95,
+      "reason": "The Claim requires one Project Work Journal for governed provenance events, including Workflow Runs and Step Runs. The body identifies Workflow Runs as governed provenance events. The candidate makes Execution the actual-run root and lists Workflow Run as its proposed kind; the slash form preserves the broader-to-narrower run-kind distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6/name",
+          "reason": "Names the actual-run root Execution."
+        },
+        {
+          "pointer": "/root_entities/6/proposed_kinds/2",
+          "reason": "Names Workflow Run as an Execution kind."
+        },
+        {
+          "pointer": "/root_entities/6/definition_boundary",
+          "reason": "Keeps actual Execution distinct from an Operation definition."
+        }
+      ],
+      "preserved_distinctions": [
+        "Workflow Run remains an Execution kind, not a dependent property or an Operation definition."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Current Main Content supports this run-kind proposal."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[2]",
+      "old_value": "Project",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1720",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim requires one Project Work Journal for governed provenance events, including Workflow Runs and Step Runs. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[3]",
+      "old_value": "Artifact",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1720",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "Artifact",
+      "confidence": 0.92,
+      "reason": "The Claim requires one Project Work Journal for governed provenance events, including Workflow Runs and Step Runs. The frozen candidate confirms this same identity and supplies no semantic correction; retaining the exact current value is the least-changing result.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The current identity remains distinct; no display-only prefix or topic alias is introduced."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Current Main Content supports retaining this exact current identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[4]",
+      "old_value": "Implementation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1720",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim requires one Project Work Journal for governed provenance events, including Workflow Runs and Step Runs. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[5]",
+      "old_value": "Action",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1720",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim requires one Project Work Journal for governed provenance events, including Workflow Runs and Step Runs. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[6]",
+      "old_value": "Workflow",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1720",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim requires one Project Work Journal for governed provenance events, including Workflow Runs and Step Runs. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 7,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[7]",
+      "old_value": "Work Journal/Event",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1720",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim requires one Project Work Journal for governed provenance events, including Workflow Runs and Step Runs. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 8,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[8]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1720",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.92,
+      "reason": "The Claim requires one Project Work Journal for governed provenance events, including Workflow Runs and Step Runs. The frozen candidate confirms this same identity and supplies no semantic correction; retaining the exact current value is the least-changing result.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The current identity remains distinct; no display-only prefix or topic alias is introduced."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Current Main Content supports retaining this exact current identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 9,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[9]",
+      "old_value": "Carrier",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1720",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "Carrier",
+      "confidence": 0.92,
+      "reason": "The Claim requires one Project Work Journal for governed provenance events, including Workflow Runs and Step Runs. The frozen candidate confirms this same identity and supplies no semantic correction; retaining the exact current value is the least-changing result.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The current identity remains distinct; no display-only prefix or topic alias is introduced."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Current Main Content supports retaining this exact current identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.governs",
+      "old_value": "Journal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1720",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "Journal",
+      "confidence": 0.92,
+      "reason": "The Claim requires one Project Work Journal for governed provenance events, including Workflow Runs and Step Runs. The frozen candidate confirms this same identity and supplies no semantic correction; retaining the exact current value is the least-changing result.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The current identity remains distinct; no display-only prefix or topic alias is introduced."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Current Main Content supports retaining this exact current identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1721-CORE_META_MODEL-CORE-REQUIREMENT--allow-scope-sets-to-vary-by-structural-owner.md#subjects.governs",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1721",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1721-CORE_META_MODEL-CORE-REQUIREMENT--allow-scope-sets-to-vary-by-structural-owner.md",
+      "source_sha256": "d3b24b9f205216d06ac75e8b731f72f58ddf4dfb641f31fb2760bf1e91fe3fb9",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim requires scope-set reuse or correspondence to be explicit rather than inferred from labels. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1721-CORE_META_MODEL-CORE-REQUIREMENT--allow-scope-sets-to-vary-by-structural-owner.md",
+          "sha256": "d3b24b9f205216d06ac75e8b731f72f58ddf4dfb641f31fb2760bf1e91fe3fb9",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "9a2fc66c821b0313766c34512647a953261dac3252310e4ffe74e045814f5734",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md#subjects.depends_on[0]",
+      "old_value": "Methodology Source",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1722",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+      "source_sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim defines an Extension as an independently governed optional capability package and denies a new Entity classification. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+          "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "67f4584167b039ff8e745c4e0bf2dfc835cff0238bcbed7e4b2d341aee398087",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md#subjects.depends_on[1]",
+      "old_value": "Core Meta-Model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1722",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+      "source_sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim defines an Extension as an independently governed optional capability package and denies a new Entity classification. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+          "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "67f4584167b039ff8e745c4e0bf2dfc835cff0238bcbed7e4b2d341aee398087",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md#subjects.depends_on[2]",
+      "old_value": "Project Configuration",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1722",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+      "source_sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim defines an Extension as an independently governed optional capability package and denies a new Entity classification. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+          "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "67f4584167b039ff8e745c4e0bf2dfc835cff0238bcbed7e4b2d341aee398087",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md#subjects.governs",
+      "old_value": "Extension",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1722",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+      "source_sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim defines an Extension as an independently governed optional capability package and denies a new Entity classification. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+          "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "67f4584167b039ff8e745c4e0bf2dfc835cff0238bcbed7e4b2d341aee398087",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL-GENERAL--define-extension-identity-and-compatibility.md#subjects.governs",
+      "old_value": "Extension",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1723",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL-GENERAL--define-extension-identity-and-compatibility.md",
+      "source_sha256": "9e3140d1a438a4c40df90e14ba21c5bfb74f8a73f142548df493401691e45263",
+      "source_version": 15,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim requires stable Extension identity, version boundary, extension points, compatibility, and canonical capabilities. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL-GENERAL--define-extension-identity-and-compatibility.md",
+          "sha256": "9e3140d1a438a4c40df90e14ba21c5bfb74f8a73f142548df493401691e45263",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "3d4fad33a76ea5537f1bbe479f0bdb47705ad311ba1e210a4e0ca39f0344e970",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md#subjects.depends_on[0]",
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1724",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+      "source_sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim defines Framework Instance Settings selection and precedence for available Tools and Extensions. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+          "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "7c444811e278c2a554aad6a9eca47f74ced72894770f0fa533bf8e3c880c8290",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md#subjects.depends_on[1]",
+      "old_value": "Extension",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1724",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+      "source_sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim defines Framework Instance Settings selection and precedence for available Tools and Extensions. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+          "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "7c444811e278c2a554aad6a9eca47f74ced72894770f0fa533bf8e3c880c8290",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md#subjects.depends_on[2]",
+      "old_value": "Tool",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1724",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+      "source_sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim defines Framework Instance Settings selection and precedence for available Tools and Extensions. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+          "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "7c444811e278c2a554aad6a9eca47f74ced72894770f0fa533bf8e3c880c8290",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md#subjects.governs",
+      "old_value": "Configuration Selection and Precedence",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1724",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+      "source_sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim defines Framework Instance Settings selection and precedence for available Tools and Extensions. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+          "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "7c444811e278c2a554aad6a9eca47f74ced72894770f0fa533bf8e3c880c8290",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1725-CORE_META_MODEL-GENERAL--review-external-analysis-before-project-adoption.md#subjects.governs",
+      "old_value": "semantics",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1725",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1725-CORE_META_MODEL-GENERAL--review-external-analysis-before-project-adoption.md",
+      "source_sha256": "b08bd6d3a0943a477c88845212db648b45468b0126908450b51f790557cfafbd",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim distinguishes external Analysis evidence from a project's independently accepted resulting meanings. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1725-CORE_META_MODEL-GENERAL--review-external-analysis-before-project-adoption.md",
+          "sha256": "b08bd6d3a0943a477c88845212db648b45468b0126908450b51f790557cfafbd",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c58d5edd4fac8cf89015468627e6723ee2911bc30d1767ab1a5066985dd38aed",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1726-CORE_META_MODEL-CORE--concerns-have-active-and-solved-states.md#subjects.governs",
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1726",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1726-CORE_META_MODEL-CORE--concerns-have-active-and-solved-states.md",
+      "source_sha256": "505e111f237d44f902e909fd80b4e21fc1d6585a3162b67ba8cd41ae08e00f36",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim defines active, solved, and archived lifecycle dispositions for a Concern. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1726-CORE_META_MODEL-CORE--concerns-have-active-and-solved-states.md",
+          "sha256": "505e111f237d44f902e909fd80b4e21fc1d6585a3162b67ba8cd41ae08e00f36",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "2437fbf3b38ccca18473b655e146dfd35e297fd380914af3467f6f6d11ca01e2",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md#subjects.governs",
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1727",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+      "source_sha256": "da651037ee1fbf6d3bf947f75e3649a2ffaf7b17f2a52c42433845e6a46be4d5",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim defines draft, done, and archived lifecycle dispositions for an Analysis. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+          "sha256": "da651037ee1fbf6d3bf947f75e3649a2ffaf7b17f2a52c42433845e6a46be4d5",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "d5e7bb14261c016028ec83c1b56eff51b2482bd861c7caffc00907378bf929f4",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL-CORE--record-every-projection-rebuild-in-a-journal.md#subjects.governs",
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1728",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL-CORE--record-every-projection-rebuild-in-a-journal.md",
+      "source_sha256": "0d0381c928e5f95cb49a5b86201ec156332515241ee0c81d1c517526751adc53",
+      "source_version": 16,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The Claim requires each Projection rebuild attempt to create Journal provenance. The candidate does not establish an exact Entity, allowed-value domain, or qualified relationship for this current label. Replacing it would collapse a topic, policy coordinate, package, or legacy qualified domain without sufficient semantic evidence.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current label and its source-specific role remain preserved as unresolved evidence."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL-CORE--record-every-projection-rebuild-in-a-journal.md",
+          "sha256": "0d0381c928e5f95cb49a5b86201ec156332515241ee0c81d1c517526751adc53",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "84f9a9ef7668be319ae7e5b2cfb07bcfe947ba658ea23ade6aed907e1c43df3d",
+          "reason": "Current Main Content fixes the label context but not an exact candidate identity."
+        }
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}
+

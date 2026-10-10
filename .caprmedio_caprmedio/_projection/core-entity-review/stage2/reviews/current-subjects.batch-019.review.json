@@ -1,0 +1,2031 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-2010",
+  "batch_id": "current-subjects.batch-019",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-019.json",
+  "input_batch_sha256": "83d6a5b48efc42af3c59fc6ef9564830911ae386715d6e1c5fd59f73f0c8b8fc",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  ],
+  "source_reviews": [
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1686-CORE_META_MODEL-REQUIREMENT--propagate-caprmedio-change-forward.md",
+      "full_file_sha256": "333189beef01b75b1019f45f8fe0512ae4cc9b356029634143e3997b69e08e68",
+      "atom_id": "CA-R-1686",
+      "version": 23,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1687-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-provenance-separate-from-evidence.md",
+      "full_file_sha256": "e440bc088918858f0aead2b3350f1f56e6db272248f25cb14885494decfa1b53",
+      "atom_id": "CA-R-1687",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1688-CORE_META_MODEL-REQUIREMENT--scope-path-does-not-change-semantic-coordinates.md",
+      "full_file_sha256": "7b5cf238bd6f1d4f928c6016300c2727440aff2ff5761d4684693a6b8d44deb1",
+      "atom_id": "CA-R-1688",
+      "version": 24,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL--requirement-close-every-constitutional-amendment.md",
+      "full_file_sha256": "529ce352b55356a046df92d0595f44e764ce40a01f46763781e7bd34a9f2156f",
+      "atom_id": "CA-R-1689",
+      "version": 23,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-CORE-REQUIREMENT--preserve-external-boundary-obligations.md",
+      "full_file_sha256": "7b1d3537ff15a8f51c6dc295111659d586879f0677c67abb807c4d0564a40011",
+      "atom_id": "CA-R-1690",
+      "version": 22,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1691-CORE_META_MODEL-REQUIREMENT--requirement-promote-active-backlog-candidates-into-atoms.md",
+      "full_file_sha256": "4fc85bd5eb791489fef2e8df76020d75cb851f6d074fc87a8adf565b4844d561",
+      "atom_id": "CA-R-1691",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+      "full_file_sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+      "atom_id": "CA-R-1694",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+      "full_file_sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+      "atom_id": "CA-R-1695",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-meta-model-implementation-neutral.md",
+      "full_file_sha256": "5ae38a6a474c8dd7c03370ab09981ee3fb3a427b80e8cc70dd2339326f413c99",
+      "atom_id": "CA-R-1696",
+      "version": 24,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1697-CORE_META_MODEL-CORE-REQUIREMENT--bind-traceability-to-exact-claims-and-revisions.md",
+      "full_file_sha256": "ec50dcadfd39438b319cf3d5bcafd0cbbf257f6f2885230cf2bb0688c6e952e9",
+      "atom_id": "CA-R-1697",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1698-CORE_META_MODEL-CORE-REQUIREMENT--evolve-authority-through-governed-history.md",
+      "full_file_sha256": "e86def1c7eb4756b25db0704305f57188a922b2c61cd5aeca609adbb54110420",
+      "atom_id": "CA-R-1698",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1699-CORE_META_MODEL-CORE-REQUIREMENT--bind-governed-transactions-to-stable-artifact-revisions.md",
+      "full_file_sha256": "0ff66abfe95d34dd5213c10d74215f432ef9d3ecaeb7bdbefbfab30da2de9f8e",
+      "atom_id": "CA-R-1699",
+      "version": 22,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1700-CORE_META_MODEL-CORE-REQUIREMENT--admit-atoms-only-where-a-role-has-an-atomic-unit.md",
+      "full_file_sha256": "6df2206a5d6d534dead7d7d0a6994db1023345e515c40025a01004403cf25832",
+      "atom_id": "CA-R-1700",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+      "full_file_sha256": "9c0f1a9c302767d4ea9fb8d94ef79e62adddfffd47722be468098a4a70c43fdc",
+      "atom_id": "CA-R-1701",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "full_file_sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+      "atom_id": "CA-R-1702",
+      "version": 26,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+      "full_file_sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+      "atom_id": "CA-R-1703",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-REQUIREMENT--require-stable-noun-content-role-names.md",
+      "full_file_sha256": "28d8f8caecfc0b2b187de676216f8caeacb70164b1b16fdd2cc4da31751a75a8",
+      "atom_id": "CA-R-1704",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-create-rationale-after-its-subject.md",
+      "full_file_sha256": "0b83acc59a1102d643ad914a5ebbc18a179a5eb459b175293d17031f98a21b1c",
+      "atom_id": "CA-R-1705",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1706-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-provide-lineage-impact-projections.md",
+      "full_file_sha256": "bfa88e477216cfd2a836d8d12a1f15b1b9ff348b17e4804b9ab0ce4f47f5d88a",
+      "atom_id": "CA-R-1706",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1707-CORE_META_MODEL-CORE-REQUIREMENT--make-requirement-the-only-universally-mandatory-atom.md",
+      "full_file_sha256": "20ffb45226456869e9ac731dd992f6692a18ac63a2a46559debad518d6477ed2",
+      "atom_id": "CA-R-1707",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1686-CORE_META_MODEL-REQUIREMENT--propagate-caprmedio-change-forward.md#subjects.governs",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1686",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1686-CORE_META_MODEL-REQUIREMENT--propagate-caprmedio-change-forward.md",
+      "source_sha256": "333189beef01b75b1019f45f8fe0512ae4cc9b356029634143e3997b69e08e68",
+      "source_version": 23,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'scope-topology'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1686-CORE_META_MODEL-REQUIREMENT--propagate-caprmedio-change-forward.md",
+          "sha256": "333189beef01b75b1019f45f8fe0512ae4cc9b356029634143e3997b69e08e68",
+          "start_line": 19,
+          "end_line": 38,
+          "span_sha256": "e36ef07b35c69a83184af75fbaf71ecb660563b8c0470921141b3ab26e1c6db9",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'scope-topology' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1687-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-provenance-separate-from-evidence.md#subjects.governs",
+      "old_value": "evaluation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1687",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1687-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-provenance-separate-from-evidence.md",
+      "source_sha256": "e440bc088918858f0aead2b3350f1f56e6db272248f25cb14885494decfa1b53",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'evaluation'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1687-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-provenance-separate-from-evidence.md",
+          "sha256": "e440bc088918858f0aead2b3350f1f56e6db272248f25cb14885494decfa1b53",
+          "start_line": 17,
+          "end_line": 33,
+          "span_sha256": "fffc70bb287555237c9a891e09c673bbad4c9d878b409c98a2456bcb6bac8c8c",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'evaluation' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1688-CORE_META_MODEL-REQUIREMENT--scope-path-does-not-change-semantic-coordinates.md#subjects.governs",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1688",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1688-CORE_META_MODEL-REQUIREMENT--scope-path-does-not-change-semantic-coordinates.md",
+      "source_sha256": "7b5cf238bd6f1d4f928c6016300c2727440aff2ff5761d4684693a6b8d44deb1",
+      "source_version": 24,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'scope-topology'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1688-CORE_META_MODEL-REQUIREMENT--scope-path-does-not-change-semantic-coordinates.md",
+          "sha256": "7b5cf238bd6f1d4f928c6016300c2727440aff2ff5761d4684693a6b8d44deb1",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "96051bd6d12072077a7bf7093ae628165f957dd3574ad599123397fef1a88551",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'scope-topology' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL--requirement-close-every-constitutional-amendment.md#subjects.governs",
+      "old_value": "authority",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1689",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL--requirement-close-every-constitutional-amendment.md",
+      "source_sha256": "529ce352b55356a046df92d0595f44e764ce40a01f46763781e7bd34a9f2156f",
+      "source_version": 23,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'authority'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL--requirement-close-every-constitutional-amendment.md",
+          "sha256": "529ce352b55356a046df92d0595f44e764ce40a01f46763781e7bd34a9f2156f",
+          "start_line": 17,
+          "end_line": 43,
+          "span_sha256": "7e96b103b1123e479eba8efb407d142c2371f029bc74225c584fb42e4da63855",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'authority' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-CORE-REQUIREMENT--preserve-external-boundary-obligations.md#subjects.governs",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1690",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-CORE-REQUIREMENT--preserve-external-boundary-obligations.md",
+      "source_sha256": "7b1d3537ff15a8f51c6dc295111659d586879f0677c67abb807c4d0564a40011",
+      "source_version": 22,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'scope-topology'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-CORE-REQUIREMENT--preserve-external-boundary-obligations.md",
+          "sha256": "7b1d3537ff15a8f51c6dc295111659d586879f0677c67abb807c4d0564a40011",
+          "start_line": 17,
+          "end_line": 36,
+          "span_sha256": "05489d34798d1b092c220d838024eb9573c4d0d16a55c983ddb2da8cfdade76f",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'scope-topology' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1691-CORE_META_MODEL-REQUIREMENT--requirement-promote-active-backlog-candidates-into-atoms.md#subjects.governs",
+      "old_value": "development-flow",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1691",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1691-CORE_META_MODEL-REQUIREMENT--requirement-promote-active-backlog-candidates-into-atoms.md",
+      "source_sha256": "4fc85bd5eb791489fef2e8df76020d75cb851f6d074fc87a8adf565b4844d561",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'development-flow'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1691-CORE_META_MODEL-REQUIREMENT--requirement-promote-active-backlog-candidates-into-atoms.md",
+          "sha256": "4fc85bd5eb791489fef2e8df76020d75cb851f6d074fc87a8adf565b4844d561",
+          "start_line": 20,
+          "end_line": 38,
+          "span_sha256": "680bc46cbf5158a959b77ad86744d82d776496d48573dc2a1825303d55180d2e",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'development-flow' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md#subjects.depends_on[0]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1694",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+      "source_sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source uses a qualified or allowed-value-specific meaning, but the candidate does not establish a replacement that retains every bearer, relation, and allowed-value distinction. No safe candidate replacement is established for 'Atom/Claim'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+          "sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+          "start_line": 23,
+          "end_line": 42,
+          "span_sha256": "ca12806d05883a322a8c61c4c87241a560820a060353c1c57b7583ae699172e7",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Atom/Claim' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Claim' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md#subjects.depends_on[1]",
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1694",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+      "source_sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+      "source_version": 21,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role",
+      "confidence": 0.95,
+      "reason": "The current Claim treats Content Role as an Atom-only classification axis. The candidate property model and content-direction rules preserve Atom ownership and role distinctions while changing only the separator meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+          "sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+          "start_line": 23,
+          "end_line": 42,
+          "span_sha256": "ca12806d05883a322a8c61c4c87241a560820a060353c1c57b7583ae699172e7",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "Confirms Atom as the candidate named Entity."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Confirms a property remains attached to its owner."
+        },
+        {
+          "pointer": "/content_direction/role_labels",
+          "reason": "Confirms role distinctions are content direction, not independent roots."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Atom/Content Role' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Content Role' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md#subjects.depends_on[2]",
+      "old_value": "Atom/Content Role: Method",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1694",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+      "source_sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source uses a qualified or allowed-value-specific meaning, but the candidate does not establish a replacement that retains every bearer, relation, and allowed-value distinction. No safe candidate replacement is established for 'Atom/Content Role: Method'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+          "sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+          "start_line": 23,
+          "end_line": 42,
+          "span_sha256": "ca12806d05883a322a8c61c4c87241a560820a060353c1c57b7583ae699172e7",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Atom/Content Role: Method' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Content Role: Method' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md#subjects.depends_on[3]",
+      "old_value": "Atom/Content Role: Delivery",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1694",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+      "source_sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source uses a qualified or allowed-value-specific meaning, but the candidate does not establish a replacement that retains every bearer, relation, and allowed-value distinction. No safe candidate replacement is established for 'Atom/Content Role: Delivery'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+          "sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+          "start_line": 23,
+          "end_line": 42,
+          "span_sha256": "ca12806d05883a322a8c61c4c87241a560820a060353c1c57b7583ae699172e7",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Atom/Content Role: Delivery' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Content Role: Delivery' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md#subjects.depends_on[4]",
+      "old_value": "Atom/Content Role: Implementation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1694",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+      "source_sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source uses a qualified or allowed-value-specific meaning, but the candidate does not establish a replacement that retains every bearer, relation, and allowed-value distinction. No safe candidate replacement is established for 'Atom/Content Role: Implementation'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+          "sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+          "start_line": 23,
+          "end_line": 42,
+          "span_sha256": "ca12806d05883a322a8c61c4c87241a560820a060353c1c57b7583ae699172e7",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Atom/Content Role: Implementation' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Content Role: Implementation' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md#subjects.depends_on[5]",
+      "old_value": "Atom/Content Role: Operations",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1694",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+      "source_sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source identifies Operations as a qualified Content Role value, but the candidate maps that role label to Operation without establishing Substance as the Property whose allowed value is Operation. Using : here would turn a role label into an unsupported allowed-value claim, so no safe replacement is proposed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+          "sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+          "start_line": 23,
+          "end_line": 42,
+          "span_sha256": "ca12806d05883a322a8c61c4c87241a560820a060353c1c57b7583ae699172e7",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Atom/Content Role: Operations' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Content Role: Operations' remains explicit; no blind separator conversion or qualifier removal is inferred.",
+        "The Content Role owner and the Operations allowed-value domain remain distinct from Substance; no role-label-to-allowed-value coercion is made."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md#subjects.governs",
+      "old_value": "Atom/Content Role: Requirement",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1694",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+      "source_sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source uses a qualified or allowed-value-specific meaning, but the candidate does not establish a replacement that retains every bearer, relation, and allowed-value distinction. No safe candidate replacement is established for 'Atom/Content Role: Requirement'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-CORE-REQUIREMENT--requirement-keep-requirements-realization-agnostic.md",
+          "sha256": "2a6b57121adefd150ee2bac8c33788b7f2705e55cb7da0702df6c6a251212642",
+          "start_line": 23,
+          "end_line": 42,
+          "span_sha256": "ca12806d05883a322a8c61c4c87241a560820a060353c1c57b7583ae699172e7",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'Atom/Content Role: Requirement' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Content Role: Requirement' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md#subjects.depends_on[0]",
+      "old_value": "Work Journal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1695",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+      "source_sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'Work Journal'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+          "sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+          "start_line": 27,
+          "end_line": 49,
+          "span_sha256": "485024d7b7859e6ec270e5f3e7d1cffc11fb8cd4d5530a5b3d3b852ce3883f5b",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Work Journal' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md#subjects.depends_on[1]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1695",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+      "source_sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+      "source_version": 19,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Scope Unit'. The confirmed Scope Unit root organizes and owns Atoms and Scope Units. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+          "sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+          "start_line": 27,
+          "end_line": 49,
+          "span_sha256": "485024d7b7859e6ec270e5f3e7d1cffc11fb8cd4d5530a5b3d3b852ce3883f5b",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Scope Unit' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md#subjects.depends_on[2]",
+      "old_value": "Atom/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1695",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+      "source_sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+      "source_version": 19,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.95,
+      "reason": "The live source requires an exact Atom revision in traceability. The candidate explicitly makes Revision a historical root and preserves Atom historical references by Atom ID plus Version Number, replacing the invalid containment reading without discarding the Atom qualification.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+          "sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+          "start_line": 27,
+          "end_line": 49,
+          "span_sha256": "485024d7b7859e6ec270e5f3e7d1cffc11fb8cd4d5530a5b3d3b852ce3883f5b",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "Defines Revision as a historical snapshot and excludes Atom.Revision containment."
+        },
+        {
+          "pointer": "/history_model/historical_reference/atom_reference",
+          "reason": "Preserves the Atom-specific historical reference as Atom ID plus Version Number."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Atom/Revision' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Revision' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md#subjects.depends_on[3]",
+      "old_value": "Implementation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1695",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+      "source_sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+      "source_version": 19,
+      "decision": "unchanged",
+      "proposed_value": "Implementation",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Implementation'. The candidate keeps M/E views over shared roots and does not turn observed implementation into an Execution root. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+          "sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+          "start_line": 27,
+          "end_line": 49,
+          "span_sha256": "485024d7b7859e6ec270e5f3e7d1cffc11fb8cd4d5530a5b3d3b852ce3883f5b",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Implementation' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md#subjects.depends_on[4]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1695",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+      "source_sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+      "source_version": 19,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Projection'. The candidate confirms a Projection is a distinct derived Entity instance with its own lifecycle and source boundary. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+          "sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+          "start_line": 27,
+          "end_line": 49,
+          "span_sha256": "485024d7b7859e6ec270e5f3e7d1cffc11fb8cd4d5530a5b3d3b852ce3883f5b",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Projection' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md#subjects.depends_on[5]",
+      "old_value": "Verification",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1695",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+      "source_sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'Verification'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+          "sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+          "start_line": 27,
+          "end_line": 49,
+          "span_sha256": "485024d7b7859e6ec270e5f3e7d1cffc11fb8cd4d5530a5b3d3b852ce3883f5b",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Verification' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md#subjects.governs",
+      "old_value": "Implementation Binding",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1695",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+      "source_sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+      "source_version": 19,
+      "decision": "proposed",
+      "proposed_value": "Relation/Implementation Binding",
+      "confidence": 0.91,
+      "reason": "The current Claim defines a declared, revision-bound binding from normative Atoms to native targets and distinguishes it from proof of correctness. The candidate Relation root preserves that typed connection without inventing a new lifecycle or Carrier registry.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+          "sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+          "start_line": 27,
+          "end_line": 49,
+          "span_sha256": "485024d7b7859e6ec270e5f3e7d1cffc11fb8cd4d5530a5b3d3b852ce3883f5b",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "Defines typed Relations as connections between Entities."
+        },
+        {
+          "pointer": "/root_entities/3",
+          "reason": "Confirms Relation as a root Entity for typed connections."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'Implementation Binding' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-meta-model-implementation-neutral.md#subjects.governs",
+      "old_value": "principles",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1696",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-meta-model-implementation-neutral.md",
+      "source_sha256": "5ae38a6a474c8dd7c03370ab09981ee3fb3a427b80e8cc70dd2339326f413c99",
+      "source_version": 24,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'principles'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-meta-model-implementation-neutral.md",
+          "sha256": "5ae38a6a474c8dd7c03370ab09981ee3fb3a427b80e8cc70dd2339326f413c99",
+          "start_line": 20,
+          "end_line": 36,
+          "span_sha256": "3d6ae37a70acb51cad122eca1737301a6539a1e0d4c61937c742ff49df52924d",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'principles' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1697-CORE_META_MODEL-CORE-REQUIREMENT--bind-traceability-to-exact-claims-and-revisions.md#subjects.governs",
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1697",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1697-CORE_META_MODEL-CORE-REQUIREMENT--bind-traceability-to-exact-claims-and-revisions.md",
+      "source_sha256": "ec50dcadfd39438b319cf3d5bcafd0cbbf257f6f2885230cf2bb0688c6e952e9",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'lifecycle-traceability'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1697-CORE_META_MODEL-CORE-REQUIREMENT--bind-traceability-to-exact-claims-and-revisions.md",
+          "sha256": "ec50dcadfd39438b319cf3d5bcafd0cbbf257f6f2885230cf2bb0688c6e952e9",
+          "start_line": 20,
+          "end_line": 36,
+          "span_sha256": "99ba6c81fd25369b2403e92b0b1aeb547996568540648b7bb77648b6e77e8cdf",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'lifecycle-traceability' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1698-CORE_META_MODEL-CORE-REQUIREMENT--evolve-authority-through-governed-history.md#subjects.governs",
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1698",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1698-CORE_META_MODEL-CORE-REQUIREMENT--evolve-authority-through-governed-history.md",
+      "source_sha256": "e86def1c7eb4756b25db0704305f57188a922b2c61cd5aeca609adbb54110420",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'lifecycle-traceability'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1698-CORE_META_MODEL-CORE-REQUIREMENT--evolve-authority-through-governed-history.md",
+          "sha256": "e86def1c7eb4756b25db0704305f57188a922b2c61cd5aeca609adbb54110420",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "e2b8340761aecc1d97a6146c372428d8be6c97c30569ad1f8a2b423d51a03186",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'lifecycle-traceability' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1699-CORE_META_MODEL-CORE-REQUIREMENT--bind-governed-transactions-to-stable-artifact-revisions.md#subjects.governs",
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1699",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1699-CORE_META_MODEL-CORE-REQUIREMENT--bind-governed-transactions-to-stable-artifact-revisions.md",
+      "source_sha256": "0ff66abfe95d34dd5213c10d74215f432ef9d3ecaeb7bdbefbfab30da2de9f8e",
+      "source_version": 22,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'lifecycle-traceability'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1699-CORE_META_MODEL-CORE-REQUIREMENT--bind-governed-transactions-to-stable-artifact-revisions.md",
+          "sha256": "0ff66abfe95d34dd5213c10d74215f432ef9d3ecaeb7bdbefbfab30da2de9f8e",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "3f07150886a40ced2c559bb30fe3d09bc43dbce7db9fb43dd6feb2d169549e0f",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'lifecycle-traceability' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1700-CORE_META_MODEL-CORE-REQUIREMENT--admit-atoms-only-where-a-role-has-an-atomic-unit.md#subjects.governs",
+      "old_value": "artifact-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1700",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1700-CORE_META_MODEL-CORE-REQUIREMENT--admit-atoms-only-where-a-role-has-an-atomic-unit.md",
+      "source_sha256": "6df2206a5d6d534dead7d7d0a6994db1023345e515c40025a01004403cf25832",
+      "source_version": 21,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'artifact-model'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1700-CORE_META_MODEL-CORE-REQUIREMENT--admit-atoms-only-where-a-role-has-an-atomic-unit.md",
+          "sha256": "6df2206a5d6d534dead7d7d0a6994db1023345e515c40025a01004403cf25832",
+          "start_line": 17,
+          "end_line": 31,
+          "span_sha256": "a8d0fd0f87f0fcc84543b712e881c7851a176c11e92018642409a1d7731018f7",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'artifact-model' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md#subjects.depends_on[0]",
+      "old_value": "Artifact/Type",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1701",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+      "source_sha256": "9c0f1a9c302767d4ea9fb8d94ef79e62adddfffd47722be468098a4a70c43fdc",
+      "source_version": 20,
+      "decision": "proposed",
+      "proposed_value": "Artifact.Type",
+      "confidence": 0.95,
+      "reason": "The current Claim distinguishes Artifact Type from Content Role and Governance Origin. The candidate property model preserves Artifact as bearer and Type as its qualified field.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+          "sha256": "9c0f1a9c302767d4ea9fb8d94ef79e62adddfffd47722be468098a4a70c43fdc",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "c216535ec80c76198fc6b8d6309f8c8bbc39358d9344f1d023b55086bcdd8882",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle bearer."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Confirms a Property is a dependent Entity connected to its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Artifact/Type' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Artifact/Type' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md#subjects.depends_on[1]",
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1701",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+      "source_sha256": "9c0f1a9c302767d4ea9fb8d94ef79e62adddfffd47722be468098a4a70c43fdc",
+      "source_version": 20,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role",
+      "confidence": 0.95,
+      "reason": "The current Claim treats Content Role as an Atom-only classification axis. The candidate property model and content-direction rules preserve Atom ownership and role distinctions while changing only the separator meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+          "sha256": "9c0f1a9c302767d4ea9fb8d94ef79e62adddfffd47722be468098a4a70c43fdc",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "c216535ec80c76198fc6b8d6309f8c8bbc39358d9344f1d023b55086bcdd8882",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "Confirms Atom as the candidate named Entity."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Confirms a property remains attached to its owner."
+        },
+        {
+          "pointer": "/content_direction/role_labels",
+          "reason": "Confirms role distinctions are content direction, not independent roots."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Atom/Content Role' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Content Role' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md#subjects.depends_on[2]",
+      "old_value": "Governance Origin",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1701",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+      "source_sha256": "9c0f1a9c302767d4ea9fb8d94ef79e62adddfffd47722be468098a4a70c43fdc",
+      "source_version": 20,
+      "decision": "unchanged",
+      "proposed_value": "Governance Origin",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Governance Origin'. The live source defines a classification axis that remains distinct from Content Role; no more specific candidate owner is evidenced. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+          "sha256": "9c0f1a9c302767d4ea9fb8d94ef79e62adddfffd47722be468098a4a70c43fdc",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "c216535ec80c76198fc6b8d6309f8c8bbc39358d9344f1d023b55086bcdd8882",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Governance Origin' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md#subjects.governs",
+      "old_value": "classification",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1701",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+      "source_sha256": "9c0f1a9c302767d4ea9fb8d94ef79e62adddfffd47722be468098a4a70c43fdc",
+      "source_version": 20,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'classification'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+          "sha256": "9c0f1a9c302767d4ea9fb8d94ef79e62adddfffd47722be468098a4a70c43fdc",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "c216535ec80c76198fc6b8d6309f8c8bbc39358d9344f1d023b55086bcdd8882",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'classification' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1702",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "source_sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+      "source_version": 26,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role",
+      "confidence": 0.95,
+      "reason": "The current Claim treats Content Role as an Atom-only classification axis. The candidate property model and content-direction rules preserve Atom ownership and role distinctions while changing only the separator meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+          "sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+          "start_line": 26,
+          "end_line": 49,
+          "span_sha256": "cdc30506478302820da7f8f632a69d5a264ed190994b22f0cd41cef0688374af",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "Confirms Atom as the candidate named Entity."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Confirms a property remains attached to its owner."
+        },
+        {
+          "pointer": "/content_direction/role_labels",
+          "reason": "Confirms role distinctions are content direction, not independent roots."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Atom/Content Role' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Content Role' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md#subjects.depends_on[1]",
+      "old_value": "Implementation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1702",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "source_sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+      "source_version": 26,
+      "decision": "unchanged",
+      "proposed_value": "Implementation",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Implementation'. The candidate keeps M/E views over shared roots and does not turn observed implementation into an Execution root. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+          "sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+          "start_line": 26,
+          "end_line": 49,
+          "span_sha256": "cdc30506478302820da7f8f632a69d5a264ed190994b22f0cd41cef0688374af",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Implementation' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md#subjects.depends_on[2]",
+      "old_value": "Action",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1702",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "source_sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+      "source_version": 26,
+      "decision": "unchanged",
+      "proposed_value": "Action",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Action'. The candidate keeps reusable operation definitions distinct from actual Executions, preserving the existing Action meaning. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+          "sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+          "start_line": 26,
+          "end_line": 49,
+          "span_sha256": "cdc30506478302820da7f8f632a69d5a264ed190994b22f0cd41cef0688374af",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Action' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md#subjects.depends_on[3]",
+      "old_value": "Workflow",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1702",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "source_sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+      "source_version": 26,
+      "decision": "unchanged",
+      "proposed_value": "Workflow",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Workflow'. The candidate keeps reusable operation definitions distinct from actual Executions, preserving the existing Workflow meaning. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+          "sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+          "start_line": 26,
+          "end_line": 49,
+          "span_sha256": "cdc30506478302820da7f8f632a69d5a264ed190994b22f0cd41cef0688374af",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Workflow' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md#subjects.depends_on[4]",
+      "old_value": "Actor",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1702",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "source_sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+      "source_version": 26,
+      "decision": "unchanged",
+      "proposed_value": "Actor",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Actor'. The confirmed Actor root means who performs work. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+          "sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+          "start_line": 26,
+          "end_line": 49,
+          "span_sha256": "cdc30506478302820da7f8f632a69d5a264ed190994b22f0cd41cef0688374af",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Actor' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md#subjects.depends_on[5]",
+      "old_value": "Journal/Record",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1702",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "source_sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+      "source_version": 26,
+      "decision": "proposed",
+      "proposed_value": "Journal.Record",
+      "confidence": 0.95,
+      "reason": "The current Claim distinguishes Journal Records from actual Executions while retaining their recorded evidence. The candidate names Journal.Record and keeps a record distinct from an Execution, supporting the owner/property qualification change.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+          "sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+          "start_line": 26,
+          "end_line": 49,
+          "span_sha256": "cdc30506478302820da7f8f632a69d5a264ed190994b22f0cd41cef0688374af",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/history_model/journal_role",
+          "reason": "Defines a Journal record as a record rather than the event itself."
+        },
+        {
+          "pointer": "/history_model/relation_proposal/connections/1",
+          "reason": "Explicitly names Journal.Record in its RECORDS connection to Execution."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Journal/Record' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Journal/Record' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md#subjects.depends_on[6]",
+      "old_value": "Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1702",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "source_sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+      "source_version": 26,
+      "decision": "unchanged",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Relation'. The confirmed Relation root covers typed connections between Entities. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+          "sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+          "start_line": 26,
+          "end_line": 49,
+          "span_sha256": "cdc30506478302820da7f8f632a69d5a264ed190994b22f0cd41cef0688374af",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Relation' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md#subjects.governs",
+      "old_value": "semantics",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1702",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "source_sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+      "source_version": 26,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'semantics'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-CORE-REQUIREMENT--preserve-content-role-boundaries-through-caprmedio-loop.md",
+          "sha256": "54db65547f750b8b31f107016f2eefa10ea27d44e36bd95e9abe0a4fe9bf3c96",
+          "start_line": 26,
+          "end_line": 49,
+          "span_sha256": "cdc30506478302820da7f8f632a69d5a264ed190994b22f0cd41cef0688374af",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'semantics' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md#subjects.depends_on[0]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1703",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+      "source_sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Projection'. The candidate confirms a Projection is a distinct derived Entity instance with its own lifecycle and source boundary. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 25,
+          "end_line": 45,
+          "span_sha256": "317f9da6133e0e342a042c7f4163a7504d4c3f860d9599925b5df15b0ced40da",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Projection' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md#subjects.depends_on[1]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1703",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+      "source_sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Atom'. The candidate identifies Atom as the named narrower Entity of Artifact without requiring a display prefix in this exact existing value. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 25,
+          "end_line": 45,
+          "span_sha256": "317f9da6133e0e342a042c7f4163a7504d4c3f860d9599925b5df15b0ced40da",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Atom' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md#subjects.depends_on[2]",
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1703",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+      "source_sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.95,
+      "reason": "The live source refers to current normative Artifact revisions. The candidate defines Revision as a historical root of an Artifact, so the replacement removes only the invalid containment interpretation while preserving the Artifact revision meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 25,
+          "end_line": 45,
+          "span_sha256": "317f9da6133e0e342a042c7f4163a7504d4c3f860d9599925b5df15b0ced40da",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "Defines Revision as a historical snapshot and excludes Artifact.Revision containment."
+        },
+        {
+          "pointer": "/history_model/revision_role",
+          "reason": "Confirms Revision preserves a historical Artifact state."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Artifact/Revision' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Artifact/Revision' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md#subjects.depends_on[3]",
+      "old_value": "Implementation Binding",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1703",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+      "source_sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Relation/Implementation Binding",
+      "confidence": 0.91,
+      "reason": "The current Claim defines a declared, revision-bound binding from normative Atoms to native targets and distinguishes it from proof of correctness. The candidate Relation root preserves that typed connection without inventing a new lifecycle or Carrier registry.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 25,
+          "end_line": 45,
+          "span_sha256": "317f9da6133e0e342a042c7f4163a7504d4c3f860d9599925b5df15b0ced40da",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "Defines typed Relations as connections between Entities."
+        },
+        {
+          "pointer": "/root_entities/3",
+          "reason": "Confirms Relation as a root Entity for typed connections."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Implementation Binding' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md#subjects.depends_on[4]",
+      "old_value": "Journal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1703",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+      "source_sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "Journal",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Journal'. The confirmed history model gives Journal records a distinct role from the events they record. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 25,
+          "end_line": 45,
+          "span_sha256": "317f9da6133e0e342a042c7f4163a7504d4c3f860d9599925b5df15b0ced40da",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Journal' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md#subjects.depends_on[5]",
+      "old_value": "Implementation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1703",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+      "source_sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+      "source_version": 18,
+      "decision": "unchanged",
+      "proposed_value": "Implementation",
+      "confidence": 0.95,
+      "reason": "The current Main Content supports the source-specific use of 'Implementation'. The candidate keeps M/E views over shared roots and does not turn observed implementation into an Execution root. The exact existing identity remains the most precise candidate-aligned value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 25,
+          "end_line": 45,
+          "span_sha256": "317f9da6133e0e342a042c7f4163a7504d4c3f860d9599925b5df15b0ced40da",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Implementation' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md#subjects.depends_on[6]",
+      "old_value": "Verification",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1703",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+      "source_sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'Verification'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 25,
+          "end_line": 45,
+          "span_sha256": "317f9da6133e0e342a042c7f4163a7504d4c3f860d9599925b5df15b0ced40da",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Verification' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 7,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md#subjects.depends_on[7]",
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1703",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+      "source_sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role",
+      "confidence": 0.95,
+      "reason": "The current Claim treats Content Role as an Atom-only classification axis. The candidate property model and content-direction rules preserve Atom ownership and role distinctions while changing only the separator meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 25,
+          "end_line": 45,
+          "span_sha256": "317f9da6133e0e342a042c7f4163a7504d4c3f860d9599925b5df15b0ced40da",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "Confirms Atom as the candidate named Entity."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Confirms a property remains attached to its owner."
+        },
+        {
+          "pointer": "/content_direction/role_labels",
+          "reason": "Confirms role distinctions are content direction, not independent roots."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Atom/Content Role' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Content Role' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md#subjects.governs",
+      "old_value": "Projection/Type: Implementation Overview",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1703",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+      "source_sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+      "source_version": 18,
+      "decision": "proposed",
+      "proposed_value": "Projection.Type: Implementation Overview",
+      "confidence": 0.91,
+      "reason": "The current Claim identifies an Implementation Overview as a non-authoritative Projection and explicitly excludes the Atom Content Role axis. The candidate preserves Projection as a distinct Entity instance and Type as an owner-qualified property, retaining the allowed value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 25,
+          "end_line": 45,
+          "span_sha256": "317f9da6133e0e342a042c7f4163a7504d4c3f860d9599925b5df15b0ced40da",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/projection_member_model",
+          "reason": "Confirms Projection as a distinct derived Entity instance with its own lifecycle."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Confirms the Type field remains a dependent property of its owner."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'Projection/Type: Implementation Overview' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Projection/Type: Implementation Overview' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-REQUIREMENT--require-stable-noun-content-role-names.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1704",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-REQUIREMENT--require-stable-noun-content-role-names.md",
+      "source_sha256": "28d8f8caecfc0b2b187de676216f8caeacb70164b1b16fdd2cc4da31751a75a8",
+      "source_version": 19,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role",
+      "confidence": 0.95,
+      "reason": "The current Claim treats Content Role as an Atom-only classification axis. The candidate property model and content-direction rules preserve Atom ownership and role distinctions while changing only the separator meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-REQUIREMENT--require-stable-noun-content-role-names.md",
+          "sha256": "28d8f8caecfc0b2b187de676216f8caeacb70164b1b16fdd2cc4da31751a75a8",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "18bd2779a790a0717e69ea917885282b4e2b8803fe82dc311afc0ed0f2a7ce05",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "Confirms Atom as the candidate named Entity."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Confirms a property remains attached to its owner."
+        },
+        {
+          "pointer": "/content_direction/role_labels",
+          "reason": "Confirms role distinctions are content direction, not independent roots."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current depends_on occurrence value 'Atom/Content Role' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Content Role' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-REQUIREMENT--require-stable-noun-content-role-names.md#subjects.governs",
+      "old_value": "Atom/Content Role/Name",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1704",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-REQUIREMENT--require-stable-noun-content-role-names.md",
+      "source_sha256": "28d8f8caecfc0b2b187de676216f8caeacb70164b1b16fdd2cc4da31751a75a8",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source uses a qualified or allowed-value-specific meaning, but the candidate does not establish a replacement that retains every bearer, relation, and allowed-value distinction. No safe candidate replacement is established for 'Atom/Content Role/Name'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1704-CORE_META_MODEL-REQUIREMENT--require-stable-noun-content-role-names.md",
+          "sha256": "28d8f8caecfc0b2b187de676216f8caeacb70164b1b16fdd2cc4da31751a75a8",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "18bd2779a790a0717e69ea917885282b4e2b8803fe82dc311afc0ed0f2a7ce05",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'Atom/Content Role/Name' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred.",
+        "All bearer, path and allowed-value qualification in 'Atom/Content Role/Name' remains explicit; no blind separator conversion or qualifier removal is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-create-rationale-after-its-subject.md#subjects.governs",
+      "old_value": "artifact-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1705",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-create-rationale-after-its-subject.md",
+      "source_sha256": "0b83acc59a1102d643ad914a5ebbc18a179a5eb459b175293d17031f98a21b1c",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'artifact-model'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1705-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-create-rationale-after-its-subject.md",
+          "sha256": "0b83acc59a1102d643ad914a5ebbc18a179a5eb459b175293d17031f98a21b1c",
+          "start_line": 19,
+          "end_line": 37,
+          "span_sha256": "da127a61e492a5f8fa662256164ccebf902defe6e11975b6656cf585d0af270e",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'artifact-model' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1706-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-provide-lineage-impact-projections.md#subjects.governs",
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1706",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1706-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-provide-lineage-impact-projections.md",
+      "source_sha256": "bfa88e477216cfd2a836d8d12a1f15b1b9ff348b17e4804b9ab0ce4f47f5d88a",
+      "source_version": 19,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'lifecycle-traceability'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1706-CORE_META_MODEL-GENERAL-REQUIREMENT--requirement-provide-lineage-impact-projections.md",
+          "sha256": "bfa88e477216cfd2a836d8d12a1f15b1b9ff348b17e4804b9ab0ce4f47f5d88a",
+          "start_line": 20,
+          "end_line": 40,
+          "span_sha256": "aa678b6500cf2c369334749b02b503d8b801762b508b6d21a5e66e7cf1fba613",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'lifecycle-traceability' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1707-CORE_META_MODEL-CORE-REQUIREMENT--make-requirement-the-only-universally-mandatory-atom.md#subjects.governs",
+      "old_value": "semantics",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1707",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1707-CORE_META_MODEL-CORE-REQUIREMENT--make-requirement-the-only-universally-mandatory-atom.md",
+      "source_sha256": "20ffb45226456869e9ac731dd992f6692a18ac63a2a46559debad518d6477ed2",
+      "source_version": 18,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The live source establishes this contextual identity, but the candidate does not establish its canonical counterpart, owner, or relation; changing it would invent an unsupported identity. No safe candidate replacement is established for 'semantics'.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1707-CORE_META_MODEL-CORE-REQUIREMENT--make-requirement-the-only-universally-mandatory-atom.md",
+          "sha256": "20ffb45226456869e9ac731dd992f6692a18ac63a2a46559debad518d6477ed2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "87e06798b34a7e62c30c1a1f52d62c9b0b7d6bccb9cae759a05cb5a225c92e70",
+          "reason": "Full current Main Content span read for this source; it supplies the live Scope and Claim meaning used for this occurrence decision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current governs occurrence value 'semantics' and its governs/dependency direction are retained as evidence.",
+        "The source Atom role, version, owner and current-scope provenance remain distinct; no storage key or per-Property Carrier binding is inferred."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}
