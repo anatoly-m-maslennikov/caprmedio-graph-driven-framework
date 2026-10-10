@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Tool, Operator]
-version: 2
-updated_at: "2026-10-10 23:34:31 +0400"
+version: 3
+updated_at: "2026-10-11 00:18:47 +0400"
 relations:
   is_decomposition_of: [CA-P-1964]
   blocks: [CA-P-1977]
@@ -39,6 +39,10 @@ Ask one concrete question: may those exact minimum governing body revisions be p
 No authority, source, runtime or Journal writes. CA-P-1977 separately records the actual answer.
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
+
+### Local execution receipt
+
+Prepared the pinned five-change grammar exception candidate without authority changes: `.caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-decision.packet.json` SHA-256 `4e3636cc01e40801c8f6b8beec9632e80fee3187524bf052656cec9a4e6035ab`, with readable companion `grammar-decision.packet.md`. The proposal replaces the old slash-specific Summary identity and revises only the named four grammar bodies; native slash admission remains explicitly unresolved. Root asked the Operator whether Step 1 may include that minimum exception. No answer is presumed; CA-P-1977 records an actual reply before cutover can proceed. No Core, grammar, runtime or migration source effect occurred.
 
 ### Definition of Done
 
