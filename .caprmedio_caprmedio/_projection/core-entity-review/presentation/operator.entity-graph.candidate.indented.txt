@@ -52,6 +52,11 @@ Entity Graph Candidate
     A Projection is another Entity instance, not another representation of its source Entity instance.
     A Projection remains derived; it is not another authority for its source facts.
 
+  Entities and description syntax
+    Indentation, headings and /, ., :, @ describe Entities and Relations; they are not themselves those Entities.
+    A label or alias does not create another Entity.
+    A contextual grouping does not automatically create an Entity.
+
   Snapshot and history
     Entities and Properties describe the selected snapshot.
     Across all non-archived folders combined, at most one Atom may carry a given Atom ID.
@@ -82,7 +87,6 @@ Entity Graph Candidate
 
   Unresolved
     How to identify duplicates among ID-free Drafts.
-    The admission rule distinguishing modeled Entities from syntax, contextual labels and aliases.
     Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.
     A complete mapping from the captured 706-identity review to this simplified candidate.
     Exact typed history relation, history identifiers and accepted Subject grammar changes.
