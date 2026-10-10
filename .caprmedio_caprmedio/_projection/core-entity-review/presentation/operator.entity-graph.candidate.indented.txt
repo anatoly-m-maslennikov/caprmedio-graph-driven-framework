@@ -1,11 +1,7 @@
 Entity Graph Candidate
-  Status: Candidate — Operator-confirmed decisions with separately marked proposals; not adopted Core authority
+  Status: Candidate — Operator-authored; not adopted Core authority
   Saved: 2026-10-10 (Asia/Tbilisi)
   Basis: latest decisions in this conversation
-
-  Graph model
-    Entities are nodes; typed Relations connect them.
-    Relation kinds constrain which Entity kinds may connect.
 
   Root Entities
     Artifact
@@ -25,10 +21,7 @@ Entity Graph Candidate
     Actor
       Meaning: Who performs work.
     Relation
-      Meaning: Typed connections between Entities.
-      Allowed connections: constrained by Relation kind and endpoint Entity kinds
-      Examples: Artifact to Property; Scope Unit to Atom; Carrier to Artifact
-      Not: every Relation kind between every pair of Entities
+      Meaning: Connections between Atoms.
     Revision
       Meaning: A historical snapshot of an Artifact.
       History: revision of an Artifact; not an Artifact itself
@@ -51,16 +44,6 @@ Entity Graph Candidate
     Dependent Entities share the Artifact lifecycle
     Display indentation does not admit native relations or change Subjects
 
-  Entity identity and representation
-    Each Entity instance has exactly one representation: one source of truth for that instance.
-    A Projection is another Entity instance, not another representation of its source Entity instance.
-    A Projection remains derived; it is not another authority for its source facts.
-
-  Entities and description syntax
-    Indentation, headings and /, ., :, @ describe Entities and Relations; they are not themselves those Entities.
-    A label or alias does not create another Entity.
-    A contextual grouping does not automatically create an Entity.
-
   Snapshot and history
     Entities and Properties describe the selected snapshot.
     Across all non-archived folders combined, at most one Atom may carry a given Atom ID.
@@ -70,23 +53,6 @@ Entity Graph Candidate
     Archive preserves previous snapshots; Journal records changes.
     A new Updated At can distinguish a new historical state; no separate Applicable Methodology Revision or Projection Revision kind is formalized here.
     Revision is a separate historical root, not an Artifact subtype or an IS_BORNE_BY child of Artifact or Atom.
-
-  History — confirmed distinction
-    Revision preserves a historical Artifact state.
-    Journal records what happened: changes, Executions and observed outcomes.
-    A Journal record is not the event itself.
-
-    History links — PROPOSED; not Operator-confirmed or natively admitted
-      Revision — REVISION_OF → Artifact
-      Journal.Record — FROM_REVISION → previous Revision
-      Journal.Record — TO_REVISION → resulting Revision
-      Journal.Record — RECORDS → Execution
-      From/to links apply to Artifact change records, not every Journal record.
-      Creation has no previous Revision; RECORDS applies when a record describes an actual run.
-
-    Historical reference — PROPOSED; not a required identifier or accepted Subject grammar
-      Atom ID + unique Updated At
-      Version Number alone may not distinguish metadata-only historical states.
 
   Content
     Substance + Substance Scope + optional general Details
@@ -99,19 +65,20 @@ Entity Graph Candidate
       reconcile conflicts and check coherence
       publish one consistent projected Atom set
     Source Atoms remain authoritative
-    The Projection is a distinct Entity instance with one representation; source references are not identity reuse.
     Not necessarily one document; not an additional root
 
-  M/E roots — RESOLVED
-    M/E specifications are Atoms; actual work/checks are Executions
-    M/E are role-centred views over the shared roots, not additional Entity roots
-    Operator confirmed this choice on 2026-10-10
+  M/E roots — OPEN
+    Proposal only: M/E specifications are Atoms; actual work/checks are Executions
+    Method/Evaluation may head views without becoming new Entity roots
+    Separate Method/Evaluation roots are not confirmed and have not been added
 
   Unresolved
     How to identify duplicates among ID-free Drafts.
-    Exact typed links between Operations definitions, Executions, Actors, Journal Records, Revisions and Carriers.
+    Whether M/E need additional conceptual roots rather than only role-centred views.
+    Whether the Relation root's inter-Atom scope also covers other Entity connections.
+    Exact placement and semantics of Journal, Projection and reusable Operation definitions.
     A complete mapping from the captured 706-identity review to this simplified candidate.
-    Operator confirmation of the proposed history links and historical reference; accepted Subject grammar changes.
+    Exact typed history relation, history identifiers and accepted Subject grammar changes.
 
   Preservation
     Earlier 706-identity candidate, ledgers, source pins and acceptance stay unchanged
