@@ -4,9 +4,9 @@ content_role: Delivery
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 3
+version: 2
 updated_at: "2026-10-10 05:17:00 +0400"
 subjects:
   governs: "Tool/RELEASE_VERSION/Source and compilation carriers"
@@ -37,17 +37,10 @@ Release Version **must** bind its Methodology delivery to the explicitly admitte
 ### Package-to-Project delivery
 
 1. Reopen the admitted package inventory and catalog. A source descriptor may identify a directory tree, not only a file. Select only exact source identities admitted for this installation command. Presence or visibility is not activation of an Extension or Project Configuration.
-2. Package role `methodology` below `methodology/active/` supplies selected Active Atom bytes; role `methodology-support` below `methodology/support/` supplies declared support. The mandatory Methodology descriptor covers `methodology/active/001_CORE_META_MODEL`; Extension descriptors cover distinct `002_INSTALLED_EXTENSIONS/<id>/<revision>` roots and a Configuration descriptor covers `003_PROJECT_CONFIGURATION`. Do not admit an ancestor `methodology/active` descriptor beside these nested identities. Every material row must have exactly one admitted descriptor; an admitted but unselected optional row is excluded, not treated as unadmitted. Strip only the active/support prefixes for the isolated compiler source view. Refuse colliding destinations, missing selected revisions, extra unadmitted rows, symlinks and unsafe paths before publication.
+2. Package role `methodology` below `methodology/active/` supplies selected Active Atom bytes; role `methodology-support` below `methodology/support/` supplies declared support. Strip only these fixed prefixes for the isolated compiler source view. Refuse colliding destinations, missing selected revisions, extra unadmitted rows, symlinks and unsafe paths before publication.
 3. Engine `core` descriptors are not compiler Atom input. Methodology, Extension and Configuration descriptors contribute only through explicitly selected admitted paths. Support remains support, not an Atom. Do not silently add checkout sources, installed settings or unselected private Configuration.
 4. Reuse canonical compiler metadata, conflict/selection and projection rendering primitives on that exact view. Unresolved conflicts report actual evidence and stop; installation never invents approval. Reopen source-view and compilation bytes before publication.
 5. A projected Atom retains source Atom ID, revision, source SHA-256 and original Relations digest. Its source-carrier relation resolves to the verified package member; its package-relative original export path preserves provenance. Relocation changes relative presentation, not source identity.
-
-### Target selection and preparation
-
-1. Framework Instance Settings use the single canonical carrier declared by CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier. Reuse the canonical compiler's explicit enabled Extension identity/revision parser. A selected label revision must match exactly one admitted Extension root; its catalog revision and receipt still bind immutable content.
-2. The optional `[methodology.configuration]` table has exactly `identity` and `revision`. Both are strings and must match one admitted Configuration catalog descriptor, including its immutable catalog revision. Omission selects no package Project Configuration; it never selects the releasing Project's configuration by presence or catalog default. Malformed or unavailable selections refuse before command retention or installation effects. Alternative Configurations with colliding canonical destinations require an explicitly governed package layout, not implicit remapping.
-3. Direct CA-O-200 installation privately prepares this target's compilation from only the selected admitted package bytes, before any destructive effect. Bind Framework Instance Settings, catalog, chosen source identities and the exact delivery manifest into the context and release proof. No compiler runs after deletion begins.
-4. Selected CA-O-164/CA-O-169 promotion publishes the exact root `methodology/` export and compiled output accepted by its Full Gate, without another compilation. Before publication, prove that its target selection equals that sealed candidate's source frontier. A different target selection uses a separately prepared direct installation, not a relabeled same-byte promotion.
 
 ### Gated publication
 
@@ -55,3 +48,4 @@ Release Version **must** bind its Methodology delivery to the explicitly admitte
 2. After the same-byte Full Gate and explicit installation command, the shared installation lock owns publication of staged compiler role folders and their delivery manifest. Existing role folders are replaceable only when every persistent member proves compiler-projection ownership. Preserve unrelated files, settings, source folders and authoring authority.
 3. Never replace the enclosing Framework directory or its `000_APPLICABLE_MTHD_sources` subtree. Require its authoring inventory to remain equal before and after. Delivery does not rewrite Project Structure.
 4. Publish only the staged verified compilation with exact package/source/compiler bindings. The runtime selector remains the installer's final activation step, after this delivery and the other required carriers are reopened. Journal evidence records actual publication or an honest partial/failed result.
+

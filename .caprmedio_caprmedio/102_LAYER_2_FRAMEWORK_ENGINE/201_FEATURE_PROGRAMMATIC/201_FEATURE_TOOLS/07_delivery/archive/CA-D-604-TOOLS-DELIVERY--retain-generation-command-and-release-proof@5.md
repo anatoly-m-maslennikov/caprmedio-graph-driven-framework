@@ -4,9 +4,9 @@ content_role: Delivery
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
-version: 6
+version: 5
 updated_at: "2026-10-10 05:24:00 +0400"
 subjects:
   governs: "Framework Installation contribution/Generation and release proof"
@@ -34,9 +34,7 @@ The generation directory uses the positive integer generation defined by CA-D-60
 
 ### Native proof staging
 
-The closed native `release-proof.toml` keys are `schema_version = 2`, `package_manifest_sha256`, `framework_version`, `version_toml_sha256`, `source_catalog_sha256`, `full_gate_receipt_sha256`, `image_digest`, `target_project_context_sha256`, `state_generation`, `installation_lock_generation`, `installation_command_sha256`, `command_sha256`, `command_stage_manifest_sha256`, `methodology_delivery_manifest_ref`, `methodology_delivery_manifest_sha256`, and `selector_sha256`.
-
-`methodology_delivery_manifest_ref` is the normalized Project-relative path of the actual compiler-owned delivery manifest at this target's declared Applicable Methodology output. `methodology_delivery_manifest_sha256` hashes that file's complete bytes, not its self-excluding semantic digest. Reopen the manifest's canonical schema, context/package/catalog/compiler/source bindings and every declared output byte and mode before deriving these proof fields. A caller-provided digest, another Project's manifest or a matching Boolean does not substitute for that reopening. The prepared target compilation is completed before destructive replacement; selected promotion retains the exact candidate compilation accepted by its Full Gate. Final admission reopens the same delivery manifest and output tree. Prior schema-1 proof remains historical evidence; do not supply missing Methodology evidence by assumption.
+The closed native `release-proof.toml` keys are `schema_version = 1`, `package_manifest_sha256`, `framework_version`, `version_toml_sha256`, `source_catalog_sha256`, `full_gate_receipt_sha256`, `image_digest`, `target_project_context_sha256`, `state_generation`, `installation_lock_generation`, `installation_command_sha256`, `command_sha256`, `command_stage_manifest_sha256`, and `selector_sha256`.
 
 A staged proof lives with the exact prospective `selector.toml` bytes under `.caprmedio_tmp/installation/proofs/<installation_lock_generation>`, both mode 0600. The concrete installation lock remains held while creating and reopening these regular carriers. For an already selected package, the writer physically reopens the D598 package/selector, persisted D600 context and D601 command-stage carriers. Before selection, it instead reopens the sealed candidate package and its actual retained Full Gate plus exact prospective D598 bytes, under the same concrete installation lock. A prospective selector is not current authority. Persisting a candidate context is non-active preparation, not runtime activation. It derives package/version/catalog/Full Gate/image facts from those reopened carriers, not caller strings. The command-stage manifest byte hash binds all staged command files. `installation_command_sha256` equals the lock's command binding; `command_sha256` is the separate prospective runtime command digest.
 
@@ -63,3 +61,4 @@ The existing selected CA-O-169 promotion uses its own actual Action Run, not a m
 ### Direct installation result
 
 An actual CA-O-200 execution retains its immutable canonical JSON result at `.caprmedio_tmp/installation/results/<actual-action-run-id>/result.json`, mode 0600, before requesting a canonical terminal Journal record. Its closed keys are `schema_version = 1`, `action_id = CA-O-200`, `action_run_id`, `installation_command_sha256`, `package_manifest_sha256`, `target_project_context_sha256`, `state_generation`, `effect_outcome`, `reason` and `effects`. The outcome is one of `completed`, `blocked_before_delete`, `unavailable_after_delete` or `effect_uncertain`; `reason` is a string or null. Every effect has exactly `kind`, safe Project-relative `reference` and the observed byte `sha256`. Effects describe actual retained carriers, not intended effects. The result is separate from the Journal's canonical recording state: failed terminal recording reports pending recording and the original result reference, and never replays installation. Selected CA-O-169 keeps its existing shared Session result/checkpoint transport rather than creating this direct-Action result or another Run.
+
