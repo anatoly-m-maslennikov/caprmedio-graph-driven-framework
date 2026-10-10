@@ -1,0 +1,252 @@
+{
+  "task": "CA-P-1991",
+  "recorded_at": "2026-10-11 01:25:08 +0400",
+  "result": "PASS: bounded review Plans created and actual ownership verified",
+  "outputs": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/prepare_subject_mapping_plans.py",
+      "sha256": "31bd8cf1bd9a22f6cef77e22e3b1953c066b8f0943d74518cfbbac0f64f70fb1"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_prepare_subject_mapping_plans.py",
+      "sha256": "80d16c62ac3522c157ebc0213b2a64903846cd6598a80b3633a10bf6063da07d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.ownership.json",
+      "sha256": "116b4232b9f3042335045f40ddfbade4f1e951fd510793249c760ce1fb2d1cca"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/02-CA-P-1992-TASK--review-current-subject-batch-001.md",
+      "sha256": "28fad31382da62d524374b77d3005f948b0a89e856b0f301d67fca28691da065"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/03-CA-P-1993-TASK--review-current-subject-batch-002.md",
+      "sha256": "5098c6cf9007098c1bdfb840b0c7b3ef043ada156945cd9398258c3ad9c32357"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/04-CA-P-1994-TASK--review-current-subject-batch-003.md",
+      "sha256": "c0bc759bbef926bcac0c6c6c27df71aac9328ab721f1aec36a7f53714ddb8c3d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/05-CA-P-1995-TASK--review-current-subject-batch-004.md",
+      "sha256": "97bdf124f572449dff22f6cbc8c4ef7f9f00cd1da306ee984e5c0d2a3519a2a2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/06-CA-P-1996-TASK--review-current-subject-batch-005.md",
+      "sha256": "68e0b7b48b7350727362e54b86d0e690345e2342da206506d27dfffeba75917b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/07-CA-P-1997-TASK--review-current-subject-batch-006.md",
+      "sha256": "00f8e37d397e30ecd59eaba3f3a7e09e3586301c8b574cd4dfce905e761c19e1"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/08-CA-P-1998-TASK--review-current-subject-batch-007.md",
+      "sha256": "5fcc3ad68a7777fec091642f917bd557f03413ff027e7ff3d08c9ce3e5bf1d91"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/09-CA-P-1999-TASK--review-current-subject-batch-008.md",
+      "sha256": "4ceaae4138cea237af4d2379512f33a5fa29587985f16d629631a8a2a672e36e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/10-CA-P-2000-TASK--review-current-subject-batch-009.md",
+      "sha256": "263456f59ea2978aa7bd1f0ee7328e38a833fc3375dd0c68fb673685730089ad"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/11-CA-P-2001-TASK--review-current-subject-batch-010.md",
+      "sha256": "3c6a2e0be8de7b387cf93ca6ca93db9a387960a74f1974365b3058360f7360a9"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/12-CA-P-2002-TASK--review-current-subject-batch-011.md",
+      "sha256": "fc4d5590613faae48b62082cd586d261bc2f8af97975ede2e9543474acfb767b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/13-CA-P-2003-TASK--review-current-subject-batch-012.md",
+      "sha256": "0e4cef6cf38c6f077f4831c8ab2097a49116338c46e7cc379783080693ea6fd8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/14-CA-P-2004-TASK--review-current-subject-batch-013.md",
+      "sha256": "67ecee07dcfb2192324a9de373b8a871c9bc1348b162441f92f5f4ebb92482cc"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/15-CA-P-2005-TASK--review-current-subject-batch-014.md",
+      "sha256": "ea2feccc6354c37ab9d9ca1feeafb09fea6ef08a167beba6d5a809d4d9e9b674"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/16-CA-P-2006-TASK--review-current-subject-batch-015.md",
+      "sha256": "a27de134f60e7177b0debc83bd2acc6c531d01fb5887f925454eedb8530917f1"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/17-CA-P-2007-TASK--review-current-subject-batch-016.md",
+      "sha256": "4266d520fab0c53656d5b0723811f62dc34af0a1efef21cb2e2754dcc00b46a3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/18-CA-P-2008-TASK--review-current-subject-batch-017.md",
+      "sha256": "b463fa9db822c40edad4d64e97c018f8744aee50bb9dc45ecd91903717cd0a9a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/19-CA-P-2009-TASK--review-current-subject-batch-018.md",
+      "sha256": "2a4f9217f5fedfa5cdbd054a191f0659e4de6e0e456016c1d3763da501fbe69e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/20-CA-P-2010-TASK--review-current-subject-batch-019.md",
+      "sha256": "2d510c26dfeca5fb6e1c680148eec8123ae55ac108bd5dec5b509fd3d2735f3d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/21-CA-P-2011-TASK--review-current-subject-batch-020.md",
+      "sha256": "1dd68103c3cc7f3abbf7588d2319861384c8cc297ddefb63514e76c64388fec8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/22-CA-P-2012-TASK--review-current-subject-batch-021.md",
+      "sha256": "c9bb2d6564d3e53e3350e3f894d1a28c1af3c6fa4a11931e131d4a9f848193da"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/23-CA-P-2013-TASK--review-current-subject-batch-022.md",
+      "sha256": "36f55e974a3171bbf87e193f8854f1d979163de4cce3ad7c95ac02ecef3e8b05"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/24-CA-P-2014-TASK--review-current-subject-batch-023.md",
+      "sha256": "b4badf0616d167a3ee73ca57a872a9b074b311fb49db057b45697d6c8c9dba86"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/25-CA-P-2015-TASK--review-current-subject-batch-024.md",
+      "sha256": "392f51e1967b9ad1e391ffa58d654dede2212bf3e8f76df802a6f7fcbef2618c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/26-CA-P-2016-TASK--review-current-subject-batch-025.md",
+      "sha256": "f88f7726dacc82c4a225e264150098056ad26e4a7485d9acc7b15ede361c0b6a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/27-CA-P-2017-TASK--review-current-subject-batch-026.md",
+      "sha256": "6a03b022b6edbb63dec6c547c4f968fc59cfdf80836e4323f1a8a7f3a290bcf7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/28-CA-P-2018-TASK--review-current-subject-batch-027.md",
+      "sha256": "74c00f926b1e2f5f1a990a7f8c316f85811de30bc23e74b273942d99ac43a0bc"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/29-CA-P-2019-TASK--review-current-subject-batch-028.md",
+      "sha256": "306634d6f95235dc9de1e431114b1d21ca0c9160c43e52245609835b9cce754c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/30-CA-P-2020-TASK--review-current-subject-batch-029.md",
+      "sha256": "72fd0570caaeb0e0e030788aec7f9101ae8d20d9e22091b483eac2a5c3402e01"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/31-CA-P-2021-TASK--review-current-subject-batch-030.md",
+      "sha256": "09e3b0b52dcf54a44f4a5c079b7af57b46168f24f8d4085b9911c508b467511c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/32-CA-P-2022-TASK--review-current-subject-batch-031.md",
+      "sha256": "f6d6701271964b10f05747291aff4c5ce46fd9c3dbfa6828a3130d78e3f6581d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/33-CA-P-2023-TASK--review-current-subject-batch-032.md",
+      "sha256": "6d9a5c9a8ccda6be8ff0716272a7a3fbd22513d7eebe29c76e3aa1908d081d3a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/34-CA-P-2024-TASK--review-current-subject-batch-033.md",
+      "sha256": "06ad2074e0b73dc945ad1e59a26f96a37a3d33611bbe434ac7e486a85dc199aa"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/35-CA-P-2025-TASK--review-current-subject-batch-034.md",
+      "sha256": "571eec939f16d3e199e77957e22c6b2657aeee83d0581def094de88d3100e959"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/36-CA-P-2026-TASK--review-current-subject-batch-035.md",
+      "sha256": "95333d1fa653ef4bff5cedff24e82c488b07bc03b4ec2ffe722226743c2bcb59"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/37-CA-P-2027-TASK--review-current-subject-batch-036.md",
+      "sha256": "0ecd0179dffa12ad379dfabed7cadd6bdc5f830b0c78ea258462c06137adffc7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/38-CA-P-2028-TASK--review-current-subject-batch-037.md",
+      "sha256": "88de7070e30f5ef0c389cc3e796d83b6f8bc86fae4cf0006e8c756e51f7d8947"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/39-CA-P-2029-TASK--review-current-subject-batch-038.md",
+      "sha256": "49273b18cb764587f090c2fc57a75cf80891145b180844d9c79e967f1801123a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/40-CA-P-2030-TASK--review-current-subject-batch-039.md",
+      "sha256": "b0eba1d27f5b594a15e166dbad3cd748b46c4dd3d586dac6c2d7af8656fff0ae"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/41-CA-P-2031-TASK--review-current-subject-batch-040.md",
+      "sha256": "0f3a04078575d5de113cf010fafd6c89aa4b7b98487668b57a8c13bba72622ab"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/42-CA-P-2032-TASK--review-current-subject-batch-041.md",
+      "sha256": "e83c107f851d935e8281c5945db726ff3c25a8f9ba657602324ccae06871904b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/43-CA-P-2033-TASK--review-current-subject-batch-042.md",
+      "sha256": "3aceccd392a5230d325310a488ac4c54503e2186070d7f9be2cc6203be34505e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/44-CA-P-2034-TASK--review-current-subject-batch-043.md",
+      "sha256": "681a69036a26b4781382ae5acb953cb6323ee140f381b111301453d4ca1fc307"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/45-CA-P-2035-TASK--review-current-subject-batch-044.md",
+      "sha256": "8e1faf274013fec8e385fb2e2a9e63cfde7a2d40fac3258aa74690e6c827de2a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/46-CA-P-2036-TASK--review-current-subject-batch-045.md",
+      "sha256": "f21753602e04c6f579ce806ef2f6e86eb1871f6374df479536dc843b4674e89b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/47-CA-P-2037-TASK--review-current-subject-batch-046.md",
+      "sha256": "c187de3e8629d56ded416f6ac90401bc997cb40d040988e7e8eda1a4cc73066c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/48-CA-P-2038-TASK--review-current-subject-batch-047.md",
+      "sha256": "5e183df1ba0c2dedc6e822e6d42af875e3aa8b8c5554e821391df33cf9752038"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/49-CA-P-2039-TASK--review-current-subject-batch-048.md",
+      "sha256": "faa5e0f424aab2a4d84772dff52c762ab33b14a94d4918d43b39feee2adc7f9c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/50-CA-P-2040-TASK--review-current-subject-batch-049.md",
+      "sha256": "beefc5d0678b9155a2b0084ef37ab21282df5ca64794fb61a2fa36e3cad009f3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/51-CA-P-2041-TASK--review-current-subject-batch-050.md",
+      "sha256": "e206dfc2abc4fd7d1cc05d15b2373140f4509b90d7840c3413b01b1f05a3f9c0"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/52-CA-P-2042-TASK--review-current-subject-batch-051.md",
+      "sha256": "c701101028d21a4a3f6ecc63744cc58ae1c789332c050aea3fb0f0c95b8c4c8d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/53-CA-P-2043-TASK--integrate-current-subject-mapping-ledger.md",
+      "sha256": "50904d7fe45a5f3e06cf0a91ee4b5c51790fd6bee1580ce2de42d710797f36be"
+    }
+  ],
+  "checks": {
+    "review_tasks": 51,
+    "integration_tasks": 1,
+    "source_ownership": 907,
+    "occurrence_ownership": 4534,
+    "exact_disjoint_coverage": true,
+    "explicit_dependency_relations": true,
+    "unique_plan_ids_and_outputs": true,
+    "all_source_pins_current": true,
+    "isolated_preparation_tests_passed": 13,
+    "isolated_preparation_tests_failed": 0,
+    "independent_contract_review": "PASS after four evidence/coverage corrections",
+    "independent_generator_review": "PASS after YAML-style collision correction",
+    "all_twelve_tool_authority_pins_and_structure_current": true,
+    "inventory_reproduction": "PASS: existing equal outputs not rewritten"
+  },
+  "limits": [
+    "Review Tasks created, not executed or Done",
+    "No Subject mappings, source grammar changes, Core migration, native admission, MCP use or runtime changes",
+    "No whole-repository or whole-graph pass claimed; pre-existing registry-path failure remains separately recorded"
+  ]
+}

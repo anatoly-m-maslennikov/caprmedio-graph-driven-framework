@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 01:01:30 +0400"
+version: 2
+updated_at: "2026-10-11 01:25:08 +0400"
 relations:
   is_decomposition_of: [CA-P-1972]
   blocks: []
