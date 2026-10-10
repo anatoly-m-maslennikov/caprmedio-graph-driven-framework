@@ -33,10 +33,12 @@ from framework_package import (
     verify_framework_package,
 )
 from installation_context import (
+    CONTEXTS_DIRECTORY,
     InstallationContextError,
     TargetProjectContext,
     TargetProjectRequest,
     bind_target_project_context,
+    reopen_target_project_context,
 )
 from project_mcp_configuration import DEFAULT_MEMBER, parse_project_mcp_settings
 from project_runtime import RUNTIME_DIRECTORY, TEMPORARY_DIRECTORY, atomic_tempfile
@@ -857,6 +859,82 @@ def _verified_full_gate_packet(
     return receipt_sha256
 
 
+def _reopen_prospective_target_context(
+    request: PortableInstallationRequest, target_context: TargetProjectContext,
+) -> TargetProjectContext:
+    """Bind the complete actual controls, not a caller-built selection tuple.
+
+    Persisted contexts remain usable after bootstrap staging or activation;
+    their reader rechecks every bound control without requiring the historical
+    empty-runtime precondition. First preparation uses ordinary admission.
+    """
+    if not isinstance(request, PortableInstallationRequest) or not isinstance(target_context, TargetProjectContext):
+        raise InstallationError("portable-context-invalid", "portable Full Gate requires a typed request and target context")
+    if not isinstance(request.target, TargetProjectRequest):
+        raise InstallationError("portable-context-invalid", "portable Full Gate requires a typed target request")
+    carrier = Path(request.target.target_root) / CONTEXTS_DIRECTORY / f"{target_context.sha256}.toml"
+    try:
+        observed = (
+            reopen_target_project_context(request.target, expected_sha256=target_context.sha256)
+            if carrier.exists() or carrier.is_symlink()
+            else bind_target_project_context(request.target)
+        )
+    except InstallationContextError as error:
+        raise InstallationError("portable-context-stale", "target context cannot be rebound to current Project controls") from error
+    if observed != target_context:
+        raise InstallationError("portable-context-stale", "supplied context differs from the complete actual target context")
+    return observed
+
+
+def verify_prospective_portable_full_gate(
+    request: PortableInstallationRequest,
+    *,
+    package: VerifiedFrameworkPackage,
+    target_context: TargetProjectContext,
+    selector: CurrentPackageSelector,
+) -> str:
+    """Physically reopen the retained Full Gate for one non-active package.
+
+    This is the bounded reusable part of portable-installation preparation.
+    Unlike :func:`prepare_portable_installation`, it deliberately receives a
+    package selector that has been verified from prospective bytes; it neither
+    reads nor publishes ``.caprmedio_install/current.toml``.  A caller must
+    still hold the installation lock before using the returned receipt for a
+    mutable publication.
+    """
+
+    if not isinstance(request, PortableInstallationRequest):
+        raise InstallationError("portable-request-invalid", "portable installation requires a typed request")
+    if not isinstance(target_context, TargetProjectContext):
+        raise InstallationError("portable-context-invalid", "portable Full Gate requires a typed target context")
+    if not isinstance(selector, CurrentPackageSelector):
+        raise InstallationError("portable-selector-invalid", "portable Full Gate requires a typed package selector")
+    if not isinstance(package, VerifiedFrameworkPackage):
+        raise InstallationError("portable-package-invalid", "portable Full Gate requires a typed Framework package")
+    target_context = _reopen_prospective_target_context(request, target_context)
+    try:
+        reopened = verify_framework_package(package.root)
+    except FrameworkPackageError as error:
+        raise InstallationError("portable-package-invalid", "physical Framework package could not be reopened") from error
+    if reopened != package:
+        raise InstallationError("portable-package-mismatch", "typed package differs from its physical package bytes")
+    if (
+        selector.package_manifest_sha256 != package.manifest_digest
+        or selector.framework_version != package.framework_version
+        or selector.version_toml_sha256 != package.version_toml_sha256
+        or selector.source_catalog_sha256 != package.source_catalog_sha256
+    ):
+        raise InstallationError("portable-selector-invalid", "prospective selector does not bind the reopened package")
+    evidence = target_context.package_evidence
+    if (
+        evidence.verified is not True
+        or evidence.package_manifest_sha256 != package.manifest_digest
+        or evidence.catalog_sha256 != package.source_catalog_sha256
+    ):
+        raise InstallationError("portable-context-invalid", "target context does not bind the reopened package")
+    return _verified_full_gate_packet(_portable_root(request), request, package, target_context, selector)
+
+
 def _admitted_runtime_default(package: VerifiedFrameworkPackage, member: str) -> str:
     try:
         runtime_default = read_admitted_runtime_default(
@@ -983,6 +1061,7 @@ __all__ = [
     "install_release",
     "installation_status",
     "prepare_portable_installation",
+    "verify_prospective_portable_full_gate",
     "resolve_repository",
     "source_inventory",
 ]
