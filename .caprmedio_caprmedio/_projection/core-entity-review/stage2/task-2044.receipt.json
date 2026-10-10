@@ -1,0 +1,38 @@
+{
+  "task": "CA-P-2044",
+  "recorded_at": "2026-10-11 01:49:22 +0400",
+  "result": "PASS: independent structural-evidence checks; semantic acceptance remains separate",
+  "outputs": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_current_subject_reviews.py",
+      "sha256": "ca0b9af5735400aeca4a52cd8233d14986140e433146d102e29ec589cdf98801"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_current_subject_reviews.py",
+      "sha256": "531b14f868ea49157ff28ff0718c1fa133f12973c288458e38f31661329112f3"
+    }
+  ],
+  "input_pins": {
+    "inventory": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+    "batches_manifest": "8dfc8e12a144833bc8130806e9a5e885f4f13fbafe5b80ea72118bd109eb9e2f",
+    "candidate": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+    "review_contract": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+  },
+  "checks": {
+    "isolated_tests_passed": 14,
+    "isolated_tests_failed": 0,
+    "root_live_batch_002": "PASS",
+    "exact_source_and_occurrence_coverage": true,
+    "owning_content_spans": true,
+    "required_pins_rechecked": true,
+    "finding_dispositions": true,
+    "candidate_pointers_resolve": true,
+    "low_confidence_and_executable_cases_rejected": true,
+    "imports_review_producer": false
+  },
+  "limits": [
+    "Read-only ad-hoc script; not a reusable Tool",
+    "No Core/captured/grammar/native/MCP/runtime changes",
+    "Structural evidence PASS does not prove semantic correctness or approve migration"
+  ]
+}
