@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2007",
+  "recorded_at": "2026-10-11 02:26:16 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-016.review.json",
+    "sha256": "3bee046dea5424d25d50b7a488db8423efa8ec5c77353d0ea419fe3c11e4602b"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-016.json",
+    "sha256": "78628cafcd319e3019f8e3821cc17378ac05c09d5c8caacc49303acc80c0d7d8"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 20,
+    "occurrences": 90,
+    "proposed": 11,
+    "unchanged": 35,
+    "unresolved": 44,
+    "meaning_review": "Independent meaning review checked proposals and high-risk unchanged rows; six mappings losing target or Status domains were corrected to unresolved. Plan Graph retains its source-defined Projection subtype under confirmed generic rules.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "44 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}
