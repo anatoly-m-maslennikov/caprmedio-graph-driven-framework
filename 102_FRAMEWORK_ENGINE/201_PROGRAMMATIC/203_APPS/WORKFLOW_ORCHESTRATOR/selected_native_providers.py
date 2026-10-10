@@ -3,9 +3,13 @@ from __future__ import annotations
 
 from collections.abc import Callable, Mapping
 from dataclasses import fields, is_dataclass
+import hashlib
+import importlib.util
 import json
 from pathlib import Path
+import subprocess
 import sys
+import tempfile
 from typing import Any
 
 from implementation_agent import ImplementationAgent
@@ -128,14 +132,84 @@ class SelectedNativeProviders:
             sys.path.insert(0, str(public_root))
         try:
             from selected_host import SelectedPublicHostError, create_selected_public_bindings
-            from public_release import PublicReleaseError, run_execution_session
+            from public_release import PublicReleaseError, SelectedPublicSessionPhases
         except ImportError as error:
             raise SelectedExecutionError("public Release private selected host is unavailable") from error
         try:
             host = create_selected_public_bindings(self.root, frozen, session)
-            run_execution_session(self.root, session, bindings=host)
+            hooks = self._project_release_module("PUBLIC_RELEASE")
+            parameters = execution.get("parameters")
+            source = parameters.get("source") if isinstance(parameters, Mapping) else None
+            if not isinstance(source, Mapping):
+                raise SelectedExecutionError("public Release requires its frozen document paths")
+            paths = [source.get(key) for key in ("readme_ref", "pr_body_ref", "version_history_ref")]
+            phases = SelectedPublicSessionPhases(self.root, session)
+            changes = self._public_release_changes()
+            workflow = session.start_run(frozen["request"]["run_id"])
+            result = hooks.run_selected_public_release(
+                self.root, run_id=workflow["run_id"], bindings=host, phases=phases,
+                parameters=parameters, prompt=self._public_release_prompt,
+                config={"branch": "amm/dev", "base": "main", "release_paths": paths,
+                        "readme_path": paths[0], "notes_path": paths[1],
+                        "version_history_path": paths[2], "candidate_root": ".", "changes": changes},
+            )
+            result_path = selected.run_directory(frozen["request"]["run_id"]) / "graph_result.json"
+            selected._write(result_path, self._json_value(result))
+            result_ref = result_path.relative_to(self.root).as_posix()
+            effects = sorted({ref for terminal in session.terminal.values()
+                              for ref in terminal.get("effect_refs", [])})
+            if result.get("status") != "published":
+                raise SelectedExecutionError("public Release returned no observed terminal result")
+            session.finish_run(workflow["run_id"], outcome="completed", result_ref=result_ref,
+                               effect_refs=effects, report_ref=result_ref)
         except (SelectedPublicHostError, PublicReleaseError) as error:
             raise SelectedExecutionError(str(error)) from error
+
+    def _project_release_module(self, kind: str) -> Any:
+        """Load this Project's helper without shadowing reusable proof modules."""
+        path = self.root / "PROJECT_TOOLS" / kind / "native_hooks.py"
+        if path.is_symlink() or not path.is_file() or path.resolve().parent != path.parent:
+            raise SelectedExecutionError("Project release helper is unavailable")
+        name = "_caprmedio_project_hooks_" + hashlib.sha256(str(path).encode()).hexdigest()
+        spec = importlib.util.spec_from_file_location(name, path)
+        if spec is None or spec.loader is None:
+            raise SelectedExecutionError("Project release helper cannot be loaded")
+        module = importlib.util.module_from_spec(spec)
+        sys.modules[name] = module
+        spec.loader.exec_module(module)
+        return module
+
+    def _public_release_changes(self) -> list[str]:
+        """Give the one text prompt current local release evidence, without fetch."""
+        changes: list[str] = []
+        commands = (
+            ("log", "--format=%h %s", "main..HEAD"),
+            ("diff", "--name-status", "main", "--", ".", ":(exclude)**/.env*", ":(exclude)**/*.env"),
+        )
+        for arguments in commands:
+            observed = subprocess.run(["git", "-C", str(self.root), *arguments],
+                                      capture_output=True, text=True, timeout=30, check=False)
+            if observed.returncode != 0 or len(observed.stdout.encode()) > 1024 * 1024:
+                raise SelectedExecutionError("public Release change list cannot be gathered completely")
+            changes.extend(line for line in observed.stdout.splitlines() if line)
+        if not changes:
+            raise SelectedExecutionError("public Release has no selected changes to describe")
+        return changes
+
+    def _public_release_prompt(self, root: Path, version: str, changes: Any) -> Mapping[str, Any]:
+        prompt_path = root / "PROJECT_TOOLS/PUBLIC_RELEASE/pr_description_prompt.md"
+        if prompt_path.is_symlink() or not prompt_path.is_file():
+            raise SelectedExecutionError("public Release prompt is unavailable")
+        # Text generation gets an empty read-only workspace, not write access
+        # to the Project or a snapshot of every unrelated artifact.
+        with tempfile.TemporaryDirectory(prefix="caprmedio-public-prompt-", ignore_cleanup_errors=True) as workspace:
+            response = self.implementation_agent(prompt_path.read_text(encoding="utf-8") +
+                "\nUse the transport envelope: result=complete, outputs contains exactly the three arrays, evidence=[], blockers=[].",
+                {"workspace": workspace, "version": version, "changes": changes})
+        if (not isinstance(response, Mapping) or response.get("result") != "complete"
+                or response.get("blockers") or not isinstance(response.get("outputs"), Mapping)):
+            raise SelectedExecutionError("public Release text prompt did not complete")
+        return response["outputs"]
 
     @staticmethod
     def _json_value(value: Any) -> Any:

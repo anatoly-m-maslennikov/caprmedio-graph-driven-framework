@@ -142,8 +142,11 @@ def _body(whats_new: Sequence[str], whats_fixed: Sequence[str]) -> str:
 
 
 def _require_passed(result: object) -> None:
-    if result is not True and (not isinstance(result, Mapping) or result.get("passed") is not True):
-        raise PublicReleaseError("configured full test suite did not report passed")
+    if result is True or (isinstance(result, Mapping) and result.get("passed") is True):
+        return
+    if (getattr(result, "call", None) is not None and getattr(result, "binding", None) is not None):
+        return
+    raise PublicReleaseError("configured full test suite did not report passed")
 
 
 def _pr_url(value: Mapping[str, object]) -> str:
@@ -171,6 +174,13 @@ def _journal(hooks: PublicReleaseHooks, run_id: str, phase: str, **details: obje
     hooks.journal({"run_id": run_id, "phase": phase, **details})
 
 
+def _optional_hook(hooks: PublicReleaseHooks, name: str):
+    callback = getattr(hooks, name, None)
+    if callback is not None and not callable(callback):
+        raise PublicReleaseError(f"optional hook {name} must be callable")
+    return callback
+
+
 def run_public_release(project_root: Path, *, run_id: str, hooks: PublicReleaseHooks,
                        config: Mapping[str, object]) -> dict[str, object]:
     """Run one Public release, stopping at the first failed callback.
@@ -196,26 +206,44 @@ def run_public_release(project_root: Path, *, run_id: str, hooks: PublicReleaseH
     if not readme.is_file() or not history.is_file():
         raise PublicReleaseError("configured README and Version History files must already exist")
 
-    prompted = hooks.prompt(root, version, parsed.changes)
-    if not isinstance(prompted, Mapping):
-        raise PublicReleaseError("prompt hook must return a mapping")
-    whats_new, whats_fixed, history_bullets = _prompt_result(prompted)
-    body = _body(whats_new, whats_fixed)
-    release_marker = f"<!-- public-release:{release_run_id} -->"
-    if release_marker in readme.read_text(encoding="utf-8"):
-        raise PublicReleaseError("run_id already appears in the configured README")
-    history_marker = f"<!-- public-release:{release_run_id} -->"
-    if history_marker in history.read_text(encoding="utf-8"):
-        raise PublicReleaseError("run_id already appears in Version History")
+    begin_documents = _optional_hook(hooks, "begin_document_admission")
+    capture_documents = _optional_hook(hooks, "capture_document_admission")
+    abort_documents = _optional_hook(hooks, "abort_document_admission")
+    document_token = begin_documents(root, version, parsed.changes) if begin_documents else None
+    try:
+        prompted = hooks.prompt(root, version, parsed.changes)
+        if not isinstance(prompted, Mapping):
+            raise PublicReleaseError("prompt hook must return a mapping")
+        whats_new, whats_fixed, history_bullets = _prompt_result(prompted)
+        body = _body(whats_new, whats_fixed)
+        release_marker = f"<!-- public-release:{release_run_id} -->"
+        if release_marker in readme.read_text(encoding="utf-8"):
+            raise PublicReleaseError("run_id already appears in the configured README")
+        history_marker = f"<!-- public-release:{release_run_id} -->"
+        if history_marker in history.read_text(encoding="utf-8"):
+            raise PublicReleaseError("run_id already appears in Version History")
 
-    _write(notes, f"# Public release {version}\n\n{body}")
-    _write(readme, readme.read_text(encoding="utf-8").rstrip() +
-           f"\n\n{release_marker}\nLatest public release: **{version}**. See [{notes.name}]({parsed.notes_path}).\n")
-    history_heading = f"## {version}"
-    history_entry = "\n".join(f"- {bullet}" for bullet in history_bullets)
-    _write(history, history.read_text(encoding="utf-8").rstrip() +
-           f"\n\n{history_marker}\n{history_heading}\n{history_entry}\n")
+        _write(notes, f"# Public release {version}\n\n{body}")
+        _write(readme, readme.read_text(encoding="utf-8").rstrip() +
+               f"\n\n{release_marker}\nLatest public release: **{version}**. See [{notes.name}]({parsed.notes_path}).\n")
+        history_heading = f"## {version}"
+        history_entry = "\n".join(f"- {bullet}" for bullet in history_bullets)
+        _write(history, history.read_text(encoding="utf-8").rstrip() +
+               f"\n\n{history_marker}\n{history_heading}\n{history_entry}\n")
+        if document_token is not None:
+            if capture_documents is None:
+                raise PublicReleaseError("document admission needs a capture hook")
+            capture_documents(document_token)
+    except BaseException:
+        if document_token is not None and abort_documents is not None:
+            abort_documents(document_token)
+        raise
     _journal(hooks, release_run_id, "documents_applied", version=version, paths=list(parsed.release_paths))
+    finish_documents = _optional_hook(hooks, "finish_document_admission")
+    if document_token is not None:
+        if finish_documents is None:
+            raise PublicReleaseError("document admission needs a finish hook")
+        finish_documents(document_token)
 
     _require_passed(hooks.test(root, candidate_root))
     _journal(hooks, release_run_id, "full_suite_passed", version=version)
@@ -232,9 +260,22 @@ def run_public_release(project_root: Path, *, run_id: str, hooks: PublicReleaseH
     finalized = f"{history_marker}\n{history_heading} [PR]({url})"
     if history_contents.count(original) != 1:
         raise PublicReleaseError("Version History entry changed before PR URL insertion")
-    _write(history, history_contents.replace(original, finalized, 1))
-    hooks.commit(root, (parsed.version_history_path,), f"docs: record public v{version} PR URL")
-    hooks.push(root, parsed.branch)
+    begin_history = _optional_hook(hooks, "begin_history_finalization")
+    finish_history = _optional_hook(hooks, "finish_history_finalization")
+    abort_history = _optional_hook(hooks, "abort_history_finalization")
+    history_token = begin_history(root, version, url) if begin_history else None
+    try:
+        _write(history, history_contents.replace(original, finalized, 1))
+        hooks.commit(root, (parsed.version_history_path,), f"docs: record public v{version} PR URL")
+        hooks.push(root, parsed.branch)
+        if history_token is not None:
+            if finish_history is None:
+                raise PublicReleaseError("history admission needs a finish hook")
+            finish_history(history_token)
+    except BaseException:
+        if history_token is not None and abort_history is not None:
+            abort_history(history_token)
+        raise
     _journal(hooks, release_run_id, "published", url=url)
     return {
         "run_id": release_run_id,

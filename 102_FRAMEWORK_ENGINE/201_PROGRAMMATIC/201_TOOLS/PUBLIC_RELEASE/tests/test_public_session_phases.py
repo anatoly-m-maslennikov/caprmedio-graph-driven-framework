@@ -80,6 +80,30 @@ class PublicSessionPhasesTests(unittest.TestCase):
         self.assertEqual(["step-1", "action-1"], self.session.started)
         self.assertTrue(all(row["outcome"] == "failed" for row in self.finishes))
 
+    def test_explicit_begin_and_finish_hold_one_phase_for_multiple_native_receipts(self) -> None:
+        capture = public_release.ToolCallEvidence(
+            "inputs/capture.json", "results/capture.json", ("effects/capture.json",),
+            ("reports/capture.json",),
+        )
+        commit = public_release.ToolCallEvidence(
+            "inputs/commit.json", "results/commit.json", ("effects/commit.json",),
+            ("reports/commit.json",),
+        )
+        with patch.object(public_release, "RunExecutionSession", _Session), \
+                patch.object(public_release, "_run_evidence_ref", side_effect=lambda _session, run, *, outcome: f"runs/{run['run_id']}-{outcome}.json"), \
+                patch.object(public_release, "_finish", side_effect=lambda _session, run, **kwargs: self.finishes.append({"run": run, **kwargs})):
+            driver = self._driver()
+            driver.execute("discover_matching_pr", lambda: SimpleNamespace(call=capture))
+            driver.begin("prepare_public_materials")
+            result = driver.finish(SimpleNamespace(call=commit), prior_results=(SimpleNamespace(call=capture),))
+
+        self.assertEqual(commit, result.call)
+        self.assertEqual(["step-1", "action-1", "step-2", "action-2"], self.session.started)
+        self.assertEqual(
+            ["effects/capture.json", "effects/commit.json"],
+            self.finishes[-2]["effect_refs"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

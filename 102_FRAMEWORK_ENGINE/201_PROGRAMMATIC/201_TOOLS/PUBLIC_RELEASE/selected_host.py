@@ -45,9 +45,10 @@ def _refuse(message: str) -> None:
 def _action_id(operation: str) -> str:
     if operation == "discover_matching_pr":
         return "CA-O-190"
-    if operation == "prepare_public_materials":
+    if operation in {"prepare_public_materials", "prepare_generated_public_materials", "capture_generated_public_materials"}:
         return "CA-O-192"
-    if operation in {"before_history_finalization", "after_history_finalization", "finalize_history_link"}:
+    if operation in {"before_history_finalization", "after_history_finalization", "finalize_history_link",
+                     "prepare_generated_history_link", "capture_generated_history_link"}:
         return "CA-O-198"
     prefix, separator, phase = operation.partition(":")
     if separator and phase in {"initial", "history_link_final"}:
@@ -187,11 +188,11 @@ class _SelectedPublicHost:
         self.action(operation)
         if _parameters(parameters) != _parameters(self.session.request["parameters"]):
             _refuse("effect parameters differ from the sealed request")
-        if source is None:
+        if source is None and operation != "prepare_generated_public_materials":
             _refuse("an effect needs its physically reopened SourceProof")
         if source is not None:
             selected = parameters["source"]
-            for field in ("readme_ref", "pr_body_ref", "version_history_ref", "version_history_summary"):
+            for field in ("readme_ref", "pr_body_ref", "version_history_ref"):
                 if getattr(source, field) != selected[field]:
                     _refuse("effect source substitutes a sealed public material binding")
             if any(getattr(source, field) not in self.session.request["target_frontier"]

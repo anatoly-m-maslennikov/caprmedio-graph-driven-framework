@@ -6,6 +6,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from types import SimpleNamespace
 from unittest.mock import patch
 
 
@@ -22,7 +23,13 @@ from selected_native_providers import SelectedNativeProviders  # noqa: E402
 
 
 class _Session:
-    pass
+    terminal = {}
+
+    def start_run(self, requested):
+        return {"run_id": requested}
+
+    def finish_run(self, actual, **result):
+        self.finished = (actual, result)
 
 
 class SelectedPublicDispatchTests(unittest.TestCase):
@@ -45,7 +52,9 @@ class SelectedPublicDispatchTests(unittest.TestCase):
         }
         self.frozen = {
             "request": {"run_id": "public-fixture", "execution": {
-                "operation_route": "public.release", "parameters": {},
+                "operation_route": "public.release", "parameters": {"source": {
+                    "readme_ref": "README.md", "pr_body_ref": "PR_DESCRIPTION.md",
+                    "version_history_ref": "VERSION_HISTORY.md"}},
             }},
             "graph": copy.deepcopy(self.graph),
         }
@@ -58,16 +67,45 @@ class SelectedPublicDispatchTests(unittest.TestCase):
         selected = self.execution()
         session = _Session()
         host = object()
+        calls = []
+        hooks = SimpleNamespace(run_selected_public_release=lambda *args, **kwargs: calls.append((args, kwargs)) or {"status": "published"})
         with patch.object(selected, "_revalidate", return_value=copy.deepcopy(self.graph)) as revalidate, \
                 patch.object(selected_host, "create_selected_public_bindings", return_value=host) as create, \
-                patch.object(public_release, "run_execution_session", return_value=[]) as run, \
+                patch.object(public_release, "SelectedPublicSessionPhases", return_value="phases"), \
+                patch.object(self.providers, "_project_release_module", return_value=hooks), \
+                patch.object(self.providers, "_public_release_changes", return_value=["fix: selected change"]), \
                 patch.object(SelectedExecution, "_execute_graph", side_effect=AssertionError("generic start")) as generic:
             self.assertIsNone(selected._execute_admitted_session(self.frozen, session))
 
         revalidate.assert_called_once_with(self.frozen)
         create.assert_called_once_with(self.root, self.frozen, session)
-        run.assert_called_once_with(self.root, session, bindings=host)
+        self.assertEqual(len(calls), 1)
+        self.assertIs(calls[0][1]["bindings"], host)
+        self.assertEqual(calls[0][1]["phases"], "phases")
+        self.assertEqual(session.finished[1]["outcome"], "completed")
+        self.assertTrue((self.root / session.finished[1]["result_ref"]).is_file())
         generic.assert_not_called()
+
+    def test_one_text_prompt_has_no_project_write_workspace(self) -> None:
+        path = self.root / "PROJECT_TOOLS/PUBLIC_RELEASE/pr_description_prompt.md"
+        path.parent.mkdir(parents=True)
+        path.write_text("Return the release arrays.")
+        calls = []
+        output = {"whats_new": ["new"], "whats_fixed": ["fix"], "version_history_bullets": ["summary"]}
+        self.providers.implementation_agent = lambda prompt, packet: calls.append((prompt, packet)) or {
+            "result": "complete", "outputs": output, "blockers": []}
+        self.assertEqual(self.providers._public_release_prompt(self.root, "0.4.2", ["fix"]), output)
+        self.assertEqual(len(calls), 1)
+        self.assertNotEqual(Path(calls[0][1]["workspace"]), self.root)
+        self.assertNotIn("permissions", calls[0][1])
+
+    def test_incomplete_text_prompt_cannot_generate_documents(self) -> None:
+        path = self.root / "PROJECT_TOOLS/PUBLIC_RELEASE/pr_description_prompt.md"
+        path.parent.mkdir(parents=True)
+        path.write_text("Return the release arrays.")
+        self.providers.implementation_agent = lambda *_: {"result": "blocked", "outputs": {}, "blockers": ["missing evidence"]}
+        with self.assertRaisesRegex(SelectedExecutionError, "did not complete"):
+            self.providers._public_release_prompt(self.root, "0.4.2", ["fix"])
 
     def test_missing_current_admission_refuses_before_private_host_creation(self) -> None:
         selected = self.execution()

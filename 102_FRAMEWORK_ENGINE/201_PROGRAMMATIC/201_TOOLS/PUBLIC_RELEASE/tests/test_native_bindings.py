@@ -186,6 +186,33 @@ class NativePublicReleaseBindingsTests(unittest.TestCase):
             self.bindings.commit_and_push(self.parameters(), prepared.source, "initial")
         self.assertNotIn("commit_and_push:initial", self.admissions)
 
+    def test_generated_document_capture_derives_its_summary_and_pr_link_from_current_bytes(self) -> None:
+        (self.root / "VERSION_HISTORY.md").write_text(
+            "# Version History\n\n## 0.4.1\n- Generated new material.\n- Generated fixed material.\n",
+            encoding="utf-8",
+        )
+        self.bindings.begin_generated_public_materials(self.parameters())
+        generated = self.bindings.capture_generated_public_materials(self.parameters())
+
+        self.assertEqual("Generated new material.; Generated fixed material.", generated.source.version_history_summary)
+        self.assertIsNone(generated.source.version_history_pr_url)
+        self.assertIn("prepare_generated_public_materials", self.admissions)
+
+        pull_request = PullRequest(
+            f"https://github.com/{OWNER}/{REPOSITORY}/pull/42", 42, "amm/dev", "main",
+        )
+        self.bindings.begin_generated_history_link(self.parameters(), generated.source)
+        (self.root / "VERSION_HISTORY.md").write_text(
+            "# Version History\n\n## 0.4.1 [PR](https://github.com/"
+            f"{OWNER}/{REPOSITORY}/pull/42)\n- Generated new material.\n- Generated fixed material.\n",
+            encoding="utf-8",
+        )
+        linked = self.bindings.capture_generated_public_materials(self.parameters(), pull_request)
+
+        self.assertEqual(pull_request.url, linked.source.version_history_pr_url)
+        self.assertEqual(generated.source.version_history_summary, linked.source.version_history_summary)
+        self.assertIn("prepare_generated_history_link", self.admissions)
+
     def test_push_refuses_before_git_add_when_admission_rejects(self) -> None:
         prepared = self.prepare()
 

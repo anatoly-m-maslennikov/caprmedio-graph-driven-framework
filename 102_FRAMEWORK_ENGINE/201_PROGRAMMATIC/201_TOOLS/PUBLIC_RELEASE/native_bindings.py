@@ -133,6 +133,33 @@ def _history_line(summary: str, pull_request: PullRequest) -> str:
     return f"- {summary} [PR #{pull_request.number}]({pull_request.url})"
 
 
+def _generated_history_summary(history: str, version: str, pull_request: PullRequest | None) -> str:
+    """Reopen the Project-owned Version History entry emitted in O192/O198."""
+    expected = f"## {version}"
+    if pull_request is not None:
+        expected += f" [PR]({pull_request.url})"
+    headings = [index for index, line in enumerate(history.splitlines()) if line == expected]
+    if len(headings) != 1:
+        raise NativePublicReleaseError("history-link-invalid", "generated Version History has no one exact version heading")
+    lines = history.splitlines()[headings[0] + 1:]
+    bullets: list[str] = []
+    for line in lines:
+        if line.startswith("## "):
+            break
+        if line.startswith("- "):
+            bullets.append(line[2:])
+    if not bullets:
+        raise NativePublicReleaseError("history-link-invalid", "generated Version History has no concise bullet")
+    summary = "; ".join(bullets)
+    if len(summary) > 160 or any(character in summary for character in "\r\n"):
+        raise NativePublicReleaseError("history-link-invalid", "generated Version History bullets are not concise")
+    return summary
+
+
+def _has_generated_history_heading(history: str, version: str) -> bool:
+    return any(line == f"## {version}" or line.startswith(f"## {version} [PR](") for line in history.splitlines())
+
+
 class NativePublicReleaseBindings:
     """Concrete, effect-bounded implementation of ``PublicReleaseBindings``.
 
@@ -198,6 +225,33 @@ class NativePublicReleaseBindings:
             effect=False,
         )
         return PrepareResult(call, source)
+
+    def begin_generated_public_materials(self, parameters: Mapping[str, Any]) -> None:
+        """Admit one O192-owned prompt/document mutation before it starts."""
+        self._bound_release(parameters)
+        self._admit("prepare_generated_public_materials", parameters, None)
+
+    def capture_generated_public_materials(
+        self, parameters: Mapping[str, Any], pull_request: PullRequest | None = None,
+    ) -> PrepareResult:
+        """Physically capture the generated public documents as the O192/O198 output."""
+        release = self._bound_release(parameters)
+        phase = "capture_generated_history_link" if pull_request is not None else "capture_generated_public_materials"
+        source = self._current_source(parameters, release, phase, pull_request, generated=True)
+        if source.candidate_snapshot_manifest_sha256 != parameters["source"]["candidate_snapshot_manifest_sha256"]:
+            raise NativePublicReleaseError("source-proof-mismatch", "generated source does not bind the selected candidate snapshot")
+        call = self._record(
+            "capture_generated_history_link" if pull_request is not None else "prepare_public_materials",
+            (), self._source_observation(source), effect=True,
+        )
+        return PrepareResult(call, source)
+
+    def begin_generated_history_link(self, parameters: Mapping[str, Any], source: SourceProof) -> None:
+        """Admit the O198 URL-only heading mutation before writing it."""
+        release = self._bound_release(parameters)
+        self._require_current_source(parameters, release, "prepare_generated_history_link", source,
+                                     self._source_pull_request(source, release))
+        self._admit("prepare_generated_history_link", parameters, source)
 
     def run_full_gate(self, parameters: Mapping[str, Any], source: SourceProof, phase: str) -> GateResult:
         release = self._bound_release(parameters)
@@ -419,7 +473,7 @@ class NativePublicReleaseBindings:
         return _parameters(parameters)["release"]
 
     def _current_source(self, parameters: Mapping[str, Any], release: Mapping[str, Any],
-                        phase: str, pull_request: PullRequest | None) -> SourceProof:
+                        phase: str, pull_request: PullRequest | None, *, generated: bool = False) -> SourceProof:
         candidate = self._candidate_observer(parameters, phase)
         if not isinstance(candidate, str) or _SHA256.fullmatch(candidate) is None:
             raise NativePublicReleaseError("candidate-currentness-unproven", "candidate observer did not return a SHA-256")
@@ -434,13 +488,16 @@ class NativePublicReleaseBindings:
             raise NativePublicReleaseError("source-proof-unavailable", "selected public-release source cannot be reopened") from error
         if not isinstance(version, str):
             raise NativePublicReleaseError("source-proof-invalid", "root version.toml has no string framework version")
-        self._assert_exact_history(history, selected["version_history_summary"], pull_request)
+        summary = (_generated_history_summary(history, version.removeprefix("v"), pull_request)
+                   if generated else selected["version_history_summary"])
+        if not generated:
+            self._assert_exact_history(history, summary, pull_request)
         proof = SourceProof(
             candidate, version.removeprefix("v"), version_toml_sha,
             selected["readme_ref"], readme_sha,
             selected["pr_body_ref"], pr_body_sha,
             selected["version_history_ref"], history_sha,
-            selected["version_history_summary"],
+            summary,
             pull_request.url if pull_request else None,
             pull_request.number if pull_request else None,
         )
@@ -450,7 +507,14 @@ class NativePublicReleaseBindings:
     def _require_current_source(self, parameters: Mapping[str, Any], release: Mapping[str, Any],
                                 phase: str, source: SourceProof,
                                 pull_request: PullRequest | None) -> None:
-        current = self._current_source(parameters, release, phase, pull_request)
+        try:
+            history, _ = _read_source_file(self.root, source.version_history_ref, "native Version History")
+        except OSError as error:
+            raise NativePublicReleaseError("source-proof-unavailable", "public source cannot reopen Version History") from error
+        current = self._current_source(
+            parameters, release, phase, pull_request,
+            generated=_has_generated_history_heading(history, source.framework_version),
+        )
         if current != source:
             raise NativePublicReleaseError("source-proof-stale", "public source bytes or candidate changed after the prior proof")
 

@@ -272,22 +272,38 @@ class SelectedPublicSessionPhases:
         """Start and close the exact next Step/Action around one native call."""
         if not callable(callback):
             raise PublicReleaseError("invalid-phase-callback", "selected public phase needs one callable native binding")
-        step, action = self._start(phase)
+        self.begin(phase)
         try:
             result = callback()
-            call = _call(getattr(result, "call", None), f"{phase} native callback")
         except PublicReleaseInterrupted as error:
             call = getattr(error, "call", None)
-            self._close("interrupted_pending", call if isinstance(call, ToolCallEvidence) else None)
-            self._stopped = True
+            self.fail(interrupted=True, call=call if isinstance(call, ToolCallEvidence) else None)
             raise
         except PublicReleaseError:
-            self._close("failed", None)
-            self._stopped = True
+            self.fail()
             raise
         else:
-            self._close("completed", call)
-            return result
+            return self.finish(result)
+
+    def begin(self, phase: str) -> None:
+        """Open the exact next admitted Step/Action for a bounded local effect."""
+        self._start(phase)
+
+    def finish(self, result: Any, *, prior_results: Sequence[Any] = ()) -> Any:
+        """Close the active pair and retain every typed callback receipt."""
+        calls = tuple(_call(getattr(value, "call", None), "selected public native callback")
+                      for value in (*prior_results, result))
+        effect_refs = tuple(ref for call in calls for ref in call.effect_refs)
+        report_refs = tuple(ref for call in calls for ref in call.report_refs)
+        final = calls[-1]
+        combined = ToolCallEvidence(final.input_ref, final.result_ref, effect_refs, report_refs)
+        self._close("completed", combined)
+        return result
+
+    def fail(self, *, interrupted: bool = False, call: ToolCallEvidence | None = None) -> None:
+        """Close the active pair once after a refused or uncertain callback."""
+        self._close("interrupted_pending" if interrupted else "failed", call)
+        self._stopped = True
 
     def _start(self, phase: str) -> tuple[Mapping[str, Any], Mapping[str, Any]]:
         if self._stopped or self._active is not None:
@@ -411,6 +427,24 @@ def _complete_section(markdown: str, heading: str) -> bool:
     return bool(body.strip())
 
 
+def _generated_history_link_matches(history: str, source: SourceProof) -> bool:
+    """Accept the Project-owned heading/link form without weakening legacy rows."""
+    if source.version_history_pr_url is None:
+        return False
+    heading = f"## {source.framework_version} [PR]({source.version_history_pr_url})"
+    rows = history.splitlines()
+    matches = [index for index, line in enumerate(rows) if line == heading]
+    if len(matches) != 1:
+        return False
+    bullets: list[str] = []
+    for line in rows[matches[0] + 1:]:
+        if line.startswith("## "):
+            break
+        if line.startswith("- "):
+            bullets.append(line[2:])
+    return bool(bullets) and "; ".join(bullets) == source.version_history_summary
+
+
 def _source(value: object, label: str, *, project_root: Path, release: Mapping[str, Any]) -> SourceProof:
     if not isinstance(value, SourceProof):
         raise PublicReleaseError("invalid-source-proof", f"{label} must return SourceProof")
@@ -459,8 +493,9 @@ def _source(value: object, label: str, *, project_root: Path, release: Mapping[s
              owner=release["remote"]["owner"], repository=release["remote"]["repository"],
              number=value.version_history_pr_number)
         matches = [line for line in history.splitlines() if value.version_history_pr_url in line]
-        if (len(matches) != 1 or value.version_history_summary not in matches[0]
-                or matches[0].count("http") != 1 or len(matches[0].strip()) > 240):
+        legacy_match = (len(matches) == 1 and value.version_history_summary in matches[0]
+                        and matches[0].count("http") == 1 and len(matches[0].strip()) <= 240)
+        if not legacy_match and not _generated_history_link_matches(history, value):
             raise PublicReleaseError("history-link-invalid", f"{label} must retain one concise summary with its actual PR hyperlink")
     return value
 
