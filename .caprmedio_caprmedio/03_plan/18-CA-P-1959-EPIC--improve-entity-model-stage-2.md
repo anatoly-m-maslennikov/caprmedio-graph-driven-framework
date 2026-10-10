@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 11
-updated_at: "2026-10-11 03:37:05 +0400"
+version: 12
+updated_at: "2026-10-11 03:46:50 +0400"
 relations: {}
 ---
 # Summary
@@ -94,7 +94,7 @@ Step 2 must classify proposed edits before writing. Current authority requires a
 - [CA-P-1961 — Implement field-aware Subject lookup](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/03-CA-P-1961-TASK--implement-field-aware-subject-lookup.md)
 - [CA-P-1962 — Implement sealed Subject patch previews](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/04-CA-P-1962-TASK--implement-sealed-subject-patch-preview.md)
 - [CA-P-1963 — Verify Subject Tools on isolated fixtures](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/05-CA-P-1963-TASK--verify-subject-tools-on-isolated-fixtures.md)
-- [CA-P-1964 — Resolve the Subject grammar cutover boundary](18-CA-P-1959-EPIC--improve-entity-model-stage-2/06-CA-P-1964-TASK--resolve-the-subject-grammar-cutover-boundary.md)
+- [CA-P-1964 — Resolve the Subject grammar cutover boundary](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/06-CA-P-1964-TASK--resolve-the-subject-grammar-cutover-boundary.md)
 - [CA-P-1965 — Support the approved Subject grammar in Tools](18-CA-P-1959-EPIC--improve-entity-model-stage-2/07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools.md)
 - [CA-P-1975 — Verify grammar-aware Subject Tool readiness](18-CA-P-1959-EPIC--improve-entity-model-stage-2/14-CA-P-1975-TASK--verify-grammar-aware-subject-tool-readiness.md)
 - [CA-P-1966 — Map current Core Subject origins](18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins.md)

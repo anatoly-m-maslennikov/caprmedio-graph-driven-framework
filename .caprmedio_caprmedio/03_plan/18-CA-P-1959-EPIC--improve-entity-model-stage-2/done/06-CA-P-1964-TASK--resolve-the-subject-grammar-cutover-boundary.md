@@ -9,12 +9,12 @@ claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 4
-updated_at: "2026-10-11 00:18:47 +0400"
+version: 5
+updated_at: "2026-10-11 03:46:50 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1965, CA-P-1967, CA-P-1968]
@@ -44,8 +44,12 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 ### Decomposing Plans
 
 - [CA-P-1976 — Prepare the Subject grammar decision packet](06-CA-P-1964-TASK--resolve-the-subject-grammar-cutover-boundary/done/01-CA-P-1976-TASK--prepare-the-subject-grammar-decision-packet.md)
-- [CA-P-1977 — Record the Subject grammar cutover decision](06-CA-P-1964-TASK--resolve-the-subject-grammar-cutover-boundary/02-CA-P-1977-TASK--record-the-subject-grammar-cutover-decision.md)
+- [CA-P-1977 — Record the Subject grammar cutover decision](06-CA-P-1964-TASK--resolve-the-subject-grammar-cutover-boundary/done/02-CA-P-1977-TASK--record-the-subject-grammar-cutover-decision.md)
 
 ### Definition of Done
 
 The Plan is **not** Done if the live grammar conflict is ignored, the exception has no actual Operator decision, the proposed grammar is ambiguous, or authoritative grammar/body changes occur; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
+
+### Completion evidence
+
+Both preparation and actual-answer children are Done. CA-P-1977 records the explicit approval tied to the unchanged five-definition packet (operator answer SHA-256 `396dd826016ff7f021960f74345298bdb583124374249ce07c5cdb3edf1fc0eb`). The proposed separator profile can now be implemented by CA-P-1965. CA-P-2059 separately owns the approved governing-definition authoring. This group made no Core or live Subject changes and did not approve migration.
