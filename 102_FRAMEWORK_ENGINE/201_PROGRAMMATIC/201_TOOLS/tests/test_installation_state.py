@@ -27,10 +27,45 @@ from installation_state import (  # noqa: E402
     write_quiescence,
 )
 from installation_transaction import installation_publication_lock  # noqa: E402
+from legacy_process_coverage import (  # noqa: E402
+    LegacyBootstrapSourceProof,
+    ProviderCoverageEvidence,
+    open_legacy_process_coverage,
+)
 
 
 def _digest(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+class _CoverageHandle:
+    def __init__(self, provider: "_CoverageProvider") -> None:
+        self._provider = provider
+        self.owned_subtree = provider.owned_subtree
+        self.provider_namespace = provider.provider_namespace
+
+    def snapshot(self) -> ProviderCoverageEvidence:
+        return ProviderCoverageEvidence(
+            state=self._provider.state,
+            namespace=self.provider_namespace,
+            evidence=dict(self._provider.evidence),
+            observations=tuple(dict(item) for item in self._provider.observations),
+        )
+
+    def close(self) -> None:
+        return None
+
+
+class _CoverageProvider:
+    def __init__(self, owned_subtree: str, proof: LegacyBootstrapSourceProof, *, observations=()) -> None:
+        self.owned_subtree = owned_subtree
+        self.provider_namespace = f"fixture://{owned_subtree}"
+        self.state = "observed" if observations else "absent"
+        self.evidence = {"query": "fixture", "predecessor_proof": proof.evidence_binding()}
+        self.observations = observations
+
+    def open_legacy_process_evidence(self, **_bindings: object) -> _CoverageHandle:
+        return _CoverageHandle(self)
 
 
 class InstallationStateTests(unittest.TestCase):
@@ -96,6 +131,43 @@ class InstallationStateTests(unittest.TestCase):
             operation="legacy-migration",
             command_sha256=self.command,
         )
+
+    def _legacy_bootstrap_proof(self) -> LegacyBootstrapSourceProof:
+        framework = self.root / ".caprmedio_runtime/framework/current.toml"
+        framework.parent.mkdir(parents=True, exist_ok=True)
+        framework.write_text('schema_version = 1\nrelease = "framework-legacy"\n', encoding="utf-8")
+        return LegacyBootstrapSourceProof(
+            framework_selector_bytes=framework.read_bytes(),
+            tool_selector_bytes=(self.root / ".caprmedio_install/current.toml").read_bytes(),
+            package_manifest_sha256=_digest("bootstrap-package"),
+            source_context_sha256=_digest("bootstrap-source-context"),
+            image_digest="sha256:" + _digest("bootstrap-image"),
+            bootstrap_proof_key=_digest("bootstrap-proof-key"),
+            raw_receipt_bytes=b"retained bootstrap receipt\n",
+        )
+
+    def _legacy_observation(self, proof: LegacyBootstrapSourceProof) -> dict[str, object]:
+        release = proof.evidence_binding()
+        release.pop("kind")
+        return {
+            "pid": 4321,
+            "owned_subtree": "project_mcp",
+            "state_generation": "legacy-generation-1",
+            "observed_start_token": "legacy-start-token",
+            "command": {
+                "sha256": self.command,
+                "argv": ["TOOLS/START_BACKGROUND_SERVICES/start_background_services.py"],
+                "environment_sha256": _digest("legacy-environment"),
+                "wrapper_sha256": _digest("legacy-wrapper"),
+                "invocation_nonce": "legacy-nonce",
+            },
+            "release": release,
+            "shutdown": {
+                "requested": True,
+                "response": "acknowledged",
+                "deadline_status": "within-deadline",
+            },
+        }
 
     def test_inventory_is_exact_and_staged_copy_preserves_legacy_sources(self) -> None:
         proof = self._proof()
@@ -278,6 +350,85 @@ class InstallationStateTests(unittest.TestCase):
                     lock=lock,
                 )
             lock.release("blocked")
+
+    def test_legacy_bootstrap_coverage_omits_d600_context_and_revalidates_typed_proof(self) -> None:
+        predecessor = self._legacy_bootstrap_proof()
+        observation = self._legacy_observation(predecessor)
+        providers = [
+            _CoverageProvider("project_mcp", predecessor, observations=(observation,)),
+            _CoverageProvider("mcp_hot_reload", predecessor),
+            _CoverageProvider("workflow_orchestrator", predecessor),
+        ]
+        with open_legacy_process_coverage(
+            providers, target_context_sha256=self.target_context, predecessor_proof=predecessor,
+        ) as coverage:
+            inventory = build_legacy_inventory(
+                self.root,
+                migration_id="legacy-bootstrap",
+                target_context_sha256=self.target_context,
+                process_coverage=coverage,
+                predecessor_proof=predecessor,
+            )
+            self.assertNotIn("prior_execution_context_sha256", inventory)
+            self.assertEqual(predecessor.framework_selector_sha256, inventory["prior_execution_selector_sha256"])
+            quiescence = prove_quiescence(inventory, process_coverage=coverage, predecessor_proof=predecessor)
+            self.assertTrue(quiescence["safe"])
+            with self._lock() as lock:
+                write_inventory(self.root, inventory, lock=lock, predecessor_proof=predecessor)
+                self.assertEqual(
+                    inventory,
+                    state.read_inventory(self.root, "legacy-bootstrap", predecessor_proof=predecessor),
+                )
+                write_quiescence(self.root, inventory, quiescence, lock=lock, predecessor_proof=predecessor)
+                verify_inventory(self.root, inventory, process_coverage=coverage, predecessor_proof=predecessor)
+                staged = stage_legacy_copy(
+                    self.root, inventory, quiescence, lock=lock,
+                    process_coverage=coverage, predecessor_proof=predecessor,
+                )
+                verify_staged_copy(self.root, inventory, staged, predecessor_proof=predecessor)
+                lock.release("partial")
+
+    def test_raw_predecessor_candidate_is_refused(self) -> None:
+        predecessor = self._legacy_bootstrap_proof()
+        providers = [
+            _CoverageProvider("project_mcp", predecessor),
+            _CoverageProvider("mcp_hot_reload", predecessor),
+            _CoverageProvider("workflow_orchestrator", predecessor),
+        ]
+        coverage = open_legacy_process_coverage(
+            providers, target_context_sha256=self.target_context, predecessor_proof=predecessor,
+        )
+        self.addCleanup(coverage.close)
+        with self.assertRaisesRegex(InstallationStateError, "process-coverage-invalid"):
+            build_legacy_inventory(
+                self.root,
+                migration_id="raw-predecessor",
+                target_context_sha256=self.target_context,
+                process_coverage=coverage,
+                predecessor_proof={"kind": "legacy_bootstrap_source_proof"},  # type: ignore[arg-type]
+            )
+
+    def test_typed_predecessor_requires_open_provider_coverage(self) -> None:
+        predecessor = self._legacy_bootstrap_proof()
+        with self.assertRaisesRegex(InstallationStateError, "process-coverage-required"):
+            build_legacy_inventory(
+                self.root,
+                migration_id="typed-proof-without-coverage",
+                target_context_sha256=self.target_context,
+                predecessor_proof=predecessor,
+            )
+
+    def test_typed_predecessor_refuses_empty_retained_coverage(self) -> None:
+        predecessor = self._legacy_bootstrap_proof()
+        inventory = build_legacy_inventory(
+            self.root,
+            migration_id="typed-proof-empty-coverage",
+            target_context_sha256=self.target_context,
+        )
+        inventory["provider_coverage"] = []
+        inventory["inventory_sha256"] = state._digest(state._inventory_body(inventory))
+        with self.assertRaisesRegex(InstallationStateError, "process-coverage-required"):
+            prove_quiescence(inventory, predecessor_proof=predecessor)
 
 
 if __name__ == "__main__":
