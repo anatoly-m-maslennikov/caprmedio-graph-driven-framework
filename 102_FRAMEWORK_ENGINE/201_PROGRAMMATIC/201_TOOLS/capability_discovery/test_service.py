@@ -19,7 +19,6 @@ from capability_discovery.service import Service, Query, Observation, Watch
 from framework_package import assemble_framework_package
 import framework_package as package_library
 from framework_runtime_installation_mcp import input_schema as runtime_installation_input_schema
-from source_admission_mcp import input_schema as source_admission_input_schema
 from source_admission_fixture import write_source_admission_receipt
 from unittest.mock import patch
 
@@ -31,6 +30,11 @@ D602_RELATIVE = Path(
     'CA-D-602-TOOLS-DELIVERY--encode-admitted-package-source-catalog.md'
 )
 O199_RELATIVE = Path(
+    '.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/'
+    '003_PROJECT_CONFIGURATION/09_operations/'
+    'CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md'
+)
+O199_SOURCE = Path(
     '.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/'
     '000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/'
     'CA-O-199-PROJECT_CONFIGURATION-ACTION--admit-local-package-sources.md'
@@ -44,8 +48,8 @@ RUNTIME_INSTALLATION_DELIVERY = Path(
     'CA-D-620-MCP-DELIVERY--expose-direct-framework-runtime-installation.md'
 )
 RUNTIME_INSTALLATION_ACTION = Path(
-    '.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/'
-    '000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/'
+    '.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/'
+    '003_PROJECT_CONFIGURATION/09_operations/'
     'CA-O-200-PROJECT_CONFIGURATION-ACTION--install-one-admitted-project-runtime.md'
 )
 RUNTIME_INSTALLATION_ENTRYPOINT = Path(
@@ -192,7 +196,7 @@ class ServiceTests(unittest.TestCase):
         for relative in (O199_RELATIVE,):
             destination = self.root / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(REPOSITORY_ROOT / relative, destination)
+            shutil.copyfile(REPOSITORY_ROOT / O199_SOURCE, destination)
         if delivery_payload is not None:
             delivery = self.root / D602_RELATIVE
             delivery.parent.mkdir(parents=True, exist_ok=True)
@@ -266,8 +270,8 @@ class ServiceTests(unittest.TestCase):
 
     def test_catalog_prunes_excluded_trees_before_descending(self):
         control = (self.root / '.caprmedio_caprmedio').resolve()
-        methodology = control / '000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY'
-        canonical = methodology / '000_APPLICABLE_MTHD_sources/active.md'
+        methodology = control / '101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES'
+        canonical = methodology / '003_PROJECT_CONFIGURATION/active.md'
         canonical.parent.mkdir(parents=True)
         canonical.write_text('---\natom_id: CA-O-999\nstatus: Active\ncontent_role: Operations\n---\n# Summary\nCanonical\n')
         excluded = [control / name for name in ('archive', 'ARCHIVED', 'draft', 'done',
@@ -284,6 +288,40 @@ class ServiceTests(unittest.TestCase):
             atoms, _tools, issues = self.service.catalog()
         self.assertEqual(['CA-O-999'], list(atoms))
         self.assertNotIn('incomplete: catalog limit reached', issues)
+        self.assertNotIn('ambiguous Atom ID: CA-O-999', issues)
+
+    def test_catalog_prunes_installed_framework_tree_but_keeps_project_and_authoring_sources(self):
+        control = (self.root / '.caprmedio_caprmedio').resolve()
+        project_operation = control / '09_operations/current.md'
+        authoring_source = (
+            control / '101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/'
+            '003_PROJECT_CONFIGURATION/09_operations/authoring.md'
+        )
+        installed_copy = (
+            control / '000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/'
+            '000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/installed.md'
+        )
+        operation = ('---\natom_id: CA-O-999\nstatus: Active\ncontent_role: Operations\n'
+                     '---\n# Summary\nProject operation\n')
+        authoring = ('---\natom_id: CA-M-999\nstatus: Active\ncontent_role: Method\n'
+                     '---\n# Summary\nAuthoring source\n')
+        for path, text in ((project_operation, operation), (authoring_source, authoring),
+                           (installed_copy, operation)):
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(text)
+
+        scandir = os.scandir
+        def guarded_scandir(path):
+            self.assertNotEqual(Path(path), control / '000_CAPRMEDIO_framework',
+                                'Installed framework tree was traversed')
+            return scandir(path)
+        with patch('os.scandir', side_effect=guarded_scandir):
+            atoms, _tools, issues = self.service.catalog()
+
+        self.assertEqual({
+            'CA-O-999': str(project_operation.relative_to(self.root.resolve())),
+            'CA-M-999': str(authoring_source.relative_to(self.root.resolve())),
+        }, {identity: row['source_path'] for identity, row in atoms.items()})
         self.assertNotIn('ambiguous Atom ID: CA-O-999', issues)
 
     def test_catalog_does_not_descend_into_symlink_directories(self):
@@ -304,14 +342,14 @@ class ServiceTests(unittest.TestCase):
 
     def test_nested_control_copy_is_omitted_without_hiding_canonical_source(self):
         control = self.root / '.caprmedio_caprmedio'
-        canonical = control / '000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/active.md'
-        nested = control / '000_CAPRMEDIO_framework/.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/active.md'
+        canonical = control / '101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/active.md'
+        nested = control / '101_LAYER_1_FRAMEWORK_METHODOLOGY/.caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/003_PROJECT_CONFIGURATION/active.md'
         text = '---\natom_id: CA-O-999\nstatus: Active\ncontent_role: Operations\n---\n# Summary\nCanonical\n'
         for path in (canonical, nested):
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(text)
         atoms, _tools, issues = self.service.catalog()
-        self.assertEqual(str(canonical.relative_to(self.root)), atoms['CA-O-999']['source_path'])
+        self.assertEqual(str(canonical.resolve().relative_to(self.root.resolve())), atoms['CA-O-999']['source_path'])
         self.assertNotIn('ambiguous Atom ID: CA-O-999', issues)
 
     def test_true_authoritative_duplicate_remains_explicit(self):
@@ -365,7 +403,7 @@ class ServiceTests(unittest.TestCase):
         (control / 'duplicate.md').write_text(text)
         self.assertEqual(self.service.discover(Query())['matches'], [])
 
-    def test_source_only_package_admission_is_unresolved_and_has_no_schema_or_effects(self):
+    def test_source_only_package_admission_is_internal_not_exposed_and_has_no_effects(self):
         delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes()
         self._seed_source_admission_binding(delivery_payload=delivery)
         before = self._files(self.root)
@@ -374,29 +412,23 @@ class ServiceTests(unittest.TestCase):
         context = self._context(self.service)
 
         self.assertEqual('unresolved', operation['availability'])
-        self.assertEqual(['ADMIT_PACKAGE_SOURCES'], operation['tools'])
+        self.assertEqual([], operation['tools'])
         self.assertIsNone(context['input_schema'])
         self.assertEqual(before, self._files(self.root))
 
-    def test_exposed_package_admission_returns_the_exact_adapter_schema_without_effects(self):
+    def test_exposed_package_admission_remains_internal_without_effects(self):
         delivery = (REPOSITORY_ROOT / D602_RELATIVE).read_bytes()
         self._seed_source_admission_binding(delivery_payload=delivery)
         service = Service(self.root, exposed=('admit_package_sources',))
         before = self._files(self.root)
 
-        tool = next(row for row in service.discover(Query(query='ADMIT_PACKAGE_SOURCES'))['matches']
-                    if row['name'] == 'ADMIT_PACKAGE_SOURCES')
         operation = self._operation(service)
         context = self._context(service)
-        schema = context['input_schema']
 
-        self.assertEqual('mcp', tool['availability'])
-        self.assertEqual('mcp', operation['availability'])
-        self.assertEqual(source_admission_input_schema(), schema)
-        encoded = json.dumps(schema, sort_keys=True)
-        self.assertIn('release_run_id', encoded)
-        self.assertIn('observed_snapshot_sha256', encoded)
-        self.assertIn('additionalProperties', encoded)
+        self.assertEqual([], service.discover(Query(query='ADMIT_PACKAGE_SOURCES'))['matches'])
+        self.assertEqual('unresolved', operation['availability'])
+        self.assertEqual([], operation['tools'])
+        self.assertIsNone(context['input_schema'])
         self.assertEqual(before, self._files(self.root))
 
     def test_malformed_source_admission_binding_is_unresolved_without_effects(self):

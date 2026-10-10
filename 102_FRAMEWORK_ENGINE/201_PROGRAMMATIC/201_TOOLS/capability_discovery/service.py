@@ -18,6 +18,7 @@ _DISCOVERY_TOOL_FIELDS = frozenset({
     'source_atom', 'source_path', 'sha256', 'scope_unit', 'summary', 'availability',
 })
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
+_INSTALLED_FRAMEWORK_ROOT = '000_CAPRMEDIO_framework'
 _DIRECT_TOOL_CONTRACTS = (
     {
         'name': 'FRAMEWORK_IMAGE_RESTORATION',
@@ -466,6 +467,10 @@ class Service:
                     or part.endswith('.env'))
         def current_source(path):
             relative = path.relative_to(control).parts
+            if relative and relative[0] == _INSTALLED_FRAMEWORK_ROOT:
+                # This is the Project's installed, read-only target.  It is
+                # not a second authoring frontier when no package is selected.
+                return False
             if any(excluded_component(part) for part in relative):
                 return False
             return ('00_APPLICABLE_METHODOLOGY' not in relative
@@ -476,7 +481,8 @@ class Service:
             # below, including canonical methodology and duplicate checks.
             for directory, directories, files in control.walk():
                 directories[:] = [name for name in directories
-                                  if not excluded_component(name)
+                                  if not (directory == control and name == _INSTALLED_FRAMEWORK_ROOT)
+                                  and not excluded_component(name)
                                   and not (directory / name).is_symlink()]
                 for name in files:
                     path = directory / name
