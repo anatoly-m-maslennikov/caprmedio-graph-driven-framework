@@ -1,0 +1,23 @@
+{
+  "task": "CA-P-2047",
+  "recorded_at": "2026-10-11 02:48:20 +0400",
+  "result": "PASS: actual Operator clarification recorded separately",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+    "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+  },
+  "checks": {
+    "actual_answer_preserved": true,
+    "shared_substance_field": true,
+    "role_labels_not_entities_or_allowed_values": true,
+    "owning_content_role_preserved": true,
+    "frozen_candidate_unchanged": true,
+    "body_rename_deferred": true,
+    "live_migration_not_authorized": true
+  },
+  "limits": [
+    "Original Core Subjects and content unchanged",
+    "Frozen candidate, captured review and batch review reports unchanged by this decision record",
+    "This is a candidate mapping clarification, not Subject grammar adoption, native admission, an accepted graph or exact live migration approval"
+  ]
+}
