@@ -421,6 +421,8 @@ def _target_contained_directory(root: Path, value: object, *, code: str, label: 
         _refuse(code, f"{label} is outside the locked target Project")
     if not relative.parts:
         _refuse(code, f"{label} must not be the target Project root")
+    if any(component in {"", ".", ".."} for component in relative.parts):
+        _refuse(code, f"{label} is not a safe target-contained directory")
     cursor = root
     for component in relative.parts:
         cursor = cursor / component
@@ -431,6 +433,24 @@ def _target_contained_directory(root: Path, value: object, *, code: str, label: 
         if cursor.is_symlink() or not stat.S_ISDIR(observed.st_mode):
             _refuse(code, f"{label} has an unsafe directory boundary")
     return value
+
+
+def _target_retained_full_gate_artifact_root(root: Path, value: object) -> Path:
+    """Reopen the retained Full Gate root, which may be the target Project root.
+
+    Retained Full Gate evidence is the sole carrier permitted to name the
+    target root itself.  Its descriptor, package, receipt, and every other
+    carrier remain required to be strict contained descendants.
+    """
+
+    if isinstance(value, Path) and value == root:
+        return root
+    return _target_contained_directory(
+        root,
+        value,
+        code="candidate-full-gate-invalid",
+        label="candidate Full Gate artifact root",
+    )
 
 
 def _target_contained_regular(root: Path, value: object, *, code: str, label: str) -> Path:
@@ -444,6 +464,8 @@ def _target_contained_regular(root: Path, value: object, *, code: str, label: st
         _refuse(code, f"{label} is outside the locked target Project")
     if not relative.parts:
         _refuse(code, f"{label} must not be the target Project root")
+    if any(component in {"", ".", ".."} for component in relative.parts):
+        _refuse(code, f"{label} is not a safe target-contained carrier")
     cursor = root
     for component in relative.parts:
         cursor = cursor / component
@@ -487,12 +509,7 @@ def _reopen_candidate_full_gate(
 
     if not isinstance(packet, RetainedNativeFullGatePacket):
         _refuse("candidate-full-gate-invalid", "candidate retained Full Gate packet must be typed")
-    artifact_root = _target_contained_directory(
-        root,
-        packet.artifact_root,
-        code="candidate-full-gate-invalid",
-        label="candidate Full Gate artifact root",
-    )
+    artifact_root = _target_retained_full_gate_artifact_root(root, packet.artifact_root)
     release_root = _release_version_root()
     release_path = release_root.as_posix()
     added_release_path = release_path not in sys.path

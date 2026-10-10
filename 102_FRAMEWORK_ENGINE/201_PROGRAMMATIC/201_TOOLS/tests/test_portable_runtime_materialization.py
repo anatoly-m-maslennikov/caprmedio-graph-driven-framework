@@ -372,6 +372,40 @@ class PortableRuntimeMaterializationTests(unittest.TestCase):
             stage_runtime_command(self._request(), lock=lock)
         self.assertFalse((redirected / "installation").exists())
 
+    def test_retained_full_gate_artifact_root_allows_target_only_and_refuses_escape_or_alias(self) -> None:
+        self.assertEqual(
+            materialization._target_retained_full_gate_artifact_root(self.target, self.target),
+            self.target,
+        )
+        outside = self.base / "retained-gate-outside"
+        outside.mkdir()
+        for value in (outside,):
+            with self.subTest(value=value):
+                with self.assertRaises(PortableRuntimeMaterializationError) as raised:
+                    materialization._target_retained_full_gate_artifact_root(self.target, value)
+                self.assertEqual(raised.exception.code, "candidate-full-gate-invalid")
+        alias = self.target / "retained-gate-alias"
+        alias.symlink_to(outside, target_is_directory=True)
+        with self.assertRaises(PortableRuntimeMaterializationError) as raised:
+            materialization._target_retained_full_gate_artifact_root(self.target, alias)
+        self.assertEqual(raised.exception.code, "candidate-full-gate-invalid")
+
+    def test_retained_full_gate_paths_refuse_lexical_escape(self) -> None:
+        outside = self.base / "retained-gate-outside"
+        outside.mkdir()
+        carrier = outside / "retained.toml"
+        carrier.write_bytes(b"schema_version = 1\n")
+        escaped_root = self.target / ".." / outside.name
+        with self.assertRaises(PortableRuntimeMaterializationError) as raised:
+            materialization._target_retained_full_gate_artifact_root(self.target, escaped_root)
+        self.assertEqual(raised.exception.code, "candidate-full-gate-invalid")
+        escaped_carrier = escaped_root / carrier.name
+        for label in ("candidate descriptor", "candidate package sidecar"):
+            with self.subTest(label=label):
+                with self.assertRaises(PortableRuntimeMaterializationError) as raised:
+                    materialization._candidate_packet_path(self.target, escaped_carrier, label=label)
+                self.assertEqual(raised.exception.code, "candidate-full-gate-invalid")
+
     def test_package_ancestor_replacement_before_member_read_refuses_without_external_read(self) -> None:
         lock = self._lock()
         self.addCleanup(lambda: lock.active and lock.release("completed"))
