@@ -21,6 +21,7 @@ for path in (str(TOOLS), str(PUBLIC)):
 from native_bindings import NativePublicReleaseBindings  # noqa: E402
 from public_release import (  # noqa: E402
     CommitPushResult,
+    FinalizationResult,
     FreshPublicNativeFullGateBinding,
     GateResult,
     PRDiscovery,
@@ -136,6 +137,32 @@ class _Bindings(NativePublicReleaseBindings):
     def begin_generated_history_link(self, _parameters, source):
         self.events.append(("begin-history", source.version_history_summary))
 
+    def finalize_history_link(self, _parameters, source, pull_request):
+        self.events.append(("finalize-history", source.version_history_pr_url, pull_request.url))
+        history = (self.root / "VERSION_HISTORY.md")
+        heading = f"## {source.framework_version}"
+        history.write_text(
+            history.read_text(encoding="utf-8").replace(
+                heading, f"{heading} [PR]({pull_request.url})", 1,
+            ),
+            encoding="utf-8",
+        )
+        return FinalizationResult(_call("finalize-history"), self._source(pull_request), True)
+
+
+class _ExistingPRBindings(_Bindings):
+    def discover_matching_pr(self, _parameters):
+        self.events.append(("discover",))
+        return PRDiscovery(_call("discover", effect=False), (
+            PullRequest(f"https://github.com/{OWNER}/{REPOSITORY}/pull/42", 42, "amm/dev", "main"),
+        ))
+
+    def finalize_history_link(self, _parameters, source, pull_request):
+        self.events.append(("finalize-history", source.version_history_pr_url, pull_request.url))
+        if source.version_history_pr_url != pull_request.url:
+            raise AssertionError("existing PR must already bind the generated Version History source")
+        return FinalizationResult(_call("finalize-history", effect=False), source, False)
+
 
 class _InterruptedBindings(_Bindings):
     def commit_and_push(self, _parameters, _source, _phase):
@@ -191,7 +218,7 @@ class NativePublicHooksTests(unittest.TestCase):
         self.assertEqual([("1.2.3", ("selected public release",))], prompts)
         self.assertEqual(
             ["discover", "begin-documents", "capture-documents", "gate", "commit", "pr",
-             "begin-history", "capture-documents", "commit"],
+             "finalize-history", "commit"],
             [event[0] for event in bindings.events],
         )
         self.assertEqual(
@@ -205,6 +232,39 @@ class NativePublicHooksTests(unittest.TestCase):
         self.assertIn("## 1.2.3 [PR](https://github.com/"
                       f"{OWNER}/{REPOSITORY}/pull/42)", history)
         self.assertIn("- Selected public release.", history)
+
+    def test_existing_pr_link_closes_o198_without_a_second_commit_or_push(self) -> None:
+        bindings = _ExistingPRBindings(self.root)
+        phases = _Phases()
+
+        with patch.object(MODULE, "_gate", side_effect=lambda result, *_args, **_kwargs: result) as gate:
+            result = MODULE.run_selected_public_release(
+                self.root, run_id="selected-public-existing-pr", config=self.config, bindings=bindings,
+                phases=phases, parameters=self.parameters,
+                prompt=lambda *_args: {
+                    "whats_new": ["Selected public path."],
+                    "whats_fixed": ["Typed source capture."],
+                    "version_history_bullets": ["Selected public release."],
+                },
+            )
+
+        self.assertEqual("published", result["status"])
+        self.assertEqual(
+            ["discover", "begin-documents", "capture-documents", "gate", "commit", "pr", "finalize-history"],
+            [event[0] for event in bindings.events],
+        )
+        self.assertIn(
+            ("capture-documents", f"https://github.com/{OWNER}/{REPOSITORY}/pull/42"),
+            bindings.events,
+        )
+        self.assertEqual(1, len([event for event in bindings.events if event[0] == "commit"]))
+        self.assertEqual(1, len([event for event in bindings.events if event[0] == "gate"]))
+        self.assertIn(("finish", _call("finalize-history", effect=False), ()), phases.events)
+        gate.assert_called_once()
+        self.assertIn(
+            f"## 1.2.3 [PR](https://github.com/{OWNER}/{REPOSITORY}/pull/42)",
+            (self.root / "VERSION_HISTORY.md").read_text(encoding="utf-8"),
+        )
 
     def test_uncertain_initial_push_marks_the_active_selected_phase_interrupted(self) -> None:
         bindings = _InterruptedBindings(self.root)

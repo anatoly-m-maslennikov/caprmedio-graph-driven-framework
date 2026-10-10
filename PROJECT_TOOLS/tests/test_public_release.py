@@ -50,6 +50,23 @@ class Hooks:
         self.calls.append(("journal", event["phase"]))
 
 
+class ExistingPRHooks(Hooks):
+    def __init__(self) -> None:
+        super().__init__()
+        self._finalization = type("Finalization", (), {"changed": False})()
+
+    def existing_history_pr_url(self, root: Path, version: str) -> str:
+        self.calls.append(("existing-pr", root, version))
+        return "https://github.com/acme/project/pull/42"
+
+    def finalize_history_link(self, root: Path, version: str, url: str) -> object:
+        self.calls.append(("finalize-history", root, version, url))
+        return self._finalization
+
+    def finish_history_finalization(self, result: object) -> None:
+        self.calls.append(("finish-history", result))
+
+
 class PublicReleaseTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temp = tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True)
@@ -110,6 +127,22 @@ class PublicReleaseTests(unittest.TestCase):
         self.assertEqual(1, len([call for call in self.hooks.calls if call[0] == "prompt"]))
         self.assertEqual(1, len([call for call in self.hooks.calls if call[0] == "test"]))
         self.assertFalse(any(call[0] in {"commit", "push", "pr"} for call in self.hooks.calls))
+
+    def test_existing_pr_history_link_is_a_typed_no_op(self) -> None:
+        hooks = ExistingPRHooks()
+
+        result = MODULE.run_public_release(self.root, run_id="public-existing-pr", hooks=hooks, config=self.config)
+
+        self.assertEqual("published", result["status"])
+        self.assertEqual(
+            [("commit", ("README.md", "VERSION_HISTORY.md", "docs/public-release.md"), "release: public v1.2.3")],
+            [call for call in hooks.calls if call[0] == "commit"],
+        )
+        self.assertEqual([("push", "amm/dev")], [call for call in hooks.calls if call[0] == "push"])
+        self.assertEqual(1, len([call for call in hooks.calls if call[0] == "finalize-history"]))
+        self.assertEqual(1, len([call for call in hooks.calls if call[0] == "finish-history"]))
+        history = (self.root / "VERSION_HISTORY.md").read_text(encoding="utf-8")
+        self.assertIn("## 1.2.3 [PR](https://github.com/acme/project/pull/42)", history)
 
 
 if __name__ == "__main__":

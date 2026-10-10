@@ -185,10 +185,10 @@ def run_public_release(project_root: Path, *, run_id: str, hooks: PublicReleaseH
                        config: Mapping[str, object]) -> dict[str, object]:
     """Run one Public release, stopping at the first failed callback.
 
-    The only permitted post-PR transition writes the verified PR URL into the
+    The only permitted post-PR mutation writes the verified PR URL into the
     pre-existing Version History entry, then commits and pushes that one file.
-    It intentionally does not invoke the full suite again for that metadata
-    insertion.
+    A typed finalizer may prove that the exact URL was already linked; that is
+    a no-op.  Neither branch invokes the full suite again.
     """
     root = Path(project_root).resolve()
     if not root.is_dir():
@@ -205,6 +205,20 @@ def run_public_release(project_root: Path, *, run_id: str, hooks: PublicReleaseH
     history = _inside(root, parsed.version_history_path, "config.version_history_path")
     if not readme.is_file() or not history.is_file():
         raise PublicReleaseError("configured README and Version History files must already exist")
+
+    existing_pr_url = _optional_hook(hooks, "existing_history_pr_url")
+    finalize_history = _optional_hook(hooks, "finalize_history_link")
+    finish_history = _optional_hook(hooks, "finish_history_finalization")
+    abort_history = _optional_hook(hooks, "abort_history_finalization")
+    known_pr_url: str | None = None
+    if existing_pr_url is not None:
+        candidate_url = existing_pr_url(root, version)
+        if candidate_url is not None:
+            known_pr_url = _pr_url({"url": candidate_url})
+    if known_pr_url is not None and finalize_history is None:
+        raise PublicReleaseError("an existing PR history link needs a typed history finalizer")
+    if finalize_history is not None and finish_history is None:
+        raise PublicReleaseError("history finalizer needs a finish hook")
 
     begin_documents = _optional_hook(hooks, "begin_document_admission")
     capture_documents = _optional_hook(hooks, "capture_document_admission")
@@ -226,7 +240,7 @@ def run_public_release(project_root: Path, *, run_id: str, hooks: PublicReleaseH
         _write(notes, f"# Public release {version}\n\n{body}")
         _write(readme, readme.read_text(encoding="utf-8").rstrip() +
                f"\n\n{release_marker}\nLatest public release: **{version}**. See [{notes.name}]({parsed.notes_path}).\n")
-        history_heading = f"## {version}"
+        history_heading = f"## {version}" + (f" [PR]({known_pr_url})" if known_pr_url else "")
         history_entry = "\n".join(f"- {bullet}" for bullet in history_bullets)
         _write(history, history.read_text(encoding="utf-8").rstrip() +
                f"\n\n{history_marker}\n{history_heading}\n{history_entry}\n")
@@ -255,27 +269,42 @@ def run_public_release(project_root: Path, *, run_id: str, hooks: PublicReleaseH
     url = _pr_url(pr)
     _journal(hooks, release_run_id, "pr_upserted", url=url)
 
-    history_contents = history.read_text(encoding="utf-8")
-    original = f"{history_marker}\n{history_heading}"
-    finalized = f"{history_marker}\n{history_heading} [PR]({url})"
-    if history_contents.count(original) != 1:
-        raise PublicReleaseError("Version History entry changed before PR URL insertion")
-    begin_history = _optional_hook(hooks, "begin_history_finalization")
-    finish_history = _optional_hook(hooks, "finish_history_finalization")
-    abort_history = _optional_hook(hooks, "abort_history_finalization")
-    history_token = begin_history(root, version, url) if begin_history else None
-    try:
-        _write(history, history_contents.replace(original, finalized, 1))
-        hooks.commit(root, (parsed.version_history_path,), f"docs: record public v{version} PR URL")
-        hooks.push(root, parsed.branch)
-        if history_token is not None:
-            if finish_history is None:
-                raise PublicReleaseError("history admission needs a finish hook")
-            finish_history(history_token)
-    except BaseException:
-        if history_token is not None and abort_history is not None:
-            abort_history(history_token)
-        raise
+    if finalize_history is not None:
+        finalization = finalize_history(root, version, url)
+        changed = getattr(finalization, "changed", None)
+        if type(changed) is not bool:
+            if abort_history is not None:
+                abort_history(finalization)
+            raise PublicReleaseError("history finalizer must return an explicit changed flag")
+        try:
+            if changed:
+                hooks.commit(root, (parsed.version_history_path,), f"docs: record public v{version} PR URL")
+                hooks.push(root, parsed.branch)
+            finish_history(finalization)
+        except BaseException:
+            if abort_history is not None:
+                abort_history(finalization)
+            raise
+    else:
+        history_contents = history.read_text(encoding="utf-8")
+        original = f"{history_marker}\n{history_heading}"
+        finalized = f"{history_marker}\n{history_heading} [PR]({url})"
+        if history_contents.count(original) != 1:
+            raise PublicReleaseError("Version History entry changed before PR URL insertion")
+        begin_history = _optional_hook(hooks, "begin_history_finalization")
+        history_token = begin_history(root, version, url) if begin_history else None
+        try:
+            _write(history, history_contents.replace(original, finalized, 1))
+            hooks.commit(root, (parsed.version_history_path,), f"docs: record public v{version} PR URL")
+            hooks.push(root, parsed.branch)
+            if history_token is not None:
+                if finish_history is None:
+                    raise PublicReleaseError("history admission needs a finish hook")
+                finish_history(history_token)
+        except BaseException:
+            if history_token is not None and abort_history is not None:
+                abort_history(history_token)
+            raise
     _journal(hooks, release_run_id, "published", url=url)
     return {
         "run_id": release_run_id,

@@ -12,7 +12,7 @@ from pathlib import Path
 import sys
 from typing import Any, Callable, Mapping, Sequence
 
-from native_bindings import GateResult, NativePublicReleaseBindings, NativePublicReleaseError
+from native_bindings import FinalizationResult, GateResult, NativePublicReleaseBindings, NativePublicReleaseError
 from public_release import PublicReleaseInterrupted, ToolCallEvidence, _gate
 
 
@@ -62,6 +62,7 @@ class NativePublicReleaseHooks:
         self._history_token: object | None = None
         self._history_capture: Any | None = None
         self._history_commit: Any | None = None
+        self._history_finalization: FinalizationResult | None = None
 
     def discover_matching_pr(self) -> None:
         result = self.phases.execute(
@@ -96,7 +97,7 @@ class NativePublicReleaseHooks:
     def capture_document_admission(self, token: object) -> None:
         self._require_document_token(token)
         try:
-            self._prepared = self.bindings.capture_generated_public_materials(self.parameters)
+            self._prepared = self.bindings.capture_generated_public_materials(self.parameters, self.discovered)
         except BaseException as error:
             self._fail_active(error)
             self._documents_token = None
@@ -137,6 +138,17 @@ class NativePublicReleaseHooks:
             raise NativePublicReleaseError("public-hooks-invalid", "public commit needs one message")
         if self.source is None:
             raise NativePublicReleaseError("public-hooks-order", "public commit needs captured source")
+        if self._history_finalization is not None:
+            if not self._history_finalization.changed:
+                raise NativePublicReleaseError("public-hooks-order", "an unchanged Version History link has no follow-up commit")
+            if tuple(paths) != (self.source.version_history_ref,):
+                raise NativePublicReleaseError("public-hooks-paths", "URL-only follow-up may commit only Version History")
+            if self._history_commit is not None:
+                raise NativePublicReleaseError("public-hooks-order", "Version History follow-up was already committed")
+            self._history_commit = self.bindings.commit_and_push(
+                self.parameters, self._history_finalization.source, "history_link_final",
+            )
+            return self._history_commit
         if self._history_token is not None:
             if tuple(paths) != (self.source.version_history_ref,):
                 raise NativePublicReleaseError("public-hooks-paths", "URL-only follow-up may commit only Version History")
@@ -160,6 +172,10 @@ class NativePublicReleaseHooks:
         self._require_root_and_version(project_root, self._version())
         if branch != "amm/dev":
             raise NativePublicReleaseError("public-hooks-branch", "selected public push is amm/dev only")
+        if self._history_finalization is not None:
+            if not self._history_finalization.changed or self._history_commit is None:
+                raise NativePublicReleaseError("public-hooks-order", "Version History push needs the admitted scoped commit")
+            return self._history_commit
         if self._history_token is not None:
             if self._history_commit is None:
                 raise NativePublicReleaseError("public-hooks-order", "history push needs the admitted scoped commit")
@@ -185,6 +201,26 @@ class NativePublicReleaseHooks:
         self.pull_request = result.pull_request
         return {"url": self.pull_request.url}
 
+    def existing_history_pr_url(self, project_root: Path, version: str) -> str | None:
+        self._require_root_and_version(project_root, version)
+        return self.discovered.url if self.discovered is not None else None
+
+    def finalize_history_link(self, project_root: Path, version: str, url: str) -> FinalizationResult:
+        self._require_root_and_version(project_root, version)
+        if (self.source is None or self.pull_request is None or url != self.pull_request.url
+                or self._history_token is not None or self._history_finalization is not None):
+            raise NativePublicReleaseError("public-hooks-history", "Version History must bind the actual selected PR URL once")
+        self.phases.begin("finalize_history_link")
+        try:
+            result = self.bindings.finalize_history_link(self.parameters, self.source, self.pull_request)
+            if not isinstance(result, FinalizationResult):
+                raise NativePublicReleaseError("history-finalization-invalid", "selected history finalizer did not return FinalizationResult")
+        except BaseException as error:
+            self._fail_active(error)
+            raise
+        self._history_finalization = result
+        return result
+
     def begin_history_finalization(self, project_root: Path, version: str, url: str) -> object:
         self._require_root_and_version(project_root, version)
         if self.pull_request is None or url != self.pull_request.url:
@@ -199,12 +235,29 @@ class NativePublicReleaseHooks:
         return self._history_token
 
     def finish_history_finalization(self, token: object) -> None:
+        if token is self._history_finalization:
+            finalization = self._history_finalization
+            if finalization.changed:
+                if self._history_commit is None:
+                    raise NativePublicReleaseError("public-hooks-order", "changed Version History needs its scoped commit")
+                self.phases.finish(self._history_commit, prior_results=(finalization,))
+            else:
+                self.phases.finish(finalization)
+            self.source = finalization.source
+            self._history_finalization = None
+            self._history_commit = None
+            return
         if token is not self._history_token or self._history_capture is None or self._history_commit is None:
             raise NativePublicReleaseError("public-hooks-order", "Version History finalization is incomplete")
         self.phases.finish(self._history_commit, prior_results=(self._history_capture,))
         self._history_token = None
 
     def abort_history_finalization(self, token: object) -> None:
+        if token is self._history_finalization:
+            self.phases.fail()
+            self._history_finalization = None
+            self._history_commit = None
+            return
         if token is self._history_token:
             self.phases.fail()
             self._history_token = None
