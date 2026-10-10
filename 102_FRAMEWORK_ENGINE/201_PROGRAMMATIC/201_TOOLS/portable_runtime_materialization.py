@@ -46,6 +46,9 @@ _COMMAND_NAME = "command.toml"
 _ENVIRONMENT_NAME = "environment.toml"
 _WRAPPER_NAME = "wrapper"
 _MANIFEST_NAME = "stage-manifest.toml"
+_FINAL_FRAGMENT_NAMES = frozenset((_COMMAND_NAME, _ENVIRONMENT_NAME, _WRAPPER_NAME, _MANIFEST_NAME))
+_FINAL_LOCK_GENERATION = re.compile(r"[0-9a-f]{32}\Z")
+_SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 
 
 class PortableRuntimeMaterializationError(RuntimeError):
@@ -732,6 +735,97 @@ def _parse_toml(payload: bytes, *, code: str, label: str) -> dict[str, object]:
     return document
 
 
+def _require_fragment_digest(value: object, *, code: str, label: str) -> str:
+    if not isinstance(value, str) or _SHA256.fullmatch(value) is None:
+        _refuse(code, f"{label} is not a lowercase SHA-256")
+    return value
+
+
+def _validate_fragment_documents(
+    command_payload: bytes,
+    environment_payload: bytes,
+    wrapper_payload: bytes,
+    manifest_payload: bytes,
+    *,
+    code: str,
+) -> tuple[dict[str, object], dict[str, object], dict[str, object]]:
+    """Validate the one shared D601 carrier schema and inventory policy.
+
+    Both the stage writer and the final-generation reader pass through this
+    exact parser.  Callers retain responsibility for their location-specific
+    bindings (selected package, current generation, and final wrapper argv).
+    """
+
+    command = _parse_toml(command_payload, code=code, label="command")
+    environment = _parse_toml(environment_payload, code=code, label="environment")
+    manifest = _parse_toml(manifest_payload, code=code, label="stage manifest")
+    command_keys = {
+        "schema_version", "package_manifest_sha256", "target_project_context_sha256", "state_generation", "entrypoint",
+        "argv", "environment_sha256", "wrapper_sha256", "invocation_nonce", "command_sha256",
+    }
+    if (
+        set(command) != command_keys
+        or type(command.get("schema_version")) is not int
+        or command.get("schema_version") != 1
+    ):
+        _refuse(code, "command carrier is not closed")
+    generation = command.get("state_generation")
+    if isinstance(generation, bool) or not isinstance(generation, int) or generation < 1:
+        _refuse(code, "command generation is invalid")
+    for key in ("package_manifest_sha256", "target_project_context_sha256", "environment_sha256", "wrapper_sha256", "command_sha256"):
+        _require_fragment_digest(command.get(key), code=code, label=key)
+    if not isinstance(command.get("entrypoint"), str) or not isinstance(command.get("invocation_nonce"), str):
+        _refuse(code, "command entrypoint or nonce is invalid")
+    if not isinstance(command.get("argv"), list) or any(not isinstance(value, str) for value in command["argv"]):
+        _refuse(code, "command argv is invalid")
+    command_body = {key: value for key, value in command.items() if key != "command_sha256"}
+    if _canonical_digest(command_body) != command["command_sha256"]:
+        _refuse(code, "command digest differs from canonical command data")
+
+    if (
+        set(environment) != {"schema_version", "variables", "environment_sha256"}
+        or type(environment.get("schema_version")) is not int
+        or environment.get("schema_version") != 1
+        or not isinstance(environment.get("variables"), dict)
+    ):
+        _refuse(code, "environment carrier is not closed")
+    variables = environment["variables"]
+    if set(variables) != set(_VARIABLE_NAMES) or any(not isinstance(variables.get(name), str) for name in _VARIABLE_NAMES):
+        _refuse(code, "environment variables are not closed")
+    environment_digest = _require_fragment_digest(environment.get("environment_sha256"), code=code, label="environment digest")
+    environment_body = {key: value for key, value in environment.items() if key != "environment_sha256"}
+    if _canonical_digest(environment_body) != environment_digest:
+        _refuse(code, "environment digest differs from canonical environment data")
+    if command["environment_sha256"] != environment_digest:
+        _refuse(code, "command differs from environment binding")
+    wrapper_digest = _require_fragment_digest(command.get("wrapper_sha256"), code=code, label="wrapper digest")
+    if _sha256(wrapper_payload) != wrapper_digest:
+        _refuse(code, "wrapper digest differs from command binding")
+
+    if (
+        set(manifest) != {"schema_version", "package_manifest_sha256", "target_project_context_sha256", "state_generation", "lock_generation", "files"}
+        or type(manifest.get("schema_version")) is not int
+        or manifest.get("schema_version") != 1
+        or isinstance(manifest.get("state_generation"), bool)
+        or not isinstance(manifest.get("state_generation"), int)
+        or manifest["state_generation"] < 1
+        or not isinstance(manifest.get("lock_generation"), str)
+        or _FINAL_LOCK_GENERATION.fullmatch(manifest["lock_generation"]) is None
+        or not isinstance(manifest.get("files"), list)
+    ):
+        _refuse(code, "stage manifest is not closed")
+    for key in ("package_manifest_sha256", "target_project_context_sha256"):
+        _require_fragment_digest(manifest.get(key), code=code, label=f"manifest {key}")
+    expected_rows = [
+        {"path": _COMMAND_NAME, "mode": 0o600, "sha256": _sha256(command_payload)},
+        {"path": _ENVIRONMENT_NAME, "mode": 0o600, "sha256": _sha256(environment_payload)},
+        {"path": _WRAPPER_NAME, "mode": 0o700, "sha256": _sha256(wrapper_payload)},
+    ]
+    if manifest["files"] != expected_rows:
+        _refuse(code, "stage manifest inventory differs from command carriers")
+    return command, environment, manifest
+
+
 def _validate_reopened_fragment(
     stage_fd: int,
     *,
@@ -754,33 +848,16 @@ def _validate_reopened_fragment(
         if payload != expected:
             _refuse("runtime-stage-reopen-failed", f"stage carrier bytes differ: {name}")
         observed[name] = payload
-    command = _parse_toml(observed[_COMMAND_NAME], code="runtime-stage-reopen-failed", label="command")
-    environment = _parse_toml(observed[_ENVIRONMENT_NAME], code="runtime-stage-reopen-failed", label="environment")
-    manifest = _parse_toml(observed[_MANIFEST_NAME], code="runtime-stage-reopen-failed", label="stage manifest")
-    command_keys = {
-        "schema_version", "package_manifest_sha256", "target_project_context_sha256", "state_generation", "entrypoint",
-        "argv", "environment_sha256", "wrapper_sha256", "invocation_nonce", "command_sha256",
-    }
-    if set(command) != command_keys or command.get("command_sha256") != command_digest:
-        _refuse("runtime-stage-reopen-failed", "command carrier is not closed")
-    command_body = {key: value for key, value in command.items() if key != "command_sha256"}
-    if _canonical_digest(command_body) != command_digest:
-        _refuse("runtime-stage-reopen-failed", "command digest differs from canonical command data")
-    if set(environment) != {"schema_version", "variables", "environment_sha256"} or environment.get("environment_sha256") != environment_digest:
-        _refuse("runtime-stage-reopen-failed", "environment carrier is not closed")
-    environment_body = {key: value for key, value in environment.items() if key != "environment_sha256"}
-    if _canonical_digest(environment_body) != environment_digest:
-        _refuse("runtime-stage-reopen-failed", "environment digest differs from canonical environment data")
-    if set(manifest) != {"schema_version", "package_manifest_sha256", "target_project_context_sha256", "state_generation", "lock_generation", "files"}:
-        _refuse("runtime-stage-reopen-failed", "stage manifest is not closed")
-    rows = manifest.get("files")
-    expected_rows = [
-        {"path": _COMMAND_NAME, "mode": 0o600, "sha256": _sha256(observed[_COMMAND_NAME])},
-        {"path": _ENVIRONMENT_NAME, "mode": 0o600, "sha256": _sha256(observed[_ENVIRONMENT_NAME])},
-        {"path": _WRAPPER_NAME, "mode": 0o700, "sha256": wrapper_digest},
-    ]
-    if rows != expected_rows:
-        _refuse("runtime-stage-reopen-failed", "stage manifest inventory differs from staged carriers")
+    command, environment, _manifest = _validate_fragment_documents(
+        observed[_COMMAND_NAME], observed[_ENVIRONMENT_NAME], observed[_WRAPPER_NAME], observed[_MANIFEST_NAME],
+        code="runtime-stage-reopen-failed",
+    )
+    if (
+        command.get("command_sha256") != command_digest
+        or environment.get("environment_sha256") != environment_digest
+        or command.get("wrapper_sha256") != wrapper_digest
+    ):
+        _refuse("runtime-stage-reopen-failed", "stage carrier digest differs from opened stage")
 
 
 def _validate_visible_fragment(
@@ -809,6 +886,157 @@ def _validate_visible_fragment(
         )
         if actual != expected:
             _refuse("runtime-stage-reopen-failed", f"visible stage carrier differs: {name}")
+
+
+def _final_generation_carriers(
+    root: Path, generation: int, *, release_proof_sha256: str | None = None,
+) -> dict[str, bytes]:
+    """Read the D601 fragment, optionally with its separately bound D604 proof.
+
+    A final native generation contains the four command-fragment carriers and
+    the release proof. The proof is not a member of the command-stage manifest;
+    its caller has already validated and bound its complete bytes separately.
+    """
+
+    relative = Path(".caprmedio_runtime/installation/generations") / str(generation)
+    cursor = root
+    try:
+        for component in relative.parts:
+            cursor = cursor / component
+            observed = os.lstat(cursor)
+            if stat.S_ISLNK(observed.st_mode) or not stat.S_ISDIR(observed.st_mode):
+                _refuse("runtime-final-command-invalid", "final command generation has an unsafe directory boundary")
+        entries = {entry.name: entry for entry in os.scandir(cursor)}
+    except PortableRuntimeMaterializationError:
+        raise
+    except OSError as error:
+        raise PortableRuntimeMaterializationError("runtime-final-command-invalid", "final command generation cannot be reopened") from error
+    expected_names = _FINAL_FRAGMENT_NAMES
+    if release_proof_sha256 is not None:
+        _require_fragment_digest(release_proof_sha256, code="runtime-final-command-invalid", label="release proof digest")
+        expected_names = expected_names | {"release-proof.toml"}
+    if set(entries) != expected_names:
+        _refuse("runtime-final-command-invalid", "final command generation file inventory is not closed")
+    modes = {
+        _COMMAND_NAME: 0o600,
+        _ENVIRONMENT_NAME: 0o600,
+        _WRAPPER_NAME: 0o700,
+        _MANIFEST_NAME: 0o600,
+    }
+    if release_proof_sha256 is not None:
+        modes["release-proof.toml"] = 0o600
+    result: dict[str, bytes] = {}
+    for name, expected_mode in modes.items():
+        try:
+            observed = entries[name].stat(follow_symlinks=False)
+        except OSError as error:
+            raise PortableRuntimeMaterializationError("runtime-final-command-invalid", f"final command carrier is unavailable: {name}") from error
+        if (
+            not stat.S_ISREG(observed.st_mode)
+            or observed.st_nlink != 1
+            or observed.st_mode & 0o777 != expected_mode
+        ):
+            _refuse("runtime-final-command-invalid", f"final command carrier is unsafe: {name}")
+        result[name] = _read_target_regular(
+            root,
+            relative / name,
+            code="runtime-final-command-invalid",
+            label=f"final command carrier {name}",
+            expected_mode=expected_mode,
+        )
+    if release_proof_sha256 is not None and _sha256(result["release-proof.toml"]) != release_proof_sha256:
+        _refuse("runtime-final-command-mismatch", "release proof changed while reopening the final generation")
+    return result
+
+
+def reopen_final_runtime_command_fragment(
+    project_root: str | Path,
+    package: VerifiedFrameworkPackage,
+    *,
+    target_context_sha256: str,
+    state_generation: int,
+    installation_lock_generation: str,
+    command_sha256: str,
+    stage_manifest_sha256: str,
+    release_proof_sha256: str | None = None,
+) -> None:
+    """Physically reopen the final D601 carriers selected by one D604 proof.
+
+    The function is read-only and deliberately shares the D601 closed-schema
+    and manifest-inventory validator with the stage writer.  It adds final
+    generation bindings that the writer cannot establish for a prospective
+    selected release: current package location, exact ``uv`` argv, admitted
+    entrypoint bytes, canonical environment and the wrapper's rendered bytes.
+    """
+
+    root = _absolute_path(
+        project_root, code="runtime-final-command-invalid", label="target Project root", require_directory=True
+    )
+    if isinstance(state_generation, bool) or not isinstance(state_generation, int) or state_generation < 1:
+        _refuse("runtime-final-command-invalid", "final command generation is invalid")
+    if not isinstance(installation_lock_generation, str) or _FINAL_LOCK_GENERATION.fullmatch(installation_lock_generation) is None:
+        _refuse("runtime-final-command-invalid", "final command lock generation is invalid")
+    expected_command_sha256 = _require_fragment_digest(
+        command_sha256, code="runtime-final-command-invalid", label="expected command digest"
+    )
+    expected_manifest_sha256 = _require_fragment_digest(
+        stage_manifest_sha256, code="runtime-final-command-invalid", label="expected stage manifest digest"
+    )
+    expected_context_sha256 = _require_fragment_digest(
+        target_context_sha256, code="runtime-final-command-invalid", label="target context digest"
+    )
+    selected_package = _reopen_selected_package(root, package)
+    carriers = _final_generation_carriers(root, state_generation, release_proof_sha256=release_proof_sha256)
+    command, environment, manifest = _validate_fragment_documents(
+        carriers[_COMMAND_NAME], carriers[_ENVIRONMENT_NAME], carriers[_WRAPPER_NAME], carriers[_MANIFEST_NAME],
+        code="runtime-final-command-invalid",
+    )
+    if (
+        command["package_manifest_sha256"] != selected_package.manifest_digest
+        or command["target_project_context_sha256"] != expected_context_sha256
+        or command["state_generation"] != state_generation
+        or command["command_sha256"] != expected_command_sha256
+    ):
+        _refuse("runtime-final-command-mismatch", "final command differs from selected package, context, or D604 proof")
+    if carriers[_COMMAND_NAME] != _render_command(command):
+        _refuse("runtime-final-command-invalid", "final command bytes are not canonical")
+    entrypoint = _validate_entrypoint(root, selected_package, command["entrypoint"])
+    if _NONCE.fullmatch(command["invocation_nonce"]) is None:
+        _refuse("runtime-final-command-invalid", "final command invocation nonce is invalid")
+    argv = tuple(command["argv"])
+    prefix = (*_UV_PREFIX, "--project", selected_package.root.as_posix(), "python", entrypoint)
+    if argv[:len(prefix)] != prefix:
+        _refuse("runtime-final-command-mismatch", "final command argv is not the admitted locked uv invocation")
+    fixed_arguments = _validate_fixed_arguments(tuple(argv[len(prefix):]))
+    if argv != (*prefix, *fixed_arguments):  # Defensive: preserves the closed tuple interpretation.
+        _refuse("runtime-final-command-invalid", "final command argv is invalid")
+    variables = {name: environment["variables"][name] for name in _VARIABLE_NAMES}
+    if carriers[_ENVIRONMENT_NAME] != _render_environment(variables, environment["environment_sha256"]):
+        _refuse("runtime-final-command-invalid", "final environment bytes are not canonical")
+    if variables["UV_CACHE_DIR"] != (root / _UV_CACHE_DIRECTORY).as_posix() or variables["UV_PROJECT_ENVIRONMENT"] != (root / _UV_PROJECT_ENVIRONMENT).as_posix():
+        _refuse("runtime-final-command-mismatch", "final environment differs from the target runtime boundary")
+    if carriers[_WRAPPER_NAME] != _render_wrapper(selected_package.root, variables, argv):
+        _refuse("runtime-final-command-mismatch", "final wrapper differs from canonical command and environment")
+    files = (
+        (_COMMAND_NAME, 0o600, _sha256(carriers[_COMMAND_NAME])),
+        (_ENVIRONMENT_NAME, 0o600, _sha256(carriers[_ENVIRONMENT_NAME])),
+        (_WRAPPER_NAME, 0o700, _sha256(carriers[_WRAPPER_NAME])),
+    )
+    if (
+        manifest["package_manifest_sha256"] != selected_package.manifest_digest
+        or manifest["target_project_context_sha256"] != expected_context_sha256
+        or manifest["state_generation"] != state_generation
+        or manifest["lock_generation"] != installation_lock_generation
+        or carriers[_MANIFEST_NAME] != _render_manifest(
+            package_manifest_sha256=selected_package.manifest_digest,
+            target_project_context_sha256=expected_context_sha256,
+            state_generation=state_generation,
+            lock_generation=installation_lock_generation,
+            files=files,
+        )
+        or _sha256(carriers[_MANIFEST_NAME]) != expected_manifest_sha256
+    ):
+        _refuse("runtime-final-command-mismatch", "final stage manifest differs from final command carriers or D604 proof")
 
 
 def _stage_opened_runtime_command(
@@ -968,6 +1196,7 @@ __all__ = [
     "PortableRuntimeMaterializationError",
     "RuntimeCommandStage",
     "RuntimeCommandStageRequest",
+    "reopen_final_runtime_command_fragment",
     "stage_candidate_runtime_command",
     "stage_runtime_command",
 ]
