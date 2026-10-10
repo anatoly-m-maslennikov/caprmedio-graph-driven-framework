@@ -49,19 +49,21 @@ class FrameworkRuntimeInstallationTests(unittest.TestCase):
         )
 
     def _seed_legacy_pair(self) -> tuple[bytes, bytes]:
-        package = b"legacy-tools-package-selector\n"
+        tools = b"legacy-tools-selector\n"
         execution = b"legacy-framework-execution-selector\n"
-        package_path = self.root / ".caprmedio_install" / "current.toml"
-        package_path.parent.mkdir(parents=True)
-        package_path.write_bytes(package)
+        tools_path = self.root / ".caprmedio_runtime" / "tools" / "current.toml"
+        tools_path.parent.mkdir(parents=True)
+        tools_path.write_bytes(tools)
         execution_path = self.root / ".caprmedio_runtime" / "framework" / "current.toml"
         execution_path.parent.mkdir(parents=True)
         execution_path.write_bytes(execution)
-        return package, execution
+        self.assertFalse((self.root / ".caprmedio_install" / "current.toml").exists())
+        return tools, execution
 
     def test_predecessor_accepts_empty_and_complete_pairs_but_refuses_incomplete_state(self) -> None:
         empty = runtime_installation._predecessor(self.root)
         self.assertIsNone(empty.package_selector)
+        self.assertIsNone(empty.legacy_tool_selector)
         self.assertIsNone(empty.execution_selector)
         self.assertEqual(1, empty.next_generation)
 
@@ -70,11 +72,15 @@ class FrameworkRuntimeInstallationTests(unittest.TestCase):
         package_path = self.root / ".caprmedio_install" / "current.toml"
         package_path.parent.mkdir(parents=True)
         package_path.write_bytes(package)
+        legacy_tools_path = self.root / ".caprmedio_runtime" / "tools" / "current.toml"
+        legacy_tools_path.parent.mkdir(parents=True)
+        legacy_tools_path.write_bytes(b"independent-legacy-tools-selector\n")
         execution_path = self.root / ".caprmedio_runtime" / "installation" / "current.toml"
         execution_path.parent.mkdir(parents=True)
         execution_path.write_bytes(execution)
         native = runtime_installation._predecessor(self.root)
         self.assertEqual(package, native.package_selector)
+        self.assertIsNone(native.legacy_tool_selector)
         self.assertEqual((Path(".caprmedio_runtime/installation/current.toml"), execution), native.execution_selector)
         self.assertEqual(5, native.next_generation)
 
@@ -85,8 +91,20 @@ class FrameworkRuntimeInstallationTests(unittest.TestCase):
         ):
             runtime_installation._predecessor(self.root)
 
+    def test_standalone_legacy_tools_do_not_create_a_framework_predecessor(self) -> None:
+        tools_path = self.root / ".caprmedio_runtime" / "tools" / "current.toml"
+        tools_path.parent.mkdir(parents=True)
+        tools_path.write_bytes(b"independent-legacy-tools-selector\n")
+
+        predecessor = runtime_installation._predecessor(self.root)
+
+        self.assertIsNone(predecessor.package_selector)
+        self.assertIsNone(predecessor.legacy_tool_selector)
+        self.assertIsNone(predecessor.execution_selector)
+        self.assertEqual(1, predecessor.next_generation)
+
     def test_composes_actual_command_with_distinct_legacy_selectors_and_uv_stage(self) -> None:
-        package_selector, execution_selector = self._seed_legacy_pair()
+        legacy_tool_selector, execution_selector = self._seed_legacy_pair()
         methodology = object()
         prepared = object()
         publication = DirectPublishedRuntime(publication=None, recording={"state": "recorded"})
@@ -114,7 +132,12 @@ class FrameworkRuntimeInstallationTests(unittest.TestCase):
         self.assertIs(prepared, result.prepared)
         self.assertIs(publication, result.publication)
         self.assertEqual(["started"], [event["event"] for event in self.command_fixture._events()])
-        self.assertEqual(package_selector, captured["old_package_selector"])
+        self.assertIsNone(captured["old_package_selector"])
+        self.assertNotIn("legacy_tool_selector", captured)
+        self.assertEqual(
+            legacy_tool_selector,
+            (self.root / ".caprmedio_runtime" / "tools" / "current.toml").read_bytes(),
+        )
         self.assertEqual(
             (Path(".caprmedio_runtime/framework/current.toml"), execution_selector),
             captured["old_execution_selector"],
@@ -137,6 +160,88 @@ class FrameworkRuntimeInstallationTests(unittest.TestCase):
         self.assertEqual(self.request.full_gate_packet, stage.full_gate_packet)
         self.assertTrue(Path(stage.path_directories[0]).is_dir())
         execute.assert_called_once_with(result.command, prepared, lock=ANY)
+
+    def test_legacy_pair_uses_only_its_two_selectors_and_refuses_a_d598_conflict(self) -> None:
+        tools_selector, execution_selector = self._seed_legacy_pair()
+
+        legacy = runtime_installation._predecessor(self.root)
+
+        self.assertIsNone(legacy.package_selector)
+        self.assertEqual(tools_selector, legacy.legacy_tool_selector)
+        self.assertEqual(
+            (Path(".caprmedio_runtime/framework/current.toml"), execution_selector),
+            legacy.execution_selector,
+        )
+        self.assertEqual(1, legacy.next_generation)
+
+        package_path = self.root / ".caprmedio_install" / "current.toml"
+        package_path.parent.mkdir(parents=True)
+        package_path.write_bytes(b"unexpected-native-selector\n")
+        with self.assertRaisesRegex(
+            runtime_installation.FrameworkRuntimeInstallationError,
+            "runtime-installation-predecessor-ambiguous",
+        ):
+            runtime_installation._predecessor(self.root)
+
+    def test_legacy_to_native_transition_preserves_tools_and_captures_next_native_generation(self) -> None:
+        legacy_tools_selector, _legacy_execution = self._seed_legacy_pair()
+        legacy = runtime_installation._predecessor(self.root)
+        self.assertEqual(legacy_tools_selector, legacy.legacy_tool_selector)
+
+        (self.root / ".caprmedio_runtime" / "framework" / "current.toml").unlink()
+        package_selector = b"native-package-selector\n"
+        package_path = self.root / ".caprmedio_install" / "current.toml"
+        package_path.parent.mkdir(parents=True)
+        package_path.write_bytes(package_selector)
+        native_path = self.root / ".caprmedio_runtime" / "installation" / "current.toml"
+        native_path.parent.mkdir(parents=True)
+        native_path.write_bytes(b"state_generation = 1\n")
+
+        native = runtime_installation._predecessor(self.root)
+        self.assertEqual(package_selector, native.package_selector)
+        self.assertIsNone(native.legacy_tool_selector)
+        self.assertEqual(2, native.next_generation)
+        self.assertEqual(
+            legacy_tools_selector,
+            (self.root / ".caprmedio_runtime" / "tools" / "current.toml").read_bytes(),
+        )
+
+        native_path.write_bytes(b"state_generation = 2\n")
+        next_native = runtime_installation._predecessor(self.root)
+        self.assertEqual(3, next_native.next_generation)
+
+    def test_legacy_tools_selector_change_after_command_start_is_recorded_without_publication(self) -> None:
+        tools_selector, _execution_selector = self._seed_legacy_pair()
+        mutated_selector = b"changed-legacy-tools-selector\n"
+        recorded = {"state": "recorded", "result_ref": "retained/result.json"}
+
+        def prepare(*_args, **_kwargs):
+            tools_path = self.root / ".caprmedio_runtime" / "tools" / "current.toml"
+            self.assertEqual(tools_selector, tools_path.read_bytes())
+            tools_path.write_bytes(mutated_selector)
+            return object()
+
+        with (
+            self._packet_patch(),
+            patch.object(runtime_installation, "verify_prospective_portable_full_gate", return_value=self.receipt),
+            patch.object(runtime_installation, "prepare_target_portable_methodology_publication", side_effect=prepare),
+            patch.object(runtime_installation, "prepare_direct_full_gate_effect_closure", return_value=object()),
+            patch.object(runtime_installation, "record_direct_installation_result", return_value=recorded) as record,
+            patch.object(runtime_installation, "build_prepared_native_publication") as build,
+            patch.object(runtime_installation, "execute_direct_native_runtime") as execute,
+        ):
+            result = runtime_installation.install_framework_runtime(
+                self.request,
+                command_id="fixture-runtime-legacy-tools-stale",
+                operator="Fixture Operator",
+            )
+        self.addCleanup(result.command.action_session.close)
+
+        self.assertIsNone(result.prepared)
+        self.assertEqual(recorded, result.publication.recording)
+        self.assertEqual("blocked_before_delete", record.call_args.kwargs["effect_outcome"])
+        build.assert_not_called()
+        execute.assert_not_called()
 
     def test_full_gate_failure_refuses_before_direct_command_start(self) -> None:
         with (

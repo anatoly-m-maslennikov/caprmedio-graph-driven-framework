@@ -287,12 +287,6 @@ class ReplacementPackagePhysicalTests(unittest.TestCase):
         installed_tools = install_release(self.root, apply=True, source_root=TOOLS)
         self.assertTrue(installed_tools["verified"])
         tools_selector = (self.root / ".caprmedio_runtime" / "tools" / "current.toml").read_bytes()
-        # D605 owns the historic package-selector location, while the
-        # framework-installation verifier owns the old Tool-runtime location.
-        # The exact same closed selector bytes bind both retained surfaces.
-        install_current = self.root / ".caprmedio_install" / "current.toml"
-        install_current.parent.mkdir(parents=True, exist_ok=True)
-        install_current.write_bytes(tools_selector)
 
         members = {
             "FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/sentinel.py": b"legacy_engine = True\n",
@@ -380,6 +374,60 @@ class ReplacementPackagePhysicalTests(unittest.TestCase):
         self.assertFalse((self.root / ".caprmedio_runtime" / "installation" / "current.toml").exists())
         self.assertEqual(b'{"preserved":true}\n', journal.read_bytes())
         self.assertEqual(b"[runtime]\nkeep = true\n", config.read_bytes())
+
+    def test_native_replacement_ignores_an_independent_retained_tools_release(self) -> None:
+        """A legacy Tools proof is neither a native pair member nor a deletion target."""
+
+        old_package, package_selector, runtime_selector = self._install_old_native()
+        (self.root / ".git").mkdir()
+        installed_tools = install_release(self.root, apply=True, source_root=TOOLS)
+        self.assertTrue(installed_tools["verified"])
+        tools_root = self.root / ".caprmedio_runtime" / "tools"
+        before_tools = {
+            path.relative_to(tools_root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in tools_root.rglob("*") if path.is_file()
+        }
+        tools_selector = (tools_root / "current.toml").read_bytes()
+
+        installed = publish_replacement_package(
+            self._stage(),
+            lock=self.lock,
+            old_package_selector=package_selector,
+            old_execution_selector=(Path(".caprmedio_runtime/installation/current.toml"), runtime_selector),
+        )
+
+        self.assertEqual(old_package, installed.root)
+        self.assertFalse((self.root / ".caprmedio_install" / "current.toml").exists())
+        self.assertFalse((self.root / ".caprmedio_runtime" / "installation" / "current.toml").exists())
+        self.assertEqual(tools_selector, (tools_root / "current.toml").read_bytes())
+        after_tools = {
+            path.relative_to(tools_root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in tools_root.rglob("*") if path.is_file()
+        }
+        self.assertEqual(before_tools, after_tools)
+
+    def test_native_replacement_refuses_legacy_competitor_appearing_after_stage(self) -> None:
+        """A native pair cannot be cut over once a legacy Framework selector appears."""
+
+        old_package, package_selector, runtime_selector = self._install_old_native()
+        staged = self._stage()
+        framework_current = self.root / ".caprmedio_runtime" / "framework" / "current.toml"
+        framework_current.parent.mkdir(parents=True, exist_ok=True)
+        framework_current.write_bytes(b"untrusted concurrent legacy selection\n")
+
+        with self.assertRaises(PortableRuntimePublicationError) as refused:
+            publish_replacement_package(
+                staged,
+                lock=self.lock,
+                old_package_selector=package_selector,
+                old_execution_selector=(Path(".caprmedio_runtime/installation/current.toml"), runtime_selector),
+            )
+
+        self.assertEqual("portable-publication-predecessor-ambiguous", refused.exception.code)
+        self.assertEqual(package_selector, (self.root / ".caprmedio_install" / "current.toml").read_bytes())
+        self.assertEqual(runtime_selector, (self.root / ".caprmedio_runtime" / "installation" / "current.toml").read_bytes())
+        self.assertEqual(b"untrusted concurrent legacy selection\n", framework_current.read_bytes())
+        self.assertTrue((old_package / "manifest.toml").is_file())
 
     def test_failure_after_old_removal_leaves_no_stale_selector_or_package_claim(self) -> None:
         old_package, package_selector, runtime_selector = self._install_old_native()
@@ -497,7 +545,7 @@ class ReplacementPackagePhysicalTests(unittest.TestCase):
             _prepare_legacy_replacement(
                 self.root,
                 target_context=self.context,
-                old_package_selector=tools_selector,
+                old_package_selector=None,
                 old_execution_selector=(Path(".caprmedio_runtime/framework/current.toml"), legacy_selector),
                 lock=self.lock,
             )
@@ -505,10 +553,155 @@ class ReplacementPackagePhysicalTests(unittest.TestCase):
         self.assertEqual("portable-publication-legacy-prior-context-unavailable", unavailable.exception.code)
         self.assertTrue((old_package / "manifest.toml").is_file())
         self.assertTrue((self.root / ".caprmedio_runtime" / "framework" / "current.toml").is_file())
-        self.assertTrue((self.root / ".caprmedio_install" / "current.toml").is_file())
+        self.assertFalse((self.root / ".caprmedio_install" / "current.toml").exists())
         self.assertEqual(b"[runtime]\nkeep = true\n", config.read_bytes())
         self.assertEqual(b"preserve project_mcp state\n", state.read_bytes())
         self.assertTrue(installation_status(self.root)["verified"])
+
+    def test_legacy_replacement_removes_only_framework_selection_and_tree(self) -> None:
+        old_package, tools_selector, legacy_selector = self._install_old_legacy()
+        tools_root = self.root / ".caprmedio_runtime" / "tools"
+        before_tools = {
+            path.relative_to(tools_root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in tools_root.rglob("*") if path.is_file()
+        }
+        config = self.root / ".caprmedio_runtime" / "config.toml"
+        config.parent.mkdir(parents=True, exist_ok=True)
+        config.write_bytes(b"[runtime]\nkeep = true\n")
+
+        installed = publish_replacement_package(
+            self._stage(),
+            lock=self.lock,
+            old_package_selector=None,
+            old_execution_selector=(Path(".caprmedio_runtime/framework/current.toml"), legacy_selector),
+        )
+
+        self.assertEqual(self.package.manifest_digest, installed.manifest_digest)
+        self.assertFalse((old_package / "manifest.toml").exists())
+        self.assertFalse((self.root / ".caprmedio_runtime" / "framework" / "current.toml").exists())
+        self.assertEqual(tools_selector, (tools_root / "current.toml").read_bytes())
+        after_tools = {
+            path.relative_to(tools_root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in tools_root.rglob("*") if path.is_file()
+        }
+        self.assertEqual(before_tools, after_tools)
+        self.assertFalse((self.root / ".caprmedio_install" / "current.toml").exists())
+        self.assertEqual(b"[runtime]\nkeep = true\n", config.read_bytes())
+
+    def test_legacy_replacement_refuses_stale_framework_selector_before_effects(self) -> None:
+        old_package, tools_selector, legacy_selector = self._install_old_legacy()
+        framework_current = self.root / ".caprmedio_runtime" / "framework" / "current.toml"
+        framework_current.write_bytes(legacy_selector + b"# stale\n")
+
+        with self.assertRaises(PortableRuntimePublicationError) as refused:
+            publish_replacement_package(
+                self._stage(),
+                lock=self.lock,
+                old_package_selector=None,
+                old_execution_selector=(Path(".caprmedio_runtime/framework/current.toml"), legacy_selector),
+            )
+
+        self.assertEqual("portable-publication-old-selector-stale", refused.exception.code)
+        self.assertEqual(legacy_selector + b"# stale\n", framework_current.read_bytes())
+        self.assertEqual(tools_selector, (self.root / ".caprmedio_runtime" / "tools" / "current.toml").read_bytes())
+        self.assertTrue((old_package / "manifest.toml").is_file())
+        self.assertFalse((self.root / ".caprmedio_install" / "current.toml").exists())
+
+    def test_legacy_replacement_refuses_native_competitor_appearing_after_stage(self) -> None:
+        """Legacy cut-over likewise cannot begin after a native selector appears."""
+
+        old_package, tools_selector, legacy_selector = self._install_old_legacy()
+        staged = self._stage()
+        native_current = self.root / ".caprmedio_runtime" / "installation" / "current.toml"
+        native_current.parent.mkdir(parents=True, exist_ok=True)
+        native_current.write_bytes(b"untrusted concurrent native selection\n")
+
+        with self.assertRaises(PortableRuntimePublicationError) as refused:
+            publish_replacement_package(
+                staged,
+                lock=self.lock,
+                old_package_selector=None,
+                old_execution_selector=(Path(".caprmedio_runtime/framework/current.toml"), legacy_selector),
+            )
+
+        self.assertEqual("portable-publication-predecessor-ambiguous", refused.exception.code)
+        self.assertEqual(legacy_selector, (self.root / ".caprmedio_runtime" / "framework" / "current.toml").read_bytes())
+        self.assertEqual(b"untrusted concurrent native selection\n", native_current.read_bytes())
+        self.assertEqual(tools_selector, (self.root / ".caprmedio_runtime" / "tools" / "current.toml").read_bytes())
+        self.assertTrue((old_package / "manifest.toml").is_file())
+
+    def test_legacy_replacement_refuses_d598_selector_appearing_after_stage(self) -> None:
+        """A physical D598 introduced after staging blocks Framework deletion."""
+
+        old_package, tools_selector, legacy_selector = self._install_old_legacy()
+        staged = self._stage()
+        package_current = self.root / ".caprmedio_install" / "current.toml"
+        package_current.parent.mkdir(parents=True, exist_ok=True)
+        package_current.write_bytes(b"untrusted concurrent native D598 selection\n")
+
+        with self.assertRaises(PortableRuntimePublicationError) as refused:
+            publish_replacement_package(
+                staged,
+                lock=self.lock,
+                old_package_selector=None,
+                old_execution_selector=(Path(".caprmedio_runtime/framework/current.toml"), legacy_selector),
+            )
+
+        self.assertEqual("portable-publication-legacy-package-unexpected", refused.exception.code)
+        self.assertEqual(legacy_selector, (self.root / ".caprmedio_runtime" / "framework" / "current.toml").read_bytes())
+        self.assertEqual(tools_selector, (self.root / ".caprmedio_runtime" / "tools" / "current.toml").read_bytes())
+        self.assertEqual(b"untrusted concurrent native D598 selection\n", package_current.read_bytes())
+        self.assertTrue((old_package / "manifest.toml").is_file())
+        self.assertFalse((self.root / ".caprmedio_runtime" / "installation" / "current.toml").exists())
+        self.assertFalse((self.root / ".caprmedio_install" / "releases" / self.package.manifest_digest).exists())
+
+    def test_legacy_replacement_refuses_aliased_d598_selector_before_effects(self) -> None:
+        """A D598 alias is still a conflicting native selector, before any deletion."""
+
+        old_package, tools_selector, legacy_selector = self._install_old_legacy()
+        staged = self._stage()
+        package_current = self.root / ".caprmedio_install" / "current.toml"
+        package_current.parent.mkdir(parents=True, exist_ok=True)
+        aliased = package_current.with_name("aliased-current.toml")
+        aliased.write_bytes(b"untrusted aliased native D598 selection\n")
+        package_current.symlink_to(aliased)
+
+        with self.assertRaises(PortableRuntimePublicationError) as refused:
+            publish_replacement_package(
+                staged,
+                lock=self.lock,
+                old_package_selector=None,
+                old_execution_selector=(Path(".caprmedio_runtime/framework/current.toml"), legacy_selector),
+            )
+
+        self.assertEqual("portable-publication-legacy-package-unexpected", refused.exception.code)
+        self.assertTrue(package_current.is_symlink())
+        self.assertEqual(legacy_selector, (self.root / ".caprmedio_runtime" / "framework" / "current.toml").read_bytes())
+        self.assertEqual(tools_selector, (self.root / ".caprmedio_runtime" / "tools" / "current.toml").read_bytes())
+        self.assertTrue((old_package / "manifest.toml").is_file())
+        self.assertFalse((self.root / ".caprmedio_runtime" / "installation" / "current.toml").exists())
+
+    def test_legacy_replacement_refuses_aliased_framework_selector_before_effects(self) -> None:
+        old_package, tools_selector, legacy_selector = self._install_old_legacy()
+        framework_current = self.root / ".caprmedio_runtime" / "framework" / "current.toml"
+        aliased = framework_current.with_name("aliased-current.toml")
+        aliased.write_bytes(legacy_selector)
+        framework_current.unlink()
+        framework_current.symlink_to(aliased)
+
+        with self.assertRaises(PortableRuntimePublicationError) as refused:
+            publish_replacement_package(
+                self._stage(),
+                lock=self.lock,
+                old_package_selector=None,
+                old_execution_selector=(Path(".caprmedio_runtime/framework/current.toml"), legacy_selector),
+            )
+
+        self.assertEqual("portable-publication-old-selector-missing", refused.exception.code)
+        self.assertTrue(framework_current.is_symlink())
+        self.assertEqual(tools_selector, (self.root / ".caprmedio_runtime" / "tools" / "current.toml").read_bytes())
+        self.assertTrue((old_package / "manifest.toml").is_file())
+        self.assertFalse((self.root / ".caprmedio_install" / "current.toml").exists())
 
 
 class LegacyBootstrapPredecessorTests(unittest.TestCase):
@@ -523,9 +716,6 @@ class LegacyBootstrapPredecessorTests(unittest.TestCase):
         installed_tools = install_release(self.root, apply=True, source_root=TOOLS)
         self.assertTrue(installed_tools["verified"])
         self.tools_selector = (self.root / ".caprmedio_runtime" / "tools" / "current.toml").read_bytes()
-        install_selector = self.root / ".caprmedio_install" / "current.toml"
-        install_selector.parent.mkdir(parents=True, exist_ok=True)
-        install_selector.write_bytes(self.tools_selector)
 
         release = fixture.plan.release
         legacy_relative = f".caprmedio_runtime/framework/releases/{release}"
@@ -631,6 +821,34 @@ class NativePredecessorCoverageTests(unittest.TestCase):
             carrier = self.root / ".caprmedio_install" / name / "state.txt"
             carrier.parent.mkdir(parents=True, exist_ok=True)
             carrier.write_bytes(f"preserve {name} state\n".encode("utf-8"))
+
+    def test_native_preparation_refuses_legacy_competitor_before_coverage(self) -> None:
+        """The capture fence rejects a competing Framework selection before providers open."""
+
+        framework_current = self.root / ".caprmedio_runtime" / "framework" / "current.toml"
+        framework_current.parent.mkdir(parents=True, exist_ok=True)
+        framework_current.write_bytes(b"untrusted concurrent legacy selection\n")
+
+        with patch(
+            "legacy_process_coverage.open_legacy_process_coverage",
+            side_effect=AssertionError("coverage must not open for ambiguous Framework selection"),
+        ):
+            with self.assertRaises(PortableRuntimePublicationError) as refused:
+                _prepare_legacy_replacement(
+                    self.root,
+                    target_context=self.context,
+                    old_package_selector=self.package_selector,
+                    old_execution_selector=(Path(".caprmedio_runtime/installation/current.toml"), self.runtime_selector),
+                    lock=self.lock,
+                )
+
+        self.assertEqual("portable-publication-predecessor-ambiguous", refused.exception.code)
+        self.assertEqual(self.package_selector, (self.root / ".caprmedio_install" / "current.toml").read_bytes())
+        self.assertEqual(
+            self.runtime_selector,
+            (self.root / ".caprmedio_runtime" / "installation" / "current.toml").read_bytes(),
+        )
+        self.assertEqual(b"untrusted concurrent legacy selection\n", framework_current.read_bytes())
 
     def test_native_predecessor_requires_actual_provider_quiescence_before_copy(self) -> None:
         """A real provider absence may copy; an unavailable query must block first."""
@@ -1317,7 +1535,7 @@ class FinalNativePublicationReopenTests(unittest.TestCase):
             prospective_package_selector=b"candidate package selector",
             prospective_runtime_selector=b"candidate runtime selector",
             old_package_selector=b"old package selector",
-            old_execution_selector=None,
+            old_execution_selector=(Path(".caprmedio_runtime/installation/current.toml"), b"selected runtime"),
         )
         lock = SimpleNamespace(release=Mock())
         failure = PortableRuntimePublicationError(

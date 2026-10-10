@@ -49,6 +49,7 @@ from framework_installation_command import (
 _PACKAGE_SELECTOR = Path(".caprmedio_install/current.toml")
 _NATIVE_RUNTIME_SELECTOR = Path(".caprmedio_runtime/installation/current.toml")
 _LEGACY_RUNTIME_SELECTOR = Path(".caprmedio_runtime/framework/current.toml")
+_LEGACY_TOOLS_SELECTOR = Path(".caprmedio_runtime/tools/current.toml")
 _ENTRYPOINT = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/implementation_server.py"
 _SHA256 = frozenset("0123456789abcdef")
 
@@ -78,7 +79,11 @@ class _PacketFacts:
 
 @dataclass(frozen=True)
 class _Predecessor:
+    # D598 selects a native Framework package.  A legacy Framework predecessor
+    # has no D598 selector: its distinct Tools selection is captured only for
+    # this pre-/under-lock stale check; the publisher reopens its proof itself.
     package_selector: bytes | None
+    legacy_tool_selector: bytes | None
     execution_selector: tuple[Path, bytes] | None
     next_generation: int
 
@@ -137,26 +142,56 @@ def _optional_regular(root: Path, relative: Path, *, label: str) -> bytes | None
 
 
 def _predecessor(root: Path) -> _Predecessor:
-    """Read the distinct D605/D598 and Framework-execution current carriers."""
+    """Read one closed native or legacy predecessor carrier set.
 
-    package_selector = _optional_regular(root, _PACKAGE_SELECTOR, label="current Tools-package selector")
+    Native state is the D598 package selector plus the D600 execution
+    selector.  Pre-D600 state instead has the historic Framework and Tools
+    selectors; the latter is captured separately so the under-lock reopen
+    detects drift, and is never treated as a D598 selector.
+    """
+
+    package_selector = _optional_regular(root, _PACKAGE_SELECTOR, label="current reusable Framework-package selector")
     native_selector = _optional_regular(root, _NATIVE_RUNTIME_SELECTOR, label="current native execution selector")
     legacy_selector = _optional_regular(root, _LEGACY_RUNTIME_SELECTOR, label="current legacy Framework execution selector")
+    legacy_tool_selector = _optional_regular(root, _LEGACY_TOOLS_SELECTOR, label="current legacy Tools selector")
     if native_selector is not None and legacy_selector is not None:
         _refuse(
             "runtime-installation-predecessor-ambiguous",
             "both native and legacy Framework execution selectors are current",
         )
-    if (package_selector is not None) != (native_selector is not None or legacy_selector is not None):
+    if native_selector is not None:
+        if package_selector is None:
+            _refuse(
+                "runtime-installation-predecessor-incomplete",
+                "current native Framework execution and D598 package selectors must be present together",
+            )
+    elif legacy_selector is not None:
+        if package_selector is not None:
+            _refuse(
+                "runtime-installation-predecessor-ambiguous",
+                "legacy Framework execution cannot be paired with a D598 package selector",
+            )
+        if legacy_tool_selector is None:
+            _refuse(
+                "runtime-installation-predecessor-incomplete",
+                "current legacy Framework execution and Tools selectors must be present together",
+            )
+    elif package_selector is not None:
         _refuse(
             "runtime-installation-predecessor-incomplete",
             "current Framework execution and Tools-package selectors must be present together",
         )
     if native_selector is None and legacy_selector is None:
-        return _Predecessor(package_selector=None, execution_selector=None, next_generation=1)
+        return _Predecessor(
+            package_selector=None,
+            legacy_tool_selector=None,
+            execution_selector=None,
+            next_generation=1,
+        )
     if native_selector is None:
         return _Predecessor(
-            package_selector=package_selector,
+            package_selector=None,
+            legacy_tool_selector=legacy_tool_selector,
             execution_selector=(_LEGACY_RUNTIME_SELECTOR, legacy_selector),
             next_generation=1,
         )
@@ -171,6 +206,7 @@ def _predecessor(root: Path) -> _Predecessor:
         _refuse("runtime-installation-generation-invalid", "current native generation is not positive")
     return _Predecessor(
         package_selector=package_selector,
+        legacy_tool_selector=None,
         execution_selector=(_NATIVE_RUNTIME_SELECTOR, native_selector),
         next_generation=generation + 1,
     )

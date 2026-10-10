@@ -36,6 +36,7 @@ _RELEASES = _INSTALL_ROOT / "releases"
 _PACKAGE_SELECTOR = _INSTALL_ROOT / "current.toml"
 _RUNTIME_SELECTOR = Path(".caprmedio_runtime/installation/current.toml")
 _LEGACY_RUNTIME_SELECTOR = Path(".caprmedio_runtime/framework/current.toml")
+_LEGACY_TOOLS_SELECTOR = Path(".caprmedio_runtime/tools/current.toml")
 _GENERATIONS = Path(".caprmedio_runtime/installation/generations")
 _STAGING = Path(".caprmedio_tmp/installation/replacements")
 _CA_SKILL_STAGING = Path(".caprmedio_tmp/installation/ca-skill")
@@ -89,6 +90,9 @@ class PreparedNativePublication:
     candidate_mcp_binding: object
     prospective_package_selector: bytes
     prospective_runtime_selector: bytes
+    # D598 bytes belong only to a native predecessor.  A legacy predecessor
+    # retains its Tools selector inside the bootstrap proof and never presents
+    # it as a prospective/native package selection.
     old_package_selector: bytes | None
     old_execution_selector: tuple[Path, bytes] | None
     # Native N is frozen independently of legacy state migration.  A normal
@@ -567,6 +571,51 @@ def _verify_legacy_tools_selection(root: Path) -> None:
         ) from error
     if not isinstance(status, dict) or status.get("installed") is not True or status.get("verified") is not True:
         _refuse("portable-publication-old-selector-invalid", "legacy tools installation is not verified")
+
+
+def _reopen_legacy_tool_selector(root: Path) -> bytes:
+    """Read the exact legacy Tools selector only as retained predecessor proof."""
+
+    _verify_legacy_tools_selection(root)
+    selector_path = root / _LEGACY_TOOLS_SELECTOR
+    _regular(selector_path, code="portable-publication-legacy-prior-context-unavailable")
+    try:
+        return selector_path.read_bytes()
+    except OSError as error:
+        raise PortableRuntimePublicationError(
+            "portable-publication-legacy-prior-context-unavailable",
+            "legacy Tools selector cannot be physically reopened",
+        ) from error
+
+
+def _reject_competing_framework_selector(root: Path, selected: Path) -> None:
+    """Keep native and legacy Framework selection mutually exclusive.
+
+    The retained legacy Tools selection is deliberately outside this pair.  It
+    is bootstrap proof only, while these two paths select mutually exclusive
+    Framework predecessors under one publication lock.
+    """
+
+    if selected not in {_RUNTIME_SELECTOR, _LEGACY_RUNTIME_SELECTOR}:
+        _refuse("portable-publication-prior-selector-invalid", "predecessor execution selector is invalid")
+    competing = _LEGACY_RUNTIME_SELECTOR if selected == _RUNTIME_SELECTOR else _RUNTIME_SELECTOR
+    competitor = root / competing
+    if competitor.exists() or competitor.is_symlink():
+        _refuse(
+            "portable-publication-predecessor-ambiguous",
+            "native and legacy Framework selectors cannot coexist during replacement",
+        )
+
+
+def _reject_legacy_native_package_selector(root: Path) -> None:
+    """Legacy cut-over must not race with a newly appeared native D598 selector."""
+
+    selector = root / _PACKAGE_SELECTOR
+    if selector.exists() or selector.is_symlink():
+        _refuse(
+            "portable-publication-legacy-package-unexpected",
+            "legacy replacement cannot coexist with a physical native D598 package selector",
+        )
 
 
 def render_package_selector(
@@ -1338,7 +1387,6 @@ def _reopen_legacy_predecessor_context(
     never consults current candidate sources or manufactures a D600 alias.
     """
 
-    _verify_legacy_tools_selection(root)
     _selected_legacy_framework_package(root, runtime_selector)
     try:
         framework_document = tomllib.loads(runtime_selector.decode("utf-8"))
@@ -1353,11 +1401,9 @@ def _reopen_legacy_predecessor_context(
             )
         _sha256(image_digest.removeprefix("sha256:"), label="legacy Framework image")
 
-        tools_selector_path = root / ".caprmedio_runtime" / "tools" / "current.toml"
         framework_selector_path = root / _LEGACY_RUNTIME_SELECTOR
-        _regular(tools_selector_path, code="portable-publication-legacy-prior-context-unavailable")
         _regular(framework_selector_path, code="portable-publication-legacy-prior-context-unavailable")
-        tools_selector = tools_selector_path.read_bytes()
+        tools_selector = _reopen_legacy_tool_selector(root)
         if tools_selector != package_selector:
             _refuse(
                 "portable-publication-legacy-prior-context-unavailable",
@@ -1711,18 +1757,30 @@ def _prepare_legacy_replacement(
     if relative not in {_RUNTIME_SELECTOR, _LEGACY_RUNTIME_SELECTOR} or not isinstance(expected_execution, bytes):
         _refuse("portable-publication-prior-selector-invalid", "predecessor execution selector is invalid")
     family = "legacy" if relative == _LEGACY_RUNTIME_SELECTOR else "native"
-    if old_package_selector is None:
-        _refuse(
-            f"portable-publication-{family}-package-missing",
-            "predecessor replacement requires the exact selected package carrier",
-        )
-    package_selector = root / _PACKAGE_SELECTOR
-    _regular(package_selector, code=f"portable-publication-{family}-package-missing")
-    if package_selector.read_bytes() != old_package_selector:
-        _refuse(
-            f"portable-publication-{family}-package-stale",
-            "predecessor package selection changed before migration inventory",
-        )
+    if family == "legacy":
+        if old_package_selector is not None:
+            _refuse(
+                "portable-publication-legacy-package-unexpected",
+                "a legacy predecessor must not supply a native D598 package selector",
+            )
+        _reject_legacy_native_package_selector(root)
+        # The legacy Tools selector is exact bootstrap proof, not a selector
+        # this publisher may remove or replace.  It is retained internally and
+        # feeds D607 inventory only.
+        old_package_selector = _reopen_legacy_tool_selector(root)
+    else:
+        if old_package_selector is None:
+            _refuse(
+                "portable-publication-native-package-missing",
+                "native predecessor replacement requires its exact D598 package selector",
+            )
+        package_selector = root / _PACKAGE_SELECTOR
+        _regular(package_selector, code="portable-publication-native-package-missing")
+        if package_selector.read_bytes() != old_package_selector:
+            _refuse(
+                "portable-publication-native-package-stale",
+                "native predecessor package selection changed before migration inventory",
+            )
     execution_selector = root / relative
     _regular(execution_selector, code=f"portable-publication-{family}-selector-missing")
     if execution_selector.read_bytes() != expected_execution:
@@ -1730,6 +1788,7 @@ def _prepare_legacy_replacement(
             f"portable-publication-{family}-selector-stale",
             "predecessor execution selection changed before migration inventory",
         )
+    _reject_competing_framework_selector(root, relative)
     if family == "native" and native_predecessor is not None:
         if (
             not _is_native_predecessor_handoff(native_predecessor)
@@ -1865,6 +1924,9 @@ def _revalidate_legacy_replacement(
     if relative not in {_RUNTIME_SELECTOR, _LEGACY_RUNTIME_SELECTOR} or not isinstance(expected_selector, bytes):
         _refuse("portable-publication-prior-selector-invalid", "predecessor execution selector is invalid")
     family = "legacy" if relative == _LEGACY_RUNTIME_SELECTOR else "native"
+    _reject_competing_framework_selector(root, relative)
+    if family == "legacy":
+        _reject_legacy_native_package_selector(root)
     evidence_missing = f"portable-publication-{family}-evidence-missing" if family == "legacy" else "portable-publication-native-quiescence-missing"
     evidence_stale = f"portable-publication-{family}-evidence-stale" if family == "legacy" else "portable-publication-native-quiescence-stale"
     evidence = prepared.legacy_replacement
@@ -1897,11 +1959,41 @@ def _revalidate_legacy_replacement(
             evidence_stale,
             "predecessor replacement evidence belongs to another installation lock",
         )
-    if prepared.old_package_selector is None:
-        _refuse(
-            f"portable-publication-{family}-package-missing",
-            "predecessor replacement has no exact package selection",
-        )
+    if family == "legacy":
+        if prepared.old_package_selector is not None:
+            _refuse(
+                "portable-publication-legacy-package-unexpected",
+                "legacy replacement must not retain a native D598 package selector",
+            )
+        migration_selector = getattr(evidence.predecessor_proof, "tool_selector_bytes", None)
+        if not isinstance(migration_selector, bytes):
+            _refuse(
+                evidence_missing,
+                "legacy replacement has no frozen Tools selector proof",
+            )
+        try:
+            refreshed_proof = _reopen_legacy_predecessor_context(
+                root,
+                package_selector=migration_selector,
+                runtime_selector=expected_selector,
+            )
+        except PortableRuntimePublicationError as error:
+            raise PortableRuntimePublicationError(
+                evidence_stale,
+                "legacy Framework or Tools predecessor proof cannot be physically reopened",
+            ) from error
+        if refreshed_proof != evidence.predecessor_proof:
+            _refuse(
+                evidence_stale,
+                "legacy Framework or Tools predecessor proof differs from preparation",
+            )
+    else:
+        migration_selector = prepared.old_package_selector
+        if migration_selector is None:
+            _refuse(
+                "portable-publication-native-package-missing",
+                "native predecessor replacement has no exact D598 package selector",
+            )
     try:
         from installation_state import (
             InstallationStateError,
@@ -1919,7 +2011,7 @@ def _revalidate_legacy_replacement(
         if (
             inventory.get("inventory_sha256") != evidence.inventory_sha256
             or inventory.get("target_context_sha256") != prepared.target_context.sha256
-            or inventory.get("legacy_selector_sha256") != _digest(prepared.old_package_selector)
+            or inventory.get("legacy_selector_sha256") != _digest(migration_selector)
         ):
             _refuse(
                 evidence_stale,
@@ -2265,10 +2357,12 @@ def publish_replacement_package(
     if reopened != staged or staged.root.parent.name != concrete_lock.lock_generation:
         _refuse("portable-publication-stage-invalid", "replacement is not this lock's staged package")
     releases = _mkdirs(root, _RELEASES)
-    current = root / _PACKAGE_SELECTOR
     execution_path: Path | None = None
+    old_path: Path | None = None
     legacy_execution = False
     if old_execution_selector is None:
+        if old_package_selector is not None:
+            _refuse("portable-publication-old-selector-invalid", "bootstrap must not supply a predecessor package selector")
         if (root / _RUNTIME_SELECTOR).exists() or (root / _RUNTIME_SELECTOR).is_symlink():
             _refuse("portable-publication-old-selector-unexpected", "bootstrap has an existing native execution selector")
         if (root / _LEGACY_RUNTIME_SELECTOR).exists() or (root / _LEGACY_RUNTIME_SELECTOR).is_symlink():
@@ -2282,31 +2376,40 @@ def publish_replacement_package(
         if execution_path.read_bytes() != expected:
             _refuse("portable-publication-old-selector-stale", "execution selector changed before deletion")
         legacy_execution = relative == _LEGACY_RUNTIME_SELECTOR
-    if old_package_selector is None:
+    if old_execution_selector is None:
+        current = root / _PACKAGE_SELECTOR
         if current.exists() or current.is_symlink():
             _refuse("portable-publication-old-selector-unexpected", "bootstrap has an existing package selector")
+    elif legacy_execution:
+        if old_package_selector is not None:
+            _refuse(
+                "portable-publication-legacy-package-unexpected",
+                "legacy replacement must not remove or replace a native D598 package selector",
+            )
+        # D562 retains the actual legacy Tools release.  This publisher only
+        # removes the frozen Framework selector/tree after preparation has
+        # physically reopened the retained Tools proof.
+        assert execution_path is not None
+        old_path = _selected_legacy_framework_package(root, execution_path.read_bytes())
+        _directory(old_path, code="portable-publication-old-package-missing")
     else:
+        if old_package_selector is None:
+            _refuse("portable-publication-native-package-missing", "native replacement requires its exact D598 package selector")
+        current = root / _PACKAGE_SELECTOR
         _regular(current, code="portable-publication-old-selector-missing")
         actual = current.read_bytes()
         if actual != old_package_selector:
             _refuse("portable-publication-old-selector-stale", "current package selector changed before deletion")
-        if legacy_execution:
-            # A historical selector points to the old Framework package while
-            # ``.caprmedio_install/current.toml`` selects the old Tool
-            # release.  Neither is D598.  Both must reopen before this one
-            # historical Framework package is removed.
-            _verify_legacy_tools_selection(root)
-            if old_execution_selector is None:  # Narrowing for type checkers.
-                _refuse("portable-publication-old-selector-invalid", "legacy execution selector is unavailable")
-            old_path = _selected_legacy_framework_package(root, old_execution_selector[1])
-        else:
-            old_package = _selected_native_package(root, actual)
-            old_path = old_package.root
+        old_package = _selected_native_package(root, actual)
+        old_path = old_package.root
         _directory(old_path, code="portable-publication-old-package-missing")
     # Remove execution selection before its referenced bytes.  A failed
     # destructive phase is therefore honestly unavailable, never a stale
     # selector that claims a removed package is still executable.
     if execution_path is not None:
+        _reject_competing_framework_selector(root, old_execution_selector[0])
+        if legacy_execution:
+            _reject_legacy_native_package_selector(root)
         try:
             execution_path.unlink()
         except OSError as error:
@@ -2315,14 +2418,16 @@ def publish_replacement_package(
                 "selected predecessor execution selector could not be removed",
             ) from error
     destination_reuses_old_root = False
-    if old_package_selector is not None:
-        try:
-            current.unlink()
-        except OSError as error:
-            raise PortableRuntimePublicationError(
-                "portable-publication-old-selector-removal-failed",
-                "selected predecessor package selector could not be removed",
-            ) from error
+    if old_execution_selector is not None:
+        if not legacy_execution:
+            try:
+                current.unlink()
+            except OSError as error:
+                raise PortableRuntimePublicationError(
+                    "portable-publication-old-selector-removal-failed",
+                    "selected predecessor package selector could not be removed",
+                ) from error
+        assert old_path is not None
         try:
             destination_reuses_old_root = _remove_selected_package_tree(old_path)
         except OSError as error:
@@ -2965,8 +3070,9 @@ def execute_direct_native_runtime(
         publication = publish_direct_native_runtime(command_result, prepared, lock=lock)
     except PortableRuntimePublicationError as error:
         _lock, root = _root(lock)
-        package_current = root / _PACKAGE_SELECTOR
         expected_execution = prepared.old_execution_selector
+        package_current = root / _PACKAGE_SELECTOR
+        legacy_execution = False
         execution_selector_missing: bool | None = False
         if expected_execution is not None:
             try:
@@ -2984,19 +3090,23 @@ def execute_direct_native_runtime(
                     execution_selector_missing = None
                 else:
                     execution_current = root / execution_relative
+                    legacy_execution = execution_relative == _LEGACY_RUNTIME_SELECTOR
+                    # A legacy Tools selector is retained bootstrap proof, not
+                    # a predecessor selector whose presence determines this
+                    # Framework cut-over's disposition.  Native D598 remains
+                    # the only package-selector member of a native pair.
                     execution_selector_missing = (
                         not execution_current.exists() and not execution_current.is_symlink()
                     )
         predecessor_removed = (
-            prepared.old_package_selector is not None
-            and not package_current.exists()
-            and not package_current.is_symlink()
+            expected_execution is not None
+            and (legacy_execution or (not package_current.exists() and not package_current.is_symlink()))
             and execution_selector_missing is True
         )
         selectors_present = (
-            package_current.exists()
-            and expected_execution is not None
+            expected_execution is not None
             and execution_selector_missing is False
+            and (legacy_execution or package_current.exists())
         )
         new_package_present = (root / _RELEASES / prepared.package.manifest_digest).is_dir()
         outcome = (

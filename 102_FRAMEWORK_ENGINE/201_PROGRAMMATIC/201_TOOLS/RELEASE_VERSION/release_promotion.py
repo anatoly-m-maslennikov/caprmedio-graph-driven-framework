@@ -449,9 +449,10 @@ def prepare_and_publish_selected_native_runtime(run, context):
             or any(path.is_symlink() for path in (uv_path.parent, *uv_path.parent.parents))):
         raise ReleaseContractError("release-native-launcher-unavailable", "actual UV executable or parent is unsafe")
     home = Path.home().absolute()
-    old_package_selector = _file(root, ".caprmedio_install/current.toml").read_bytes()
     native_selector = root / ".caprmedio_runtime/installation/current.toml"
-    if native_selector.exists() or native_selector.is_symlink():
+    native_current = native_selector.exists() or native_selector.is_symlink()
+    if native_current:
+        old_package_selector = _file(root, ".caprmedio_install/current.toml").read_bytes()
         prior_path = Path(".caprmedio_runtime/installation/current.toml")
         prior_selector = _file(root, prior_path.as_posix()).read_bytes()
         old_generation = tomllib.loads(prior_selector.decode("utf-8"))["state_generation"]
@@ -459,9 +460,28 @@ def prepare_and_publish_selected_native_runtime(run, context):
             raise ReleaseContractError("release-native-generation-invalid", "prior native generation is not positive")
         generation = old_generation + 1
     else:
-        prior_path = Path(".caprmedio_runtime/framework/current.toml")
-        prior_selector = _file(root, prior_path.as_posix()).read_bytes()
+        legacy_path = Path(".caprmedio_runtime/framework/current.toml")
+        legacy_selector = root / legacy_path
+        package_path = root / ".caprmedio_install/current.toml"
+        if legacy_selector.exists() or legacy_selector.is_symlink():
+            if package_path.exists() or package_path.is_symlink():
+                raise ReleaseContractError(
+                    "release-native-predecessor-ambiguous",
+                    "legacy Framework execution cannot be paired with a D598 package selector",
+                )
+            old_package_selector = None
+            old_execution_selector = (legacy_path, _file(root, legacy_path.as_posix()).read_bytes())
+        else:
+            if package_path.exists() or package_path.is_symlink():
+                raise ReleaseContractError(
+                    "release-native-predecessor-incomplete",
+                    "D598 package selection has no native Framework execution selector",
+                )
+            old_package_selector = None
+            old_execution_selector = None
         generation = 1
+    if native_current:
+        old_execution_selector = (prior_path, prior_selector)
     command = retain_selected_installation_command(
         run, context, target=target, target_context=target_context, package=package, full_gate_packet=packet,
     )
@@ -484,7 +504,8 @@ def prepare_and_publish_selected_native_runtime(run, context):
                 installation, package=package, target_context=target_context,
                 installation_command_sha256=command.receipt.sha256, full_gate_packet=packet,
                 runtime_stage_request=stage, methodology_preparation=methodology, state_generation=generation,
-                old_package_selector=old_package_selector, old_execution_selector=(prior_path, prior_selector), lock=lock,
+                old_package_selector=old_package_selector,
+                old_execution_selector=old_execution_selector, lock=lock,
             )
             evidence = publish_selected_native_runtime(run, context, command, prepared, lock=lock)
         except (KeyboardInterrupt, InterruptedError, SystemExit, OSError, ValueError, RuntimeError) as error:
