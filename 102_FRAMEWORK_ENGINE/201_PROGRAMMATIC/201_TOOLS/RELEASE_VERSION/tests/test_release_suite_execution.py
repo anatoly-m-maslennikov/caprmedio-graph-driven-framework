@@ -34,6 +34,7 @@ from release_suite import (
 from release_suite_execution import (
     InstalledNSuiteDockerExecutor,
     SelectedNImageBinding,
+    _EXECUTOR_SCRATCH_RELATIVE,
     _prepare_executor_scratch,
     installed_n_suite_executor,
     fresh_unit_suite_executor,
@@ -243,6 +244,34 @@ class FreshUnitRunnerFactoryTests(unittest.TestCase):
         self.assertEqual(rejected.exception.code, "release-unit-runner-unproven")
         self.assertEqual(self.docker.calls, before)
 
+    def test_fresh_runner_shared_execution_preserves_portable_tmp_inputs(self):
+        executor = self.factory()
+        attempt = (self.fixture.root / ".caprmedio_runtime/release_suite"
+                   / executor.candidate_snapshot_manifest_sha256 / "attempt-fresh-scratch")
+        workspace, output = attempt / "workspace", attempt / "output"
+        compiled = workspace / ".caprmedio_tmp/release_candidates/run/compiled"
+        compiled.mkdir(parents=True)
+        retained = compiled / "sealed-input.json"
+        retained.write_bytes(b"sealed portable input")
+        output.mkdir()
+        environment = {
+            "PATH": executor.image_path,
+            PROJECT_ROOT_ENVIRONMENT_VARIABLE: "/workspace",
+            REPORT_ENVIRONMENT_VARIABLE: "/output/coverage.xml",
+            COMPILED_ROOT_ENVIRONMENT_VARIABLE: executor.compiled_root,
+            CANDIDATE_MANIFEST_ENVIRONMENT_VARIABLE: executor.candidate_snapshot_manifest_sha256,
+            SOURCE_BINDINGS_ENVIRONMENT_VARIABLE: "/workspace/" + SOURCE_BINDINGS_RELATIVE,
+            SOURCE_BINDINGS_SHA256_ENVIRONMENT_VARIABLE: "a" * 64,
+        }
+
+        result = executor.run(executor.sealed_command, workspace=workspace, output_root=output,
+                              working_directory=executor.sealed_working_directory,
+                              environment=environment, timeout_seconds=10)
+
+        self.assertEqual(result.exit_code, 0)
+        self.assertEqual(retained.read_bytes(), b"sealed portable input")
+        self.assertTrue((workspace / _EXECUTOR_SCRATCH_RELATIVE).is_dir())
+
 
 class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
     def setUp(self) -> None:
@@ -382,13 +411,13 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
         self.assertIn(f"type=bind,src={self.output},dst=/output", argv)
         self.assertFalse(any(item.startswith(f"type=bind,src={self.root},dst=") for item in argv))
         self.assertEqual(
-            tuple(item for item in argv if item.startswith("/tmp:") or item.startswith("/workspace/.caprmedio_tmp:")),
+            tuple(item for item in argv if item.startswith("/tmp:") or item.startswith(f"/workspace/{_EXECUTOR_SCRATCH_RELATIVE}:")),
             (
                 "/tmp:rw,nosuid,nodev,exec,size=2g,mode=1777",
-                "/workspace/.caprmedio_tmp:rw,nosuid,nodev,exec,size=2g,mode=1777",
+                f"/workspace/{_EXECUTOR_SCRATCH_RELATIVE}:rw,nosuid,nodev,exec,size=2g,mode=1777",
             ),
         )
-        scratch = self.workspace / ".caprmedio_tmp"
+        scratch = self.workspace / _EXECUTOR_SCRATCH_RELATIVE
         self.assertTrue(scratch.is_dir())
         self.assertEqual(list(scratch.iterdir()), [])
         self.assertNotIn("/var/run/docker.sock", argv)
@@ -548,7 +577,7 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
     def test_nonempty_scratch_refuses_before_docker_run(self) -> None:
         from release_contract import ReleaseContractError
 
-        scratch = self.workspace / ".caprmedio_tmp"
+        scratch = self.workspace / _EXECUTOR_SCRATCH_RELATIVE
         scratch.mkdir()
         (scratch / "unexpected").write_text("not scratch", encoding="utf-8")
         with self.assertRaises(ReleaseContractError) as nonempty:
@@ -560,7 +589,7 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
     def test_symlinked_scratch_refuses_before_docker_run(self) -> None:
         from release_contract import ReleaseContractError
 
-        scratch = self.workspace / ".caprmedio_tmp"
+        scratch = self.workspace / _EXECUTOR_SCRATCH_RELATIVE
         target = self.root / "outside-scratch"
         target.mkdir()
         scratch.symlink_to(target, target_is_directory=True)
@@ -635,12 +664,22 @@ class ScratchMetadataHelperTests(unittest.TestCase):
     def setUp(self) -> None:
         temporary = tempfile.TemporaryDirectory(prefix="suite-scratch-metadata-", delete=False)
         self.workspace = Path(temporary.name)
-        self.scratch = self.workspace / ".caprmedio_tmp"
+        self.scratch = self.workspace / _EXECUTOR_SCRATCH_RELATIVE
 
     def test_new_scratch_remains_fixed_empty_private_leaf(self) -> None:
         self.assertEqual(self.scratch, _prepare_executor_scratch(self.workspace))
         self.assertEqual([], list(self.scratch.iterdir()))
         self.assertEqual(0o700, self.scratch.stat().st_mode & 0o777)
+
+    def test_portable_compilation_under_legacy_tmp_parent_does_not_claim_executor_leaf(self) -> None:
+        compiled = self.workspace / ".caprmedio_tmp/release_candidates/run/compiled"
+        compiled.mkdir(parents=True)
+        retained = compiled / "sealed-input.json"
+        retained.write_bytes(b"sealed portable input")
+
+        self.assertEqual(self.scratch, _prepare_executor_scratch(self.workspace))
+        self.assertEqual(b"sealed portable input", retained.read_bytes())
+        self.assertEqual([], list(self.scratch.iterdir()))
 
     def test_ds_store_only_scratch_is_accepted_without_opening_or_mutating_metadata(self) -> None:
         self.scratch.mkdir(mode=0o700)
@@ -681,7 +720,7 @@ class ScratchMetadataHelperTests(unittest.TestCase):
         # scratch roots.  Some hosts deny deletion of a .DS_Store directory,
         # and this test must not turn that host behavior into cleanup work.
         directory_workspace = Path(tempfile.mkdtemp(prefix="suite-scratch-metadata-directory-"))
-        directory_scratch = directory_workspace / ".caprmedio_tmp"
+        directory_scratch = directory_workspace / _EXECUTOR_SCRATCH_RELATIVE
         directory_scratch.mkdir()
         metadata = directory_scratch / ".DS_Store"
         metadata.mkdir()
@@ -689,7 +728,7 @@ class ScratchMetadataHelperTests(unittest.TestCase):
             _prepare_executor_scratch(directory_workspace)
 
         symlink_workspace = Path(tempfile.mkdtemp(prefix="suite-scratch-metadata-symlink-"))
-        symlink_scratch = symlink_workspace / ".caprmedio_tmp"
+        symlink_scratch = symlink_workspace / _EXECUTOR_SCRATCH_RELATIVE
         symlink_scratch.mkdir()
         target = symlink_workspace / "real-state"
         target.write_bytes(b"real state\n")

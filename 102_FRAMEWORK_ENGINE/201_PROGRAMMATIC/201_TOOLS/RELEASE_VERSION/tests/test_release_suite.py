@@ -908,6 +908,15 @@ class ReleaseSuiteTests(unittest.TestCase):
         self.assertFalse(result.passed)
         self.assertIsNotNone(result.receipt_sha256)
 
+    def test_executor_contract_refusal_retains_only_stable_code(self) -> None:
+        candidate, compilation = self.bound()
+        refusal = ReleaseContractError("release-suite-executor-scratch-unsafe", "sensitive host detail")
+        with patch.object(self.executor, "run", side_effect=refusal):
+            result = self.execute_suite(candidate, compilation)
+        self.assertEqual(result.outcome, "failed")
+        self.assertEqual(result.reason, "suite executor could not start: release-suite-executor-scratch-unsafe")
+        self.assertNotIn("sensitive host detail", result.reason)
+
     def test_recording_failure_after_actual_success_never_passes(self) -> None:
         candidate, compilation = self.bound()
         from release_suite import _durable_bytes

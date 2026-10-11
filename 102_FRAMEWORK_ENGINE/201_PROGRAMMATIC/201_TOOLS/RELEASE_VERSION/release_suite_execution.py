@@ -51,7 +51,10 @@ _INSPECT_TIMEOUT_SECONDS = 30
 _CLEANUP_TIMEOUT_SECONDS = 30
 _CONTAINER_ID = re.compile(r"^[0-9a-f]{64}$")
 _SANDBOX_TMPFS_SIZE = "2g"
-_EXECUTOR_SCRATCH_RELATIVE = Path(".caprmedio_tmp")
+# This leaf belongs solely to the executor.  Portable candidates legitimately
+# materialize their compiled source closure beneath ``.caprmedio_tmp``; using
+# that parent as a tmpfs mountpoint would reject the required sealed inputs.
+_EXECUTOR_SCRATCH_RELATIVE = Path(".caprmedio_suite_scratch")
 _SUITE_LABEL = "org.caprmedio.release-suite"
 _ATTEMPT_LABEL = "org.caprmedio.release-suite-attempt"
 _PYTHON_CAPABILITY_GUARD = "import sys; raise SystemExit(0 if sys.version_info >= (3, 8) else 1)"

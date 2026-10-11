@@ -1220,7 +1220,10 @@ def execute_bound_release_suite(
             except (OSError, TypeError, ValueError) as error:
                 _write_capture(attempt / "stdout.bin", b"")
                 _write_capture(attempt / "stderr.bin", b"")
-                outcome, reason = "failed", f"suite executor could not start: {type(error).__name__}"
+                error_code = getattr(error, "code", type(error).__name__)
+                if not isinstance(error_code, str) or not error_code:
+                    error_code = type(error).__name__
+                outcome, reason = "failed", f"suite executor could not start: {error_code}"
             _copy_report_from_output(output_root, attempt / "coverage.xml")
         _safe_path(root, relative)
         for output in (attempt / "stdout.bin", attempt / "stderr.bin"):
