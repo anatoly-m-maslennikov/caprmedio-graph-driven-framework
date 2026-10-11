@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2150",
+  "recorded_at": "2026-10-11 12:01:23 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining unqualified subjects 007; not migration approval",
+  "verification": {
+    "task": "CA-P-2150",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2150.research.json",
+      "sha256": "10daa4c33f9e1651a454cd46f0ee9887a10f2bfdb87478c2cbc742ed3826bef6"
+    },
+    "rows": 33,
+    "counts": {
+      "unresolved": 32,
+      "proposed": 1
+    },
+    "exact_evidence_spans": 34,
+    "exact_supporting_definition_spans": 1,
+    "exact_input_pins": 31,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision",
+      "foreign_meaning_evidence",
+      "wrong_registration",
+      "partial_owner_body"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2144-2151.inputs.json",
+      "sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+    },
+    "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/followup_semantic_acceptance",
+      "final_report_sha256": "10daa4c33f9e1651a454cd46f0ee9887a10f2bfdb87478c2cbc742ed3826bef6",
+      "result": "PASS: one supported proposal and thirty-two justified nulls",
+      "meaning_checks": [
+        "O09043–51/R65932–40 identify shared Atom.Local Tier with Core/General/Standard allowed values.",
+        "Named reusable Operation definitions remain distinct from actual Executions, supported by R1452/R1510.",
+        "Contextual Evaluation/Implementation and collective Spec references cannot become individual Content Role allowed values without losing the source's bounded review/prerequisite meaning.",
+        "No generic roots, singletons, selectors or Project Configuration meaning proof are inferred."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/followup_semantic_acceptance",
+    "final_report_sha256": "10daa4c33f9e1651a454cd46f0ee9887a10f2bfdb87478c2cbc742ed3826bef6",
+    "result": "PASS: one supported proposal and thirty-two justified nulls",
+    "meaning_checks": [
+      "O09043–51/R65932–40 identify shared Atom.Local Tier with Core/General/Standard allowed values.",
+      "Named reusable Operation definitions remain distinct from actual Executions, supported by R1452/R1510.",
+      "Contextual Evaluation/Implementation and collective Spec references cannot become individual Content Role allowed values without losing the source's bounded review/prerequisite meaning.",
+      "No generic roots, singletons, selectors or Project Configuration meaning proof are inferred."
+    ]
+  },
+  "completion_scope": "All 33 selected origins across 19 owners passed complete current-body/pin/span/coverage controls, fourteen wrong-data controls and independent semantic acceptance: one supported Local Tier proposal and thirty-two explicit nulls. Named definitions, role collections and evaluation/action contexts retain their actual distinctions; original Core is unchanged.",
+  "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
