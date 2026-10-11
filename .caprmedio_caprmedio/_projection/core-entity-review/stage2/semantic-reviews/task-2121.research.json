@@ -1,0 +1,1211 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2121",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2121-2128.inputs.json",
+      "sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2"
+    },
+    "baseline_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2121-2128.contract.md",
+        "sha256": "77165a20424dbc6d2a67eaf0ee6363bf8bbedc161df3d6f4e003c7f757afe622"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/91-CA-P-2121-TASK--review-remaining-atom-field-and-tier-origins.md",
+      "sha256": "d55fc63a29179cc81df8a59d20d01562dc953ac6d41b6b080bf6926f0b775af3"
+    },
+    "task_registration_sha256": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+    "selection_occurrence_id_set_sha256": "022120faadf9377085ec3085b0005e2b0c2ec83dff14b77b3692289b250ba91f"
+  },
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+      "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+      "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+      "sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1444-CORE_META_MODEL-CORE--define-global-tier.md",
+      "sha256": "645fc3a90398166225a844baf0956038800a9dfdd13cfdb9229347b6c7460cbf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1465-CORE_META_MODEL-CORE--define-summary-as-an-atom-property.md",
+      "sha256": "36b83d020dbfbeccde12bee2f5d83e2c8d42f7469072b5f2e95e3f17b08a260a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1521-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-lifecycle-changes-from-applicable-status-models.md",
+      "sha256": "68e37f2d0c8e75cdf5caf5bb9304ffac9f7e8f58fdc06c89c2debe69c8cb966c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1594-CORE_META_MODEL-CORE-REQUIREMENT--define-label.md",
+      "sha256": "8438e0c6e6f92da1965d73397fef7ac91eb118a9b42885e79b7f6e9fcdc63d29"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-CORE--define-atom-artifact-form.md",
+      "sha256": "28258bfdc5515abe6efa40fe8ab1951cc70a226f58daaa6ced7466036bbca29d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-658-CORE_META_MODEL-CORE--define-principle-local-tier.md",
+      "sha256": "738566debe872f674c0a45acd20a80a107d5d62f35117d2c03f790efba178634"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1774-CORE_META_MODEL--give-every-project-wide-invariant-one-principle-owner.md",
+      "sha256": "04c2a63ac0fec443491c5d835d5b4bcfecc1e282171544c44af083ad563b619c"
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+      "source_atom_id": "CA-R-1390",
+      "source_version": 10,
+      "source_sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Local Tier: Core",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier: Core",
+      "confidence": 0.96,
+      "reason": "The owning current Main Content uses Local Tier as an Atom authority coordinate, and CA-R-1287 explicitly defines Local Tier as an Atom Property. The compact target is therefore owner-qualified rather than a bare tier label; this remains non-authoritative notation only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+          "sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "c58cfec88da2ecb7778f833168672500b1e4435af598ad07434db008ae9199a4",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "de739737d23e504fb8f410a9edf0043d38b05a42a0f76673e7a8d75acc4c2ba8",
+          "reason": "Current explicit Local Tier definition supplies the Atom bearer and field meaning."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Core remains a Local Tier allowed value; the non-Project scope and parent-tier calculation stay in the owning rule."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+      "source_atom_id": "CA-R-1391",
+      "source_version": 9,
+      "source_sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Local Tier: General",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier: General",
+      "confidence": 0.96,
+      "reason": "The owning current Main Content uses Local Tier as an Atom authority coordinate, and CA-R-1287 explicitly defines Local Tier as an Atom Property. The compact target is therefore owner-qualified rather than a bare tier label; this remains non-authoritative notation only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+          "sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "971dfeb0049bbe9ff465794d3ef5acb349cb35254d812d713f464d4b26eacd28",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "de739737d23e504fb8f410a9edf0043d38b05a42a0f76673e7a8d75acc4c2ba8",
+          "reason": "Current explicit Local Tier definition supplies the Atom bearer and field meaning."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "General remains a Local Tier allowed value; the non-Project and Global Tier ordering conditions stay in the owning rule."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+      "source_atom_id": "CA-R-1391",
+      "source_version": 9,
+      "source_sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom/Local Tier: Standard",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier: Standard",
+      "confidence": 0.96,
+      "reason": "The owning current Main Content uses Local Tier as an Atom authority coordinate, and CA-R-1287 explicitly defines Local Tier as an Atom Property. The compact target is therefore owner-qualified rather than a bare tier label; this remains non-authoritative notation only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+          "sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "971dfeb0049bbe9ff465794d3ef5acb349cb35254d812d713f464d4b26eacd28",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "de739737d23e504fb8f410a9edf0043d38b05a42a0f76673e7a8d75acc4c2ba8",
+          "reason": "Current explicit Local Tier definition supplies the Atom bearer and field meaning."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Standard remains a Local Tier allowed value; the non-Project and Global Tier ordering conditions stay in the owning rule."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+      "source_atom_id": "CA-R-1429",
+      "source_version": 10,
+      "source_sha256": "ba0e34e5057a5acb5f3c1a875214a373b167a860ed3ac0b6d708a3c657fdd7ed",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Atom/Local Tier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier",
+      "confidence": 0.95,
+      "reason": "The owning current Main Content uses Local Tier as an Atom authority coordinate, and CA-R-1287 explicitly defines Local Tier as an Atom Property. The compact target is therefore owner-qualified rather than a bare tier label; this remains non-authoritative notation only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+          "sha256": "ba0e34e5057a5acb5f3c1a875214a373b167a860ed3ac0b6d708a3c657fdd7ed",
+          "start_line": 22,
+          "end_line": 38,
+          "span_sha256": "1354b084c2e48df3a116b8608e9fd07a08ceadf522b105603db271888217412c",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "de739737d23e504fb8f410a9edf0043d38b05a42a0f76673e7a8d75acc4c2ba8",
+          "reason": "Current explicit Local Tier definition supplies the Atom bearer and field meaning."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Core, General, and Standard authority boundaries remain distinct; no specific Local Tier value is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1431-CORE_META_MODEL-CORE--define-general-local-tier.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1431-CORE_META_MODEL-CORE--define-general-local-tier.md",
+      "source_atom_id": "CA-R-1431",
+      "source_version": 10,
+      "source_sha256": "ec0bd01a8d3136883f2777825615c7ccdde218b63162f3a0c7d7f7f8ae19bbb1",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Atom/Local Tier: Core",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier: Core",
+      "confidence": 0.96,
+      "reason": "The owning current Main Content uses Local Tier as an Atom authority coordinate, and CA-R-1287 explicitly defines Local Tier as an Atom Property. The compact target is therefore owner-qualified rather than a bare tier label; this remains non-authoritative notation only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1431-CORE_META_MODEL-CORE--define-general-local-tier.md",
+          "sha256": "ec0bd01a8d3136883f2777825615c7ccdde218b63162f3a0c7d7f7f8ae19bbb1",
+          "start_line": 26,
+          "end_line": 40,
+          "span_sha256": "3e3de773f0297f3a1da93063116edace50a4c3fa2681890b533cb15f95e68309",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "de739737d23e504fb8f410a9edf0043d38b05a42a0f76673e7a8d75acc4c2ba8",
+          "reason": "Current explicit Local Tier definition supplies the Atom bearer and field meaning."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Core remains a Local Tier value; the source's General-tier definition and all-role qualification remain in the body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-155-CORE_META_MODEL-CORE--give-every-non-project-goal-atom-one-local-tier.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-155-CORE_META_MODEL-CORE--give-every-non-project-goal-atom-one-local-tier.md",
+      "source_atom_id": "CA-R-155",
+      "source_version": 30,
+      "source_sha256": "077d3261cc6c0b51920b0948b8173ce9a1ae0cc14c8c99d2cc3e87c7cd48c923",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Atom/Local Tier: Core",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier: Core",
+      "confidence": 0.96,
+      "reason": "The owning current Main Content uses Local Tier as an Atom authority coordinate, and CA-R-1287 explicitly defines Local Tier as an Atom Property. The compact target is therefore owner-qualified rather than a bare tier label; this remains non-authoritative notation only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-155-CORE_META_MODEL-CORE--give-every-non-project-goal-atom-one-local-tier.md",
+          "sha256": "077d3261cc6c0b51920b0948b8173ce9a1ae0cc14c8c99d2cc3e87c7cd48c923",
+          "start_line": 24,
+          "end_line": 34,
+          "span_sha256": "75341590dab5595119bb0c90b0809bffb35f403f34360b42011e19ef0677b847",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "de739737d23e504fb8f410a9edf0043d38b05a42a0f76673e7a8d75acc4c2ba8",
+          "reason": "Current explicit Local Tier definition supplies the Atom bearer and field meaning."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact one-of-four Local Tier cardinality and non-Project Goal boundary remain unchanged."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+      "source_atom_id": "CA-R-1551",
+      "source_version": 4,
+      "source_sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Atom/Local Tier: Principle",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier: Principle",
+      "confidence": 0.93,
+      "reason": "The owning current Main Content concerns active Project Principles, while CA-R-658 defines Principle as the Project-only highest Local Tier and CA-R-1774 requires each project-wide invariant to have one active Project Principle owner. Atom.Local Tier: Principle preserves the existing Atom bearer and allowed-value domain without inferring an Operation selector or a new subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+          "sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "bd7e3043126cb3e5b3e459995580cd14a86ca8258bd2876428495ed291a2177c",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-658-CORE_META_MODEL-CORE--define-principle-local-tier.md",
+          "sha256": "738566debe872f674c0a45acd20a80a107d5d62f35117d2c03f790efba178634",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "82433c3bc47d3517428e6b573ee5d50d9370f73c7d01e20fda79347035a8f291",
+          "reason": "Current explicit definition fixes the Principle value's Project-only Local Tier domain."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1774-CORE_META_MODEL--give-every-project-wide-invariant-one-principle-owner.md",
+          "sha256": "04c2a63ac0fec443491c5d835d5b4bcfecc1e282171544c44af083ad563b619c",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "1e4d3b98201c2b26616da1fe22fccea5596da475538e157c2e89167ec76a867f",
+          "reason": "Current explicit Project Principle rule fixes the active owner context used in the owning source."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Only Operator conflict-resolution authority and AI Agent delegation constraints remain separate from the Local Tier value."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1578-CORE_META_MODEL-CORE-REQUIREMENT--define-hub-atom-as-a-derived-description.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1578-CORE_META_MODEL-CORE-REQUIREMENT--define-hub-atom-as-a-derived-description.md",
+      "source_atom_id": "CA-R-1578",
+      "source_version": 4,
+      "source_sha256": "1d876effe9ecbf2edbcfddb55a1832256c5f540bf4a8fa74bbaaae086d8b5f54",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Atom/Global Tier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Global Tier",
+      "confidence": 0.95,
+      "reason": "The owning current Main Content concerns the Atom's Global Tier and CA-R-1444 explicitly defines Global Tier as an Atom Property. Atom.Global Tier preserves that owner and does not infer a new type, root, or native Subject grammar.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1578-CORE_META_MODEL-CORE-REQUIREMENT--define-hub-atom-as-a-derived-description.md",
+          "sha256": "1d876effe9ecbf2edbcfddb55a1832256c5f540bf4a8fa74bbaaae086d8b5f54",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "98db2b95cdd99bfc7e508a847bda8309bb51917b21bb2f2c274f50b7ad78b171",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1444-CORE_META_MODEL-CORE--define-global-tier.md",
+          "sha256": "645fc3a90398166225a844baf0956038800a9dfdd13cfdb9229347b6c7460cbf",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "e93ad919445cb63641f398f5e7c3cbb2724e4e5711c310f1f8a3ee0b395899b4",
+          "reason": "Current explicit Global Tier definition supplies the Atom bearer and coordinate meaning."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Hub remains a derived description, not a new Type, Subtype, stored classification, or authority tier."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-659-CORE_META_MODEL-CORE-REQUIREMENT--define-core-local-tier.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-659-CORE_META_MODEL-CORE-REQUIREMENT--define-core-local-tier.md",
+      "source_atom_id": "CA-R-659",
+      "source_version": 19,
+      "source_sha256": "b9a1f3e8806d68ba60b29cac19021f321f95c49f234cea8224ef60d7863f37ba",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Local Tier: Core",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier: Core",
+      "confidence": 0.97,
+      "reason": "The owning current Main Content uses Local Tier as an Atom authority coordinate, and CA-R-1287 explicitly defines Local Tier as an Atom Property. The compact target is therefore owner-qualified rather than a bare tier label; this remains non-authoritative notation only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-659-CORE_META_MODEL-CORE-REQUIREMENT--define-core-local-tier.md",
+          "sha256": "b9a1f3e8806d68ba60b29cac19021f321f95c49f234cea8224ef60d7863f37ba",
+          "start_line": 26,
+          "end_line": 40,
+          "span_sha256": "7d200f09762e99f63af4e70c9e293d8117301eff49fa62867041ac22bf748596",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "de739737d23e504fb8f410a9edf0043d38b05a42a0f76673e7a8d75acc4c2ba8",
+          "reason": "Current explicit Local Tier definition supplies the Atom bearer and field meaning."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Core remains the foundational value and retains its Global Tier, Scope Unit, Content Role, and non-concrete-content constraints."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md",
+      "source_atom_id": "CA-R-796",
+      "source_version": 18,
+      "source_sha256": "ae92a8bd0ca593b73a8ebf3f4e0c4eb85fbb8106de7483376b1f96bbb8228733",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Atom/Local Tier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier",
+      "confidence": 0.96,
+      "reason": "The owning current Main Content uses Local Tier as an Atom authority coordinate, and CA-R-1287 explicitly defines Local Tier as an Atom Property. The compact target is therefore owner-qualified rather than a bare tier label; this remains non-authoritative notation only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md",
+          "sha256": "ae92a8bd0ca593b73a8ebf3f4e0c4eb85fbb8106de7483376b1f96bbb8228733",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "c0106f2a2a5a48d0ab3a7cef2f1d4cac11a55f4fc7bbb724fcf57a822c1d9e8a",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "de739737d23e504fb8f410a9edf0043d38b05a42a0f76673e7a8d75acc4c2ba8",
+          "reason": "Current explicit Local Tier definition supplies the Atom bearer and field meaning."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "The relation's same-Atom-Scope constraint and Relation endpoint meaning remain separate from the field identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-264-CORE_META_MODEL-METHOD--write-evaluations-with-reproducible-falsification.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-264-CORE_META_MODEL-METHOD--write-evaluations-with-reproducible-falsification.md",
+      "source_atom_id": "CA-M-264",
+      "source_version": 8,
+      "source_sha256": "49351d2882bbc07435ca189e3779a60259852306923820dbf99c9f5ce76f1584",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Atom/Local Tier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier",
+      "confidence": 0.95,
+      "reason": "The owning current Main Content uses Local Tier as an Atom authority coordinate, and CA-R-1287 explicitly defines Local Tier as an Atom Property. The compact target is therefore owner-qualified rather than a bare tier label; this remains non-authoritative notation only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-264-CORE_META_MODEL-METHOD--write-evaluations-with-reproducible-falsification.md",
+          "sha256": "49351d2882bbc07435ca189e3779a60259852306923820dbf99c9f5ce76f1584",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "131dde4ecc3d73ba90aa56d2a4770f21fb8ee27aa1cef74397880f6d55845d3e",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "de739737d23e504fb8f410a9edf0043d38b05a42a0f76673e7a8d75acc4c2ba8",
+          "reason": "Current explicit Local Tier definition supplies the Atom bearer and field meaning."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Core, General, and Standard authoring boundaries remain distinct; no evaluation outcome or Method authority is reclassified."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md",
+      "source_atom_id": "CA-E-477",
+      "source_version": 5,
+      "source_sha256": "5393c69f1cbb00a0d5c4366c5ca848a334d782ae251c7c98096ce5adcff9b232",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Atom/Local Tier: Principle",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier: Principle",
+      "confidence": 0.93,
+      "reason": "The owning current Main Content concerns active Project Principles, while CA-R-658 defines Principle as the Project-only highest Local Tier and CA-R-1774 requires each project-wide invariant to have one active Project Principle owner. Atom.Local Tier: Principle preserves the existing Atom bearer and allowed-value domain without inferring an Operation selector or a new subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md",
+          "sha256": "5393c69f1cbb00a0d5c4366c5ca848a334d782ae251c7c98096ce5adcff9b232",
+          "start_line": 33,
+          "end_line": 60,
+          "span_sha256": "665af578a7597a96dfdc0c0a8fd8a5e3bb5ffcb953b6fe83f42b61979c872715",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-658-CORE_META_MODEL-CORE--define-principle-local-tier.md",
+          "sha256": "738566debe872f674c0a45acd20a80a107d5d62f35117d2c03f790efba178634",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "82433c3bc47d3517428e6b573ee5d50d9370f73c7d01e20fda79347035a8f291",
+          "reason": "Current explicit definition fixes the Principle value's Project-only Local Tier domain."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1774-CORE_META_MODEL--give-every-project-wide-invariant-one-principle-owner.md",
+          "sha256": "04c2a63ac0fec443491c5d835d5b4bcfecc1e282171544c44af083ad563b619c",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "1e4d3b98201c2b26616da1fe22fccea5596da475538e157c2e89167ec76a867f",
+          "reason": "Current explicit Project Principle rule fixes the active owner context used in the owning source."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Higher/lower Global Tier precedence, exact Revisions, Updated At evidence, and Operator escalation remain separate conflict checks."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-490-CORE_META_MODEL-QA_CASE--validate-lifecycle-workflow-adaptability.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-490-CORE_META_MODEL-QA_CASE--validate-lifecycle-workflow-adaptability.md",
+      "source_atom_id": "CA-E-490",
+      "source_version": 4,
+      "source_sha256": "f5c135d14973d20bbcdaec383f3f12f02484dfdc46d21e5fe51bd0636be93a62",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Status",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Entity.Status",
+      "confidence": 0.92,
+      "reason": "The owning current Main Content applies a status-change Workflow to a target Entity and explicitly tests Atom, Scope Unit, and Atom Collection models. CA-R-1521 confirms that Status is bearer-qualified by the actual Entity kind, so Entity.Status preserves the deliberately broad owner rather than incorrectly narrowing it to Atom.Status.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-490-CORE_META_MODEL-QA_CASE--validate-lifecycle-workflow-adaptability.md",
+          "sha256": "f5c135d14973d20bbcdaec383f3f12f02484dfdc46d21e5fe51bd0636be93a62",
+          "start_line": 26,
+          "end_line": 46,
+          "span_sha256": "ed608b9a243f4a14e4f2e683589cd77c84bb98bb121277e4920d1ffae5e82f0c",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1521-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-lifecycle-changes-from-applicable-status-models.md",
+          "sha256": "68e37f2d0c8e75cdf5caf5bb9304ffac9f7e8f58fdc06c89c2debe69c8cb966c",
+          "start_line": 27,
+          "end_line": 45,
+          "span_sha256": "67b2c0445f10374dd12a06326103e6a027abfa3da59f569bd5e557888455a0d3",
+          "reason": "Current explicit Status-model definition confirms the Entity bearer and its kind-qualified model boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Atom, Scope Unit, and Atom Collection Status models remain distinct; neither a universal lifecycle nor a fixed allowed-value list is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-505-CORE_META_MODEL-QA_CASE--validate-shared-label-semantics.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-505-CORE_META_MODEL-QA_CASE--validate-shared-label-semantics.md",
+      "source_atom_id": "CA-E-505",
+      "source_version": 4,
+      "source_sha256": "5a56c2db2c4da5c46555b35f04e9c2a529592cabd2dd02cc0049d1fb16ce8488",
+      "field": "governs",
+      "index": null,
+      "old_value": "Label",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Entity.Label",
+      "confidence": 0.93,
+      "reason": "The owning current Main Content validates one shared Label Property while preserving each Scope Unit or Plan bearer’s separate constraints. CA-R-1594 explicitly defines Label as a mutable Property of an Entity, so Entity.Label records the shared bearer-qualified Property without creating Label as another root Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-505-CORE_META_MODEL-QA_CASE--validate-shared-label-semantics.md",
+          "sha256": "5a56c2db2c4da5c46555b35f04e9c2a529592cabd2dd02cc0049d1fb16ce8488",
+          "start_line": 27,
+          "end_line": 50,
+          "span_sha256": "de2a30392eb5cc6773de2df1229f0b16d53e54c1eba6b8c5802f3b670c442a27",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1594-CORE_META_MODEL-CORE-REQUIREMENT--define-label.md",
+          "sha256": "8438e0c6e6f92da1965d73397fef7ac91eb118a9b42885e79b7f6e9fcdc63d29",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "2a3b413aef485a31a4443d474aaacfd96584932697057ee097bc97b9b4a15c7f",
+          "reason": "Current explicit Label definition establishes the generic Entity bearer, Property meaning, and non-classifying boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Scope Unit and Plan labels remain bearer-specific; Label does not determine identity, Type, Subtype, Status, relation, authority, or behavior."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVALUATION_APPROACH--check-rmed-atom-coherence.md#subjects.depends_on[9]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVALUATION_APPROACH--check-rmed-atom-coherence.md",
+      "source_atom_id": "CA-E-520",
+      "source_version": 5,
+      "source_sha256": "9e3cdee5027c3e24cb91e1ce9fe009dc281b499a49a45aaacea38f3ff59fcada",
+      "field": "depends_on",
+      "index": 9,
+      "old_value": "Atom/Local Tier: Principle",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.65,
+      "reason": "The owning current Main Content says the atom_local profile excludes tier hierarchy from its checks. It names no Principle Local Tier meaning or owner beyond the carried Subject text; CA-R-658 defines the general value but cannot establish that this Evaluation depends on that value semantically. No field-value proposal is guessed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVALUATION_APPROACH--check-rmed-atom-coherence.md",
+          "sha256": "9e3cdee5027c3e24cb91e1ce9fe009dc281b499a49a45aaacea38f3ff59fcada",
+          "start_line": 31,
+          "end_line": 69,
+          "span_sha256": "1478e037da3d6369f97f7ebf5e5d33a6504454bc6ce42ff5c57140be6e552181",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-658-CORE_META_MODEL-CORE--define-principle-local-tier.md",
+          "sha256": "738566debe872f674c0a45acd20a80a107d5d62f35117d2c03f790efba178634",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "82433c3bc47d3517428e6b573ee5d50d9370f73c7d01e20fda79347035a8f291",
+          "reason": "Current Principle definition was checked but does not supply the missing source-specific semantic dependency."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The local Atom coherence profile, its separate CCE/Properties/coherence parts, and exclusion of tier hierarchy remain explicit."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md",
+      "source_atom_id": "CA-D-375",
+      "source_version": 9,
+      "source_sha256": "404da79b6bb14e62c88ad5409b1f1947f907acf5812fd1b8ca3a53ce18e7c5d7",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.96,
+      "reason": "The owning current Main Content refers to the first Project Atom while keeping Project Settings separate. CA-R-655 explicitly defines an Atom as the smallest independently governed Artifact, supporting Artifact/Atom as topology rather than a display-only prefix.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md",
+          "sha256": "404da79b6bb14e62c88ad5409b1f1947f907acf5812fd1b8ca3a53ce18e7c5d7",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "abc531abc7dbc3833d886c4795c9e76976dd3774f3e9f7cf3879be81f9e46652",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-CORE--define-atom-artifact-form.md",
+          "sha256": "28258bfdc5515abe6efa40fe8ab1951cc70a226f58daaa6ced7466036bbca29d",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "146629fc6cde75251ee3e64e99348534ffe59e13d28ebb69f9ec72b1262ec15b",
+          "reason": "Current explicit Atom definition supplies the Artifact-to-Atom meaning used by the proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate explicitly makes Atom a narrower Entity of Artifact."
+        },
+        {
+          "pointer": "/dependent_entities/compact_examples/0",
+          "reason": "Artifact/Atom is the candidate's compact form for the confirmed Artifact-to-Atom meaning."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Settings, the Operator-selected Project Name, the TOML Carrier, and the before-first-Atom boundary remain distinct from the Atom."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md",
+      "source_atom_id": "CA-D-376",
+      "source_version": 8,
+      "source_sha256": "a8a1e395a50127fcc7ab120f2d4ca0d33c1176f35793cbaf218b6643bfdba46b",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.96,
+      "reason": "The owning current Main Content refers to the first Project Atom while keeping Project Settings separate. CA-R-655 explicitly defines an Atom as the smallest independently governed Artifact, supporting Artifact/Atom as topology rather than a display-only prefix.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md",
+          "sha256": "a8a1e395a50127fcc7ab120f2d4ca0d33c1176f35793cbaf218b6643bfdba46b",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "5f1251992eff8c74efa144987da0d87a1836d73c54f290ef89e5bfc9f422fd31",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-CORE--define-atom-artifact-form.md",
+          "sha256": "28258bfdc5515abe6efa40fe8ab1951cc70a226f58daaa6ced7466036bbca29d",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "146629fc6cde75251ee3e64e99348534ffe59e13d28ebb69f9ec72b1262ec15b",
+          "reason": "Current explicit Atom definition supplies the Artifact-to-Atom meaning used by the proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate explicitly makes Atom a narrower Entity of Artifact."
+        },
+        {
+          "pointer": "/dependent_entities/compact_examples/0",
+          "reason": "Artifact/Atom is the candidate's compact form for the confirmed Artifact-to-Atom meaning."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Settings, the Operator-selected Atom prefix, the TOML Carrier, and the before-first-Atom boundary remain distinct from the Atom."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL--exclude-atom-metadata-from-framework-instance-settings.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL--exclude-atom-metadata-from-framework-instance-settings.md",
+      "source_atom_id": "CA-D-377",
+      "source_version": 7,
+      "source_sha256": "1eb64a26f700a11193563752a1d25cd1fcc715ede996b59d2cd6cb58208d2faa",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.96,
+      "reason": "The owning current Main Content excludes generic Atom metadata from Framework Instance Settings. CA-R-655 explicitly defines an Atom as the smallest independently governed Artifact, supporting Artifact/Atom as topology rather than a display-only prefix.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL--exclude-atom-metadata-from-framework-instance-settings.md",
+          "sha256": "1eb64a26f700a11193563752a1d25cd1fcc715ede996b59d2cd6cb58208d2faa",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "6f9541a9f72bf9e385a3fe79843476a60ee0e9a73fa99ba44a620692810a74ab",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-CORE--define-atom-artifact-form.md",
+          "sha256": "28258bfdc5515abe6efa40fe8ab1951cc70a226f58daaa6ced7466036bbca29d",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "146629fc6cde75251ee3e64e99348534ffe59e13d28ebb69f9ec72b1262ec15b",
+          "reason": "Current explicit Atom definition supplies the Artifact-to-Atom meaning used by the proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate explicitly makes Atom a narrower Entity of Artifact."
+        },
+        {
+          "pointer": "/dependent_entities/compact_examples/0",
+          "reason": "Artifact/Atom is the candidate's compact form for the confirmed Artifact-to-Atom meaning."
+        }
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings remains a separate settings Artifact; Revision remains separate history and is not placed under Artifact."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md",
+      "source_atom_id": "CA-D-483",
+      "source_version": 5,
+      "source_sha256": "8a83fb3e21c84bc0b657fa61ada0b6d28c4dcef3ebdba070570009e538204de8",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Atom/Type",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Type",
+      "confidence": 0.93,
+      "reason": "The owning current Delivery rule selects an Atom's applicable Content Role and Type Status model for the Revision's carried Status. CA-R-1284 defines Type as a single-valued Property and the source supplies the Atom bearer, supporting Atom.Type without confusing Type with Status or making Revision an Atom-dependent field.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md",
+          "sha256": "8a83fb3e21c84bc0b657fa61ada0b6d28c4dcef3ebdba070570009e538204de8",
+          "start_line": 21,
+          "end_line": 39,
+          "span_sha256": "4d1658c0284f2e39fac610ecabba03c3066bf4e7372ca04cb0cf4c4acf617200",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+          "sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "992631212174e7f23d303e5b5419cfa5c37f10a9ab79f8e300cbcd69b5ede3e0",
+          "reason": "Current explicit Type definition supplies the field and its allowed-value-set boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Status remains the Revision snapshot value, Content Role and Type select its model, and no Atom.Revision or Artifact.Revision path is introduced."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+      "source_atom_id": "CA-O-087",
+      "source_version": 5,
+      "source_sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Atom/Property",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Property",
+      "confidence": 0.96,
+      "reason": "The owning current Action checks an Atom's admitted Properties from canonical internal locations and forbids filling them from filenames or directories. CA-R-1193 defines Property as a dependent Entity characteristic of its bearer, supporting Atom.Property without a Carrier registry or storage-key mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+          "sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d",
+          "start_line": 50,
+          "end_line": 97,
+          "span_sha256": "f16cbd6a7d7a21a791d24bfc2c8f3af59bfd3c3fb8d3fbff540872a1b1b18389",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit Property definition supplies the dependent field meaning."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Canonical internal locations, carrier representations, source/authority fingerprints, and no inferred missing values remain explicit."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+      "source_atom_id": "CA-O-087",
+      "source_version": 5,
+      "source_sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Atom/Summary",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Summary",
+      "confidence": 0.97,
+      "reason": "The owning current Action checks Summary as a local Atom property from carried content, and CA-R-1465 explicitly defines Summary as a non-authoritative navigation Property of one Atom. Atom.Summary preserves that exact owner and does not turn Summary into a separate Artifact or authority.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+          "sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d",
+          "start_line": 50,
+          "end_line": 97,
+          "span_sha256": "f16cbd6a7d7a21a791d24bfc2c8f3af59bfd3c3fb8d3fbff540872a1b1b18389",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1465-CORE_META_MODEL-CORE--define-summary-as-an-atom-property.md",
+          "sha256": "36b83d020dbfbeccde12bee2f5d83e2c8d42f7469072b5f2e95e3f17b08a260a",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "2515cfd2aa664df3aebc956c14448d7e77e2425047fb114d8ea1db50690090f4",
+          "reason": "Current explicit Summary definition supplies the owner, non-authoritative meaning, and role-specific source boundary."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        },
+        {
+          "pointer": "/dependent_entities/compact_examples/1",
+          "reason": "The frozen candidate explicitly lists Atom.Summary as a compact dependent-field example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Summary remains distinct from Claim, Question, Concern, Objective, Operation, carrier location, and source authority."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-005-CORE_META_MODEL-ACTION--assess-source-conflicts.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-005-CORE_META_MODEL-ACTION--assess-source-conflicts.md",
+      "source_atom_id": "CA-O-005",
+      "source_version": 8,
+      "source_sha256": "99f3aba94cc96ca3be174c140d818b2cb72bce348338c52ffbe56945e387510c",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Atom/Local Tier: Principle",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier: Principle",
+      "confidence": 0.94,
+      "reason": "The owning current Main Content concerns active Project Principles, while CA-R-658 defines Principle as the Project-only highest Local Tier and CA-R-1774 requires each project-wide invariant to have one active Project Principle owner. Atom.Local Tier: Principle preserves the existing Atom bearer and allowed-value domain without inferring an Operation selector or a new subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-005-CORE_META_MODEL-ACTION--assess-source-conflicts.md",
+          "sha256": "99f3aba94cc96ca3be174c140d818b2cb72bce348338c52ffbe56945e387510c",
+          "start_line": 25,
+          "end_line": 44,
+          "span_sha256": "bb991da0977f3435725549e711e7b487e23006fb9de381b0c3fa1f43bb7b05a3",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-658-CORE_META_MODEL-CORE--define-principle-local-tier.md",
+          "sha256": "738566debe872f674c0a45acd20a80a107d5d62f35117d2c03f790efba178634",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "82433c3bc47d3517428e6b573ee5d50d9370f73c7d01e20fda79347035a8f291",
+          "reason": "Current explicit definition fixes the Principle value's Project-only Local Tier domain."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1774-CORE_META_MODEL--give-every-project-wide-invariant-one-principle-owner.md",
+          "sha256": "04c2a63ac0fec443491c5d835d5b4bcfecc1e282171544c44af083ad563b619c",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "1e4d3b98201c2b26616da1fe22fccea5596da475538e157c2e89167ec76a867f",
+          "reason": "Current explicit Project Principle rule fixes the active owner context used in the owning source."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer, so a current explicit bearer-and-field definition supports compact dot notation without native admission."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen candidate keeps Entities as graph nodes and typed Relations as their connections; this does not create an eighth root or a selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "The selected frontier, higher-tier precedence, exact Revision, Updated At, Claim, conflict state, and Operator escalation remain separate from the Local Tier value."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned_occurrences": 22,
+    "owning_sources": 20,
+    "proposed": 21,
+    "unresolved": 1,
+    "owning_current_evidence_spans": 22,
+    "additional_current_definition_evidence_spans": 25
+  },
+  "limits": [
+    "This is non-authoritative, non-executable candidate research only; it performs no source migration or native admission.",
+    "No selector, singleton kind, @ operator, Artifact.Revision containment, carrier registry, source/body change, or display-only Artifact prefix is inferred.",
+    "CA-E-520 depends_on[9] remains null because its current body excludes tier-hierarchy checking; no field-value dependency is inferred from Subject spelling alone."
+  ]
+}
