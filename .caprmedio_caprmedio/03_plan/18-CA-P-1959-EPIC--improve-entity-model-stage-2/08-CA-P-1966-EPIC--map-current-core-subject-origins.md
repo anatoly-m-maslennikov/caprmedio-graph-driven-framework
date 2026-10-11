@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 89
-updated_at: "2026-10-11 07:32:39 +0400"
+version: 90
+updated_at: "2026-10-11 07:34:43 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -124,7 +124,7 @@ CA-P-2094–2099 review 180 currently unresolved, baseline-only occurrences in s
 - [CA-P-2096 — Review settings and methodology source targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/75-CA-P-2096-TASK--review-settings-and-methodology-source-targets.md)
 - [CA-P-2097 — Review remaining Relation targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/76-CA-P-2097-TASK--review-remaining-relation-targets.md)
 - [CA-P-2098 — Review Journal and Actor targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/77-CA-P-2098-TASK--review-journal-and-actor-targets.md)
-- [CA-P-2099 — Review projection and collection targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/78-CA-P-2099-TASK--review-projection-and-collection-targets.md)
+- [CA-P-2099 — Review projection and collection targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/78-CA-P-2099-TASK--review-projection-and-collection-targets.md)
 
 CA-P-2086–2093 are Done, with one commit per completed Task. The full current working ledger covers 907 sources and 4534 occurrences: 1468 proposed, 1540 unchanged and 1526 unresolved. All 33 current grammar-source rows are independently re-reviewed (15 proposed, 18 null) and included. Eight quarantined sources remain explicit. The strengthened independent live gate and 14 wrong-data/control tests pass; the ordinary lookup/update/graph suites also pass (296 tests). Exact evidence is `_projection/core-entity-review/stage2/checkpoint-working-ledger-2026-10-11.json`. This is a complete progress ledger, not complete semantic mapping or authorized source adoption. Original Core Subjects/content remain unchanged; the selector choice and final 1909–1912/1969 gates remain open.
 
