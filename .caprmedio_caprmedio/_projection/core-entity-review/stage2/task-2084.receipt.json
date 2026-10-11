@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2084",
+  "recorded_at": "2026-10-11 06:13:41 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: exact bounded research; not source migration approval",
+  "verification": {
+    "task": "CA-P-2084",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2084.research.json",
+      "sha256": "8bda725d7f18573d57eee00d9cdf3fb3a78415e1da1f8979a2a25cb1109ac888"
+    },
+    "rows": 8,
+    "counts": {
+      "unresolved": 1,
+      "proposed": 7
+    },
+    "source_files": 14,
+    "exact_evidence_spans": 20,
+    "exact_input_pins": 22,
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "corrupt_span",
+      "inferred_selector"
+    ],
+    "result": "PASS: exact current coverage, pins, spans, syntax and non-executable proposals"
+  },
+  "independent_review": {
+    "reviewer": "grammar_graph",
+    "reviewed_output_sha256": "8bda725d7f18573d57eee00d9cdf3fb3a78415e1da1f8979a2a25cb1109ac888",
+    "accepted_proposals": 7,
+    "rejected_proposals": 0,
+    "correct_unresolved": 1,
+    "result": "PASS: Type and Ordered/Unordered preserve the closed Property value domain; Navigational Order Number remains non-structural; Scope identity is not invented"
+  },
+  "registration_commit": "1fa56f189ef20e4f6a8d9d1eb4af400c1f00cf07",
+  "completion_scope": "Seven Scope Unit field mappings are supported; the single Scope Unit Scope reference remains null because no field identity is established. No original Subject was edited.",
+  "limits": [
+    "Only this derived report and Plan lifecycle/receipt were authored; original Core Subjects and ordinary content remain unchanged.",
+    "Frozen candidate, baseline ledger, raw supplements and earlier evidence remain unchanged.",
+    "Unresolved research stays tracked. No selector adoption, MCP/FPF, runtime, native or source write admission."
+  ]
+}

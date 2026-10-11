@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Scope Unit, Actor, Projection, Plan]
-version: 1
-updated_at: "2026-10-11 06:02:10 +0400"
+version: 2
+updated_at: "2026-10-11 06:13:41 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
 ---
@@ -36,6 +36,10 @@ Read current definitions for Scope Unit Type, Ordered/Unordered, Scope and Navig
 Write only `.caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2084.research.json`, using the prior bounded research report shape with exact selected occurrence IDs, source/evidence pins and spans, explicit preserved distinctions and candidate basis. Every output is non-executable. Confidence below 90% means a null unresolved target with a specific evidence gap or concrete decision; no inferred selector adoption. This work is independent of the unanswered selector choice.
 
 No Core Subjects, Summary, Substance, Scope or Details changes; no frozen report/ledger changes, source migration, native admission, MCP/FPF, runtime or Git mutations. Tools remain correct-file operations; this is ad-hoc mapping research, not a new reusable Tool. Root owns Plan lifecycle, independent acceptance, receipt and commit. Workers are not alone; preserve other edits.
+
+### Completion
+
+Seven Scope Unit field mappings are supported; the single Scope Unit Scope reference remains null because no field identity is established. No original Subject was edited. Exact mechanical acceptance, negative-data probes and independent semantic review are recorded in `_projection/core-entity-review/stage2/task-2084.receipt.json`. This closes the bounded research Task, not the remaining migration.
 
 ### Definition of Done
 
