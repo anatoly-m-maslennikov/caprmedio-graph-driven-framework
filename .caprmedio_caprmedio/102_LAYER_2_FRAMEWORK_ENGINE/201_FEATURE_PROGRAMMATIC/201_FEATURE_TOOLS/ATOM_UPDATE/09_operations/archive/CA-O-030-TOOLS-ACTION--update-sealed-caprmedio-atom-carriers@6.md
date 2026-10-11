@@ -19,8 +19,8 @@ subjects:
     - "Atom/Revision/Updated At"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 7
-updated_at: "2026-10-11 04:32:58 +0400"
+version: 6
+updated_at: "2026-10-10 23:57:31 +0400"
 relations: {}
 ---
 # Summary
@@ -29,7 +29,7 @@ Update sealed CAPRMEDIO Atom carriers
 
 ## Operation
 
-Update Sealed Atom Carriers **means** the reusable Action that applies the admitted same-identity changes **to** **every** Atom **in** an exact selected set as **`=1`** all-or-nothing transaction. Subject-only preview selects one ordinary Profile for both source and result syntax, seals its grammar evidence, and remains local and mutation-free. the modeled boundary is the approved change set: partial application does **not** fulfill its operational contribution.
+Update Sealed Atom Carriers **means** the reusable Action that applies the admitted same-identity changes **to** **every** Atom **in** an exact selected set as **`=1`** all-or-nothing transaction. the modeled boundary is the approved change set: partial application does **not** fulfill its operational contribution.
 
 ## Details
 
@@ -54,11 +54,11 @@ successful apply requires **every** selected admitted change's class-specific re
 
 ### Subject-only preview
 
-1. accept only the closed root envelope `{atoms, subject_profile?}` for this mode. `subject_profile` omitted selects `legacy`; `approved` is explicit; unknown or malformed supplied Profiles fail. `atoms` is non-empty and has no repeated selected file. Every Atom item has one safe repository-relative `selector`, one `expected` object with exactly `atom_id`, `version`, and `sha256`, and an ordered `subject_patches` list. The list may be empty only for a truthful no-op, which still validates the selected pinned source and complete Carrier. Every patch has exactly `field`, `old`, and `new`; it has a zero-based `index` exactly when `field` is `depends_on`. `field` is `governs` or `depends_on`. Reject every other root or item key.
-2. resolve every selector only as a safe repository-relative regular file. reject an absolute or escaping path, symlink, missing Carrier, invalid active Carrier, duplicate identity, stale expected Atom ID/Version/SHA-256, malformed or nested `subjects`, a repeated patch occurrence, mismatched `old` value, invalid value, or duplicate resulting `depends_on` value. Validate each source and resulting Subject under the one selected Profile: both reject `@`, which does not create a carrier or display operator; D governs `@<version>` archive filenames as carrier storage, not as an Entity token. `legacy` keeps `/` bearer qualification, `:` allowed values, and literal dots, while `approved` uses `/` broader-to-narrower, `.` bearer-to-dependent, and `:` Property-to-allowed-value. Do not infer a relation, semantic conformance, or cross-Profile conversion.
+1. accept only `{atoms: [{selector, expected: {atom_id, version, sha256}, subject_patches}]}` for this mode. `atoms` is non-empty and has no repeated selected file. Every Atom item has one safe repository-relative `selector`, one `expected` object with exactly `atom_id`, `version`, and `sha256`, and a non-empty ordered `subject_patches` list. Every patch has exactly `field`, `old`, and `new`; it has a zero-based `index` exactly when `field` is `depends_on`. `field` is `governs` or `depends_on`.
+2. resolve every selector only as a safe repository-relative regular file. reject an absolute or escaping path, symlink, missing Carrier, invalid active Carrier, duplicate identity, stale expected Atom ID/Version/SHA-256, malformed or nested `subjects`, a repeated patch occurrence, mismatched `old` value, invalid value, or duplicate resulting `depends_on` value.
 3. reject an Atom item that also carries complete frontmatter or body replacement. apply the explicit patches only to the named flat Subject scalar spans; preserve every other frontmatter byte, all body bytes, line endings, filename, path, identity, Summary, Status, Relations, and unrelated metadata byte-for-byte.
-4. validate the complete resulting Carrier. produce a mutation-free preview with exact before and proposed source pins, ordered patch findings, a byte-preservation result, selected `subject_profile`, and `subject_profile_evidence` with exactly the `grammar_pins` for `legacy`'s five exact historical definitions adopted before CA-P-2059 or `approved`'s five current definitions, plus `native_admission: "not_performed"`; seal all of those fields in the preview digest. The grammar evidence is neither a native endpoint registry nor an attestation about source semantic conformance. Retain the required actual-effect rule: a non-no-op Subject change is a `semantic_revision` with Version `N+1` and Updated At set at the real effect time. The preview materializes that illustrative Updated At only in its in-memory proposed Carrier; it neither archives a prior Carrier nor writes a Carrier or Journal Record, and it does not claim an executed effect.
-5. do not infer ontology, relation meaning, replacement mapping, grammar cutover, migration batch, Profile migration, native endpoint admission, or approval. This Subject-only local mode is preview-only. An actual effect remains subject to the existing sealed Project-local MCP delegation, exact authorized preview, source recheck, history, and Journal guards; unsupported MCP is not used.
+4. validate the complete resulting Carrier. produce a mutation-free preview with exact before and proposed source pins, ordered patch findings, a byte-preservation result, and the required actual-effect rule: a non-no-op Subject change is a `semantic_revision` with Version `N+1` and Updated At set at the real effect time. Preview does not materialize an illustrative timestamp, archive a prior Carrier, write a Journal Record, or claim an executed effect.
+5. do not infer ontology, relation meaning, replacement mapping, grammar cutover, migration batch, or approval. This Subject-only local mode is preview-only. An actual effect remains subject to the existing sealed Project-local MCP delegation, exact authorized preview, source recheck, history, and Journal guards; unsupported MCP is not used.
 
 ### Run recording
 
