@@ -1208,14 +1208,24 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
         """
         normalized = dict(request)
         parameters = normalized["parameters"]
+        selection = bound_selection(self.root)
+        # Container startup admits the host identity separately from the local
+        # mount.  Never resolve or read a caller-supplied external path here.
+        worker_root = str(selection.host_root) if selection is not None and selection.host_root is not None else str(self.root)
+        if parameters.get("project_root") != worker_root:
+            raise SelectedRouteError("Release parameters must identify the selected Project host root")
+        observed_parameters = dict(parameters)
+        observed_parameters["project_root"] = str(self.root)
         native = self._release_request_module()
         if "candidateSnapshotManifest" not in parameters:
             if normalized["mode"] != "preview":
                 raise SelectedRouteError("Release execution requires resolved parameters from the exact preview")
-            normalized["parameters"] = native.prepare_release_request(self.root, parameters)
+            prepared = dict(native.prepare_release_request(self.root, observed_parameters))
+            prepared["project_root"] = worker_root
+            normalized["parameters"] = prepared
             normalized["parameters_digest"] = canonical_digest(normalized["parameters"])
         else:
-            native.validate_prepared_release_request(self.root, parameters)
+            native.validate_prepared_release_request(self.root, observed_parameters)
         return normalized
 
     def invoke(self, route: str, request: Any) -> dict[str, Any]:

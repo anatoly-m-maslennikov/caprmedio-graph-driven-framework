@@ -129,6 +129,62 @@ class ReleasePreparationMcpTests(unittest.TestCase):
         self.native_loader.assert_not_called()
         self.assertEqual(self.calls, [])
 
+    def test_bound_host_identity_seals_external_root_while_real_observers_read_mount(self) -> None:
+        # The disposable fixture is the physical mount. The external host path
+        # deliberately need not exist in the MCP process's filesystem.
+        release_tests = MCP_ROOT.parent / "201_TOOLS/RELEASE_VERSION/tests"
+        if str(release_tests) not in sys.path:
+            sys.path.insert(0, str(release_tests))
+        import test_release_preparation as preparation_fixture
+        import release_version as native
+        import release_compilation as compilation
+
+        fixture = preparation_fixture.ReleasePreparationTests()
+        fixture.setUp()
+        self.addCleanup(fixture.doCleanups)
+        self.root = fixture.root
+        self.adapter.root = self.root
+        self.native_loader.return_value = native
+        external = Path("/host/external/caprmedio-project")
+        minimal = {"operation": "apply", "project_root": str(external)}
+        request = self.request(minimal)
+        original = copy.deepcopy(request)
+        before = fixture.snapshot()
+        with patch("selected_routes.bound_selection", return_value=SimpleNamespace(host_root=external)), \
+             patch("release_compilation.build_preflight_validated_candidate",
+                   wraps=compilation.build_preflight_validated_candidate) as observe:
+            preview = self.adapter.invoke("release_version", request)
+            self.assertEqual(preview["disposition"], "preview")
+            observe.assert_called_once()
+            self.assertEqual(observe.call_args.args[0], self.root)
+            sealed = preview["resolved_parameters"]
+            self.assertEqual(sealed["project_root"], str(external))
+            self.assertEqual(preview["resolved_parameters_digest"], canonical_digest(sealed))
+            self.assertEqual(sealed["candidateSnapshotManifest"]["framework_version"], "N+1")
+            frozen = self.request(sealed, execute=True)
+            frozen_before = copy.deepcopy(frozen)
+            with patch("release_version.build_validated_candidate", wraps=native.build_validated_candidate) as reopen:
+                result = self.adapter.invoke("release_version", frozen)
+            self.assertEqual((result["disposition"], result["outcome"]), ("started", "started"))
+            reopen.assert_called_once()
+            self.assertEqual(reopen.call_args.args[0], str(self.root))
+            self.assertEqual(frozen, frozen_before)
+            self.assertEqual(self.calls[-1], frozen_before)
+        self.assertEqual(request, original)
+        self.assertEqual(fixture.snapshot(), before)
+
+    def test_bound_host_identity_refuses_wrong_external_or_mount_caller_root(self) -> None:
+        external = Path("/host/external/caprmedio-project")
+        with patch("selected_routes.bound_selection", return_value=SimpleNamespace(host_root=external)):
+            for supplied in ("/host/external/other-project", str(self.root)):
+                with self.subTest(supplied=supplied):
+                    result = self.adapter.invoke("release_version", self.request({
+                        "operation": "apply", "project_root": supplied,
+                    }))
+                    self.assertEqual((result["disposition"], result["outcome"]), ("blocked", "blocked"))
+        self.native_loader.assert_not_called()
+        self.assertEqual(self.calls, [])
+
 
 if __name__ == "__main__":
     unittest.main()
