@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2109",
+  "recorded_at": "2026-10-11 08:47:03 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded integrate accepted subject-family research; not migration approval",
+  "verification": {
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/consolidate_reviewed_mappings.py",
+      "sha256": "23e7fdba72faf4d3b1d4f7429643bd2b2ef6809b4169a3f8cceecf5b046fd9f0"
+    },
+    "preview_counts": {
+      "outcome": "PASS",
+      "sources": 907,
+      "occurrences": 4534,
+      "proposed": 1648,
+      "unchanged": 1540,
+      "unresolved": 1346,
+      "quarantined_sources": 8,
+      "excluded_sources": 11203
+    },
+    "valid_complete_prospective": "PASS: independently enumerated live frontier",
+    "negative_checks": [
+      {
+        "probe": "missing_layer",
+        "reason": "complete accepted-layer manifest"
+      },
+      {
+        "probe": "omit_all_followups",
+        "reason": "accepted second follow-up extension required"
+      },
+      {
+        "probe": "missing_selected_row",
+        "reason": "exact current occurrence coverage"
+      },
+      {
+        "probe": "stale_source",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] exact current origin/pin"
+      },
+      {
+        "probe": "wrong_target",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] final selected-layer target"
+      },
+      {
+        "probe": "wrong_priority",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] accepted layer priority"
+      },
+      {
+        "probe": "wrong_confidence",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] final selected-layer confidence"
+      },
+      {
+        "probe": "stale_receipt",
+        "reason": "second follow-up accepted pins CA-P-2103"
+      },
+      {
+        "probe": "missing_independent_review",
+        "reason": "second follow-up manifest independent-review hash CA-P-2103"
+      },
+      {
+        "probe": "executable_row",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] non-executable"
+      }
+    ],
+    "producer_negative_probes": "PASS including fixed group and wrong Operator-record descriptor",
+    "draft_writes": "not_performed",
+    "independent_review": {
+      "reviewer": "/root/followup_semantic_acceptance",
+      "final_report_sha256": "23e7fdba72faf4d3b1d4f7429643bd2b2ef6809b4169a3f8cceecf5b046fd9f0",
+      "result": "PASS after canonical Operator-record restriction; closed groups, receipts, current evidence and create-only boundary checked",
+      "rejected_earlier_code_sha256": "53584ccf364d91dcfc510c16e2023ccd83d25cb3506437b65fbad80a339343c2"
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/followup_semantic_acceptance",
+    "final_report_sha256": "23e7fdba72faf4d3b1d4f7429643bd2b2ef6809b4169a3f8cceecf5b046fd9f0",
+    "result": "PASS after canonical Operator-record restriction; closed groups, receipts, current evidence and create-only boundary checked",
+    "rejected_earlier_code_sha256": "53584ccf364d91dcfc510c16e2023ccd83d25cb3506437b65fbad80a339343c2"
+  },
+  "completion_scope": "The one-off consolidator includes the exact six accepted continuation layers at priorities20–25 while preserving all earlier groups, Actor coverage and final grammar proof. Preview independently passes907/4534 with1648 proposals,1540 unchanged and1346 nulls; wrong data and non-canonical supporting files are rejected. Derived drafts and original Core remain unchanged.",
+  "registration_commit": "b4adc5dcd104a72f3d99dbd8a81c968d8530d789",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

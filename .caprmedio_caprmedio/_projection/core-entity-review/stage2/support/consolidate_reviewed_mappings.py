@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+from dataclasses import dataclass
 import hashlib
 import json
 from pathlib import Path
@@ -36,12 +37,14 @@ STAGE = Path(".caprmedio_caprmedio/_projection/core-entity-review/stage2")
 BASELINE = STAGE / "current-subjects.mapping-ledger.json"
 DRIFT = STAGE / "current-grammar-source-drift.json"
 CANDIDATE = Path(".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json")
+DECISION_RECORD = STAGE / "operator.subject-decisions.2026-10-11.json"
 CONTRACTS = (
     STAGE / "current-subjects.contract.md",
     STAGE / "current-subjects.review.contract.md",
     STAGE / "current-subjects.supplements.contract.md",
     STAGE / "working-ledger.contract.md",
     STAGE / "working-ledger.followups-2094-2099.contract.md",
+    STAGE / "working-ledger.followups-2103-2108.contract.md",
 )
 WORKING = STAGE / "working-ledger"
 LEDGER = WORKING / "working-mapping-ledger.json"
@@ -69,9 +72,19 @@ LAYER_SPECS = (
 ACTOR_SUBSET = STAGE / "semantic-reviews/task-2058.accepted-subset.json"
 CURRENT_GRAMMAR_TASK = "CA-P-2087"
 CURRENT_GRAMMAR_REPORT = STAGE / "semantic-reviews/current-grammar-subjects.review.json"
-FOLLOWUP_MANIFEST = STAGE / "semantic-reviews/followups-2094-2099.inputs.json"
-FOLLOWUP_MANIFEST_SHA = "5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d"
-FOLLOWUP_REGISTRATION_COMMIT = "da5074e2d2ac47d44f001526f0e88c947f963ef2"
+@dataclass(frozen=True)
+class ResearchLayerGroup:
+    """One fixed accepted research group, not a discovery mechanism."""
+
+    label: str
+    manifest: Path
+    manifest_sha256: str
+    registration_commit: str
+    historical_working_pin: dict[str, str]
+    specifications: tuple[tuple[str, Path, str, int, int, int], ...]
+    expected_rows: int
+
+
 FOLLOWUP_HISTORICAL_WORKING_PIN = {
     "path": (WORKING / "working-mapping-ledger.json").as_posix(),
     "sha256": "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d",
@@ -84,10 +97,54 @@ FOLLOWUP_LAYER_SPECS = (
     ("CA-P-2098", STAGE / "semantic-reviews/task-2098.research.json", "ab4acfbfdf3ea8addfdfee7fc4502b5e84a4808ec91499da82dfd9bebc3784b2", 32, 1, 31),
     ("CA-P-2099", STAGE / "semantic-reviews/task-2099.research.json", "0e50e15645a4d56385a240ca47179b1c708ec839aecd4a81c4acfcdc13f4e69b", 27, 15, 12),
 )
+FOLLOWUP_GROUP = ResearchLayerGroup(
+    label="CA-P-2094–2099",
+    manifest=STAGE / "semantic-reviews/followups-2094-2099.inputs.json",
+    manifest_sha256="5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d",
+    registration_commit="da5074e2d2ac47d44f001526f0e88c947f963ef2",
+    historical_working_pin=FOLLOWUP_HISTORICAL_WORKING_PIN,
+    specifications=FOLLOWUP_LAYER_SPECS,
+    expected_rows=180,
+)
+SUBJECT_FAMILY_HISTORICAL_WORKING_PIN = {
+    "path": (WORKING / "working-mapping-ledger.json").as_posix(),
+    "sha256": "50ab0114669787dba6331b58f8054cd8fb33b5abbed33df6fbf5b52df53923fa",
+}
+SUBJECT_FAMILY_LAYER_SPECS = (
+    ("CA-P-2103", STAGE / "semantic-reviews/task-2103.research.json", "22db7aa281823d7e01c58454bcc52ee7060d5ffe24a12396e62e6e952f28071c", 26, 23, 3),
+    ("CA-P-2104", STAGE / "semantic-reviews/task-2104.research.json", "d19ad7f585610a10910c4b0355aaca1743a670adb3b56c96114a0cfd5d35a5f4", 31, 17, 14),
+    ("CA-P-2105", STAGE / "semantic-reviews/task-2105.research.json", "40a2d1c26cc6b617b49ac109172c99996de6727401e99326d17bf89f2adf492e", 41, 22, 19),
+    ("CA-P-2106", STAGE / "semantic-reviews/task-2106.research.json", "109edfd87f6f788658a210e561e034275dff6b49df34357b5d386340ba3e8204", 25, 9, 16),
+    ("CA-P-2107", STAGE / "semantic-reviews/task-2107.research.json", "149a9a3c35f2c4c3a08733e9dac790093d4c592da428f5bbfd262fbb396c458a", 26, 4, 22),
+    ("CA-P-2108", STAGE / "semantic-reviews/task-2108.research.json", "eb40f1fc810edb418f3acdeec8ce798837109264e45a966d348c86b810945da5", 34, 25, 9),
+)
+SUBJECT_FAMILY_GROUP = ResearchLayerGroup(
+    label="CA-P-2103–2108",
+    manifest=STAGE / "semantic-reviews/followups-2103-2108.inputs.json",
+    manifest_sha256="7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3",
+    registration_commit="9edbdb2156d7a2949ca4d11c6d86e511c8bf9cfb",
+    historical_working_pin=SUBJECT_FAMILY_HISTORICAL_WORKING_PIN,
+    specifications=SUBJECT_FAMILY_LAYER_SPECS,
+    expected_rows=183,
+)
+RESEARCH_LAYER_GROUPS = (FOLLOWUP_GROUP, SUBJECT_FAMILY_GROUP)
 ORIGIN_FIELDS = (
     "occurrence_id", "source_path", "source_atom_id", "source_version", "source_sha256",
     "field", "index", "old_value", "quarantined",
 )
+
+
+def validate_research_group_configuration(groups: tuple[ResearchLayerGroup, ...]) -> None:
+    """Keep this closed one-off integration from turning into layer discovery."""
+    if groups != (FOLLOWUP_GROUP, SUBJECT_FAMILY_GROUP):
+        fail("research layer group order or membership changed")
+    expected_tasks = (
+        "CA-P-2094", "CA-P-2095", "CA-P-2096", "CA-P-2097", "CA-P-2098", "CA-P-2099",
+        "CA-P-2103", "CA-P-2104", "CA-P-2105", "CA-P-2106", "CA-P-2107", "CA-P-2108",
+    )
+    tasks = tuple(specification[0] for group in groups for specification in group.specifications)
+    if tasks != expected_tasks:
+        fail("research layer task order or membership changed")
 
 
 def fail(message: str) -> None:
@@ -107,6 +164,14 @@ def pin(relative: Path) -> dict[str, str]:
     if not path.is_file() or path.is_symlink():
         fail(f"required regular input missing: {relative}")
     return {"path": relative.as_posix(), "sha256": sha(path.read_bytes())}
+
+
+def canonical_decision_record_pin(input_pins: dict[str, Any]) -> dict[str, str]:
+    """Permit the one recorded operator decision file, never an arbitrary support file."""
+    canonical = pin(DECISION_RECORD)
+    if input_pins.get("operator_decision_record") != canonical:
+        fail("research report operator decision-record pin")
+    return canonical
 
 
 def read_json(relative: Path) -> dict[str, Any]:
@@ -441,6 +506,27 @@ def current_span_matches(evidence: dict[str, Any], current: dict[str, Any]) -> b
     return end <= len(lines) and sha(b"".join(lines[start - 1 : end])) == span_sha
 
 
+def exact_span_matches_file(evidence: dict[str, Any], label: str) -> bool:
+    """Check a pinned evidence span without granting it Core-source status."""
+    path_value, digest = evidence.get("path"), evidence.get("sha256")
+    start, end, span_sha = evidence.get("start_line"), evidence.get("end_line"), evidence.get("span_sha256")
+    if (not isinstance(path_value, str) or not isinstance(digest, str) or not isinstance(start, int)
+            or isinstance(start, bool) or not isinstance(end, int) or isinstance(end, bool)
+            or start < 1 or end < start or not isinstance(span_sha, str)):
+        return False
+    try:
+        path = checked_relative_path(Path(path_value), label)
+    except CarrierError:
+        return False
+    if not path.is_file() or path.is_symlink():
+        return False
+    raw = path.read_bytes()
+    if sha(raw) != digest:
+        return False
+    lines = raw.splitlines(keepends=True)
+    return end <= len(lines) and sha(b"".join(lines[start - 1 : end])) == span_sha
+
+
 def json_pointer(document: Any, pointer: Any, label: str) -> Any:
     if not isinstance(pointer, str):
         fail(f"invalid JSON pointer: {label}")
@@ -461,67 +547,74 @@ def json_pointer(document: Any, pointer: Any, label: str) -> Any:
     return value
 
 
-def followup_manifest_tasks(manifest: dict[str, Any], manifest_pin: dict[str, str]) -> dict[str, dict[str, Any]]:
-    """Fail closed over the exact six registered follow-up selections."""
-    if manifest_pin["sha256"] != FOLLOWUP_MANIFEST_SHA:
-        fail("follow-up manifest SHA-256 changed")
+def research_group_tasks(
+    group: ResearchLayerGroup, manifest: dict[str, Any], manifest_pin: dict[str, str],
+) -> dict[str, dict[str, Any]]:
+    """Fail closed over one registered, fixed research group."""
+    if manifest_pin["sha256"] != group.manifest_sha256:
+        fail(f"research manifest SHA-256 changed: {group.label}")
     tasks = manifest.get("tasks")
-    expected_order = [item[0] for item in FOLLOWUP_LAYER_SPECS]
+    expected_order = [item[0] for item in group.specifications]
     if (not isinstance(tasks, list) or len(tasks) != len(expected_order) or not all(isinstance(item, dict) for item in tasks)
             or [item.get("task_id") for item in tasks] != expected_order):
-        fail("follow-up manifest task order or ownership changed")
+        fail(f"research manifest task order or ownership changed: {group.label}")
     result: dict[str, dict[str, Any]] = {}
     all_ids: set[str] = set()
-    for task, _, _, expected_rows, _, _ in FOLLOWUP_LAYER_SPECS:
+    for task, _, _, expected_rows, _, _ in group.specifications:
         entry = next((item for item in tasks if isinstance(item, dict) and item.get("task_id") == task), None)
         if entry is None:
-            fail(f"follow-up manifest task missing: {task}")
+            fail(f"research manifest task missing: {task}")
         rows = entry.get("input_rows")
         if not isinstance(rows, list) or len(rows) != expected_rows or entry.get("occurrences") != expected_rows:
-            fail(f"follow-up manifest occurrence count: {task}")
+            fail(f"research manifest occurrence count: {task}")
         if not all(isinstance(row, dict) for row in rows):
-            fail(f"follow-up manifest origin rows: {task}")
+            fail(f"research manifest origin rows: {task}")
         ids = [row.get("occurrence_id") for row in rows]
         if not all(isinstance(item, str) for item in ids) or len(set(ids)) != len(ids):
-            fail(f"follow-up manifest duplicate occurrence: {task}")
+            fail(f"research manifest duplicate occurrence: {task}")
         digest = sha("".join(f"{occurrence_id}\n" for occurrence_id in sorted(ids)).encode("utf-8"))
         if entry.get("occurrence_id_set_sha256") != digest:
-            fail(f"follow-up manifest occurrence digest: {task}")
+            fail(f"research manifest occurrence digest: {task}")
         if len({row.get("source_path") for row in rows}) != entry.get("sources"):
-            fail(f"follow-up manifest source coverage: {task}")
+            fail(f"research manifest source coverage: {task}")
         if all_ids.intersection(ids):
-            fail(f"follow-up manifest cross-task duplicate: {task}")
+            fail(f"research manifest cross-task duplicate: {task}")
         all_ids.update(ids)
         result[task] = entry
-    if len(all_ids) != 180:
-        fail("follow-up manifest total occurrence coverage")
+    if len(all_ids) != group.expected_rows:
+        fail(f"research manifest total occurrence coverage: {group.label}")
     return result
 
 
-def accepted_followup_layer(
-    specification: tuple[str, Path, str, int, int, int], manifest_pin: dict[str, str], manifest_task: dict[str, Any],
+def accepted_research_layer(
+    group: ResearchLayerGroup, specification: tuple[str, Path, str, int, int, int],
+    manifest_pin: dict[str, str], manifest_task: dict[str, Any],
     baseline_by_id: dict[str, dict[str, Any]], current_by_id: dict[str, dict[str, Any]],
     current_sources_by_path: dict[str, dict[str, Any]], candidate: dict[str, Any], candidate_pin: dict[str, str],
 ) -> tuple[dict[str, Any], dict[str, str], dict[str, Any]]:
-    """Load one final accepted CA-P-2094–2099 layer with live proof only."""
+    """Load one final accepted fixed research layer with live proof only."""
     task_id, report_rel, expected_sha, expected_rows, expected_proposed, expected_unresolved = specification
     report = read_json(report_rel)
     report_pin = pin(report_rel)
     if report_pin["sha256"] != expected_sha:
-        fail(f"follow-up report SHA-256 changed: {task_id}")
+        fail(f"research report SHA-256 changed: {task_id}")
     if any(report.get(field) != value for field, value in (
         ("schema_version", 1), ("task_id", task_id), ("non_authoritative", True),
         ("source_migration", "not_performed"), ("native_admission", "not_performed"),
     )):
-        fail(f"follow-up report boundary: {task_id}")
+        fail(f"research report boundary: {task_id}")
     input_pins = report.get("input_pins")
     if not isinstance(input_pins, dict) or input_pins.get("candidate") != candidate_pin:
-        fail(f"follow-up report candidate pin: {task_id}")
+        fail(f"research report candidate pin: {task_id}")
+    decision_record_pin = canonical_decision_record_pin(input_pins)
     manifest_descriptors = [input_pins[key] for key in ("selection_manifest", "manifest") if key in input_pins]
     if manifest_descriptors != [manifest_pin]:
-        fail(f"follow-up report manifest pin: {task_id}")
-    if input_pins.get("working_ledger") != FOLLOWUP_HISTORICAL_WORKING_PIN:
-        fail(f"follow-up report historical working-ledger pin: {task_id}")
+        fail(f"research report manifest pin: {task_id}")
+    if input_pins.get("working_ledger") != group.historical_working_pin:
+        fail(f"research report historical working-ledger pin: {task_id}")
+    baseline_descriptors = [input_pins[key] for key in ("base_ledger", "baseline_ledger", "frozen_baseline_ledger") if key in input_pins]
+    if baseline_descriptors != [pin(BASELINE)]:
+        fail(f"research report baseline-ledger pin: {task_id}")
 
     receipt_rel = STAGE / f"task-{task_id.removeprefix('CA-P-')}.receipt.json"
     receipt = read_json(receipt_rel)
@@ -530,79 +623,84 @@ def accepted_followup_layer(
     if (receipt.get("task") != task_id or receipt.get("non_authoritative") is not True
             or receipt.get("source_migration") != "not_performed" or receipt.get("native_admission") != "not_performed"
             or not str(receipt.get("result", "")).startswith("PASS") or not isinstance(verification, dict)):
-        fail(f"follow-up receipt boundary: {task_id}")
+        fail(f"research receipt boundary: {task_id}")
     if (verification.get("task") != task_id or verification.get("output") != report_pin
             or verification.get("rows") != expected_rows
             or verification.get("counts") != {"proposed": expected_proposed, "unresolved": expected_unresolved}
             or verification.get("input_manifest") != manifest_pin
-            or verification.get("registration_commit") != FOLLOWUP_REGISTRATION_COMMIT
-            or receipt.get("registration_commit") != FOLLOWUP_REGISTRATION_COMMIT):
-        fail(f"follow-up receipt descriptors: {task_id}")
+            or verification.get("registration_commit") != group.registration_commit
+            or receipt.get("registration_commit") != group.registration_commit):
+        fail(f"research receipt descriptors: {task_id}")
     for review in (receipt.get("independent_review"), verification.get("independent_review")):
         if (not isinstance(review, dict) or review.get("final_report_sha256") != report_pin["sha256"]
                 or not str(review.get("result", "")).startswith("PASS")):
-            fail(f"follow-up independent semantic acceptance: {task_id}")
+            fail(f"research independent semantic acceptance: {task_id}")
 
     rows = report.get("rows")
     expected_origins = manifest_task.get("input_rows")
     if (not isinstance(rows, list) or not isinstance(expected_origins, list)
             or len(rows) != expected_rows or len(expected_origins) != expected_rows):
-        fail(f"follow-up row coverage: {task_id}")
+        fail(f"research row coverage: {task_id}")
     expected_by_id = {row.get("occurrence_id"): row for row in expected_origins if isinstance(row, dict)}
     if len(expected_by_id) != expected_rows:
-        fail(f"follow-up manifest origin uniqueness: {task_id}")
+        fail(f"research manifest origin uniqueness: {task_id}")
     reported_ids = [row.get("occurrence_id") for row in rows if isinstance(row, dict)]
     if len(reported_ids) != expected_rows or len(set(reported_ids)) != expected_rows or set(reported_ids) != set(expected_by_id):
-        fail(f"follow-up report exact ownership: {task_id}")
+        fail(f"research report exact ownership: {task_id}")
 
     decisions = Counter()
     for row in rows:
         if not isinstance(row, dict):
-            fail(f"follow-up row object: {task_id}")
+            fail(f"research row object: {task_id}")
         occurrence_id = row["occurrence_id"]
         expected = expected_by_id[occurrence_id]
         if {field: row.get(field) for field in ORIGIN_FIELDS} != {field: expected.get(field) for field in ORIGIN_FIELDS}:
-            fail(f"follow-up report origin mismatch: {task_id} {occurrence_id}")
+            fail(f"research report origin mismatch: {task_id} {occurrence_id}")
         current = current_by_id.get(occurrence_id)
         if current is None or {field: row.get(field) for field in ORIGIN_FIELDS} != {field: current.get(field) for field in ORIGIN_FIELDS}:
-            fail(f"follow-up current origin drift: {task_id} {occurrence_id}")
+            fail(f"research current origin drift: {task_id} {occurrence_id}")
         baseline = baseline_by_id.get(occurrence_id)
         if baseline is None or baseline.get("decision") != "unresolved" or row.get("prior_decision") != "unresolved":
-            fail(f"follow-up baseline-only unresolved boundary: {task_id} {occurrence_id}")
+            fail(f"research baseline-only unresolved boundary: {task_id} {occurrence_id}")
         if row.get("executable") is not False or not isinstance(row.get("reason"), str) or not row["reason"].strip():
-            fail(f"follow-up row safety/reason: {task_id} {occurrence_id}")
+            fail(f"research row safety/reason: {task_id} {occurrence_id}")
         evidence = row.get("evidence")
         if not isinstance(evidence, list) or not evidence or not any(isinstance(item, dict) and current_span_matches(item, current) for item in evidence):
-            fail(f"follow-up owning current evidence: {task_id} {occurrence_id}")
+            fail(f"research owning current evidence: {task_id} {occurrence_id}")
         for item in evidence:
             if not isinstance(item, dict):
-                fail(f"follow-up evidence object: {task_id} {occurrence_id}")
+                fail(f"research evidence object: {task_id} {occurrence_id}")
             supporting_source = current_sources_by_path.get(item.get("path"))
-            if supporting_source is None or not current_span_matches(item, {
-                "source_path": supporting_source["relative_path"], "source_sha256": supporting_source["full_file_sha256"],
-            }):
-                fail(f"follow-up stale supporting evidence: {task_id} {occurrence_id}")
+            if supporting_source is not None:
+                if not current_span_matches(item, {
+                    "source_path": supporting_source["relative_path"], "source_sha256": supporting_source["full_file_sha256"],
+                }):
+                    fail(f"research stale Core supporting evidence: {task_id} {occurrence_id}")
+                continue
+            if (item.get("path") != decision_record_pin["path"] or item.get("sha256") != decision_record_pin["sha256"]
+                    or not exact_span_matches_file(item, "research decision evidence")):
+                fail(f"research unsupported non-Core evidence: {task_id} {occurrence_id}")
         if row.get("decision") not in {"proposed", "unresolved"}:
-            fail(f"follow-up decision: {task_id} {occurrence_id}")
+            fail(f"research decision: {task_id} {occurrence_id}")
         decision, value, confidence = normalized_decision("research", row)
         no_inferred_syntax(value)
         if decision == "proposed":
             basis = row.get("candidate_basis")
             if not isinstance(basis, list) or not basis:
-                fail(f"follow-up proposal basis: {task_id} {occurrence_id}")
+                fail(f"research proposal basis: {task_id} {occurrence_id}")
             for item in basis:
                 if not isinstance(item, dict) or not isinstance(item.get("reason"), str) or not item["reason"].strip():
-                    fail(f"follow-up proposal basis reason: {task_id} {occurrence_id}")
+                    fail(f"research proposal basis reason: {task_id} {occurrence_id}")
                 json_pointer(candidate, item.get("pointer"), f"{task_id} {occurrence_id}")
         else:
             if value is not None or confidence >= .90:
-                fail(f"follow-up null decision shape: {task_id} {occurrence_id}")
+                fail(f"research null decision shape: {task_id} {occurrence_id}")
         decisions[decision] += 1
     if decisions != Counter({"proposed": expected_proposed, "unresolved": expected_unresolved}):
-        fail(f"follow-up final decision coverage: {task_id}")
+        fail(f"research final decision coverage: {task_id}")
     report_counts = report.get("counts")
     if isinstance(report_counts, dict) and (report_counts.get("proposed") != expected_proposed or report_counts.get("unresolved") != expected_unresolved):
-        fail(f"follow-up report counts: {task_id}")
+        fail(f"research report counts: {task_id}")
     descriptor = {
         "task": task_id, "report": report_pin, "receipt": receipt_pin_value, "manifest": manifest_pin,
         "independent_review_sha256": report_pin["sha256"], "rows": expected_rows,
@@ -719,26 +817,46 @@ def run_negative_probes() -> None:
         "changed_text_at_existing_occurrence_id",
         lambda: matched_origin({**historic_occurrence, "old_value": "Claim"}, {historic_occurrence["occurrence_id"]: historic_occurrence}, {}, {}),
     )
-    manifest = read_json(FOLLOWUP_MANIFEST)
-    manifest_pin = pin(FOLLOWUP_MANIFEST)
-    followup_manifest_tasks(manifest, manifest_pin)  # valid control before adversarial copies
-    missing_row_manifest = json.loads(json.dumps(manifest))
-    missing_row_manifest["tasks"][0]["input_rows"].pop()
+    validate_research_group_configuration(RESEARCH_LAYER_GROUPS)
     require_rejection(
-        "followup_manifest_missing_row",
-        lambda: followup_manifest_tasks(missing_row_manifest, manifest_pin),
+        "research_group_omission",
+        lambda: validate_research_group_configuration((FOLLOWUP_GROUP,)),
+    )
+    canonical_decision_record_pin({"operator_decision_record": pin(DECISION_RECORD)})
+    unrelated_plan = Path(
+        ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/"
+        "08-CA-P-1966-EPIC--map-current-core-subject-origins/53-CA-P-2043-TASK--integrate-current-subject-mapping-ledger/"
+        "02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/"
+        "010-CA-P-2109-TASK--integrate-accepted-subject-family-research.md"
     )
     require_rejection(
-        "followup_manifest_wrong_pin",
-        lambda: followup_manifest_tasks(manifest, {"path": manifest_pin["path"], "sha256": "0" * 64}),
+        "plan_descriptor_is_not_operator_decision_record",
+        lambda: canonical_decision_record_pin({"operator_decision_record": pin(unrelated_plan)}),
     )
+    for group in RESEARCH_LAYER_GROUPS:
+        manifest = read_json(group.manifest)
+        manifest_pin = pin(group.manifest)
+        research_group_tasks(group, manifest, manifest_pin)  # valid control before adversarial copies
+        missing_row_manifest = json.loads(json.dumps(manifest))
+        missing_row_manifest["tasks"][0]["input_rows"].pop()
+        require_rejection(
+            f"{group.label}_manifest_missing_row",
+            lambda group=group, manifest=missing_row_manifest, manifest_pin=manifest_pin:
+                research_group_tasks(group, manifest, manifest_pin),
+        )
+        require_rejection(
+            f"{group.label}_manifest_wrong_pin",
+            lambda group=group, manifest=manifest, manifest_pin=manifest_pin:
+                research_group_tasks(group, manifest, {"path": manifest_pin["path"], "sha256": "0" * 64}),
+        )
     require_rejection(
-        "missing_followup_candidate_pointer",
-        lambda: json_pointer({}, "/missing", "negative followup pointer"),
+        "missing_research_candidate_pointer",
+        lambda: json_pointer({}, "/missing", "negative research pointer"),
     )
 
 
 def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    validate_research_group_configuration(RESEARCH_LAYER_GROUPS)
     baseline = read_json(BASELINE)
     if baseline.get("non_authoritative") is not True or baseline.get("source_migration") != "not_performed":
         fail("baseline ledger boundary")
@@ -814,44 +932,51 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
         accepted_layers.append({"task": task_id, "priority": priority, "report": report_pin, "receipt": receipt,
                                 "rows": len(rows), "kind": kind})
 
-    followup_manifest = read_json(FOLLOWUP_MANIFEST)
-    followup_manifest_pin = pin(FOLLOWUP_MANIFEST)
-    followup_tasks = followup_manifest_tasks(followup_manifest, followup_manifest_pin)
     candidate = read_json(CANDIDATE)
     candidate_pin = pin(CANDIDATE)
     current_sources_by_path = source_index(sources, "current evidence")
-    followup_owned: set[str] = set()
-    for priority, specification in enumerate(FOLLOWUP_LAYER_SPECS, start=len(LAYER_SPECS) + 1):
-        task_id = specification[0]
-        report, receipt, descriptor = accepted_followup_layer(
-            specification, followup_manifest_pin, followup_tasks[task_id], baseline_by_id, current_by_id,
-            current_sources_by_path, candidate, candidate_pin,
-        )
-        rows = list(layer_rows("research", report))
-        ids = {row["occurrence_id"] for row in rows}
-        if followup_owned.intersection(ids):
-            fail(f"duplicate follow-up layer ownership: {task_id}")
-        followup_owned.update(ids)
-        for row in rows:
-            occurrence_id = row["occurrence_id"]
-            decision, value, confidence = normalized_decision("research", row)
-            target = states[occurrence_id]["state"]
-            target["applied_layers"].append({
-                "layer": task_id, "priority": priority, "report": descriptor["report"],
-                "receipt": receipt, "manifest": followup_manifest_pin,
-                "independent_review_sha256": descriptor["independent_review_sha256"],
-                "decision": decision, "proposed_value": value, "confidence": confidence,
-                "accepted": decision == "proposed",
-            })
-            target.update({"decision": decision, "proposed_value": value, "confidence": confidence,
-                           "reason": row["reason"], "evidence": row["evidence"],
-                           "candidate_basis": row.get("candidate_basis", []),
-                           "preserved_distinctions": row.get("preserved_distinctions", []),
-                           "question": row.get("question"),
-                           "selected_layer_row": {"task": task_id, "kind": "research"}})
-        accepted_layers.append({**descriptor, "priority": priority})
-    if len(followup_owned) != 180:
-        fail("follow-up layer total ownership")
+    research_owned: set[str] = set()
+    priority = len(LAYER_SPECS) + 1
+    for group in RESEARCH_LAYER_GROUPS:
+        manifest = read_json(group.manifest)
+        manifest_pin = pin(group.manifest)
+        group_tasks = research_group_tasks(group, manifest, manifest_pin)
+        group_owned: set[str] = set()
+        for specification in group.specifications:
+            task_id = specification[0]
+            report, receipt, descriptor = accepted_research_layer(
+                group, specification, manifest_pin, group_tasks[task_id], baseline_by_id, current_by_id,
+                current_sources_by_path, candidate, candidate_pin,
+            )
+            rows = list(layer_rows("research", report))
+            ids = {row["occurrence_id"] for row in rows}
+            if group_owned.intersection(ids) or research_owned.intersection(ids):
+                fail(f"duplicate research layer ownership: {task_id}")
+            group_owned.update(ids)
+            research_owned.update(ids)
+            for row in rows:
+                occurrence_id = row["occurrence_id"]
+                decision, value, confidence = normalized_decision("research", row)
+                target = states[occurrence_id]["state"]
+                target["applied_layers"].append({
+                    "layer": task_id, "priority": priority, "report": descriptor["report"],
+                    "receipt": receipt, "manifest": manifest_pin,
+                    "independent_review_sha256": descriptor["independent_review_sha256"],
+                    "decision": decision, "proposed_value": value, "confidence": confidence,
+                    "accepted": decision == "proposed",
+                })
+                target.update({"decision": decision, "proposed_value": value, "confidence": confidence,
+                               "reason": row["reason"], "evidence": row["evidence"],
+                               "candidate_basis": row.get("candidate_basis", []),
+                               "preserved_distinctions": row.get("preserved_distinctions", []),
+                               "question": row.get("question"),
+                               "selected_layer_row": {"task": task_id, "kind": "research"}})
+            accepted_layers.append({**descriptor, "priority": priority})
+            priority += 1
+        if len(group_owned) != group.expected_rows:
+            fail(f"research group total ownership: {group.label}")
+    if len(research_owned) != sum(group.expected_rows for group in RESEARCH_LAYER_GROUPS):
+        fail("research layer total ownership")
 
     actor_report = read_json(ACTOR_SUBSET)
     actor_pin = pin(ACTOR_SUBSET)
@@ -975,7 +1100,10 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
     ledger = {"schema_version": 1, "task_id": "CA-P-2086", "non_authoritative": True,
               "source_migration": "not_performed", "native_admission": "not_performed",
               "scope": "Create-only current-frontier working mapping ledger; not semantic final acceptance or source migration.",
-              "input_pins": input_pins, "layer_priority": [item[0] for item in LAYER_SPECS] + [item[0] for item in FOLLOWUP_LAYER_SPECS] + ["CA-P-2058 coverage_only", "CA-P-2087 accepted_current_grammar" if current_grammar is not None else "CA-P-2087 recheck_gate"],
+              "input_pins": input_pins,
+              "layer_priority": [item[0] for item in LAYER_SPECS]
+              + [item[0] for group in RESEARCH_LAYER_GROUPS for item in group.specifications]
+              + ["CA-P-2058 coverage_only", "CA-P-2087 accepted_current_grammar" if current_grammar is not None else "CA-P-2087 recheck_gate"],
               "counts": {"sources": len(source_rows), "occurrences": len(rows), "quarantined_sources": sum(source["quarantined"] for source in source_rows),
                          "quarantined_occurrences": sum(row["quarantined"] for row in rows), "decisions": dict(sorted(decisions.items())),
                          "unresolved": decisions["unresolved"], "grammar_recheck_required": len(grammar_rechecks),
