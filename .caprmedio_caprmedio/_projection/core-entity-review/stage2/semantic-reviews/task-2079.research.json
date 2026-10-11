@@ -1,0 +1,616 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2079",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2078-2080.inputs.json",
+      "sha256": "5182fc07308a38092acf3ca624dd7edf8b71c83eb6fa87b06304ebb2d6b72142"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "sha256": "867e784ea0c58fef0c59f00048817fa47c90978ff54ca7ebb2c30b14d394b299"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2073.review.json",
+      "sha256": "ce551767db4ae135371bc12455da301a8722fab65f9050b1820cbd24d3e483ac"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2074.review.json",
+      "sha256": "03b3ff9a2797035667af76f9b768f8e833bc36af490a2a66a88620214b0f2c84"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2076.review.json",
+      "sha256": "142b092991c78078e2440ade1685670b5048bfb5d12dd664d722794ad5f10a11"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+      "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/subject-tools.grammar-contract.md",
+      "sha256": "aa267553ff481c7473c86fedcd757e902bbf00ffe3e2f2deef90b99201598f59"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/66-CA-P-2079-TASK--preserve-named-operation-mapping-identities.md",
+      "sha256": "683c47b1ac9d1579b786656bc11249c4fd3d282b0a43041c2003055e2ed002d4"
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-519-CORE_META_MODEL-QA_CASE--check-delegated-test-first-implementation-and-method-learning.md#subjects.governs",
+      "old_value": "Implementation Workflow",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-519-CORE_META_MODEL-QA_CASE--check-delegated-test-first-implementation-and-method-learning.md",
+          "sha256": "86cc0beb50d1b06fc7fa58eff2ce90525cb299cd33cfaa125a7b70b5a5665c53",
+          "start_line": 56,
+          "end_line": 79,
+          "span_sha256": "9958fc7539a6292e219ae4009d0f5187ae9a33983bb90789f0fec0de82879313",
+          "reason": "Current Main Content for CA-E-519 establishes the reviewed meaning of 'Implementation Workflow'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Implementation Workflow` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md#subjects.governs",
+      "old_value": "Applicable Methodology Compilation/Step: select",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+          "sha256": "a0b02c29350738ef1cfa1a20125af3c29bf707b319de60d5744de1dfb53807fc",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "4b6655fec5a178e67823242a2fc63f50c0d99e8962b934940c1ec19ddfc0ee97",
+          "reason": "Current Main Content for CA-O-152 establishes the reviewed meaning of 'Applicable Methodology Compilation/Step: select'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Applicable Methodology Compilation/Step: select` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md#subjects.governs",
+      "old_value": "Applicable Methodology Compilation/Step: assess",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+          "sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87",
+          "start_line": 30,
+          "end_line": 48,
+          "span_sha256": "64261062d286ff1c5d9855eb9b2f0420f0ba601fc9281c331d9116b72bcd3089",
+          "reason": "Current Main Content for CA-O-153 establishes the reviewed meaning of 'Applicable Methodology Compilation/Step: assess'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Applicable Methodology Compilation/Step: assess` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md#subjects.governs",
+      "old_value": "Applicable Methodology Compilation/Step: propose",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+          "sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "6ff4a9391d36524bf01d8993a75af0d7732fe20a8e395574817c5ce4f661a63f",
+          "reason": "Current Main Content for CA-O-154 establishes the reviewed meaning of 'Applicable Methodology Compilation/Step: propose'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Applicable Methodology Compilation/Step: propose` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md#subjects.governs",
+      "old_value": "Applicable Methodology Compilation/Step: decide",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
+          "sha256": "895f31fddd18894449f73321bf1fe3a26e4686a2a474a87ad0c2475812fadc12",
+          "start_line": 38,
+          "end_line": 48,
+          "span_sha256": "b0b5acc7364b18f743e589fe4beb30d622ee03e408acf064bf6fe10334311e64",
+          "reason": "Current Main Content for CA-O-155 establishes the reviewed meaning of 'Applicable Methodology Compilation/Step: decide'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Applicable Methodology Compilation/Step: decide` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md#subjects.governs",
+      "old_value": "Applicable Methodology Compilation/Step: correct",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md",
+          "sha256": "66ad7ecaf6fcaa3368539f464be8345818f71135d85d3e9f9d96c2ba7b32e822",
+          "start_line": 35,
+          "end_line": 45,
+          "span_sha256": "a50a222544fa143520d97f7f5b81e5d65d9948a1a4482d460155e2dfa0f4c0a1",
+          "reason": "Current Main Content for CA-O-156 establishes the reviewed meaning of 'Applicable Methodology Compilation/Step: correct'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Applicable Methodology Compilation/Step: correct` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md#subjects.governs",
+      "old_value": "Applicable Methodology Compilation/Step: publish",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md",
+          "sha256": "4007710401af00358dcaf1c04aaa2f62ed396ef9471d74d7940fb35dcafad1c4",
+          "start_line": 38,
+          "end_line": 48,
+          "span_sha256": "18fd644e570686e53cf5ceda2f8b38ffecd1a43b990d487138aeab3b9f968a4f",
+          "reason": "Current Main Content for CA-O-157 establishes the reviewed meaning of 'Applicable Methodology Compilation/Step: publish'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Applicable Methodology Compilation/Step: publish` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md#subjects.depends_on[1]",
+      "old_value": "Implementation Workflow",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md",
+          "sha256": "19bb9cbe0e7fdeb7ecd60dca272d3d23a6908c0b0c56f2454024ed7125898e58",
+          "start_line": 32,
+          "end_line": 54,
+          "span_sha256": "93a777fb7ef3f849f14b23ca2960b4c4ca21dc67c2d8567b55fc1bb18e7750de",
+          "reason": "Current Main Content for CA-O-024 establishes the reviewed meaning of 'Implementation Workflow'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Implementation Workflow` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-102-CORE_META_MODEL-WORKFLOW--learn-methods-from-verified-implementation-issues.md#subjects.depends_on[5]",
+      "old_value": "Implementation Workflow",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-102-CORE_META_MODEL-WORKFLOW--learn-methods-from-verified-implementation-issues.md",
+          "sha256": "9d4a9d6bfd1f57f9f4eda4b10bba75ccab1af560dde083cd44dbca19c5491c48",
+          "start_line": 28,
+          "end_line": 51,
+          "span_sha256": "148f7d51cbbbea891a0cd7b8eb957a6881c2e826f8c3dd06cee596cd11311eab",
+          "reason": "Current Main Content for CA-O-102 establishes the reviewed meaning of 'Implementation Workflow'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Implementation Workflow` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-102-CORE_META_MODEL-WORKFLOW--learn-methods-from-verified-implementation-issues.md#subjects.governs",
+      "old_value": "Method Learning Workflow",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-102-CORE_META_MODEL-WORKFLOW--learn-methods-from-verified-implementation-issues.md",
+          "sha256": "9d4a9d6bfd1f57f9f4eda4b10bba75ccab1af560dde083cd44dbca19c5491c48",
+          "start_line": 28,
+          "end_line": 51,
+          "span_sha256": "148f7d51cbbbea891a0cd7b8eb957a6881c2e826f8c3dd06cee596cd11311eab",
+          "reason": "Current Main Content for CA-O-102 establishes the reviewed meaning of 'Method Learning Workflow'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Method Learning Workflow` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.md#subjects.governs",
+      "old_value": "RMED Atom Review Workflow",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.md",
+          "sha256": "44f09c0cc44ff08b03200c21e88d8e7f36ab0d3b10b037b17d0b22a20badea79",
+          "start_line": 27,
+          "end_line": 84,
+          "span_sha256": "cd57e94705683a27991b76d111337eae04c20c30808cd304d923cc463ed0f197",
+          "reason": "Current Main Content for CA-O-104 establishes the reviewed meaning of 'RMED Atom Review Workflow'."
+        }
+      ],
+      "reason": "Current Main Content identifies `RMED Atom Review Workflow` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-130-CORE_META_MODEL-WORKFLOW--revert-approved-changes.md#subjects.governs",
+      "old_value": "Revert Changes Workflow",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-130-CORE_META_MODEL-WORKFLOW--revert-approved-changes.md",
+          "sha256": "ad98bde116ba178edae132b6fbc91376354b1b2d02c15a4ef58038e54f00bee3",
+          "start_line": 19,
+          "end_line": 44,
+          "span_sha256": "dc4971ddc72b09e34d99537e25738004188b67a61399f7ad886df0c9d348a222",
+          "reason": "Current Main Content for CA-O-130 establishes the reviewed meaning of 'Revert Changes Workflow'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Revert Changes Workflow` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-132-CORE_META_MODEL-STEP--apply-the-approved-change-reversal.md#subjects.governs",
+      "old_value": "Approved Change Reversal Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-132-CORE_META_MODEL-STEP--apply-the-approved-change-reversal.md",
+          "sha256": "b37744bcb2f191e04344485d440242e8f879321e66a55f01f89fb9bef7a6bfd5",
+          "start_line": 19,
+          "end_line": 42,
+          "span_sha256": "26bc4be33f09c1e794d19a4020c3dfa1b80bbc0e344ea208316eb4143f600427",
+          "reason": "Current Main Content for CA-O-132 establishes the reviewed meaning of 'Approved Change Reversal Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Approved Change Reversal Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-135-CORE_META_MODEL-STEP--construct-the-requested-entities-graph.md#subjects.governs",
+      "old_value": "Entities Graph Construction Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-135-CORE_META_MODEL-STEP--construct-the-requested-entities-graph.md",
+          "sha256": "f4040e234326114694b42dc4a96d494b12a024912342658a87d3ff28fae13805",
+          "start_line": 19,
+          "end_line": 34,
+          "span_sha256": "8262b077f857e2413eef527b32549bbeab739058497d9f1948aa91e538fdbcba",
+          "reason": "Current Main Content for CA-O-135 establishes the reviewed meaning of 'Entities Graph Construction Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Entities Graph Construction Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-138-CORE_META_MODEL-STEP--construct-the-requested-terms-graph.md#subjects.governs",
+      "old_value": "Terms Graph Construction Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-138-CORE_META_MODEL-STEP--construct-the-requested-terms-graph.md",
+          "sha256": "7fbffaea2fced0f5120805623cd6fcebc9bfaa34534cd23db7c71b54025e8005",
+          "start_line": 19,
+          "end_line": 34,
+          "span_sha256": "1d3bac205d8f1269f5f25cc6780bf16da39159ac13409dc7b58c13cdae0c1943",
+          "reason": "Current Main Content for CA-O-138 establishes the reviewed meaning of 'Terms Graph Construction Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Terms Graph Construction Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-139-CORE_META_MODEL-STEP--select-project-structure-maintenance-sources.md#subjects.governs",
+      "old_value": "Project Structure Maintenance Selection Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-139-CORE_META_MODEL-STEP--select-project-structure-maintenance-sources.md",
+          "sha256": "c25d75146b4f1b245b8156bffd4ca39cbc34fca89df7b81f0e1b9132cde03d01",
+          "start_line": 19,
+          "end_line": 36,
+          "span_sha256": "303f011ec660e347920743cb9e620ebd168c283fb8c60124823f1a672f2edb81",
+          "reason": "Current Main Content for CA-O-139 establishes the reviewed meaning of 'Project Structure Maintenance Selection Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Project Structure Maintenance Selection Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-140-CORE_META_MODEL-STEP--prepare-project-structure-maintenance-change.md#subjects.governs",
+      "old_value": "Project Structure Maintenance Preparation Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-140-CORE_META_MODEL-STEP--prepare-project-structure-maintenance-change.md",
+          "sha256": "8b24f3f42ed2d5b7a1fb048d78327ca62fb9c9e51c56692e1babbb525e0ed69c",
+          "start_line": 19,
+          "end_line": 36,
+          "span_sha256": "ab4e3ee24625bf4f1233d5c002e040f63a9cbaf7f8b9732cc7f30848e7a2aab8",
+          "reason": "Current Main Content for CA-O-140 establishes the reviewed meaning of 'Project Structure Maintenance Preparation Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Project Structure Maintenance Preparation Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-141-CORE_META_MODEL-STEP--assess-project-structure-maintenance-candidate.md#subjects.governs",
+      "old_value": "Project Structure Maintenance Candidate Assessment Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-141-CORE_META_MODEL-STEP--assess-project-structure-maintenance-candidate.md",
+          "sha256": "ea54bbb1ba03a27fbd14f0ad8c739fd33f775b1143cb888574316e59adc22039",
+          "start_line": 19,
+          "end_line": 36,
+          "span_sha256": "ccae9562e6762a6741d5663fb342cc8c66767d711135244ed68c8577a556b87f",
+          "reason": "Current Main Content for CA-O-141 establishes the reviewed meaning of 'Project Structure Maintenance Candidate Assessment Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Project Structure Maintenance Candidate Assessment Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-143-CORE_META_MODEL-STEP--apply-project-structure-maintenance-change.md#subjects.governs",
+      "old_value": "Project Structure Maintenance Application Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-143-CORE_META_MODEL-STEP--apply-project-structure-maintenance-change.md",
+          "sha256": "53f1fdf91b2613e2f1c0da6feb0850ca0d49c535cf6a72df3c11ad2a39694a7c",
+          "start_line": 19,
+          "end_line": 37,
+          "span_sha256": "4495eb9eae4c91813d67ca3dc050870a1202faefa600ac22a22e5467b78dd08e",
+          "reason": "Current Main Content for CA-O-143 establishes the reviewed meaning of 'Project Structure Maintenance Application Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Project Structure Maintenance Application Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-144-CORE_META_MODEL-STEP--assess-project-structure-maintenance-result.md#subjects.governs",
+      "old_value": "Project Structure Maintenance Result Assessment Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-144-CORE_META_MODEL-STEP--assess-project-structure-maintenance-result.md",
+          "sha256": "e25fe52d253a413f69971bb21f3d8b66f735269dece226c267bd1af03befa89f",
+          "start_line": 19,
+          "end_line": 37,
+          "span_sha256": "511d2ddfc380047d6d98d8a36ced46efe6c4aeeb26881d743fc08a118ce8e4b2",
+          "reason": "Current Main Content for CA-O-144 establishes the reviewed meaning of 'Project Structure Maintenance Result Assessment Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Project Structure Maintenance Result Assessment Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/FIND_AND_FETCH_JOURNAL_EVENTS/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md#subjects.governs",
+      "old_value": "Find and Fetch Journal Events/Step: query",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/FIND_AND_FETCH_JOURNAL_EVENTS/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md",
+          "sha256": "8d0238a1614f5888f2aa486038d271cc58db1d3f0d7014dece0baa53004a489c",
+          "start_line": 19,
+          "end_line": 33,
+          "span_sha256": "9c9f402f6a9cd1691ba20dc709996180ec7ec4e3d8191b7030a0f4cd4e7a7ba5",
+          "reason": "Current Main Content for CA-O-163 establishes the reviewed meaning of 'Find and Fetch Journal Events/Step: query'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Find and Fetch Journal Events/Step: query` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-091-CORE_META_MODEL-STEP--prepare-delegated-implementation-work.md#subjects.governs",
+      "old_value": "Implementation Preparation Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-091-CORE_META_MODEL-STEP--prepare-delegated-implementation-work.md",
+          "sha256": "8581f4a6fa4c805eaa08b845b46bd4ceda4880f611c8cc6538d0c382e3999b8b",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "97915d3ace17fd893dd5718ac9c8acc477cb757128a280190e4ea05b904813f7",
+          "reason": "Current Main Content for CA-O-091 establishes the reviewed meaning of 'Implementation Preparation Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Implementation Preparation Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-092-CORE_META_MODEL-STEP--prepare-tests-in-the-implementation-subagent.md#subjects.governs",
+      "old_value": "Evaluation Implementation Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-092-CORE_META_MODEL-STEP--prepare-tests-in-the-implementation-subagent.md",
+          "sha256": "ffc2b9a0fcdb2f0d97c4e881ebf586a8d4eb2eb4594469cd62bc5f75b11bb2ef",
+          "start_line": 29,
+          "end_line": 43,
+          "span_sha256": "f85fb2f354b3e9240d61e6ba8fea6770432f7bc246fbc971dda506fb7b9d226d",
+          "reason": "Current Main Content for CA-O-092 establishes the reviewed meaning of 'Evaluation Implementation Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Evaluation Implementation Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-093-CORE_META_MODEL-STEP--implement-requirements-in-the-assigned-subagent.md#subjects.governs",
+      "old_value": "Requirement Implementation Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/IMPLEMENTATION_WORKFLOW/CA-O-093-CORE_META_MODEL-STEP--implement-requirements-in-the-assigned-subagent.md",
+          "sha256": "bda6055ba9ea55de409a1a4f3e89ad7ae8346140e7e2e7bb4dc1eaa931a2b522",
+          "start_line": 29,
+          "end_line": 43,
+          "span_sha256": "9ec6333061b5b6b14046a72fc3a330e56ba4cd5a14b0cda65d75becf2400e63b",
+          "reason": "Current Main Content for CA-O-093 establishes the reviewed meaning of 'Requirement Implementation Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Requirement Implementation Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md#subjects.governs",
+      "old_value": "Source Reconciliation Decision Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+          "sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "a70f51bcc16dcacbf7ff234d8432923314e24390a8dda5740a298d48f13471da",
+          "reason": "Current Main Content for CA-O-149 establishes the reviewed meaning of 'Source Reconciliation Decision Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Source Reconciliation Decision Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md#subjects.governs",
+      "old_value": "Source Reconciliation Correction Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+          "sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "0f79bda9c680e90a559d5e1d432c9fd6276ec82c53de703729c3aaa83ed7f5f6",
+          "reason": "Current Main Content for CA-O-150 establishes the reviewed meaning of 'Source Reconciliation Correction Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Source Reconciliation Correction Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md#subjects.governs",
+      "old_value": "Source Reconciliation Publication Step",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+          "sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "e9498d486c5a7325135ca6bb0640d979ab26f398aa304f41966e916211abf0d5",
+          "reason": "Current Main Content for CA-O-151 establishes the reviewed meaning of 'Source Reconciliation Publication Step'."
+        }
+      ],
+      "reason": "Current Main Content identifies `Source Reconciliation Publication Step` as a named reusable Workflow or Step definition and preserves its exact graph/action binding. The candidate confirms generic Atom definition bearers and definition-versus-Execution separation, but provides no approved compact identity that carries this named definition, its Atom identity, or its old allowed-value context where present. Atom/Workflow or Atom/Step would collapse that identity; `:` cannot attach the name because no governing Property-to-allowed-value mapping is defined; and the candidate selector example is expressly not adopted Subject grammar. No identity-preserving candidate target can be proposed.",
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned": 27,
+    "covered": 27,
+    "proposed": 0,
+    "unresolved": 27,
+    "current_sources": 26,
+    "current_evidence_spans": 27
+  },
+  "limits": [
+    "Research only; proposed values would require independent review before ledger acceptance.",
+    "No current Subject grammar, source migration, native admission, selector syntax, carrier binding, or new subtype is adopted.",
+    "Each retained named identity remains unresolved until an identity-preserving candidate target is defined."
+  ]
+}

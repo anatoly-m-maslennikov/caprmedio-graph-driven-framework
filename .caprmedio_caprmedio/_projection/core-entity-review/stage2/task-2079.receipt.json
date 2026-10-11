@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2079",
+  "recorded_at": "2026-10-11 05:40:37 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: exact bounded mapping research; not live migration approval",
+  "verification": {
+    "task": "CA-P-2079",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2079.research.json",
+      "sha256": "a7cb8e01d34a0b6654b43499b7382c459072373ed34a8c47bc1713ae57bf99b0"
+    },
+    "rows": 27,
+    "counts": {
+      "unresolved": 27
+    },
+    "source_files": 26,
+    "exact_evidence_spans": 27,
+    "exact_input_pins": 13,
+    "result": "PASS: exact coverage, pins, spans, syntax and non-executable proposals"
+  },
+  "independent_review": {
+    "reviewer": "grammar_graph",
+    "reviewed_output_sha256": "a7cb8e01d34a0b6654b43499b7382c459072373ed34a8c47bc1713ae57bf99b0",
+    "rows_checked": 27,
+    "proposed": 0,
+    "unresolved_checked": 27,
+    "current_sources": 26,
+    "exact_spans": 27,
+    "result": "PASS: preserved named identities and unresolved disposition; no already-admitted target found"
+  },
+  "registration_commit": "82f720f29718f5af60152db8338e79db1d7a1020",
+  "completion_scope": "All 27 named Workflow/Step targets remain null: generic kinds lose the named Atom/workflow/node binding; current syntax does not admit owner selectors, singleton kinds or property-value names for these cases. This result confirms the pending identity-qualification decision; it does not invent another grammar or apply a collapse.",
+  "limits": [
+    "Original sources, frozen inventory/ledger/candidate and previous reports remain unchanged.",
+    "Research proposals and independent candidate review are not native graph or source write admission.",
+    "Unresolved rows and the unanswered conditional-owner choice remain open."
+  ]
+}
