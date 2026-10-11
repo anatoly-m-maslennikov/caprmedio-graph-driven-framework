@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2077",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.inventory.json",
+      "sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-adoption.result.json",
+      "sha256": "29c9122a27c470127e33acea75a8e56433c78f924fa1126b0349bd27fe542155"
+    },
+    {
+      "path": ".caprmedio_caprmedio/project_structure.toml",
+      "sha256": "0ceb85e781490b89fc539f27eb5bf3a5187d4c982a648f27b40b6057257df92c"
+    }
+  ],
+  "report_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+      "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+      "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/content_roles.review.json",
+      "sha256": "22b7d759ae79f920342c3b355a053cb073c2666cfc6966a526ba2c32a0d4d94e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+      "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/methodology.review.json",
+      "sha256": "4a736167834e49ba7742f488aa57eb5a7f772170b9a50093579d160a525f7480"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/operations.review.json",
+      "sha256": "8011bee5709e5ffc8f31e3c1716179fed27926949be2f2c1d463c7563f3fd732"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/other_fields.review.json",
+      "sha256": "d6d972d6e75f23c8a7d5b663d5d4c0c20dd3704c4573feb527a59ae2b42fc928"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+      "sha256": "85ff133203ec0f7339bc3c94676bd18234245f298d4521a7bd98c9b208a84fc0"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/substance.review.json",
+      "sha256": "09c1c1aec6e138ff507711254dd5d1cc426e80f967d7aee18ae6e873b74efcad"
+    }
+  ],
+  "counts": {
+    "baseline_sources": 907,
+    "changed_or_missing_baseline_sources": 5,
+    "approved_grammar_effects": 5,
+    "new_valid_current_ids": 1,
+    "stale_referenced_file_pins": 3
+  },
+  "current_authority_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+  "current_discovery": {
+    "source_root": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+    "scanned_markdown_files": 952,
+    "selected_sources": 907,
+    "excluded_sources": 45,
+    "excluded_reasons": {
+      "role_not_RMEDO": 45
+    },
+    "parse_errors": [],
+    "invalid_selected": [],
+    "duplicate_ids": []
+  },
+  "changed_or_missing": [
+    {
+      "atom_id": "CA-R-1204",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1204-CORE_META_MODEL--use-subject-path-slash-only-for-bearer-qualification.md",
+      "baseline_version": 14,
+      "baseline_sha256": "f57d56dab2cff12ea38a94900a1f146e40ead39f0af9e26e3130e9867f290dda",
+      "current": {
+        "state": "missing",
+        "sha256": null
+      },
+      "classified": "approved_grammar_effect",
+      "declared_effect": {
+        "atom_id": "CA-R-1204",
+        "operation": "replace_with_new_id",
+        "before": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1204-CORE_META_MODEL--use-subject-path-slash-only-for-bearer-qualification.md",
+          "version": 14,
+          "sha256": "f57d56dab2cff12ea38a94900a1f146e40ead39f0af9e26e3130e9867f290dda"
+        },
+        "after": {
+          "atom_id": "CA-R-1931",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+          "version": 1,
+          "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8"
+        },
+        "history": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1204-CORE_META_MODEL--use-subject-path-slash-only-for-bearer-qualification@14.md",
+          "sha256": "f57d56dab2cff12ea38a94900a1f146e40ead39f0af9e26e3130e9867f290dda"
+        }
+      }
+    },
+    {
+      "atom_id": "CA-R-1321",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "baseline_version": 12,
+      "baseline_sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+      "current": {
+        "state": "present",
+        "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f"
+      },
+      "classified": "approved_grammar_effect",
+      "declared_effect": {
+        "atom_id": "CA-R-1321",
+        "operation": "revise_active_atom",
+        "before": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "version": 12,
+          "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c"
+        },
+        "after": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "version": 13,
+          "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f"
+        },
+        "history": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression@12.md",
+          "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c"
+        },
+        "allowed_changes": [
+          "Claim",
+          "Version",
+          "Updated At"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-R-1324",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "baseline_version": 10,
+      "baseline_sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+      "current": {
+        "state": "present",
+        "sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7"
+      },
+      "classified": "approved_grammar_effect",
+      "declared_effect": {
+        "atom_id": "CA-R-1324",
+        "operation": "revise_active_atom",
+        "before": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+          "version": 10,
+          "sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1"
+        },
+        "after": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+          "version": 11,
+          "sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7"
+        },
+        "history": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators@10.md",
+          "sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1"
+        },
+        "allowed_changes": [
+          "Claim",
+          "Version",
+          "Updated At"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-M-228",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "baseline_version": 14,
+      "baseline_sha256": "f5a2152648b95c04af56c49118f43ac64ee46dd8183b23913cb64f335d6f26df",
+      "current": {
+        "state": "present",
+        "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70"
+      },
+      "classified": "approved_grammar_effect",
+      "declared_effect": {
+        "atom_id": "CA-M-228",
+        "operation": "revise_active_atom",
+        "before": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+          "version": 14,
+          "sha256": "f5a2152648b95c04af56c49118f43ac64ee46dd8183b23913cb64f335d6f26df"
+        },
+        "after": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+          "version": 15,
+          "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70"
+        },
+        "history": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/archive/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification@14.md",
+          "sha256": "f5a2152648b95c04af56c49118f43ac64ee46dd8183b23913cb64f335d6f26df"
+        },
+        "allowed_changes": [
+          "Claim",
+          "Version",
+          "Updated At"
+        ]
+      }
+    },
+    {
+      "atom_id": "CA-E-383",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "baseline_version": 13,
+      "baseline_sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274",
+      "current": {
+        "state": "present",
+        "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143"
+      },
+      "classified": "approved_grammar_effect",
+      "declared_effect": {
+        "atom_id": "CA-E-383",
+        "operation": "revise_active_atom",
+        "before": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "version": 13,
+          "sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274"
+        },
+        "after": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "version": 14,
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143"
+        },
+        "history": {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions@13.md",
+          "sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274"
+        },
+        "allowed_changes": [
+          "Claim",
+          "Details",
+          "Version",
+          "Updated At",
+          "relations.evaluation_for CA-R-1204 -> CA-R-1931"
+        ]
+      }
+    }
+  ],
+  "new_valid_current_sources": [
+    {
+      "atom_id": "CA-R-1931",
+      "source_kind": "current",
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "version": 1,
+      "role": "Requirement",
+      "status": "Active",
+      "current_scope_unit": "CORE_META_MODEL",
+      "full_file_sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+      "subjects_sha256": "3160c4b3d151b7f6dbbb419f25bfe1c59a4ca1882dcaa0720ab48c0700d141cd",
+      "subject_occurrence_count": 4,
+      "main_content_sha256": "722e678e2acd7aa260e63834cc9b6c75a32869b7e392dea6994d0b87c42ab07e",
+      "main_content_bytes": 809
+    }
+  ],
+  "stale_references": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "expected_sha256": "f5a2152648b95c04af56c49118f43ac64ee46dd8183b23913cb64f335d6f26df",
+      "current": {
+        "state": "present",
+        "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70"
+      },
+      "references": [
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/other_fields.review.json",
+          "pointer": "/occurrences/366"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/other_fields.review.json",
+          "pointer": "/occurrences/366/baseline_evidence/0"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/other_fields.review.json",
+          "pointer": "/occurrences/366/evidence/0"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/other_fields.review.json",
+          "pointer": "/occurrences/367"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/other_fields.review.json",
+          "pointer": "/occurrences/367/baseline_evidence/0"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/other_fields.review.json",
+          "pointer": "/occurrences/367/evidence/0"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/source_pins/105"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/occurrences/132"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/occurrences/132/evidence/0"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/occurrences/133"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/occurrences/133/evidence/0"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/occurrences/134"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/occurrences/134/evidence/0"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "expected_sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+      "current": {
+        "state": "present",
+        "sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7"
+      },
+      "references": [
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/source_pins/25"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/occurrences/25"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/occurrences/25/evidence/0"
+        }
+      ]
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "expected_sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274",
+      "current": {
+        "state": "present",
+        "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143"
+      },
+      "references": [
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/source_pins/131"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/occurrences/189"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/occurrences/189/evidence/0"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/occurrences/190"
+        },
+        {
+          "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/relations_subjects.review.json",
+          "pointer": "/occurrences/190/evidence/0"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Frozen inventory/ledger and original supplements unchanged.",
+    "No automatic rebind, mapping acceptance or source mutation.",
+    "Current discovery reports invalid metadata separately; it does not erase the baseline quarantine.",
+    "R1204 to R1931 is a declared grammar replacement, not an unexplained entity-origin migration."
+  ],
+  "recorded_at": "2026-10-11 05:19:43 +0400",
+  "current_inventory_observation": {
+    "source_count": 907,
+    "occurrence_count": 4534,
+    "quarantined_source_count": 8,
+    "diagnostic_count": 0,
+    "excluded_count": 11203,
+    "quarantined_source_ids": [
+      "CA-R-1873",
+      "CAPRMEDIO-R-791",
+      "CAPRMEDIO-GOV-EVAL-001",
+      "CAPRMEDIO-GOV-EVAL-002",
+      "CAPRMEDIO-GOV-EVAL-005",
+      "CAPRMEDIO-GOV-EVAL-009",
+      "CAPRMEDIO-GOV-EVAL-010",
+      "CA-D-559"
+    ],
+    "timestamp_quarantine_ids": [
+      "CA-R-1873",
+      "CA-D-559"
+    ],
+    "command": "inventory_current_subjects.py (without --persist)"
+  }
+}

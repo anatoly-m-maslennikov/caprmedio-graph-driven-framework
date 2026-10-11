@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2077",
+  "recorded_at": "2026-10-11 05:26:51 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded source-drift audit; not migration readiness",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-grammar-source-drift.json",
+    "sha256": "26c7bf2e6eb86c0ac5a2ed049c7f6252e674eba810958bd8c9235d1ed7274fb0"
+  },
+  "counts": {
+    "baseline_sources": 907,
+    "changed_or_missing_baseline_sources": 5,
+    "approved_grammar_effects": 5,
+    "new_valid_current_ids": 1,
+    "stale_referenced_file_pins": 3
+  },
+  "checks": {
+    "exact_input_report_file_pins": 13,
+    "approved_grammar_effects": 5,
+    "root_complete_selected_frontier_comparison": "PASS: only R1204 to R1931 replacement changes the selected ID set",
+    "independent_live_inventory": {
+      "sources": 907,
+      "subject_occurrences": 4534,
+      "quarantined_sources": 8,
+      "diagnostics": 0,
+      "replacement_presence": "PASS",
+      "complete_id_set_comparison": "not independently performed"
+    },
+    "old_grammar_references": "3 stale hashes retained exactly",
+    "frozen_inputs": "unchanged",
+    "original_source_effects": "none"
+  },
+  "limits": [
+    "Raw report files are persisted as audited research inputs, not whole-package semantic acceptance.",
+    "The eight source quarantines and stale report references remain gates for later source mapping.",
+    "Current source effects are only the separately approved grammar adoption, not a Subject migration."
+  ]
+}
