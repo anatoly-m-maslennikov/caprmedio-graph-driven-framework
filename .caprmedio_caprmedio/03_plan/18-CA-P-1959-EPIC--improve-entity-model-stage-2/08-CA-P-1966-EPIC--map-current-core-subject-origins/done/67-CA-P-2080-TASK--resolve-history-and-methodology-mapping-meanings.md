@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 05:33:33 +0400"
+version: 2
+updated_at: "2026-10-11 05:37:15 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
 ---
@@ -40,3 +40,9 @@ No Core, grammar, body, frozen input, runtime, MCP/FPF, Journal or Git writes. W
 ### Definition of Done
 
 Not Done if assigned coverage or current evidence is missing, meaning is guessed, a prior qualifier is lost, a pending decision is inferred, an executable source effect is implied, or own work exceeds 15 minutes without decomposition.
+
+### Completion
+
+Researched every one of the 4 assigned occurrences. Root verified exact selection, current input/source/span pins, approved syntax and all rows non-executable. Two Applicable Methodology targets are supported as Projection/Applicable Methodology; manual realization is a process applied to that artifact, not a separate target object. Two historical Status targets remain unresolved; no historical Property or qualifier-dropping replacement is invented.
+
+The receipt preserves independent review separately from the research proposals. Done means this bounded research is finished, not that unresolved mappings, the parent gate or source migration are complete. Version-1 Task input remains in Git at registration commit 82f720f29718f5af60152db8338e79db1d7a1020.

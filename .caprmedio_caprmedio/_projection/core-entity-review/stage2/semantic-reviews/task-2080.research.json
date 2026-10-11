@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2080",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2078-2080.inputs.json",
+      "sha256": "5182fc07308a38092acf3ca624dd7edf8b71c83eb6fa87b06304ebb2d6b72142"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/subject-tools.grammar-contract.md",
+      "sha256": "aa267553ff481c7473c86fedcd757e902bbf00ffe3e2f2deef90b99201598f59"
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/67-CA-P-2080-TASK--resolve-history-and-methodology-mapping-meanings.md",
+      "sha256": "b30dff67be84e018e134fced6f5f58c71c801e06e1cab5cb2c4033f894b75655"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+      "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "sha256": "867e784ea0c58fef0c59f00048817fa47c90978ff54ca7ebb2c30b14d394b299"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2076.review.json",
+      "sha256": "142b092991c78078e2440ade1685670b5048bfb5d12dd664d722794ad5f10a11"
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1419-CORE_META_MODEL-CORE--restrict-archived-status-to-non-current-revisions.md#subjects.governs",
+      "old_value": "Artifact/Revision/Status: Archived",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.65,
+      "evidence": [
+        {
+          "end_line": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1419-CORE_META_MODEL-CORE--restrict-archived-status-to-non-current-revisions.md",
+          "reason": "The current body expressly identifies Archived as a Status value of a prior Revision, so the status/value distinction is retained under Revision.",
+          "sha256": "fed63e6a4b1ee425818a0b3dc77e73f09a666da051c9fe96b52b3531ca6b3f50",
+          "span_sha256": "51a257c3b2c1195c85784c198b7f1398bad7e3d46023b026052bcba947cd8fcb",
+          "start_line": 19
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Revision remains historical root, not Artifact.Revision",
+        "Archived qualifier is explicit in old source Scope/Substance; it is not silently dropped"
+      ],
+      "reason": "The source explicitly concerns Archived Status of a historical revision. Latest decisions remove Artifact.Revision and do not admit Revision.Status. Mapping this qualified target to plain Revision would discard the explicit status/property distinction; mapping to current Atom.Status would recast historical-reference meaning. This bounded research finds no source-pinned, qualifier-preserving candidate target. Keep null rather than invent a historical Property or selector.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md#subjects.depends_on[0]",
+      "old_value": "Artifact/Revision/Status",
+      "prior_disposition": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.65,
+      "evidence": [
+        {
+          "end_line": 34,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md",
+          "reason": "The current body explicitly defines or uses the Status of an Artifact Revision. The confirmed separate Revision root and dependent-property rule support Revision.Status without Artifact.Revision.",
+          "sha256": "cb58f4cef97a55839daf29f2b3ef14562e9d5cf413291d900ff31334402e9f8a",
+          "span_sha256": "339c2ba39372826993b4c03617bd815d6b9d832f1afd6bd2b3936b8946d9f26a",
+          "start_line": 20
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Revision remains historical root, not Artifact.Revision",
+        "Archived qualifier is explicit in old source Scope/Substance; it is not silently dropped"
+      ],
+      "reason": "The source explicitly concerns Archived Status of a historical revision. Latest decisions remove Artifact.Revision and do not admit Revision.Status. Mapping this qualified target to plain Revision would discard the explicit status/property distinction; mapping to current Atom.Status would recast historical-reference meaning. This bounded research finds no source-pinned, qualifier-preserving candidate target. Keep null rather than invent a historical Property or selector.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md#subjects.depends_on[0]",
+      "old_value": "Applicable Methodology",
+      "prior_disposition": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Projection/Applicable Methodology",
+      "confidence": 0.96,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+          "sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "8ee60ec795427357f6227a2fb398eb5d3e1f4cf9c8624232cbc381e5cecfcf41",
+          "reason": "The complete live Main Content was read as current meaning evidence; frozen baseline evidence remains separate."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1213-CORE_META_MODEL-CORE-REQUIREMENT--define-applicable-methodology-as-a-compiled-projection.md",
+          "sha256": "6962d60e15445e82bf78866bec337e389b5e1b1cad5a9d830dcf3feb6ec7c7c2",
+          "start_line": 26,
+          "end_line": 40,
+          "span_sha256": "e09a940aef5914424836a1adde3d6ce586c760ba19fa8c14f782565a963051fb",
+          "reason": "Complete current Main Content was read; metadata alone is not meaning evidence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Complete current Main Content was read; metadata alone is not meaning evidence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/applicable_methodology/form",
+          "reason": "The artifact is explicitly a Projection; manual realization is the process applied to it, not a different artifact target."
+        },
+        {
+          "pointer": "#/applicable_methodology/authority",
+          "reason": "Source originals retain authority; configuration originals and their derived copies remain distinct."
+        },
+        {
+          "pointer": "#/applicable_methodology/instance_boundary",
+          "reason": "The derived set is a distinct artifact instance, not an additional representation of the original sources."
+        }
+      ],
+      "preserved_distinctions": [
+        "Owning source and dependency/governs field remain unchanged",
+        "Artifact definition, derivation process and conformance assertion are distinct"
+      ],
+      "reason": "Fresh CA-R-1213 explicitly defines Applicable Methodology as a non-authoritative Reconciled Projection; CA-R-1746 defines that artifact form. The latest candidate likewise declares a one-to-one Projection while distinguishing the manual realization process. In this source, compilation/conformance refers to that named artifact; it does not turn this dependency into an Execution or imply conformance from an ID. The proposed broader-to-narrower path preserves Applicable Methodology as a named Projection kind; old active-only membership wording is not adopted and stays separate Step-2 content work.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.depends_on[6]",
+      "old_value": "Applicable Methodology",
+      "prior_disposition": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Projection/Applicable Methodology",
+      "confidence": 0.96,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "The complete live Main Content was read as current meaning evidence; frozen baseline evidence remains separate."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1213-CORE_META_MODEL-CORE-REQUIREMENT--define-applicable-methodology-as-a-compiled-projection.md",
+          "sha256": "6962d60e15445e82bf78866bec337e389b5e1b1cad5a9d830dcf3feb6ec7c7c2",
+          "start_line": 26,
+          "end_line": 40,
+          "span_sha256": "e09a940aef5914424836a1adde3d6ce586c760ba19fa8c14f782565a963051fb",
+          "reason": "Complete current Main Content was read; metadata alone is not meaning evidence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Complete current Main Content was read; metadata alone is not meaning evidence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/applicable_methodology/form",
+          "reason": "The artifact is explicitly a Projection; manual realization is the process applied to it, not a different artifact target."
+        },
+        {
+          "pointer": "#/applicable_methodology/authority",
+          "reason": "Source originals retain authority; configuration originals and their derived copies remain distinct."
+        },
+        {
+          "pointer": "#/applicable_methodology/instance_boundary",
+          "reason": "The derived set is a distinct artifact instance, not an additional representation of the original sources."
+        }
+      ],
+      "preserved_distinctions": [
+        "Owning source and dependency/governs field remain unchanged",
+        "Artifact definition, derivation process and conformance assertion are distinct"
+      ],
+      "reason": "Fresh CA-R-1213 explicitly defines Applicable Methodology as a non-authoritative Reconciled Projection; CA-R-1746 defines that artifact form. The latest candidate likewise declares a one-to-one Projection while distinguishing the manual realization process. In this source, compilation/conformance refers to that named artifact; it does not turn this dependency into an Execution or imply conformance from an ID. The proposed broader-to-narrower path preserves Applicable Methodology as a named Projection kind; old active-only membership wording is not adopted and stays separate Step-2 content work.",
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned": 4,
+    "proposed": 2,
+    "unresolved": 2
+  },
+  "limits": [
+    "Research proposal only; independent semantic review still required.",
+    "No original Subject/content edits, historical-source refresh, native admission, or unanswered owner-choice inference.",
+    "Old active-only compilation/body conflicts remain explicit Step-2 issues, not silently adopted candidate policy."
+  ]
+}
