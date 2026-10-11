@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2158",
+  "recorded_at": "2026-10-11 13:14:36 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded audit quarantined core source carriers; not migration approval",
+  "verification": {
+    "task_id": "CA-P-2158",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/quarantine-audit.json",
+      "sha256": "600729177a2e03ffc6098fe614b2211485993b513fcac950da5ee74747ec6f60"
+    },
+    "file_pins_verified": 31,
+    "spans_verified": 0,
+    "pin_details": [
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/21-CA-P-2158-TASK--audit-quarantined-core-source-carriers.md",
+        "sha256": "6fb553b9e06913c0c34e330a13667f3f8caba5df6ac598f8639bc5f779e7685d",
+        "context": "50bf643d95f3f3171fe79199889f6b9dbf78e019"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/contract.md",
+        "sha256": "cea762d3a48929859eb33a5c031c59890360e5cd08a96d5965d57e94e1e0e6ce",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins.md",
+        "sha256": "33fd56457ef31b6a2c730c9e976da621e615d1ed7bc0febe8c8934ac3aa58051",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+        "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/project_structure.toml",
+        "sha256": "0ceb85e781490b89fc539f27eb5bf3a5187d4c982a648f27b40b6057257df92c",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/caprmedio_project_settings.toml",
+        "sha256": "a0f8761157c1bd6b2ce79b72c69ceeea4cb6131b2bf79a246346f181d8c302de",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/inventory_current_subjects.py",
+        "sha256": "4a0ebb02cf41f3310166238faeb535a9e6c5d2e28e3f4b5c9a961050a4ff5207",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_current_inventory.py",
+        "sha256": "6006e8a1946f7cf66b641002fbb3b77f6c941c0c4e183b509ef5276dfdf27cf4",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+        "sha256": "cc0fe5a31a6c36ce67a7a4f60a8a2bbd4e799eb0012fea3accaa44673e6c4e42",
+        "context": "current"
+      },
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/parsing.py",
+        "sha256": "4c33dc474be3ec0f5764d4b26a6239361aa460fa94a4197e5b1fc7158830eda0",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-728-CORE_META_MODEL-REQUIREMENT--define-project-atom-id.md",
+        "sha256": "1d765cffdc8c32941043e493b710827d56d4244d57dde46810376027982313df",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL--serialize-assigned-atom-identities.md",
+        "sha256": "9435f3abb5a56f46c37c43c3e758afa1e288a0af259f39a34237495d8fcf255f",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md",
+        "sha256": "a8a1e395a50127fcc7ab120f2d4ca0d33c1176f35793cbaf218b6643bfdba46b",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+        "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter.md",
+        "sha256": "8322273a6938108a8889c01b74c7bfc600b01ba39bfaa0bd0c0c01cc7352a6a3",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1416-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-updated-at.md",
+        "sha256": "c8b2402e3f6bc0eb567ab845e8c197de994cd328507c0322bf2c955a62c1ffc9",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL--configure-the-artifact-timestamp-timezone.md",
+        "sha256": "3042bb9e7056b85e8b0b248e83869f8145260da9813ca31101963e923bf4c67e",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md",
+        "sha256": "2c5e7af78d81a3e71def13ef7e24669fa0cf33a8a153b3410b8963934a396cb9",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md",
+        "sha256": "3391dbfa646ef362dd1c54cd8c9dab590ee7650f2215d51aec5b7f9ef49d4829",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-127-CORE_META_MODEL-WORKFLOW--manage-atom-lifecycle.md",
+        "sha256": "6daf77356ac8bac44e252a546aa1e34a7c02558dc1aa4e6b428cb0b15283fd67",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1698-CORE_META_MODEL-CORE-REQUIREMENT--evolve-authority-through-governed-history.md",
+        "sha256": "e86def1c7eb4756b25db0704305f57188a922b2c61cd5aeca609adbb54110420",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md",
+        "sha256": "0d2117b41344599129fd9751872754d7d358d8a759281abd65ba8874de9a5a01",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CAPRMEDIO-GOV-REQU-479--migrate-framework-prefix-to-caprmedio@1.md",
+        "sha256": "0d61e34f05d8688e26b0c692c5c23000a54cf6b42246204a3635b66e47f4cf7f",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source.md",
+        "sha256": "cf857c75b7e791c035eb34ee63801010d72cc4ad8bf39852ea76e933b9fe53a6",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL--deliver-runtime-journals-to-configured-sinks.md",
+        "sha256": "a0efc0dc67bbac626021e6137567d953f20314e8102c926099f8e4f2d71fd7fa",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+        "sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-001-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability.md",
+        "sha256": "693e0262b0b4a373fc99d5504b99809e9a25781331bf1b89388c516ba9fbcf6d",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+        "sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+        "sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-009-CORE_META_MODEL-QA_CASE--effective-priority-selection.md",
+        "sha256": "debf8c3f03344fc462b228052941f60107f165c5d571dfebde4724368c947ada",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md",
+        "sha256": "994b91d17ef0089ff49d3bc8d07776830d0ab3803ebcef5fbbbdfee9343219b6",
+        "context": "current"
+      }
+    ],
+    "result": "PASS: read-only mechanical pins and bounded invariants; not semantic approval",
+    "independent_review": {
+      "reviewer": "Root",
+      "result": "Accepted the bounded read-only quarantine diagnosis. Thirty-one current/historical file pins verified, eight distinct source files account for 35 occurrences. Root separately reproduced the captured-inventory delta: one retired/replacement path, four changed common grammar rows, 902 unchanged common sources. No historical timestamp offset inferred and no identity repaired.",
+      "actual_executor": ".caprmedio_tmp/accept_remaining_gate_audits.py",
+      "exit_code": 0,
+      "inventory_delta": {
+        "saved_sources": 907,
+        "current_sources": 907,
+        "removed_paths": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1204-CORE_META_MODEL--use-subject-path-slash-only-for-bearer-qualification.md"
+        ],
+        "new_paths": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md"
+        ],
+        "changed_sources": [
+          {
+            "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+            "fields": [
+              "full_file_sha256",
+              "updated_at",
+              "version"
+            ]
+          },
+          {
+            "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+            "fields": [
+              "full_file_sha256",
+              "updated_at",
+              "version"
+            ]
+          },
+          {
+            "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+            "fields": [
+              "full_file_sha256",
+              "updated_at",
+              "version"
+            ]
+          },
+          {
+            "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+            "fields": [
+              "full_file_sha256",
+              "updated_at",
+              "version"
+            ]
+          }
+        ],
+        "common_sources_unchanged": 902
+      }
+    }
+  },
+  "independent_review": {
+    "reviewer": "Root",
+    "result": "Accepted the bounded read-only quarantine diagnosis. Thirty-one current/historical file pins verified, eight distinct source files account for 35 occurrences. Root separately reproduced the captured-inventory delta: one retired/replacement path, four changed common grammar rows, 902 unchanged common sources. No historical timestamp offset inferred and no identity repaired.",
+    "actual_executor": ".caprmedio_tmp/accept_remaining_gate_audits.py",
+    "exit_code": 0,
+    "inventory_delta": {
+      "saved_sources": 907,
+      "current_sources": 907,
+      "removed_paths": [
+        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1204-CORE_META_MODEL--use-subject-path-slash-only-for-bearer-qualification.md"
+      ],
+      "new_paths": [
+        ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md"
+      ],
+      "changed_sources": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "fields": [
+            "full_file_sha256",
+            "updated_at",
+            "version"
+          ]
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+          "fields": [
+            "full_file_sha256",
+            "updated_at",
+            "version"
+          ]
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+          "fields": [
+            "full_file_sha256",
+            "updated_at",
+            "version"
+          ]
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "fields": [
+            "full_file_sha256",
+            "updated_at",
+            "version"
+          ]
+        }
+      ],
+      "common_sources_unchanged": 902
+    }
+  },
+  "completion_scope": "Completed the quarantine audit of eight original Core carriers and 35 Subject occurrences. The carrier parser accepts all eight; six fail current legacy-ID admission and two expose conflicting timestamp policies. The older inventory's exact five-definition grammar delta is expected historical drift, not an ordering defect. Identity continuity and timestamp serialization remain Operator decisions; all original carriers and captured evidence are unchanged.",
+  "registration_commit": "50bf643d95f3f3171fe79199889f6b9dbf78e019",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

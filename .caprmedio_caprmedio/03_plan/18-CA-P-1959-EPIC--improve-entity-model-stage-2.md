@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 36
-updated_at: "2026-10-11 13:14:26 +0400"
+version: 37
+updated_at: "2026-10-11 13:14:36 +0400"
 relations: {}
 ---
 # Summary
@@ -152,7 +152,7 @@ Four bounded read-only audits check remaining coverage, genuine model choices, s
 
 - [CA-P-2156 — Audit the remaining Subject frontier](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/19-CA-P-2156-TASK--audit-the-remaining-subject-frontier.md)
 - [CA-P-2157 — Identify the remaining entity-model decisions](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/20-CA-P-2157-TASK--identify-the-remaining-entity-model-decisions.md)
-- [CA-P-2158 — Audit quarantined Core source carriers](18-CA-P-1959-EPIC--improve-entity-model-stage-2/21-CA-P-2158-TASK--audit-quarantined-core-source-carriers.md)
+- [CA-P-2158 — Audit quarantined Core source carriers](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/21-CA-P-2158-TASK--audit-quarantined-core-source-carriers.md)
 - [CA-P-2159 — Audit Stage 2 execution gates](18-CA-P-1959-EPIC--improve-entity-model-stage-2/22-CA-P-2159-TASK--audit-stage-2-execution-gates.md)
 
 ### Definition of Done
