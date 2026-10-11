@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2126",
+  "recorded_at": "2026-10-11 10:03:43 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review legacy model and topic subjects; not migration approval",
+  "verification": {
+    "task": "CA-P-2126",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2126.research.json",
+      "sha256": "3fa0af8d302898a399cb1406cd9bcfcdd7ee22d3e3bc28f907f322e935dd8c52"
+    },
+    "rows": 21,
+    "counts": {
+      "proposed": 11,
+      "unresolved": 10
+    },
+    "exact_evidence_spans": 54,
+    "exact_supporting_definition_spans": 3,
+    "exact_input_pins": 31,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2121-2128.inputs.json",
+      "sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+    },
+    "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/domain_semantic_acceptance",
+      "final_report_sha256": "3fa0af8d302898a399cb1406cd9bcfcdd7ee22d3e3bc28f907f322e935dd8c52",
+      "result": "PASS: all twenty-one final meanings reviewed; eleven supported Relation.Type mappings and ten justified nulls",
+      "meaning_checks": [
+        "Eleven initially overconservative nulls were rejected and recovered from existing canonical Kind definitions.",
+        "Declared canonical direct kinds use Relation.Type allowed values; required_by and implemented_by remain derived inverses.",
+        "Source-specific authority, direction, cardinality and endpoint constraints remain explicit evidence.",
+        "Composite lineage dispositions, fixed-point gate and representation rows retain nulls without fabricated owners."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/domain_semantic_acceptance",
+    "final_report_sha256": "3fa0af8d302898a399cb1406cd9bcfcdd7ee22d3e3bc28f907f322e935dd8c52",
+    "result": "PASS: all twenty-one final meanings reviewed; eleven supported Relation.Type mappings and ten justified nulls",
+    "meaning_checks": [
+      "Eleven initially overconservative nulls were rejected and recovered from existing canonical Kind definitions.",
+      "Declared canonical direct kinds use Relation.Type allowed values; required_by and implemented_by remain derived inverses.",
+      "Source-specific authority, direction, cardinality and endpoint constraints remain explicit evidence.",
+      "Composite lineage dispositions, fixed-point gate and representation rows retain nulls without fabricated owners."
+    ]
+  },
+  "completion_scope": "All 21 exact current origins passed final independent semantic acceptance and live evidence/coverage controls: eleven existing Relation Type proposals and ten explicit lineage/disposition nulls. Overconservative initial nulls were corrected; inverse views and native admission stay distinct. Original Core is unchanged.",
+  "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
