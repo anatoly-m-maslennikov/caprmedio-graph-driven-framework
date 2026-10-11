@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 3
-updated_at: "2026-10-10 23:34:31 +0400"
+version: 4
+updated_at: "2026-10-12 03:41:05 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1969]
@@ -29,15 +29,15 @@ Apply only the separately approved exact migration packet and retain truthful hi
 
 ## Details
 
-This grouping Plan has no own implementation work. Decompose the approved packet into bounded child Tasks before execution. Required prerequisites: CA-P-1967, CA-P-1910's actual Done receipt and separate Operator approval of CA-P-1910's exact final preview hash/source frontier. CA-P-1911 owns the sole application execution; these Tasks only organize its bounded batches. Its current execution gates must pass before any effect.
+This grouping Plan has no own implementation work. Decompose the approved packet into bounded child Tasks before execution. Required prerequisites: completed independently verified CA-P-1966 re-review/adaptation/re-pin, CA-P-1967, CA-P-1910's actual Done receipt and separate Operator approval of CA-P-1910's exact final preview hash/source frontier. CA-P-1911 owns the sole application execution; these Tasks only organize its bounded batches. Its current execution gates must pass before any effect.
 
 Reuse the existing governed mutation boundary. Coordinate the applier with CA-P-1911; one owner applies each source once. If no admitted applier is available, stop and request the required authority; do not invoke raw ATOM_UPDATE internals or remove the standalone apply guard.
 
-Recheck all pins before effects. Apply only approved Subjects, required Version +1/updated_at/history effects and the exact approved minimum grammar revisions. Preserve ordinary Summary/Substance/Scope/Details and all unrelated metadata. Preserve earlier Atom contents through Git and the applicable approved archive policy; record effect/Atom IDs in the Journal, not duplicate Atom bodies.
+Recheck all pins before effects. Apply only approved Subjects, required ordinary Version +1/updated_at/history effects and the exact approved minimum grammar revisions. Preserve the original intended `status` rather than forcing `Active`, ordinary Summary/Substance/Scope/Details and all unrelated metadata. A type-change discovery is excluded, reported and routed to Step 2; it is not an admitted effect here. Preserve earlier Atom contents through Git and the applicable approved archive policy; record effect/Atom IDs in the Journal, not duplicate Atom bodies.
 
 Process disjoint approved batches with one integration/Git owner. Failed or uncertain effects stop; inspect actual state before resume. No automatic rollback, retry, runtime activation or release permission is implied. Validate each batch and record actual after pins.
 
-Preparation alone cannot complete this group. Require the prepared effect children, CA-P-1911's actual completed single execution and after-state verification. For each same-ID update, verify exact Version +1, actual Project-time timestamp, new current Active revision and prior Archived history. Git retains exact prior contents/versions. Report actual Journal record references for required effects; an absent/failed required record is incomplete, not a fabricated success.
+Preparation alone cannot complete this group. Require the prepared effect children, CA-P-1911's actual completed single execution and after-state verification. For each same-ID ordinary update, verify exact Version +1, actual Project-time timestamp, preserved intended status and required prior history/archive treatment; do not force an original non-archived Atom to `Active`. Git retains exact prior contents/versions. Report actual Journal record references for required effects; an absent/failed required record is incomplete, not a fabricated success.
 
 All other body updates remain blocked until CA-P-1969 passes.
 

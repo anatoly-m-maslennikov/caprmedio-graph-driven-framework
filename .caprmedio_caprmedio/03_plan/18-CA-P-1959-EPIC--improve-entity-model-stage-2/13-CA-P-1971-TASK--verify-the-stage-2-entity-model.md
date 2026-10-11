@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 4
-updated_at: "2026-10-12 03:19:36 +0400"
+version: 5
+updated_at: "2026-10-12 03:40:17 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
 ---
@@ -31,13 +31,15 @@ Verify the final RMEDO sources and their reproducible entity graph after both or
 
 Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisite: CA-P-1970.
 
-Independently check final Subjects, Summary, Substance, Scope and Details against the accepted batch decisions and current governing RMED+O. Verify source identities, revisions, history, evidence coverage and affected validation/tests.
+Independently check final Subjects, Summary, Substance, Scope and Details against the accepted batch decisions and current governing RMED+O. Verify source identities, revisions, history, evidence coverage and affected validation/tests. Confirm the prospective Entity hierarchy (`Entity -> Object | Term | Selection`, Object -> Occurrent | Continuant), Revision/Journal under History, and Carrier under Continuant rather than as a generic root.
 
-Check Summary replacements have new IDs and recorded lineage, not overwritten same-ID history. Use a separately authored expected ledger/oracle without calling the producer's graph builder, and prove altered outputs are rejected.
+Check each ordinary identity-preserving update selected its current original NON-ARCHIVED eligible source, made exactly Version `+1`, and archived the previous original without a second bump; current need not be Active. Check Type changes created an entirely new Atom/new ID and archived the old Atom. Check a changed Summary received a new ID unless governing policy separately changed, without claiming Type is its sole trigger. Verify `Atom.ID`/`Scope Unit.ID` semantic names retain storage keys, `Atom` remains distinct from `atom`, stored IDs are bare, archived originals share IDs at distinct Versions, and Atom filenames in all statuses use `AtomID@Version-SCOPE_NAME--summary.md` with filename-only `@` and Scope NAME rather than label/path; references use ID plus Version. Use a separately authored expected ledger/oracle without calling the producer's graph builder, and prove altered outputs are rejected.
+
+Verify the Step-2 sequence ran RMEDO-first and then covered D-approved carrier/reference changes, identity consumers, Applicable Methodology compiler consumers and the Terms builder. Check no unapproved rename or automatic runtime/release rebuild was performed. For Applicable Methodology, independently prove selected sources were current NON-ARCHIVED eligible versions; source ID, Version and authored content were preserved; only projected Status/provenance differed; Project Configuration authored corrections before selection/projection; and the whole Projection remained a reusable, non-authoritative lifecycle output with no independently versioned member.
 
 Rebuild the graph from authoritative Subjects with pinned implementation and compare the final relation semantics with the accepted model. Report unresolved, excluded and deferred matters explicitly. Terms remain a separate graph; same spelling does not authorize a Term edge.
 
-Verify the Terms Graph adoption results produced under CA-P-1970 against CA-P-1959's agreed decisions. Require aligned RMEDO and actual evidence from the affected builder, not just updated planning or candidate text. Check definitions derived from multiple source cases, contributing source passages/versions/scopes, reuse without new authority, and rebuilding after source correction. Independently check that different allowed-value sets alone are not meaning conflicts, disjoint scoped meanings remain visible, incompatible overlapping meanings are flagged and missing evidence or uncertain scope is unresolved. Reject invented properties such as `Scope Unit.Status`, unsupported native Relations and silently settled conflicts. Consume source-pinned child verification receipts; split additional independent checks into bounded children if necessary.
+Verify the Terms Graph adoption results produced under CA-P-1970 against CA-P-1959's agreed decisions. Require aligned RMEDO and actual evidence from the affected builder, not just updated planning or candidate text. Check definitions derived from multiple source cases, contributing source passages/versions/scopes, reuse without new authority, and rebuilding after source correction. Independently check that different allowed-value sets alone are not meaning conflicts, disjoint scoped meanings remain visible, incompatible overlapping meanings are flagged and missing evidence or uncertain scope is unresolved. Reject invented properties such as `Scope Unit.Status`, unsupported native Relations and silently settled conflicts. Run recorded positive and negative controls for intended non-Active status, bare ID/archive version, Scope NAME, excluded projected Archived versus historical input, lifecycle, source eligibility, projection provenance, scoped-meaning conflict and unapproved rename cases. Consume source-pinned child verification receipts; split additional independent checks into bounded children if necessary.
 
 Deliver one final receipt with exact source, implementation and output hashes, actual check results and remaining work. No automatic installed-copy refresh, runtime activation, release, push, PR or native MCP delivery follows from this pass. Split verification if it exceeds 15 minutes.
 

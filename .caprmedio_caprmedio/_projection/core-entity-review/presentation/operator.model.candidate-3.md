@@ -4,7 +4,8 @@ Status: Candidate; not adopted Core authority.
 
 Saved: 2026-10-11, Asia/Tbilisi.
 
-Updated: 2026-10-12, Asia/Tbilisi — Terms Graph definitions derived from source usage.
+Updated: 2026-10-12, Asia/Tbilisi — clarified Atom identity, versioning,
+status/currentness, filenames and Applicable Methodology source eligibility.
 
 Basis: the Operator's latest decisions in this conversation. This document
 supersedes the wording of candidate #2 presented in chat, which was not saved.
@@ -47,9 +48,9 @@ by this project.
 - `/`: broader kind to narrower kind.
 - `.`: bearer to dependent Object.
 - `:`: Property to allowed value, not assignment.
-- No `@` relation operator. An archived Atom ID may end in `@<Version Number>`;
-  that is an ID suffix, not Subject relation syntax. Delivery policies define
-  storage conventions.
+- No `@` relation operator. `@<Version Number>` is filename punctuation only;
+  it is neither part of an Atom ID nor Subject relation syntax. Delivery
+  policies define storage conventions.
 
 Indentation outside a taxonomy is grouping or ownership, not an inferred `/` edge.
 The relation meanings shown here are candidate meanings, not newly admitted
@@ -208,14 +209,14 @@ Implementation; this candidate creates no Implementation Atoms.
 
 | Item | Identity or reference |
 | --- | --- |
-| Current, non-archived original Atom | `Atom.ID`: `(project prefix)-(Content Role first letter)-(number)` |
-| Archived Atom state | the same base ID + `@` + Version Number, e.g. `CA-P-123@3` |
+| Original Atom, current or archived | stored `Atom.ID`: `(project prefix)-(Content Role first letter)-(number)` |
+| Historical Atom state | Atom ID + separate Version Number, e.g. `CA-P-123`, version `3` |
 | Scope Unit | `Scope Unit.ID`: `(project prefix)-SU-(number)` |
 | Carrier | Carrier ID; not filename/path |
 | Execution | Execution ID |
 | Actor | Actor Type + optional Name; individual unnamed distinctions deferred |
 | Dependent Object | bearer identity + dependent name |
-| Historical Atom lookup | version-qualified ID, e.g. `CA-P-123@3` |
+| Historical Atom lookup | Atom ID + Version Number, e.g. `CA-P-123`, version `3` |
 | Other unversioned Artifact state | Artifact ID + Updated At |
 
 Example dependent identity: `atom(atom_id="CA-R-123").status` within the selected
@@ -226,37 +227,46 @@ The semantic display names are `Atom.ID` and `Scope Unit.ID`. This does not rena
 storage keys or the `atom_id` selector argument.
 
 ```text
-Current / Active Atom
+Current non-archived Atom
   Atom.ID = CA-P-123
+  Version Number = 4
+  Status = Done
 
 Archived version 3
-  Atom.ID = CA-P-123@3
+  Atom.ID = CA-P-123
+  Version Number = 3
 
-Archived version 4
-  Atom.ID = CA-P-123@4
+Atom filename for version 4
+  CA-P-123@4-SCOPE_NAME--summary.md
 ```
 
-The part before `@` is the stable base/lineage ID. The complete archived ID
-identifies one historical state. This supersedes the earlier candidate wording
-that allowed multiple archived originals to carry the same unqualified Atom ID.
-The suffix must agree with Version Number; it is not another independent counter.
+The bare ID is the stable lineage ID and remains the stored `Atom.ID`. Historical
+references carry that ID and the separate Version Number. `@<Version Number>`
+appears only in Atom filenames. All Atom filenames use the required form
+`AtomID@Version-SCOPE_NAME--summary.md`; `SCOPE_NAME` is the Scope Unit Name,
+not its Label or full path.
 
-Every Atom update increments Version Number by one: 1, 2, 3, 4. The previous
-version becomes archived history; the new current version is Active in the
-agreed source-version transition. Archived history does not permanently archive
-the base ID or transfer its Status to future versions.
+An ordinary identity-preserving update creates the next Version Number and
+archives the older version without incrementing it again. The new non-archived
+version preserves its intended Status (for example, Done or Backlog); it is not
+forced to Active. A Type change creates a new Atom with a new ID and archives
+its predecessor, rather than making a same-ID version change. Type is not the
+only replacement trigger; the current Summary identity rule remains in force.
 
 Across non-archived original authoritative Atom folders together, at most one
-original carries a base ID. Archived originals are distinguished by their full
-version-qualified IDs. Default lookup covers Active originals; historical lookup
-uses an ID such as `CA-P-123@3`. Existing non-archived status containers remain
-inside the current-original uniqueness boundary. Drafts have no assigned Atom
-IDs; no Draft semantic deduplication policy is added.
+original carries a bare ID. Archived originals may share that bare ID at different
+Version Numbers. Default lookup still covers Active originals; that is a
+view/filter, not the definition of currentness. Current means non-archived.
+Historical lookup uses Atom ID plus Version Number. Existing non-archived status
+containers remain inside the current-original uniqueness boundary. Drafts have
+no assigned Atom IDs; no Draft semantic deduplication policy is added.
 
 Projected instances still belong to separate views; an original and its derived
-copy do not become one Object merely because they share a base ID. Active copies
-use the source base ID; Archived copies qualify it with their source Version
-Number. Within one view, the complete ID distinguishes archived versions.
+copy do not become one Object merely because they share a bare ID. An Applicable
+Methodology projected Atom member preserves the source Atom ID, Version Number
+and authored content; its projection-local Status and provenance may differ. An
+excluded member may be Archived in the Projection without becoming an archived
+historical source version.
 
 Scope Unit ID stays stable when Label, Name or path changes. Metadata folder names
 retain `(project prefix)-SU-(number)-(LABEL)-(NAME_NAME)`. Project-root delivery
@@ -354,28 +364,30 @@ planned product candidates, not automatically accepted Scope Units or live compo
 
 ```text
 Core + installed Extensions + Project Configuration
-  → select the source Atoms
+  → select current, non-archived, eligible source versions
   → project each selected source Atom one-to-one
-  → place projected members in Active or Archived according to applicability
+  → place selected members in Active or Archived according to applicability
   → record applicability and conflict-resolution decisions
 ```
 
-Each derived member preserves its source base/lineage ID, Version Number and
-relative source link. Its own ID follows the Active/Archived format above;
-the source reference still identifies the exact original source state. This
-refines the earlier literal-ID-copy rule for Archived projected members, without
-creating another source Atom or incrementing the source Version Number.
-Exact source-state provenance must not be reduced to an unversioned link.
+Each derived member preserves its source Atom ID, Version Number, authored
+content and relative source link. The source reference identifies the exact
+original source state; projection-local Status and provenance do not alter it.
+Applicable Methodology admits neither every Status nor every available source:
+its input is only current, non-archived, eligible selected source versions.
 The whole Projection has one lifecycle and its own rebuild tracking.
 
 Not every member is Active. Excluding a projected member does not mutate its
-original source. Conflict resolution can create a new authored original Atom
-in Project Configuration; that original can then be projected one-to-one.
-Multiple originals are not merged into one projected Atom.
+original source or turn it into a historical source version. Source corrections
+are authored in Project Configuration and then projected through the whole
+Projection lifecycle. Conflict resolution can create a new authored original
+Atom there; that original can then be projected one-to-one. Multiple originals
+are not merged into one projected Atom.
 
-The Journal records the Atom IDs projected to Active, projected to Archived,
-or created in Project Configuration. Git preserves their contents and versions.
-An applicability exclusion and an archived historical version are different.
+The Journal records Atom IDs and Version Numbers projected to Active, projected
+to Archived, or created in Project Configuration. Git preserves their contents
+and versions. An applicability exclusion and an archived historical version are
+different.
 
 The production Scope Unit and the delivered Applicable Methodology Projection
 are separate Objects. The Projection does not replace Core, Extension or
@@ -513,7 +525,7 @@ Projection; it is not a new source of truth or a separate definition layer.
 Terms can develop as their source cases develop. Their meanings are not fixed
 by assigning each Term to one definition-owning Atom.
 
-Each derived meaning retains the contributing Atom IDs, Version Numbers,
+Each derived meaning retains the contributing Atom IDs and Version Numbers,
 source passages and applicability scopes. The Projection states which sources
 it covers. Missing evidence or unclear scope remains visible; compilation must
 not invent a settled meaning or hide disagreements behind one definition.
@@ -547,11 +559,11 @@ retire source Atoms or implement extraction, compilation or conflict checking.
 ```text
 Objects selected by identity
   one original Atom by ID
-  one historical Atom state by ID + Version Number
+  one historical Atom state by Atom ID + Version Number
   one dependent Object through its bearer
 
 Objects selected by conditions
-  Active Atoms
+  Active Atoms (a Status view)
   Atoms with a Content Role or Type
   Atoms owned by a Scope Unit
   Atoms targeting a Scope Unit
@@ -570,8 +582,9 @@ set. Its expression uses Terms, identifiers and syntax, but is not itself one Te
 Resolved members retain their identities and provenance.
 
 The Selection must make its source/view and filters clear. For Scope Units,
-ownership, targeting and applicability are not interchangeable. Current state,
-Active originals, historical states and projected copies are different views.
+ownership, targeting and applicability are not interchangeable. Current
+(non-archived) state, Active originals, historical states and projected copies
+are different views.
 Inputs used for an actual operation must retain the required source/state evidence.
 
 A saved selection definition may be an Atom or another Artifact. A separately
@@ -582,8 +595,9 @@ expression, resolved membership and materialized output are not interchangeable.
 
 ```text
 Core and methodology selections
-  Active original Core R Atoms
-  source Atoms selected for Applicable Methodology compilation
+  Active original Core R Atoms (default Status view)
+  current non-archived eligible selected source versions for Applicable
+  Methodology compilation
   projected members currently Active or Archived
   source Atoms involved in a reported conflict
 
@@ -653,9 +667,9 @@ Running the prompted work
 - Existing `atom(...)` syntax remains non-enumerating and case-sensitive.
 - `Atom.ID` and `Scope Unit.ID` are candidate semantic display names only;
   storage/selector keys are unchanged.
-- The Active/base and Archived/version-qualified Atom ID formats are candidate
-  identity rules only. Existing archive contents, filenames, ID validation,
-  lookup and relation references have not been migrated.
+- Bare Atom IDs, separate Version Numbers and Atom-filename `@Version`
+  punctuation are candidate rules only. Existing archive contents, filenames,
+  ID validation, lookup and relation references have not been migrated.
 - Objects Graph is a proposed display name; tools, paths and APIs retain their
   current names until separately authorized migration.
 - Property fields are not a replacement schema; role/Type-required content is

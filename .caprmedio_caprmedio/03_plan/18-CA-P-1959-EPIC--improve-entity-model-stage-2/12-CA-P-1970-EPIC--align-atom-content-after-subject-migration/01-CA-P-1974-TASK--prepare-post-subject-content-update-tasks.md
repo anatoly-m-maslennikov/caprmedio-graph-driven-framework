@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Tool, Operator]
-version: 4
-updated_at: "2026-10-12 03:19:36 +0400"
+version: 5
+updated_at: "2026-10-12 03:40:17 +0400"
 relations:
   is_decomposition_of: [CA-P-1970]
 ---
@@ -31,15 +31,17 @@ Define bounded RMEDO content review/update Tasks only after the complete Subject
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
 
-Required prerequisite: CA-P-1969. Verify its complete current receipt, then inventory current Summary/Substance/applicability Scope/Details and assign disjoint R, M, E, D and O batches. Create review/proposal, authorized update and independent verification children under CA-P-1970 with exact source pins and at-most-15-minute leaf work. Preserve the accepted Subjects and meaningful type/role constraints. Use the whole Subject AND whole owner Scope Unit omission rule. Record concrete unresolved decisions, not guessed replacements. This preparation Task creates Plans only; it does not draft content replacements before the gate or approve/apply them.
+Required prerequisite: CA-P-1969. Verify its complete current receipt, then inventory current NON-ARCHIVED eligible Summary/Substance/applicability Scope/Details source versions and assign disjoint R, M, E, D and O batches. Create review/proposal, authorized update and independent verification children under CA-P-1970 with exact source pins and at-most-15-minute leaf work. Preserve the accepted Subjects and meaningful type/role constraints. Use the whole Subject AND whole owner Scope Unit omission rule. Record concrete unresolved decisions, not guessed replacements. This preparation Task creates Plans only; it does not draft content replacements before the gate or approve/apply them.
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
 
-Classify Summary differences as new-ID replacements under current authority, not same-ID updates. Preserve the Substance/Scope/Details change classes. Finishing preparation does not finish CA-P-1970; its generated review/effect/verification children must complete.
+Classify every proposed identity-preserving update as exactly Version `+1` from its current original NON-ARCHIVED Atom, with the prior original archived without a second bump; current does not mean Active. Classify a Type change as a new Atom/new ID and archive of the old Atom. A changed Summary requires a new ID unless governing policy separately changes; Type is not its sole replacement trigger. Preserve bare stored IDs, distinct archived versions of the same ID, `Atom.ID`/`Scope Unit.ID` semantic names without storage-key changes, and the `Atom`/`atom` distinction. Plan Atom filenames in all statuses as `AtomID@Version-SCOPE_NAME--summary.md` (`@` filename-only), with Scope NAME rather than a label or path; references use ID plus Version. Preserve the Substance/Scope/Details change classes. Finishing preparation does not finish CA-P-1970; its generated review/effect/verification children must complete.
+
+After the gate, create a distinct Step-2 sequence after RMEDO for exact D-approved carrier/reference changes, identity consumers, Applicable Methodology compiler consumers and the Terms builder, then independent verification. Do not perform renames during preparation or this current Epic edit; do not plan an automatic runtime/release rebuild. For Applicable Methodology, assign a lifecycle child that selects current NON-ARCHIVED eligible source versions, preserves source ID/Version/authored content, changes only projected Status/provenance, has Project Configuration author corrections before selection/projection, and treats the whole Projection as reusable non-authority with no independently versioned member.
 
 Include the Terms Graph work from CA-P-1959 and CA-P-1970 in the generated Tasks. Cover current RMEDO review, accepted source changes, existing builder/extractor/diagnostic alignment and independent acceptance checks in that order. Give each leaf an exact source or file scope, a deliverable, prerequisites and an acceptance check; split it until own work fits 15 minutes. Map existing CA-P-1872 work before adding overlapping graph Tasks.
 
-Include the rejected single-definition-owner assumptions and their dependent authoring/validation contracts in the review inventory. Include optional Semantics only under the accepted content rules. Carry the parent's acceptance cases into the child checks, especially shared meaning with different allowed-value sets, disjoint scoped meanings, incompatible overlapping uses, unresolved scope and source-linked reuse. Do not turn `*.Status` into a new property or silently create `Scope Unit.Status`.
+Include the prospective Entity hierarchy (`Entity -> Object | Term | Selection`, Object -> Occurrent | Continuant), Revision/Journal under History, and Carrier under Continuant in the review inventory. Include the rejected single-definition-owner assumptions and their dependent authoring/validation contracts. Include optional Semantics only under the accepted content rules. Carry the parent's positive and negative acceptance cases into the child checks: intended non-Active status, bare ID with archived version, Scope NAME rather than label/path, excluded projected Archived versus historical input, shared meaning with different allowed-value sets, disjoint scoped meanings, incompatible overlapping uses, unresolved scope, source-linked reuse, invalid lifecycle transition, stale/non-eligible source, and a prohibited storage-key or unapproved filename rename. Do not turn `*.Status` into a new property or silently create `Scope Unit.Status`.
 
 ### Definition of Done
 

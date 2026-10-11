@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Tool, Operator]
-version: 3
-updated_at: "2026-10-10 23:34:31 +0400"
+version: 4
+updated_at: "2026-10-12 03:41:05 +0400"
 relations:
   is_decomposition_of: [CA-P-1968]
   blocks: [CA-P-1911]
@@ -32,7 +32,7 @@ Decompose the exact approved migration packet into bounded Tasks without applyin
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
 
-Required prerequisites: CA-P-1967, CA-P-1910's actual Done receipt and separate approval of CA-P-1910's exact final sealed packet. Recheck the accepted source frontier and admitted mutation route. Define disjoint application/verification Tasks, one source-effect owner, exact expected bytes, Version/timestamp/history/Journal handling, stopping conditions and evidence outputs. CA-P-1911 owns the single application execution; these children organize only its batches. Create children under CA-P-1968 and retain the external approval/pin checks on each. Do not apply, journal effects that did not occur, create an unguarded writer or authorize rollback/runtime work.
+Required prerequisites: completed independently verified CA-P-1966 re-review/adaptation/re-pin, CA-P-1967, CA-P-1910's actual Done receipt and separate approval of CA-P-1910's exact final sealed packet. Recheck the accepted source frontier and admitted mutation route. Define disjoint application/verification Tasks, one source-effect owner, exact expected bytes, ordinary Version +1/timestamp/history/Journal handling, stopping conditions and evidence outputs. Preserve intended status; report and route a type-change discovery to Step 2 rather than creating an effect Task for it. CA-P-1911 owns the single application execution; these children organize only its batches. Create children under CA-P-1968 and retain the external approval/pin checks on each. Do not apply, journal effects that did not occur, create an unguarded writer or authorize rollback/runtime work.
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
 

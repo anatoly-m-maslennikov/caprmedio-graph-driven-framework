@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 148
-updated_at: "2026-10-11 12:34:46 +0400"
+version: 149
+updated_at: "2026-10-12 03:41:05 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -31,7 +31,7 @@ Map every selected current RMEDO Subject occurrence to its supported candidate E
 
 This grouping Plan has no own implementation work. Before execution, create disjoint child Tasks of at most 15 minutes each.
 
-Required prerequisite: CA-P-1963. Pin the current authoritative Core frontier and inventory every governs/depends_on occurrence, including unchanged and excluded cases. Compare current meanings with the frozen candidate and consolidated review; do not overwrite their captured inputs or reuse old pins as current.
+Required prerequisite: CA-P-1963. Pin the current authoritative Core frontier and inventory every governs/depends_on occurrence, including unchanged and excluded cases. Compare current meanings with Candidate #3 plus later Operator decisions; older frozen candidate/review inputs remain historical evidence only. Do not overwrite captured inputs or reuse old pins as current.
 
 Read the actual source content to decide whether an old / denotes narrowing or bearer qualification and whether a whole Subject target needs replacement. Keep the governs/dependency distinction and content-role views. The 442 display-path proposals are not executable replacements; the 149 follow-ups remain research work until supported.
 
@@ -234,11 +234,19 @@ CA-P-2144–2151 review all 204 remaining unqualified baseline-only origins acro
 
 CA-P-2144–2152 are Done and separately committed. All 204 selected unqualified origins across 145 owners passed independent semantic acceptance and 112 exact report controls: 59 supported proposals, 145 explicit nulls. Four actual frontier-audit wrong-data controls reject defects. Corrected Projection/Journal false nulls, inverse-kind admission and the Principle omission are reflected only in final accepted reports; unsupported audit claims and display-only prefix rejection are not accepted. Current saved ledger remains 1869/1540/1125 until CA-P-2153–2155's separate integration passes. Original Core remains unchanged; full mapping, selectors, quarantines and migration/content gates remain open. Evidence: `_projection/core-entity-review/stage2/checkpoint-unqualified-research-2144-2152.json`.
 
-### Current checkpoint
+### Historical CA-P-2144–2155 checkpoint
 
 CA-P-2144–2155 complete this bounded increment: eight independently accepted reviews cover 204 origins across 145 owners, adding 59 supported mappings and retaining 145 explicit nulls. The actual saved ledger passes independent current-source verification: 907 sources, 4534 references, 1928 proposed, 1540 unchanged and 1066 unresolved. All 329 distinct relevant tests pass (33 focused, 296 native), plus 112 report controls, four frontier-audit controls and ten complete-ledger wrong-output controls. Original Core and frozen evidence are unchanged. Eight quarantines, selector grammar and final graph/preview/application/content gates remain open. Evidence: `_projection/core-entity-review/stage2/checkpoint-unqualified-integration-2144-2151.json`. This is verified mapping progress, not a completed Epic or source migration.
 
 Earlier research and integration totals above are historical.
+
+### Current prospective baseline and re-review gate
+
+The prospective mapping target is [Candidate #3 — Object, Term, Selection](../../_projection/core-entity-review/presentation/operator.model.candidate-3.md) plus the Operator's later decisions; those decisions outrank the older seven-root/frozen JSON candidate. Frozen captures and the saved ledger remain preserved historical evidence and must not be rewritten.
+
+CA-P-2166 subsequently completed its bounded approved selector and metadata increment; its completed increment is documented in `_projection/core-entity-review/stage2/approved-implementation/current-increment.md`. The historical CA-P-2144–2155 checkpoint above records eight quarantines, selector grammar and final gates as open at that time. This statement does not claim that a fresh re-pin ran today.
+
+**PENDING — CA-P-1966 owns the required re-review, adaptation and re-pin before CA-P-1909 acceptance or CA-P-1967 sealing.** Re-review every prospective mapping against the current original source and Candidate #3, record verified explicit current source hashes plus the candidate version/reference, and retain semantic source evidence for each mapping. No old ledger row, mapping acceptance or frozen pin is silently inherited; settled Operator selector decisions remain settled. Examples such as `Atom.Atom ID` to prospective `Atom.ID`, `Scope Unit.ID`, `Object`/`Term`/`Selection`, and `History` require source evidence, not blind replacement. The current selected-Subject-tool frontier remains an explicit admitted limitation; do not bypass its safe guards.
 
 ### Definition of Done
 
