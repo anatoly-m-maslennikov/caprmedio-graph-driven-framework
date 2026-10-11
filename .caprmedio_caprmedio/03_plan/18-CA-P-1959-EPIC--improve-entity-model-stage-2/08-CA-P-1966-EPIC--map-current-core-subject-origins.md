@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 84
-updated_at: "2026-10-11 06:25:25 +0400"
+version: 85
+updated_at: "2026-10-11 06:34:06 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -116,6 +116,10 @@ Independent semantic-review children assess the 573 currently proposed follow-up
 - [CA-P-2077 — Audit current-source drift in mapping evidence](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/64-CA-P-2077-TASK--audit-current-source-drift-in-mapping-evidence.md)
 
 ### Current review checkpoint
+
+- [CA-P-2087 — Recheck current grammar Subject origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/72-CA-P-2087-TASK--recheck-current-grammar-subject-origins.md)
+
+CA-P-2086/2088/2089 prepare and verify one complete working ledger under CA-P-2045. CA-P-2087 supplies current meaning evidence for the five adopted grammar-source effects. This consolidates existing progress and current provenance; it does not infer selectors, edit original Subjects or close the mapping Epic.
 
 CA-P-2083 is Done: Fourteen Atom ID field mappings are supported by the current CA-R-728 definition after independent review corrected an overly conservative all-null proposal. Five compound identity cases remain null; no selector or source rewrite is introduced.
 
