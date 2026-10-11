@@ -111,6 +111,12 @@ class DiscoveryServerFrontierTests(unittest.TestCase):
             tools_fn = server.tools["discover_tools"]
             query_model = inspect.signature(tools_fn).parameters["request"].annotation
             tools = asyncio.run(tools_fn(query_model(query="", availability="mcp"))).root
+            if "discover_operations" in server.tools:
+                operations_fn = server.tools["discover_operations"]
+                operations_model = inspect.signature(operations_fn).parameters["request"].annotation
+                operations = asyncio.run(operations_fn(operations_model(query="", availability="mcp"))).root
+                self.assertEqual([row["id"] for row in operations["matches"]], ["CA-O-164"])
+                self.assertEqual(operations["matches"][0]["tools"], ["release_version"])
         return server, context, tools
 
     def test_create_server_passes_actual_selected_names_to_canonical_context_and_discovery(self):
