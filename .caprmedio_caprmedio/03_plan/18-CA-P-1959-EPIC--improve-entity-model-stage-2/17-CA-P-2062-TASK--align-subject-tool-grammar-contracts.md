@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Tool, Plan, Projection]
-version: 4
-updated_at: "2026-10-11 04:37:07 +0400"
+version: 5
+updated_at: "2026-10-11 04:40:07 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1965]
@@ -40,7 +40,7 @@ Preserve old byte-exact source versions under role-local archive paths and curre
 ### Decomposing Plans
 
 - [CA-P-2063 — Align Subject Tool Requirements and Methods](17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/done/01-CA-P-2063-TASK--align-subject-tool-requirements-and-methods.md)
-- [CA-P-2064 — Align Subject Tool Evaluation and Delivery](17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/02-CA-P-2064-TASK--align-subject-tool-evaluation-and-delivery.md)
+- [CA-P-2064 — Align Subject Tool Evaluation and Delivery](17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/done/02-CA-P-2064-TASK--align-subject-tool-evaluation-and-delivery.md)
 - [CA-P-2065 — Align Subject Tool Operations](17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/done/03-CA-P-2065-TASK--align-subject-tool-operations.md)
 - [CA-P-2066 — Accept and compile aligned Subject Tool contracts](17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/04-CA-P-2066-TASK--accept-and-compile-aligned-subject-tool-contracts.md)
 

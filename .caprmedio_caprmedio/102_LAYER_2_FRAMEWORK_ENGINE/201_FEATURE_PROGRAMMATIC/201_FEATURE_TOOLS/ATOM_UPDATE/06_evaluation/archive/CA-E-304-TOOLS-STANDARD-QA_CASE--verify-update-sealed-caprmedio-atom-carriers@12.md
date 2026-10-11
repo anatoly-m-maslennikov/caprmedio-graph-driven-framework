@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Atom/Revision/Updated At", "Update Sealed Atom Carriers", "Artifact/Carrier", "Journal/Record"]
-version: 13
-updated_at: "2026-10-11 04:36:44 +0400"
+version: 12
+updated_at: "2026-10-10 23:57:17 +0400"
 relations:
   evaluation_for: [CA-R-866, CA-O-030, CA-R-1464, CA-R-1415, CA-R-1371]
   relates_to: [CA-O-067, CA-R-1432, CA-R-1788, CA-R-1662]
@@ -49,14 +49,6 @@ Apply valid exact list-item changes in each direction and at each explicit index
 Reject before writing when the Atom ID, Version, SHA-256, field/index, or old value is stale or wrong; when Subjects are malformed, nested, missing, duplicated ambiguously, or the final dependency list would contain duplicate values; or when the requested path is absolute, escapes the approved root, is a symlink, a projection, or is missing. Do not repair any rejected carrier. Validate the complete resulting carrier, including frontmatter schema, identity, Subjects, and list indexes, before publication.
 
 For an accepted non-no-op Subject change, require Version `+1` and an actual edit-time Updated At. Preserve all unrelated frontmatter and body bytes, unknown keys, formatting, and CRLF/LF line endings; only the explicit Subject list item and required Version/Updated At may differ. A local preview is deterministic and writes nothing; do not claim a new MCP binding. An old value equal to the new value, or a semantically unchanged resulting list, is a no-op: report it without a new Version, timestamp, archive, Revision, or Journal effect. Recheck the expected pins at apply time, and prove the unchanged standalone `ATOM_UPDATE --apply` guard still rejects unsupported direct apply. Inject a failed validation or publication and prove the fixture returns byte-for-byte to its before ledger.
-
-### Subject-profile preview cases
-
-The closed Subject-only root envelope is exactly `{atoms, subject_profile?}`; each atom item remains exactly `{selector, expected, subject_patches}`. The exact path selector is a source locator, not Subject syntax. Exercise omission and explicit `legacy`, and explicit `approved`; each preview checks both its pinned source and proposed result with that one profile. Unknown or malformed profiles, extra root/item/patch keys, mixed Subject-only/full-carrier modes, cross-profile conversion, inferred profile selection, escaping, conjunctions, selectors inside a Subject value, and grammar migration fail.
-
-Legacy keeps dots literal and uses `/` for bearer qualification and `:` for allowed values. Approved recognizes `/` as broader-to-narrower, `.` as bearer-to-dependent, and `:` as Property-to-allowed-value. Both reject `@` in Subject syntax; it is neither a fourth operator nor carrier/display notation. For a non-no-op, verify exact selected scalar replacement, Version `N+1`, illustrative Updated At, full before/after digests, byte preservation outside Subjects/Version/Updated At, and deterministic `preview_sha256`.
-
-The preview result includes its `subject_profile` and `subject_profile_evidence` with exactly `grammar_pins` and `native_admission: not_performed`; each grammar pin contains `atom_id`, `version`, `path`, and `sha256`, and these fields are included in the digest. Assert lexical syntax/direction validation only: no native endpoint, typed edge, target conformance, history, archive, Journal, MCP, source effect, or source migration is claimed.
 
 ### Acceptance criteria
 

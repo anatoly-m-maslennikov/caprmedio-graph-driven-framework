@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Tool, Plan, Projection]
-version: 1
-updated_at: "2026-10-11 04:20:40 +0400"
+version: 2
+updated_at: "2026-10-11 04:40:07 +0400"
 relations:
   is_decomposition_of: [CA-P-2062]
   blocks: [CA-P-2066]
@@ -35,3 +35,7 @@ Estimated own work: 15 minutes. Own only these four sources and exact prior-vers
 ### Definition of Done
 
 Not Done if any required source/pin/evidence is missing or stale, independent acceptance is absent, unrelated source/body/scope changes occur, required effects are overstated, or own work exceeds 15 minutes without decomposition.
+
+### Completion
+
+E301@14, E304@13, D424@9 and D425@9 are aligned. All prior generic QA clauses are retained verbatim; new profile cases are additive. Exact old archives, +1 versions, unchanged Summary/Scope/Subjects/header bytes and eight actual sealed effects passed Root checks. Subject_review_006 independently accepted all four and final ten-source agreement. Fixed D038/041, Core and implementation pins remain unchanged. Evidence: `_projection/core-entity-review/stage2/task-2064.receipt.json`. This is contract authoring, not code or source migration.

@@ -16,8 +16,8 @@ subjects:
     - "Artifact/Carrier"
     - "Scope Unit"
     - "Search Atom Carriers"
-version: 14
-updated_at: "2026-10-11 04:36:44 +0400"
+version: 13
+updated_at: "2026-10-10 23:57:17 +0400"
 relations: {"evaluation_for":["CA-R-863","CA-O-046"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -53,12 +53,6 @@ For `field=governs`, `field=depends_on`, and `field=both`, prove direction: a go
 Run the same lookup with conjunctive `--under`, lifecycle, content-role, and owner filters. A value found only in Markdown body text is not a Subject match. Each occurrence records Atom ID, Version, Status, owner, current Scope Unit, repository-relative path, SHA-256, Updated At, field, list index, and exact value; source pins cover the complete carrier bytes and results have stable ordering.
 
 Reject missing or unsupported field, value, match, root, lifecycle, `--under`, role, or owner inputs before traversal. Do not repair or write invalid files. A malformed or unreadable selected file produces a diagnostic. Repeat valid requests against an independently checked ledger, including duplicate list positions and all source pins, and prove every fixture byte remains unchanged.
-
-### Subject-profile cases
-
-Exercise omission and explicit `legacy`, and explicit `approved`; an unknown or malformed supplied profile fails before traversal. Legacy treats `.` as literal and uses only `/` and `:` as prefix boundaries. Approved uses `/`, `.`, and `:` as boundaries. Exact matching stays literal under either profile. In both profiles, reject `@` as Subject syntax; it is neither a boundary nor a fourth operator.
-
-Use mixed approved `/`, `.`, and `:` paths and legacy dotted names to prove that a request selects only the boundaries of its selected profile. Exclude lexical near-misses such as `Artifact/Atomology`. Results label the selected `subject_profile` and carry `subject_profile_evidence` with exactly `grammar_pins` and `native_admission: not_performed`; every grammar pin contains `atom_id`, `version`, `path`, and `sha256`. Assert that this evidence and the result are lexical only: no target conformance, native edge, NARROWER_THAN relation, carrier/display notation, selector syntax, source migration, or grammar adoption is inferred.
 
 ### Acceptance criteria
 
