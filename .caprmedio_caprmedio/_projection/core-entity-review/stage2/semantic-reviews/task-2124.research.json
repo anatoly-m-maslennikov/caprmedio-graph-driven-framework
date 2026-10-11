@@ -1,0 +1,1674 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2124",
+  "family": "cce_language_and_registries",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "input_pins": {
+    "manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2121-2128.inputs.json",
+      "sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+    },
+    "frozen_baseline_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2121-2128.contract.md",
+        "sha256": "77165a20424dbc6d2a67eaf0ee6363bf8bbedc161df3d6f4e003c7f757afe622"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/94-CA-P-2124-TASK--review-cce-language-and-registry-origins.md",
+      "sha256": "8b5bf49d13c1d9ed42caeb3af26aec6cb078bfdd002a714543faf382a962cb0a",
+      "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1274-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-authority-derivation-from-summary.md",
+        "sha256": "8a3c019fff4ad8e3d22e26343e8e3c31b1a5632c861b4cfd0ed85306c7efab76"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1297-CORE_META_MODEL-REQUIREMENT--prohibit-cce-operator-scope-unit-names.md",
+        "sha256": "8eb504d1c02ee204978061c7e6beab7e576c3d4afde6c97ff421601f66215434"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md",
+        "sha256": "656da0b5aa9efd3b16737e68ba2f390b2f9a7bd4ea7b2e460fc963d95f98a296"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+        "sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md",
+        "sha256": "c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md",
+        "sha256": "86b21d1fd3d11fae92d60f901cd1026201711d3a7801a16350c5049efc41e595"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+        "sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+        "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+        "sha256": "e0eff5e7fcfbe3a2384f00b3a195829e49136e5ecbda2a929e5cc6ff83d4a22d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md",
+        "sha256": "f9c8e95aaf79f92b2c92d3cedfdf173870102cac58f6a134fedb830cfe3c5197"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-METHOD--write-definitions-of-done.md",
+        "sha256": "5aaaa1e47a069d6a24f00fe4b1a4f5e81353bf9b03b2c9131ffd5315d72f49a3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+        "sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-230-CORE_META_MODEL-METHOD--define-registered-cce-operators-through-cce-methods.md",
+        "sha256": "b232fd54b2e93341c7227621683ab58cdf5abeabbece3a13c543a44fe4773519"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-233-CORE_META_MODEL--prefer-positive-normative-statements.md",
+        "sha256": "c377b64f94f41a68f97151370042bc08ec743ef7068ac723475acbe61b62e167"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md",
+        "sha256": "76e25a9c4bc88ecf5d9e44f7379ed4ba421e3248ae80583efef48ac2e43ad2c5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-235-CORE_META_MODEL--express-cardinality-with-comparison-operators-and-integer-literals.md",
+        "sha256": "738043ae13bf80391f1bd5ac62b179a7f68df6b6203474f322e78d8469f8456d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL--normalize-noncanonical-cce-operator-expressions.md",
+        "sha256": "11adc0ba64795bc0b33892dfed8ce46c24c93a3fcc364ba1179a2a84aaa096b9"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md",
+        "sha256": "03b8fab73bd3a910adeac50371d62fea8a5833836671fb9e3d502ff0062e654c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-CORE--define-content-role-specific-cce-profiles.md",
+        "sha256": "158b7e802ce470f95564bcc9a32644c4f501d4c14c5b278b0573c3e7b3f56b77"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL-CORE--resolve-the-effective-cce-role-profile.md",
+        "sha256": "c0f47bd447cde321bc74e49045b16c8bfcdaac54709d5dd2c362f218d93aa0f0"
+      }
+    ]
+  },
+  "selection": {
+    "family": "cce_language_and_registries",
+    "sources": 20,
+    "occurrences": 33,
+    "occurrence_id_set_sha256": "3ec553a0c01a5c6e7cc7cd0b9bb844ddd7b04270c4533e2238c1592df1a456ce",
+    "manifest_sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+  },
+  "supporting_current_definitions": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1269-CORE_META_MODEL-CORE-REQUIREMENT--define-claim.md",
+      "sha256": "5f0d2a2425973d9fe2050cf172122c474633af5e17deb9b9e1327a86d1a564b7",
+      "span_sha256": "5f0d2a2425973d9fe2050cf172122c474633af5e17deb9b9e1327a86d1a564b7",
+      "start_line": 1,
+      "end_line": 30,
+      "reason": "Claim is one independently replaceable statement owned by one Atom."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+      "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+      "span_sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+      "start_line": 1,
+      "end_line": 34,
+      "reason": "Operator is the collective human Actor, not a CCE token or token sequence."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+      "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+      "span_sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+      "start_line": 1,
+      "end_line": 32,
+      "reason": "Content Role is an Atom Property classifying the primary contribution of its Claim."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "span_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "start_line": 1,
+      "end_line": 42,
+      "reason": "Projection is a non-authoritative generated view; a requested Translation is not thereby a declared Projection identity."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+      "sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+      "span_sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+      "start_line": 1,
+      "end_line": 31,
+      "reason": "Artifact requires a governed identity persisting across Artifact Revisions; a registry label alone does not establish that identity."
+    }
+  ],
+  "counts": {
+    "assigned": 33,
+    "covered": 33,
+    "proposed": 7,
+    "unresolved": 26,
+    "current_sources": 20,
+    "current_evidence_spans": 33
+  },
+  "limits": [
+    "This is semantic research only; no source migration, native admission, selector, singleton kind, @ syntax, Artifact.Revision target, or source/Tool/Plan/Git change is authorized.",
+    "CCE language, token, operator, registry, expression, normalization, and profile labels are not automatically Entities; the collective Operator Actor remains distinct from CCE syntax.",
+    "Registry Artifact, Translation/Projection, and qualified role-profile identity remain unresolved unless a current source establishes their lifecycle, owner, and admitted candidate meaning."
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1274-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-authority-derivation-from-summary.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1274-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-authority-derivation-from-summary.md",
+      "source_atom_id": "CA-R-1274",
+      "source_version": 12,
+      "source_sha256": "8a3c019fff4ad8e3d22e26343e8e3c31b1a5632c861b4cfd0ed85306c7efab76",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Translation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body treats Translation as a requested non-authoritative rendering derived from complete source content. It does not establish one Translation Artifact with a declared selection, persistent identity, or lifecycle; the candidate does not authorize a generic syntax/view label as a new Entity target.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "A label or alias does not create another Entity."
+        },
+        {
+          "pointer": "/projection_member_model/authority_boundary",
+          "reason": "Derived views do not become independent authority, but this does not create a Translation Entity identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Translation remains a derived rendering of the complete source rather than Summary authority.",
+        "No Projection, Artifact, Carrier, or new language Entity is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1274-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-authority-derivation-from-summary.md",
+          "sha256": "8a3c019fff4ad8e3d22e26343e8e3c31b1a5632c861b4cfd0ed85306c7efab76",
+          "span_sha256": "36007b6acdcb44f75a41a08060d25bc8be2947ea2edfe47af48977072c4b310b",
+          "start_line": 23,
+          "end_line": 31,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1297-CORE_META_MODEL-REQUIREMENT--prohibit-cce-operator-scope-unit-names.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1297-CORE_META_MODEL-REQUIREMENT--prohibit-cce-operator-scope-unit-names.md",
+      "source_atom_id": "CA-R-1297",
+      "source_version": 11,
+      "source_sha256": "8eb504d1c02ee204978061c7e6beab7e576c3d4afde6c97ff421601f66215434",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "CCE Operator",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses or defines controlled-language word/symbol tokens, token sequences, normalization rewrites, or their method-assigned grammar function. The current Operator definition is a collective Actor, while these are syntax/semantic rules; no candidate Entity identity preserves that distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Syntax used to describe an Entity is not itself that Entity."
+        },
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor covers who performs work; a CCE token is not the collective Operator Actor."
+        }
+      ],
+      "preserved_distinctions": [
+        "The CCE token/expression and its assigned syntactic or logical function remain distinct from the Operator Actor.",
+        "No token, Method, expression, registry, selector, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1297-CORE_META_MODEL-REQUIREMENT--prohibit-cce-operator-scope-unit-names.md",
+          "sha256": "8eb504d1c02ee204978061c7e6beab7e576c3d4afde6c97ff421601f66215434",
+          "span_sha256": "f865d154e6c408b4de8ea5dc8b16f66185752196c63953f32c2018f97550b3a3",
+          "start_line": 22,
+          "end_line": 30,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md",
+      "source_atom_id": "CA-R-940",
+      "source_version": 15,
+      "source_sha256": "656da0b5aa9efd3b16737e68ba2f390b2f9a7bd4ea7b2e460fc963d95f98a296",
+      "field": "governs",
+      "index": null,
+      "old_value": "language",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Substance",
+      "confidence": 0.94,
+      "reason": "The complete current body directly constrains one Atom's shared Substance, currently labelled Claim, through readability, interpretation, or authoring of its primary contribution. The actual Operator decision confirms the legacy Atom/Claim field maps to Atom.Substance while preserving the owning Atom Content Role; CCE grammar and language tokens remain non-Entity qualifications.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/compact_examples/3",
+          "reason": "The candidate lists Atom.Substance as a named dependent Entity of Atom."
+        },
+        {
+          "pointer": "/content_direction/umbrella",
+          "reason": "The candidate names Substance as the content umbrella."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "A Property is a dependent Entity of its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Substance remains the dependent Entity of its owning Atom; Claim remains its role-specific label.",
+        "CCE grammar, language choice, modality, conditions, and operator syntax remain body qualifications, not new Entities or selectors."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-940-CORE_META_MODEL-CORE--keep-every-atom-claim-human-readable.md",
+          "sha256": "656da0b5aa9efd3b16737e68ba2f390b2f9a7bd4ea7b2e460fc963d95f98a296",
+          "span_sha256": "221ff8ce50dbff60a13f8af0e1acff2b0b18cbf9ed7df3d8a9e75dfe1134a5aa",
+          "start_line": 23,
+          "end_line": 30,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+          "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "span_sha256": "f152b86789e281e1f18ef87a5f68c870499840d3b0b0096f790b91e902124cfa",
+          "start_line": 11,
+          "end_line": 38,
+          "reason": "The actual Operator decision confirms Claim is the role-specific label of Atom.Substance, preserves the owning Atom Content Role, and maps legacy Atom/Claim to Atom.Substance."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+      "source_atom_id": "CA-R-941",
+      "source_version": 15,
+      "source_sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "CCE",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Substance",
+      "confidence": 0.94,
+      "reason": "The complete current body directly constrains one Atom's shared Substance, currently labelled Claim, through readability, interpretation, or authoring of its primary contribution. The actual Operator decision confirms the legacy Atom/Claim field maps to Atom.Substance while preserving the owning Atom Content Role; CCE grammar and language tokens remain non-Entity qualifications.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/compact_examples/3",
+          "reason": "The candidate lists Atom.Substance as a named dependent Entity of Atom."
+        },
+        {
+          "pointer": "/content_direction/umbrella",
+          "reason": "The candidate names Substance as the content umbrella."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "A Property is a dependent Entity of its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Substance remains the dependent Entity of its owning Atom; Claim remains its role-specific label.",
+        "CCE grammar, language choice, modality, conditions, and operator syntax remain body qualifications, not new Entities or selectors."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+          "sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815",
+          "span_sha256": "407c71e782494b6bc142622a5b059113c2d333a99e7efcce07956e8d65a29635",
+          "start_line": 24,
+          "end_line": 32,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+          "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "span_sha256": "f152b86789e281e1f18ef87a5f68c870499840d3b0b0096f790b91e902124cfa",
+          "start_line": 11,
+          "end_line": 38,
+          "reason": "The actual Operator decision confirms Claim is the role-specific label of Atom.Substance, preserves the owning Atom Content Role, and maps legacy Atom/Claim to Atom.Substance."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+      "source_atom_id": "CA-R-941",
+      "source_version": 15,
+      "source_sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815",
+      "field": "governs",
+      "index": null,
+      "old_value": "language",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Substance",
+      "confidence": 0.94,
+      "reason": "The complete current body directly constrains one Atom's shared Substance, currently labelled Claim, through readability, interpretation, or authoring of its primary contribution. The actual Operator decision confirms the legacy Atom/Claim field maps to Atom.Substance while preserving the owning Atom Content Role; CCE grammar and language tokens remain non-Entity qualifications.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/compact_examples/3",
+          "reason": "The candidate lists Atom.Substance as a named dependent Entity of Atom."
+        },
+        {
+          "pointer": "/content_direction/umbrella",
+          "reason": "The candidate names Substance as the content umbrella."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "A Property is a dependent Entity of its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Substance remains the dependent Entity of its owning Atom; Claim remains its role-specific label.",
+        "CCE grammar, language choice, modality, conditions, and operator syntax remain body qualifications, not new Entities or selectors."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-941-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-claim-one-precise-interpretation.md",
+          "sha256": "69c65f109f6c93f157f3a2a6aef0f623d7ff477ef23cdab8faa44755771a2815",
+          "span_sha256": "407c71e782494b6bc142622a5b059113c2d333a99e7efcce07956e8d65a29635",
+          "start_line": 24,
+          "end_line": 32,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+          "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "span_sha256": "f152b86789e281e1f18ef87a5f68c870499840d3b0b0096f790b91e902124cfa",
+          "start_line": 11,
+          "end_line": 38,
+          "reason": "The actual Operator decision confirms Claim is the role-specific label of Atom.Substance, preserves the owning Atom Content Role, and maps legacy Atom/Claim to Atom.Substance."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md",
+      "source_atom_id": "CA-M-111",
+      "source_version": 25,
+      "source_sha256": "c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "CCE",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Substance",
+      "confidence": 0.94,
+      "reason": "The complete current body directly constrains one Atom's shared Substance, currently labelled Claim, through readability, interpretation, or authoring of its primary contribution. The actual Operator decision confirms the legacy Atom/Claim field maps to Atom.Substance while preserving the owning Atom Content Role; CCE grammar and language tokens remain non-Entity qualifications.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/compact_examples/3",
+          "reason": "The candidate lists Atom.Substance as a named dependent Entity of Atom."
+        },
+        {
+          "pointer": "/content_direction/umbrella",
+          "reason": "The candidate names Substance as the content umbrella."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "A Property is a dependent Entity of its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Substance remains the dependent Entity of its owning Atom; Claim remains its role-specific label.",
+        "CCE grammar, language choice, modality, conditions, and operator syntax remain body qualifications, not new Entities or selectors."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-111-CORE_META_MODEL--author-one-cce-claim-and-derived-summary.md",
+          "sha256": "c762357b6e9c9478e559d2abeaa5dc86ccd316e66957123b50d5391e0ba703c5",
+          "span_sha256": "90ac624db46dab21cb735ebc8b1b1510c61005224e079a045f130c67485887ba",
+          "start_line": 24,
+          "end_line": 39,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+          "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "span_sha256": "f152b86789e281e1f18ef87a5f68c870499840d3b0b0096f790b91e902124cfa",
+          "start_line": 11,
+          "end_line": 38,
+          "reason": "The actual Operator decision confirms Claim is the role-specific label of Atom.Substance, preserves the owning Atom Content Role, and maps legacy Atom/Claim to Atom.Substance."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md",
+      "source_atom_id": "CA-M-112",
+      "source_version": 14,
+      "source_sha256": "86b21d1fd3d11fae92d60f901cd1026201711d3a7801a16350c5049efc41e595",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "CCE",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses CCE as controlled-language grammar or a content-authoring constraint, but does not identify an independent CCE Entity. Where the Main Content instead directly constrains one Atom's shared Substance currently labelled Claim, that distinct row is mapped to Atom.Substance; this row retains its broader grammar/qualified policy boundary.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Controlled-language syntax is not automatically an Entity."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "The CCE label does not create a new Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Shared CCE grammar remains distinct from a specific Atom Claim and from token-level operators.",
+        "No CCE Entity, selector, or language root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md",
+          "sha256": "86b21d1fd3d11fae92d60f901cd1026201711d3a7801a16350c5049efc41e595",
+          "span_sha256": "515310ff4a490ce42bb078196df7b794b4a30259fa529ea7229a0ad213b87328",
+          "start_line": 23,
+          "end_line": 30,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md",
+      "source_atom_id": "CA-M-112",
+      "source_version": 14,
+      "source_sha256": "86b21d1fd3d11fae92d60f901cd1026201711d3a7801a16350c5049efc41e595",
+      "field": "governs",
+      "index": null,
+      "old_value": "language",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body is a language or prose-authoring policy whose selected label does not identify a governed dependent Entity. Its broader wording reaches project meaning or normative prose beyond one explicitly identified shared Substance currently labelled Claim, so Atom.Substance would discard that boundary.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Language and notation used to describe an Entity are not themselves that Entity."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "A topic label does not create another Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The policy's language/prose scope remains distinct from a Claim Property.",
+        "No language Entity, selector, or Content Role value is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-METHOD--use-english-as-the-project-language.md",
+          "sha256": "86b21d1fd3d11fae92d60f901cd1026201711d3a7801a16350c5049efc41e595",
+          "span_sha256": "515310ff4a490ce42bb078196df7b794b4a30259fa529ea7229a0ad213b87328",
+          "start_line": 23,
+          "end_line": 30,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+      "source_atom_id": "CA-M-113",
+      "source_version": 17,
+      "source_sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "CCE",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Substance",
+      "confidence": 0.94,
+      "reason": "The complete current body directly constrains one Atom's shared Substance, currently labelled Claim, through readability, interpretation, or authoring of its primary contribution. The actual Operator decision confirms the legacy Atom/Claim field maps to Atom.Substance while preserving the owning Atom Content Role; CCE grammar and language tokens remain non-Entity qualifications.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/compact_examples/3",
+          "reason": "The candidate lists Atom.Substance as a named dependent Entity of Atom."
+        },
+        {
+          "pointer": "/content_direction/umbrella",
+          "reason": "The candidate names Substance as the content umbrella."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "A Property is a dependent Entity of its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Substance remains the dependent Entity of its owning Atom; Claim remains its role-specific label.",
+        "CCE grammar, language choice, modality, conditions, and operator syntax remain body qualifications, not new Entities or selectors."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+          "sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+          "span_sha256": "c0ca27f982b7e4b63894799f855edb4082499cf0e2ac64b55c2d43372c3faf28",
+          "start_line": 36,
+          "end_line": 53,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+          "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "span_sha256": "f152b86789e281e1f18ef87a5f68c870499840d3b0b0096f790b91e902124cfa",
+          "start_line": 11,
+          "end_line": 38,
+          "reason": "The actual Operator decision confirms Claim is the role-specific label of Atom.Substance, preserves the owning Atom Content Role, and maps legacy Atom/Claim to Atom.Substance."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+      "source_atom_id": "CA-M-113",
+      "source_version": 17,
+      "source_sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+      "field": "governs",
+      "index": null,
+      "old_value": "language",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Substance",
+      "confidence": 0.94,
+      "reason": "The complete current body directly constrains one Atom's shared Substance, currently labelled Claim, through readability, interpretation, or authoring of its primary contribution. The actual Operator decision confirms the legacy Atom/Claim field maps to Atom.Substance while preserving the owning Atom Content Role; CCE grammar and language tokens remain non-Entity qualifications.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/compact_examples/3",
+          "reason": "The candidate lists Atom.Substance as a named dependent Entity of Atom."
+        },
+        {
+          "pointer": "/content_direction/umbrella",
+          "reason": "The candidate names Substance as the content umbrella."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "A Property is a dependent Entity of its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Substance remains the dependent Entity of its owning Atom; Claim remains its role-specific label.",
+        "CCE grammar, language choice, modality, conditions, and operator syntax remain body qualifications, not new Entities or selectors."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL--write-claims-in-caprmedio-controlled-english.md",
+          "sha256": "81a512b270a42421edf5a5a3f576b334581e8b407b8acd1d4f7d3370f3f54e77",
+          "span_sha256": "c0ca27f982b7e4b63894799f855edb4082499cf0e2ac64b55c2d43372c3faf28",
+          "start_line": 36,
+          "end_line": 53,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+          "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "span_sha256": "f152b86789e281e1f18ef87a5f68c870499840d3b0b0096f790b91e902124cfa",
+          "start_line": 11,
+          "end_line": 38,
+          "reason": "The actual Operator decision confirms Claim is the role-specific label of Atom.Substance, preserves the owning Atom Content Role, and maps legacy Atom/Claim to Atom.Substance."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "source_atom_id": "CA-M-115",
+      "source_version": 23,
+      "source_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "CCE",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Substance",
+      "confidence": 0.94,
+      "reason": "The complete current body directly constrains one Atom's shared Substance, currently labelled Claim, through readability, interpretation, or authoring of its primary contribution. The actual Operator decision confirms the legacy Atom/Claim field maps to Atom.Substance while preserving the owning Atom Content Role; CCE grammar and language tokens remain non-Entity qualifications.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/compact_examples/3",
+          "reason": "The candidate lists Atom.Substance as a named dependent Entity of Atom."
+        },
+        {
+          "pointer": "/content_direction/umbrella",
+          "reason": "The candidate names Substance as the content umbrella."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "A Property is a dependent Entity of its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Substance remains the dependent Entity of its owning Atom; Claim remains its role-specific label.",
+        "CCE grammar, language choice, modality, conditions, and operator syntax remain body qualifications, not new Entities or selectors."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+          "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+          "span_sha256": "82f576996564567fc569b0d51185c1118f72e8ce3458e530a8a23a677b37ac61",
+          "start_line": 29,
+          "end_line": 43,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+          "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "span_sha256": "f152b86789e281e1f18ef87a5f68c870499840d3b0b0096f790b91e902124cfa",
+          "start_line": 11,
+          "end_line": 38,
+          "reason": "The actual Operator decision confirms Claim is the role-specific label of Atom.Substance, preserves the owning Atom Content Role, and maps legacy Atom/Claim to Atom.Substance."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+      "source_atom_id": "CA-M-116",
+      "source_version": 14,
+      "source_sha256": "e0eff5e7fcfbe3a2384f00b3a195829e49136e5ecbda2a929e5cc6ff83d4a22d",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Translation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body treats Translation as a requested non-authoritative rendering derived from complete source content. It does not establish one Translation Artifact with a declared selection, persistent identity, or lifecycle; the candidate does not authorize a generic syntax/view label as a new Entity target.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "A label or alias does not create another Entity."
+        },
+        {
+          "pointer": "/projection_member_model/authority_boundary",
+          "reason": "Derived views do not become independent authority, but this does not create a Translation Entity identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Translation remains a derived rendering of the complete source rather than Summary authority.",
+        "No Projection, Artifact, Carrier, or new language Entity is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-116-CORE_META_MODEL-CORE--derive-navigation-projections-from-the-cce-claim.md",
+          "sha256": "e0eff5e7fcfbe3a2384f00b3a195829e49136e5ecbda2a929e5cc6ff83d4a22d",
+          "span_sha256": "8ec9db20ec2a6489cbda76577cd705445471014338f4c329616eca9a475b1c22",
+          "start_line": 26,
+          "end_line": 34,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md",
+      "source_atom_id": "CA-M-122",
+      "source_version": 16,
+      "source_sha256": "f9c8e95aaf79f92b2c92d3cedfdf173870102cac58f6a134fedb830cfe3c5197",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "CCE Operator",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses or defines controlled-language word/symbol tokens, token sequences, normalization rewrites, or their method-assigned grammar function. The current Operator definition is a collective Actor, while these are syntax/semantic rules; no candidate Entity identity preserves that distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Syntax used to describe an Entity is not itself that Entity."
+        },
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor covers who performs work; a CCE token is not the collective Operator Actor."
+        }
+      ],
+      "preserved_distinctions": [
+        "The CCE token/expression and its assigned syntactic or logical function remain distinct from the Operator Actor.",
+        "No token, Method, expression, registry, selector, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-122-CORE_META_MODEL-METHOD--evaluate-condition-expressions.md",
+          "sha256": "f9c8e95aaf79f92b2c92d3cedfdf173870102cac58f6a134fedb830cfe3c5197",
+          "span_sha256": "b5982e7cd9685b37e15235e2d5be1c576d9e83fcf3feeb6bbfb5976cef45d1c6",
+          "start_line": 25,
+          "end_line": 49,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-METHOD--write-definitions-of-done.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-METHOD--write-definitions-of-done.md",
+      "source_atom_id": "CA-M-123",
+      "source_version": 17,
+      "source_sha256": "5aaaa1e47a069d6a24f00fe4b1a4f5e81353bf9b03b2c9131ffd5315d72f49a3",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "CCE",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses CCE as controlled-language grammar or a content-authoring constraint, but does not identify an independent CCE Entity. Where the Main Content instead directly constrains one Atom's shared Substance currently labelled Claim, that distinct row is mapped to Atom.Substance; this row retains its broader grammar/qualified policy boundary.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Controlled-language syntax is not automatically an Entity."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "The CCE label does not create a new Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Shared CCE grammar remains distinct from a specific Atom Claim and from token-level operators.",
+        "No CCE Entity, selector, or language root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-METHOD--write-definitions-of-done.md",
+          "sha256": "5aaaa1e47a069d6a24f00fe4b1a4f5e81353bf9b03b2c9131ffd5315d72f49a3",
+          "span_sha256": "e61c2d6f6ce9ed6c6d8920ebdd176177f3b3c5baa6eb32f654e9d595605b8c83",
+          "start_line": 27,
+          "end_line": 40,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+      "source_atom_id": "CA-M-229",
+      "source_version": 12,
+      "source_sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "CCE Operator",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses or defines controlled-language word/symbol tokens, token sequences, normalization rewrites, or their method-assigned grammar function. The current Operator definition is a collective Actor, while these are syntax/semantic rules; no candidate Entity identity preserves that distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Syntax used to describe an Entity is not itself that Entity."
+        },
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor covers who performs work; a CCE token is not the collective Operator Actor."
+        }
+      ],
+      "preserved_distinctions": [
+        "The CCE token/expression and its assigned syntactic or logical function remain distinct from the Operator Actor.",
+        "No token, Method, expression, registry, selector, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+          "sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84",
+          "span_sha256": "3c076327f0a8d2f6292962d6456f0ee3639537c94e704d0d11565dc531a9b23e",
+          "start_line": 30,
+          "end_line": 44,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+      "source_atom_id": "CA-M-229",
+      "source_version": 12,
+      "source_sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Markdown Atom Carrier/Main Content/CCE Operator",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body governs lexical rendering of canonical tokens in Markdown Main Content. It does not identify a Carrier instance or a dependent Entity; mapping the rendering syntax to Carrier would conflate representation with what carries an Entity.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Syntax used to describe an Entity is not itself that Entity."
+        },
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Carrier is a separate root for what carries representation, not a formatting token."
+        }
+      ],
+      "preserved_distinctions": [
+        "Markdown representation remains distinct from Carrier identity and from CCE token semantics.",
+        "No per-property Carrier registry or syntax Entity is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+          "sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84",
+          "span_sha256": "3c076327f0a8d2f6292962d6456f0ee3639537c94e704d0d11565dc531a9b23e",
+          "start_line": 30,
+          "end_line": 44,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-230-CORE_META_MODEL-METHOD--define-registered-cce-operators-through-cce-methods.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-230-CORE_META_MODEL-METHOD--define-registered-cce-operators-through-cce-methods.md",
+      "source_atom_id": "CA-M-230",
+      "source_version": 12,
+      "source_sha256": "b232fd54b2e93341c7227621683ab58cdf5abeabbece3a13c543a44fe4773519",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "CCE Method",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses or defines controlled-language word/symbol tokens, token sequences, normalization rewrites, or their method-assigned grammar function. The current Operator definition is a collective Actor, while these are syntax/semantic rules; no candidate Entity identity preserves that distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Syntax used to describe an Entity is not itself that Entity."
+        },
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor covers who performs work; a CCE token is not the collective Operator Actor."
+        }
+      ],
+      "preserved_distinctions": [
+        "The CCE token/expression and its assigned syntactic or logical function remain distinct from the Operator Actor.",
+        "No token, Method, expression, registry, selector, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-230-CORE_META_MODEL-METHOD--define-registered-cce-operators-through-cce-methods.md",
+          "sha256": "b232fd54b2e93341c7227621683ab58cdf5abeabbece3a13c543a44fe4773519",
+          "span_sha256": "bd7da0256820795f331caea2ed64f96ca32d832917519c61a220f1ab934e015c",
+          "start_line": 22,
+          "end_line": 30,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-230-CORE_META_MODEL-METHOD--define-registered-cce-operators-through-cce-methods.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-230-CORE_META_MODEL-METHOD--define-registered-cce-operators-through-cce-methods.md",
+      "source_atom_id": "CA-M-230",
+      "source_version": 12,
+      "source_sha256": "b232fd54b2e93341c7227621683ab58cdf5abeabbece3a13c543a44fe4773519",
+      "field": "governs",
+      "index": null,
+      "old_value": "CCE Operator",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses or defines controlled-language word/symbol tokens, token sequences, normalization rewrites, or their method-assigned grammar function. The current Operator definition is a collective Actor, while these are syntax/semantic rules; no candidate Entity identity preserves that distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Syntax used to describe an Entity is not itself that Entity."
+        },
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor covers who performs work; a CCE token is not the collective Operator Actor."
+        }
+      ],
+      "preserved_distinctions": [
+        "The CCE token/expression and its assigned syntactic or logical function remain distinct from the Operator Actor.",
+        "No token, Method, expression, registry, selector, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-230-CORE_META_MODEL-METHOD--define-registered-cce-operators-through-cce-methods.md",
+          "sha256": "b232fd54b2e93341c7227621683ab58cdf5abeabbece3a13c543a44fe4773519",
+          "span_sha256": "bd7da0256820795f331caea2ed64f96ca32d832917519c61a220f1ab934e015c",
+          "start_line": 22,
+          "end_line": 30,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-233-CORE_META_MODEL--prefer-positive-normative-statements.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-233-CORE_META_MODEL--prefer-positive-normative-statements.md",
+      "source_atom_id": "CA-M-233",
+      "source_version": 12,
+      "source_sha256": "c377b64f94f41a68f97151370042bc08ec743ef7068ac723475acbe61b62e167",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "CCE",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses CCE as controlled-language grammar or a content-authoring constraint, but does not identify an independent CCE Entity. Where the Main Content instead directly constrains one Atom's shared Substance currently labelled Claim, that distinct row is mapped to Atom.Substance; this row retains its broader grammar/qualified policy boundary.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Controlled-language syntax is not automatically an Entity."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "The CCE label does not create a new Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Shared CCE grammar remains distinct from a specific Atom Claim and from token-level operators.",
+        "No CCE Entity, selector, or language root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-233-CORE_META_MODEL--prefer-positive-normative-statements.md",
+          "sha256": "c377b64f94f41a68f97151370042bc08ec743ef7068ac723475acbe61b62e167",
+          "span_sha256": "566c7127ddb85f484cf4c6d3673ec7e9553d3725ca2010d66f3799ba4422aaa4",
+          "start_line": 24,
+          "end_line": 35,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-233-CORE_META_MODEL--prefer-positive-normative-statements.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-233-CORE_META_MODEL--prefer-positive-normative-statements.md",
+      "source_atom_id": "CA-M-233",
+      "source_version": 12,
+      "source_sha256": "c377b64f94f41a68f97151370042bc08ec743ef7068ac723475acbe61b62e167",
+      "field": "governs",
+      "index": null,
+      "old_value": "Normative Atom Prose Authoring",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body is a language or prose-authoring policy whose selected label does not identify a governed dependent Entity. Its broader wording reaches project meaning or normative prose beyond one explicitly identified shared Substance currently labelled Claim, so Atom.Substance would discard that boundary.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Language and notation used to describe an Entity are not themselves that Entity."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "A topic label does not create another Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The policy's language/prose scope remains distinct from a Claim Property.",
+        "No language Entity, selector, or Content Role value is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-233-CORE_META_MODEL--prefer-positive-normative-statements.md",
+          "sha256": "c377b64f94f41a68f97151370042bc08ec743ef7068ac723475acbe61b62e167",
+          "span_sha256": "566c7127ddb85f484cf4c6d3673ec7e9553d3725ca2010d66f3799ba4422aaa4",
+          "start_line": 24,
+          "end_line": 35,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md",
+      "source_atom_id": "CA-M-234",
+      "source_version": 12,
+      "source_sha256": "76e25a9c4bc88ecf5d9e44f7379ed4ba421e3248ae80583efef48ac2e43ad2c5",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "CCE Operator",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses or defines controlled-language word/symbol tokens, token sequences, normalization rewrites, or their method-assigned grammar function. The current Operator definition is a collective Actor, while these are syntax/semantic rules; no candidate Entity identity preserves that distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Syntax used to describe an Entity is not itself that Entity."
+        },
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor covers who performs work; a CCE token is not the collective Operator Actor."
+        }
+      ],
+      "preserved_distinctions": [
+        "The CCE token/expression and its assigned syntactic or logical function remain distinct from the Operator Actor.",
+        "No token, Method, expression, registry, selector, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md",
+          "sha256": "76e25a9c4bc88ecf5d9e44f7379ed4ba421e3248ae80583efef48ac2e43ad2c5",
+          "span_sha256": "f0b8b962830a42e100eae3a51b3523ca634d4ac02678d553e549abfdc2a7d5c1",
+          "start_line": 23,
+          "end_line": 43,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md",
+      "source_atom_id": "CA-M-234",
+      "source_version": 12,
+      "source_sha256": "76e25a9c4bc88ecf5d9e44f7379ed4ba421e3248ae80583efef48ac2e43ad2c5",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "CCE Method",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses or defines controlled-language word/symbol tokens, token sequences, normalization rewrites, or their method-assigned grammar function. The current Operator definition is a collective Actor, while these are syntax/semantic rules; no candidate Entity identity preserves that distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Syntax used to describe an Entity is not itself that Entity."
+        },
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor covers who performs work; a CCE token is not the collective Operator Actor."
+        }
+      ],
+      "preserved_distinctions": [
+        "The CCE token/expression and its assigned syntactic or logical function remain distinct from the Operator Actor.",
+        "No token, Method, expression, registry, selector, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md",
+          "sha256": "76e25a9c4bc88ecf5d9e44f7379ed4ba421e3248ae80583efef48ac2e43ad2c5",
+          "span_sha256": "f0b8b962830a42e100eae3a51b3523ca634d4ac02678d553e549abfdc2a7d5c1",
+          "start_line": 23,
+          "end_line": 43,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md",
+      "source_atom_id": "CA-M-234",
+      "source_version": 12,
+      "source_sha256": "76e25a9c4bc88ecf5d9e44f7379ed4ba421e3248ae80583efef48ac2e43ad2c5",
+      "field": "governs",
+      "index": null,
+      "old_value": "CCE Operator Registry",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body describes an expandable canonical set of CCE tokens and method-assigned functions. It does not establish an Artifact whose governed identity persists across revisions, nor a Carrier/owner for such an Artifact; a registry label cannot by itself supply those facts.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/lifecycle",
+          "reason": "Artifact identity requires one governed lifecycle."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "A registry label does not create another Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The canonical token set, active CCE-Method function assignment, and expansion rule remain explicit.",
+        "No Registry Artifact, Carrier, Operator Actor, or native syntax Entity is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL--register-expandable-canonical-cce-operator-list.md",
+          "sha256": "76e25a9c4bc88ecf5d9e44f7379ed4ba421e3248ae80583efef48ac2e43ad2c5",
+          "span_sha256": "f0b8b962830a42e100eae3a51b3523ca634d4ac02678d553e549abfdc2a7d5c1",
+          "start_line": 23,
+          "end_line": 43,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-235-CORE_META_MODEL--express-cardinality-with-comparison-operators-and-integer-literals.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-235-CORE_META_MODEL--express-cardinality-with-comparison-operators-and-integer-literals.md",
+      "source_atom_id": "CA-M-235",
+      "source_version": 11,
+      "source_sha256": "738043ae13bf80391f1bd5ac62b179a7f68df6b6203474f322e78d8469f8456d",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "CCE Operator Registry",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body describes an expandable canonical set of CCE tokens and method-assigned functions. It does not establish an Artifact whose governed identity persists across revisions, nor a Carrier/owner for such an Artifact; a registry label cannot by itself supply those facts.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/lifecycle",
+          "reason": "Artifact identity requires one governed lifecycle."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "A registry label does not create another Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The canonical token set, active CCE-Method function assignment, and expansion rule remain explicit.",
+        "No Registry Artifact, Carrier, Operator Actor, or native syntax Entity is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-235-CORE_META_MODEL--express-cardinality-with-comparison-operators-and-integer-literals.md",
+          "sha256": "738043ae13bf80391f1bd5ac62b179a7f68df6b6203474f322e78d8469f8456d",
+          "span_sha256": "c43fa42e1fc616573975e4e52230b76a20afca0411ac56c41be9f8537ad7a092",
+          "start_line": 24,
+          "end_line": 32,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL--normalize-noncanonical-cce-operator-expressions.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL--normalize-noncanonical-cce-operator-expressions.md",
+      "source_atom_id": "CA-M-236",
+      "source_version": 12,
+      "source_sha256": "11adc0ba64795bc0b33892dfed8ce46c24c93a3fcc364ba1179a2a84aaa096b9",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "CCE Operator Expression",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses or defines controlled-language word/symbol tokens, token sequences, normalization rewrites, or their method-assigned grammar function. The current Operator definition is a collective Actor, while these are syntax/semantic rules; no candidate Entity identity preserves that distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Syntax used to describe an Entity is not itself that Entity."
+        },
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor covers who performs work; a CCE token is not the collective Operator Actor."
+        }
+      ],
+      "preserved_distinctions": [
+        "The CCE token/expression and its assigned syntactic or logical function remain distinct from the Operator Actor.",
+        "No token, Method, expression, registry, selector, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL--normalize-noncanonical-cce-operator-expressions.md",
+          "sha256": "11adc0ba64795bc0b33892dfed8ce46c24c93a3fcc364ba1179a2a84aaa096b9",
+          "span_sha256": "a5b42bf34d3e4982eb89223a4792000a02bc03cc6c2f3832eba086ebbc54030e",
+          "start_line": 23,
+          "end_line": 38,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL--normalize-noncanonical-cce-operator-expressions.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL--normalize-noncanonical-cce-operator-expressions.md",
+      "source_atom_id": "CA-M-236",
+      "source_version": 12,
+      "source_sha256": "11adc0ba64795bc0b33892dfed8ce46c24c93a3fcc364ba1179a2a84aaa096b9",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "CCE Operator Registry",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body describes an expandable canonical set of CCE tokens and method-assigned functions. It does not establish an Artifact whose governed identity persists across revisions, nor a Carrier/owner for such an Artifact; a registry label cannot by itself supply those facts.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/lifecycle",
+          "reason": "Artifact identity requires one governed lifecycle."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "A registry label does not create another Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The canonical token set, active CCE-Method function assignment, and expansion rule remain explicit.",
+        "No Registry Artifact, Carrier, Operator Actor, or native syntax Entity is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL--normalize-noncanonical-cce-operator-expressions.md",
+          "sha256": "11adc0ba64795bc0b33892dfed8ce46c24c93a3fcc364ba1179a2a84aaa096b9",
+          "span_sha256": "a5b42bf34d3e4982eb89223a4792000a02bc03cc6c2f3832eba086ebbc54030e",
+          "start_line": 23,
+          "end_line": 38,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL--normalize-noncanonical-cce-operator-expressions.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL--normalize-noncanonical-cce-operator-expressions.md",
+      "source_atom_id": "CA-M-236",
+      "source_version": 12,
+      "source_sha256": "11adc0ba64795bc0b33892dfed8ce46c24c93a3fcc364ba1179a2a84aaa096b9",
+      "field": "governs",
+      "index": null,
+      "old_value": "CCE Operator Expression Normalization",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses or defines controlled-language word/symbol tokens, token sequences, normalization rewrites, or their method-assigned grammar function. The current Operator definition is a collective Actor, while these are syntax/semantic rules; no candidate Entity identity preserves that distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Syntax used to describe an Entity is not itself that Entity."
+        },
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor covers who performs work; a CCE token is not the collective Operator Actor."
+        }
+      ],
+      "preserved_distinctions": [
+        "The CCE token/expression and its assigned syntactic or logical function remain distinct from the Operator Actor.",
+        "No token, Method, expression, registry, selector, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-236-CORE_META_MODEL--normalize-noncanonical-cce-operator-expressions.md",
+          "sha256": "11adc0ba64795bc0b33892dfed8ce46c24c93a3fcc364ba1179a2a84aaa096b9",
+          "span_sha256": "a5b42bf34d3e4982eb89223a4792000a02bc03cc6c2f3832eba086ebbc54030e",
+          "start_line": 23,
+          "end_line": 38,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md",
+      "source_atom_id": "CA-M-240",
+      "source_version": 9,
+      "source_sha256": "03b8fab73bd3a910adeac50371d62fea8a5833836671fb9e3d502ff0062e654c",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "CCE Operator",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses or defines controlled-language word/symbol tokens, token sequences, normalization rewrites, or their method-assigned grammar function. The current Operator definition is a collective Actor, while these are syntax/semantic rules; no candidate Entity identity preserves that distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Syntax used to describe an Entity is not itself that Entity."
+        },
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor covers who performs work; a CCE token is not the collective Operator Actor."
+        }
+      ],
+      "preserved_distinctions": [
+        "The CCE token/expression and its assigned syntactic or logical function remain distinct from the Operator Actor.",
+        "No token, Method, expression, registry, selector, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md",
+          "sha256": "03b8fab73bd3a910adeac50371d62fea8a5833836671fb9e3d502ff0062e654c",
+          "span_sha256": "12891d498abd3de78c0ffff59a5e225505bb6c3f8c7ef2d000c7bc923353029b",
+          "start_line": 26,
+          "end_line": 34,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-CORE--define-content-role-specific-cce-profiles.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-CORE--define-content-role-specific-cce-profiles.md",
+      "source_atom_id": "CA-M-307",
+      "source_version": 4,
+      "source_sha256": "158b7e802ce470f95564bcc9a32644c4f501d4c14c5b278b0573c3e7b3f56b77",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "CCE",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses CCE as controlled-language grammar or a content-authoring constraint, but does not identify an independent CCE Entity. Where the Main Content instead directly constrains one Atom's shared Substance currently labelled Claim, that distinct row is mapped to Atom.Substance; this row retains its broader grammar/qualified policy boundary.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Controlled-language syntax is not automatically an Entity."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "The CCE label does not create a new Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Shared CCE grammar remains distinct from a specific Atom Claim and from token-level operators.",
+        "No CCE Entity, selector, or language root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-CORE--define-content-role-specific-cce-profiles.md",
+          "sha256": "158b7e802ce470f95564bcc9a32644c4f501d4c14c5b278b0573c3e7b3f56b77",
+          "span_sha256": "05a472036ab5f02187e973dcac1f52b4d5c4fd696c91e1f2487e94cd3ebdaf56",
+          "start_line": 33,
+          "end_line": 49,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-CORE--define-content-role-specific-cce-profiles.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-CORE--define-content-role-specific-cce-profiles.md",
+      "source_atom_id": "CA-M-307",
+      "source_version": 4,
+      "source_sha256": "158b7e802ce470f95564bcc9a32644c4f501d4c14c5b278b0573c3e7b3f56b77",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "CCE Operator",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body uses or defines controlled-language word/symbol tokens, token sequences, normalization rewrites, or their method-assigned grammar function. The current Operator definition is a collective Actor, while these are syntax/semantic rules; no candidate Entity identity preserves that distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "Syntax used to describe an Entity is not itself that Entity."
+        },
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor covers who performs work; a CCE token is not the collective Operator Actor."
+        }
+      ],
+      "preserved_distinctions": [
+        "The CCE token/expression and its assigned syntactic or logical function remain distinct from the Operator Actor.",
+        "No token, Method, expression, registry, selector, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-CORE--define-content-role-specific-cce-profiles.md",
+          "sha256": "158b7e802ce470f95564bcc9a32644c4f501d4c14c5b278b0573c3e7b3f56b77",
+          "span_sha256": "05a472036ab5f02187e973dcac1f52b4d5c4fd696c91e1f2487e94cd3ebdaf56",
+          "start_line": 33,
+          "end_line": 49,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-CORE--define-content-role-specific-cce-profiles.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-CORE--define-content-role-specific-cce-profiles.md",
+      "source_atom_id": "CA-M-307",
+      "source_version": 4,
+      "source_sha256": "158b7e802ce470f95564bcc9a32644c4f501d4c14c5b278b0573c3e7b3f56b77",
+      "field": "governs",
+      "index": null,
+      "old_value": "CCE/Role Profile",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body defines a restriction of shared CCE selected from Content Role, Type, and content-slot classification; effective resolution is expressly derived and not another required Atom Property. The candidate has no admitted qualified profile owner/identity that preserves those alternatives without a selector.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Dependent Properties require an owning Entity; the source expressly rejects a new Atom Property."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "The retained profile label alone does not establish an Entity identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Content Role, narrower Type, content slot, and subordinate operator-use restrictions remain distinct.",
+        "No selector, profile Property, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-CORE--define-content-role-specific-cce-profiles.md",
+          "sha256": "158b7e802ce470f95564bcc9a32644c4f501d4c14c5b278b0573c3e7b3f56b77",
+          "span_sha256": "05a472036ab5f02187e973dcac1f52b4d5c4fd696c91e1f2487e94cd3ebdaf56",
+          "start_line": 33,
+          "end_line": 49,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL-CORE--resolve-the-effective-cce-role-profile.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL-CORE--resolve-the-effective-cce-role-profile.md",
+      "source_atom_id": "CA-M-308",
+      "source_version": 4,
+      "source_sha256": "c0f47bd447cde321bc74e49045b16c8bfcdaac54709d5dd2c362f218d93aa0f0",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "CCE/Role Profile",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body defines a restriction of shared CCE selected from Content Role, Type, and content-slot classification; effective resolution is expressly derived and not another required Atom Property. The candidate has no admitted qualified profile owner/identity that preserves those alternatives without a selector.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Dependent Properties require an owning Entity; the source expressly rejects a new Atom Property."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "The retained profile label alone does not establish an Entity identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Content Role, narrower Type, content slot, and subordinate operator-use restrictions remain distinct.",
+        "No selector, profile Property, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL-CORE--resolve-the-effective-cce-role-profile.md",
+          "sha256": "c0f47bd447cde321bc74e49045b16c8bfcdaac54709d5dd2c362f218d93aa0f0",
+          "span_sha256": "4538231449716c491683f86ea7c9cf628e8a4bbc520e0ac16ff116866bc0d6e6",
+          "start_line": 34,
+          "end_line": 52,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL-CORE--resolve-the-effective-cce-role-profile.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL-CORE--resolve-the-effective-cce-role-profile.md",
+      "source_atom_id": "CA-M-308",
+      "source_version": 4,
+      "source_sha256": "c0f47bd447cde321bc74e49045b16c8bfcdaac54709d5dd2c362f218d93aa0f0",
+      "field": "governs",
+      "index": null,
+      "old_value": "CCE/Role Profile/resolution",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body defines a restriction of shared CCE selected from Content Role, Type, and content-slot classification; effective resolution is expressly derived and not another required Atom Property. The candidate has no admitted qualified profile owner/identity that preserves those alternatives without a selector.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "Dependent Properties require an owning Entity; the source expressly rejects a new Atom Property."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/1",
+          "reason": "The retained profile label alone does not establish an Entity identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Content Role, narrower Type, content slot, and subordinate operator-use restrictions remain distinct.",
+        "No selector, profile Property, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL-CORE--resolve-the-effective-cce-role-profile.md",
+          "sha256": "c0f47bd447cde321bc74e49045b16c8bfcdaac54709d5dd2c362f218d93aa0f0",
+          "span_sha256": "4538231449716c491683f86ea7c9cf628e8a4bbc520e0ac16ff116866bc0d6e6",
+          "start_line": 34,
+          "end_line": 52,
+          "reason": "Complete live owning source was read, including frontmatter and all Main Content sections (Summary, Scope, Claim, and Details), for this exact origin."
+        }
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}
