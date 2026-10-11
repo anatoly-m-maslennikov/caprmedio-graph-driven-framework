@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2101",
+  "recorded_at": "2026-10-11 08:00:21 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded verify accepted subject-family layers independently; not migration approval",
+  "verification": {
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+      "sha256": "d12d8473509e1f61cafc77e7bf153ee0db267c5d07a039840a9b3407e841f15c"
+    },
+    "tests": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_working_mapping_ledger.py",
+      "sha256": "b69e56eac39e86304ddbd5d45f81c557f1ba8208aaa5d8cd271bfadebc7a820b",
+      "passed": 18
+    },
+    "prospective": {
+      "result": "PASS: prospective live frontier and ten valid-control negative cases",
+      "counts": {
+        "sources": 907,
+        "occurrences": 4534,
+        "proposed": 1548,
+        "unchanged": 1540,
+        "unresolved": 1446,
+        "quarantined_sources": 8,
+        "excluded_sources": 11203
+      },
+      "negative_checks_rejected": [
+        "missing_layer",
+        "omit_all_followups",
+        "missing_selected_row",
+        "stale_source",
+        "wrong_target",
+        "wrong_priority",
+        "wrong_confidence",
+        "stale_receipt",
+        "missing_independent_review",
+        "executable_row"
+      ],
+      "prospective_outputs": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "sha256": "50ab0114669787dba6331b58f8054cd8fb33b5abbed33df6fbf5b52df53923fa"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "sha256": "3837d4ef67d7515fa5023ff1aa2cb323be2bac348118bb22175e409cf9fe0b77"
+        }
+      ],
+      "draft_writes": "not_performed"
+    },
+    "independent_review": {
+      "reviewer": "/root",
+      "result": "PASS: exact verifier/test diff reviewed; eighteen focused checks and full prospective live gate pass; whole-extension omission fails with present accepted receipts",
+      "final_verifier_sha256": "d12d8473509e1f61cafc77e7bf153ee0db267c5d07a039840a9b3407e841f15c"
+    },
+    "old_draft_live_gate": "Expected rejection: accepted follow-up extension required; current rebuild pending2102"
+  },
+  "independent_review": {
+    "reviewer": "/root",
+    "result": "PASS: exact verifier/test diff reviewed; eighteen focused checks and full prospective live gate pass; whole-extension omission fails with present accepted receipts",
+    "final_verifier_sha256": "d12d8473509e1f61cafc77e7bf153ee0db267c5d07a039840a9b3407e841f15c"
+  },
+  "completion_scope": "The independent ad-hoc verifier requires complete accepted research coverage, exact per-row provenance and final decisions/targets/confidence. Eighteen focused tests pass. Root's complete prospective live ledger and ten deliberately wrong variants confirm acceptance and fail-closed behavior, including omission of all six layers. Historical fixture roots without accepted receipts remain isolated; the real old draft correctly fails until rebuild.",
+  "registration_commit": "07c2f1f870753cb9f746a10c50e248b704876781",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

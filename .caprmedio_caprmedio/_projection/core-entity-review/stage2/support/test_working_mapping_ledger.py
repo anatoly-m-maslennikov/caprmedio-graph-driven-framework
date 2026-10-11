@@ -283,6 +283,96 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
         with self.assertRaises(verifier.VerificationError):
             self._verify([wrong], baseline={alternate["occurrence_id"]: alternate})
 
+    def test_followup_reports_have_exact_live_selection_and_acceptance(self) -> None:
+        """The six prospective layers are independently live-checked before replacement."""
+
+        current_ledger = verifier.read_json(verifier.ROOT / verifier.LEDGER_REL, "current working ledger")
+        baseline = verifier._read_baseline_rows(verifier.ROOT, current_ledger)
+        expected = verifier.enumerate_current_frontier(verifier.ROOT)["occurrences"]
+        accepted = [{} for _task, _kind in verifier.LAYER_SPECS]
+        for task, _kind, rows, _proposed, _unresolved, report_sha in verifier.FOLLOWUP_LAYER_SPECS:
+            report_rel = verifier._layer_path(task)
+            receipt_rel = verifier.STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json"
+            accepted.append({
+                "task": task,
+                "kind": "research",
+                "priority": verifier.ORDINARY_LAYER_PRIORITY[task],
+                "rows": rows,
+                "report": verifier._descriptor(verifier.ROOT / report_rel, report_rel),
+                "receipt": verifier._descriptor(verifier.ROOT / receipt_rel, receipt_rel),
+                "independent_review_sha256": report_sha,
+            })
+        accepted.append({})
+        accepted.append({})
+        layers, references = verifier._read_followup_layer_rows(
+            verifier.ROOT,
+            {"input_pins": {"accepted_layers": accepted}},
+            expected,
+            baseline,
+        )
+        self.assertEqual(list(layers), [item[0] for item in verifier.FOLLOWUP_LAYER_SPECS])
+        self.assertEqual(sum(len(rows) for rows in layers.values()), 180)
+        self.assertEqual(sum(decision == "proposed" for rows in layers.values() for decision, _target, _confidence in rows.values()), 80)
+        self.assertEqual(sum(decision == "unresolved" for rows in layers.values() for decision, _target, _confidence in rows.values()), 100)
+        self.assertTrue(all(reference["independent_review_sha256"] == reference["report"]["sha256"] for reference in references.values()))
+
+    def test_followup_layer_requires_exact_provenance_target_and_current_origin(self) -> None:
+        references = {
+            "CA-P-2094": {
+                "report": {"path": "task-2094.research.json", "sha256": "a" * 64},
+                "receipt": {"path": "task-2094.receipt.json", "sha256": "b" * 64},
+                "independent_review_sha256": "c" * 64,
+            }
+        }
+        layers = {"CA-P-2094": {self.expected["occurrence_id"]: ("proposed", "Atom.Status", .95)}}
+        valid = self._row()
+        valid["applied_layers"].append({
+            "layer": "CA-P-2094",
+            "priority": 14,
+            **references["CA-P-2094"],
+            "decision": "proposed",
+            "proposed_value": "Atom.Status",
+            "confidence": .95,
+        })
+        self.assertEqual(self._verify([valid], layers, layer_refs=references)["proposed"], 1)
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([self._row()], layers, layer_refs=references)
+        wrong_target = copy.deepcopy(valid)
+        wrong_target["applied_layers"][-1]["proposed_value"] = "Atom.Type"
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([wrong_target], layers, layer_refs=references)
+        stale_acceptance_pin = copy.deepcopy(valid)
+        stale_acceptance_pin["applied_layers"][-1]["report"] = {**references["CA-P-2094"]["report"], "sha256": "d" * 64}
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([stale_acceptance_pin], layers, layer_refs=references)
+        stale_origin = copy.deepcopy(valid)
+        stale_origin["source_sha256"] = "e" * 64
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([stale_origin], layers, layer_refs=references)
+        extra_origin = copy.deepcopy(valid)
+        extra_origin["occurrence_id"] = f"{self.source_path}#subjects.depends_on[1]"
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([extra_origin], layers, layer_refs=references)
+
+    def test_followup_manifest_cannot_admit_a_partial_extension(self) -> None:
+        partial = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + 3)]}}
+        with self.assertRaises(verifier.VerificationError):
+            verifier._layer_layout(partial)
+        complete = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + 2)]}}
+        specs, actor_position, grammar_position = verifier._layer_layout(complete)
+        self.assertEqual([item[0] for item in specs][-6:], [item[0] for item in verifier.FOLLOWUP_LAYER_SPECS])
+        self.assertEqual(actor_position, len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS))
+        self.assertEqual(grammar_position, len(complete["input_pins"]["accepted_layers"]) - 1)
+
+    def test_live_followup_receipt_requires_complete_extension(self) -> None:
+        old_layout = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + 2)]}}
+        verifier._require_followup_extension_when_receipts_exist(self.root, old_layout)
+        receipt = self.root / verifier.STAGE2_REL / "task-2094.receipt.json"
+        receipt.parent.mkdir(parents=True, exist_ok=True)
+        receipt.write_text("{}\n")
+        with self.assertRaises(verifier.VerificationError):
+            verifier._require_followup_extension_when_receipts_exist(self.root, old_layout)
+
 
 if __name__ == "__main__":
     unittest.main()

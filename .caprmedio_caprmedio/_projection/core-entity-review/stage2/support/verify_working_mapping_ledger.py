@@ -29,6 +29,8 @@ GRAMMAR_DRIFT_REL = STAGE2_REL / "current-grammar-source-drift.json"
 ACTOR_SUBSET_REL = STAGE2_REL / "semantic-reviews/task-2058.accepted-subset.json"
 GRAMMAR_REPORT_REL = STAGE2_REL / "semantic-reviews/current-grammar-subjects.review.json"
 GRAMMAR_RECEIPT_REL = STAGE2_REL / "task-2087.receipt.json"
+FOLLOWUP_MANIFEST_REL = STAGE2_REL / "semantic-reviews/followups-2094-2099.inputs.json"
+FOLLOWUP_MANIFEST_SHA256 = "5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d"
 STRUCTURE_REL = Path(".caprmedio_caprmedio/project_structure.toml")
 VALIDATOR_ROOT = ROOT / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS"
 if str(VALIDATOR_ROOT) not in sys.path:
@@ -61,8 +63,21 @@ LAYER_SPECS = (
     ("CA-P-2083", "research"), ("CA-P-2084", "research"),
     ("CA-P-2085", "research"),
 )
+FOLLOWUP_LAYER_SPECS = (
+    ("CA-P-2094", "research", 27, 21, 6, "265356c22829b6416f1d27c57969f509fec260f1e46dce99d8a7f3cc0219e3b5"),
+    ("CA-P-2095", "research", 28, 8, 20, "42a578818395cbe4e2f5fe5d997745058af39ff38ab02a3f84d8096cb674690d"),
+    ("CA-P-2096", "research", 41, 21, 20, "fa53f20f59f5bb9b75223fa407e8233a00d74ae2a962002657d30713da7fd1e7"),
+    ("CA-P-2097", "research", 25, 14, 11, "7a24becd960411a50eeb6ef344df0599c817820376453cdfbc6511c15495ae04"),
+    ("CA-P-2098", "research", 32, 1, 31, "ab4acfbfdf3ea8addfdfee7fc4502b5e84a4808ec91499da82dfd9bebc3784b2"),
+    ("CA-P-2099", "research", 27, 15, 12, "0e50e15645a4d56385a240ca47179b1c708ec839aecd4a81c4acfcdc13f4e69b"),
+)
+FOLLOWUP_TASKS = {task for task, _kind, _rows, _proposed, _unresolved, _sha256 in FOLLOWUP_LAYER_SPECS}
 LAYER_PRIORITY = [task for task, _kind in LAYER_SPECS] + ["CA-P-2058 coverage_only", "CA-P-2087 recheck_gate"]
 GRAMMAR_ACCEPTED_PRIORITY = "CA-P-2087 accepted_current_grammar"
+ORDINARY_LAYER_PRIORITY = {
+    **{task: index for index, (task, _kind) in enumerate(LAYER_SPECS, start=1)},
+    **{task: len(LAYER_SPECS) + index for index, (task, _kind, _rows, _proposed, _unresolved, _sha256) in enumerate(FOLLOWUP_LAYER_SPECS, start=1)},
+}
 
 
 class VerificationError(AssertionError):
@@ -80,6 +95,45 @@ def sha(raw: bytes) -> str:
 
 def _is_sha(value: Any) -> bool:
     return isinstance(value, str) and SHA_RE.fullmatch(value) is not None
+
+
+def _layer_layout(ledger: dict[str, Any]) -> tuple[tuple[tuple[str, str, int, int], ...], int, int | None]:
+    """Describe the accepted-layer manifest without accepting arbitrary additions.
+
+    The historical working draft remains a valid input until CA-P-2102 performs
+    its controlled replacement.  A replacement must add all six accepted
+    follow-up layers after the thirteen ordinary layers, then preserves the
+    Actor coverage check and final grammar recheck.  A partial extension is
+    deliberately invalid.
+    """
+
+    pins = ledger.get("input_pins")
+    accepted = pins.get("accepted_layers") if isinstance(pins, dict) else None
+    require(isinstance(accepted, list), "accepted layer manifest list")
+    base_count = len(LAYER_SPECS)
+    old_without_grammar = base_count + 1
+    old_with_grammar = base_count + 2
+    followup_with_grammar = base_count + 1 + len(FOLLOWUP_LAYER_SPECS) + 1
+    base = tuple((task, kind, position, position + 1) for position, (task, kind) in enumerate(LAYER_SPECS))
+    if len(accepted) == old_without_grammar:
+        return base, base_count, None
+    if len(accepted) == old_with_grammar:
+        return base, base_count, base_count + 1
+    require(len(accepted) == followup_with_grammar, "complete follow-up accepted-layer manifest")
+    followup = tuple(
+        (task, kind, base_count + index, base_count + index + 1)
+        for index, (task, kind, _rows, _proposed, _unresolved, _sha256) in enumerate(FOLLOWUP_LAYER_SPECS)
+    )
+    return base + followup, base_count + len(FOLLOWUP_LAYER_SPECS), followup_with_grammar - 1
+
+
+def _require_followup_extension_when_receipts_exist(root: Path, ledger: dict[str, Any]) -> None:
+    """Do not let a live accepted receipt silently fall back to the old draft."""
+
+    receipt_exists = any((root / STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json").is_file() for task in FOLLOWUP_TASKS)
+    specs, _actor_position, _grammar_position = _layer_layout(ledger)
+    if receipt_exists:
+        require(len(specs) == len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS), "accepted follow-up extension required")
 
 
 def relative_path(root: Path, value: Any, label: str) -> Path:
@@ -371,7 +425,7 @@ def _verify_layers(
     layers = row.get("applied_layers")
     require(isinstance(layers, list), f"{label} applied layers")
     required = (["baseline"] if baseline is not None else []) + [
-        task for task, _kind in LAYER_SPECS if row["occurrence_id"] in layer_rows.get(task, {})
+        task for task in ORDINARY_LAYER_PRIORITY if row["occurrence_id"] in layer_rows.get(task, {})
     ]
     if row["source_atom_id"] in grammar_effects:
         required.append("CA-P-2087")
@@ -405,14 +459,18 @@ def _verify_layers(
         else:
             require(isinstance(task, str) and task in layer_rows, f"{label} known accepted layer")
             rank = layer.get("priority")
-            require(rank == LAYER_PRIORITY.index(task) + 1, f"{label} accepted layer priority")
+            require(rank == ORDINARY_LAYER_PRIORITY[task], f"{label} accepted layer priority")
             expected = layer_rows[task].get(row["occurrence_id"])
             require(expected is not None, f"{label} selected layer occurrence")
             decision, target, confidence = expected
             references = layer_refs.get(task)
             require(isinstance(references, dict), f"{label} layer manifest provenance")
             require(layer.get("report") == references.get("report") and layer.get("receipt") == references.get("receipt"), f"{label} layer provenance")
+            if "independent_review_sha256" in references:
+                require(layer.get("independent_review_sha256") == references["independent_review_sha256"], f"{label} layer independent-review provenance")
             require(layer.get("decision") == decision and layer.get("proposed_value") == target, f"{label} layer target")
+            if task in FOLLOWUP_TASKS:
+                require(layer.get("confidence") == confidence, f"{label} layer confidence")
             final_decision, final_target, final_confidence = decision, target, confidence
     require(row.get("decision") == final_decision, f"{label} final selected-layer decision")
     require(row.get("proposed_value") == final_target, f"{label} final selected-layer target")
@@ -532,12 +590,14 @@ def _read_accepted_grammar_rows(
 ) -> dict[str, tuple[str, str | None, float]] | None:
     pins = ledger.get("input_pins")
     accepted = pins.get("accepted_layers") if isinstance(pins, dict) else None
-    require(isinstance(accepted, list) and len(accepted) in {len(LAYER_SPECS) + 1, len(LAYER_SPECS) + 2}, "accepted layer manifest size")
-    if len(accepted) == len(LAYER_SPECS) + 1:
+    specs, _actor_position, grammar_position = _layer_layout(ledger)
+    require(isinstance(accepted, list), "accepted layer manifest")
+    if grammar_position is None:
         receipt_path = relative_path(root, GRAMMAR_RECEIPT_REL.as_posix(), "accepted grammar receipt")
         require(not receipt_path.exists(), "accepted grammar manifest required when receipt exists")
         return None
-    item = accepted[-1]
+    require(len(specs) in {len(LAYER_SPECS), len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS)}, "accepted grammar ordinary layers")
+    item = accepted[grammar_position]
     require(isinstance(item, dict) and item.get("task") == "CA-P-2087" and item.get("priority") == "current_grammar" and item.get("kind") == "current_grammar_subject_recheck" and item.get("rows") == 33, "accepted grammar manifest")
     report_path = relative_path(root, GRAMMAR_REPORT_REL.as_posix(), "accepted grammar report")
     receipt_path = relative_path(root, GRAMMAR_RECEIPT_REL.as_posix(), "accepted grammar receipt")
@@ -594,11 +654,109 @@ def _verify_receipt(task: str, kind: str, receipt: dict[str, Any], report_pin: d
         require(isinstance(normalized, dict) and normalized_reviewed == reviewed_sha and normalized.get("final_output_sha256") == report_pin["sha256"] and normalized.get("exact_reverse_hash_and_json_value_equality") == "PASS", f"research receipt normalization {task}")
 
 
+def _read_followup_manifest(root: Path, expected_by_id: dict[str, dict[str, Any]], baseline_rows: dict[str, dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+    """Read the fixed selection independently of a derived working-ledger draft."""
+
+    path = relative_path(root, FOLLOWUP_MANIFEST_REL.as_posix(), "follow-up selection manifest")
+    raw = path.read_bytes()
+    require(sha(raw) == FOLLOWUP_MANIFEST_SHA256, "follow-up selection manifest pin")
+    manifest = read_json(path, "follow-up selection manifest")
+    require(manifest.get("schema_version") == 1 and manifest.get("non_authoritative") is True, "follow-up selection envelope")
+    require(manifest.get("source_migration") == "not_performed" and manifest.get("native_admission") == "not_performed", "follow-up selection boundary")
+    require(manifest.get("working_ledger") == {"path": LEDGER_REL.as_posix(), "sha256": "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d"}, "historical working-ledger context")
+    tasks = manifest.get("tasks")
+    require(isinstance(tasks, list) and len(tasks) == len(FOLLOWUP_LAYER_SPECS), "follow-up task coverage")
+    selected: dict[str, list[dict[str, Any]]] = {}
+    all_ids: set[str] = set()
+    for position, (task, _kind, row_count, _proposed, _unresolved, _report_sha) in enumerate(FOLLOWUP_LAYER_SPECS):
+        item = tasks[position]
+        require(isinstance(item, dict) and item.get("task_id") == task and item.get("occurrences") == row_count, f"follow-up manifest task {task}")
+        rows = item.get("input_rows")
+        require(isinstance(rows, list) and len(rows) == row_count, f"follow-up manifest rows {task}")
+        mapped: list[dict[str, Any]] = []
+        for number, row in enumerate(rows):
+            require(isinstance(row, dict), f"follow-up manifest {task} row {number}")
+            occurrence_id = row.get("occurrence_id")
+            require(isinstance(occurrence_id, str) and occurrence_id in expected_by_id and occurrence_id not in all_ids, f"follow-up manifest current occurrence {task} row {number}")
+            expected = expected_by_id[occurrence_id]
+            require({key: row.get(key) for key in expected} == expected, f"follow-up manifest current origin {occurrence_id}")
+            baseline = baseline_rows.get(occurrence_id)
+            require(isinstance(baseline, dict) and baseline.get("decision") == "unresolved" and baseline.get("proposed_value") is None, f"follow-up manifest baseline-only unresolved {occurrence_id}")
+            all_ids.add(occurrence_id)
+            mapped.append(expected)
+        selected[task] = mapped
+    require(len(all_ids) == 180, "follow-up exact selected occurrence count")
+    return selected
+
+
+def _read_followup_layer_rows(
+    root: Path,
+    ledger: dict[str, Any],
+    expected_occurrences: list[dict[str, Any]],
+    baseline_rows: dict[str, dict[str, Any]],
+) -> tuple[dict[str, dict[str, tuple[str, str | None, float]]], dict[str, dict[str, Any]]]:
+    """Verify all six accepted reports, receipts, live evidence, and selection ownership."""
+
+    expected_by_id = {row["occurrence_id"]: row for row in expected_occurrences}
+    selected = _read_followup_manifest(root, expected_by_id, baseline_rows)
+    _specs, _actor_position, _grammar_position = _layer_layout(ledger)
+    pins = ledger.get("input_pins")
+    accepted = pins.get("accepted_layers") if isinstance(pins, dict) else None
+    require(isinstance(accepted, list), "follow-up accepted manifest")
+    output: dict[str, dict[str, tuple[str, str | None, float]]] = {}
+    references: dict[str, dict[str, Any]] = {}
+    for index, (task, kind, row_count, proposed_count, unresolved_count, report_sha) in enumerate(FOLLOWUP_LAYER_SPECS):
+        priority = ORDINARY_LAYER_PRIORITY[task]
+        item = accepted[len(LAYER_SPECS) + index]
+        require(isinstance(item, dict) and item.get("task") == task and item.get("kind") == kind and item.get("priority") == priority and item.get("rows") == row_count, f"follow-up accepted manifest {task}")
+        report_relative = _layer_path(task)
+        report_path = relative_path(root, report_relative.as_posix(), f"follow-up {task} report")
+        receipt_relative = STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json"
+        receipt_path = relative_path(root, receipt_relative.as_posix(), f"follow-up {task} receipt")
+        report_pin, receipt_pin = _descriptor(report_path, report_relative), _descriptor(receipt_path, receipt_relative)
+        require(report_pin["sha256"] == report_sha and item.get("report") == report_pin and item.get("receipt") == receipt_pin, f"follow-up accepted pins {task}")
+        report, receipt = read_json(report_path, f"follow-up {task} report"), read_json(receipt_path, f"follow-up {task} receipt")
+        verification, independent = receipt.get("verification"), receipt.get("independent_review")
+        require(receipt.get("task") == task and receipt.get("non_authoritative") is True and receipt.get("source_migration") == "not_performed" and receipt.get("native_admission") == "not_performed" and isinstance(receipt.get("result"), str) and receipt["result"].startswith("PASS"), f"follow-up accepted receipt {task}")
+        require(isinstance(verification, dict) and verification.get("task") == task and verification.get("output") == report_pin and verification.get("rows") == row_count and verification.get("counts") == {"proposed": proposed_count, "unresolved": unresolved_count} and verification.get("input_manifest") == {"path": FOLLOWUP_MANIFEST_REL.as_posix(), "sha256": FOLLOWUP_MANIFEST_SHA256}, f"follow-up receipt verification {task}")
+        require(isinstance(independent, dict) and independent.get("final_report_sha256") == report_sha and isinstance(independent.get("result"), str) and independent["result"].startswith("PASS"), f"follow-up receipt independent review {task}")
+        require(item.get("independent_review_sha256") == report_sha, f"follow-up manifest independent-review hash {task}")
+        require(report.get("schema_version") == 1 and report.get("task_id") == task and report.get("non_authoritative") is True and report.get("source_migration") == "not_performed" and report.get("native_admission") == "not_performed", f"follow-up report boundary {task}")
+        report_pins = report.get("input_pins")
+        selection_pin = report_pins.get("selection_manifest") if isinstance(report_pins, dict) else None
+        manifest_pin = report_pins.get("manifest") if isinstance(report_pins, dict) else None
+        expected_selection_pin = {"path": FOLLOWUP_MANIFEST_REL.as_posix(), "sha256": FOLLOWUP_MANIFEST_SHA256}
+        require((selection_pin == expected_selection_pin and manifest_pin is None) or (selection_pin is None and manifest_pin == expected_selection_pin), f"follow-up report selection pin {task}")
+        rows = report.get("rows")
+        require(isinstance(rows, list) and len(rows) == row_count, f"follow-up report rows {task}")
+        mapped: dict[str, tuple[str, str | None, float]] = {}
+        expected_ids = {row["occurrence_id"] for row in selected[task]}
+        for number, row in enumerate(rows):
+            require(isinstance(row, dict), f"follow-up report {task} row {number}")
+            occurrence_id = row.get("occurrence_id")
+            require(isinstance(occurrence_id, str) and occurrence_id in expected_ids and occurrence_id not in mapped, f"follow-up report selected occurrence {task} row {number}")
+            expected = expected_by_id[occurrence_id]
+            require({key: row.get(key) for key in expected} == expected and row.get("prior_decision") == "unresolved", f"follow-up report current origin {occurrence_id}")
+            decision, target, confidence = _normalized_layer_row(kind, row, f"follow-up report {task} row {number}")
+            require(row.get("executable") is False and isinstance(row.get("evidence"), list) and any(_span_matches(root, evidence, expected, f"follow-up report {task} row {number}") for evidence in row["evidence"] if isinstance(evidence, dict)), f"follow-up report current evidence {occurrence_id}")
+            if decision == "proposed":
+                require(target is not None and FORBIDDEN_TARGET_RE.search(target) is None and "selector" not in target.lower(), f"follow-up report target syntax {occurrence_id}")
+            else:
+                require(row.get("proposed_value") is None and 0 <= confidence < .9, f"follow-up report explicit null {occurrence_id}")
+            mapped[occurrence_id] = (decision, target, confidence)
+        require(set(mapped) == expected_ids, f"follow-up report exact occurrence coverage {task}")
+        require(sum(decision == "proposed" for decision, _target, _confidence in mapped.values()) == proposed_count and sum(decision == "unresolved" for decision, _target, _confidence in mapped.values()) == unresolved_count, f"follow-up report exact decisions {task}")
+        output[task] = mapped
+        references[task] = {"report": report_pin, "receipt": receipt_pin, "independent_review_sha256": report_sha}
+    return output, references
+
+
 def _read_actor_targets(root: Path, ledger: dict[str, Any]) -> dict[str, str]:
     pins = ledger.get("input_pins")
     accepted = pins.get("accepted_layers") if isinstance(pins, dict) else None
-    require(isinstance(accepted, list) and len(accepted) in {len(LAYER_SPECS) + 1, len(LAYER_SPECS) + 2}, "Actor accepted manifest")
-    item = accepted[len(LAYER_SPECS)]
+    _specs, actor_position, _grammar_position = _layer_layout(ledger)
+    require(isinstance(accepted, list), "Actor accepted manifest")
+    item = accepted[actor_position]
     require(isinstance(item, dict) and item.get("task") == "CA-P-2058" and item.get("priority") == "coverage_only" and item.get("kind") == "canonical_target_check" and item.get("rows") == 43, "Actor subset manifest")
     report_path = relative_path(root, ACTOR_SUBSET_REL.as_posix(), "Actor subset")
     report = read_json(report_path, "Actor subset")
@@ -622,21 +780,26 @@ def _read_actor_targets(root: Path, ledger: dict[str, Any]) -> dict[str, str]:
     return targets
 
 
-def _layer_refs(ledger: dict[str, Any]) -> dict[str, dict[str, dict[str, str]]]:
+def _layer_refs(ledger: dict[str, Any], followup_refs: dict[str, dict[str, Any]] | None = None) -> dict[str, dict[str, Any]]:
     """Return the manifest descriptors each admitted per-row layer must repeat."""
 
     pins = ledger.get("input_pins")
     accepted = pins.get("accepted_layers") if isinstance(pins, dict) else None
-    require(isinstance(accepted, list) and len(accepted) in {len(LAYER_SPECS) + 1, len(LAYER_SPECS) + 2}, "layer provenance manifest coverage")
-    references: dict[str, dict[str, dict[str, str]]] = {}
-    for position, (task, _kind) in enumerate(LAYER_SPECS):
+    specs, _actor_position, grammar_position = _layer_layout(ledger)
+    require(isinstance(accepted, list), "layer provenance manifest coverage")
+    references: dict[str, dict[str, Any]] = {}
+    for task, _kind, position, _priority in specs:
         item = accepted[position]
         require(isinstance(item, dict) and item.get("task") == task, f"layer provenance manifest {task}")
         report, receipt = item.get("report"), item.get("receipt")
         require(isinstance(report, dict) and isinstance(receipt, dict), f"layer provenance descriptors {task}")
         references[task] = {"report": report, "receipt": receipt}
-    if len(accepted) == len(LAYER_SPECS) + 2:
-        item = accepted[-1]
+    if followup_refs is not None:
+        for task in FOLLOWUP_TASKS:
+            require(references.get(task) == {"report": followup_refs[task]["report"], "receipt": followup_refs[task]["receipt"]}, f"follow-up per-row manifest references {task}")
+            references[task]["independent_review_sha256"] = followup_refs[task]["independent_review_sha256"]
+    if grammar_position is not None:
+        item = accepted[grammar_position]
         require(isinstance(item, dict) and item.get("task") == "CA-P-2087", "accepted grammar provenance manifest")
         report, receipt = item.get("report"), item.get("receipt")
         require(isinstance(report, dict) and isinstance(receipt, dict), "accepted grammar provenance descriptors")
@@ -644,15 +807,28 @@ def _layer_refs(ledger: dict[str, Any]) -> dict[str, dict[str, dict[str, str]]]:
     return references
 
 
-def _read_layer_rows(root: Path, ledger: dict[str, Any]) -> dict[str, dict[str, tuple[str, str | None, float]]]:
+def _read_layer_rows(
+    root: Path,
+    ledger: dict[str, Any],
+    expected_occurrences: list[dict[str, Any]],
+    baseline_rows: dict[str, dict[str, Any]],
+) -> tuple[dict[str, dict[str, tuple[str, str | None, float]]], dict[str, dict[str, Any]]]:
     pins = ledger.get("input_pins")
     require(isinstance(pins, dict), "ledger input pins")
     accepted = pins.get("accepted_layers")
-    require(isinstance(accepted, list) and len(accepted) in {len(LAYER_SPECS) + 1, len(LAYER_SPECS) + 2}, "accepted layer manifest coverage")
+    specs, _actor_position, _grammar_position = _layer_layout(ledger)
+    require(isinstance(accepted, list), "accepted layer manifest coverage")
     output: dict[str, dict[str, tuple[str, str | None, float]]] = {}
-    for position, (task, kind) in enumerate(LAYER_SPECS):
+    followup_refs: dict[str, dict[str, Any]] = {}
+    followup_rows: dict[str, dict[str, tuple[str, str | None, float]]] = {}
+    if len(specs) > len(LAYER_SPECS):
+        followup_rows, followup_refs = _read_followup_layer_rows(root, ledger, expected_occurrences, baseline_rows)
+    for task, kind, position, priority in specs:
+        if task in FOLLOWUP_TASKS:
+            output[task] = followup_rows[task]
+            continue
         item = accepted[position]
-        require(isinstance(item, dict) and item.get("task") == task and item.get("priority") == position + 1 and item.get("kind") == kind, f"accepted layer manifest {task}")
+        require(isinstance(item, dict) and item.get("task") == task and item.get("priority") == priority and item.get("kind") == kind, f"accepted layer manifest {task}")
         relative = _layer_path(task)
         report_path = relative_path(root, relative.as_posix(), f"layer {task} report")
         report = read_json(report_path, f"layer {task} report")
@@ -672,7 +848,7 @@ def _read_layer_rows(root: Path, ledger: dict[str, Any]) -> dict[str, dict[str, 
             require(occurrence_id not in mapped, f"layer {task} duplicate ownership")
             mapped[occurrence_id] = _normalized_layer_row(kind, row, f"layer {task} row {row_number}")
         output[task] = mapped
-    return output
+    return output, followup_refs
 
 
 def verify_working_ledger(root: Path = ROOT) -> dict[str, Any]:
@@ -685,6 +861,7 @@ def verify_working_ledger(root: Path = ROOT) -> dict[str, Any]:
     ledger = read_json(ledger_path, "working ledger")
     frontier = read_json(frontier_path, "current frontier")
     diagnostics = read_json(diagnostics_path, "working diagnostics")
+    _require_followup_extension_when_receipts_exist(root, ledger)
     _verify_frontier(root, frontier, expected)
     require(ledger.get("schema_version") == 1, "ledger schema version")
     require(ledger.get("non_authoritative") is True, "ledger non-authoritative")
@@ -698,11 +875,14 @@ def verify_working_ledger(root: Path = ROOT) -> dict[str, Any]:
     baseline_rows = _read_baseline_rows(root, ledger)
     grammar_effects = _grammar_effects(root, ledger)
     accepted_grammar_rows = _read_accepted_grammar_rows(root, ledger, expected["occurrences"], grammar_effects)
-    expected_priority = LAYER_PRIORITY[:-1] + [GRAMMAR_ACCEPTED_PRIORITY if accepted_grammar_rows is not None else LAYER_PRIORITY[-1]]
+    specs, _actor_position, _grammar_position = _layer_layout(ledger)
+    expected_priority = [task for task, _kind, _position, _priority in specs]
+    expected_priority.append("CA-P-2058 coverage_only")
+    expected_priority.append(GRAMMAR_ACCEPTED_PRIORITY if accepted_grammar_rows is not None else "CA-P-2087 recheck_gate")
     require(ledger.get("layer_priority") == expected_priority, "ledger accepted layer priority")
-    layer_rows = _read_layer_rows(root, ledger)
+    layer_rows, followup_refs = _read_layer_rows(root, ledger, expected["occurrences"], baseline_rows)
     actor_targets = _read_actor_targets(root, ledger)
-    layer_refs = _layer_refs(ledger)
+    layer_refs = _layer_refs(ledger, followup_refs if followup_refs else None)
     counts = _verify_rows(root, ledger.get("occurrences"), expected["occurrences"], baseline_rows, layer_rows, actor_targets, grammar_effects, accepted_grammar_rows, layer_refs)
     actual_counts = ledger.get("counts")
     require(isinstance(actual_counts, dict), "ledger counts")
