@@ -22,6 +22,7 @@ from release_compilation import (
     ReleaseCompilationPreflight,
     SealedPrivateMethodologyCompilation,
     compile_sealed_methodology_export,
+    _mkdir_safe,
     preflight_release_compilation,
     render_release_candidate,
 )
@@ -626,7 +627,14 @@ def _prepare_native_methodology_compilation(run: ReleaseActionRun, candidate: Va
         raise ReleaseContractError("release-private-source-frontier-stale", "current active export frontier changed during preparation")
     _revalidate(current)
     _stage_candidate_selected_session(run)
-    exporter._prepare_candidate(exporter._candidate_root(candidate_root), source)
+    exporter._candidate_root(candidate_root)
+    if candidate_root == source or candidate_root.is_relative_to(source):
+        raise ReleaseContractError("candidate-root-unsafe", "release candidate cannot be inside source_root")
+    _mkdir_safe(root, ".caprmedio_tmp/release_candidates")
+    try:
+        candidate_root.mkdir(exist_ok=False)
+    except FileExistsError as error:
+        raise ReleaseContractError("release-private-candidate-collision", "private candidate preparation already has retained effects") from error
     frozen_path = candidate_root / "frozen-methodology-manifest.json"
     exporter._write(frozen_path, exporter.frozen_manifest_bytes(frozen))
     exporter.export_selected_methodology(

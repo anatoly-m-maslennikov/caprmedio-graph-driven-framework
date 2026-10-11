@@ -7,6 +7,7 @@ import sys
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
+from unittest.mock import patch
 
 
 RELEASE_ROOT = Path(__file__).resolve().parents[1]
@@ -17,6 +18,7 @@ for directory in (RELEASE_ROOT, TEST_ROOT):
 
 import test_portable_contract as fixtures  # noqa: E402
 import methodology_export as exporter  # noqa: E402
+import release_actions as actions  # noqa: E402
 import release_version as native  # noqa: E402
 from release_actions import (  # noqa: E402
     PHASES,
@@ -186,6 +188,43 @@ class ReleaseStagePreparationTests(unittest.TestCase):
         self.assertEqual(result.outcome, "blocked", result.reason)
         self.assertIn("release-source-admission-session-unavailable", result.reason)
         self.assertFalse(self.candidate_root.exists())
+        self.assertIsNone(self.run.prepared_portable_package)
+
+    def test_concurrent_candidate_directory_claim_refuses_without_writing_into_it(self) -> None:
+        self.assertEqual(self.execute(0).outcome, "completed")
+        self.bind_stage_session()
+        before = self.protected_bytes()
+        self.assertFalse(self.candidate_root.exists())
+        actual_exporter = actions._exporter_module()
+        actual_freeze = actual_exporter.freeze_methodology_manifest
+        sentinel = self.candidate_root / "other-writer.txt"
+
+        def concurrent_creator(**kwargs):
+            # Real discovery completes after the early absence check. Another
+            # writer then owns the path before this Run's final atomic claim.
+            frozen = actual_freeze(**kwargs)
+            self.candidate_root.mkdir(parents=True)
+            sentinel.write_bytes(b"other writer owns this candidate\n")
+            return frozen
+
+        # The native loader creates a fresh module each call; retain this real
+        # module instance solely to inject the competing filesystem writer.
+        with patch.object(actions, "_exporter_module", return_value=actual_exporter), \
+             patch.object(actual_exporter, "freeze_methodology_manifest", side_effect=concurrent_creator) as freeze:
+            result = self.execute(1)
+
+        freeze.assert_called_once()
+        self.assertEqual(result.outcome, "blocked", result.reason)
+        self.assertIn("release-private-candidate-collision", result.reason)
+        self.assertEqual({path.relative_to(self.candidate_root).as_posix(): path.read_bytes()
+                          for path in self.candidate_root.rglob("*") if path.is_file()},
+                         {"other-writer.txt": b"other writer owns this candidate\n"})
+        self.assertEqual(list(self.candidate_root.iterdir()), [sentinel])
+        self.assertEqual(self.protected_bytes(), before)
+        self.assertFalse((self.root / "catalog.toml").exists())
+        self.assertTrue(self.run.stopped)
+        self.assertIsNone(self.run.methodology_export)
+        self.assertIsNone(self.run.private_compilation)
         self.assertIsNone(self.run.prepared_portable_package)
 
 
