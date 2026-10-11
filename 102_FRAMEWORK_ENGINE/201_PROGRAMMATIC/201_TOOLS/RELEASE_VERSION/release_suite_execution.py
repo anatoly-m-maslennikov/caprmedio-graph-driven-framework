@@ -51,10 +51,10 @@ _INSPECT_TIMEOUT_SECONDS = 30
 _CLEANUP_TIMEOUT_SECONDS = 30
 _CONTAINER_ID = re.compile(r"^[0-9a-f]{64}$")
 _SANDBOX_TMPFS_SIZE = "2g"
-# This leaf belongs solely to the executor.  Portable candidates legitimately
-# materialize their compiled source closure beneath ``.caprmedio_tmp``; using
-# that parent as a tmpfs mountpoint would reject the required sealed inputs.
-_EXECUTOR_SCRATCH_RELATIVE = Path(".caprmedio_suite_scratch")
+# This is the suite's established disposable namespace.  Portable candidates
+# may retain sealed inputs beneath it, so those inputs are remounted read-only
+# over the tmpfs rather than being hidden by the writable mount.
+_EXECUTOR_SCRATCH_RELATIVE = Path(".caprmedio_tmp")
 _SUITE_LABEL = "org.caprmedio.release-suite"
 _ATTEMPT_LABEL = "org.caprmedio.release-suite-attempt"
 _PYTHON_CAPABILITY_GUARD = "import sys; raise SystemExit(0 if sys.version_info >= (3, 8) else 1)"
@@ -302,31 +302,56 @@ def _attempt_mounts(root: Path, candidate_sha: str, workspace: Path, output_root
     return attempt.name
 
 
-def _prepare_executor_scratch(workspace: Path) -> Path:
-    """Reserve the sole ignored scratch mountpoint in a disposable workspace.
+def _prepare_executor_scratch(workspace: Path, compiled_root: str) -> Path | None:
+    """Prepare the established temporary namespace and preserve compiled input.
 
-    Docker requires a target below a read-only bind to exist before it can be
-    overmounted with tmpfs.  This creates only the fixed, empty ignored leaf;
-    it never makes the source mount generally writable or accepts a caller
-    selected scratch path.
+    The suite's declared tests use ``.caprmedio_tmp`` directly, including
+    dynamic fixture leaves.  It is the sole writable workspace namespace.
+    When the sealed compiled candidate resides below it, return its first
+    namespace component for a nested read-only bind over the tmpfs.  This
+    preserves every sealed sibling beneath that component, not just the
+    compiled leaf.
     """
 
     scratch = workspace / _EXECUTOR_SCRATCH_RELATIVE
     try:
-        if scratch.exists() or scratch.is_symlink():
-            if scratch.is_symlink() or not scratch.is_dir():
-                raise ValueError("scratch mountpoint is not a directory")
-            if any(path.name != ".DS_Store" or path.is_symlink() or not path.is_file()
-                   for path in scratch.iterdir()):
-                raise ValueError("scratch mountpoint is not empty")
-        else:
+        if not scratch.exists() and not scratch.is_symlink():
             scratch.mkdir(mode=0o700)
+        if scratch.is_symlink() or not scratch.is_dir():
+            raise ValueError("scratch mountpoint is not a directory")
+        compiled = workspace / PurePosixPath(compiled_root)
+        _safe_directory_chain(workspace, compiled, label="sealed compiled candidate")
     except (OSError, ValueError) as error:
         raise ReleaseContractError(
             "release-suite-executor-scratch-unsafe",
             "suite workspace scratch mountpoint is unsafe",
         ) from error
-    return scratch
+    try:
+        relative = compiled.relative_to(scratch)
+    except ValueError:
+        relative = None
+    if relative is None:
+        preserved = None
+    else:
+        if not relative.parts:
+            raise ReleaseContractError(
+                "release-suite-executor-scratch-unsafe",
+                "sealed compiled candidate cannot replace the scratch root",
+            )
+        preserved = scratch / relative.parts[0]
+    try:
+        for child in scratch.iterdir():
+            if child.name == ".DS_Store" and not child.is_symlink() and child.is_file():
+                continue
+            if preserved is not None and child == preserved and not child.is_symlink() and child.is_dir():
+                continue
+            raise ValueError("scratch namespace contains an unpreserved input")
+    except (OSError, ValueError) as error:
+        raise ReleaseContractError(
+            "release-suite-executor-scratch-unsafe",
+            "suite workspace scratch mountpoint is unsafe",
+        ) from error
+    return preserved
 
 
 def _preflight_installed_python(docker: DockerExecutor, root: Path, image: str, python: str) -> None:
@@ -462,18 +487,24 @@ class InstalledNSuiteDockerExecutor:
     ) -> SuiteExecutionResult:
         self._validate_invocation(command, workspace, output_root, working_directory, environment, timeout_seconds)
         attempt_name = _attempt_mounts(self.root, self.candidate_snapshot_manifest_sha256, workspace, output_root)
-        _prepare_executor_scratch(workspace)
+        compiled_source = _prepare_executor_scratch(workspace, self.compiled_root)
         cidfile = output_root / "container.cid"
         if cidfile.exists() or cidfile.is_symlink():
             raise ReleaseContractError("release-suite-executor-output-unsafe", "suite output already has a container identity carrier")
         _preflight_installed_python(self.docker, self.root, self.image_digest, command[0])
         working = str(SANDBOX_WORKSPACE_PATH if working_directory == "."
                       else SANDBOX_WORKSPACE_PATH / working_directory)
+        scratch_mounts = (
+            "--tmpfs", f"{SANDBOX_WORKSPACE_PATH / _EXECUTOR_SCRATCH_RELATIVE}:rw,nosuid,nodev,exec,size={_SANDBOX_TMPFS_SIZE},mode=1777",
+        )
+        compiled_mount = () if compiled_source is None else (
+            "--mount", f"type=bind,src={compiled_source},dst={SANDBOX_WORKSPACE_PATH / compiled_source.relative_to(workspace)},readonly",
+        )
         argv = (
             "docker", "run", "--rm", "--network=none", "--read-only", "--cap-drop=ALL",
             "--security-opt=no-new-privileges", "--pids-limit=128",
             "--tmpfs", f"/tmp:rw,nosuid,nodev,exec,size={_SANDBOX_TMPFS_SIZE},mode=1777",
-            "--tmpfs", f"{SANDBOX_WORKSPACE_PATH / _EXECUTOR_SCRATCH_RELATIVE}:rw,nosuid,nodev,exec,size={_SANDBOX_TMPFS_SIZE},mode=1777",
+            *scratch_mounts, *compiled_mount,
             "--label", f"{_SUITE_LABEL}={self.candidate_snapshot_manifest_sha256}",
             "--label", f"{_ATTEMPT_LABEL}={attempt_name}",
             "--cidfile", str(cidfile),

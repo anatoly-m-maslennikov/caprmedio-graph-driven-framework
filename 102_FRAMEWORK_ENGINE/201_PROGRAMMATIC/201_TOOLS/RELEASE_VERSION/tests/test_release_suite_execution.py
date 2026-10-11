@@ -249,7 +249,7 @@ class FreshUnitRunnerFactoryTests(unittest.TestCase):
         attempt = (self.fixture.root / ".caprmedio_runtime/release_suite"
                    / executor.candidate_snapshot_manifest_sha256 / "attempt-fresh-scratch")
         workspace, output = attempt / "workspace", attempt / "output"
-        compiled = workspace / ".caprmedio_tmp/release_candidates/run/compiled"
+        compiled = workspace / executor.compiled_root
         compiled.mkdir(parents=True)
         retained = compiled / "sealed-input.json"
         retained.write_bytes(b"sealed portable input")
@@ -284,6 +284,8 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
         self.workspace, self.output = self.attempt / "workspace", self.attempt / "output"
         self.workspace.mkdir(parents=True)
         self.output.mkdir()
+        (self.workspace / ".caprmedio_tmp").mkdir()
+        (self.workspace / "compiled/candidate").mkdir(parents=True)
         (self.workspace / "tests").mkdir()
         rules_relative = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_suite_bindings.json"
         test_relative = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests/test_fixture.py"
@@ -435,6 +437,30 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
         self.assertEqual(argv[image_index + 5:], ("python", "-m", "pytest"))
         self.assertEqual(self.docker.calls[-1][1], self.root)
 
+    def test_compiled_input_under_tmp_is_remounted_read_only_over_writable_tmpfs(self) -> None:
+        compiled_root = ".caprmedio_tmp/release_candidates/run/compiled"
+        compiled = self.workspace / compiled_root
+        compiled.mkdir(parents=True)
+        (compiled / "sealed.json").write_text("sealed", encoding="utf-8")
+        self.executor = replace(self.executor, compiled_root=compiled_root)
+        environment = self.environment()
+        environment[COMPILED_ROOT_ENVIRONMENT_VARIABLE] = compiled_root
+
+        self.executor.run(
+            ("python", "-m", "pytest"), workspace=self.workspace, output_root=self.output,
+            working_directory="tests", environment=environment, timeout_seconds=120,
+        )
+
+        argv = self.docker.calls[-1][0]
+        self.assertIn(
+            f"type=bind,src={compiled.parent.parent},dst=/workspace/.caprmedio_tmp/release_candidates,readonly",
+            argv,
+        )
+        self.assertIn(
+            "/workspace/.caprmedio_tmp:rw,nosuid,nodev,exec,size=2g,mode=1777",
+            argv,
+        )
+
     def test_inline_installed_n_guard_preserves_normal_child_exit_without_a_shell(self) -> None:
         guard = self.recorded_deadline_guard(1)
 
@@ -574,11 +600,10 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
         self.assertEqual(linked.exception.code, "release-suite-executor-mount-unsafe")
         self.assertEqual(self.docker.calls, [])
 
-    def test_nonempty_scratch_refuses_before_docker_run(self) -> None:
+    def test_unpreserved_tmp_input_refuses_before_docker_run(self) -> None:
         from release_contract import ReleaseContractError
 
         scratch = self.workspace / _EXECUTOR_SCRATCH_RELATIVE
-        scratch.mkdir()
         (scratch / "unexpected").write_text("not scratch", encoding="utf-8")
         with self.assertRaises(ReleaseContractError) as nonempty:
             self.executor.run(("python", "-m", "pytest"), workspace=self.workspace, output_root=self.output,
@@ -590,6 +615,7 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
         from release_contract import ReleaseContractError
 
         scratch = self.workspace / _EXECUTOR_SCRATCH_RELATIVE
+        scratch.rmdir()
         target = self.root / "outside-scratch"
         target.mkdir()
         scratch.symlink_to(target, target_is_directory=True)
@@ -659,84 +685,57 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
 
 
 class ScratchMetadataHelperTests(unittest.TestCase):
-    """Only disposable scratch preparation; no executor or Docker invocation."""
+    """Only disposable temporary-namespace preparation; no Docker invocation."""
 
     def setUp(self) -> None:
         temporary = tempfile.TemporaryDirectory(prefix="suite-scratch-metadata-", delete=False)
         self.workspace = Path(temporary.name)
         self.scratch = self.workspace / _EXECUTOR_SCRATCH_RELATIVE
+        self.scratch.mkdir()
 
-    def test_new_scratch_remains_fixed_empty_private_leaf(self) -> None:
-        self.assertEqual(self.scratch, _prepare_executor_scratch(self.workspace))
-        self.assertEqual([], list(self.scratch.iterdir()))
-        self.assertEqual(0o700, self.scratch.stat().st_mode & 0o777)
-
-    def test_portable_compilation_under_legacy_tmp_parent_does_not_claim_executor_leaf(self) -> None:
-        compiled = self.workspace / ".caprmedio_tmp/release_candidates/run/compiled"
+    def test_tmp_namespace_preserves_compiled_release_namespace(self) -> None:
+        compiled = self.scratch / "release_candidates/run/compiled"
         compiled.mkdir(parents=True)
+        sibling = compiled.parent / "methodology"
+        sibling.mkdir()
         retained = compiled / "sealed-input.json"
         retained.write_bytes(b"sealed portable input")
 
-        self.assertEqual(self.scratch, _prepare_executor_scratch(self.workspace))
+        self.assertEqual(self.scratch / "release_candidates", _prepare_executor_scratch(
+            self.workspace, ".caprmedio_tmp/release_candidates/run/compiled",
+        ))
         self.assertEqual(b"sealed portable input", retained.read_bytes())
-        self.assertEqual([], list(self.scratch.iterdir()))
 
-    def test_ds_store_only_scratch_is_accepted_without_opening_or_mutating_metadata(self) -> None:
-        self.scratch.mkdir(mode=0o700)
-        metadata = self.scratch / ".DS_Store"
-        metadata.write_bytes(b"Finder metadata\n")
-        metadata.chmod(0o000)
-        with patch.object(Path, "open", side_effect=PermissionError("metadata must not be read")):
-            self.assertEqual(self.scratch, _prepare_executor_scratch(self.workspace))
-        self.assertEqual(0o000, metadata.stat().st_mode & 0o777)
-        metadata.chmod(0o600)
-        self.assertEqual(b"Finder metadata\n", metadata.read_bytes())
+    def test_compiled_root_outside_tmp_namespace_needs_no_nested_mount(self) -> None:
+        compiled = self.workspace / "compiled/candidate"
+        compiled.mkdir(parents=True)
+        self.assertIsNone(_prepare_executor_scratch(self.workspace, "compiled/candidate"))
 
-    def test_real_scratch_state_and_metadata_lookalikes_are_still_rejected(self) -> None:
-        self.scratch.mkdir()
-        (self.scratch / ".DS_Store").write_bytes(b"metadata\n")
-        for name in ("unexpected", ".DS_Store.bak"):
-            with self.subTest(name=name):
-                real_file = self.scratch / name
-                real_file.write_bytes(b"not metadata\n")
-                try:
-                    with self.assertRaises(ReleaseContractError) as refusal:
-                        _prepare_executor_scratch(self.workspace)
-                    self.assertEqual("release-suite-executor-scratch-unsafe", refusal.exception.code)
-                    self.assertEqual(b"not metadata\n", real_file.read_bytes())
-                finally:
-                    real_file.unlink()
+    def test_missing_tmp_namespace_is_created_for_outside_compiled_root(self) -> None:
+        missing = Path(tempfile.mkdtemp(prefix="suite-scratch-missing-"))
+        compiled = missing / "compiled/candidate"
+        compiled.mkdir(parents=True)
+        self.assertIsNone(_prepare_executor_scratch(missing, "compiled/candidate"))
+        self.assertTrue((missing / _EXECUTOR_SCRATCH_RELATIVE).is_dir())
 
-    def test_lowercase_name_is_not_exact_metadata(self) -> None:
-        # Do not create .DS_Store first: on case-insensitive hosts a lowercase
-        # spelling would alias that existing file rather than be a lookalike.
-        self.scratch.mkdir()
-        (self.scratch / ".ds_store").write_bytes(b"not exact Finder metadata\n")
+    def test_symlinked_tmp_namespace_refuses(self) -> None:
+        symlink_workspace = Path(tempfile.mkdtemp(prefix="suite-scratch-symlink-"))
+        target = symlink_workspace / "real-tmp"
+        target.mkdir()
+        symlink = symlink_workspace / _EXECUTOR_SCRATCH_RELATIVE
+        symlink.symlink_to(target, target_is_directory=True)
         with self.assertRaises(ReleaseContractError):
-            _prepare_executor_scratch(self.workspace)
+            _prepare_executor_scratch(symlink_workspace, "compiled/candidate")
 
-    def test_metadata_named_directory_or_symlink_is_not_empty_scratch(self) -> None:
-        # Keep the incompatible metadata-shaped entries in separate retained
-        # scratch roots.  Some hosts deny deletion of a .DS_Store directory,
-        # and this test must not turn that host behavior into cleanup work.
-        directory_workspace = Path(tempfile.mkdtemp(prefix="suite-scratch-metadata-directory-"))
-        directory_scratch = directory_workspace / _EXECUTOR_SCRATCH_RELATIVE
-        directory_scratch.mkdir()
-        metadata = directory_scratch / ".DS_Store"
-        metadata.mkdir()
-        with self.assertRaises(ReleaseContractError):
-            _prepare_executor_scratch(directory_workspace)
-
-        symlink_workspace = Path(tempfile.mkdtemp(prefix="suite-scratch-metadata-symlink-"))
-        symlink_scratch = symlink_workspace / _EXECUTOR_SCRATCH_RELATIVE
-        symlink_scratch.mkdir()
-        target = symlink_workspace / "real-state"
-        target.write_bytes(b"real state\n")
-        metadata = symlink_scratch / ".DS_Store"
-        metadata.symlink_to(target)
-        with self.assertRaises(ReleaseContractError):
-            _prepare_executor_scratch(symlink_workspace)
-        self.assertEqual(b"real state\n", target.read_bytes())
+    def test_unpreserved_tmp_input_refuses(self) -> None:
+        compiled = self.scratch / "release_candidates/run/compiled"
+        compiled.mkdir(parents=True)
+        (self.scratch / "other-sealed-input").write_text("must not hide", encoding="utf-8")
+        with self.assertRaises(ReleaseContractError) as refusal:
+            _prepare_executor_scratch(
+                self.workspace, ".caprmedio_tmp/release_candidates/run/compiled",
+            )
+        self.assertEqual("release-suite-executor-scratch-unsafe", refusal.exception.code)
 
 
 if __name__ == "__main__":
