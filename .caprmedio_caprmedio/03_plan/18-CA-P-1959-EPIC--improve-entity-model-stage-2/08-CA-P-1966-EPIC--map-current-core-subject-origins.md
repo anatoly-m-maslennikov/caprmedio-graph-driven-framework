@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 106
-updated_at: "2026-10-11 09:03:37 +0400"
+version: 107
+updated_at: "2026-10-11 09:08:22 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -179,7 +179,7 @@ CA-P-2112–2117 cover the final137 baseline-only unresolved origins in these ex
 - [CA-P-2112 — Review final snapshot-field origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/85-CA-P-2112-TASK--review-final-snapshot-field-origins.md)
 - [CA-P-2113 — Review remaining scope and project origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/86-CA-P-2113-TASK--review-remaining-scope-and-project-origins.md)
 - [CA-P-2114 — Review final settings and methodology origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/87-CA-P-2114-TASK--review-final-settings-and-methodology-origins.md)
-- [CA-P-2115 — Review final relation-family origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/88-CA-P-2115-TASK--review-final-relation-family-origins.md)
+- [CA-P-2115 — Review final relation-family origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/88-CA-P-2115-TASK--review-final-relation-family-origins.md)
 - [CA-P-2116 — Review final projection-family origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/89-CA-P-2116-TASK--review-final-projection-family-origins.md)
 - [CA-P-2117 — Review scope and project tail origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/90-CA-P-2117-TASK--review-scope-and-project-tail-origins.md)
 
