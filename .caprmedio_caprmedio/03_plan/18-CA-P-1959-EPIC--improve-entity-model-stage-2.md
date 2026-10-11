@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 33
-updated_at: "2026-10-11 12:34:46 +0400"
+version: 34
+updated_at: "2026-10-11 12:42:37 +0400"
 relations: {}
 ---
 # Summary
@@ -145,6 +145,15 @@ Latest integration checkpoint: CA-P-2121–2131 are Done. Eight independently ac
 Latest integration checkpoint: CA-P-2132–2143 are Done, with one commit per completed Task. Eight accepted reviews cover 195 exact origins across 148 current owners: 63 supported mappings and 132 explicit nulls. The saved ledger has 1869 proposed, 1540 unchanged and 1125 unresolved references across 907 original Core sources and 4534 occurrences. All 326 fresh relevant tests pass (30 focused, 296 native), plus report controls and ten complete-ledger wrong-data controls. CA-P-2133 now uses a separately accepted Core-only successor; the withdrawn raw report and receipt remain unchanged as history. Live contract and predecessor proof checks pass. Original Core remains unchanged. Eight quarantines, the selector choice and final migration/content gates remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-domains-2132-2139.json`. This is progress, not complete mapping or source adoption.
 
 CA-P-2144–2152 are Done and separately committed. All 204 selected unqualified origins across 145 owners passed independent semantic acceptance and 112 exact report controls: 59 supported proposals, 145 explicit nulls. Four actual frontier-audit wrong-data controls reject defects. Corrected Projection/Journal false nulls, inverse-kind admission and the Principle omission are reflected only in final accepted reports; unsupported audit claims and display-only prefix rejection are not accepted. Current saved ledger remains 1869/1540/1125 until CA-P-2153–2155's separate integration passes. Original Core remains unchanged; full mapping, selectors, quarantines and migration/content gates remain open. Evidence: `_projection/core-entity-review/stage2/checkpoint-unqualified-research-2144-2152.json`.
+
+### Remaining gate audits
+
+Four bounded read-only audits check remaining coverage, genuine model choices, source quarantines and the shared execution route. They do not authorize selector syntax, source repairs, native admission or body work. Do not create filler work after safe independent checks are exhausted.
+
+- [CA-P-2156 — Audit the remaining Subject frontier](18-CA-P-1959-EPIC--improve-entity-model-stage-2/19-CA-P-2156-TASK--audit-the-remaining-subject-frontier.md)
+- [CA-P-2157 — Identify the remaining entity-model decisions](18-CA-P-1959-EPIC--improve-entity-model-stage-2/20-CA-P-2157-TASK--identify-the-remaining-entity-model-decisions.md)
+- [CA-P-2158 — Audit quarantined Core source carriers](18-CA-P-1959-EPIC--improve-entity-model-stage-2/21-CA-P-2158-TASK--audit-quarantined-core-source-carriers.md)
+- [CA-P-2159 — Audit Stage 2 execution gates](18-CA-P-1959-EPIC--improve-entity-model-stage-2/22-CA-P-2159-TASK--audit-stage-2-execution-gates.md)
 
 ### Definition of Done
 
