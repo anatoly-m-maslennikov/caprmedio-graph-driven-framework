@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11 08:51:33 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded continuation research and verified current derived integration; Epic remains Active",
+  "tasks": [
+    "CA-P-2103",
+    "CA-P-2104",
+    "CA-P-2105",
+    "CA-P-2106",
+    "CA-P-2107",
+    "CA-P-2108",
+    "CA-P-2109",
+    "CA-P-2110",
+    "CA-P-2111"
+  ],
+  "selected_origins": 183,
+  "research_decisions": {
+    "proposed": 100,
+    "unresolved": 83
+  },
+  "current_counts": {
+    "excluded_sources": 11203,
+    "occurrences": 4534,
+    "outcome": "PASS",
+    "proposed": 1648,
+    "quarantined_sources": 8,
+    "sources": 907,
+    "unchanged": 1540,
+    "unresolved": 1346
+  },
+  "quarantined_occurrences": 35,
+  "current_grammar": {
+    "occurrences": 33,
+    "proposed": 15,
+    "unresolved": 18,
+    "recheck_resets": 0
+  },
+  "outputs": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+      "size_bytes": 19458773
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+      "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+      "size_bytes": 3642901
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+      "sha256": "751370a4a1ca4550ca6bed7b1dae39ddfeec7ef1dab8d3a8dab07c5755209edd",
+      "size_bytes": 3197267
+    }
+  ],
+  "input_manifest": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2103-2108.inputs.json",
+    "sha256": "7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3"
+  },
+  "accepted_reports": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2103.research.json",
+      "sha256": "22db7aa281823d7e01c58454bcc52ee7060d5ffe24a12396e62e6e952f28071c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2104.research.json",
+      "sha256": "d19ad7f585610a10910c4b0355aaca1743a670adb3b56c96114a0cfd5d35a5f4"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2105.research.json",
+      "sha256": "40a2d1c26cc6b617b49ac109172c99996de6727401e99326d17bf89f2adf492e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2106.research.json",
+      "sha256": "109edfd87f6f788658a210e561e034275dff6b49df34357b5d386340ba3e8204"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2107.research.json",
+      "sha256": "149a9a3c35f2c4c3a08733e9dac790093d4c592da428f5bbfd262fbb396c458a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2108.research.json",
+      "sha256": "eb40f1fc810edb418f3acdeec8ce798837109264e45a966d348c86b810945da5"
+    }
+  ],
+  "source_preservation": {
+    "original_core_diff_since": "441bc48e1",
+    "result": "PASS: no original Core Subjects/content diff",
+    "frozen_candidate_and_baseline": "unchanged",
+    "prior_drafts": {
+      "git_commit": "cb970d651",
+      "ledger_sha256": "50ab0114669787dba6331b58f8054cd8fb33b5abbed33df6fbf5b52df53923fa",
+      "diagnostics_sha256": "3837d4ef67d7515fa5023ff1aa2cb323be2bac348118bb22175e409cf9fe0b77"
+    },
+    "frontier": "byte-identical regeneration; no source frontier changes"
+  },
+  "validation": {
+    "persisted_live_gate": "PASS: independent source enumeration, exact closed layers/current proofs/receipt provenance",
+    "complete_ledger_wrong_data_checks": [
+      {
+        "probe": "missing_layer",
+        "reason": "complete accepted-layer manifest"
+      },
+      {
+        "probe": "omit_all_followups",
+        "reason": "accepted second follow-up extension required"
+      },
+      {
+        "probe": "missing_selected_row",
+        "reason": "exact current occurrence coverage"
+      },
+      {
+        "probe": "stale_source",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] exact current origin/pin"
+      },
+      {
+        "probe": "wrong_target",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] final selected-layer target"
+      },
+      {
+        "probe": "wrong_priority",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] accepted layer priority"
+      },
+      {
+        "probe": "wrong_confidence",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] final selected-layer confidence"
+      },
+      {
+        "probe": "stale_receipt",
+        "reason": "second follow-up accepted pins CA-P-2103"
+      },
+      {
+        "probe": "missing_independent_review",
+        "reason": "second follow-up manifest independent-review hash CA-P-2103"
+      },
+      {
+        "probe": "executable_row",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] non-executable"
+      }
+    ],
+    "report_wrong_data_checks": 66,
+    "report_rows_rechecked": 183,
+    "focused_tests": {
+      "tests": 21,
+      "exit_code": 0
+    },
+    "native_suites": {
+      "reviewer": "/root/mapping_drift_verify",
+      "runtime": "uv offline with cached pydantic2.13.5/PyYAML6.0.3; python -B unittest",
+      "ATOM_SEARCH": {
+        "exit_code": 0,
+        "tests": 44
+      },
+      "ATOM_UPDATE": {
+        "exit_code": 0,
+        "tests": 33
+      },
+      "GENERATE_ENTITY_GRAPH": {
+        "exit_code": 0,
+        "tests": 219
+      },
+      "total": 296,
+      "changed_files": []
+    },
+    "total_tests": 317,
+    "producer_negative_probes": "PASS including fixed groups and canonical decision-only non-Core evidence",
+    "git_diff_check": "PASS"
+  },
+  "support_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/consolidate_reviewed_mappings.py",
+      "sha256": "23e7fdba72faf4d3b1d4f7429643bd2b2ef6809b4169a3f8cceecf5b046fd9f0"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+      "sha256": "08de4b9dd9a934829b8d9d605ad4957e4dd582c38b98356d208ca33f306c7674"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_working_mapping_ledger.py",
+      "sha256": "89a4db0206ca81b373d5e962eae765ce9bde58e8455545ee6fdff133f74cfc27"
+    }
+  ],
+  "pending_choice": {
+    "question": "May Subjects extend grammar with atom(content_role=\"Plan\").Status and atom(atom_id=\"CA-O-123\") for qualified/named owners?",
+    "answer": "not_received",
+    "adoption": "not_performed"
+  },
+  "remaining_gates": [
+    "Resolve actual remaining1346 mappings and eight explicit quarantines",
+    "CA-P-1909 accepted graph",
+    "CA-P-1910 exact sealed preview/approval",
+    "CA-P-1911 authorized application",
+    "CA-P-1912 reproduction",
+    "CA-P-1969 complete Subjects-first gate",
+    "CA-P-1970 ordinary content alignment",
+    "CA-P-1971 final Stage2 verification"
+  ],
+  "limits": [
+    "No complete semantic mapping or final graph acceptance is claimed.",
+    "All mapping rows remain non-executable; no selector or source migration approval was inferred.",
+    "Only registered derived/support outputs and controlled Plan lifecycle were changed."
+  ]
+}
