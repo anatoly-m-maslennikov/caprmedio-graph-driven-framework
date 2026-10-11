@@ -24,6 +24,7 @@ GRAPH_SPEC.loader.exec_module(graph_builder)
 # This module is intentionally absent at the TDD baseline.
 sys.path.insert(0, str(TOOL_DIRECTORY))
 import graph_fact_context  # type: ignore[import-not-found]  # noqa: E402
+from historical_core_authority import historical_authority_bytes  # noqa: E402
 
 
 def current_atom(atom_id: str, claim: str, *, eol: str = "\n") -> str:
@@ -92,12 +93,17 @@ class GraphFactContextTests(unittest.TestCase):
         destinations = self.repository / "authority"
         destinations.mkdir(exist_ok=True)
         sources = (
-            core / "07_delivery/CA-D-478-CORE_META_MODEL-CORE-DELIVERY--store-every-atom-property-in-one-internal-location.md",
-            core / "07_delivery/CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties.md",
-            core / "04_requirement/CA-R-1624-CORE_META_MODEL-CORE-REQUIREMENT--keep-details-within-the-primary-contribution.md",
+            ("CA-D-478", "07_delivery/CA-D-478-CORE_META_MODEL-CORE-DELIVERY--store-every-atom-property-in-one-internal-location.md"),
+            ("CA-D-479", "07_delivery/CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties.md"),
+            ("CA-R-1624", "04_requirement/CA-R-1624-CORE_META_MODEL-CORE-REQUIREMENT--keep-details-within-the-primary-contribution.md"),
         )
-        for source in sources:
-            (destinations / source.name).write_bytes(source.read_bytes())
+        expected = {atom_id: digest for atom_id, _revision, digest in graph_fact_context._DETAILS_ASSIGNMENT_PINS}
+        for atom_id, suffix in sources:
+            payload = historical_authority_bytes(suffix, expected[atom_id])
+            if payload is None:
+                payload = (core / suffix).read_bytes()
+            self.assertEqual(expected[atom_id], hashlib.sha256(payload).hexdigest())
+            (destinations / Path(suffix).name).write_bytes(payload)
         carriers, diagnostics = graph_builder.discover_atoms(self.repository, destinations)
         self.assertEqual([], diagnostics)
         return carriers

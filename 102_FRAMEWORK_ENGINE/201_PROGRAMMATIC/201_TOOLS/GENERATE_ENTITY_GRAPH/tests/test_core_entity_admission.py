@@ -16,6 +16,8 @@ sys.path.insert(0, str(TOOL_DIRECTORY))
 import core_entity_admission as core  # noqa: E402
 import generate_entity_graph as graph  # noqa: E402
 import graph_fact_context as facts  # noqa: E402
+import historical_core_authority  # noqa: E402
+from historical_core_authority import historical_authority_bytes  # noqa: E402
 
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp/tests/test_core_entity_admission"
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
@@ -52,7 +54,9 @@ class CoreEntityAdmissionTests(unittest.TestCase):
             '[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\nauthority_path = ".control/core"\n', encoding="utf-8",
         )
         for suffix, revision, digest, role in core._REQUIRED_AUTHORITIES.values():
-            raw = (REAL_CORE / suffix).read_bytes()
+            raw = historical_authority_bytes(suffix, digest)
+            if raw is None:
+                raw = (REAL_CORE / suffix).read_bytes()
             self.assertEqual(digest, hashlib.sha256(raw).hexdigest())
             destination = self.folder / suffix
             destination.parent.mkdir(parents=True, exist_ok=True)
@@ -79,6 +83,15 @@ class CoreEntityAdmissionTests(unittest.TestCase):
     def checked(self, profile, carriers, atom_id="CA-O-8001"):
         carrier = next(item for item in carriers if item.atom_id == atom_id)
         return core.checked_operations_source(self.repository, carrier, profile)
+
+    def test_historical_authority_refuses_aliased_asset_root(self) -> None:
+        suffix, _revision, digest, _role = core._REQUIRED_AUTHORITIES["CA-E-449"]
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True) as directory:
+            alias = Path(directory) / "aliased-assets"
+            alias.symlink_to(historical_core_authority._ASSET_ROOT, target_is_directory=True)
+            with patch.object(historical_core_authority, "_ASSET_ROOT", alias):
+                with self.assertRaisesRegex(RuntimeError, "asset root is unsafe"):
+                    historical_authority_bytes(suffix, digest)
 
     def test_raw_factory_recognizes_only_actual_selected_atom_identity_and_type(self) -> None:
         profile, carriers = self.profile()

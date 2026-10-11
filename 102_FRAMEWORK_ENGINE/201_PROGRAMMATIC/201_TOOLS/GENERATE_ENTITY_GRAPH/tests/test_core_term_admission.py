@@ -27,6 +27,7 @@ assert SPEC and SPEC.loader
 core = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = core
 SPEC.loader.exec_module(core)
+from historical_core_authority import historical_authority_bytes  # noqa: E402
 
 
 WORKSPACE = TOOL_DIRECTORY.parents[3]
@@ -76,11 +77,14 @@ class CoreTermAdmissionTests(unittest.TestCase):
             "authority_mode = 'strict'\n",
             encoding="utf-8",
         )
-        for _, (_, _, _, suffix) in core._REQUIRED_AUTHORITIES.items():
-            source = ACTUAL_CORE / suffix
+        for _, (_, digest, _, suffix) in core._REQUIRED_AUTHORITIES.items():
+            payload = historical_authority_bytes(suffix, digest)
+            if payload is None:
+                payload = (ACTUAL_CORE / suffix).read_bytes()
+            self.assertEqual(digest, hashlib.sha256(payload).hexdigest())
             destination = self.authority_root / suffix
             destination.parent.mkdir(parents=True, exist_ok=True)
-            destination.write_bytes(source.read_bytes())
+            destination.write_bytes(payload)
         self.write("04_requirement/CA-R-900.md", requirement("CA-R-900"))
 
     def tearDown(self) -> None:
