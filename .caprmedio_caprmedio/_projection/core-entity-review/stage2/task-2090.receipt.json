@@ -30,7 +30,7 @@
     "draft_writes": "none"
   },
   "completion_scope": "The one-off consolidator admits only five exact declared grammar effects, rejects unexpected source/path/counterpart/text drift and preserves all unaccepted grammar rows as null. Existing derived drafts were not replaced.",
-  "registration_commit": "5e4356db9950d00bb2eaa1e081e1fcc8e218ee97",
+  "registration_commit": "9c3573512d3d18d01de0d06f16f72ea73f16a1d6",
   "limits": [
     "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
     "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
