@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 112
-updated_at: "2026-10-11 09:30:39 +0400"
+version: 113
+updated_at: "2026-10-11 09:41:58 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -186,6 +186,17 @@ CA-P-2112–2117 cover the final137 baseline-only unresolved origins in these ex
 CA-P-2112–2117 are independently accepted: 137 exact origins, 87 supported proposals and 50 nulls. CA-P-2118–2120 integrate this final continuation for these families without changing authority. This completes their bounded research, not all semantic mapping; the current ledger is still the prior 1648/1540/1346 checkpoint until verified replacement.
 
 Latest integration checkpoint: CA-P-2112–2120 are Done. Six independently accepted reports cover 137 exact origins across 101 distinct current sources (87 proposals, 50 explicit nulls). The persisted derived ledger now has 1735 proposed, 1540 unchanged and 1259 unresolved references across 907 original Core sources and 4534 occurrences. All 319 relevant tests pass (23 focused verifier, 296 native), plus ten complete-ledger wrong-data controls and 66 report controls. Original Core remains unchanged; eight quarantines, the selector decision and final migration/content gates stay open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-families-2112-2117.json`. This is progress, not complete mapping or source adoption.
+
+CA-P-2121–2128 review 205 previously unreviewed baseline-only origins in eight disjoint families across 148 distinct current sources, at most twenty owners per lane. Basic fields/tiers, identity/authority, Carrier structure, CCE, expressions, topics, roles and Terms/Subject relations need body-supported meanings rather than mechanical label promotion. This is research only; previous nulls and the selector decision remain open.
+
+- [CA-P-2121 — Review remaining Atom-field and tier origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/91-CA-P-2121-TASK--review-remaining-atom-field-and-tier-origins.md)
+- [CA-P-2122 — Review Entity-identity and authority origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/92-CA-P-2122-TASK--review-entity-identity-and-authority-origins.md)
+- [CA-P-2123 — Review Carrier-structure origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/93-CA-P-2123-TASK--review-carrier-structure-origins.md)
+- [CA-P-2124 — Review CCE language and registry origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/94-CA-P-2124-TASK--review-cce-language-and-registry-origins.md)
+- [CA-P-2125 — Review Scope and value-expression origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/95-CA-P-2125-TASK--review-scope-and-value-expression-origins.md)
+- [CA-P-2126 — Review legacy model and topic Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/96-CA-P-2126-TASK--review-legacy-model-and-topic-subjects.md)
+- [CA-P-2127 — Review role and execution origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/97-CA-P-2127-TASK--review-role-and-execution-origins.md)
+- [CA-P-2128 — Review Term and Subject-relation origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/98-CA-P-2128-TASK--review-term-and-subject-relation-origins.md)
 
 ### Definition of Done
 
