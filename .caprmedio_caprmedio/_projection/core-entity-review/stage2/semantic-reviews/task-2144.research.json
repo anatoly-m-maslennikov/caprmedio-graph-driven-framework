@@ -1,0 +1,1578 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2144",
+  "family": "unqualified_origins_001",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "selection": {
+    "family": "unqualified_origins_001",
+    "sources": 19,
+    "occurrences": 19,
+    "occurrence_id_set_sha256": "8484e7182cbcec052beef17ea63680f2c72ca6167014a0ca84f2f40157d9b89c",
+    "manifest_sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+  },
+  "limits": [
+    "Semantic research only; no source migration, native admission, selector, @ syntax, singleton kind, new root, Artifact.Revision target, per-Property Carrier registry, Project Configuration authority substitution, or runtime action is authorized.",
+    "Original Core definitions are the only supporting semantic sources; Project Configuration, captured copies, prior reports, and lexical routing labels do not decide meaning.",
+    "Every unresolved value remains null with current owning-source evidence; it is not a completed mapping decision. Candidate display-name absence alone is not grounds for null."
+  ],
+  "counts": {
+    "assigned": 19,
+    "covered": 19,
+    "proposed": 6,
+    "unresolved": 13,
+    "current_sources": 19,
+    "current_evidence_spans": 19
+  },
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2144-2151.inputs.json",
+      "sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2144-2151.contract.md",
+        "sha256": "0df1d9e998ad2b8cc3e26f7cb5dfdf58421a9e6c9f27a456a828d32c02f4a651"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2132-2139.contract.md",
+        "sha256": "3ed29d889a2d7905614a0d02c23a75f82fb002ffea51f4dce2714f60865aa6ff"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/108-CA-P-2144-TASK--review-remaining-unqualified-subjects-001.md",
+      "sha256": "7c93ad3288d60703b8d3699dc9af0247a7363a876b44bfae566a2ce38262898f",
+      "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL-GENERAL--permit-projections-as-implementation-outputs.md",
+        "sha256": "91c4576fa27eb3fbec01af55767468bff2de5e91f7f006a9c4cff067ed6fc699"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md",
+        "sha256": "e955bf3d0d5506d326d761c8372d0c9d1b1a9c0c73c3475adb5891a1e812542b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1725-CORE_META_MODEL-GENERAL--review-external-analysis-before-project-adoption.md",
+        "sha256": "b08bd6d3a0943a477c88845212db648b45468b0126908450b51f790557cfafbd"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1726-CORE_META_MODEL-CORE--concerns-have-active-and-solved-states.md",
+        "sha256": "505e111f237d44f902e909fd80b4e21fc1d6585a3162b67ba8cd41ae08e00f36"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+        "sha256": "da651037ee1fbf6d3bf947f75e3649a2ffaf7b17f2a52c42433845e6a46be4d5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL-CORE--record-every-projection-rebuild-in-a-journal.md",
+        "sha256": "0d0381c928e5f95cb49a5b86201ec156332515241ee0c81d1c517526751adc53"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md",
+        "sha256": "c50c68fea59b4168b3b694b09e453d220d31feb3166b9cc908ba827a81f2ee96"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1734-CORE_META_MODEL-CORE--preserve-self-improvement-stage-meanings.md",
+        "sha256": "ae7f786e37b84a2be7bc0857cbe4071920f43709e8c540248643cad77615c16a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1735-CORE_META_MODEL-GENERAL--relate-self-improvement-stages-explicitly.md",
+        "sha256": "183fc487f8018c8276a5eab07ac9f5c29b5b05105d570f613c85c8a9793b2aab"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+        "sha256": "14a338784dc5d1dd3903a435c7ee6df81ff55c8e440b09d77920d49e22edf2cf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+        "sha256": "9a9f22ad994c1281767fd9161908d5a4419f1d3f60b08fdaeb74f398da072ff9"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1742-CORE_META_MODEL-GENERAL-REQUIREMENT--realize-recurrence-evaluation-through-implementation.md",
+        "sha256": "a7837eafe661acce1a99770598d3ac4c9b12979e796c8ed0099230ac4724c552"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL-CORE--record-recurrence-check-outcomes-in-the-journal.md",
+        "sha256": "1a3dcebb61d2929cd98ee226791940645b0d30ce2f83385c354b4ec201374cf0"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1744-CORE_META_MODEL-CORE--keep-project-specific-substrates-out-of-the-reusable-core.md",
+        "sha256": "c2cb562f47e808b7d605862665c6275ae575906e6d5d2cc851c53e37aec6c502"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL-CORE--distinguish-native-targets-from-governed-artifacts.md",
+        "sha256": "619c1916826859628af327566a919ab7ba2066d91a04443738295909223f1db7"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1752-CORE_META_MODEL-CORE--govern-project-adaptation-semantics.md",
+        "sha256": "786a0e7ee618b03c2680615b1f1e56b63b48324113f8a68bead9386dab4bf293"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1753-CORE_META_MODEL-CORE--keep-project-adaptation-authority-out-of-settings.md",
+        "sha256": "4644a8fe28d99983a249f5c3497748453ddb8b822e51f0abf38386d43894ecf6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1754-CORE_META_MODEL-GENERAL--promote-project-adaptation-authority-to-an-extension.md",
+        "sha256": "a570e58dbe813efe4d67bb8c75c05d883943b781dae968c1edb47d23599b6a66"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1755-CORE_META_MODEL-CORE--bound-extension-applicability.md",
+        "sha256": "d152d96b1ac86b261e1e8bfe80aa6892e8868ee347cb7817bfab8aebff383695"
+      }
+    ]
+  },
+  "supporting_current_definitions": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+      "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+      "start_line": 26,
+      "end_line": 44,
+      "span_sha256": "d6d699bd99765840d39bfbdaa9f9ae2631bde16f0d69e99886989816dc1eca7d",
+      "reason": "Live original Core definition CA-R-1703 was re-read; this anchored span preserves the Projection and authority boundary used to review the origin.",
+      "atom_id": "CA-R-1703"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL-GENERAL--permit-projections-as-implementation-outputs.md",
+      "sha256": "91c4576fa27eb3fbec01af55767468bff2de5e91f7f006a9c4cff067ed6fc699",
+      "start_line": 23,
+      "end_line": 39,
+      "span_sha256": "ee6668a5543d41ef71211efe363c4ff9f8005e923fe3e587fe16ca5aae9adc89",
+      "reason": "Live original Core definition CA-R-1568 was re-read; this anchored span preserves the Projection and authority boundary used to review the origin.",
+      "atom_id": "CA-R-1568"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md",
+      "sha256": "d469011478752241340e3dd544f0744bddc7b7129e3ae7e1e249144363e5c007",
+      "start_line": 28,
+      "end_line": 38,
+      "span_sha256": "e58c54f322b44e516991643c30c5454e8ca7c0aaba97785d6276157e6baf7707",
+      "reason": "Live original Core definition CA-R-1452 was re-read; this anchored span preserves the Action, Journal, Event, and Projection boundary used to review the origin.",
+      "atom_id": "CA-R-1452"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "start_line": 31,
+      "end_line": 46,
+      "span_sha256": "6a0eb5bc1c7e68dc3dc3b59c3afe9cacf7a4cee548a92beef53744f03716fcc0",
+      "reason": "Live original Core definition CA-R-1720 was re-read; this anchored span preserves the Action, Journal, Event, and Projection boundary used to review the origin.",
+      "atom_id": "CA-R-1720"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+      "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+      "start_line": 21,
+      "end_line": 34,
+      "span_sha256": "de9e5802a3a0a8d8cb5dc30000a5663943c2b21a257b17e18d80af0968f9ccf2",
+      "reason": "Live original Core definition CA-R-1745 was re-read; this anchored span preserves the Action, Journal, Event, and Projection boundary used to review the origin.",
+      "atom_id": "CA-R-1745"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md",
+      "sha256": "c50c68fea59b4168b3b694b09e453d220d31feb3166b9cc908ba827a81f2ee96",
+      "start_line": 22,
+      "end_line": 28,
+      "span_sha256": "9a8d77426a8c640fce1ffc52d7102aa1ccdd2d1a091134f3bb047dc2233b9261",
+      "reason": "Live original Core definition CA-R-1729 was re-read; this anchored span preserves the Action, Journal, Event, and Projection boundary used to review the origin.",
+      "atom_id": "CA-R-1729"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md",
+      "sha256": "4d1a31335812edb8411132162bdd2a8448797fb7326d9fa6b1020d2c4ebf293f",
+      "start_line": 20,
+      "end_line": 30,
+      "span_sha256": "a8722039557bb431c5e2b3f66e43e552bad01bbc0b30b8abad9dc408876b2e77",
+      "reason": "Live original Core definition CA-R-1337 was re-read; this anchored span preserves the Analysis, authority, and role boundary used to review the origin.",
+      "atom_id": "CA-R-1337"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "start_line": 28,
+      "end_line": 40,
+      "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+      "reason": "Live original Core definition CA-R-1683 was re-read; this anchored span preserves the Analysis, authority, and role boundary used to review the origin.",
+      "atom_id": "CA-R-1683"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1549-CORE_META_MODEL-CORE-REQUIREMENT--define-change-content-roles.md",
+      "sha256": "621e0721ff32f85f65cedd7f213cb3ee6e81268159b53d6496630b2815f426cd",
+      "start_line": 32,
+      "end_line": 34,
+      "span_sha256": "198bb0d132cd291eabea804ac2a3a1661689482ef9b1646eb463cd9d764f83a0",
+      "reason": "Live original Core definition CA-R-1549 was re-read; this anchored span preserves the Analysis, authority, and role boundary used to review the origin.",
+      "atom_id": "CA-R-1549"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-concern-status-values.md",
+      "sha256": "5bf01a8f1d27c69cddcc939e74f3b11325b376565281fdcb2054b77bd18ae672",
+      "start_line": 24,
+      "end_line": 34,
+      "span_sha256": "1e4f170209a2ec7b8acedcc5b46144b5693e8f9ad44bf2252bf137b3634a1d63",
+      "reason": "Live original Core definition CA-R-1608 was re-read; this anchored span preserves the Concern Status property used to review the origin.",
+      "atom_id": "CA-R-1608"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
+      "sha256": "b19222de4098ccbdd6ec907980f0ab4ae6546794fe40a20f762a24031d6b09ff",
+      "start_line": 21,
+      "end_line": 33,
+      "span_sha256": "f3faea52df7dce46beac94dda152aad0857a026e31226dfbdab9f125cc252073",
+      "reason": "Live original Core definition CA-R-1306 was re-read; this anchored span preserves the Concern Status property used to review the origin.",
+      "atom_id": "CA-R-1306"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+      "sha256": "4e9729d9a86cfde040939429e31efea27f72cc7fe0bf9645d1b993181072905b",
+      "start_line": 23,
+      "end_line": 36,
+      "span_sha256": "0578092ffa5cb1e65ccb79fef0d2acfe505ff85560378b2272eae6efd81d2361",
+      "reason": "Live original Core definition CA-R-1875 was re-read; this anchored span preserves the Analysis Status property used to review the origin.",
+      "atom_id": "CA-R-1875"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-CORE-REQUIREMENT--define-the-operations-content-role.md",
+      "sha256": "8e6280d4acbbab76d70b936a69803d95d0d6e855845003d1e92e5d71470e328f",
+      "start_line": 24,
+      "end_line": 34,
+      "span_sha256": "20e82e68435bf352489d9419b45d34a8f1db3445388f63866c78829c091c0feb",
+      "reason": "Live original Core definition CA-R-1530 was re-read; this anchored span preserves the Operations, Actor, Execution, and Journal boundary used to review the origin.",
+      "atom_id": "CA-R-1530"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+      "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+      "start_line": 17,
+      "end_line": 29,
+      "span_sha256": "e5b784d1d12014bafe9dc7c8dad598f49af18704a4a02e54443a6d8ff36cc67e",
+      "reason": "Live original Core definition CA-R-1283 was re-read; this anchored span preserves the stage and Content Role boundary used to review the origin.",
+      "atom_id": "CA-R-1283"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1734-CORE_META_MODEL-CORE--preserve-self-improvement-stage-meanings.md",
+      "sha256": "ae7f786e37b84a2be7bc0857cbe4071920f43709e8c540248643cad77615c16a",
+      "start_line": 20,
+      "end_line": 30,
+      "span_sha256": "fa0cdc511e7171c0a3b8ceda0ee1df8ceb8c3bc1b7e2410ad66a0603ce70d436",
+      "reason": "Live original Core definition CA-R-1734 was re-read; this anchored span preserves the stage and Content Role boundary used to review the origin.",
+      "atom_id": "CA-R-1734"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections.md",
+      "sha256": "c4ae524cad97b270246272ec9604e243318a8eba5cdd32bae80e4c8e13cacd5e",
+      "start_line": 34,
+      "end_line": 36,
+      "span_sha256": "6938c476abda1a00e4342dc12942873ddf3c7ad87ce15ce26a651cc4eaed1df4",
+      "reason": "Live original Core definition CA-R-1472 was re-read; this anchored span preserves the typed Relation boundary used to review the origin.",
+      "atom_id": "CA-R-1472"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+      "sha256": "31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf",
+      "start_line": 25,
+      "end_line": 39,
+      "span_sha256": "0e29e9b297ced7ac025980f02ac9592683869c626fca6a6ea4f3d748513e9088",
+      "reason": "Live original Core definition CA-R-1437 was re-read; this anchored span preserves the typed Relation boundary used to review the origin.",
+      "atom_id": "CA-R-1437"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md",
+      "sha256": "25f7ff661e45ceef86a3a54aa0e02fcd273c32ae4ddac63b10a000cebe1efe5f",
+      "start_line": 24,
+      "end_line": 43,
+      "span_sha256": "54423a43450065d30c5732baf8bfb5560c6419abc55ac9e3a72b36194d54d1b8",
+      "reason": "Live original Core definition CA-R-1548 was re-read; this anchored span preserves the collective Content Role boundary used to review the origin.",
+      "atom_id": "CA-R-1548"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+      "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+      "start_line": 20,
+      "end_line": 30,
+      "span_sha256": "252dc6d3e65401ca817c99746c3c171afce3f5c3f20fd4deda6c028887499fd8",
+      "reason": "Live original Core definition CA-R-1341 was re-read; this anchored span preserves the Evaluation Content Role used to review the origin.",
+      "atom_id": "CA-R-1341"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+      "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+      "start_line": 25,
+      "end_line": 31,
+      "span_sha256": "78690b96bcd3ba5742148a2e627c65417d31302bd592317f842fb3748d044138",
+      "reason": "Live original Core definition CA-R-1531 was re-read; this anchored span preserves the Evaluation Content Role used to review the origin.",
+      "atom_id": "CA-R-1531"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1343-CORE_META_MODEL-CORE-REQUIREMENT--define-implementation-content-role.md",
+      "sha256": "ae94de81b2b492632e1dfff2a0adb43bc3587e049e5e0798e23d04aa1e489f1c",
+      "start_line": 20,
+      "end_line": 33,
+      "span_sha256": "24782d0c86c6a981f2ef70485072359d25f018889dfde4a483c7c4e688e009a1",
+      "reason": "Live original Core definition CA-R-1343 was re-read; this anchored span preserves the Implementation Content Role used to review the origin.",
+      "atom_id": "CA-R-1343"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1207-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-configuration-rules-from-current-settings.md",
+      "sha256": "51e15b84a23ada40239c8cae9ecf9badad32778d22726e3c8bce0bbc32e08c75",
+      "start_line": 25,
+      "end_line": 31,
+      "span_sha256": "bed1f3cb8e66ec60b20b93e1afe4a573ca16f93baeaca4637d7b4f855e1454a0",
+      "reason": "Live original Core definition CA-R-1207 was re-read; this anchored span preserves the Core versus project-authority boundary used to review the origin.",
+      "atom_id": "CA-R-1207"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL-CORE--admit-implementation-independent-core-rules.md",
+      "sha256": "ed7fdce7978319f7ebf7b05f0eea277cdd5682845ae8000cd6b58902d3a3d68b",
+      "start_line": 24,
+      "end_line": 30,
+      "span_sha256": "4b7cd6b57ff0c4bc7bda60e7b24f16ab98301553c87e04a6718bc1bf60e5d62a",
+      "reason": "Live original Core definition CA-R-1681 was re-read; this anchored span preserves the Core versus project-authority boundary used to review the origin.",
+      "atom_id": "CA-R-1681"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-meta-model-implementation-neutral.md",
+      "sha256": "5ae38a6a474c8dd7c03370ab09981ee3fb3a427b80e8cc70dd2339326f413c99",
+      "start_line": 25,
+      "end_line": 35,
+      "span_sha256": "0669d36b68ff690432b1b2931ca4d6e3a54709d415bbc5e08f401cf6c41a7536",
+      "reason": "Live original Core definition CA-R-1696 was re-read; this anchored span preserves the Core versus project-authority boundary used to review the origin.",
+      "atom_id": "CA-R-1696"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL-CORE--distinguish-native-targets-from-governed-artifacts.md",
+      "sha256": "619c1916826859628af327566a919ab7ba2066d91a04443738295909223f1db7",
+      "start_line": 18,
+      "end_line": 28,
+      "span_sha256": "f5831d2799cd1f529a8afe514949b98315436b95fc8931635ac6ec348198ea36",
+      "reason": "Live original Core definition CA-R-1747 was re-read; this anchored span preserves the native Implementation and Artifact boundary used to review the origin.",
+      "atom_id": "CA-R-1747"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+      "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+      "start_line": 24,
+      "end_line": 37,
+      "span_sha256": "f68e1291fd1d4c237b4c024def61518aa1fdeaa79c1e1c0ec4fe6f762cb7c7c1",
+      "reason": "Live original Core definition CA-R-1722 was re-read; this anchored span preserves the Project Adaptation and Extension boundary used to review the origin.",
+      "atom_id": "CA-R-1722"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+      "sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+      "start_line": 22,
+      "end_line": 35,
+      "span_sha256": "8f0a1a0777bf7daa066b76f69c71bc4735eb3e72f858aa54af60efee851677ce",
+      "reason": "Live original Core definition CA-R-1733 was re-read; this anchored span preserves the Project Adaptation and Extension boundary used to review the origin.",
+      "atom_id": "CA-R-1733"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+      "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+      "start_line": 25,
+      "end_line": 31,
+      "span_sha256": "24b57733c158c3cad8a73d3c0f206e11726fed4f8acd6614cc76333149cb5581",
+      "reason": "Live original Core definition CA-R-1724 was re-read; this anchored span preserves the Extension definition, settings, and Projection boundary used to review the origin.",
+      "atom_id": "CA-R-1724"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1217-CORE_META_MODEL-CORE-REQUIREMENT--define-extension.md",
+      "sha256": "df0242fdb57efd78122a09f42335a5e41b0fe5ea5485f7179d9d02581248bfa7",
+      "start_line": 21,
+      "end_line": 31,
+      "span_sha256": "1c519f8600f2165fd007e5ee4eb42d6af23c2ce033b045aa528513f21526b691",
+      "reason": "Live original Core definition CA-R-1217 was re-read; this anchored span preserves the Extension promotion and provenance boundary used to review the origin.",
+      "atom_id": "CA-R-1217"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1228-CORE_META_MODEL-GENERAL-REQUIREMENT--include-all-applicable-methodology-sources.md",
+      "sha256": "06af68c2f1621383253f78769706a5351bc7a0c6100895ef9d59a95634c07ceb",
+      "start_line": 31,
+      "end_line": 33,
+      "span_sha256": "c39c5fd88f2f7e3388e4d8e2791542f9874896c3e5bcaf13dcd57a3e53745b2f",
+      "reason": "Live original Core definition CA-R-1228 was re-read; this anchored span preserves the Extension applicability boundary used to review the origin.",
+      "atom_id": "CA-R-1228"
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL-GENERAL--permit-projections-as-implementation-outputs.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL-GENERAL--permit-projections-as-implementation-outputs.md",
+      "source_atom_id": "CA-R-1568",
+      "source_version": 6,
+      "source_sha256": "91c4576fa27eb3fbec01af55767468bff2de5e91f7f006a9c4cff067ed6fc699",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Projection/Authority",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Projection",
+      "confidence": 0.95,
+      "reason": "The current owner explicitly permits a view Projection to be delivered as an Implementation output while remaining derived and non-authoritative. The candidate's Projection rules preserve the whole view and its authority boundary; the native Implementation output, declared sources, and source Atom identities remain qualified in the body.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "The candidate defines a Projection as another Entity instance distinct from its source instance."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "The candidate keeps a Projection derived and non-authoritative for source facts."
+        },
+        {
+          "pointer": "/projection_member_model/authority_boundary",
+          "reason": "Derived Projection members do not become authority for source Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Projection remains a derived view and does not become an Atom or source of truth.",
+        "Implementation output contribution, native actual-state authority, declared sources, and source Atom identities remain distinct.",
+        "No Projection subtype, selector, or native Subject migration is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL-GENERAL--permit-projections-as-implementation-outputs.md",
+          "sha256": "91c4576fa27eb3fbec01af55767468bff2de5e91f7f006a9c4cff067ed6fc699",
+          "start_line": 22,
+          "end_line": 39,
+          "span_sha256": "a5a2d4aa8d798b5a7f8df9a1c4f6436bed0fff754c14b565ea27d83b0450defc",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 26,
+          "end_line": 44,
+          "span_sha256": "d6d699bd99765840d39bfbdaa9f9ae2631bde16f0d69e99886989816dc1eca7d",
+          "reason": "Live original Core definition CA-R-1703 was re-read; this anchored span preserves the Projection and authority boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL-GENERAL--permit-projections-as-implementation-outputs.md",
+          "sha256": "91c4576fa27eb3fbec01af55767468bff2de5e91f7f006a9c4cff067ed6fc699",
+          "start_line": 23,
+          "end_line": 39,
+          "span_sha256": "ee6668a5543d41ef71211efe363c4ff9f8005e923fe3e587fe16ca5aae9adc89",
+          "reason": "Live original Core definition CA-R-1568 was re-read; this anchored span preserves the Projection and authority boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md",
+      "source_atom_id": "CA-R-1649",
+      "source_version": 19,
+      "source_sha256": "e955bf3d0d5506d326d761c8372d0c9d1b1a9c0c73c3475adb5891a1e812542b",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Work Journal/Action",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.64,
+      "reason": "The current owner combines a Projection Rebuild, exactly one Work Journal Action, a terminal Event, and a separate currentness condition. Current Action, Journal, and Execution definitions keep reusable definitions, Journal Records/Events, actual runs, and Projection authority distinct; no one candidate target preserves the compound Work Journal/Action meaning.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Projection Rebuild definition, Work Journal Action, terminal Event, currentness validation, and resulting Projection remain separate.",
+        "A Journal Record is not the Event itself and an Action definition is not its execution.",
+        "No generic Action, Journal, Event, or Projection target is substituted."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-GENERAL-REQUIREMENT--journal-projection-rebuild-events.md",
+          "sha256": "e955bf3d0d5506d326d761c8372d0c9d1b1a9c0c73c3475adb5891a1e812542b",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "557505b658dee03484453271a36b4fd519c385b963f77eb69141e62bb082cf9e",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md",
+          "sha256": "d469011478752241340e3dd544f0744bddc7b7129e3ae7e1e249144363e5c007",
+          "start_line": 28,
+          "end_line": 38,
+          "span_sha256": "e58c54f322b44e516991643c30c5454e8ca7c0aaba97785d6276157e6baf7707",
+          "reason": "Live original Core definition CA-R-1452 was re-read; this anchored span preserves the Action, Journal, Event, and Projection boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 31,
+          "end_line": 46,
+          "span_sha256": "6a0eb5bc1c7e68dc3dc3b59c3afe9cacf7a4cee548a92beef53744f03716fcc0",
+          "reason": "Live original Core definition CA-R-1720 was re-read; this anchored span preserves the Action, Journal, Event, and Projection boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 21,
+          "end_line": 34,
+          "span_sha256": "de9e5802a3a0a8d8cb5dc30000a5663943c2b21a257b17e18d80af0968f9ccf2",
+          "reason": "Live original Core definition CA-R-1745 was re-read; this anchored span preserves the Action, Journal, Event, and Projection boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md",
+          "sha256": "c50c68fea59b4168b3b694b09e453d220d31feb3166b9cc908ba827a81f2ee96",
+          "start_line": 22,
+          "end_line": 28,
+          "span_sha256": "9a8d77426a8c640fce1ffc52d7102aa1ccdd2d1a091134f3bb047dc2233b9261",
+          "reason": "Live original Core definition CA-R-1729 was re-read; this anchored span preserves the Action, Journal, Event, and Projection boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1725-CORE_META_MODEL-GENERAL--review-external-analysis-before-project-adoption.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1725-CORE_META_MODEL-GENERAL--review-external-analysis-before-project-adoption.md",
+      "source_atom_id": "CA-R-1725",
+      "source_version": 16,
+      "source_sha256": "b08bd6d3a0943a477c88845212db648b45468b0126908450b51f790557cfafbd",
+      "field": "governs",
+      "index": null,
+      "old_value": "semantics",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The current owner governs external Analysis review, internal interpretation, and production of multiple project-owned roles: Concern, Plan, Requirement, Method, Evaluation, and Delivery. The unqualified semantics topic therefore spans Analysis, role-bearing Atoms, authority, and dispositions rather than identifying one candidate Entity or Property.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "External source authority remains distinct from internal project interpretation and each resulting Atom's accepted meaning.",
+        "Multiple output Content Roles remain separate; no generic Analysis or Atom collapse is inferred.",
+        "No Project Configuration or external source is used as Core meaning proof."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1725-CORE_META_MODEL-GENERAL--review-external-analysis-before-project-adoption.md",
+          "sha256": "b08bd6d3a0943a477c88845212db648b45468b0126908450b51f790557cfafbd",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c58d5edd4fac8cf89015468627e6723ee2911bc30d1767ab1a5066985dd38aed",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1337-CORE_META_MODEL-CORE-REQUIREMENT--define-analysis-content-role.md",
+          "sha256": "4d1a31335812edb8411132162bdd2a8448797fb7326d9fa6b1020d2c4ebf293f",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "a8722039557bb431c5e2b3f66e43e552bad01bbc0b30b8abad9dc408876b2e77",
+          "reason": "Live original Core definition CA-R-1337 was re-read; this anchored span preserves the Analysis, authority, and role boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Live original Core definition CA-R-1683 was re-read; this anchored span preserves the Analysis, authority, and role boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1549-CORE_META_MODEL-CORE-REQUIREMENT--define-change-content-roles.md",
+          "sha256": "621e0721ff32f85f65cedd7f213cb3ee6e81268159b53d6496630b2815f426cd",
+          "start_line": 32,
+          "end_line": 34,
+          "span_sha256": "198bb0d132cd291eabea804ac2a3a1661689482ef9b1646eb463cd9d764f83a0",
+          "reason": "Live original Core definition CA-R-1549 was re-read; this anchored span preserves the Analysis, authority, and role boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1726-CORE_META_MODEL-CORE--concerns-have-active-and-solved-states.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1726-CORE_META_MODEL-CORE--concerns-have-active-and-solved-states.md",
+      "source_atom_id": "CA-R-1726",
+      "source_version": 16,
+      "source_sha256": "505e111f237d44f902e909fd80b4e21fc1d6585a3162b67ba8cd41ae08e00f36",
+      "field": "governs",
+      "index": null,
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Atom.Status",
+      "confidence": 0.92,
+      "reason": "The current owner defines admitted Concern lifecycle states and distinguishes active, terminally solved, and archived dispositions. CA-R-1608 defines the Core Concern Status domain and CA-R-1306 defines Status as the qualified Artifact Revision Property; Atom.Status preserves the bearer/field while keeping the source's solved-versus-archived disposition semantics and role-specific value domain.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a named Property is a dependent Entity node owned by its bearer; the qualified field proposal does not create an independent root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate confirms Atom as the Artifact-contained bearer of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Concern Content Role and its Status domain remain qualified.",
+        "Solved is a terminal disposition in this body; archival, invalidation, duplication, and absorption are not silently normalized to solved.",
+        "No independent lifecycle root or selector is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1726-CORE_META_MODEL-CORE--concerns-have-active-and-solved-states.md",
+          "sha256": "505e111f237d44f902e909fd80b4e21fc1d6585a3162b67ba8cd41ae08e00f36",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "2437fbf3b38ccca18473b655e146dfd35e297fd380914af3467f6f6d11ca01e2",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-concern-status-values.md",
+          "sha256": "5bf01a8f1d27c69cddcc939e74f3b11325b376565281fdcb2054b77bd18ae672",
+          "start_line": 24,
+          "end_line": 34,
+          "span_sha256": "1e4f170209a2ec7b8acedcc5b46144b5693e8f9ad44bf2252bf137b3634a1d63",
+          "reason": "Live original Core definition CA-R-1608 was re-read; this anchored span preserves the Concern Status property used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
+          "sha256": "b19222de4098ccbdd6ec907980f0ab4ae6546794fe40a20f762a24031d6b09ff",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "f3faea52df7dce46beac94dda152aad0857a026e31226dfbdab9f125cc252073",
+          "reason": "Live original Core definition CA-R-1306 was re-read; this anchored span preserves the Concern Status property used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+      "source_atom_id": "CA-R-1727",
+      "source_version": 16,
+      "source_sha256": "da651037ee1fbf6d3bf947f75e3649a2ffaf7b17f2a52c42433845e6a46be4d5",
+      "field": "governs",
+      "index": null,
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Atom.Status",
+      "confidence": 0.96,
+      "reason": "The current owner defines Analysis Draft and Done states and says a Done Analysis remains a factual record rather than current normative authority. CA-R-1875 explicitly registers the Analysis Status values Draft, Done, and Archived and references CA-R-1727; CA-R-1306 defines Status as the qualified Artifact Revision Property. Atom.Status preserves the field while retaining Analysis role/type qualification.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a named Property is a dependent Entity node owned by its bearer; the qualified field proposal does not create an independent root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate confirms Atom as the Artifact-contained bearer of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Analysis Content Role and Type-specific Status domain remain qualified.",
+        "Done factual history is distinct from current normative authority and from Workflow/Action execution outcomes.",
+        "No Analysis root, selector, or Artifact.Revision containment is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1727-CORE_META_MODEL-CORE-REQUIREMENT--analyses-have-draft-and-done-states.md",
+          "sha256": "da651037ee1fbf6d3bf947f75e3649a2ffaf7b17f2a52c42433845e6a46be4d5",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "d5e7bb14261c016028ec83c1b56eff51b2482bd861c7caffc00907378bf929f4",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+          "sha256": "4e9729d9a86cfde040939429e31efea27f72cc7fe0bf9645d1b993181072905b",
+          "start_line": 23,
+          "end_line": 36,
+          "span_sha256": "0578092ffa5cb1e65ccb79fef0d2acfe505ff85560378b2272eae6efd81d2361",
+          "reason": "Live original Core definition CA-R-1875 was re-read; this anchored span preserves the Analysis Status property used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
+          "sha256": "b19222de4098ccbdd6ec907980f0ab4ae6546794fe40a20f762a24031d6b09ff",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "f3faea52df7dce46beac94dda152aad0857a026e31226dfbdab9f125cc252073",
+          "reason": "Live original Core definition CA-R-1306 was re-read; this anchored span preserves the Analysis Status property used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL-CORE--record-every-projection-rebuild-in-a-journal.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL-CORE--record-every-projection-rebuild-in-a-journal.md",
+      "source_atom_id": "CA-R-1728",
+      "source_version": 16,
+      "source_sha256": "0d0381c928e5f95cb49a5b86201ec156332515241ee0c81d1c517526751adc53",
+      "field": "governs",
+      "index": null,
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.65,
+      "reason": "The current owner combines Projection rebuild attempts, append-only Journal provenance, exact source Atom revisions, generator/configuration facts, and produced revisions. Current Journal and Projection definitions preserve those as distinct history and derived-view boundaries; the broad lifecycle-traceability topic cannot be reduced to one lossless candidate target.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Journal provenance remains distinct from Projection authority and source Atom Revision history.",
+        "Generator/configuration provenance and successful produced revision remain facts of the rebuild, not a new root.",
+        "No Journal.Record, Projection subtype, or Artifact.Revision target is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1728-CORE_META_MODEL-CORE--record-every-projection-rebuild-in-a-journal.md",
+          "sha256": "0d0381c928e5f95cb49a5b86201ec156332515241ee0c81d1c517526751adc53",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "84f9a9ef7668be319ae7e5b2cfb07bcfe947ba658ea23ade6aed907e1c43df3d",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 31,
+          "end_line": 46,
+          "span_sha256": "6a0eb5bc1c7e68dc3dc3b59c3afe9cacf7a4cee548a92beef53744f03716fcc0",
+          "reason": "Live original Core definition CA-R-1720 was re-read; this anchored span preserves the Journal, Projection, and revision boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 21,
+          "end_line": 34,
+          "span_sha256": "de9e5802a3a0a8d8cb5dc30000a5663943c2b21a257b17e18d80af0968f9ccf2",
+          "reason": "Live original Core definition CA-R-1745 was re-read; this anchored span preserves the Journal, Projection, and revision boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 26,
+          "end_line": 44,
+          "span_sha256": "d6d699bd99765840d39bfbdaa9f9ae2631bde16f0d69e99886989816dc1eca7d",
+          "reason": "Live original Core definition CA-R-1703 was re-read; this anchored span preserves the Journal, Projection, and revision boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md",
+      "source_atom_id": "CA-R-1729",
+      "source_version": 16,
+      "source_sha256": "c50c68fea59b4168b3b694b09e453d220d31feb3166b9cc908ba827a81f2ee96",
+      "field": "governs",
+      "index": null,
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.64,
+      "reason": "The current owner jointly governs Operations Atom currency/admission, Actor participation or authorization policy, historical execution facts, and Journal Records. The broad lifecycle-traceability subject is an authority/history boundary across definitions, Executions, Actors, and Journal, not one candidate target.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Reusable Operations authority and Actor participation policy remain distinct from actual execution facts.",
+        "Journal Records preserve history regardless of Operations Atom lifecycle.",
+        "No generic Operations Atom, Actor, Execution, or Journal root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md",
+          "sha256": "c50c68fea59b4168b3b694b09e453d220d31feb3166b9cc908ba827a81f2ee96",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "fcfbe98d10c44ca74adf89939f4ffbb7159091b5ca8e3b9e143f225487555e2e",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-CORE-REQUIREMENT--define-the-operations-content-role.md",
+          "sha256": "8e6280d4acbbab76d70b936a69803d95d0d6e855845003d1e92e5d71470e328f",
+          "start_line": 24,
+          "end_line": 34,
+          "span_sha256": "20e82e68435bf352489d9419b45d34a8f1db3445388f63866c78829c091c0feb",
+          "reason": "Live original Core definition CA-R-1530 was re-read; this anchored span preserves the Operations, Actor, Execution, and Journal boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 31,
+          "end_line": 46,
+          "span_sha256": "6a0eb5bc1c7e68dc3dc3b59c3afe9cacf7a4cee548a92beef53744f03716fcc0",
+          "reason": "Live original Core definition CA-R-1720 was re-read; this anchored span preserves the Operations, Actor, Execution, and Journal boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 21,
+          "end_line": 34,
+          "span_sha256": "de9e5802a3a0a8d8cb5dc30000a5663943c2b21a257b17e18d80af0968f9ccf2",
+          "reason": "Live original Core definition CA-R-1745 was re-read; this anchored span preserves the Operations, Actor, Execution, and Journal boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1734-CORE_META_MODEL-CORE--preserve-self-improvement-stage-meanings.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1734-CORE_META_MODEL-CORE--preserve-self-improvement-stage-meanings.md",
+      "source_atom_id": "CA-R-1734",
+      "source_version": 15,
+      "source_sha256": "ae7f786e37b84a2be7bc0857cbe4071920f43709e8c540248643cad77615c16a",
+      "field": "governs",
+      "index": null,
+      "old_value": "continuous-improvement",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.62,
+      "reason": "The current owner requires each governed self-improvement stage to retain the canonical Content-role meaning of its representing Artifact without absorbing earlier or later stages, but it names no particular role, bearer field, or Relation. The continuous-improvement topic therefore cannot be mapped to one candidate Entity without erasing stage boundaries.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Each stage's canonical Content Role remains distinct from earlier and later stages.",
+        "Artifact lifecycle and stage transition relations are not collapsed.",
+        "No generic Artifact, Atom, or role value is guessed."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1734-CORE_META_MODEL-CORE--preserve-self-improvement-stage-meanings.md",
+          "sha256": "ae7f786e37b84a2be7bc0857cbe4071920f43709e8c540248643cad77615c16a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "44f8b271399012c609078f0734f6ffa19f6092d64c6665d5b4ad4bd1d6b6322c",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "e5b784d1d12014bafe9dc7c8dad598f49af18704a4a02e54443a6d8ff36cc67e",
+          "reason": "Live original Core definition CA-R-1283 was re-read; this anchored span preserves the stage and Content Role boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1734-CORE_META_MODEL-CORE--preserve-self-improvement-stage-meanings.md",
+          "sha256": "ae7f786e37b84a2be7bc0857cbe4071920f43709e8c540248643cad77615c16a",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "fa0cdc511e7171c0a3b8ceda0ee1df8ceb8c3bc1b7e2410ad66a0603ce70d436",
+          "reason": "Live original Core definition CA-R-1734 was re-read; this anchored span preserves the stage and Content Role boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Live original Core definition CA-R-1683 was re-read; this anchored span preserves the stage and Content Role boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1735-CORE_META_MODEL-GENERAL--relate-self-improvement-stages-explicitly.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1735-CORE_META_MODEL-GENERAL--relate-self-improvement-stages-explicitly.md",
+      "source_atom_id": "CA-R-1735",
+      "source_version": 15,
+      "source_sha256": "183fc487f8018c8276a5eab07ac9f5c29b5b05105d570f613c85c8a9793b2aab",
+      "field": "governs",
+      "index": null,
+      "old_value": "continuous-improvement",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.93,
+      "reason": "The current owner explicitly requires each persisted transition between self-improvement stages to be represented by a typed relation owned by the receiving artifact. The candidate confirms Relation and typed Relation Type semantics; the receiving Artifact, stage meanings, and exact Relation Type remain source-qualified rather than being collapsed into a new stage root.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate confirms Relation as a root for typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The candidate treats Relation Type and Relation Kind as one concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The relation is owned by the receiving Artifact.",
+        "Self-improvement stage meanings remain separate from the Relation entity and its Type.",
+        "The exact stage-transition Relation Type is not invented and no selector/new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1735-CORE_META_MODEL-GENERAL--relate-self-improvement-stages-explicitly.md",
+          "sha256": "183fc487f8018c8276a5eab07ac9f5c29b5b05105d570f613c85c8a9793b2aab",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "3052b8a359c07d60aaabaf3df2ac823ff0c57fbd64c5a6a4fc6fe2be4d0c905e",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections.md",
+          "sha256": "c4ae524cad97b270246272ec9604e243318a8eba5cdd32bae80e4c8e13cacd5e",
+          "start_line": 34,
+          "end_line": 36,
+          "span_sha256": "6938c476abda1a00e4342dc12942873ddf3c7ad87ce15ce26a651cc4eaed1df4",
+          "reason": "Live original Core definition CA-R-1472 was re-read; this anchored span preserves the typed Relation boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+          "sha256": "31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "0e29e9b297ced7ac025980f02ac9592683869c626fca6a6ea4f3d748513e9088",
+          "reason": "Live original Core definition CA-R-1437 was re-read; this anchored span preserves the typed Relation boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+      "source_atom_id": "CA-R-1736",
+      "source_version": 19,
+      "source_sha256": "14a338784dc5d1dd3903a435c7ee6df81ff55c8e440b09d77920d49e22edf2cf",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "semantics",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current owner defines CAPRMEDIO as the ordered collective expansion Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, and Operations. Current role definitions treat these as multiple Content Role values and separate the Spec/Change sets; the broad semantics topic has no single candidate target or confirmed set-valued notation.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The nine-role canonical order remains collective and ordered.",
+        "Spec and Change are role sets, not singleton allowed values or new roots.",
+        "No generic Content Role Entity or set grammar is invented."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+          "sha256": "14a338784dc5d1dd3903a435c7ee6df81ff55c8e440b09d77920d49e22edf2cf",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "5b95493c76f422fb0d7912e3672d7d4572e068cea2b146027170e6fe1559d35b",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 26,
+          "end_line": 28,
+          "span_sha256": "5a87104fbca8ff81af44fb63e87e4a2c32e7c0f6a3bd81f7d36eb96baafc8c18",
+          "reason": "Live original Core definition CA-R-1283 was re-read; this anchored span preserves the collective Content Role boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md",
+          "sha256": "25f7ff661e45ceef86a3a54aa0e02fcd273c32ae4ddac63b10a000cebe1efe5f",
+          "start_line": 24,
+          "end_line": 43,
+          "span_sha256": "54423a43450065d30c5732baf8bfb5560c6419abc55ac9e3a72b36194d54d1b8",
+          "reason": "Live original Core definition CA-R-1548 was re-read; this anchored span preserves the collective Content Role boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1549-CORE_META_MODEL-CORE-REQUIREMENT--define-change-content-roles.md",
+          "sha256": "621e0721ff32f85f65cedd7f213cb3ee6e81268159b53d6496630b2815f426cd",
+          "start_line": 32,
+          "end_line": 34,
+          "span_sha256": "198bb0d132cd291eabea804ac2a3a1661689482ef9b1646eb463cd9d764f83a0",
+          "reason": "Live original Core definition CA-R-1549 was re-read; this anchored span preserves the collective Content Role boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+      "source_atom_id": "CA-R-1741",
+      "source_version": 15,
+      "source_sha256": "9a9f22ad994c1281767fd9161908d5a4419f1d3f60b08fdaeb74f398da072ff9",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "continuous-improvement",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Evaluation",
+      "confidence": 0.95,
+      "reason": "The current owner explicitly requires each concrete recurrence protection to be represented by an Evaluation Atom defining one bounded check. CA-R-1341 defines Evaluation as the check/acceptance content role and CA-R-1283/CA-R-1531 confirm the role value and its Atom Property placement.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a named Property is a dependent Entity node owned by its bearer; the qualified field proposal does not create an independent root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate confirms Atom as the Artifact-contained bearer of named dependent Entities."
+        },
+        {
+          "pointer": "/content_direction",
+          "reason": "The candidate keeps the named content roles as role-centred views over shared roots rather than independent roots."
+        }
+      ],
+      "preserved_distinctions": [
+        "Evaluation is the reusable bounded-check specification role, not the actual execution or result.",
+        "The corrected failure class and mechanism-neutral check remain in the owning body.",
+        "No Evaluation root or execution selector is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+          "sha256": "9a9f22ad994c1281767fd9161908d5a4419f1d3f60b08fdaeb74f398da072ff9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "95b4b0f7bec797eb0bbe3dc20f3aee66d075ed17b02478e546ec55d95937c3bd",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "252dc6d3e65401ca817c99746c3c171afce3f5c3f20fd4deda6c028887499fd8",
+          "reason": "Live original Core definition CA-R-1341 was re-read; this anchored span preserves the Evaluation Content Role used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 22,
+          "end_line": 28,
+          "span_sha256": "de65d6f864503f96e421a8a34d5e6cd47ac1db045e2154c24ad0101043867361",
+          "reason": "Live original Core definition CA-R-1283 was re-read; this anchored span preserves the Evaluation Content Role used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 25,
+          "end_line": 31,
+          "span_sha256": "78690b96bcd3ba5742148a2e627c65417d31302bd592317f842fb3748d044138",
+          "reason": "Live original Core definition CA-R-1531 was re-read; this anchored span preserves the Evaluation Content Role used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1742-CORE_META_MODEL-GENERAL-REQUIREMENT--realize-recurrence-evaluation-through-implementation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1742-CORE_META_MODEL-GENERAL-REQUIREMENT--realize-recurrence-evaluation-through-implementation.md",
+      "source_atom_id": "CA-R-1742",
+      "source_version": 15,
+      "source_sha256": "a7837eafe661acce1a99770598d3ac4c9b12979e796c8ed0099230ac4724c552",
+      "field": "governs",
+      "index": null,
+      "old_value": "continuous-improvement",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Implementation",
+      "confidence": 0.92,
+      "reason": "The current owner explicitly describes Implementation as realizing a recurrence Evaluation Atom through an executable test, monitor, alert, or conforming mechanism. CA-R-1343 defines Implementation as the current realization of accepted specification and CA-R-1283/CA-R-1531 place it as an Atom Content Role Property; the proposal preserves the realization boundary without turning the mechanism into a root.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a named Property is a dependent Entity node owned by its bearer; the qualified field proposal does not create an independent root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate confirms Atom as the Artifact-contained bearer of named dependent Entities."
+        },
+        {
+          "pointer": "/content_direction",
+          "reason": "The candidate keeps the named content roles as role-centred views over shared roots rather than independent roots."
+        }
+      ],
+      "preserved_distinctions": [
+        "Implementation realization remains distinct from the recurrence Evaluation specification.",
+        "The executable test/monitor/alert mechanism may be concrete implementation evidence, not a new root or Tool target.",
+        "No Implementation subtype or selector is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1742-CORE_META_MODEL-GENERAL-REQUIREMENT--realize-recurrence-evaluation-through-implementation.md",
+          "sha256": "a7837eafe661acce1a99770598d3ac4c9b12979e796c8ed0099230ac4724c552",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "976aa40f6cd98e18f59699ab27bf592fe470fd0a72b26752586b98303b663eff",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1343-CORE_META_MODEL-CORE-REQUIREMENT--define-implementation-content-role.md",
+          "sha256": "ae94de81b2b492632e1dfff2a0adb43bc3587e049e5e0798e23d04aa1e489f1c",
+          "start_line": 20,
+          "end_line": 33,
+          "span_sha256": "24782d0c86c6a981f2ef70485072359d25f018889dfde4a483c7c4e688e009a1",
+          "reason": "Live original Core definition CA-R-1343 was re-read; this anchored span preserves the Implementation Content Role used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 26,
+          "end_line": 28,
+          "span_sha256": "5a87104fbca8ff81af44fb63e87e4a2c32e7c0f6a3bd81f7d36eb96baafc8c18",
+          "reason": "Live original Core definition CA-R-1283 was re-read; this anchored span preserves the Implementation Content Role used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "245640c3bd3a08e59ad9f3c2ddf69272e2db2d86160008de1e3cf205c1e04c46",
+          "reason": "Live original Core definition CA-R-1531 was re-read; this anchored span preserves the Implementation Content Role used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL-CORE--record-recurrence-check-outcomes-in-the-journal.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL-CORE--record-recurrence-check-outcomes-in-the-journal.md",
+      "source_atom_id": "CA-R-1743",
+      "source_version": 16,
+      "source_sha256": "1a3dcebb61d2929cd98ee226791940645b0d30ce2f83385c354b4ec201374cf0",
+      "field": "governs",
+      "index": null,
+      "old_value": "continuous-improvement",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.65,
+      "reason": "The current owner requires execution outcomes to be carried by a Journal Record while remaining distinct from the reusable Operations definition. Current Journal, Operations, and Execution rules confirm a compound record/run/definition boundary; the broad continuous-improvement topic cannot be mapped to one target without losing it.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Reusable Operations definition, actual Execution, and Journal Record evidence remain separate.",
+        "Journal authority does not make the record an Event or the reusable definition an Execution.",
+        "No Journal.Record syntax or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL-CORE--record-recurrence-check-outcomes-in-the-journal.md",
+          "sha256": "1a3dcebb61d2929cd98ee226791940645b0d30ce2f83385c354b4ec201374cf0",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "f53c0fa7753cfc850f70ea766d8fd76076acd76b55b63035169cfa864a12c51a",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Live original Core definition CA-R-1720 was re-read; this anchored span preserves the Execution, Journal Record, and Operations boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "7805108fab24bf8592fce367a13d290038e6b46d059731973eb8ec58ddf78678",
+          "reason": "Live original Core definition CA-R-1745 was re-read; this anchored span preserves the Execution, Journal Record, and Operations boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-CORE-REQUIREMENT--define-the-operations-content-role.md",
+          "sha256": "8e6280d4acbbab76d70b936a69803d95d0d6e855845003d1e92e5d71470e328f",
+          "start_line": 24,
+          "end_line": 34,
+          "span_sha256": "20e82e68435bf352489d9419b45d34a8f1db3445388f63866c78829c091c0feb",
+          "reason": "Live original Core definition CA-R-1530 was re-read; this anchored span preserves the Execution, Journal Record, and Operations boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1744-CORE_META_MODEL-CORE--keep-project-specific-substrates-out-of-the-reusable-core.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1744-CORE_META_MODEL-CORE--keep-project-specific-substrates-out-of-the-reusable-core.md",
+      "source_atom_id": "CA-R-1744",
+      "source_version": 18,
+      "source_sha256": "c2cb562f47e808b7d605862665c6275ae575906e6d5d2cc851c53e37aec6c502",
+      "field": "governs",
+      "index": null,
+      "old_value": "authority",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.67,
+      "reason": "The current owner governs an Operator-mandated Project-specific substrate under Project authority or PROJECT_CONFIGURATION while forbidding it from becoming an implicit reusable Core prerequisite. This is a project-authority boundary, not one of the seven candidate roots or a Core Atom field; Project Configuration is not used as supporting semantic authority here.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Project-specific substrate authority remains outside reusable Core authority.",
+        "Project authority, Project Configuration, and Core Meta-Model placement remain separate.",
+        "No Project Configuration Entity target, generic Artifact, or selector is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1744-CORE_META_MODEL-CORE--keep-project-specific-substrates-out-of-the-reusable-core.md",
+          "sha256": "c2cb562f47e808b7d605862665c6275ae575906e6d5d2cc851c53e37aec6c502",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "1bb15a461fb6d0f26cdf61be99baecaa9dc9aeffcb7b93238a70979646a9b2d7",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1207-CORE_META_MODEL-CORE-REQUIREMENT--separate-project-configuration-rules-from-current-settings.md",
+          "sha256": "51e15b84a23ada40239c8cae9ecf9badad32778d22726e3c8bce0bbc32e08c75",
+          "start_line": 25,
+          "end_line": 31,
+          "span_sha256": "bed1f3cb8e66ec60b20b93e1afe4a573ca16f93baeaca4637d7b4f855e1454a0",
+          "reason": "Live original Core definition CA-R-1207 was re-read; this anchored span preserves the Core versus project-authority boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL-CORE--admit-implementation-independent-core-rules.md",
+          "sha256": "ed7fdce7978319f7ebf7b05f0eea277cdd5682845ae8000cd6b58902d3a3d68b",
+          "start_line": 24,
+          "end_line": 30,
+          "span_sha256": "4b7cd6b57ff0c4bc7bda60e7b24f16ab98301553c87e04a6718bc1bf60e5d62a",
+          "reason": "Live original Core definition CA-R-1681 was re-read; this anchored span preserves the Core versus project-authority boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-meta-model-implementation-neutral.md",
+          "sha256": "5ae38a6a474c8dd7c03370ab09981ee3fb3a427b80e8cc70dd2339326f413c99",
+          "start_line": 25,
+          "end_line": 35,
+          "span_sha256": "0669d36b68ff690432b1b2931ca4d6e3a54709d415bbc5e08f401cf6c41a7536",
+          "reason": "Live original Core definition CA-R-1696 was re-read; this anchored span preserves the Core versus project-authority boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL-CORE--distinguish-native-targets-from-governed-artifacts.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL-CORE--distinguish-native-targets-from-governed-artifacts.md",
+      "source_atom_id": "CA-R-1747",
+      "source_version": 17,
+      "source_sha256": "619c1916826859628af327566a919ab7ba2066d91a04443738295909223f1db7",
+      "field": "governs",
+      "index": null,
+      "old_value": "artifact-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.66,
+      "reason": "The current owner distinguishes a native project target, which is Implementation, from a governed Artifact identity that may represent or bind it only when separately admitted. The artifact-model topic therefore expresses a boundary between Implementation and Artifact rather than one target; mapping it to either root would lose the qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Native project target, governed Artifact identity, and binding/admission remain distinct.",
+        "Implementation is not automatically an Artifact and an Artifact is not inferred from a native target alone.",
+        "No Artifact prefix or generic Implementation target is invented."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL-CORE--distinguish-native-targets-from-governed-artifacts.md",
+          "sha256": "619c1916826859628af327566a919ab7ba2066d91a04443738295909223f1db7",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "6df5641143c68daebac2df8bc285fb45f4989b4ef27877ea5eca52b557e3a96e",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1343-CORE_META_MODEL-CORE-REQUIREMENT--define-implementation-content-role.md",
+          "sha256": "ae94de81b2b492632e1dfff2a0adb43bc3587e049e5e0798e23d04aa1e489f1c",
+          "start_line": 20,
+          "end_line": 33,
+          "span_sha256": "24782d0c86c6a981f2ef70485072359d25f018889dfde4a483c7c4e688e009a1",
+          "reason": "Live original Core definition CA-R-1343 was re-read; this anchored span preserves the native Implementation and Artifact boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL-CORE--distinguish-native-targets-from-governed-artifacts.md",
+          "sha256": "619c1916826859628af327566a919ab7ba2066d91a04443738295909223f1db7",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "f5831d2799cd1f529a8afe514949b98315436b95fc8931635ac6ec348198ea36",
+          "reason": "Live original Core definition CA-R-1747 was re-read; this anchored span preserves the native Implementation and Artifact boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 26,
+          "end_line": 44,
+          "span_sha256": "d6d699bd99765840d39bfbdaa9f9ae2631bde16f0d69e99886989816dc1eca7d",
+          "reason": "Live original Core definition CA-R-1703 was re-read; this anchored span preserves the native Implementation and Artifact boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1752-CORE_META_MODEL-CORE--govern-project-adaptation-semantics.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1752-CORE_META_MODEL-CORE--govern-project-adaptation-semantics.md",
+      "source_atom_id": "CA-R-1752",
+      "source_version": 19,
+      "source_sha256": "786a0e7ee618b03c2680615b1f1e56b63b48324113f8a68bead9386dab4bf293",
+      "field": "governs",
+      "index": null,
+      "old_value": "extension-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.64,
+      "reason": "The current owner defines Project Adaptation as project-owned PRMEDO authority that can add, specialize, narrow, or prohibit capabilities while leaving Canonical Framework or Extension authority unchanged. Current Extension and authority definitions preserve project adaptation, canonical authority, and applicability as separate boundaries; extension-model is not one candidate Entity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Project-owned adaptation authority remains distinct from the Canonical Framework and Extension authority it adapts.",
+        "Capability additions/restrictions and applicable bindings remain source-qualified.",
+        "No Extension root, generic Atom, or Project Configuration target is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1752-CORE_META_MODEL-CORE--govern-project-adaptation-semantics.md",
+          "sha256": "786a0e7ee618b03c2680615b1f1e56b63b48324113f8a68bead9386dab4bf293",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "a2fc139a0bc29a816c022e06bd2d575442f389f21c57b5b8b055a45981e7b09e",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+          "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+          "start_line": 24,
+          "end_line": 37,
+          "span_sha256": "f68e1291fd1d4c237b4c024def61518aa1fdeaa79c1e1c0ec4fe6f762cb7c7c1",
+          "reason": "Live original Core definition CA-R-1722 was re-read; this anchored span preserves the Project Adaptation and Extension boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+          "sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+          "start_line": 22,
+          "end_line": 35,
+          "span_sha256": "8f0a1a0777bf7daa066b76f69c71bc4735eb3e72f858aa54af60efee851677ce",
+          "reason": "Live original Core definition CA-R-1733 was re-read; this anchored span preserves the Project Adaptation and Extension boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 29,
+          "end_line": 39,
+          "span_sha256": "ae80651cbf11a320184a79e7dc1aa7738c3106dff068ea51162d4227e2d2ed73",
+          "reason": "Live original Core definition CA-R-1683 was re-read; this anchored span preserves the Project Adaptation and Extension boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1753-CORE_META_MODEL-CORE--keep-project-adaptation-authority-out-of-settings.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1753-CORE_META_MODEL-CORE--keep-project-adaptation-authority-out-of-settings.md",
+      "source_atom_id": "CA-R-1753",
+      "source_version": 19,
+      "source_sha256": "4644a8fe28d99983a249f5c3497748453ddb8b822e51f0abf38386d43894ecf6",
+      "field": "governs",
+      "index": null,
+      "old_value": "extension-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.65,
+      "reason": "The current owner jointly names governed Project Adaptation and Extension definitions, their applicable Atom ownership, Framework Instance Settings selection/parameterization, and Project Scope Unit Graph Projection exposure. The extension-model topic spans definitions, settings, and a derived Projection, so no single candidate target is lossless.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Applicable Atoms own governed definitions.",
+        "Framework Instance Settings selects or parameterizes without redefining; Projection only exposes the effective result.",
+        "No settings Artifact, Extension root, or Projection subtype is substituted."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1753-CORE_META_MODEL-CORE--keep-project-adaptation-authority-out-of-settings.md",
+          "sha256": "4644a8fe28d99983a249f5c3497748453ddb8b822e51f0abf38386d43894ecf6",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "da53c6e2544d5c7d9e8bac6d6fc454ee627d8df10edfcb694d5df0af1a96db41",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+          "sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+          "start_line": 22,
+          "end_line": 35,
+          "span_sha256": "8f0a1a0777bf7daa066b76f69c71bc4735eb3e72f858aa54af60efee851677ce",
+          "reason": "Live original Core definition CA-R-1733 was re-read; this anchored span preserves the Extension definition, settings, and Projection boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+          "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+          "start_line": 25,
+          "end_line": 31,
+          "span_sha256": "24b57733c158c3cad8a73d3c0f206e11726fed4f8acd6614cc76333149cb5581",
+          "reason": "Live original Core definition CA-R-1724 was re-read; this anchored span preserves the Extension definition, settings, and Projection boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 26,
+          "end_line": 44,
+          "span_sha256": "d6d699bd99765840d39bfbdaa9f9ae2631bde16f0d69e99886989816dc1eca7d",
+          "reason": "Live original Core definition CA-R-1703 was re-read; this anchored span preserves the Extension definition, settings, and Projection boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1754-CORE_META_MODEL-GENERAL--promote-project-adaptation-authority-to-an-extension.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1754-CORE_META_MODEL-GENERAL--promote-project-adaptation-authority-to-an-extension.md",
+      "source_atom_id": "CA-R-1754",
+      "source_version": 20,
+      "source_sha256": "a570e58dbe813efe4d67bb8c75c05d883943b781dae968c1edb47d23599b6a66",
+      "field": "governs",
+      "index": null,
+      "old_value": "extension-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.63,
+      "reason": "The current owner permits promotion of a coherent Project Adaptation subset into a separately identified Extension while preserving provenance and leaving the source unchanged until reconciliation. This is a governed promotion boundary between Project Adaptation and Extension, not one confirmed candidate root or role.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Source Project Adaptation remains unchanged until explicit reconciliation.",
+        "The promoted Extension is separately identified and retains exact source provenance.",
+        "No Extension root, selector, or automatic source mutation is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1754-CORE_META_MODEL-GENERAL--promote-project-adaptation-authority-to-an-extension.md",
+          "sha256": "a570e58dbe813efe4d67bb8c75c05d883943b781dae968c1edb47d23599b6a66",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "baa8fbd7a7f8d6eb0eb51e7881e5118d38bec75f1ed3b2ba61c1e8cc72ff6546",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1217-CORE_META_MODEL-CORE-REQUIREMENT--define-extension.md",
+          "sha256": "df0242fdb57efd78122a09f42335a5e41b0fe5ea5485f7179d9d02581248bfa7",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "1c519f8600f2165fd007e5ee4eb42d6af23c2ce033b045aa528513f21526b691",
+          "reason": "Live original Core definition CA-R-1217 was re-read; this anchored span preserves the Extension promotion and provenance boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+          "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+          "start_line": 24,
+          "end_line": 37,
+          "span_sha256": "f68e1291fd1d4c237b4c024def61518aa1fdeaa79c1e1c0ec4fe6f762cb7c7c1",
+          "reason": "Live original Core definition CA-R-1722 was re-read; this anchored span preserves the Extension promotion and provenance boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+          "sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+          "start_line": 22,
+          "end_line": 35,
+          "span_sha256": "8f0a1a0777bf7daa066b76f69c71bc4735eb3e72f858aa54af60efee851677ce",
+          "reason": "Live original Core definition CA-R-1733 was re-read; this anchored span preserves the Extension promotion and provenance boundary used to review the origin."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1755-CORE_META_MODEL-CORE--bound-extension-applicability.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1755-CORE_META_MODEL-CORE--bound-extension-applicability.md",
+      "source_atom_id": "CA-R-1755",
+      "source_version": 16,
+      "source_sha256": "d152d96b1ac86b261e1e8bfe80aa6892e8868ee347cb7817bfab8aebff383695",
+      "field": "governs",
+      "index": null,
+      "old_value": "extension-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.61,
+      "reason": "The current owner requires every Extension to affect only its declared applicability boundary but does not identify that boundary as one particular Entity, Property, or Relation. Current Extension ownership and applicability definitions keep Extension, binding Atoms, and target Scope Units distinct; extension-model remains unresolved.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Extension authority and its declared applicability boundary remain distinct.",
+        "Binding Atoms and target Scope Units are not collapsed into an Extension root.",
+        "No generic Scope Unit, Extension, or selector is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1755-CORE_META_MODEL-CORE--bound-extension-applicability.md",
+          "sha256": "d152d96b1ac86b261e1e8bfe80aa6892e8868ee347cb7817bfab8aebff383695",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "74fc31bb12922fa1334d7bc73ea1de649b4890d1fae045b87bd0cbee6f659dc3",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1217-CORE_META_MODEL-CORE-REQUIREMENT--define-extension.md",
+          "sha256": "df0242fdb57efd78122a09f42335a5e41b0fe5ea5485f7179d9d02581248bfa7",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "1c519f8600f2165fd007e5ee4eb42d6af23c2ce033b045aa528513f21526b691",
+          "reason": "Live original Core definition CA-R-1217 was re-read; this anchored span preserves the Extension applicability boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+          "sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+          "start_line": 22,
+          "end_line": 35,
+          "span_sha256": "8f0a1a0777bf7daa066b76f69c71bc4735eb3e72f858aa54af60efee851677ce",
+          "reason": "Live original Core definition CA-R-1733 was re-read; this anchored span preserves the Extension applicability boundary used to review the origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1228-CORE_META_MODEL-GENERAL-REQUIREMENT--include-all-applicable-methodology-sources.md",
+          "sha256": "06af68c2f1621383253f78769706a5351bc7a0c6100895ef9d59a95634c07ceb",
+          "start_line": 31,
+          "end_line": 33,
+          "span_sha256": "c39c5fd88f2f7e3388e4d8e2791542f9874896c3e5bcaf13dcd57a3e53745b2f",
+          "reason": "Live original Core definition CA-R-1228 was re-read; this anchored span preserves the Extension applicability boundary used to review the origin."
+        }
+      ]
+    }
+  ]
+}

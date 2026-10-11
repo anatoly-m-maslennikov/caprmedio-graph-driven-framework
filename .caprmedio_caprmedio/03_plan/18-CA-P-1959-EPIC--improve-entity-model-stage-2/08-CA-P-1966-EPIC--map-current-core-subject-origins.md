@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 136
-updated_at: "2026-10-11 11:39:50 +0400"
+version: 137
+updated_at: "2026-10-11 11:48:52 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -221,7 +221,7 @@ Latest integration checkpoint: CA-P-2132–2143 are Done, with one commit per co
 
 CA-P-2144–2151 review all 204 remaining unqualified baseline-only origins across 145 owners in eight disjoint bounded lanes. Complete bodies, current original Core definitions and independent acceptance decide meanings. Prior reviewed nulls, qualified-owner paths and the unanswered selector decision remain explicit; this registration does not authorize source edits or finish mapping.
 
-- [CA-P-2144 — Review remaining unqualified Subjects 001](08-CA-P-1966-EPIC--map-current-core-subject-origins/108-CA-P-2144-TASK--review-remaining-unqualified-subjects-001.md)
+- [CA-P-2144 — Review remaining unqualified Subjects 001](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/108-CA-P-2144-TASK--review-remaining-unqualified-subjects-001.md)
 - [CA-P-2145 — Review remaining unqualified Subjects 002](08-CA-P-1966-EPIC--map-current-core-subject-origins/109-CA-P-2145-TASK--review-remaining-unqualified-subjects-002.md)
 - [CA-P-2146 — Review remaining unqualified Subjects 003](08-CA-P-1966-EPIC--map-current-core-subject-origins/110-CA-P-2146-TASK--review-remaining-unqualified-subjects-003.md)
 - [CA-P-2147 — Review remaining unqualified Subjects 004](08-CA-P-1966-EPIC--map-current-core-subject-origins/111-CA-P-2147-TASK--review-remaining-unqualified-subjects-004.md)
