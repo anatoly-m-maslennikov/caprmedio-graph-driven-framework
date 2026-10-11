@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 38
-updated_at: "2026-10-11 13:15:09 +0400"
+version: 39
+updated_at: "2026-10-11 14:39:13 +0400"
 relations: {}
 ---
 # Summary
@@ -155,7 +155,9 @@ Four bounded read-only audits check remaining coverage, genuine model choices, s
 - [CA-P-2158 — Audit quarantined Core source carriers](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/21-CA-P-2158-TASK--audit-quarantined-core-source-carriers.md)
 - [CA-P-2159 — Audit Stage 2 execution gates](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/22-CA-P-2159-TASK--audit-stage-2-execution-gates.md)
 
-Current remaining-gates checkpoint (CA-P-2156–2159): all four bounded read-only audits are complete; this does not complete the Epic. The current working ledger remains 907 sources / 4534 occurrences: 1928 proposed, 1540 unchanged, 1066 unresolved. The frontier separates 242 baseline-only qualified cases from 824 other reviewed nulls, without treating all nulls as selector gaps. Eight carriers / 35 occurrences remain quarantined. Three unanswered Operator choices remain: qualified/named Atom identity, continuity for six legacy Atom IDs, and the conflicting timestamp serialization policies. Preserve the captured inventory: its one replacement path and four changed common source rows are the expected five-definition grammar delta. No original Core Subjects/content, native admission or live migration changed. Do not begin Step 2 body work before the complete Subject gate or create further duplicate audits merely to bypass these choices.
+Current remaining-gates checkpoint (CA-P-2156–2159): all four bounded read-only audits are complete; this does not complete the Epic. The current working ledger remains 907 sources / 4534 occurrences: 1928 proposed, 1540 unchanged, 1066 unresolved. The frontier separates 242 baseline-only qualified cases from 824 other reviewed nulls, without treating all nulls as selector gaps. Eight carriers / 35 occurrences remain quarantined. The Operator has now chosen migration of the six legacy Atom IDs to new canonical IDs, and quoted updated_at timestamps with explicit UTC offsets. CA-P-2160 records both actual choices; successor IDs, policy alignment and source effects are not yet applied. Qualified/named Atom selectors remain unanswered: the Operator requested an explanation, not adoption. Preserve the captured inventory: its one replacement path and four changed common source rows are the expected five-definition grammar delta. No original Core Subjects/content, native admission or live migration changed. Do not begin Step 2 body work before the complete Subject gate or create further duplicate audits merely to bypass these choices.
+
+- [CA-P-2160 — Record approved quarantine decisions](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/23-CA-P-2160-TASK--record-approved-quarantine-decisions.md)
 
 ### Definition of Done
 
