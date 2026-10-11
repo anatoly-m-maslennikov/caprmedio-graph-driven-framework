@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2151",
+  "recorded_at": "2026-10-11 11:53:39 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining unqualified subjects 008; not migration approval",
+  "verification": {
+    "task": "CA-P-2151",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2151.research.json",
+      "sha256": "933dbea13f4b13a2cc36677389bdb6c04e612db6b42b0d3b96ef3383ae96a50b"
+    },
+    "rows": 21,
+    "counts": {
+      "unresolved": 21
+    },
+    "exact_evidence_spans": 21,
+    "exact_supporting_definition_spans": 9,
+    "exact_input_pins": 24,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision",
+      "foreign_meaning_evidence",
+      "wrong_registration",
+      "partial_owner_body"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2144-2151.inputs.json",
+      "sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+    },
+    "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/subject_review_003",
+      "final_report_sha256": "933dbea13f4b13a2cc36677389bdb6c04e612db6b42b0d3b96ef3383ae96a50b",
+      "result": "PASS: twenty-one justified nulls; no supported promotion",
+      "meaning_checks": [
+        "R1452/R1508/R1509 distinguish exact named repeatable Operation definitions from generic Atom and actual Execution.",
+        "R1318/R1319 keep Terms in a separate graph; D416 distinguishes Markdown terminology from identified Carrier.",
+        "R1745/O162/O163 distinguish Journal Event from Journal Record or actual Execution; R1528 makes Tool calls Step Run evidence.",
+        "O077's Atom/Carrier/Reconciliation is composite; flattening it loses coordinated property/address/revision meaning.",
+        "All twelve owner pins and nine supporting-definition pins match original Core; no unsupported selector/root/kind is inferred."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/subject_review_003",
+    "final_report_sha256": "933dbea13f4b13a2cc36677389bdb6c04e612db6b42b0d3b96ef3383ae96a50b",
+    "result": "PASS: twenty-one justified nulls; no supported promotion",
+    "meaning_checks": [
+      "R1452/R1508/R1509 distinguish exact named repeatable Operation definitions from generic Atom and actual Execution.",
+      "R1318/R1319 keep Terms in a separate graph; D416 distinguishes Markdown terminology from identified Carrier.",
+      "R1745/O162/O163 distinguish Journal Event from Journal Record or actual Execution; R1528 makes Tool calls Step Run evidence.",
+      "O077's Atom/Carrier/Reconciliation is composite; flattening it loses coordinated property/address/revision meaning.",
+      "All twelve owner pins and nine supporting-definition pins match original Core; no unsupported selector/root/kind is inferred."
+    ]
+  },
+  "completion_scope": "All 21 selected origins across 12 owners passed complete current-body/pin/span/coverage controls, fourteen wrong-data controls and independent semantic acceptance. All remain explicit nulls: named Operations, Terms, Markdown terminology, Journal Events, Tool-call evidence and composite reconciliation have no supported lossless target under the current candidate. Original Core is unchanged.",
+  "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
