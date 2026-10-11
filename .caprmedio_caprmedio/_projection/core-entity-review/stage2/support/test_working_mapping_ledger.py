@@ -375,6 +375,12 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
         self.assertEqual([item[3] for item in specs][-6:], [26, 27, 28, 29, 30, 31])
         self.assertEqual(actor_position, len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS))
         self.assertEqual(grammar_position, len(third_complete["input_pins"]["accepted_layers"]) - 1)
+        fourth_complete = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + len(verifier.FOURTH_FOLLOWUP_LAYER_SPECS) + 2)]}}
+        specs, actor_position, grammar_position = verifier._layer_layout(fourth_complete)
+        self.assertEqual([item[0] for item in specs][-8:], [item[0] for item in verifier.FOURTH_FOLLOWUP_LAYER_SPECS])
+        self.assertEqual([item[3] for item in specs][-8:], [32, 33, 34, 35, 36, 37, 38, 39])
+        self.assertEqual(actor_position, len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + len(verifier.FOURTH_FOLLOWUP_LAYER_SPECS))
+        self.assertEqual(grammar_position, len(fourth_complete["input_pins"]["accepted_layers"]) - 1)
 
     def test_live_followup_receipt_requires_complete_extension(self) -> None:
         old_layout = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + 2)]}}
@@ -402,6 +408,15 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
         receipt.write_text("{}\n")
         with self.assertRaises(verifier.VerificationError):
             verifier._require_followup_extension_when_receipts_exist(self.root, second_layout)
+
+    def test_live_fourth_followup_receipt_requires_complete_extension(self) -> None:
+        third_layout = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + 2)]}}
+        verifier._require_followup_extension_when_receipts_exist(self.root, third_layout)
+        receipt = self.root / verifier.STAGE2_REL / "task-2121.receipt.json"
+        receipt.parent.mkdir(parents=True, exist_ok=True)
+        receipt.write_text("{}\n")
+        with self.assertRaises(verifier.VerificationError):
+            verifier._require_followup_extension_when_receipts_exist(self.root, third_layout)
 
     def test_second_followup_reports_are_exact_and_per_row_provenance_is_fail_closed(self) -> None:
         current_ledger = verifier.read_json(verifier.ROOT / verifier.LEDGER_REL, "current working ledger")
@@ -602,6 +617,103 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
                 True,
             )
 
+    def test_fourth_followup_reports_are_exact_and_per_row_provenance_is_fail_closed(self) -> None:
+        """The fixed 2121--2128 group is live-checked before replacement exists."""
+
+        current_ledger = verifier.read_json(verifier.ROOT / verifier.LEDGER_REL, "current working ledger")
+        baseline = verifier._read_baseline_rows(verifier.ROOT, current_ledger)
+        expected = verifier.enumerate_current_frontier(verifier.ROOT)["occurrences"]
+        offset = len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS)
+        accepted = [{} for _ in range(offset)]
+        for task, _kind, rows, _proposed, _unresolved, report_sha in verifier.FOURTH_FOLLOWUP_LAYER_SPECS:
+            report_rel = verifier._layer_path(task)
+            receipt_rel = verifier.STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json"
+            accepted.append({
+                "task": task,
+                "kind": "research",
+                "priority": verifier.ORDINARY_LAYER_PRIORITY[task],
+                "rows": rows,
+                "report": verifier._descriptor(verifier.ROOT / report_rel, report_rel),
+                "receipt": verifier._descriptor(verifier.ROOT / receipt_rel, receipt_rel),
+                "independent_review_sha256": report_sha,
+            })
+        accepted.extend(({}, {}))
+        ledger = {"input_pins": {"accepted_layers": accepted}}
+        layers, references = verifier._read_followup_layer_rows(
+            verifier.ROOT,
+            ledger,
+            expected,
+            baseline,
+            verifier.FOURTH_FOLLOWUP_LAYER_SPECS,
+            verifier.FOURTH_FOLLOWUP_MANIFEST_REL,
+            verifier.FOURTH_FOLLOWUP_MANIFEST_SHA256,
+            offset,
+            "fourth follow-up",
+            "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2",
+            True,
+        )
+        self.assertEqual(list(layers), [item[0] for item in verifier.FOURTH_FOLLOWUP_LAYER_SPECS])
+        self.assertEqual(sum(len(rows) for rows in layers.values()), 205)
+        self.assertEqual(sum(decision == "proposed" for rows in layers.values() for decision, _target, _confidence in rows.values()), 71)
+        self.assertEqual(sum(decision == "unresolved" for rows in layers.values() for decision, _target, _confidence in rows.values()), 134)
+        self.assertTrue(all(reference["independent_review_sha256"] == reference["report"]["sha256"] for reference in references.values()))
+
+        task = "CA-P-2125"
+        _occurrence_id, (decision, target, confidence) = next(iter(layers[task].items()))
+        row = self._row(decision=decision, target=target)
+        row["confidence"] = confidence
+        row["applied_layers"].append({
+            "layer": task,
+            "priority": verifier.ORDINARY_LAYER_PRIORITY[task],
+            **references[task],
+            "decision": decision,
+            "proposed_value": target,
+            "confidence": confidence,
+        })
+        row["candidate_basis"] = []
+        row["preserved_distinctions"] = []
+        fixture_reference = copy.deepcopy(references[task])
+        fixture_reference["proofs"] = {
+            self.expected["occurrence_id"]: {
+                field: copy.deepcopy(row.get(field))
+                for field in verifier.LATER_FOLLOWUP_PROOF_FIELDS
+            }
+        }
+        fixture_layers = {task: {self.expected["occurrence_id"]: (decision, target, confidence)}}
+        self.assertEqual(self._verify([row], fixture_layers, layer_refs={task: fixture_reference})[decision], 1)
+        for variant in ("priority", "target", "confidence", "executable", "proof", "review"):
+            wrong = copy.deepcopy(row)
+            if variant == "priority":
+                wrong["applied_layers"][-1]["priority"] = 31
+            elif variant == "target":
+                wrong["applied_layers"][-1]["proposed_value"] = "Atom.Type"
+            elif variant == "confidence":
+                wrong["applied_layers"][-1]["confidence"] = confidence - .01
+            elif variant == "executable":
+                wrong["executable"] = True
+            elif variant == "proof":
+                del wrong["candidate_basis"]
+            else:
+                del wrong["applied_layers"][-1]["independent_review_sha256"]
+            with self.assertRaises(verifier.VerificationError, msg=variant):
+                self._verify([wrong], fixture_layers, layer_refs={task: fixture_reference})
+        stale_receipt_ledger = copy.deepcopy(ledger)
+        stale_receipt_ledger["input_pins"]["accepted_layers"][offset]["receipt"]["sha256"] = "0" * 64
+        with self.assertRaises(verifier.VerificationError):
+            verifier._read_followup_layer_rows(
+                verifier.ROOT,
+                stale_receipt_ledger,
+                expected,
+                baseline,
+                verifier.FOURTH_FOLLOWUP_LAYER_SPECS,
+                verifier.FOURTH_FOLLOWUP_MANIFEST_REL,
+                verifier.FOURTH_FOLLOWUP_MANIFEST_SHA256,
+                offset,
+                "fourth follow-up",
+                "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2",
+                True,
+            )
+
     def test_later_followup_supporting_evidence_is_current_or_exact_operator_decision(self) -> None:
         """Later-group supporting spans are live, and stale/non-Core pins fail."""
 
@@ -623,6 +735,12 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
         self.assertTrue(all(
             verifier._later_followup_evidence_is_current(verifier.ROOT, item, source_pins, "third follow-up fixture")
             for row in third_report["rows"]
+            for item in row["evidence"]
+        ))
+        fourth_report = verifier.read_json(verifier.ROOT / verifier._layer_path("CA-P-2125"), "fourth follow-up report")
+        self.assertTrue(all(
+            verifier._later_followup_evidence_is_current(verifier.ROOT, item, source_pins, "fourth follow-up fixture")
+            for row in fourth_report["rows"]
             for item in row["evidence"]
         ))
 

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2130",
+  "recorded_at": "2026-10-11 10:20:48 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded verify remaining subject layers independently; not migration approval",
+  "verification": {
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+      "sha256": "53a09e8d8fff19a8ef7ee0ef36cbce7add34910173c95ff35b583b91cf14cdd5"
+    },
+    "related_outputs": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_working_mapping_ledger.py",
+        "sha256": "d722bafc49e993d3aa0ce053dd3cb3a2c40de91eab6a4014819f066aee7f2262"
+      }
+    ],
+    "independent_review": {
+      "reviewer": "/root/grammar_graph",
+      "final_report_sha256": "53a09e8d8fff19a8ef7ee0ef36cbce7add34910173c95ff35b583b91cf14cdd5",
+      "related_test_sha256": "d722bafc49e993d3aa0ce053dd3cb3a2c40de91eab6a4014819f066aee7f2262",
+      "result": "PASS: fixed fourth-group verifier and tests independently reviewed without producer import",
+      "meaning_checks": [
+        "Exact eight report/manifest/counts and priorities32–39 constrained.",
+        "Actual current-tree receipt presence rejects whole-fourth-group omission.",
+        "Exact proof, receipt, final-review, confidence and non-executable invariants retained.",
+        "Only live Core or the canonical pinned Operator record support evidence.",
+        "Old isolated layouts remain accepted without new real receipts."
+      ]
+    },
+    "focused_tests": {
+      "tests": 25,
+      "chunk_id": "8621b8",
+      "wall_time_seconds": 0.000008,
+      "exit_code": 0,
+      "original_token_count": 30,
+      "output": "..................\n----------------------------------------------------------------------\nRan 25 tests in 7.958s\n\nOK\n"
+    },
+    "prospective_counts": {
+      "outcome": "PASS",
+      "sources": 907,
+      "occurrences": 4534,
+      "proposed": 1806,
+      "unchanged": 1540,
+      "unresolved": 1188,
+      "quarantined_sources": 8,
+      "excluded_sources": 11203
+    },
+    "whole_ledger_controls": [
+      {
+        "probe": "missing_layer",
+        "reason": "complete accepted-layer manifest"
+      },
+      {
+        "probe": "omit_all_followups",
+        "reason": "accepted fourth follow-up extension required"
+      },
+      {
+        "probe": "missing_selected_row",
+        "reason": "exact current occurrence coverage"
+      },
+      {
+        "probe": "stale_source",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] exact current origin/pin"
+      },
+      {
+        "probe": "wrong_target",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] final selected-layer target"
+      },
+      {
+        "probe": "wrong_priority",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] accepted layer priority"
+      },
+      {
+        "probe": "wrong_confidence",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] final selected-layer confidence"
+      },
+      {
+        "probe": "stale_receipt",
+        "reason": "fourth follow-up accepted pins CA-P-2121"
+      },
+      {
+        "probe": "missing_independent_review",
+        "reason": "fourth follow-up manifest independent-review hash CA-P-2121"
+      },
+      {
+        "probe": "executable_row",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] non-executable"
+      }
+    ],
+    "producer_imports": "none",
+    "draft_writes": "not_performed"
+  },
+  "independent_review": {
+    "reviewer": "/root/grammar_graph",
+    "final_report_sha256": "53a09e8d8fff19a8ef7ee0ef36cbce7add34910173c95ff35b583b91cf14cdd5",
+    "related_test_sha256": "d722bafc49e993d3aa0ce053dd3cb3a2c40de91eab6a4014819f066aee7f2262",
+    "result": "PASS: fixed fourth-group verifier and tests independently reviewed without producer import",
+    "meaning_checks": [
+      "Exact eight report/manifest/counts and priorities32–39 constrained.",
+      "Actual current-tree receipt presence rejects whole-fourth-group omission.",
+      "Exact proof, receipt, final-review, confidence and non-executable invariants retained.",
+      "Only live Core or the canonical pinned Operator record support evidence.",
+      "Old isolated layouts remain accepted without new real receipts."
+    ]
+  },
+  "completion_scope": "The independent fixed fourth-group verifier retains exact report/receipt/review/current-evidence and proof checks, and requires all eight layers when any real receipt exists. Independent code review,25 focused tests and Root's actual prospective control plus ten corrupt variants pass. No derived draft or original Core was written.",
+  "registration_commit": "25e01c58ff02a280c4db965d1977b57db113a3f9",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

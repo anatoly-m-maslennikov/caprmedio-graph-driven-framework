@@ -35,6 +35,8 @@ SECOND_FOLLOWUP_MANIFEST_REL = STAGE2_REL / "semantic-reviews/followups-2103-210
 SECOND_FOLLOWUP_MANIFEST_SHA256 = "7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3"
 THIRD_FOLLOWUP_MANIFEST_REL = STAGE2_REL / "semantic-reviews/followups-2112-2117.inputs.json"
 THIRD_FOLLOWUP_MANIFEST_SHA256 = "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+FOURTH_FOLLOWUP_MANIFEST_REL = STAGE2_REL / "semantic-reviews/followups-2121-2128.inputs.json"
+FOURTH_FOLLOWUP_MANIFEST_SHA256 = "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
 OPERATOR_DECISION_REL = STAGE2_REL / "operator.subject-decisions.2026-10-11.json"
 OPERATOR_DECISION_SHA256 = "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
 STRUCTURE_REL = Path(".caprmedio_caprmedio/project_structure.toml")
@@ -93,11 +95,22 @@ THIRD_FOLLOWUP_LAYER_SPECS = (
     ("CA-P-2116", "research", 15, 13, 2, "90d3027a973bd4ff6ecfbe8c6d2288744513df48cf99d6be1c38a3fccf9ce50d"),
     ("CA-P-2117", "research", 26, 24, 2, "d49221d9c8468f92b0f8144f879163538cc438699b5145fe2f36ed18bd8ffb8f"),
 )
+FOURTH_FOLLOWUP_LAYER_SPECS = (
+    ("CA-P-2121", "research", 22, 21, 1, "96d906b7769f52f32bfc4b8d1ccfb638ba5eee6c525bcc2e25851827fb4f693b"),
+    ("CA-P-2122", "research", 20, 8, 12, "3577856baf8a35c61c479c9d2feaa7e54f0252ec2f33f5ec9bb94def9eb928f8"),
+    ("CA-P-2123", "research", 28, 7, 21, "64c5e84639b39c37d7a175c11e967b407dfabbd840b76a80bc91352dd29e8728"),
+    ("CA-P-2124", "research", 33, 7, 26, "94b9b57e83a2b23bd493355ece510907ed31277edab45dc56e9ee5eefacfe9e3"),
+    ("CA-P-2125", "research", 29, 7, 22, "43bca8f0776c3d7ff25321e4e9c6b3da10b3bd5c3333c0cb0a8dbb9d1af7aeb3"),
+    ("CA-P-2126", "research", 21, 11, 10, "3fa0af8d302898a399cb1406cd9bcfcdd7ee22d3e3bc28f907f322e935dd8c52"),
+    ("CA-P-2127", "research", 23, 7, 16, "db250a76d1b6f5b4a8226a44656a81eb16e57965faa174c3b7f5a1337f638896"),
+    ("CA-P-2128", "research", 29, 3, 26, "12aff3f78128cb401ec7f070840d0958a9edcd0e20266f9a0acb231fa8220f56"),
+)
 FOLLOWUP_TASKS = {task for task, _kind, _rows, _proposed, _unresolved, _sha256 in FOLLOWUP_LAYER_SPECS}
 SECOND_FOLLOWUP_TASKS = {task for task, _kind, _rows, _proposed, _unresolved, _sha256 in SECOND_FOLLOWUP_LAYER_SPECS}
 THIRD_FOLLOWUP_TASKS = {task for task, _kind, _rows, _proposed, _unresolved, _sha256 in THIRD_FOLLOWUP_LAYER_SPECS}
-ALL_FOLLOWUP_TASKS = FOLLOWUP_TASKS | SECOND_FOLLOWUP_TASKS | THIRD_FOLLOWUP_TASKS
-LATER_FOLLOWUP_TASKS = SECOND_FOLLOWUP_TASKS | THIRD_FOLLOWUP_TASKS
+FOURTH_FOLLOWUP_TASKS = {task for task, _kind, _rows, _proposed, _unresolved, _sha256 in FOURTH_FOLLOWUP_LAYER_SPECS}
+ALL_FOLLOWUP_TASKS = FOLLOWUP_TASKS | SECOND_FOLLOWUP_TASKS | THIRD_FOLLOWUP_TASKS | FOURTH_FOLLOWUP_TASKS
+LATER_FOLLOWUP_TASKS = SECOND_FOLLOWUP_TASKS | THIRD_FOLLOWUP_TASKS | FOURTH_FOLLOWUP_TASKS
 LATER_FOLLOWUP_PROOF_FIELDS = ("evidence", "candidate_basis", "preserved_distinctions")
 LAYER_PRIORITY = [task for task, _kind in LAYER_SPECS] + ["CA-P-2058 coverage_only", "CA-P-2087 recheck_gate"]
 GRAMMAR_ACCEPTED_PRIORITY = "CA-P-2087 accepted_current_grammar"
@@ -106,6 +119,7 @@ ORDINARY_LAYER_PRIORITY = {
     **{task: len(LAYER_SPECS) + index for index, (task, _kind, _rows, _proposed, _unresolved, _sha256) in enumerate(FOLLOWUP_LAYER_SPECS, start=1)},
     **{task: len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + index for index, (task, _kind, _rows, _proposed, _unresolved, _sha256) in enumerate(SECOND_FOLLOWUP_LAYER_SPECS, start=1)},
     **{task: len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + index for index, (task, _kind, _rows, _proposed, _unresolved, _sha256) in enumerate(THIRD_FOLLOWUP_LAYER_SPECS, start=1)},
+    **{task: len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + len(THIRD_FOLLOWUP_LAYER_SPECS) + index for index, (task, _kind, _rows, _proposed, _unresolved, _sha256) in enumerate(FOURTH_FOLLOWUP_LAYER_SPECS, start=1)},
 }
 
 
@@ -145,6 +159,7 @@ def _layer_layout(ledger: dict[str, Any]) -> tuple[tuple[tuple[str, str, int, in
     first_followup_with_grammar = base_count + 1 + len(FOLLOWUP_LAYER_SPECS) + 1
     second_followup_with_grammar = first_followup_with_grammar + len(SECOND_FOLLOWUP_LAYER_SPECS)
     third_followup_with_grammar = second_followup_with_grammar + len(THIRD_FOLLOWUP_LAYER_SPECS)
+    fourth_followup_with_grammar = third_followup_with_grammar + len(FOURTH_FOLLOWUP_LAYER_SPECS)
     base = tuple((task, kind, position, position + 1) for position, (task, kind) in enumerate(LAYER_SPECS))
     if len(accepted) == old_without_grammar:
         return base, base_count, None
@@ -166,8 +181,14 @@ def _layer_layout(ledger: dict[str, Any]) -> tuple[tuple[tuple[str, str, int, in
         (task, kind, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + index, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + index + 1)
         for index, (task, kind, _rows, _proposed, _unresolved, _sha256) in enumerate(THIRD_FOLLOWUP_LAYER_SPECS)
     )
-    require(len(accepted) == third_followup_with_grammar, "complete accepted-layer manifest")
-    return base + followup + second_followup + third_followup, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + len(THIRD_FOLLOWUP_LAYER_SPECS), third_followup_with_grammar - 1
+    if len(accepted) == third_followup_with_grammar:
+        return base + followup + second_followup + third_followup, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + len(THIRD_FOLLOWUP_LAYER_SPECS), third_followup_with_grammar - 1
+    fourth_followup = tuple(
+        (task, kind, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + len(THIRD_FOLLOWUP_LAYER_SPECS) + index, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + len(THIRD_FOLLOWUP_LAYER_SPECS) + index + 1)
+        for index, (task, kind, _rows, _proposed, _unresolved, _sha256) in enumerate(FOURTH_FOLLOWUP_LAYER_SPECS)
+    )
+    require(len(accepted) == fourth_followup_with_grammar, "complete accepted-layer manifest")
+    return base + followup + second_followup + third_followup + fourth_followup, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + len(THIRD_FOLLOWUP_LAYER_SPECS) + len(FOURTH_FOLLOWUP_LAYER_SPECS), fourth_followup_with_grammar - 1
 
 
 def _require_followup_extension_when_receipts_exist(root: Path, ledger: dict[str, Any]) -> None:
@@ -176,6 +197,7 @@ def _require_followup_extension_when_receipts_exist(root: Path, ledger: dict[str
     first_receipts_exist = any((root / STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json").is_file() for task in FOLLOWUP_TASKS)
     second_receipts_exist = any((root / STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json").is_file() for task in SECOND_FOLLOWUP_TASKS)
     third_receipts_exist = any((root / STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json").is_file() for task in THIRD_FOLLOWUP_TASKS)
+    fourth_receipts_exist = any((root / STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json").is_file() for task in FOURTH_FOLLOWUP_TASKS)
     specs, _actor_position, _grammar_position = _layer_layout(ledger)
     admitted = {task for task, _kind, _position, _priority in specs}
     if first_receipts_exist:
@@ -184,6 +206,8 @@ def _require_followup_extension_when_receipts_exist(root: Path, ledger: dict[str
         require(FOLLOWUP_TASKS <= admitted and SECOND_FOLLOWUP_TASKS <= admitted, "accepted second follow-up extension required")
     if third_receipts_exist:
         require(FOLLOWUP_TASKS <= admitted and SECOND_FOLLOWUP_TASKS <= admitted and THIRD_FOLLOWUP_TASKS <= admitted, "accepted third follow-up extension required")
+    if fourth_receipts_exist:
+        require(FOLLOWUP_TASKS <= admitted and SECOND_FOLLOWUP_TASKS <= admitted and THIRD_FOLLOWUP_TASKS <= admitted and FOURTH_FOLLOWUP_TASKS <= admitted, "accepted fourth follow-up extension required")
 
 
 def relative_path(root: Path, value: Any, label: str) -> Path:
@@ -690,6 +714,7 @@ def _read_accepted_grammar_rows(
         len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS),
         len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS),
         len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + len(THIRD_FOLLOWUP_LAYER_SPECS),
+        len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + len(THIRD_FOLLOWUP_LAYER_SPECS) + len(FOURTH_FOLLOWUP_LAYER_SPECS),
     }, "accepted grammar ordinary layers")
     item = accepted[grammar_position]
     require(isinstance(item, dict) and item.get("task") == "CA-P-2087" and item.get("priority") == "current_grammar" and item.get("kind") == "current_grammar_subject_recheck" and item.get("rows") == 33, "accepted grammar manifest")
@@ -999,6 +1024,22 @@ def _read_layer_rows(
         )
         followup_rows.update(third_rows)
         followup_refs.update(third_refs)
+    if FOURTH_FOLLOWUP_TASKS <= admitted_tasks:
+        fourth_rows, fourth_refs = _read_followup_layer_rows(
+            root,
+            ledger,
+            expected_occurrences,
+            baseline_rows,
+            FOURTH_FOLLOWUP_LAYER_SPECS,
+            FOURTH_FOLLOWUP_MANIFEST_REL,
+            FOURTH_FOLLOWUP_MANIFEST_SHA256,
+            len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + len(THIRD_FOLLOWUP_LAYER_SPECS),
+            "fourth follow-up",
+            "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2",
+            True,
+        )
+        followup_rows.update(fourth_rows)
+        followup_refs.update(fourth_refs)
     for task, kind, position, priority in specs:
         if task in ALL_FOLLOWUP_TASKS:
             output[task] = followup_rows[task]
