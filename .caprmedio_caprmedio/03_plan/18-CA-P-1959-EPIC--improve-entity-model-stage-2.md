@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 22
-updated_at: "2026-10-11 05:43:33 +0400"
+version: 23
+updated_at: "2026-10-11 05:53:14 +0400"
 relations: {}
 ---
 # Summary
@@ -109,6 +109,8 @@ Step 2 must classify proposed edits before writing. Current authority requires a
 - [CA-P-1971 — Verify the Stage 2 entity model](18-CA-P-1959-EPIC--improve-entity-model-stage-2/13-CA-P-1971-TASK--verify-the-stage-2-entity-model.md)
 
 ### Current checkpoint
+
+- [CA-P-2081 — Align the closed Core registry authority path](18-CA-P-1959-EPIC--improve-entity-model-stage-2/18-CA-P-2081-TASK--align-the-closed-core-registry-authority-path.md)
 
 CA-P-1965 and CA-P-1975 are Done: the selected-profile lookup, sealed preview and internal graph parser are implemented, independently verified and committed. This is ordinary Tool readiness, not semantic mapping or a live migration receipt. Original Core Subjects and ordinary content are unchanged.
 
