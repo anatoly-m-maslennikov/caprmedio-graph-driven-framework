@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 92
-updated_at: "2026-10-11 07:36:43 +0400"
+version: 93
+updated_at: "2026-10-11 07:42:02 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -122,7 +122,7 @@ CA-P-2094–2099 review 180 currently unresolved, baseline-only occurrences in s
 - [CA-P-2094 — Review remaining snapshot fields](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/73-CA-P-2094-TASK--review-remaining-snapshot-fields.md)
 - [CA-P-2095 — Review remaining Scope Unit and Project targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/74-CA-P-2095-TASK--review-remaining-scope-unit-and-project-targets.md)
 - [CA-P-2096 — Review settings and methodology source targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/75-CA-P-2096-TASK--review-settings-and-methodology-source-targets.md)
-- [CA-P-2097 — Review remaining Relation targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/76-CA-P-2097-TASK--review-remaining-relation-targets.md)
+- [CA-P-2097 — Review remaining Relation targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/76-CA-P-2097-TASK--review-remaining-relation-targets.md)
 - [CA-P-2098 — Review Journal and Actor targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/77-CA-P-2098-TASK--review-journal-and-actor-targets.md)
 - [CA-P-2099 — Review projection and collection targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/78-CA-P-2099-TASK--review-projection-and-collection-targets.md)
 

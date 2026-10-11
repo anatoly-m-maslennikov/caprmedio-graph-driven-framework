@@ -1,0 +1,1100 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2097",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+    "input_pins": {
+      "manifest": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2094-2099.inputs.json",
+        "sha256": "5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d"
+      },
+      "frozen_baseline_ledger": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+        "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+      },
+      "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2094-2099.contract.md",
+        "sha256": "cf24b036a6dfaf27281f7b67e5cf2f70cff1c147c9edbabf791bb8fc12bf72ff"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      }
+    ],
+    "current_grammar_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/subject-tools.grammar-contract.md",
+      "sha256": "aa267553ff481c7473c86fedcd757e902bbf00ffe3e2f2deef90b99201598f59"
+    },
+    "project_structure": {
+      "path": ".caprmedio_caprmedio/project_structure.toml",
+      "sha256": "0ceb85e781490b89fc539f27eb5bf3a5187d4c982a648f27b40b6057257df92c"
+    }
+  },
+  "selection": {
+    "family": "relations",
+    "sources": 25,
+    "occurrences": 25,
+    "occurrence_id_set_sha256": "709d35d43571367388c990ca7d5dec94540d7e93af3a30f51e259eee7be4c61c",
+    "manifest_sha256": "5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d"
+  },
+  "supporting_current_definitions": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md",
+      "sha256": "f897ce81ed4e0d630006ed7f0f382a082204b82bde93664e394d7e31abbf0b12",
+      "span_sha256": "788d88b9c5b248ee3682d0e2ed2802f667ed961a905c770981607f6e6e09a6cf",
+      "start_line": 28,
+      "end_line": 40,
+      "reason": "Atom Governed Subject is a Subject Relation whose GOVERNS kind and canonical target are distinct."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1276-CORE_META_MODEL-CORE-REQUIREMENT--type-every-direct-subject-reference.md",
+      "sha256": "bb383767920b4fd62eb66793d75a639181944250bcf4f3426bb25b49548e93df",
+      "span_sha256": "0b3e2a0eaf08a92ffb48a3fbc1d784ed83623be098b8710eb8e492c3d03186f3",
+      "start_line": 20,
+      "end_line": 32,
+      "reason": "A Subjects entry supplies one relation kind; it does not turn the target into the Subject Relation."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+      "sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+      "span_sha256": "573b04f84c5474404b03d36c4bd42bd3a72384fb94f8142909ea7ca3bdaa70a6",
+      "start_line": 22,
+      "end_line": 34,
+      "reason": "A Subject Path identifies its Entity target without becoming the Subject Relation itself."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+      "sha256": "933901316d347a2e09222d19d3a985c2feb93c7efc86e0a8332ab292cd169dd0",
+      "span_sha256": "e697d1ff54b036ce90fdd7499676a154da1c9cb0e3ea6c9bc75a7efd2935d0c8",
+      "start_line": 21,
+      "end_line": 33,
+      "reason": "Relation Kind metadata preserves graph ownership and endpoint classes for any admitted kind."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1246-CORE_META_MODEL-CORE-REQUIREMENT--keep-relation-vocabularies-graph-specific.md",
+      "sha256": "79e1932957ce002ac47ff529f5fb56a1311ebc5bbc07ac85482021ce5b19d4c3",
+      "span_sha256": "0dfe086e099c99f9dbf689fc0e2c99dbb869454c0969222f29be0a5f99559959",
+      "start_line": 21,
+      "end_line": 37,
+      "reason": "Relation Kind identity is graph-qualified; compatible names/endpoints do not admit or merge native kinds."
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+      "source_atom_id": "CA-R-1016",
+      "source_version": 15,
+      "source_sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+          "sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+          "span_sha256": "17d7fb0dd186984491d850a936ea8d2e41ea21e11a16c98f3104f208bb7663be",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+      "source_atom_id": "CA-R-1017",
+      "source_version": 15,
+      "source_sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+          "sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+          "span_sha256": "d8cde810de695f7c74f7c0f23bc0fbd0383813775ab6371b0bba67f870c24d11",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+      "source_atom_id": "CA-R-1018",
+      "source_version": 17,
+      "source_sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+      "field": "governs",
+      "index": null,
+      "old_value": "Evaluation For Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "CA-R-1018 lines 29 and 33–38 define a qualified `evaluation_for` relation: it is owned by an Evaluation Atom, directed only to specified Content Roles whose authority it checks, and retains that checked-authority qualification. The candidate's /relation_type_model/endpoint_boundary preserves permitted endpoints for an admitted Relation Type; generic Relation would discard those required owner, target-role, and checked-authority constraints. No admitted evaluation_for target or native kind is inferred.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-CORE--register-evaluation-targets.md",
+          "sha256": "82d35b5486d370f1db60aea0b8eb8a417685f08a210ddd9db4ad2916634f4756",
+          "span_sha256": "29d612199411ad8bee57ca3fc652830d21c7c45a5ea82ad15429902fa4bd712d",
+          "start_line": 23,
+          "end_line": 40,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines only generic typed connections between Entities; it does not supply the qualified evaluation_for target."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The candidate's endpoint_boundary retains constraints for an admitted Relation Type; it does not establish an evaluation_for type or its required owner, target-role, and checked-authority qualification."
+        }
+      ],
+      "preserved_distinctions": [
+        "The qualified evaluation_for relation remains distinct from a generic Relation root and from an unadmitted Relation Type or Kind.",
+        "Its declared Evaluation owner, permitted target Content Roles, checked-authority qualification, directness, and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+      "source_atom_id": "CA-R-1019",
+      "source_version": 15,
+      "source_sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+          "sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+          "span_sha256": "0fa6a86aea1c686da9351b698dcd028dd234a1c121f8ba33cbd85bf51a6162f2",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+      "source_atom_id": "CA-R-1020",
+      "source_version": 15,
+      "source_sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+          "sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+          "span_sha256": "2d8f2fea4e0d6c97692ffc30b0527f0fb04577147d60455d24c4ecd8536ac5cf",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+      "source_atom_id": "CA-R-1021",
+      "source_version": 15,
+      "source_sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+          "sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+          "span_sha256": "956f14a3d2bd9c42a7b9c5600bef656fe2e43ced0ba724b797a896eae02ea38c",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+      "source_atom_id": "CA-R-1022",
+      "source_version": 15,
+      "source_sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+          "sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+          "span_sha256": "191f32681121f0dd196e0bfd586079d0ca4edb65f7e98e23c9f0da09b3de27d2",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-CORE--permit-distinct-direct-relations-on-one-atom.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-CORE--permit-distinct-direct-relations-on-one-atom.md",
+      "source_atom_id": "CA-R-1023",
+      "source_version": 13,
+      "source_sha256": "a9f9934990aa102a99c0820fe8d652ea4643a101bdbe96cf72f2d0a2c9c3271c",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1023-CORE_META_MODEL-CORE--permit-distinct-direct-relations-on-one-atom.md",
+          "sha256": "a9f9934990aa102a99c0820fe8d652ea4643a101bdbe96cf72f2d0a2c9c3271c",
+          "span_sha256": "26a22a2f7cbde4022ac57379a1a334130aa9f5513338f5e19d93f8d96350e658",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-CORE--prohibit-transitive-meaning-for-direct-relations.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-CORE--prohibit-transitive-meaning-for-direct-relations.md",
+      "source_atom_id": "CA-R-1024",
+      "source_version": 14,
+      "source_sha256": "391223e51330adad48b6bc532b7e07606a2f744e66063eaec56427e2beb24306",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1024-CORE_META_MODEL-CORE--prohibit-transitive-meaning-for-direct-relations.md",
+          "sha256": "391223e51330adad48b6bc532b7e07606a2f744e66063eaec56427e2beb24306",
+          "span_sha256": "0a7e2d1c2813dfd65c7967cc9361625b120a53bce78aa19c430ab0a430e401e9",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-CORE--require-authority-for-new-relation-meanings.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-CORE--require-authority-for-new-relation-meanings.md",
+      "source_atom_id": "CA-R-1025",
+      "source_version": 14,
+      "source_sha256": "2a307c741ee02f711520182f3aee106627554fd089827aad2e3f7541aab8bc24",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1025-CORE_META_MODEL-CORE--require-authority-for-new-relation-meanings.md",
+          "sha256": "2a307c741ee02f711520182f3aee106627554fd089827aad2e3f7541aab8bc24",
+          "span_sha256": "b672b01e419fdec42d89b1be6cd317cd6652edec1b419da2abb02f9a8b8061a5",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+      "source_atom_id": "CA-R-1026",
+      "source_version": 16,
+      "source_sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+          "sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+          "span_sha256": "599394c8148fdaa4671c1a4f8768793342547efd53eeaaa14a6423cf129ae664",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+      "source_atom_id": "CA-R-1027",
+      "source_version": 15,
+      "source_sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+          "sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+          "span_sha256": "0bbb719ebd0f233b30ca1c0eac7003a61c293dc8d2e32e2eb92fb5a67849dfee",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-CORE--record-lineage-impact-disposition-context.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-CORE--record-lineage-impact-disposition-context.md",
+      "source_atom_id": "CA-R-1029",
+      "source_version": 13,
+      "source_sha256": "236b0f9be3e676c2e26140c171741088c8bc9540729379f2985f88ebdc7d3f8b",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The complete current Main Content constrains a Lineage Impact disposition, gate, revision, successor, row, or authority boundary, but does not identify a direct Relation or an admitted Relation Kind. Routing text alone cannot turn that analysis content into a Relation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1029-CORE_META_MODEL-CORE--record-lineage-impact-disposition-context.md",
+          "sha256": "236b0f9be3e676c2e26140c171741088c8bc9540729379f2985f88ebdc7d3f8b",
+          "span_sha256": "a2ba931a8f7cdaf32e2b8ec0f0d5419bd647e5399b277402a7e2d4b8770d933b",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Lineage Impact disposition, revision/history, gate, successor, Concern and analysis content are not collapsed into a generic Relation.",
+        "The old relation-model routing label is not itself proof of a Relation target, Relation Kind, endpoint admission, or native edge.",
+        "No Artifact.Revision, selector, singleton narrower kind, or native relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-GENERAL--prohibit-silent-non-compatible-impact-dispositions.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-GENERAL--prohibit-silent-non-compatible-impact-dispositions.md",
+      "source_atom_id": "CA-R-1030",
+      "source_version": 13,
+      "source_sha256": "88e0127240b136211a576f0bffcc357fc07da14ba225157570b8c5f58076d1b6",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The complete current Main Content constrains a Lineage Impact disposition, gate, revision, successor, row, or authority boundary, but does not identify a direct Relation or an admitted Relation Kind. Routing text alone cannot turn that analysis content into a Relation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1030-CORE_META_MODEL-GENERAL--prohibit-silent-non-compatible-impact-dispositions.md",
+          "sha256": "88e0127240b136211a576f0bffcc357fc07da14ba225157570b8c5f58076d1b6",
+          "span_sha256": "d11b6052b63b00542b28db5b9a0a74d1de9992cae3ed7396496e851f29293e7b",
+          "start_line": 18,
+          "end_line": 28,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Lineage Impact disposition, revision/history, gate, successor, Concern and analysis content are not collapsed into a generic Relation.",
+        "The old relation-model routing label is not itself proof of a Relation target, Relation Kind, endpoint admission, or native edge.",
+        "No Artifact.Revision, selector, singleton narrower kind, or native relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+      "source_atom_id": "CA-R-1032",
+      "source_version": 13,
+      "source_sha256": "8742999580bb9848be893a931be36c86ee72676567989fba1c9630dee4a8211f",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The complete current Main Content constrains a Lineage Impact disposition, gate, revision, successor, row, or authority boundary, but does not identify a direct Relation or an admitted Relation Kind. Routing text alone cannot turn that analysis content into a Relation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1032-CORE_META_MODEL-GENERAL--block-dependent-gates-until-lineage-impact-reaches-a-fixed-point.md",
+          "sha256": "8742999580bb9848be893a931be36c86ee72676567989fba1c9630dee4a8211f",
+          "span_sha256": "1cb334cd77d00da626db6c4e213214e27b5729ad7d9c60efe941f4fcb8499c86",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Lineage Impact disposition, revision/history, gate, successor, Concern and analysis content are not collapsed into a generic Relation.",
+        "The old relation-model routing label is not itself proof of a Relation target, Relation Kind, endpoint admission, or native edge.",
+        "No Artifact.Revision, selector, singleton narrower kind, or native relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+      "source_atom_id": "CA-R-1033",
+      "source_version": 15,
+      "source_sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The complete current Main Content constrains a Lineage Impact disposition, gate, revision, successor, row, or authority boundary, but does not identify a direct Relation or an admitted Relation Kind. Routing text alone cannot turn that analysis content into a Relation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+          "sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+          "span_sha256": "5feb5e3bf5d8f7d7b3d21fab344f461967971890dd58f956354e5884b8fe6e89",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Lineage Impact disposition, revision/history, gate, successor, Concern and analysis content are not collapsed into a generic Relation.",
+        "The old relation-model routing label is not itself proof of a Relation target, Relation Kind, endpoint admission, or native edge.",
+        "No Artifact.Revision, selector, singleton narrower kind, or native relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+      "source_atom_id": "CA-R-1034",
+      "source_version": 13,
+      "source_sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The complete current Main Content constrains a Lineage Impact disposition, gate, revision, successor, row, or authority boundary, but does not identify a direct Relation or an admitted Relation Kind. Routing text alone cannot turn that analysis content into a Relation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+          "sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa",
+          "span_sha256": "a41898f598ddedefacbf65a9a07804e64a5f02db0185d710ed785626305881db",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Lineage Impact disposition, revision/history, gate, successor, Concern and analysis content are not collapsed into a generic Relation.",
+        "The old relation-model routing label is not itself proof of a Relation target, Relation Kind, endpoint admission, or native edge.",
+        "No Artifact.Revision, selector, singleton narrower kind, or native relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+      "source_atom_id": "CA-R-1035",
+      "source_version": 13,
+      "source_sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The complete current Main Content constrains a Lineage Impact disposition, gate, revision, successor, row, or authority boundary, but does not identify a direct Relation or an admitted Relation Kind. Routing text alone cannot turn that analysis content into a Relation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+          "sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+          "span_sha256": "d5ff11e33ec297c26584fcd08d05383149a43c661dcbcee683ee50d4363fb1e7",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Lineage Impact disposition, revision/history, gate, successor, Concern and analysis content are not collapsed into a generic Relation.",
+        "The old relation-model routing label is not itself proof of a Relation target, Relation Kind, endpoint admission, or native edge.",
+        "No Artifact.Revision, selector, singleton narrower kind, or native relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+      "source_atom_id": "CA-R-1036",
+      "source_version": 13,
+      "source_sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The complete current Main Content constrains a Lineage Impact disposition, gate, revision, successor, row, or authority boundary, but does not identify a direct Relation or an admitted Relation Kind. Routing text alone cannot turn that analysis content into a Relation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+          "sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b",
+          "span_sha256": "1bee897e3a6fe7e0de74a6da34f1d6816dd02e443c07dc418334a88c05cbc6fc",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Lineage Impact disposition, revision/history, gate, successor, Concern and analysis content are not collapsed into a generic Relation.",
+        "The old relation-model routing label is not itself proof of a Relation target, Relation Kind, endpoint admission, or native edge.",
+        "No Artifact.Revision, selector, singleton narrower kind, or native relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+      "source_atom_id": "CA-R-1037",
+      "source_version": 14,
+      "source_sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The complete current Main Content constrains a Lineage Impact disposition, gate, revision, successor, row, or authority boundary, but does not identify a direct Relation or an admitted Relation Kind. Routing text alone cannot turn that analysis content into a Relation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+          "sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+          "span_sha256": "e202e443813458ea32d2a0ea6d53453d7ee37929e5bdd92a2ab81cc8ab85eca5",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Lineage Impact disposition, revision/history, gate, successor, Concern and analysis content are not collapsed into a generic Relation.",
+        "The old relation-model routing label is not itself proof of a Relation target, Relation Kind, endpoint admission, or native edge.",
+        "No Artifact.Revision, selector, singleton narrower kind, or native relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL--permit-multiple-child-rows-in-one-lineage-impact-analysis.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL--permit-multiple-child-rows-in-one-lineage-impact-analysis.md",
+      "source_atom_id": "CA-R-1038",
+      "source_version": 14,
+      "source_sha256": "0712ffaa62550c0feed6ccbaa322f9e6193180e0e2020e8869dba28df6614d1a",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The complete current Main Content constrains a Lineage Impact disposition, gate, revision, successor, row, or authority boundary, but does not identify a direct Relation or an admitted Relation Kind. Routing text alone cannot turn that analysis content into a Relation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1038-CORE_META_MODEL--permit-multiple-child-rows-in-one-lineage-impact-analysis.md",
+          "sha256": "0712ffaa62550c0feed6ccbaa322f9e6193180e0e2020e8869dba28df6614d1a",
+          "span_sha256": "3f303cdbef3d13852fdcbf0ac4b75d15dcce75ed5cc5284cc9a80ad9157c6ea2",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Lineage Impact disposition, revision/history, gate, successor, Concern and analysis content are not collapsed into a generic Relation.",
+        "The old relation-model routing label is not itself proof of a Relation target, Relation Kind, endpoint admission, or native edge.",
+        "No Artifact.Revision, selector, singleton narrower kind, or native relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-CORE--preserve-authority-outside-lineage-impact-analysis.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-CORE--preserve-authority-outside-lineage-impact-analysis.md",
+      "source_atom_id": "CA-R-1039",
+      "source_version": 14,
+      "source_sha256": "4d2896e50ad0898f7c48fc07340f006562833129c38f48531b997e506200c58d",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The complete current Main Content constrains a Lineage Impact disposition, gate, revision, successor, row, or authority boundary, but does not identify a direct Relation or an admitted Relation Kind. Routing text alone cannot turn that analysis content into a Relation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1039-CORE_META_MODEL-CORE--preserve-authority-outside-lineage-impact-analysis.md",
+          "sha256": "4d2896e50ad0898f7c48fc07340f006562833129c38f48531b997e506200c58d",
+          "span_sha256": "517a7e56883342021add52276d11a913fa9207899c4f6bef4961dd7694f1e893",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Lineage Impact disposition, revision/history, gate, successor, Concern and analysis content are not collapsed into a generic Relation.",
+        "The old relation-model routing label is not itself proof of a Relation target, Relation Kind, endpoint admission, or native edge.",
+        "No Artifact.Revision, selector, singleton narrower kind, or native relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md",
+      "source_atom_id": "CA-R-1040",
+      "source_version": 16,
+      "source_sha256": "f713bc002eeaa0832f852337bbcc59e3640d389b376a7951aa140deadf574a44",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-CORE--reject-authored-inverse-relations.md",
+          "sha256": "f713bc002eeaa0832f852337bbcc59e3640d389b376a7951aa140deadf574a44",
+          "span_sha256": "6b23a42c6f3f887f4eb70772b4b8a568ae67045884435febc018f03380c3dd7b",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md",
+      "source_atom_id": "CA-R-117",
+      "source_version": 17,
+      "source_sha256": "36ede2f585db21365cf9215b5fa0903c65a2cb6769d2fba73b0077813c79af37",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-117-CORE_META_MODEL-CORE--store-each-semantic-relation-once.md",
+          "sha256": "36ede2f585db21365cf9215b5fa0903c65a2cb6769d2fba73b0077813c79af37",
+          "span_sha256": "32362721de5fa48ebd1c50a457504565ab423385fbd0a13d533691c636f7d513",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md",
+      "source_atom_id": "CA-R-118",
+      "source_version": 20,
+      "source_sha256": "7d32d213810e006d8b8c9e8a029ef6508b7038f529683a594fdf89322a1db651",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "The complete current Main Content explicitly names a direct, typed, semantic or inverse relation (including its owner, direction, pair, or constraint). It supports the established Relation root as the typed connection without minting a Relation Kind or changing endpoint admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-118-CORE_META_MODEL-CORE--let-the-dependent-atom-own-the-relation.md",
+          "sha256": "7d32d213810e006d8b8c9e8a029ef6508b7038f529683a594fdf89322a1db651",
+          "span_sha256": "c2c76e7feacbd55c9b32db208f0de35bb99278375b65124c7064df90040c6a7b",
+          "start_line": 21,
+          "end_line": 33,
+          "reason": "Complete current Main Content, including Scope, Claim and Details, for this exact owning occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same grouped concept while retaining endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation remains the typed connection root; Relation Type and Relation Kind are the same grouped concept, not a second target identity.",
+        "Declared source/target endpoint constraints, directness, inverse derivation and graph-qualified authority remain intact; no native kind is admitted.",
+        "A Subject Relation, its canonical target, and a Subject Path remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "limits": [
+    "This is candidate research only; no source migration, native relation admission, selector, or display-carrier syntax is authorized.",
+    "Relation is proposed only where the owning body explicitly identifies a direct relation or relation constraint. Null rows remain explicit where the body instead defines Lineage Impact analysis content.",
+    "Relation Type and Relation Kind remain one grouped concept with endpoint constraints; no Relation Kind or endpoint catalogue is minted."
+  ]
+}
