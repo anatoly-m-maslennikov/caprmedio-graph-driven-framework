@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
+version: 2
+updated_at: "2026-10-11 16:46:21 +0000"
 subjects:
   governs: "Tool/RELEASE_VERSION/Currentness"
   depends_on: [Tool, Workflow Run, Artifact, Revision, Digest, Methodology]
@@ -28,4 +28,4 @@ Release Version **must** keep the executing Framework, active runtime pointer, a
 
 ## Details
 
-Candidate N+1 may be retained separately after its suite gate, but N remains the runnable rollback point and active public selection until promotion. The executing Run never silently substitutes candidate definitions, and first-cut verification never invokes another release. Changed N, candidate inputs, output digest, test environment, or image identity blocks the affected promotion rather than being refreshed in place.
+Candidate N+1 may be retained separately after its suite gate, but N remains the runnable rollback point and active public selection until promotion. The executing Run never silently substitutes candidate definitions, and first-cut verification never invokes another release. Changed N, retained snapshot bytes, candidate output digest, captured test environment, or image identity blocks the affected promotion rather than being refreshed in place. Current definitions and active sources are discovered and captured internally at Run start; later authoring edits do not replace the retained release payload or require a manually maintained revision refresh. Exact executing definition evidence, current authorization, target-state checks, and applicable definition revalidation remain required.

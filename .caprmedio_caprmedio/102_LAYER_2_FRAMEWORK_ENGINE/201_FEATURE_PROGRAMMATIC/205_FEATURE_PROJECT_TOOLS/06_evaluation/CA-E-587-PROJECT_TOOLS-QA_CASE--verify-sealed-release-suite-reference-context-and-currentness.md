@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-10 19:05:35 +0400"
+version: 4
+updated_at: "2026-10-11 16:51:04 +0000"
 subjects:
   governs: "Tool/RELEASE_VERSION/Sealed suite reference-context QA"
   depends_on: [Tool, Release Version, Candidate Manifest, Test Suite, Project Structure, Operator, Workflow, Action, Source Carrier, Digest, JUnit Report]
@@ -29,8 +29,8 @@ The QA case **must** prove that the Suite Owner passes only with one exact, allo
 
 ## Details
 
-Verify a positive closure containing selected-workflow bindings, Operator registry, Project settings, Project Structure, resolved source-registry reference, CA-D-572, its transitive pins, the selected-manifest source-path closure, and both exact D580 Prompt binding frontiers. Assert typed source-path ordering, exact byte SHA-256 and mode verification, canonical `control_context_digest`, workspace copy preservation, and its inclusion in actual suite evidence and the schema-2 envelope. Each explicit Prompt source pin is current and materialized; identical shared pins occur once.
+Verify a positive local closure containing the generated release-only execution snapshot, Operator registry, Project settings, Project Structure, current CA-D-572 and exact captured Workflow, Step, Action and RMED pins, and the two Unit-deadline settings carriers. Assert typed source-path ordering, exact byte SHA-256 and mode verification, canonical `control_context_digest`, workspace copy preservation, and its inclusion in actual suite evidence and the schema-2 envelope. Each admitted filesystem pin is captured from its current carrier at Run start; identical shared pins occur once. The generated snapshot row is materialized only in the private reader/workspace, with no Project control carrier write.
 
-Independently reject an empty, duplicate, unknown, caller-added, runtime, Journal, secret-shaped, absolute, escaping, symlinked, non-regular, unreadable, wrong-mode, stale-digest, or stale-source-registry row. Mutate each allowed root and a transitive D572 pin between capture and execution, and again between execution and rederivation; neither case may pass or replay. Reject candidate SHA, compiled-root, selected-N, or image-context mismatch. Verify no arbitrary caller file reaches the workspace, no control carrier is written, and failure retains N and truthful non-passing evidence.
+Independently reject an empty, duplicate, unknown, caller-added, runtime, Journal, secret-shaped, absolute, escaping, symlinked, non-regular, unreadable, wrong-mode, stale-digest, or tampered captured-definition row. Mutate a protected settings root or captured release-definition byte between capture and execution, and again before post-run verification; neither case may pass or replay. Reject candidate SHA, compiled-root, selected-N, or image-context mismatch. Verify no arbitrary caller file reaches the workspace, no control carrier is written, and failure retains N and truthful non-passing evidence.
 
-Reject an unknown Prompt binding carrier, changed binding bytes, missing or stale Atom pin, duplicate source declaration and conflicting shared pin. Mutate a binding and one referenced Prompt Atom before execution and before post-run rederivation; neither may pass. Verify the unchanged schema-1 reference context and retained N proof remain readable, without admitting obsolete Plan carriers or expanding to an entire Project folder.
+Reject caller-added bindings, changed generated snapshot bytes, missing captured Atom pins, duplicate declarations and conflicting shared pins. A later authoring revision must not replace the captured release bytes. Verify that unrelated Prompt bindings, fixed selected-source refresh pins and the legacy multi-route manifest are not required for this local context. Their independent Tools and tests retain their own authority. Verify the unchanged schema-1 member set and retained N proof remain readable, without admitting obsolete Plan carriers or expanding to an entire Project folder; the complete declared suite and candidate source/image gates remain required.

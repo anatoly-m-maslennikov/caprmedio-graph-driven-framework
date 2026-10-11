@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
+version: 2
+updated_at: "2026-10-11 16:46:21 +0000"
 subjects:
   governs: "Tool/RELEASE_VERSION/Candidate construction"
   depends_on: [Tool, Manifest, Digest, Artifact, Revision]
@@ -24,8 +24,8 @@ Pure construction of the N/N+1 candidate inventory before release effects.
 
 ## Claim
 
-The Tool constructs one canonical `candidateSnapshotManifest` by normalizing the sealed request into ordered repository-relative input/output rows, binding each row to its digest and destination, and deriving one candidate manifest SHA-256 without copying, installing, compiling, testing, or deleting anything.
+The Tool constructs one canonical `candidateSnapshotManifest` internally by discovering current registered release definitions and their Action-to-Tool bindings, capturing current active Methodology-source Atoms at Run start, and normalizing the captured inventory into ordered repository-relative input/output rows. It binds each row to its captured bytes, digest and destination and derives one candidate manifest SHA-256 without installing, compiling, testing, deleting, or changing product or installed contents.
 
 ## Details
 
-Construction rejects duplicate destinations, traversal, missing required Framework Methodology or Engine rows, mismatched versions, and ambiguous current selections. The result is an input to later admitted effects, not a Workflow or an execution receipt.
+Construction rejects duplicate destinations, traversal, missing required Framework Methodology or Engine rows, mismatched versions, and ambiguous current selections. The same consistent snapshot is the input to every later admitted candidate phase; no Operator-supplied revision list or separate manifest refresh is required. The result is an input to later admitted effects, not a Workflow or an execution receipt.

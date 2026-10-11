@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 36
-updated_at: "2026-10-10 19:05:35 +0400"
+version: 37
+updated_at: "2026-10-11 16:46:21 +0000"
 subjects:
   governs: "Project Tool/RELEASE_VERSION/Additive selected-route source admission"
   depends_on: [Tool, Workflow, Action, Manifest, Operator, Run, Journal]
@@ -20,28 +20,33 @@ Serialize additive Release route source admission
 
 ## Scope
 
-The one Project-local Release Version source-admission record required before
-the canonical selected-workflow manifest admits `release_version`.
+The Project-local, read-only Release execution snapshot and its source-admission
+record for one `release_version` Run.
 
 ## Claim
 
-A successor of `.caprmedio_caprmedio/_projection/selected_workflow_bindings.json`
-**must** admit `release_version` only through one closed
-`release_source_admissions` record. At manifest build, that record derives its
-current Workflow definition Pin from active Project-local CA-O-164 and derives
-its ordered Step and Action definition Pins from CA-O-164's declared Steps
-table. It derives each Pin's exact `atom_id`, positive integer `version`, safe
-Project-relative `source_path`, and lowercase 64-hex `digest` from the unique
-active registered Project authoring carrier. This Delivery declares neither
-installed-copy paths nor copied digest constants.
+The local-release command **must** automatically derive one read-only virtual
+`<control_relative>/_projection/release_execution_snapshot.json` at Run start,
+containing only the `release_version` route and one closed
+`release_source_admissions` record. It reads current registered Project authoring
+without requiring the legacy `selected_workflow_bindings.json` carrier or its
+unrelated route bindings to be refreshed. The Operator supplies no definition
+revisions or separately refreshed manifest. The record derives its current
+Workflow definition Pin from active Project-local CA-O-164 and its ordered Step
+and Action definition Pins from CA-O-164's declared Steps table. Each Pin's exact
+`atom_id`, positive integer `version`, safe Project-relative `source_path`, and
+lowercase 64-hex `digest` comes from the unique active registered authoring
+carrier. This Delivery declares neither installed-copy paths nor copied digest
+constants.
 
 ## Details
 
-`release_source_admissions` is an optional top-level array in the loaded
-canonical `.caprmedio_caprmedio/_projection/selected_workflow_bindings.json`
-manifest. It is never a member of D527's two-field `definition_manifest`. A
-manifest containing `release_version` has exactly one record; one without that
-route has none. No unknown member is accepted. Its record retains the existing
+The virtual snapshot has exactly one route, `release_version`, and exactly one
+`release_source_admissions` record. It is read-only derived execution evidence,
+not a new authoring carrier or a prerequisite file write. D527's two-field
+`definition_manifest` references this snapshot and its canonical digest; the
+admission record is never embedded in that request field. No unknown member of
+the admission record is accepted. Its record retains the existing
 schema fields `route`, `acceptance_frontier`, `workflow`, `ordered_steps`,
 `ordered_actions`, `rmed_frontier`, `mutation_capable`, and
 `native_action_calls`; `route` is exactly `release_version`,
@@ -58,10 +63,21 @@ preserve an old definition digest, infer a graph, or select a checkout fallback.
 Operator command; it is not a Task status, review, separate approval, or
 separate source-admission command.
 
-The current RMED membership is definition-ID-only. At manifest build the same
-resolver derives every member Pin from current registered authoring, preserving
-the table's role and order. A missing or wrong-role member refuses the route;
-this carrier neither supplies a version/path/digest constant nor pins itself.
+The current RMED membership is definition-ID-only. At snapshot construction the
+same resolver derives every member Pin from current registered authoring,
+preserving the table's role and order. A missing or wrong-role member refuses
+the route; the table supplies no version/path/digest constant and does not
+include this Delivery as an RMED member.
+
+The snapshot's `source_freshness` uses the current active CA-D-572 source path,
+version and raw-byte SHA-256 as `selected_source_registry_ref`,
+`selected_source_registry_version` and `selected_source_registry_digest`.
+`selected_binding_ref` is the virtual snapshot reference plus `#/routes`;
+`selected_binding_digest` is the canonical digest of its one-route array. The
+snapshot canonically binds its reference, current authority Pin, derived route
+and admission, and the captured `102_FRAMEWORK_ENGINE` implementation tree's
+paths, bytes and modes, omitting only its own `canonical_manifest_sha256` when
+deriving that digest. It does not use copied private-helper hash constants.
 
 | role | position | atom_id |
 | --- | ---: | --- |
@@ -100,14 +116,20 @@ this carrier neither supplies a version/path/digest constant nor pins itself.
 | deliveries | 12 | CA-D-580 |
 | deliveries | 13 | CA-D-582 |
 
-An admitted successor is refreshed only through the existing verified
-Operator-commanded manifest process. Current definition Pins may change only
+The local-release command captures its current source-admission record internally
+at Run start through verified registered-source discovery. It retains that exact
+record, the Workflow/Step/Action and Action-to-Tool bindings, and its active-source
+snapshot as consistent Run evidence; a separately commanded or manually maintained
+revision refresh is not a prerequisite. Current definition Pins may change only
 through current registered source derivation while the route identity,
 definition-derived ordered graph, entry Step, result edges, and typed metadata
 continue to match CA-O-164. Structural changes require their own authority and
 cannot use a pin refresh. Existing preview, authorization, source-currentness,
-write-readback, and Journal-recording checks remain required; refresh itself
-does not execute the Release Workflow.
+write-readback, and Journal-recording checks remain required. Captured bytes and
+bindings are not silently replaced during the Run. Internal source admission
+itself is not a second Release Workflow. Legacy sixteen- and seventeen-route
+selected-manifest serializations remain historical or separately consumed
+bindings; their refresh is not a Local release prerequisite.
 
 The record is source-admission serialization only. It does not create a second
 Workflow graph, executor, permission grant, generic effect schema,
