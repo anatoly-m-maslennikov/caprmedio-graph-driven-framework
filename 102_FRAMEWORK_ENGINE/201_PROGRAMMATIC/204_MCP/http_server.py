@@ -15,6 +15,9 @@ from mcp.server.transport_security import TransportSecuritySettings
 
 PATH = "/mcp"
 PORT = 8092
+# A sealed Release carries its complete source inventory in the request.  Keep
+# a finite transport bound while allowing that inventory and its authorization.
+MAX_REQUEST_BODY_SIZE = 16 * 1024 * 1024
 SECURITY = TransportSecuritySettings(
     enable_dns_rebinding_protection=True,
     allowed_hosts=["127.0.0.1:*", "localhost:*", "[::1]:*"],
@@ -67,6 +70,7 @@ def create_app(root, implementation=None, *, selection=None):
     app = server.streamable_http_app(
         streamable_http_path=PATH,
         transport_security=SECURITY,
+        max_request_body_size=MAX_REQUEST_BODY_SIZE,
         host="127.0.0.1",
         custom_starlette_routes=[Route("/health", readiness)],
     )
