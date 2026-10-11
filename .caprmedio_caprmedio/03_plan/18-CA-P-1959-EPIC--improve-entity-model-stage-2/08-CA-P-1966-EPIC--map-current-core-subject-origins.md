@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 88
-updated_at: "2026-10-11 07:20:10 +0400"
+version: 89
+updated_at: "2026-10-11 07:32:39 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -120,7 +120,7 @@ Independent semantic-review children assess the 573 currently proposed follow-up
 CA-P-2094–2099 review 180 currently unresolved, baseline-only occurrences in six disjoint meaning families. Their bounded inputs select at most 25 owning sources per lane; remaining family occurrences and selector-dependent targets stay open. These are current evidence reports only, not Core edits or migration approval.
 
 - [CA-P-2094 — Review remaining snapshot fields](08-CA-P-1966-EPIC--map-current-core-subject-origins/73-CA-P-2094-TASK--review-remaining-snapshot-fields.md)
-- [CA-P-2095 — Review remaining Scope Unit and Project targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/74-CA-P-2095-TASK--review-remaining-scope-unit-and-project-targets.md)
+- [CA-P-2095 — Review remaining Scope Unit and Project targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/74-CA-P-2095-TASK--review-remaining-scope-unit-and-project-targets.md)
 - [CA-P-2096 — Review settings and methodology source targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/75-CA-P-2096-TASK--review-settings-and-methodology-source-targets.md)
 - [CA-P-2097 — Review remaining Relation targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/76-CA-P-2097-TASK--review-remaining-relation-targets.md)
 - [CA-P-2098 — Review Journal and Actor targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/77-CA-P-2098-TASK--review-journal-and-actor-targets.md)

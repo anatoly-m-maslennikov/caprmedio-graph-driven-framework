@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2095",
+  "recorded_at": "2026-10-11 07:32:39 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining scope unit and project targets; not migration approval",
+  "verification": {
+    "task": "CA-P-2095",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2095.research.json",
+      "sha256": "42a578818395cbe4e2f5fe5d997745058af39ff38ab02a3f84d8096cb674690d"
+    },
+    "rows": 28,
+    "counts": {
+      "unresolved": 20,
+      "proposed": 8
+    },
+    "exact_evidence_spans": 36,
+    "exact_input_pins": 38,
+    "historical_plan_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2094-2099.inputs.json",
+      "sha256": "5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d"
+    },
+    "registration_commit": "da5074e2d2ac47d44f001526f0e88c947f963ef2",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/subject_review_006",
+      "final_report_sha256": "42a578818395cbe4e2f5fe5d997745058af39ff38ab02a3f84d8096cb674690d",
+      "result": "PASS: all 28 meanings checked; eight supported proposals and twenty qualified nulls; no row revisions",
+      "current_definition_basis": [
+        "CA-R-1759 defines Project as a parentless Unordered Scope Unit",
+        "CA-R-1483 defines Project Structure as authoritative non-Atom Artifact"
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/subject_review_006",
+    "final_report_sha256": "42a578818395cbe4e2f5fe5d997745058af39ff38ab02a3f84d8096cb674690d",
+    "result": "PASS: all 28 meanings checked; eight supported proposals and twenty qualified nulls; no row revisions",
+    "current_definition_basis": [
+      "CA-R-1759 defines Project as a parentless Unordered Scope Unit",
+      "CA-R-1483 defines Project Structure as authoritative non-Atom Artifact"
+    ]
+  },
+  "completion_scope": "All 28 assigned current Subject origins were reviewed. Eight supported mappings and twenty explicitly unresolved meanings passed independent semantic acceptance and exact pin/span/coverage checks. The nulls remain tracked mapping work; this closes only bounded research, not mapping acceptance or source migration.",
+  "registration_commit": "da5074e2d2ac47d44f001526f0e88c947f963ef2",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
