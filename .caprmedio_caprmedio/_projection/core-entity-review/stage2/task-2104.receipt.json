@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2104",
+  "recorded_at": "2026-10-11 08:26:16 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review next unresolved scope unit and project targets; not migration approval",
+  "verification": {
+    "task": "CA-P-2104",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2104.research.json",
+      "sha256": "d19ad7f585610a10910c4b0355aaca1743a670adb3b56c96114a0cfd5d35a5f4"
+    },
+    "rows": 31,
+    "counts": {
+      "unresolved": 14,
+      "proposed": 17
+    },
+    "exact_evidence_spans": 51,
+    "exact_input_pins": 40,
+    "historical_plan_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2103-2108.inputs.json",
+      "sha256": "7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3"
+    },
+    "registration_commit": "9edbdb2156d7a2949ca4d11c6d86e511c8bf9cfb",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/followup_semantic_acceptance",
+      "final_report_sha256": "d19ad7f585610a10910c4b0355aaca1743a670adb3b56c96114a0cfd5d35a5f4",
+      "result": "PASS after six corrections: all thirty-one actual live outcomes accepted; seventeen proposals and fourteen nulls",
+      "rejected_earlier_report_sha256": "6d6bec440b8fd2c3c7e9e432fd283f93200de182eed263bc92e385fb25661c60",
+      "unaccepted_producer_reported_sha256": "7348faa5e4b04a81d6edbcf06f23fe29824defa3654196a1ae9f603a50c25748",
+      "meaning_checks": [
+        "Structural Entity superclass does not collapse into the Scope Unit subtype",
+        "Project Scope Unit and Project Structure Artifact meanings retain explicit current constraints",
+        "Five topology nulls now faithfully describe actual owning obligations, not boilerplate",
+        "Generic Entity targets retain Primary/Structural qualifiers in current bodies"
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/followup_semantic_acceptance",
+    "final_report_sha256": "d19ad7f585610a10910c4b0355aaca1743a670adb3b56c96114a0cfd5d35a5f4",
+    "result": "PASS after six corrections: all thirty-one actual live outcomes accepted; seventeen proposals and fourteen nulls",
+    "rejected_earlier_report_sha256": "6d6bec440b8fd2c3c7e9e432fd283f93200de182eed263bc92e385fb25661c60",
+    "unaccepted_producer_reported_sha256": "7348faa5e4b04a81d6edbcf06f23fe29824defa3654196a1ae9f603a50c25748",
+    "meaning_checks": [
+      "Structural Entity superclass does not collapse into the Scope Unit subtype",
+      "Project Scope Unit and Project Structure Artifact meanings retain explicit current constraints",
+      "Five topology nulls now faithfully describe actual owning obligations, not boilerplate",
+      "Generic Entity targets retain Primary/Structural qualifiers in current bodies"
+    ]
+  },
+  "completion_scope": "All 31 assigned Scope Unit/Project origins passed exact live pin/span/coverage checks and independent semantic acceptance after correcting a reversed superclass mapping and five body rationales: seventeen supported proposals and fourteen nulls. Acceptance binds the actual live report hash, not an incorrectly reported intermediate hash. No original Atom was changed.",
+  "registration_commit": "9edbdb2156d7a2949ca4d11c6d86e511c8bf9cfb",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
