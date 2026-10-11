@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 11
-updated_at: "2026-10-11 04:57:47 +0400"
+version: 12
+updated_at: "2026-10-11 04:58:37 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1975]
@@ -46,13 +46,17 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 ### Decomposing Plans
 
-- [CA-P-2067 — Implement shared Subject notation](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/01-CA-P-2067-TASK--implement-shared-subject-notation.md)
-- [CA-P-2068 — Implement profile-aware Subject lookup](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/02-CA-P-2068-TASK--implement-profile-aware-subject-lookup.md)
-- [CA-P-2069 — Implement profile-aware Subject preview](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/03-CA-P-2069-TASK--implement-profile-aware-subject-preview.md)
-- [CA-P-2070 — Implement profile-aware graph parsing](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/04-CA-P-2070-TASK--implement-profile-aware-graph-parsing.md)
-- [CA-P-2071 — Wire Subject profile requests](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/05-CA-P-2071-TASK--wire-subject-profile-requests.md)
+- [CA-P-2067 — Implement shared Subject notation](../07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/01-CA-P-2067-TASK--implement-shared-subject-notation.md)
+- [CA-P-2068 — Implement profile-aware Subject lookup](../07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/02-CA-P-2068-TASK--implement-profile-aware-subject-lookup.md)
+- [CA-P-2069 — Implement profile-aware Subject preview](../07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/03-CA-P-2069-TASK--implement-profile-aware-subject-preview.md)
+- [CA-P-2070 — Implement profile-aware graph parsing](../07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/04-CA-P-2070-TASK--implement-profile-aware-graph-parsing.md)
+- [CA-P-2071 — Wire Subject profile requests](../07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/05-CA-P-2071-TASK--wire-subject-profile-requests.md)
 
 The source gate is independently accepted and committed as c6b4525d7. The settled shared API and exclusive scopes are in `grammar-tools.implementation-lanes.md`; final independent code verification remains CA-P-1975.
+
+### Completion
+
+All five code children are Done. Exact implementations, focused checks and independent reviews are pinned in Stage 2 receipts for CA-P-2067–2071. Search/Update regression checks passed; the wider graph suite still has the recorded pre-existing protected-registry authority-path failure. No full graph pass, source migration, native admission or runtime activation is claimed. CA-P-1975 now owns final whole-code readiness verification.
 
 ### Definition of Done
 

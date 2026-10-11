@@ -24,6 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from artifact_metadata import atom_identifier
 from project_runtime import atomic_tempfile
+import subject_notation
 from tool_description import binding_matches, make_tool_description
 
 
@@ -472,7 +473,23 @@ def discover_atoms(repository: Path, selected_folder: Path) -> tuple[list[AtomCa
     return carriers, diagnostics
 
 
-def parse_subject_relations(carrier: AtomCarrier) -> tuple[list[SubjectRelation], list[dict[str, object]]]:
+def _subject_profile(subject_profile: str = "legacy") -> object:
+    """Return the settled notation profile as a graph-local failure surface."""
+
+    try:
+        return subject_notation.get_profile(subject_profile)
+    except ValueError as error:
+        raise EntityGraphError(
+            getattr(error, "code", "subject-profile-invalid"),
+            str(error),
+            subject_profile=subject_profile,
+        ) from error
+
+
+def parse_subject_relations(
+    carrier: AtomCarrier, *, subject_profile: str = "legacy"
+) -> tuple[list[SubjectRelation], list[dict[str, object]]]:
+    _subject_profile(subject_profile)
     block = top_block(carrier.frontmatter, "subjects")
     relations: list[SubjectRelation] = []
     diagnostics: list[dict[str, object]] = []
@@ -481,8 +498,7 @@ def parse_subject_relations(carrier: AtomCarrier) -> tuple[list[SubjectRelation]
     legacy_keys: set[str] = set()
 
     def append(kind: str, subject_path: str, temporal_form: str, source_schema_key: str) -> None:
-        if not subject_path:
-            raise EntityGraphError("subject-path-empty", "Subject Path must not be empty", path=carrier.carrier_path)
+        _subject_parts(subject_path, subject_profile=subject_profile)
         relations.append(
             SubjectRelation(
                 atom_id=carrier.atom_id,
@@ -597,31 +613,31 @@ def parse_subject_relations(carrier: AtomCarrier) -> tuple[list[SubjectRelation]
     return relations, diagnostics
 
 
-def _subject_parts(subject_path: str) -> list[tuple[str, str | None]]:
-    parts = re.split(r"\s*([/:])\s*", subject_path.strip())
-    if not parts or not parts[0]:
-        raise EntityGraphError("subject-path-empty", "Subject Path must not be empty")
-    if len(parts) % 2 == 0:
-        raise EntityGraphError("subject-path-invalid", "Subject Path ends with a separator", subject_path=subject_path)
-    result: list[tuple[str, str | None]] = []
-    for index in range(0, len(parts), 2):
-        segment = parts[index].strip()
-        if not segment:
-            raise EntityGraphError(
-                "subject-path-empty-segment", "Subject Path has an empty segment", subject_path=subject_path
-            )
-        separator = None if index == 0 else parts[index - 1]
-        result.append((segment, separator))
-    return result
+def _subject_parts(
+    subject_path: str, *, subject_profile: str = "legacy"
+) -> list[tuple[str, str | None]]:
+    try:
+        return subject_notation.parse_subject(subject_path, subject_profile=subject_profile)
+    except ValueError as error:
+        raise EntityGraphError(
+            getattr(error, "code", "subject-path-invalid"),
+            str(error),
+            subject_path=subject_path,
+        ) from error
 
 
-def terminal_term(subject_path: str) -> str:
+def terminal_term(subject_path: str, *, subject_profile: str = "legacy") -> str:
     """Return the terminal Term named by one complete Subject Expression."""
 
-    return _subject_parts(subject_path)[-1][0]
+    return _subject_parts(subject_path, subject_profile=subject_profile)[-1][0]
 
 
-def _subject_prefix(parent: str, separator: str, segment: str) -> str:
+def _subject_prefix(
+    parent: str, separator: str, segment: str, *, subject_profile: str = "legacy"
+) -> str:
+    profile = _subject_profile(subject_profile)
+    if separator not in profile.separators:
+        raise EntityGraphError("subject-path-invalid", "Subject Path has an unsupported separator")
     return f"{parent}{separator}{' ' if separator == ':' else ''}{segment}"
 
 
@@ -637,10 +653,11 @@ def _edge_evidence(relation: SubjectRelation) -> dict[str, object]:
 
 
 def term_system_edges(
-    carriers: Sequence[AtomCarrier], relations: Sequence[SubjectRelation]
+    carriers: Sequence[AtomCarrier], relations: Sequence[SubjectRelation], *, subject_profile: str = "legacy"
 ) -> list[dict[str, object]]:
     """Derive typed Term-System edges without treating all dependencies as taxonomy."""
 
+    profile = _subject_profile(subject_profile)
     edge_rows: dict[tuple[str, str, str], dict[str, object]] = {}
 
     def add(
@@ -670,29 +687,33 @@ def term_system_edges(
             rows.append(candidate)
 
     for relation in relations:
-        parts = _subject_parts(relation.subject_path)
+        parts = _subject_parts(relation.subject_path, subject_profile=subject_profile)
         parent_prefix = parts[0][0]
         for segment, separator in parts[1:]:
             assert separator is not None
-            child_prefix = _subject_prefix(parent_prefix, separator, segment)
-            if separator == "/":
+            child_prefix = _subject_prefix(
+                parent_prefix, separator, segment, subject_profile=subject_profile
+            )
+            if separator == profile.bearer_separator:
                 add(
                     "IS_BORNE_BY",
                     child_prefix,
                     segment,
                     parent_prefix,
-                    terminal_term(parent_prefix),
+                    terminal_term(parent_prefix, subject_profile=subject_profile),
                     _edge_evidence(relation),
                 )
-            else:
+            elif separator == ":":
                 add(
                     "IS_ALLOWED_VALUE_OF",
                     child_prefix,
                     segment,
                     parent_prefix,
-                    terminal_term(parent_prefix),
+                    terminal_term(parent_prefix, subject_profile=subject_profile),
                     _edge_evidence(relation),
                 )
+            # An approved slash is broader-to-narrower syntax only.  It is
+            # intentionally not a native bearer or taxonomy relation.
             parent_prefix = child_prefix
 
     subkind_pattern = re.compile(
@@ -708,12 +729,12 @@ def term_system_edges(
         for match in subkind_pattern.finditer(normalized_body):
             source_term, target_term = match.groups()
             governed_terms = {
-                terminal_term(row.subject_path)
+                terminal_term(row.subject_path, subject_profile=subject_profile)
                 for row in relations_by_carrier[carrier.carrier_path]
                 if row.kind == "GOVERNS"
             }
             depended_terms = {
-                terminal_term(row.subject_path)
+                terminal_term(row.subject_path, subject_profile=subject_profile)
                 for row in relations_by_carrier[carrier.carrier_path]
                 if row.kind == "DEPENDS_ON"
             }
@@ -814,18 +835,21 @@ def term_system_analysis(
     }
 
 
-def declared_term_tree(declared: Mapping[str, Sequence[SubjectRelation]]) -> list[dict[str, object]]:
+def declared_term_tree(
+    declared: Mapping[str, Sequence[SubjectRelation]], *, subject_profile: str = "legacy"
+) -> list[dict[str, object]]:
+    profile = _subject_profile(subject_profile)
     roots: dict[tuple[str, str | None], dict[str, object]] = {}
     for term in sorted(declared):
         for relation in declared[term]:
-            parts = _subject_parts(relation.subject_path)
+            parts = _subject_parts(relation.subject_path, subject_profile=subject_profile)
             current_children = roots
             prefix = ""
             for segment, separator in parts:
                 prefix = (
                     segment
                     if separator is None
-                    else f"{prefix}{separator}{' ' if separator == ':' else ''}{segment}"
+                    else _subject_prefix(prefix, separator, segment, subject_profile=subject_profile)
                 )
                 key = (segment, separator)
                 node = current_children.setdefault(
@@ -837,8 +861,10 @@ def declared_term_tree(declared: Mapping[str, Sequence[SubjectRelation]]) -> lis
                             None
                             if separator is None
                             else "IS_BORNE_BY"
-                            if separator == "/"
+                            if separator == profile.bearer_separator
                             else "IS_ALLOWED_VALUE_OF"
+                            if separator == ":"
+                            else None
                         ),
                         "declared": False,
                         "declared_term": None,
@@ -891,6 +917,8 @@ def _is_definition_carrier(carrier: AtomCarrier) -> bool:
 def dependency_edges(
     carriers: Sequence[AtomCarrier],
     relations: Sequence[SubjectRelation],
+    *,
+    subject_profile: str = "legacy",
 ) -> tuple[
     dict[str, set[str]],
     dict[tuple[str, str], list[dict[str, object]]],
@@ -909,6 +937,7 @@ def dependency_edges(
     depended: dict[str, list[SubjectRelation]] = defaultdict(list)
     definition_rows_by_atom: dict[tuple[str, str], list[SubjectRelation]] = {}
     dependency_rows_by_atom: dict[tuple[str, str], list[SubjectRelation]] = {}
+    _subject_profile(subject_profile)
     for atom_key, rows in by_atom.items():
         governs = sorted((row for row in rows if row.kind == "GOVERNS"), key=_relation_sort_key)
         depends_on = sorted((row for row in rows if row.kind == "DEPENDS_ON"), key=_relation_sort_key)
@@ -916,7 +945,7 @@ def dependency_edges(
         for row in governs:
             governed_subjects[row.subject_path].append(row)
             if is_definition:
-                declared_terms[terminal_term(row.subject_path)].append(row)
+                declared_terms[terminal_term(row.subject_path, subject_profile=subject_profile)].append(row)
         for row in depends_on:
             depended[row.subject_path].append(row)
         definition_rows_by_atom[atom_key] = list(governs) if is_definition else []
@@ -926,9 +955,9 @@ def dependency_edges(
     for atom_key, definition_terms in definition_rows_by_atom.items():
         depends_on = dependency_rows_by_atom[atom_key]
         for governed in definition_terms:
-            governed_term = terminal_term(governed.subject_path)
+            governed_term = terminal_term(governed.subject_path, subject_profile=subject_profile)
             for parent in depends_on:
-                parent_terminal = terminal_term(parent.subject_path)
+                parent_terminal = terminal_term(parent.subject_path, subject_profile=subject_profile)
                 parent_node = parent_terminal if parent_terminal in declared_term_names else parent.subject_path
                 graph[governed_term].add(parent_node)
                 evidence[(governed_term, parent_node)].append(
@@ -1052,7 +1081,10 @@ def frontier_digest(carriers: Sequence[AtomCarrier]) -> str:
     return hashlib.sha256(encoded).hexdigest()
 
 
-def generate_projection(repository: Path, selected_folder: Path) -> dict[str, object]:
+def generate_projection(
+    repository: Path, selected_folder: Path, *, subject_profile: str = "legacy"
+) -> dict[str, object]:
+    _subject_profile(subject_profile)
     repository = repository.resolve()
     selected_folder = selected_folder.resolve()
     if not selected_folder.is_dir():
@@ -1060,11 +1092,15 @@ def generate_projection(repository: Path, selected_folder: Path) -> dict[str, ob
     carriers, diagnostics = discover_atoms(repository, selected_folder)
     relations: list[SubjectRelation] = []
     for carrier in carriers:
-        carrier_relations, carrier_diagnostics = parse_subject_relations(carrier)
+        carrier_relations, carrier_diagnostics = parse_subject_relations(
+            carrier, subject_profile=subject_profile
+        )
         relations.extend(carrier_relations)
         diagnostics.extend(carrier_diagnostics)
     relations.sort(key=_relation_sort_key)
-    graph, edge_evidence, declared, governed, depended = dependency_edges(carriers, relations)
+    graph, edge_evidence, declared, governed, depended = dependency_edges(
+        carriers, relations, subject_profile=subject_profile
+    )
     duplicate_definitions = {
         term: rows for term, rows in declared.items() if len(rows) != 1
     }
@@ -1089,21 +1125,21 @@ def generate_projection(repository: Path, selected_folder: Path) -> dict[str, ob
     depends_on_subjects = sorted(depended)
     declared_term_names = set(declared_terms)
     depends_on_terminal_terms = {
-        terminal_term(subject_path) for subject_path in depends_on_subjects
+        terminal_term(subject_path, subject_profile=subject_profile) for subject_path in depends_on_subjects
     }
     terms_in_depends_on = sorted(depends_on_terminal_terms & declared_term_names)
     gaps = sorted(
         subject_path
         for subject_path in depends_on_subjects
         if subject_path not in governed
-        and terminal_term(subject_path) not in declared_term_names
+        and terminal_term(subject_path, subject_profile=subject_profile) not in declared_term_names
     )
     cycles = dependency_cycles(graph)
     dependency_trees = [
         dependency_tree_for(term, graph, edge_evidence, set(declared_terms), set(governed_subjects))
         for term in declared_terms
     ]
-    typed_edges = term_system_edges(carriers, relations)
+    typed_edges = term_system_edges(carriers, relations, subject_profile=subject_profile)
     typed_analysis = term_system_analysis(declared_terms, typed_edges)
     term_system_violations = typed_analysis["violations"]
     assert isinstance(term_system_violations, Sequence)
@@ -1139,7 +1175,7 @@ def generate_projection(repository: Path, selected_folder: Path) -> dict[str, ob
             "excluded_nested_directory_names": sorted(INACTIVE_DIRECTORY_NAMES),
         },
         "sets": {
-            "declared_term_tree": declared_term_tree(declared),
+            "declared_term_tree": declared_term_tree(declared, subject_profile=subject_profile),
             "dependency_trees_by_declared_term": dependency_trees,
             "terms_in_depends_on": terms_in_depends_on,
             "depends_on_subjects": depends_on_subjects,
@@ -1557,20 +1593,26 @@ def _outcome_for(quality: Mapping[str, str], diagnostics: Sequence[Mapping[str, 
 
 
 def _term_dependencies(
-    relations: Sequence[SubjectRelation], terms: set[str]
+    relations: Sequence[SubjectRelation], terms: set[str], *, subject_profile: str = "legacy"
 ) -> tuple[dict[str, list[str]], list[dict[str, object]], list[list[str]]]:
+    _subject_profile(subject_profile)
     by_atom: dict[tuple[str, str], list[SubjectRelation]] = defaultdict(list)
     for relation in relations:
         by_atom[(relation.atom_id, relation.carrier_path)].append(relation)
     dependency_graph: dict[str, set[str]] = defaultdict(set)
     evidence: list[dict[str, object]] = []
     for rows in by_atom.values():
-        governed = [row for row in rows if row.kind == "GOVERNS" and terminal_term(row.subject_path) in terms]
+        governed = [
+            row
+            for row in rows
+            if row.kind == "GOVERNS"
+            and terminal_term(row.subject_path, subject_profile=subject_profile) in terms
+        ]
         depended = [row for row in rows if row.kind == "DEPENDS_ON"]
         for source in governed:
-            source_term = terminal_term(source.subject_path)
+            source_term = terminal_term(source.subject_path, subject_profile=subject_profile)
             for target in depended:
-                target_term = terminal_term(target.subject_path)
+                target_term = terminal_term(target.subject_path, subject_profile=subject_profile)
                 if target_term in terms:
                     dependency_graph[source_term].add(target_term)
                     evidence.append(

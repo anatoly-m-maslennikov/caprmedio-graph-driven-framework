@@ -17,6 +17,7 @@ from types import MappingProxyType
 
 import generate_entity_graph as graph
 import graph_fact_context as facts
+import subject_notation
 
 
 _TOKEN = object()
@@ -34,6 +35,42 @@ _GRAMMAR_PINS = (
     {"atom_id": "CA-R-1194", "atom_revision": 14,
      "carrier_path": _CORE_PATH + "/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
      "carrier_sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e"},
+)
+# The extractor's longstanding D269/R1194 evidence above remains deliberately
+# frozen.  Approved parsing additionally binds these exact current grammar
+# sources before it reads any carrier; this proves only source-pin freshness,
+# never native endpoint admission.
+_APPROVED_CORE_GRAMMAR_PINS = (
+    {
+        "atom_id": "CA-R-1931",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+        "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+    },
+    {
+        "atom_id": "CA-R-1321",
+        "version": 13,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+        "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+    },
+    {
+        "atom_id": "CA-R-1324",
+        "version": 11,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+        "sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7",
+    },
+    {
+        "atom_id": "CA-M-228",
+        "version": 15,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+        "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+    },
+    {
+        "atom_id": "CA-E-383",
+        "version": 14,
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+        "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+    },
 )
 
 
@@ -59,6 +96,59 @@ def _check_code() -> None:
             raise SubjectModelSourceError("profile-stale")
     except OSError as error:
         raise SubjectModelSourceError("profile-stale") from error
+
+
+def _subject_profile(subject_profile: str = "legacy") -> object:
+    try:
+        return subject_notation.get_profile(subject_profile)
+    except ValueError as error:
+        raise SubjectModelSourceError(getattr(error, "code", "subject-profile-invalid")) from error
+
+
+def _profile_pins(profile: object) -> tuple[dict[str, object], ...]:
+    pins = getattr(profile, "grammar_pins", None)
+    if not isinstance(pins, Sequence) or isinstance(pins, (str, bytes)):
+        raise SubjectModelSourceError("subject-profile-invalid")
+    rows: list[dict[str, object]] = []
+    for pin in pins:
+        row = (
+            dict(pin)
+            if isinstance(pin, Mapping)
+            else {
+                "atom_id": getattr(pin, "atom_id", None),
+                "version": getattr(pin, "version", None),
+                "path": getattr(pin, "path", None),
+                "sha256": getattr(pin, "sha256", None),
+            }
+        )
+        if set(row) != {"atom_id", "version", "path", "sha256"}:
+            raise SubjectModelSourceError("subject-profile-invalid")
+        if (not isinstance(row["atom_id"], str) or not row["atom_id"] or type(row["version"]) is not int
+                or row["version"] < 1 or not isinstance(row["path"], str) or not row["path"]
+                or not isinstance(row["sha256"], str) or re.fullmatch(r"[0-9a-f]{64}", row["sha256"]) is None):
+            raise SubjectModelSourceError("subject-profile-invalid")
+        rows.append(row)
+    return tuple(rows)
+
+
+def _check_current_approved_grammar_pins(repository: Path, profile: object) -> None:
+    if getattr(profile, "name", None) != "approved":
+        return
+    expected = tuple(_APPROVED_CORE_GRAMMAR_PINS)
+    actual = _profile_pins(profile)
+    if actual != expected:
+        raise SubjectModelSourceError("approved-grammar-pins-mismatch")
+    for pin in actual:
+        path = repository / str(pin["path"])
+        try:
+            if path.is_symlink():
+                raise SubjectModelSourceError("approved-grammar-pin-symlink")
+            if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != pin["sha256"]:
+                raise SubjectModelSourceError("approved-grammar-pin-stale")
+        except SubjectModelSourceError:
+            raise
+        except OSError as error:
+            raise SubjectModelSourceError("approved-grammar-pin-stale") from error
 
 
 def _readonly(value: object) -> object:
@@ -102,7 +192,7 @@ class SubjectModelSources:
         return _readonly(self.as_dict()["coverage"])
 
 
-def _scalar_path(value: str) -> str:
+def _scalar_path(value: str, *, subject_profile: str = "legacy") -> str:
     raw = value.strip()
     if not raw or raw[0] in "[{*&!|>" or raw[-1:] in {"[", "{"}:
         raise _UnsupportedForm("subject-scalar-unsupported")
@@ -114,14 +204,14 @@ def _scalar_path(value: str) -> str:
         raise _UnsupportedForm("subject-scalar-unsupported")
     path = graph.scalar_value(raw)
     try:
-        graph._subject_parts(path)
+        graph._subject_parts(path, subject_profile=subject_profile)
     except graph.EntityGraphError as error:
         raise _UnsupportedForm("subject-path-malformed") from error
     # Preserve the complete source string: no terminalization or path rewrite.
     return path
 
 
-def _inline_paths(value: str) -> list[str]:
+def _inline_paths(value: str, *, subject_profile: str = "legacy") -> list[str]:
     raw = value.strip()
     if not (raw.startswith("[") and raw.endswith("]")):
         raise _UnsupportedForm("subject-dependencies-not-collection")
@@ -130,10 +220,12 @@ def _inline_paths(value: str) -> list[str]:
         return []
     # Match the existing parser's bounded comma-separated inline-list grammar.
     # Quoted commas/escapes needing a wider YAML reader remain unsupported.
-    return [_scalar_path(item) for item in body.split(",")]
+    return [_scalar_path(item, subject_profile=subject_profile) for item in body.split(",")]
 
 
-def _property_rows(pin: dict, raw: bytes) -> tuple[list[dict], list[str], dict[str, dict]]:
+def _property_rows(
+    pin: dict, raw: bytes, *, subject_profile: str = "legacy"
+) -> tuple[list[dict], list[str], dict[str, dict]]:
     lines, text, boundary, fields = facts._raw_parts(raw)
     if fields.get("subjects") != "":
         raise _UnsupportedForm("subjects-flat-block-unavailable")
@@ -161,11 +253,11 @@ def _property_rows(pin: dict, raw: bytes) -> tuple[list[dict], list[str], dict[s
         if key == "governs":
             if nested:
                 raise _UnsupportedForm("subjects-governs-not-scalar")
-            values[key] = [_scalar_path(value)]
+            values[key] = [_scalar_path(value, subject_profile=subject_profile)]
         elif value.strip():
             if nested:
                 raise _UnsupportedForm("subject-dependencies-ambiguous")
-            values[key] = _inline_paths(value)
+            values[key] = _inline_paths(value, subject_profile=subject_profile)
         else:
             if not nested:
                 raise _UnsupportedForm("subject-dependencies-not-collection")
@@ -174,7 +266,7 @@ def _property_rows(pin: dict, raw: bytes) -> tuple[list[dict], list[str], dict[s
                 item = re.fullmatch(r"    -[ \t]+(.+)", line)
                 if item is None:
                     raise _UnsupportedForm("subjects-unassigned-syntax")
-                parsed.append(_scalar_path(item[1]))
+                parsed.append(_scalar_path(item[1], subject_profile=subject_profile))
             values[key] = parsed
         if key == "depends_on" and len(values[key]) != len(set(values[key])):
             raise _UnsupportedForm("subject-dependencies-duplicate-path")
@@ -190,7 +282,9 @@ def _property_rows(pin: dict, raw: bytes) -> tuple[list[dict], list[str], dict[s
         frontmatter="\n".join(text[1:boundary]), body="\n".join(text[boundary + 1:]),
     )
     try:
-        relations, diagnostics = graph.parse_subject_relations(parser_carrier)
+        relations, diagnostics = graph.parse_subject_relations(
+            parser_carrier, subject_profile=subject_profile
+        )
     except graph.EntityGraphError as error:
         raise _UnsupportedForm(error.code) from error
     expected = [("GOVERNS", path) for path in values["governs"]] + [("DEPENDS_ON", path) for path in values.get("depends_on", [])]
@@ -201,7 +295,9 @@ def _property_rows(pin: dict, raw: bytes) -> tuple[list[dict], list[str], dict[s
     return occurrences, text, properties
 
 
-def collect_subject_model_sources(repository: Path, selected_carriers: Sequence) -> SubjectModelSources:
+def collect_subject_model_sources(
+    repository: Path, selected_carriers: Sequence, *, subject_profile: str = "legacy"
+) -> SubjectModelSources:
     """Collect checked source occurrences, not admitted model facts.
 
     Coverage describes this bounded extraction only. Unsupported source forms
@@ -210,6 +306,8 @@ def collect_subject_model_sources(repository: Path, selected_carriers: Sequence)
     """
     _check_code()
     repository = Path(repository).resolve()
+    profile = _subject_profile(subject_profile)
+    _check_current_approved_grammar_pins(repository, profile)
     if not isinstance(selected_carriers, Sequence) or isinstance(selected_carriers, (str, bytes)):
         raise SubjectModelSourceError("subject-carrier-selection-invalid")
     pins, occurrences, diagnostics = [], [], []
@@ -240,7 +338,7 @@ def collect_subject_model_sources(repository: Path, selected_carriers: Sequence)
             continue
         pins.append(pin)
         try:
-            rows, _, _ = _property_rows(pin, raw)
+            rows, _, _ = _property_rows(pin, raw, subject_profile=subject_profile)
         except _UnsupportedForm as error:
             diagnostics.append({"code": str(error), "severity": "warning", "source_refs": [],
                                 "details": {"atom_id": pin["atom_id"], "carrier_path": pin["carrier_path"],
@@ -251,16 +349,20 @@ def collect_subject_model_sources(repository: Path, selected_carriers: Sequence)
     occurrences.sort(key=lambda row: (row["subject_path"], row["role"], facts._source_key(row["source_ref"])))
     pins.sort(key=lambda row: row["carrier_path"])
     diagnostics.sort(key=lambda row: (row["code"], row["details"]["carrier_path"]))
-    profile = {"implementation_sha256": _LOADED_IMPLEMENTATION_SHA256,
-               "parser_implementation_sha256": _LOADED_PARSER_SHA256,
-               "fact_context_implementation_sha256": facts._LOADED_IMPLEMENTATION_SHA256,
-               "reviewed_grammar_pins": list(_GRAMMAR_PINS),
-               "recognition": "current-flat-scalar-governs-unique-dependency-collection",
-               "grammar_authority_binding": "root_required",
-               "semantic_conformance": "not_performed"}
+    profile_evidence = subject_notation.profile_evidence(subject_profile)
+    provider_profile = {"implementation_sha256": _LOADED_IMPLEMENTATION_SHA256,
+                        "parser_implementation_sha256": _LOADED_PARSER_SHA256,
+                        "fact_context_implementation_sha256": facts._LOADED_IMPLEMENTATION_SHA256,
+                        "reviewed_grammar_pins": list(_GRAMMAR_PINS),
+                        "subject_profile": profile.name,
+                        "subject_profile_evidence": profile_evidence,
+                        "recognition": "current-flat-scalar-governs-unique-dependency-collection",
+                        "grammar_authority_binding": "root_required",
+                        "semantic_conformance": "not_performed"}
     count = len(selected_carriers)
-    result = {"provider": {"id": "caprmedio.subject-model-sources", "version": "1", "profile_sha256": _digest(profile)},
-              "grammar_pins": list(_GRAMMAR_PINS), "source_pins": pins, "occurrences": occurrences,
+    result = {"provider": {"id": "caprmedio.subject-model-sources", "version": "1", "profile_sha256": _digest(provider_profile)},
+              "grammar_pins": list(_GRAMMAR_PINS), "subject_profile": profile.name,
+              "subject_profile_evidence": profile_evidence, "source_pins": pins, "occurrences": occurrences,
               "coverage": {"scope": "subject_occurrence_extraction", "disposition": "complete" if resolved_count == count else "incomplete",
                            "source_count": count, "resolved_source_count": resolved_count,
                            "unresolved_source_count": count - resolved_count, "occurrence_count": len(occurrences)},

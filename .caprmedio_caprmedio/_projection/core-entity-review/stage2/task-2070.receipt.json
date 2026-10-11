@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "task": "CA-P-2070",
+  "recorded_at": "2026-10-11 04:58:37 +0400",
+  "result": "PASS: bounded code lane complete",
+  "implementation": [
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/generate_entity_graph.py",
+      "sha256": "d90d5a1933c3dcb01c471c475e79dce391275c8b15a8533c018b8e091f9a94f4"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/subject_model_sources.py",
+      "sha256": "201b5fbb3a891eafc4f1518bd1872b11863aa47b15600ff84f4a63c8763b8ac2"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_subject_profiles.py",
+      "sha256": "401724a6b942c727a83d2c9db6e945938cdda3ab549a78dc897ac9ff83bcfd08"
+    }
+  ],
+  "checks": {
+    "focused_tests": {
+      "passed": 6,
+      "suite": "test_subject_profiles.py"
+    },
+    "existing_focused_graph_sources": {
+      "passed": 30
+    },
+    "full_graph": {
+      "passed": 217,
+      "failed": 1,
+      "diagnostic": "registry-core-authority-path-unsupported",
+      "classification": "known pre-existing protected-registry authority mismatch; not counted as a pass"
+    },
+    "keyword_only_profile_propagation": "PASS",
+    "approved_dot_and_colon_directions_no_slash_admission": "PASS",
+    "current_five_pin_and_frozen_extractor_evidence": "PASS"
+  },
+  "independent_acceptance": {
+    "reviewer": "subject_review_006",
+    "result": "PASS",
+    "scope": "exact listed implementation hashes"
+  },
+  "contract": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/tool-grammar.packet.json",
+    "sha256": "aa535c3927c938922fd661bf89c88e04204a4533d90395b72240e1db933b985e"
+  },
+  "limits": [
+    "Code and isolated fixtures only; no original Core Subject changes, live migration, runtime or MCP activation.",
+    "Final whole-code acceptance remains CA-P-1975; this receipt closes only the bounded implementation lane."
+  ]
+}
