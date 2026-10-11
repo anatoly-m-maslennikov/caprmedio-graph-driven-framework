@@ -4,6 +4,8 @@ Status: Candidate; not adopted Core authority.
 
 Saved: 2026-10-11, Asia/Tbilisi.
 
+Updated: 2026-10-12, Asia/Tbilisi — optional Atom Semantics.
+
 Basis: the Operator's latest decisions in this conversation. This document
 supersedes the wording of candidate #2 presented in chat, which was not saved.
 The [older saved candidate](operator.entity-graph.candidate.json), captured
@@ -75,6 +77,7 @@ Object
         .Status
         .Substance
         .Substance Scope
+        .Semantics
         .Details
         .Content Role
         .Type
@@ -143,10 +146,40 @@ The tree shows available fields, not a new universal mandatory schema. Summary
 and Status are mandatory for every Atom. Other fields are conditional; existing
 role or Type rules can require them.
 
-Substance is the content umbrella. Claim, Objective, Question, Issue and Operation
+Substance is the primary content. Claim, Objective, Question, Issue and Operation
 are role-specific labels. Substance Scope may be omitted only when Substance
 covers the whole governed Subject AND the whole owning Scope Unit. Otherwise it
 is explicit. General Details are optional; typed required content remains required.
+
+Atom content has distinct purposes:
+
+- **Substance:** what the Atom states.
+- **Substance Scope:** where that content applies.
+- **Semantics:** optional meanings of the Terms and values this Atom defines
+  within its stated scope.
+- **Details:** examples, rationale and supporting explanation; not another
+  competing place to define meanings.
+
+Semantics is governed content, not commentary. It shares the Atom's authority,
+scope, Status, Version and lifecycle. It supports the same authority unit;
+unrelated or independently governed Claims are not hidden in this section.
+
+Define a meaning once in its owning Atom's Semantics. Other Atoms reference
+that meaning rather than copy or silently redefine it. Referring to a Term does
+not make the referring Atom another definition owner.
+
+Illustrative content for the Atom governing Status, not adopted Status definitions:
+
+```text
+Semantics
+  Draft: not yet accepted for active use.
+  Archived: retained, but outside the current active view.
+```
+
+This can replace separate definition Atoms whose only job is to repeat a meaning
+that belongs to this same authority unit. Keep a separate definition Atom when
+the meaning needs independent scope or governance. No existing definition Atom
+is retired or deleted by this candidate update.
 
 An Atom subtype inherits Atom obligations. It does not need duplicate definitions
 of those obligations. Inheriting a Carrier obligation does not mean sharing one
@@ -422,8 +455,14 @@ View and authoring concepts
 
 For example, `Atom` names an Object kind; `Method` names a Content Role/concept.
 A particular Method Atom is an Object. Naming Method does not create a separate
-Method Object root. A Term's defining statement can be carried by an authoritative
-Atom without making the Term and that Atom the same instance.
+Method Object root. A Term's meaning can be defined in its owning authoritative
+Atom's Semantics without making the Term and that Atom the same instance.
+
+The Terms Graph can derive these definitions from Semantics, retaining the
+source Atom ID, Version Number and definition scope. It remains derived, not
+another definition authority. Already separate definitions remain source facts
+until their replacement is explicitly approved; this document does not claim
+Semantics extraction or duplicate/conflict checking is implemented.
 
 Registered allowed-value domains and admitted nodes remain preserved. A raw
 scalar is not automatically a new Term or Object. `:` retains its allowed-value
@@ -551,6 +590,7 @@ Term → names a meaning → Object kind or another concept
 Selection → uses → Terms, identifiers and conditions
 Selection → chooses → existing Objects or Terms
 Artifact → contains a governed definition of → Term or Selection
+Atom.Semantics → defines meaning for → Terms and values in scope
 Execution → processes → selected inputs
 Projection → materializes a derived result from → selected sources
 ```
@@ -594,6 +634,8 @@ Running the prompted work
   current names until separately authorized migration.
 - Property fields are not a replacement schema; role/Type-required content is
   not silently removed. Registered value domains are not discarded.
+- Optional `Atom.Semantics` is a candidate content field. Current Atom schemas,
+  authoring rules, definition Atoms, Terms extractors and validators are unchanged.
 - Omitted or unreviewed legacy labels are unclassified, not deleted or invalid.
 - No new native Object/Term/Selection instances or relations are admitted.
   This document creates no parser changes, Core revisions, Journal events or
