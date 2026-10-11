@@ -700,13 +700,7 @@ def copy_verified_bytes(context: ReleaseSuiteReferenceContext, workspace: str | 
         destination.chmod(row.mode)
 
 
-def validate_reference_rows(project_root: str | Path, reference_rows: Sequence[Mapping[str, Any]]) -> tuple[ReferenceRow, ...]:
-    """Independently validate public envelope rows without private N/image data.
-
-    The runner can use this after its read-only workspace copy to establish
-    that the rows neither omit nor widen the current source-derived closure.
-    """
-    root = _root(project_root)
+def _parse_reference_rows(reference_rows: Sequence[Mapping[str, Any]]) -> tuple[ReferenceRow, ...]:
     if not isinstance(reference_rows, Sequence) or isinstance(reference_rows, (str, bytes)):
         _fail("reference rows must be an ordered array")
     rows: list[ReferenceRow] = []
@@ -718,6 +712,33 @@ def validate_reference_rows(project_root: str | Path, reference_rows: Sequence[M
         if not isinstance(digest, str) or _SHA256.fullmatch(digest) is None or type(mode) is not int or not 0 <= mode <= 0o777:
             _fail("reference row has invalid digest or mode")
         rows.append(ReferenceRow(path.as_posix(), digest, mode))
+    paths = tuple(row.source_path for row in rows)
+    if paths != tuple(sorted(set(paths))):
+        _fail("reference rows must be source-path sorted and unique")
+    return tuple(rows)
+
+
+def validate_copied_reference_rows(project_root: str | Path, reference_rows: Sequence[Mapping[str, Any]]) -> tuple[ReferenceRow, ...]:
+    """Validate the immutable envelope's typed rows against copied workspace bytes.
+
+    The Suite Owner alone derives and revalidates the complete live D580
+    closure.  The sealed driver receives a partial read-only workspace, so it
+    checks the envelope's already-bound rows without attempting to rediscover
+    the host authoring frontier.
+    """
+    root = _root(project_root)
+    rows = _parse_reference_rows(reference_rows)
+    for row in rows:
+        payload, mode = _read_regular(root, row.source_path)
+        if hashlib.sha256(payload).hexdigest() != row.sha256 or mode != row.mode:
+            _fail("reference row differs from copied workspace bytes")
+    return rows
+
+
+def validate_reference_rows(project_root: str | Path, reference_rows: Sequence[Mapping[str, Any]]) -> tuple[ReferenceRow, ...]:
+    """Validate a complete live D580 closure against the current Project."""
+    root = _root(project_root)
+    rows = _parse_reference_rows(reference_rows)
     with _reader_snapshot(root) as (snapshot, _captured):
         expected_paths = _closure_paths(snapshot)
         if tuple(row.source_path for row in rows) != expected_paths:
@@ -755,5 +776,5 @@ def context_preimage(context: ReleaseSuiteReferenceContext) -> Mapping[str, obje
 
 __all__ = [
     "ReferenceRow", "ReleaseSuiteReferenceContext", "ReleaseSuiteReferenceContextError",
-    "capture_context", "context_preimage", "control_closure_paths", "copy_verified_bytes", "revalidate_context", "validate_reference_rows", "validate_schema2_context",
+    "capture_context", "context_preimage", "control_closure_paths", "copy_verified_bytes", "revalidate_context", "validate_copied_reference_rows", "validate_reference_rows", "validate_schema2_context",
 ]

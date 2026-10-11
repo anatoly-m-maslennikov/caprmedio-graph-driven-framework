@@ -25,7 +25,7 @@ from typing import Any, Mapping
 from release_suite_reference_context import (
     ReleaseSuiteReferenceContextError,
     ReferenceRow,
-    validate_reference_rows,
+    validate_copied_reference_rows,
 )
 from release_test_phases import ReleaseTestPhaseMap, derive_test_phase_map_from_rows
 
@@ -218,16 +218,17 @@ def _parse_rows(value: object, *, root: Path) -> dict[str, PackageRow]:
 def _parse_reference_rows(root: Path, value: object) -> tuple[ReferenceRow, ...]:
     """Validate D579 schema-2 control rows against copied sealed bytes.
 
-    The private Suite Owner binds the opaque control-context digest before the
-    workspace becomes read-only.  The driver independently proves that the
-    envelope's typed rows are the current, complete D580 closure and that
-    their copied bytes and modes still agree with each declaration.
+    The private Suite Owner derives and revalidates the complete D580 closure
+    before its immutable envelope is copied here.  The driver proves that the
+    typed rows are canonical and that their copied bytes and modes still agree
+    with each declaration; its workspace intentionally lacks the full host
+    authoring frontier.
     """
 
     if not isinstance(value, list):
         raise SuiteError("source bindings reference_rows must be an ordered array")
     try:
-        return validate_reference_rows(root, value)
+        return validate_copied_reference_rows(root, value)
     except ReleaseSuiteReferenceContextError as error:
         raise SuiteError("source bindings reference rows are not the sealed control closure") from error
 
