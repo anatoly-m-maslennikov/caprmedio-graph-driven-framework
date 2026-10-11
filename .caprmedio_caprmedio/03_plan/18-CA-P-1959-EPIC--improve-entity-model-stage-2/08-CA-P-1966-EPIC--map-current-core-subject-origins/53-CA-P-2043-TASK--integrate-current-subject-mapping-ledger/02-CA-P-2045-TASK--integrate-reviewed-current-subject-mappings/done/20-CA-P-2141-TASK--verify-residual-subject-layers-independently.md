@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 10:57:18 +0400"
+version: 2
+updated_at: "2026-10-11 11:28:39 +0400"
 relations:
   is_decomposition_of: [CA-P-2045]
   depends_on: ["CA-P-2132", "CA-P-2133", "CA-P-2134", "CA-P-2135", "CA-P-2136", "CA-P-2137", "CA-P-2138", "CA-P-2139"]
@@ -35,6 +35,10 @@ Own work: at most fifteen minutes. Own only support/verify_working_mapping_ledge
 Append the fifth exact closed group to the independent verifier and focused tests, without importing the producer. Preserve historical isolated layouts only without current receipts; actual current receipts must reject omission of the whole fifth group. Check live origins, proof equality, target/confidence/order/quarantine/lineage, actual final report/receipt/review pins. Add valid-control adversarial probes for omitted group/layer, missing or stale origin, wrong target/order/confidence, receipt/review drift and executable flags. No draft replacement.
 
 No original Core, captured/frozen evidence, unrelated helper, native admission, selector adoption, runtime, MCP or FPF changes. Workers are not alone; preserve others. Root owns Plans, receipts, shared integration and one commit after each actually completed Task.
+
+### Completion
+
+The independent fifth-group gate, fixed Core-only successor paths and live contract/predecessor pin checks pass independent code review, thirty focused tests and all ten whole-ledger controls. Strict Core/canonical-Operator evidence and proof equality remain intact; no draft replacement or source write occurred. Exact verification is recorded in `_projection/core-entity-review/stage2/task-2141.receipt.json`.
 
 ### Definition of Done
 

@@ -381,6 +381,12 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
         self.assertEqual([item[3] for item in specs][-8:], [32, 33, 34, 35, 36, 37, 38, 39])
         self.assertEqual(actor_position, len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + len(verifier.FOURTH_FOLLOWUP_LAYER_SPECS))
         self.assertEqual(grammar_position, len(fourth_complete["input_pins"]["accepted_layers"]) - 1)
+        fifth_complete = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + len(verifier.FOURTH_FOLLOWUP_LAYER_SPECS) + len(verifier.FIFTH_FOLLOWUP_LAYER_SPECS) + 2)]}}
+        specs, actor_position, grammar_position = verifier._layer_layout(fifth_complete)
+        self.assertEqual([item[0] for item in specs][-8:], [item[0] for item in verifier.FIFTH_FOLLOWUP_LAYER_SPECS])
+        self.assertEqual([item[3] for item in specs][-8:], [40, 41, 42, 43, 44, 45, 46, 47])
+        self.assertEqual(actor_position, len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + len(verifier.FOURTH_FOLLOWUP_LAYER_SPECS) + len(verifier.FIFTH_FOLLOWUP_LAYER_SPECS))
+        self.assertEqual(grammar_position, len(fifth_complete["input_pins"]["accepted_layers"]) - 1)
 
     def test_live_followup_receipt_requires_complete_extension(self) -> None:
         old_layout = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + 2)]}}
@@ -417,6 +423,15 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
         receipt.write_text("{}\n")
         with self.assertRaises(verifier.VerificationError):
             verifier._require_followup_extension_when_receipts_exist(self.root, third_layout)
+
+    def test_live_fifth_followup_receipt_requires_complete_extension(self) -> None:
+        fourth_layout = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + len(verifier.FOURTH_FOLLOWUP_LAYER_SPECS) + 2)]}}
+        verifier._require_followup_extension_when_receipts_exist(self.root, fourth_layout)
+        receipt = self.root / verifier.STAGE2_REL / "task-2132.receipt.json"
+        receipt.parent.mkdir(parents=True, exist_ok=True)
+        receipt.write_text("{}\n")
+        with self.assertRaises(verifier.VerificationError):
+            verifier._require_followup_extension_when_receipts_exist(self.root, fourth_layout)
 
     def test_second_followup_reports_are_exact_and_per_row_provenance_is_fail_closed(self) -> None:
         current_ledger = verifier.read_json(verifier.ROOT / verifier.LEDGER_REL, "current working ledger")
@@ -714,6 +729,135 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
                 True,
             )
 
+    def test_fifth_followup_successor_is_core_only_and_exact(self) -> None:
+        """The fixed fifth group admits the accepted Core-only successor only."""
+
+        current_ledger = verifier.read_json(verifier.ROOT / verifier.LEDGER_REL, "current working ledger")
+        baseline = verifier._read_baseline_rows(verifier.ROOT, current_ledger)
+        expected = verifier.enumerate_current_frontier(verifier.ROOT)["occurrences"]
+        source_pins = {row["source_path"]: row["source_sha256"] for row in expected}
+        successor_rel, successor_receipt_rel = verifier._followup_artifact_paths("CA-P-2133")
+        successor = verifier.read_json(verifier.ROOT / successor_rel, "Core-only CA-P-2133 successor")
+        successor_receipt = verifier.read_json(verifier.ROOT / successor_receipt_rel, "Core-only CA-P-2133 receipt")
+        successor_pin = verifier._descriptor(verifier.ROOT / successor_rel, successor_rel)
+        verifier._verify_followup_successor_binding(verifier.ROOT, "CA-P-2133", successor, successor_receipt, successor_pin)
+        self.assertEqual(sum(item[2] for item in verifier.FIFTH_FOLLOWUP_LAYER_SPECS), 195)
+        self.assertEqual(sum(item[3] for item in verifier.FIFTH_FOLLOWUP_LAYER_SPECS), 63)
+        self.assertEqual(sum(item[4] for item in verifier.FIFTH_FOLLOWUP_LAYER_SPECS), 132)
+        self.assertTrue(all(
+            verifier._later_followup_evidence_is_current(verifier.ROOT, evidence, source_pins, "Core-only CA-P-2133 supporting evidence")
+            for row in successor["rows"]
+            for evidence in row["evidence"]
+        ))
+        offset = len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + len(verifier.FOURTH_FOLLOWUP_LAYER_SPECS)
+        accepted = [{} for _ in range(offset)]
+        for task, _kind, rows, _proposed, _unresolved, report_sha in verifier.FIFTH_FOLLOWUP_LAYER_SPECS:
+            report_rel, receipt_rel = verifier._followup_artifact_paths(task)
+            expected_sha = verifier._followup_expected_report_sha256(task, report_sha)
+            accepted.append({
+                "task": task, "kind": "research", "priority": verifier.ORDINARY_LAYER_PRIORITY[task], "rows": rows,
+                "report": verifier._descriptor(verifier.ROOT / report_rel, report_rel),
+                "receipt": verifier._descriptor(verifier.ROOT / receipt_rel, receipt_rel), "independent_review_sha256": expected_sha,
+            })
+        accepted.extend(({}, {}))
+        layers, _references = verifier._read_followup_layer_rows(
+            verifier.ROOT,
+            {"input_pins": {"accepted_layers": accepted}},
+            expected,
+            baseline,
+            verifier.FIFTH_FOLLOWUP_LAYER_SPECS,
+            verifier.FIFTH_FOLLOWUP_MANIFEST_REL,
+            verifier.FIFTH_FOLLOWUP_MANIFEST_SHA256,
+            offset,
+            "fifth follow-up",
+            "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186",
+            True,
+        )
+        self.assertEqual(sum(len(rows) for rows in layers.values()), 195)
+        self.assertEqual(sum(decision == "proposed" for rows in layers.values() for decision, _target, _confidence in rows.values()), 63)
+        self.assertEqual(sum(decision == "unresolved" for rows in layers.values() for decision, _target, _confidence in rows.values()), 132)
+
+    def test_fifth_successor_binding_rejects_withdrawn_foreign_report(self) -> None:
+        """CA-P-2133 may use only the separately accepted Core-only successor."""
+
+        report_path = verifier.ROOT / verifier._layer_path("CA-P-2133")
+        receipt_relative = verifier.STAGE2_REL / "task-2133.receipt.json"
+        receipt_path = verifier.ROOT / receipt_relative
+        report = verifier.read_json(report_path, "withdrawn CA-P-2133 report")
+        receipt = verifier.read_json(receipt_path, "withdrawn CA-P-2133 receipt")
+        successor_report, successor_receipt = verifier._followup_artifact_paths("CA-P-2133")
+        self.assertEqual(successor_report.as_posix(), (verifier.STAGE2_REL / "semantic-reviews/task-2133.core-only.research.json").as_posix())
+        self.assertEqual(successor_receipt.as_posix(), (verifier.STAGE2_REL / "task-2133.core-only.receipt.json").as_posix())
+        with self.assertRaisesRegex(verifier.VerificationError, "successor report path"):
+            verifier._verify_followup_successor_binding(
+                verifier.ROOT,
+                "CA-P-2133",
+                report,
+                receipt,
+                verifier._descriptor(report_path, verifier._layer_path("CA-P-2133")),
+            )
+
+    def test_fifth_successor_contract_bytes_are_live_and_pinned(self) -> None:
+        """Receipt metadata cannot mask a stale successor-contract file."""
+
+        binding = verifier.FIFTH_SUCCESSOR_BINDINGS["CA-P-2133"]
+        predecessor_relative = Path(binding["supersedes"]["path"])
+        predecessor = self.root / predecessor_relative
+        predecessor.parent.mkdir(parents=True, exist_ok=True)
+        predecessor.write_bytes((verifier.ROOT / predecessor_relative).read_bytes())
+        predecessor_receipt_relative = Path(binding["predecessor_receipt"]["path"])
+        predecessor_receipt = self.root / predecessor_receipt_relative
+        predecessor_receipt.parent.mkdir(parents=True, exist_ok=True)
+        predecessor_receipt.write_bytes((verifier.ROOT / predecessor_receipt_relative).read_bytes())
+        contract_relative = Path(binding["successor_contract"]["path"])
+        contract = self.root / contract_relative
+        contract.parent.mkdir(parents=True, exist_ok=True)
+        contract.write_bytes((verifier.ROOT / contract_relative).read_bytes())
+        report_relative, receipt_relative = verifier._followup_artifact_paths("CA-P-2133")
+        report_path = verifier.ROOT / report_relative
+        report = verifier.read_json(report_path, "Core-only CA-P-2133 successor")
+        receipt = verifier.read_json(verifier.ROOT / receipt_relative, "Core-only CA-P-2133 receipt")
+        report_pin = verifier._descriptor(report_path, report_relative)
+        verifier._verify_followup_successor_binding(self.root, "CA-P-2133", report, receipt, report_pin)
+        contract.write_bytes(b"stale successor contract bytes\n")
+        with self.assertRaisesRegex(verifier.VerificationError, "successor contract pin"):
+            verifier._verify_followup_successor_binding(self.root, "CA-P-2133", report, receipt, report_pin)
+
+    def test_fifth_successor_preserves_live_predecessor_report_and_receipt(self) -> None:
+        """Historical predecessor bytes are checked without making them authority."""
+
+        binding = verifier.FIFTH_SUCCESSOR_BINDINGS["CA-P-2133"]
+        predecessor_relative = Path(binding["supersedes"]["path"])
+        predecessor = self.root / predecessor_relative
+        predecessor.parent.mkdir(parents=True, exist_ok=True)
+        predecessor.write_bytes((verifier.ROOT / predecessor_relative).read_bytes())
+        predecessor_receipt_relative = Path(binding["predecessor_receipt"]["path"])
+        predecessor_receipt = self.root / predecessor_receipt_relative
+        predecessor_receipt.parent.mkdir(parents=True, exist_ok=True)
+        predecessor_receipt.write_bytes((verifier.ROOT / predecessor_receipt_relative).read_bytes())
+        contract_relative = Path(binding["successor_contract"]["path"])
+        contract = self.root / contract_relative
+        contract.parent.mkdir(parents=True, exist_ok=True)
+        contract.write_bytes((verifier.ROOT / contract_relative).read_bytes())
+        report_relative, receipt_relative = verifier._followup_artifact_paths("CA-P-2133")
+        report_path = verifier.ROOT / report_relative
+        report = verifier.read_json(report_path, "Core-only CA-P-2133 successor")
+        receipt = verifier.read_json(verifier.ROOT / receipt_relative, "Core-only CA-P-2133 receipt")
+        report_pin = verifier._descriptor(report_path, report_relative)
+        verifier._verify_followup_successor_binding(self.root, "CA-P-2133", report, receipt, report_pin)
+        predecessor.write_bytes(b"stale predecessor report bytes\n")
+        with self.assertRaisesRegex(verifier.VerificationError, "successor predecessor report pin"):
+            verifier._verify_followup_successor_binding(self.root, "CA-P-2133", report, receipt, report_pin)
+        missing_root = self.root / "missing-predecessor-receipt"
+        missing_predecessor = missing_root / predecessor_relative
+        missing_predecessor.parent.mkdir(parents=True, exist_ok=True)
+        missing_predecessor.write_bytes((verifier.ROOT / predecessor_relative).read_bytes())
+        missing_contract = missing_root / contract_relative
+        missing_contract.parent.mkdir(parents=True, exist_ok=True)
+        missing_contract.write_bytes((verifier.ROOT / contract_relative).read_bytes())
+        with self.assertRaisesRegex(verifier.VerificationError, "successor predecessor receipt exists"):
+            verifier._verify_followup_successor_binding(missing_root, "CA-P-2133", report, receipt, report_pin)
+
     def test_later_followup_supporting_evidence_is_current_or_exact_operator_decision(self) -> None:
         """Later-group supporting spans are live, and stale/non-Core pins fail."""
 
@@ -741,6 +885,12 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
         self.assertTrue(all(
             verifier._later_followup_evidence_is_current(verifier.ROOT, item, source_pins, "fourth follow-up fixture")
             for row in fourth_report["rows"]
+            for item in row["evidence"]
+        ))
+        fifth_report = verifier.read_json(verifier.ROOT / verifier._layer_path("CA-P-2137"), "fifth follow-up report")
+        self.assertTrue(all(
+            verifier._later_followup_evidence_is_current(verifier.ROOT, item, source_pins, "fifth follow-up fixture")
+            for row in fifth_report["rows"]
             for item in row["evidence"]
         ))
 
