@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2139",
+  "recorded_at": "2026-10-11 10:50:31 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining relation and projection record subjects; not migration approval",
+  "verification": {
+    "task": "CA-P-2139",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2139.research.json",
+      "sha256": "1c07b8e41e299861b4a507e5f977bbff9e7b4adde19c9f9df4a3fd59a544fb83"
+    },
+    "rows": 20,
+    "counts": {
+      "proposed": 10,
+      "unresolved": 10
+    },
+    "exact_evidence_spans": 57,
+    "exact_supporting_definition_spans": 0,
+    "exact_input_pins": 46,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/subject_review_004",
+      "final_report_sha256": "1c07b8e41e299861b4a507e5f977bbff9e7b4adde19c9f9df4a3fd59a544fb83",
+      "result": "PASS: ten supported proposals and ten meaning-specific nulls",
+      "meaning_checks": [
+        "Six canonical direct kinds preserve graph-qualified Relation.Type values and explicit endpoints.",
+        "CONTAINS remains direct kind; Atom Collection.Type:Ad Hoc remains separate collection type.",
+        "Lineage Impact Analysis is explicitly Artifact/Atom; Entities Graph retains Projection.Type identity.",
+        "Ten nulls retain lineage dispositions, methodology member selection, Claim transformation, Journal/Revision and composite graph/target-set boundaries.",
+        "All fifty-seven evidence descriptors and actual candidate pointers checked against current bytes."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/subject_review_004",
+    "final_report_sha256": "1c07b8e41e299861b4a507e5f977bbff9e7b4adde19c9f9df4a3fd59a544fb83",
+    "result": "PASS: ten supported proposals and ten meaning-specific nulls",
+    "meaning_checks": [
+      "Six canonical direct kinds preserve graph-qualified Relation.Type values and explicit endpoints.",
+      "CONTAINS remains direct kind; Atom Collection.Type:Ad Hoc remains separate collection type.",
+      "Lineage Impact Analysis is explicitly Artifact/Atom; Entities Graph retains Projection.Type identity.",
+      "Ten nulls retain lineage dispositions, methodology member selection, Claim transformation, Journal/Revision and composite graph/target-set boundaries.",
+      "All fifty-seven evidence descriptors and actual candidate pointers checked against current bytes."
+    ]
+  },
+  "completion_scope": "All20 selected origins passed exact current pin/span/coverage controls and independent semantic acceptance: ten supported proposals and ten explicit nulls. Direct-kind, collection, Atom and Projection distinctions remain intact; original Core is unchanged.",
+  "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Operator]
-version: 1
-updated_at: "2026-10-11 10:33:45 +0400"
+version: 2
+updated_at: "2026-10-11 10:50:31 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   depends_on: [CA-P-2131]
@@ -35,6 +35,10 @@ Own work: at most fifteen minutes. Own only `_projection/core-entity-review/stag
 Read `followups-current-2132-2139.contract.md` and the existing current-subjects/working-ledger contracts. Complete owning Main Content, current source pins and actual explicit supporting definitions determine meaning; lexical strings route ownership only. Preserve exact origin, body spans, candidate rule pointers, confidence, specific unsupported distinctions and explicit nulls.
 
 No selector adoption, new roots/singleton kinds, @ in Subjects, Artifact.Revision containment, per-Property Carrier registry, original Core/ordinary body/Tool/Plan/Git/runtime/MCP/FPF writes. Workers are not alone; preserve others. Root owns acceptance, Plans, receipts, integration and one commit after actual completion. Decompose unfinished own work rather than mark a partial review Done.
+
+### Completion
+
+All20 selected origins passed exact current pin/span/coverage controls and independent semantic acceptance: ten supported proposals and ten explicit nulls. Direct-kind, collection, Atom and Projection distinctions remain intact; original Core is unchanged. Exact verification is recorded in `_projection/core-entity-review/stage2/task-2139.receipt.json`.
 
 ### Definition of Done
 
