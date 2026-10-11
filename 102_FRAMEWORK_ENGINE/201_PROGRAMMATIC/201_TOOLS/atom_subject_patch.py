@@ -21,6 +21,8 @@ from typing import Any, Mapping, Sequence
 import yaml
 from yaml.nodes import MappingNode, Node, ScalarNode, SequenceNode
 
+from subject_notation import SubjectNotationError, get_profile, parse_subject, profile_evidence
+
 
 _SHA256 = re.compile(r"[0-9a-f]{64}")
 _TIMESTAMP = re.compile(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} [+-]\d{4}")
@@ -48,7 +50,13 @@ class _SourceSnapshot:
     fingerprint: tuple[int, int, int, int, int]
 
 
-def preview_subject_patches(root: Path, items: list[object], *, timestamp: str | None = None) -> dict[str, Any]:
+def preview_subject_patches(
+    root: Path,
+    items: list[object],
+    *,
+    timestamp: str | None = None,
+    subject_profile: str = "legacy",
+) -> dict[str, Any]:
     """Prepare a sealed-in-memory preview of explicit Subject replacements.
 
     ``items`` uses only the Subject-only ATOM_UPDATE payload shape.  The module
@@ -57,6 +65,12 @@ def preview_subject_patches(root: Path, items: list[object], *, timestamp: str |
     """
 
     operations = _operations()
+    try:
+        profile = get_profile(subject_profile)
+        profile_name = profile.name
+        evidence = profile_evidence(profile_name)
+    except SubjectNotationError as error:
+        _fail(operations, error.code, str(error))
     project_root = Path(root).resolve()
     if not isinstance(items, list) or not items:
         _fail(operations, "subject-patches-required", "subject patch preview requires a non-empty atoms list")
@@ -71,7 +85,15 @@ def preview_subject_patches(root: Path, items: list[object], *, timestamp: str |
     # Validate every precondition before resolving an illustrative time.  This
     # keeps an invalid request from looking like an accepted preview.
     for ordinal, item in enumerate(items):
-        result = _plan_item(operations, project_root, item, ordinal, selectors, atom_ids)
+        result = _plan_item(
+            operations,
+            project_root,
+            item,
+            ordinal,
+            selectors,
+            atom_ids,
+            profile_name,
+        )
         planned.append(result)
         has_change = has_change or not result["noop"]
 
@@ -87,11 +109,23 @@ def preview_subject_patches(root: Path, items: list[object], *, timestamp: str |
         "atoms": atoms,
         "noop": not has_change,
         "illustrative_updated_at": illustrative_at,
+        "subject_profile": profile_name,
+        "subject_profile_evidence": evidence,
     }
     preview["preview_sha256"] = hashlib.sha256(
         operations.canonical_json(preview).encode("utf-8")
     ).hexdigest()
     return preview
+
+
+def _validate_subject_values(operations: Any, values: Sequence[str], subject_profile: str) -> None:
+    """Apply the selected syntax only; it supplies no semantic admission."""
+
+    for value in values:
+        try:
+            parse_subject(value, subject_profile=subject_profile)
+        except SubjectNotationError as error:
+            _fail(operations, error.code, str(error))
 
 
 def _operations() -> Any:
@@ -113,6 +147,7 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
     ordinal: int,
     selectors: set[str],
     atom_ids: set[str],
+    subject_profile: str,
 ) -> dict[str, Any]:
     if not isinstance(item, Mapping) or set(item) != {"selector", "expected", "subject_patches"}:
         _fail(operations, "subject-patch-item-invalid", "each Subject patch item has exactly selector, expected, and subject_patches")
@@ -143,6 +178,11 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
         _fail(operations, "subject-shape-invalid", "Subject patch source frontmatter must be one mapping")
     subjects = _subjects_node(operations, document)
     governs_node, dependencies = _subject_scalars(operations, subjects)
+    _validate_subject_values(
+        operations,
+        [governs_node.value, *(node.value for node in dependencies)],
+        subject_profile,
+    )
     version_node = _top_level_scalar(operations, document, "version", require_string=False)
     updated_at_node = _top_level_scalar(operations, document, "updated_at", require_string=True)
     atom_id, version = _snapshot_identity(operations, root, path, selector, parsed.metadata)
@@ -162,6 +202,7 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
     subject_replacements: list[_Replacement] = []
     occurrences: set[tuple[str, int | None]] = set()
     resulting_dependencies = [node.value for node in dependencies]
+    resulting_governs = governs_node.value
     for patch_ordinal, patch in enumerate(patches):
         record, replacement = _plan_patch(
             operations,
@@ -173,10 +214,17 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
             resulting_dependencies,
         )
         records.append(record)
+        if record["field"] == "governs":
+            resulting_governs = record["new"]
         if replacement is not None:
             subject_replacements.append(replacement)
     if len(set(resulting_dependencies)) != len(resulting_dependencies):
         _fail(operations, "subject-dependency-duplicate", "Subject patch would produce duplicate depends_on values")
+    _validate_subject_values(
+        operations,
+        [resulting_governs, *resulting_dependencies],
+        subject_profile,
+    )
     # A preview may never turn an invalid source into an apparently valid
     # proposal through its allowed Version/Updated At metadata changes.
     _validate_complete(operations, root, path, frontmatter, body)

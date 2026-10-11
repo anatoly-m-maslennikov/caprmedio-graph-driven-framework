@@ -16,6 +16,7 @@ if str(TOOLS) not in sys.path:
 
 import atom_operations as operations  # noqa: E402
 import atom_subject_patch as subject_patch  # noqa: E402
+from subject_notation import SubjectNotationError, get_profile, parse_subject  # noqa: E402
 
 
 class SubjectPatchPreviewTests(unittest.TestCase):
@@ -72,14 +73,30 @@ class SubjectPatchPreviewTests(unittest.TestCase):
             "subject_patches": patches,
         }]
 
-    def _preview(self, payload: list[object], *, timestamp: str = "2026-10-11 10:20:30 +0400") -> dict[str, object]:
+    def _preview(
+        self,
+        payload: list[object],
+        *,
+        timestamp: str = "2026-10-11 10:20:30 +0400",
+        subject_profile: object = "legacy",
+    ) -> dict[str, object]:
         # Unit fixtures deliberately isolate parser/span behavior.  The test
         # below separately proves that no result is returned if the existing
         # complete-carrier authority declines it.
         with patch.object(operations, "_validate_complete_carrier") as validate:
-            result = subject_patch.preview_subject_patches(self.root, payload, timestamp=timestamp)
+            result = subject_patch.preview_subject_patches(
+                self.root,
+                payload,
+                timestamp=timestamp,
+                subject_profile=subject_profile,
+            )
         self.assertEqual(validate.call_count, 2)
         return result
+
+    def _notation_code(self, value: str, subject_profile: object) -> str:
+        with self.assertRaises(SubjectNotationError) as context:
+            parse_subject(value, subject_profile=subject_profile)
+        return context.exception.code
 
     def test_replaces_exact_subject_spans_and_preserves_crlf_unicode_unknown_and_body(self) -> None:
         self.path.write_bytes(self._carrier("\r\n").replace(b"unknown_key: [kept, exactly]", "unknown_key: [kept, caf\u00e9]".encode("utf-8")))
@@ -116,6 +133,46 @@ class SubjectPatchPreviewTests(unittest.TestCase):
                 self.assertEqual(atom["before_sha256"], atom["after_sha256"])
                 self.assertEqual(atom["before_version"], atom["after_version"])
                 self.assertIsNone(atom["illustrative_updated_at"])
+
+    def test_selected_profile_evidence_is_sealed_for_noops(self) -> None:
+        legacy = self._preview(self._payload([]))
+        approved = self._preview(self._payload([]), subject_profile="approved")
+        for profile, preview in (("legacy", legacy), ("approved", approved)):
+            self.assertEqual(preview["subject_profile"], profile)
+            evidence = preview["subject_profile_evidence"]
+            self.assertEqual(set(evidence), {"grammar_pins", "native_admission"})
+            self.assertEqual(evidence["native_admission"], "not_performed")
+            self.assertEqual(len(evidence["grammar_pins"]), 5)
+            for grammar_pin in evidence["grammar_pins"]:
+                self.assertEqual(set(grammar_pin), {"atom_id", "version", "path", "sha256"})
+        self.assertNotEqual(legacy["preview_sha256"], approved["preview_sha256"])
+        self.assertEqual(legacy["preview_sha256"], self._preview(self._payload([]))["preview_sha256"])
+
+    def test_selected_profile_rejects_invalid_source_and_proposed_subjects(self) -> None:
+        self.path.write_bytes(self.path.read_bytes().replace(b'governs: "Atom/Status"', b'governs: "Atom@Status"'))
+        with patch.object(operations, "_validate_complete_carrier") as validate:
+            with self.assertRaises(operations.ToolError) as context:
+                subject_patch.preview_subject_patches(self.root, self._payload([]), subject_profile="legacy")
+        self.assertEqual(context.exception.code, self._notation_code("Atom@Status", "legacy"))
+        validate.assert_not_called()
+
+        self.path.write_bytes(self._carrier("\n"))
+        payload = self._payload([{"field": "governs", "old": "Atom/Status", "new": "Atom@Status"}])
+        with patch.object(operations, "_validate_complete_carrier") as validate:
+            with self.assertRaises(operations.ToolError) as context:
+                subject_patch.preview_subject_patches(self.root, payload, subject_profile="approved")
+        self.assertEqual(context.exception.code, self._notation_code("Atom@Status", "approved"))
+        validate.assert_not_called()
+
+    def test_unknown_or_malformed_profile_fails_before_source_validation(self) -> None:
+        for supplied in ("unknown", None):
+            with self.subTest(supplied=supplied), self.assertRaises(SubjectNotationError) as expected:
+                get_profile(supplied)
+            with patch.object(operations, "_validate_complete_carrier") as validate:
+                with self.assertRaises(operations.ToolError) as context:
+                    subject_patch.preview_subject_patches(self.root, self._payload([]), subject_profile=supplied)
+            self.assertEqual(context.exception.code, expected.exception.code)
+            validate.assert_not_called()
 
     def test_default_preview_time_uses_the_configured_project_timezone(self) -> None:
         (self.control / "caprmedio_project_settings.toml").write_text(
