@@ -47,7 +47,7 @@ class CommitTriggerTests(unittest.TestCase):
         (self.repository / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
             "[artifact_timestamps]\ntimezone = \"Asia/Tbilisi\"\n\n"
             "[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n"
-            "framework_root = \".caprmedio_framework\"\n"
+            "framework_root = \".caprmedio_caprmedio/000_CAPRMEDIO_framework\"\n"
             "journal_root = \".caprmedio_caprmedio/_journal\"\n"
             "runtime_root = \".caprmedio_runtime\"\n"
             "temporary_root = \".caprmedio_tmp\"\n"
@@ -423,13 +423,14 @@ class CommitTriggerTests(unittest.TestCase):
             ".caprmedio_tmp/cache.json",
             ".github/workflows/test.yml",
             ".f4f/config.toml",
+            ".caprmedio_framework/04_requirement/CA-R-001-REQUIREMENT--framework.md",
         ):
             self.assertFalse(commit_trigger._hook_eligible(self.repository, {"before_path": path, "after_path": path}), path)
         for path in (
             "README.md",
             "src/application.py",
             ".gitignore",
-            ".caprmedio_framework/04_requirement/CA-R-001-REQUIREMENT--framework.md",
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/04_requirement/CA-R-001-REQUIREMENT--framework.md",
             ".caprmedio_caprmedio/stg_requirements_subjects.md",
             ".caprmedio_caprmedio/04_requirement/archive/CA-R-001-REQUIREMENT--subject.md",
         ):
