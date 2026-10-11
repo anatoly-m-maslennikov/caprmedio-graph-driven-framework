@@ -4,7 +4,9 @@ from __future__ import annotations
 import hashlib
 import importlib
 import json
+import os
 import re
+import stat
 import sys
 import tomllib
 import copy
@@ -184,6 +186,123 @@ def selected_manifest_ref(root: str | Path | None = None) -> str:
         project_root = Path(root).resolve(strict=True)
         control_root = _configured_control_root(project_root)
     return (control_root / "_projection" / MANIFEST_FILENAME).as_posix()
+
+
+def release_execution_manifest_ref(root: str | Path) -> str:
+    """Name the virtual Release source snapshot, never the stored portfolio."""
+    project_root = Path(root).resolve(strict=True)
+    return (_configured_control_root(project_root) / "_projection" / "release_execution_snapshot.json").as_posix()
+
+
+def _release_executing_implementation_root() -> Path:
+    """Use the program-owned import tree, never a Project or caller override."""
+    return Path(__file__).resolve().parents[3]
+
+
+def _release_implementation_snapshot(root: Path) -> dict[str, Any]:
+    """Capture persisted Engine source bytes and modes without historical pins.
+
+    The source scope is the complete FRAMEWORK_ENGINE used by native candidate
+    preparation.  The existing inventory policy excludes transient files and
+    refuses secret-shaped names and symlinks before any member is opened.
+    """
+    release_tools = Path(__file__).resolve().parents[1] / "201_TOOLS/RELEASE_VERSION"
+    if str(release_tools) not in sys.path:
+        sys.path.insert(0, str(release_tools))
+    from release_inventory import persistent_regular_files
+    from VALIDATE_ATOMS.validate_atoms_workers.read_io import open_regular
+
+    engine = root / "102_FRAMEWORK_ENGINE"
+    if not engine.is_dir() or engine.is_symlink():
+        raise SelectedRouteError("Release implementation source root is unavailable or unsafe")
+    files = persistent_regular_files(root, engine)
+    if not files:
+        raise SelectedRouteError("Release implementation source inventory is empty")
+    mapped_tool = engine / "201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_version.py"
+    if mapped_tool not in files:
+        raise SelectedRouteError("the mapped native Release Tool entrypoint is unavailable")
+    rows = []
+    captured_stats = []
+    for path in files:
+        with os.fdopen(open_regular(path), "rb") as stream:
+            before = os.fstat(stream.fileno())
+            if not stat.S_ISREG(before.st_mode):
+                raise SelectedRouteError("Release implementation source is not a regular file")
+            digest = hashlib.sha256()
+            for chunk in iter(lambda: stream.read(65536), b""):
+                digest.update(chunk)
+            after = os.fstat(stream.fileno())
+            fields = ("st_dev", "st_ino", "st_size", "st_mtime_ns", "st_ctime_ns", "st_mode")
+            if any(getattr(before, field) != getattr(after, field) for field in fields):
+                raise SelectedRouteError("Release implementation source changed during capture")
+        rows.append({"source_path": path.relative_to(root).as_posix(),
+                     "sha256": digest.hexdigest(), "mode": stat.S_IMODE(before.st_mode)})
+        captured_stats.append(tuple(getattr(after, field) for field in fields))
+    if files != persistent_regular_files(root, engine):
+        raise SelectedRouteError("Release implementation inventory changed during capture")
+    for path, captured in zip(files, captured_stats, strict=True):
+        descriptor = open_regular(path)
+        try:
+            current = os.fstat(descriptor)
+            if tuple(getattr(current, field) for field in fields) != captured:
+                raise SelectedRouteError("Release implementation source changed during capture")
+        finally:
+            os.close(descriptor)
+    return {"source_root": "102_FRAMEWORK_ENGINE", "file_count": len(rows),
+            "sha256": canonical_digest(rows)}
+
+
+def load_release_execution_manifest(
+    root: str | Path, *, implementation_root: str | Path | None = None,
+) -> dict[str, Any]:
+    """Capture one read-only current-source Release execution snapshot.
+
+    No historical portfolio file is read or rewritten.  The snapshot's virtual
+    reference is included in its self-excluding digest and names these derived
+    bytes, not the raw seventeen-route manifest.  Native private-control
+    preflight may supply its already-known candidate source root separately;
+    this program-owned option is never a caller request parameter and never
+    selects the executing implementation. Both the candidate Project Engine
+    and the program-owned import tree are captured before the snapshot seals.
+    """
+    project_root = Path(root).resolve(strict=True)
+    source_root = project_root if implementation_root is None else Path(implementation_root).resolve(strict=True)
+    try:
+        from release_source_admission import derive_release_execution_source_snapshot
+        route, admission, authority = derive_release_execution_source_snapshot(project_root)
+        route = _validate_route(project_root, route, allowed_routes=(_OPTIONAL_RELEASE_ROUTE_NAME,))
+        reference = release_execution_manifest_ref(project_root)
+        executing_root = _release_executing_implementation_root()
+        implementation = _release_implementation_snapshot(source_root)
+        executing_implementation = (dict(implementation) if executing_root == source_root
+                                    else _release_implementation_snapshot(executing_root))
+        manifest = {
+            "manifest_ref": reference,
+            "schema_version": 1,
+            "source_freshness": {
+                "selected_source_registry_ref": authority["source_path"],
+                "selected_source_registry_version": authority["version"],
+                "selected_source_registry_digest": authority["digest"],
+                "selected_binding_ref": f"{reference}#/routes",
+                "selected_binding_digest": canonical_digest([route]),
+            },
+            "query_source_admissions": [], "routes": [route],
+            "release_source_admissions": [admission],
+            "release_execution_snapshot": {
+                "authority": authority,
+                "implementation": implementation,
+                "executing_implementation": executing_implementation,
+            },
+        }
+        # The implementation tree may take longer to read than definition
+        # headers. Reopen the exact earlier captures before sealing both.
+        current_route, current_admission, current_authority = derive_release_execution_source_snapshot(project_root)
+        if (route != current_route or admission != current_admission or authority != current_authority):
+            raise SelectedRouteError("Release definitions changed during snapshot capture")
+        manifest["canonical_manifest_sha256"] = canonical_digest(manifest)
+        return manifest
+    except (ImportError, OSError, ValueError, RuntimeError) as error:
+        raise SelectedRouteError(f"Release current-source snapshot is unavailable: {error}") from error
 
 
 def selected_manifest_contract(root: str | Path | None = None) -> dict[str, Any]:
@@ -945,7 +1064,9 @@ class _QueueBackedSelectedSupport:
 
         def observe(request: dict[str, Any]) -> dict[str, Any]:
             try:
-                manifest = load_selected_manifest(self.root)
+                manifest = (load_release_execution_manifest(self.root)
+                            if request.get("operation_route") == _OPTIONAL_RELEASE_ROUTE_NAME
+                            else load_selected_manifest(self.root))
                 selected = request.get("operation_route") in {entry["route"] for entry in manifest["routes"]}
                 current = dict(request.get("definition_manifest", {})) == {
                     "manifest_ref": manifest["manifest_ref"], "manifest_digest": manifest["canonical_manifest_sha256"]
@@ -1230,7 +1351,8 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
 
     def invoke(self, route: str, request: Any) -> dict[str, Any]:
         try:
-            self.manifest = load_selected_manifest(self.root)
+            self.manifest = (load_release_execution_manifest(self.root)
+                             if route == _OPTIONAL_RELEASE_ROUTE_NAME else load_selected_manifest(self.root))
             self.routes = {entry["route"]: entry for entry in self.manifest["routes"]}
             normalized = self._validate_request(route, request)
         except SelectedRouteError as error:
@@ -1311,11 +1433,13 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
         if not ordinary and not resolution:
             return self._result(request, "rejected", "rejected", "Release recovery requires its exact ordinary or unknown-effect carrier")
         try:
-            manifest = load_selected_manifest(self.root)
+            manifest = (load_release_execution_manifest(self.root) if ordinary
+                        else load_selected_manifest(self.root))
             routes = tuple(entry.get("route") for entry in manifest.get("routes", []) if isinstance(entry, Mapping))
         except (OSError, ValueError, SelectedRouteError) as error:
             return self._result(request, "blocked", "blocked", f"Release recovery admission is unavailable: {error}")
         if routes not in {
+            (_OPTIONAL_RELEASE_ROUTE_NAME,),
             (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME),
             (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME),
         }:
@@ -1337,11 +1461,12 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
                 or not re.fullmatch(r"[0-9a-f]{32}", request["recovery_transport_handle"])):
             return self._result(request, "rejected", "rejected", "Release recovery observation requires only operation, existing run_id, and returned transport handle")
         try:
-            manifest = load_selected_manifest(self.root)
+            manifest = load_release_execution_manifest(self.root)
             routes = tuple(entry.get("route") for entry in manifest.get("routes", []) if isinstance(entry, Mapping))
         except (OSError, ValueError, SelectedRouteError) as error:
             return self._result(request, "blocked", "blocked", f"Release recovery admission is unavailable: {error}")
         if routes not in {
+            (_OPTIONAL_RELEASE_ROUTE_NAME,),
             (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME),
             (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME),
         }:
@@ -1385,6 +1510,15 @@ def register_selected_routes(server: Any, root: str | Path) -> SelectedRouteAdap
         public_route_names = admitted_names
     else:
         public_route_names = SELECTED_ROUTE_NAMES
+    # Local Release admission is independent of unrelated historical portfolio
+    # pins.  Its current active graph and implementation sources still fail
+    # closed before this actual public endpoint is registered.
+    try:
+        load_release_execution_manifest(root)
+        if _OPTIONAL_RELEASE_ROUTE_NAME not in public_route_names:
+            public_route_names = (*public_route_names, _OPTIONAL_RELEASE_ROUTE_NAME)
+    except (OSError, ValueError, RuntimeError):
+        public_route_names = tuple(name for name in public_route_names if name != _OPTIONAL_RELEASE_ROUTE_NAME)
     adapter.public_route_names = frozenset(public_route_names)
 
     for route_name in public_route_names:

@@ -537,9 +537,11 @@ def _workflow_step_pairs(raw: bytes) -> list[tuple[str, str]]:
         ) from error
 
 
-def _derive_release_source_admission(root: Path, source_index: _CurrentSourceIndex) -> dict[str, Any]:
+def _derive_release_source_admission(
+    root: Path, source_index: _CurrentSourceIndex, *, authority_pin: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
     """Derive one admission from a single bounded current-source snapshot."""
-    text = _read_pin(root, AUTHORITY_PIN).decode("utf-8")
+    text = _read_pin(root, AUTHORITY_PIN if authority_pin is None else authority_pin).decode("utf-8")
     memberships = _rmed_membership(text)
     workflow = resolve_current_source_pin(
         root, "CA-O-164", role="Operations", operation_type="Workflow", _source_index=source_index
@@ -649,6 +651,46 @@ def derive_release_graph_admission(project_root: str | Path) -> tuple[dict[str, 
              "mutation_capable": admission["mutation_capable"],
              "native_action_calls": copy.deepcopy(admission["native_action_calls"])}
     return route, copy.deepcopy(admission)
+
+
+def derive_release_execution_source_snapshot(
+    project_root: str | Path,
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    """Capture current Release definitions without requiring historical revisions.
+
+    This separate execution path keeps the legacy portfolio loader unchanged.
+    D572 supplies active RMED membership, while O164 supplies the current graph.
+    Definition bytes and revisions are captured now; only the existing native
+    Step-to-Action identity mapping remains fixed.
+    """
+    root = _project_root(project_root)
+    index = _CurrentSourceIndex(root)
+    authority = resolve_current_source_pin(root, "CA-D-572", role="Delivery", _source_index=index)
+    admission = _derive_release_source_admission(root, index, authority_pin=authority)
+    pairs = [(row["step"]["atom_id"], row["action"]["atom_id"]) for row in admission["ordered_steps"]]
+    expected_pairs = [
+        ("CA-O-170", "CA-O-165"), ("CA-O-175", "CA-O-167"),
+        ("CA-O-185", "CA-O-168"), ("CA-O-176", "CA-O-168"),
+        ("CA-O-186", "CA-O-168"), ("CA-O-182", "CA-O-181"),
+        ("CA-O-184", "CA-O-183"), ("CA-O-172", "CA-O-166"),
+        ("CA-O-173", "CA-O-166"), ("CA-O-178", "CA-O-169"),
+    ]
+    if pairs != expected_pairs:
+        _reject("current Release Step/Action mapping differs from the native Tool mapping",
+                code="release-authority-invalid")
+    graph = _release_workflow_graph(_read_pin(root, admission["workflow"]), admission)
+    route = {"route": "release_version", "workflow": copy.deepcopy(admission["workflow"]),
+             "ordered_steps": copy.deepcopy(admission["ordered_steps"]),
+             "ordered_actions": copy.deepcopy(admission["ordered_actions"]), **graph,
+             "mutation_capable": admission["mutation_capable"],
+             "native_action_calls": copy.deepcopy(admission["native_action_calls"])}
+    # Reopen the exact captured members after deriving the graph.  A source
+    # change during capture cannot become a silently mixed snapshot.
+    pins = [authority, admission["workflow"], *admission["rmed_frontier"],
+            *[pin for row in admission["ordered_steps"] for pin in (row["step"], row["action"])]]
+    for pin in {pin["source_path"]: pin for pin in pins}.values():
+        _read_pin(root, pin)
+    return route, copy.deepcopy(admission), authority
 
 
 def _record_shape(record: Any) -> dict[str, Any]:

@@ -452,12 +452,12 @@ class SelectedNativeProviders:
             extract_pending_recordings,
             load_release_checkpoint,
         )
-        from selected_routes import load_selected_manifest
+        from selected_routes import load_release_execution_manifest
         from workflow_run_support import RunExecutionSession
 
         execution = json.loads(canonical_json(frozen["request"]["execution"]))
         graph = json.loads(canonical_json(frozen.get("graph")))
-        admitted = load_selected_manifest(self.root)
+        admitted = load_release_execution_manifest(self.root)
         selected = SelectedExecution(self.root)
         current_graph = selected._revalidate(frozen)
         admissions = admitted.get("release_source_admissions")
@@ -684,7 +684,7 @@ class SelectedNativeProviders:
             # and any retained checkpoint have passed this provider's checks.
             # This runtime authority is deliberately absent from the codec.
             private_run.selected_action_session = session
-            if index == 0 and private_run.candidate is None and graph["workflow"]["version"] == 11:
+            if index == 0 and private_run.candidate is None:
                 from release_promotion import bind_selected_native_n_from_checkpoint
 
                 try:

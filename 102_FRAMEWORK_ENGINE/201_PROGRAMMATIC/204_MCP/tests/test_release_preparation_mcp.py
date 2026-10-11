@@ -28,6 +28,9 @@ class ReleasePreparationMcpTests(unittest.TestCase):
         loader = patch("selected_routes.load_selected_manifest", return_value=self.manifest)
         loader.start()
         self.addCleanup(loader.stop)
+        snapshot_loader = patch("selected_routes.load_release_execution_manifest", return_value=self.manifest)
+        snapshot_loader.start()
+        self.addCleanup(snapshot_loader.stop)
         self.resolved = {"operation": "apply", "project_root": str(self.root),
                          "candidateSnapshotManifest": {"sha256": "c" * 64},
                          "run_receipt_refs": []}

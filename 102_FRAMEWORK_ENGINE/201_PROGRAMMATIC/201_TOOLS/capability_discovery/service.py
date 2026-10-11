@@ -166,19 +166,19 @@ class Service:
         Selected routes intentionally have no Atom ``tool_binding``: their public
         MCP names are registered from the fail-closed canonical manifest.  Keep
         that distinction in discovery rather than treating a source carrier as
-        executable.  Importing and loading the existing manifest is therefore
-        the sole admission path here as well.
+        executable. Local Release uses its current-source snapshot; other
+        selected routes retain the existing portfolio admission path.
         """
         if not self.exposed:
             return []
+        manifests = []
         try:
             from selected_routes import load_selected_manifest
-            manifest = load_selected_manifest(self.root)
+            manifests.append((load_selected_manifest(self.root), False))
         except (ImportError, OSError):
             # The catalog is public discovery output: do not expose exception
             # details, paths, or evidence content while reporting recovery.
             issues.append('binding evidence unavailable: restore or regenerate binding evidence, then re-preview selected routes')
-            return []
         except ValueError as error:
             if str(error).casefold().startswith((
                 'source pin is stale',
@@ -187,13 +187,26 @@ class Service:
                 issues.append('binding evidence stale: refresh source bindings, then re-preview selected routes')
             else:
                 issues.append('binding evidence invalid: correct bindings, then re-preview selected routes')
-            return []
+        if 'release_version' in self.exposed:
+            try:
+                from selected_routes import load_release_execution_manifest
+                manifests.append((load_release_execution_manifest(self.root), True))
+            except (ImportError, OSError, ValueError, RuntimeError):
+                issues.append('local Release source snapshot unavailable: correct current required sources, then re-preview')
 
+        rows = []
+        for manifest, release_snapshot in manifests:
+            rows.extend(self._selected_route_rows(manifest, release_snapshot))
+        return rows
+
+    def _selected_route_rows(self, manifest, release_snapshot):
         rows = []
         for entry in manifest.get("routes", []):
             if not isinstance(entry, dict):
                 continue
             route = entry.get("route")
+            if route == 'release_version' and not release_snapshot:
+                continue
             workflow = entry.get("workflow")
             actions = entry.get("ordered_actions")
             if route not in self.exposed or not isinstance(workflow, dict) or not isinstance(actions, list):

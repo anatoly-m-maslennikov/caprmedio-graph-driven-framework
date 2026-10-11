@@ -34,18 +34,22 @@ from workflow_run_support import RunExecutionSession
 
 CURRENT_RELEASE_PHASES = (
     ("CA-O-170", "CA-O-165", "freeze"),
-    ("CA-O-171", "CA-O-165", "validate"),
-    ("CA-O-172", "CA-O-166", "deliver_sources"),
-    ("CA-O-173", "CA-O-166", "compile"),
-    ("CA-O-185", "CA-O-168", "closed_unit_gate"),
     ("CA-O-175", "CA-O-167", "stage_candidate"),
+    ("CA-O-185", "CA-O-168", "closed_unit_gate"),
     ("CA-O-176", "CA-O-168", "candidate_image_build"),
     ("CA-O-186", "CA-O-168", "candidate_image_canary"),
     ("CA-O-182", "CA-O-181", "host_candidate_e2e"),
     ("CA-O-184", "CA-O-183", "aggregate_full_gate"),
+    ("CA-O-172", "CA-O-166", "deliver_sources"),
+    ("CA-O-173", "CA-O-166", "compile"),
     ("CA-O-178", "CA-O-169", "promote"),
-    ("CA-O-179", "CA-O-169", "retire"),
 )
+CURRENT_RELEASE_SOURCE = APP.parents[3] / (
+    ".caprmedio_caprmedio/09_operations/CA-O-164-WORKFLOW--release-a-selected-framework-version.md"
+)
+CURRENT_RELEASE_WORKFLOW_VERSION = int(re.search(
+    r"(?m)^version:\s*([1-9][0-9]*)\s*$", CURRENT_RELEASE_SOURCE.read_text(encoding="utf-8"),
+).group(1))
 
 
 @dataclass(frozen=True)
@@ -75,18 +79,13 @@ class ReleaseSourceBindingTests(unittest.TestCase):
     """Source-only guard: this does not allocate a fixture directory."""
 
     def test_private_provider_fixture_uses_the_current_release_workflow_revision(self):
-        source = APP.parents[3] / (
-            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-            "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations/"
-            "CA-O-164-PROJECT_CONFIGURATION-WORKFLOW--release-a-selected-framework-version.md"
-        )
-        text = source.read_text(encoding="utf-8")
+        text = CURRENT_RELEASE_SOURCE.read_text(encoding="utf-8")
         self.assertIn("atom_id: CA-O-164", text)
-        self.assertIn("version: 9", text)
+        self.assertIn(f"version: {CURRENT_RELEASE_WORKFLOW_VERSION}", text)
         source_pairs = tuple(re.findall(
-            r"^\| (CA-O-\d+) \| (CA-O-\d+) \| ([a-z0-9_]+) \|$", text, flags=re.MULTILINE,
+            r"^\| (CA-O-\d+) \| (CA-O-\d+) \| [^\n]+ \|$", text, flags=re.MULTILINE,
         ))
-        self.assertEqual(CURRENT_RELEASE_PHASES, source_pairs)
+        self.assertEqual(tuple(phase[:2] for phase in CURRENT_RELEASE_PHASES), source_pairs)
 
     def test_private_provider_phase_contract_matches_current_o164_graph(self):
         self.assertEqual(CURRENT_RELEASE_PHASES, release_actions.PHASES)
@@ -98,7 +97,7 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name).resolve()
         self.parameters = {"project_root": str(self.root), "operation": "apply", "fixture": True}
-        self.graph = {"route": "release_version", "workflow": self.binding("CA-O-164", "workflow", 9),
+        self.graph = {"route": "release_version", "workflow": self.binding("CA-O-164", "workflow", CURRENT_RELEASE_WORKFLOW_VERSION),
                       "entry_step": "CA-O-170", "steps": []}
         for index, (step, action, _phase) in enumerate(release_actions.PHASES):
             edge = {"result": f"phase_{index}"}
@@ -148,7 +147,7 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
                 "pending_recording_count": len(pending_recordings),
             },
         ))
-        self.enterContext(patch.object(selected_routes, "load_selected_manifest", return_value=self.admitted))
+        self.enterContext(patch.object(selected_routes, "load_release_execution_manifest", return_value=self.admitted))
         self.enterContext(patch.object(SelectedExecution, "_revalidate", return_value=self.graph))
 
     @staticmethod
@@ -212,13 +211,13 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
         self.assertIsInstance(admission, release_actions.AdmittedImageExecutor)
         self.assertIsInstance(admission.executor, DockerSubprocessExecutor)
 
-    def test_current_source_admitted_workflow_nine_reaches_private_phase(self):
-        self.assertEqual(self.graph["workflow"]["version"], 9)
+    def test_current_source_admitted_workflow_revision_reaches_private_phase(self):
+        self.assertEqual(self.graph["workflow"]["version"], CURRENT_RELEASE_WORKFLOW_VERSION)
         selected = self.providers()
         selected.handlers["CA-O-165"](self.context())
         self.begin.assert_called_once()
         self.execute.assert_called_once()
-        self.assertEqual(self.execute.call_args.kwargs["context"].workflow_version, 9)
+        self.assertEqual(self.execute.call_args.kwargs["context"].workflow_version, CURRENT_RELEASE_WORKFLOW_VERSION)
 
     def test_first_phase_accepts_actual_absence_of_a_selected_native_n(self):
         with patch(
@@ -374,7 +373,7 @@ class ReleaseNativeProvidersTests(unittest.TestCase):
             contexts={0: release_actions.SelectedReleaseActionContext(
                 str(self.root), context["workflow_run_id"], context["step_run_id"], action_run_id,
                 context["workflow_run_id"], context["step_run_id"], "CA-O-170", "CA-O-165", "2" * 64,
-                workflow_version=9,
+                workflow_version=CURRENT_RELEASE_WORKFLOW_VERSION,
             )},
             results={0: self.execute.return_value},
             in_progress=None,

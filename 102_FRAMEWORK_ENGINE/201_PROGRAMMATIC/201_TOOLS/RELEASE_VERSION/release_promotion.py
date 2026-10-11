@@ -209,7 +209,8 @@ def admit_selected_native_promotion_start(run, context):
     session = run.selected_action_session
     if type(session) is not RunExecutionSession:
         raise ReleaseContractError("release-native-promotion-session-unavailable", "selected publication requires the actual shared Session")
-    if (context.workflow_atom_id != "CA-O-164" or context.workflow_version != 11
+    if (context.workflow_atom_id != "CA-O-164" or type(context.workflow_version) is not int
+            or context.workflow_version < 1
             or context.action_atom_id != "CA-O-169" or context.step_atom_id != "CA-O-178"
             or context.project_root != run.project_root or context.workflow_run_id != run.workflow_run_id
             or context.parent_workflow_run_id != run.workflow_run_id
@@ -239,8 +240,8 @@ def admit_selected_native_promotion_start(run, context):
             or action.get("definition", {}).get("atom_id") != "CA-O-169"
             or action.get("definition", {}).get("version") != 6
             or step.get("definition", {}).get("atom_id") != context.step_atom_id
-            or workflow.get("definition", {}).get("atom_id") != "CA-O-164"
-            or workflow.get("definition", {}).get("version") != 11
+            or workflow.get("definition", {}).get("atom_id") != context.workflow_atom_id
+            or workflow.get("definition", {}).get("version") != context.workflow_version
             or action_id in session.terminal or action_id in session.interrupted):
         raise ReleaseContractError("release-native-promotion-start-mismatch", "selected publication Action is not the exact running O169 occurrence")
     try:

@@ -171,9 +171,9 @@ class ReleaseActionsTests(portable_actions.PortableReleaseActionsTests):
         self.assertEqual(self.run.contexts, {})
         self.assertEqual(self.run.results, {})
 
-    def test_v11_rejects_wrong_graph_and_retirement_is_not_selectable(self) -> None:
+    def test_current_revision_rejects_invalid_graph_and_retirement_is_not_selectable(self) -> None:
         for context in (
-            replace(self.context(0), workflow_version=6),
+            replace(self.context(0), workflow_version=0),
             replace(self.context(0), action_atom_id="CA-O-199"),
             replace(self.context(9), action_atom_id="CA-O-199"),
         ):

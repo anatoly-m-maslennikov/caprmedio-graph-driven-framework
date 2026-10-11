@@ -1,7 +1,7 @@
 """Interpret one frozen, source-bound selected Workflow through shared Run support.
 
-This module deliberately has no route-domain branches.  The MCP-owned manifest
-declares the Workflow, Steps, Action bindings and `On Result` transitions; the
+The MCP-owned definition snapshot declares the Workflow, Steps, Action bindings
+and `On Result` transitions; the
 TOOLS-owned Run tracker seals admission and Journal evidence.  This APPS layer
 only freezes/rechecks the graph and gives registered native Action adapters the
 actual Run context.
@@ -1326,6 +1326,29 @@ class SelectedExecution:
             execution.get("definition_manifest"), Mapping) else None
         if not isinstance(manifest_ref, str) or not isinstance(manifest_digest, str):
             raise SelectedExecutionError("selected definition manifest is required")
+        if execution.get("operation_route") == "release_version":
+            # Release owns one current source snapshot. Its virtual reference
+            # is bound by the preview, not resolved through the unrelated
+            # persisted manifest for the other selected routes.
+            import sys
+
+            mcp_root = str(Path(__file__).resolve().parents[2] / "204_MCP")
+            if mcp_root not in sys.path:
+                sys.path.insert(0, mcp_root)
+            try:
+                from selected_routes import load_release_execution_manifest
+
+                manifest = load_release_execution_manifest(self.root)
+            except (ImportError, OSError, RuntimeError, ValueError) as error:
+                raise SelectedExecutionError("current Release definition snapshot is unavailable") from error
+            if not isinstance(manifest, dict):
+                raise SelectedExecutionError("invalid Release definition snapshot")
+            expected = _sha256(canonical_json(self._manifest_without_digest(manifest)))
+            if (manifest.get("manifest_ref") != manifest_ref
+                    or manifest.get("canonical_manifest_sha256") != expected
+                    or manifest_digest != expected):
+                raise SelectedExecutionError("Release definition snapshot digest is stale or invalid")
+            return manifest, manifest_ref, expected
         path = self._safe_path(manifest_ref)
         if path.relative_to(self.root).as_posix() != manifest_relative_path(self.root):
             raise SelectedExecutionError("selected definition manifest location is not admitted")

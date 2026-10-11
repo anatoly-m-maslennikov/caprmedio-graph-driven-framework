@@ -17,15 +17,9 @@ from release_suite_reference_context import (
     ReleaseSuiteReferenceContextError,
     _forbid_non_control_path,
     _project_structure_ref,
-    _prompt_binding_rows,
-    _selected_source_refresh_frontier,
 )
-from release_source_admission import (
-    AUTHORITY_PIN,
-    derive_release_graph_admission,
-    derive_release_source_admission,
-)
-from selected_routes import PROJECT_SETTINGS_REF, canonical_digest, canonical_json, selected_manifest_ref
+from release_source_admission import derive_release_execution_source_snapshot
+from selected_routes import PROJECT_SETTINGS_REF
 
 
 _UNIT_DEADLINE_SETTINGS = (
@@ -171,25 +165,17 @@ def _retained_source(repository: Path, relative: str, digest: str | None) -> Pat
 
 
 def copy_control_closure(repository: Path, root: Path) -> None:
-    """Build a synthetic selector while retaining real source-admission guards."""
+    """Copy current Release controls without selecting historic portfolio pins.
 
-    manifest_ref = selected_manifest_ref(repository)
-    manifest = json.loads((repository / manifest_ref).read_bytes())
-    # Replace only the private fixture's Release route.  An obsolete live
-    # Release graph must not select retired bytes for the new admission.
-    manifest["routes"] = [route for route in manifest["routes"] if route["route"] != "release_version"]
-    manifest.pop("release_source_admissions", None)
-    admission = derive_release_source_admission(repository)
-    pins = _pins(manifest)
-    for path, digest in _pins(admission).items():
-        prior = pins.setdefault(path, digest)
-        if prior != digest:
-            raise RuntimeError(f"golden control pin disagrees for {path}")
-    pins[AUTHORITY_PIN["source_path"]] = AUTHORITY_PIN["digest"]
-    freshness = manifest["source_freshness"]
-    pins[freshness["selected_source_registry_ref"]] = freshness["selected_source_registry_digest"]
+    These files remain disposable fixture inputs. The real reader derives its
+    virtual execution snapshot from them; this helper creates no manifest file.
+    """
+
+    _route, admission, authority = derive_release_execution_source_snapshot(repository)
+    pins = _pins(admission)
+    pins[authority["source_path"]] = authority["digest"]
     settings_relative = PROJECT_SETTINGS_REF.as_posix()
-    settings_source = _retained_source(repository, settings_relative, pins.get(settings_relative))
+    settings_source = repository / settings_relative
     project_structure_relative = _project_structure_ref(settings_source.read_bytes())
     required = set(pins) | {
         ".caprmedio_caprmedio/operators_registry.toml",
@@ -198,10 +184,16 @@ def copy_control_closure(repository: Path, root: Path) -> None:
         *_UNIT_DEADLINE_SETTINGS,
     }
     for relative in sorted(required):
-        source = _retained_source(repository, relative, pins.get(relative))
+        relative = _forbid_non_control_path(relative).as_posix()
+        source = repository / relative
+        if source.is_symlink() or not source.is_file():
+            raise RuntimeError(f"current golden control source is unavailable: {relative}")
+        payload = source.read_bytes()
+        if relative in pins and hashlib.sha256(payload).hexdigest() != pins[relative]:
+            raise RuntimeError(f"current golden control source changed: {relative}")
         target = root / relative
         target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(source, target)
+        target.write_bytes(payload)
         target.chmod(source.stat().st_mode & 0o777)
 
     # The current resolver checks both registered RMED namespaces. Mirror
@@ -218,54 +210,17 @@ def copy_control_closure(repository: Path, root: Path) -> None:
                 raise RuntimeError(f"current registered RMED directory unavailable: {relative}")
             (root / relative).mkdir(parents=True, exist_ok=True)
 
-    # D580 declares a closed Prompt binding frontier.  Copy only its two
-    # binding carriers and their exact pinned active Atom files; no directory
-    # discovery or legacy Plan material is admitted into the retained fixture.
-    d580_relative = next(path for path in pins if "/CA-D-580-" in path)
-    for binding_relative, binding_digest in _prompt_binding_rows((root / d580_relative).read_bytes()):
-        binding_source = _retained_source(repository, binding_relative, binding_digest)
-        binding_target = root / binding_relative
-        binding_target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(binding_source, binding_target)
-        binding_target.chmod(binding_source.stat().st_mode & 0o777)
-        binding = json.loads(binding_target.read_bytes())
-        for pin in binding["sources"]:
-            atom_source = _retained_source(repository, pin["path"], pin["sha256"])
-            atom_target = root / pin["path"]
-            atom_target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(atom_source, atom_target)
-            atom_target.chmod(atom_source.stat().st_mode & 0o777)
-
-    # D580 separately declares five exact selected-source refresh authority
-    # leaves.  They are not Prompt bindings, so copy and revalidate them as
-    # their own closed frontier rather than discovering an MCP directory.
-    refresh_paths = _selected_source_refresh_frontier((root / d580_relative).read_bytes(), {})
-    for relative in refresh_paths:
-        source = _retained_source(repository, relative, None)
-        target = root / relative
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(source, target)
-        target.chmod(source.stat().st_mode & 0o777)
-    refresh_captured = {
-        relative: ((root / relative).read_bytes(), (root / relative).stat().st_mode & 0o777)
-        for relative in refresh_paths
-    }
-    _selected_source_refresh_frontier((root / d580_relative).read_bytes(), refresh_captured)
-
-    # Current D572 is ID membership, not an implementation-code or resolver
-    # proof block. Preserve only its actual authority bytes in this fixture.
-    authority = root / AUTHORITY_PIN["source_path"]
-    if hashlib.sha256(authority.read_bytes()).hexdigest() != AUTHORITY_PIN["digest"]:
-        raise RuntimeError("golden current authority carrier changed")
-
-    route, copied_admission = derive_release_graph_admission(root)
-    manifest["routes"].append(route)
-    manifest["release_source_admissions"] = [copied_admission]
-    freshness["selected_binding_digest"] = canonical_digest(manifest["routes"])
-    manifest["canonical_manifest_sha256"] = canonical_digest({
-        key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"
-    })
-    target = root / manifest_ref
+    # A control-only test Project still supplies the actual mapped Tool bytes
+    # required by the implementation snapshot. Existing synthetic Engine
+    # members remain the fixture's own native inventory, never replaced here.
+    tool_relative = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_version.py"
+    source = repository / tool_relative
+    if source.is_symlink() or not source.is_file():
+        raise RuntimeError("current release Tool fixture source is unavailable")
+    target = root / tool_relative
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(canonical_json(manifest), encoding="utf-8", newline="\n")
-    target.chmod((repository / manifest_ref).stat().st_mode & 0o777)
+    shutil.copyfile(source, target)
+    target.chmod(source.stat().st_mode & 0o777)
+    _copied_route, copied_admission, copied_authority = derive_release_execution_source_snapshot(root)
+    if copied_admission != admission or copied_authority != authority:
+        raise RuntimeError("current Release control fixture differs from its source snapshot")

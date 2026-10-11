@@ -27,11 +27,11 @@ if not _MCP_ROOT.is_dir():  # pragma: no cover - immutable carrier installation 
 if str(_MCP_ROOT) not in sys.path:
     sys.path.insert(0, str(_MCP_ROOT))
 
-from release_source_admission import (  # noqa: E402
-    AUTHORITY_PIN,
-    derive_release_source_admission,
+from release_source_admission import derive_release_execution_source_snapshot  # noqa: E402
+from selected_routes import (  # noqa: E402
+    PROJECT_SETTINGS_REF, canonical_digest, canonical_json,
+    load_release_execution_manifest,
 )
-from selected_routes import PROJECT_SETTINGS_REF, canonical_json, load_selected_manifest, selected_manifest_ref  # noqa: E402
 
 
 _OPERATORS_REGISTRY = PurePosixPath(".caprmedio_caprmedio/operators_registry.toml")
@@ -430,19 +430,29 @@ def _selected_source_refresh_frontier(
 
 
 def _preflight_reader_paths(root: Path) -> tuple[dict[str, tuple[bytes, int]], tuple[str, ...]]:
-    """Capture every prospective reader carrier before any delegated parser runs."""
+    """Capture only current Release definitions and explicit control carriers.
+
+    The generated execution snapshot binds the actual Project implementation
+    tree separately. Its bytes are staged only in the private reader snapshot;
+    no stored portfolio or historical Prompt/refresh pin supplies this closure.
+    """
     settings_ref = PROJECT_SETTINGS_REF.as_posix()
     settings_raw, settings_mode = _read_regular(root, settings_ref)
     project_structure_ref = _project_structure_ref(settings_raw)
     project_structure_raw, project_structure_mode = _read_regular(root, project_structure_ref)
-    manifest_ref = (_control_root_from_settings(settings_raw) / "_projection" / "selected_workflow_bindings.json").as_posix()
-    manifest_raw, manifest_mode = _read_regular(root, manifest_ref)
-    authority_ref = str(AUTHORITY_PIN["source_path"])
-    authority_raw, authority_mode = _read_regular(root, authority_ref)
     try:
-        manifest = json.loads(manifest_raw.decode("utf-8"))
-    except (UnicodeDecodeError, json.JSONDecodeError) as error:
-        raise ReleaseSuiteReferenceContextError("selected manifest is unavailable for reference preflight") from error
+        manifest = load_release_execution_manifest(root)
+        authority = manifest["release_execution_snapshot"]["authority"]
+        admission, = manifest["release_source_admissions"]
+        manifest_ref = manifest["manifest_ref"]
+        expected_ref = (_control_root_from_settings(settings_raw) / "_projection"
+                        / "release_execution_snapshot.json").as_posix()
+        if manifest_ref != expected_ref:
+            _fail("Release snapshot differs from the descriptor-captured control root")
+        _assert_unique_rmed_pins(admission)
+    except (KeyError, TypeError, ValueError, RuntimeError, OSError) as error:
+        raise ReleaseSuiteReferenceContextError("current Release snapshot is unavailable for reference preflight") from error
+    authority_ref = str(authority["source_path"])
     candidates: list[str] = [
         manifest_ref,
         _OPERATORS_REGISTRY.as_posix(),
@@ -451,38 +461,31 @@ def _preflight_reader_paths(root: Path) -> tuple[dict[str, tuple[bytes, int]], t
         authority_ref,
         _D580_REFERENCE,
         *_UNIT_DEADLINE_SETTINGS,
+        *_pin_paths(admission),
     ]
-    _paths_from_source_paths(manifest, candidates)
-    freshness = manifest.get("source_freshness") if isinstance(manifest, Mapping) else None
-    if isinstance(freshness, Mapping) and "selected_source_registry_ref" in freshness:
-        candidates.append(freshness["selected_source_registry_ref"])
     for candidate in candidates:
         _forbid_non_control_path(candidate)
     captured = {
         settings_ref: (settings_raw, settings_mode),
         project_structure_ref: (project_structure_raw, project_structure_mode),
-        manifest_ref: (manifest_raw, manifest_mode),
-        authority_ref: (authority_raw, authority_mode),
+        manifest_ref: (canonical_json(manifest).encode("utf-8"), 0o644),
     }
     for candidate in sorted(set(candidates)):
         if candidate not in captured:
             captured[candidate] = _read_regular(root, candidate)
-    prompt_rows = _prompt_binding_rows(captured[_D580_REFERENCE][0])
-    for candidate, _digest in prompt_rows:
-        if candidate not in captured:
-            captured[candidate] = _read_regular(root, candidate)
-    prompt_bindings = _prompt_binding_frontier(captured[_D580_REFERENCE][0], captured)
-    for candidate in prompt_bindings:
-        if candidate not in captured:
-            captured[candidate] = _read_regular(root, candidate)
-    refresh_authorities = _selected_source_refresh_frontier(captured[_D580_REFERENCE][0], captured)
-    for candidate in refresh_authorities:
-        if candidate not in captured:
-            captured[candidate] = _read_regular(root, candidate)
-    # Recheck only after the entire two-stage frontier has been captured: no
-    # later parser may resolve a new root-backed prompt path.
-    _prompt_binding_frontier(captured[_D580_REFERENCE][0], captured)
-    _selected_source_refresh_frontier(captured[_D580_REFERENCE][0], captured)
+    # Reopen only these bounded carriers after capture; a control/source or
+    # implementation change cannot silently mix two snapshots into one context.
+    for candidate in sorted(set(candidates) - {manifest_ref}):
+        if _read_regular(root, candidate) != captured[candidate]:
+            _fail("Release control reference changed during descriptor capture")
+    try:
+        current_manifest = load_release_execution_manifest(root)
+    except (ValueError, RuntimeError, OSError) as error:
+        raise ReleaseSuiteReferenceContextError(
+            "Release definitions or implementation changed during descriptor capture"
+        ) from error
+    if current_manifest != manifest:
+        _fail("Release definitions or implementation changed during descriptor capture")
     return captured, tuple(sorted(captured))
 
 
@@ -532,37 +535,37 @@ def _closure_paths(snapshot_root: Path) -> tuple[str, ...]:
     """Derive only against the immutable reader snapshot, never mutable Project bytes."""
     settings_raw, _settings_mode = _read_regular(snapshot_root, PROJECT_SETTINGS_REF.as_posix())
     project_structure_ref = _project_structure_ref(settings_raw)
-    manifest = load_selected_manifest(snapshot_root)
-    manifest_ref = selected_manifest_ref(snapshot_root)
-    admission = derive_release_source_admission(snapshot_root)
-    freshness = manifest["source_freshness"]
-    source_registry = freshness["selected_source_registry_ref"]
-    _safe_relative(source_registry)
+    manifest_ref = (_control_root_from_settings(settings_raw) / "_projection"
+                    / "release_execution_snapshot.json").as_posix()
+    manifest_raw, _manifest_mode = _read_regular(snapshot_root, manifest_ref)
+    try:
+        manifest = json.loads(manifest_raw.decode("utf-8"))
+        if not isinstance(manifest, Mapping):
+            _fail("Release reader snapshot must be one manifest object")
+        route, admission, authority = derive_release_execution_source_snapshot(snapshot_root)
+        self_digest = manifest.get("canonical_manifest_sha256")
+        without_self = {key: value for key, value in manifest.items()
+                        if key != "canonical_manifest_sha256"}
+        if (manifest_raw != canonical_json(manifest).encode("utf-8")
+                or self_digest != canonical_digest(without_self)
+                or manifest.get("manifest_ref") != manifest_ref
+                or manifest.get("routes") != [route]
+                or manifest.get("release_source_admissions") != [admission]
+                or manifest["release_execution_snapshot"]["authority"] != authority):
+            _fail("Release reader snapshot differs from its exact captured definitions")
+    except (UnicodeDecodeError, json.JSONDecodeError, KeyError, TypeError, ValueError, RuntimeError) as error:
+        raise ReleaseSuiteReferenceContextError("Release reader snapshot is invalid or stale") from error
     _assert_unique_rmed_pins(admission)
-    snapshot_captured, _snapshot_paths = _preflight_reader_paths(snapshot_root)
-    prompt_paths = _prompt_binding_frontier(
-        snapshot_captured[_D580_REFERENCE][0], snapshot_captured,
-    )
-    refresh_authority_paths = _selected_source_refresh_frontier(
-        snapshot_captured[_D580_REFERENCE][0], snapshot_captured,
-    )
     candidates = [
         manifest_ref,
         _OPERATORS_REGISTRY.as_posix(),
         PROJECT_SETTINGS_REF.as_posix(),
         project_structure_ref,
-        str(source_registry),
-        str(AUTHORITY_PIN["source_path"]),
+        authority["source_path"],
         _D580_REFERENCE,
         *_pin_paths(admission),
-        *prompt_paths,
-        *refresh_authority_paths,
         *_UNIT_DEADLINE_SETTINGS,
     ]
-    # The selected manifest has already source-validated every route/admission
-    # pin.  Capture their source paths too, while naturally deduplicating a
-    # shared Action occurrence across the manifest and D572 closure.
-    _paths_from_source_paths(manifest, candidates)
     for candidate in candidates:
         _forbid_non_control_path(candidate)
     unique = sorted(set(candidates))

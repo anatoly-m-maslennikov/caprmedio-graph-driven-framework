@@ -81,9 +81,6 @@ PHASES = (
     ("CA-O-178", "CA-O-169", "promote"),
 )
 
-_NATIVE_PORTABLE_WORKFLOW_VERSION = 11
-
-
 @dataclass(frozen=True)
 class SelectedReleaseActionContext:
     """Provider-owned identity; never parsed from D560 client parameters."""
@@ -242,7 +239,7 @@ def _selection(request, context, run):
     if not isinstance(run, ReleaseActionRun) or not isinstance(context, SelectedReleaseActionContext):
         raise ReleaseContractError("release-action-context-untrusted", "dispatch requires retained private Run and selected context")
     if (context.workflow_atom_id != "CA-O-164" or type(context.workflow_version) is not int
-            or context.workflow_version != _NATIVE_PORTABLE_WORKFLOW_VERSION
+            or context.workflow_version < 1
             or context.workflow_run_id != run.workflow_run_id or context.parent_workflow_run_id != run.workflow_run_id
             or context.parent_step_run_id != context.step_run_id
             or context.project_root != run.project_root or str(Path(request.project_root).resolve(strict=True)) != run.project_root
@@ -1017,7 +1014,7 @@ def execute_release_action(request: ReleaseVersionRequest | Mapping[str, Any], *
             result = _result(run, context, phase, "blocked", f"phase stopped: {error.code}")
             run.contexts[index], run.results[index], run.stopped = context, result, True
             return result
-    if phase == "freeze" and context.workflow_version == _NATIVE_PORTABLE_WORKFLOW_VERSION:
+    if phase == "freeze":
         try:
             observed_binding = _freeze_local_release_helper_binding(Path(run.project_root).resolve(strict=True))
             if run.local_helper_binding is None:

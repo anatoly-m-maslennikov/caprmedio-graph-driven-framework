@@ -11,10 +11,8 @@ from contextlib import contextmanager
 from dataclasses import replace
 import hashlib
 import json
-import re
 import shutil
 import sys
-import tomllib
 from types import SimpleNamespace
 import unittest
 import xml.etree.ElementTree as ET
@@ -29,8 +27,7 @@ for path in (RELEASE_ROOT, TEST_ROOT):
         sys.path.insert(0, str(path))
 
 from portable_package_fixture import PortablePackageFixture  # noqa: E402
-from full_suite_golden.control_fixture import _pins, copy_control_closure  # noqa: E402
-import full_suite_golden.control_fixture as control_fixture  # noqa: E402
+from full_suite_golden.control_fixture import copy_control_closure  # noqa: E402
 from release_compilation import build_preflight_validated_candidate  # noqa: E402
 from release_contract import ReleaseContractError, canonical_json  # noqa: E402
 from release_e2e_gate import (  # noqa: E402
@@ -72,15 +69,7 @@ from release_suite import (  # noqa: E402
     execute_bound_release_suite,
 )
 from release_test_phases import CANDIDATE_E2E_MODULES, derive_test_phase_map_from_rows  # noqa: E402
-from release_source_admission import AUTHORITY_PIN, derive_release_source_admission  # noqa: E402
-import release_source_admission as source_admission  # noqa: E402
-import release_suite_reference_context as suite_reference_context  # noqa: E402
-from selected_routes import PROJECT_SETTINGS_REF, selected_manifest_ref  # noqa: E402
-from release_suite_reference_context import (  # noqa: E402
-    _project_structure_ref,
-    _prompt_binding_rows,
-    _selected_source_refresh_frontier,
-)
+from release_source_admission import derive_release_execution_source_snapshot  # noqa: E402
 
 
 _UNIT_MODULE = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests/test_portable_full_gate_unit.py"
@@ -95,134 +84,20 @@ _MCP_PACKAGE_MEMBERS = (
     "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/project-mcp.compose.yaml",
 )
 PROJECT_ROOT = RELEASE_ROOT.parents[3]
-_PRODUCTION_AUTHORITY_PIN = dict(AUTHORITY_PIN)
 
 
 def _test_member(path: str) -> bytes:
     return f"def test_{path.replace('/', '_').replace('.', '_')}():\n    assert True\n".encode()
 
 
-def _current_fixture_digest(relative: str, overrides: dict[str, bytes] | None = None) -> str:
-    if overrides is not None and relative in overrides:
-        return hashlib.sha256(overrides[relative]).hexdigest()
-    source = PROJECT_ROOT / relative
-    if not source.is_file() or source.is_symlink():
-        raise AssertionError(f"fixture authority source is unavailable: {relative}")
-    return hashlib.sha256(source.read_bytes()).hexdigest()
-
-
-def _current_fixture_identity(relative: str) -> tuple[str, int]:
-    source = PROJECT_ROOT / relative
-    if not source.is_file() or source.is_symlink():
-        raise AssertionError(f"fixture authority source is unavailable: {relative}")
-    try:
-        lines = source.read_text(encoding="utf-8").splitlines()
-        end = lines.index("---", 1)
-        fields = {
-            key: next(line.split(":", 1)[1].strip() for line in lines[1:end] if line.startswith(f"{key}:"))
-            for key in ("atom_id", "version")
-        }
-        atom_id = fields["atom_id"].strip("\"'")
-        version = int(fields["version"].strip("\"'"))
-    except (OSError, UnicodeDecodeError, StopIteration, ValueError) as error:
-        raise AssertionError(f"fixture authority source has no Atom identity: {relative}") from error
-    if not re.fullmatch(r"CA-[A-Z]+-[0-9]+", atom_id) or version < 1:
-        raise AssertionError(f"fixture authority source identity is invalid: {relative}")
-    return atom_id, version
-
-
-def _rewrite_fixture_d580(text: str) -> dict[str, bytes]:
-    """Freeze D580 and its two Prompt bindings over present Atom bytes."""
-
-    bindings: dict[str, bytes] = {}
-    for binding_path, _digest in _prompt_binding_rows(text.encode("utf-8")):
-        binding = json.loads((PROJECT_ROOT / binding_path).read_bytes())
-        if not isinstance(binding, dict) or not isinstance(binding.get("sources"), list):
-            raise AssertionError(f"fixture D580 binding is malformed: {binding_path}")
-        for pin in binding["sources"]:
-            if not isinstance(pin, dict) or not isinstance(pin.get("path"), str):
-                raise AssertionError(f"fixture D580 binding pin is malformed: {binding_path}")
-            atom_id, version = _current_fixture_identity(pin["path"])
-            pin.update(atom_id=atom_id, version=version, sha256=_current_fixture_digest(pin["path"]))
-        bindings[binding_path] = canonical_json(binding)
-
-    def prompt_row(match: re.Match[str]) -> str:
-        binding_path = match.group("path")
-        if binding_path not in bindings:
-            raise AssertionError(f"fixture D580 has unknown Prompt binding: {binding_path}")
-        return f"| {match.group('package')} | `{binding_path}` | `{hashlib.sha256(bindings[binding_path]).hexdigest()}` |"
-
-    def refresh_row(match: re.Match[str]) -> str:
-        atom_id, version = _current_fixture_identity(match.group("path"))
-        source = PROJECT_ROOT / match.group("path")
-        return (
-            f"| `{atom_id}` | {version} | `{match.group('path')}` | "
-            f"`{_current_fixture_digest(match.group('path'))}` | `{source.stat().st_mode & 0o777:04o}` |"
-        )
-
-    rewritten = re.sub(
-        r"^\| (?P<package>IMPLEMENTATION_WORKFLOW|RMED_ATOM_REVIEW) \| `(?P<path>[^`]+)` \| `[0-9a-f]{64}` \|$",
-        prompt_row,
-        text,
-        flags=re.MULTILINE,
-    )
-    rewritten = re.sub(
-        r"^\| `CA-[A-Z]+-[0-9]+` \| [1-9][0-9]* \| `(?P<path>[^`]+)` \| `[0-9a-f]{64}` \| `0[0-7]{3}` \|$",
-        refresh_row,
-        rewritten,
-        flags=re.MULTILINE,
-    )
-    bindings[suite_reference_context._D580_REFERENCE] = rewritten.encode("utf-8")
-    return bindings
-
-
-
-
-def _rewrite_fixture_manifest(value: object, overrides: dict[str, bytes]) -> dict[str, object]:
-    """Freeze the non-Release selected projection against present source bytes."""
-
-    if not isinstance(value, dict):
-        raise AssertionError("fixture selected manifest is malformed")
-    manifest = json.loads(json.dumps(value))
-    routes = manifest.get("routes")
-    if not isinstance(routes, list):
-        raise AssertionError("fixture selected manifest routes are unavailable")
-    manifest["routes"] = [route for route in routes if isinstance(route, dict) and route.get("route") != "release_version"]
-    manifest.pop("release_source_admissions", None)
-
-    def rewrite_pins(node: object) -> None:
-        if isinstance(node, dict):
-            relative, digest = node.get("source_path"), node.get("digest")
-            if isinstance(relative, str) and isinstance(digest, str):
-                node["digest"] = _current_fixture_digest(relative, overrides)
-                if "atom_id" in node or "version" in node:
-                    atom_id, version = _current_fixture_identity(relative)
-                    node["atom_id"] = atom_id
-                    node["version"] = version
-            for child in node.values():
-                rewrite_pins(child)
-        elif isinstance(node, list):
-            for child in node:
-                rewrite_pins(child)
-
-    rewrite_pins(manifest)
-    freshness = manifest.get("source_freshness")
-    if not isinstance(freshness, dict) or not isinstance(freshness.get("selected_source_registry_ref"), str):
-        raise AssertionError("fixture selected manifest freshness is unavailable")
-    freshness["selected_source_registry_digest"] = _current_fixture_digest(freshness["selected_source_registry_ref"])
-    return manifest
-
-
 @contextmanager
 def _fixture_authority(pin: dict[str, object]):
-    """Bind existing readers to one test-local D572 byte pin only."""
+    """Require the fixture's captured current authority without patching readers."""
 
-    with (
-        patch.object(source_admission, "AUTHORITY_PIN", dict(pin)),
-        patch.object(suite_reference_context, "AUTHORITY_PIN", dict(pin)),
-        patch.object(control_fixture, "AUTHORITY_PIN", dict(pin)),
-    ):
-        yield
+    current_pin = derive_release_execution_source_snapshot(PROJECT_ROOT)[2]
+    if pin != current_pin:
+        raise AssertionError("portable fixture authority differs from current source")
+    yield
 
 
 def _fixture() -> PortablePackageFixture:
@@ -352,98 +227,10 @@ class _NativeHappyPathFixture(PortablePackageFixture):
         )[1]
 
     def _copy_pinned_control_closure(self) -> None:
-        """Seed controls from an isolated, current-byte D572 snapshot.
+        """Seed only the current release-only control snapshot inputs."""
 
-        D572 declares current ID membership, not a static private-code block.
-        Copy the actual registered source pins and controls before resolving
-        the disposable source tree. No historical block or path alias is added.
-        """
-
-        source = self.root / ".fixture-control-source"
-        fixture_overrides: dict[str, bytes] = {}
-
-        def copy_current(relative: str) -> None:
-            if relative in fixture_overrides:
-                target = source / relative
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_bytes(fixture_overrides[relative])
-                target.chmod((PROJECT_ROOT / relative).stat().st_mode & 0o777)
-                return
-            source_path = PROJECT_ROOT / relative
-            if not source_path.is_file() or source_path.is_symlink():
-                raise AssertionError(f"fixture source is unavailable: {relative}")
-            target = source / relative
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(source_path, target)
-            target.chmod(source_path.stat().st_mode & 0o777)
-
-        manifest_ref = selected_manifest_ref(PROJECT_ROOT)
-        d580_relative = suite_reference_context._D580_REFERENCE
-        fixture_overrides.update(_rewrite_fixture_d580((PROJECT_ROOT / d580_relative).read_text(encoding="utf-8")))
-        manifest = _rewrite_fixture_manifest(json.loads((PROJECT_ROOT / manifest_ref).read_bytes()), fixture_overrides)
-        manifest_target = source / manifest_ref
-        manifest_target.parent.mkdir(parents=True, exist_ok=True)
-        manifest_target.write_bytes(canonical_json(manifest))
-        manifest_target.chmod((PROJECT_ROOT / manifest_ref).stat().st_mode & 0o777)
-
-        authority_relative = _PRODUCTION_AUTHORITY_PIN["source_path"]
-        production_authority = (PROJECT_ROOT / authority_relative).read_text(encoding="utf-8")
-        actual_admission = derive_release_source_admission(PROJECT_ROOT)
-        for relative in _pins(actual_admission):
-            copy_current(relative)
-        settings_relative = PROJECT_SETTINGS_REF.as_posix()
-        copy_current(settings_relative)
-        copy_current(_project_structure_ref((source / settings_relative).read_bytes()))
-        structure = tomllib.loads((source / _project_structure_ref((source / settings_relative).read_bytes())).read_text(encoding="utf-8"))
-        for unit in structure["scope_units"]:
-            if unit.get("scope_unit_name") not in {"TOOLS", "PROJECT_TOOLS"}:
-                continue
-            for role in ("04_requirement", "05_method", "06_evaluation", "07_delivery"):
-                relative = Path(unit["authority_path"]) / role
-                if (PROJECT_ROOT / relative).is_symlink() or not (PROJECT_ROOT / relative).is_dir():
-                    raise AssertionError(f"registered fixture RMED directory unavailable: {relative}")
-                (source / relative).mkdir(parents=True, exist_ok=True)
-        fixture_authority = production_authority
-        authority_target = source / authority_relative
-        authority_target.parent.mkdir(parents=True, exist_ok=True)
-        authority_target.write_text(fixture_authority, encoding="utf-8", newline="")
-        authority_target.chmod((PROJECT_ROOT / authority_relative).stat().st_mode & 0o777)
-        self._fixture_authority_pin = {
-            **_PRODUCTION_AUTHORITY_PIN,
-            "digest": hashlib.sha256(fixture_authority.encode("utf-8")).hexdigest(),
-        }
-
-        with _fixture_authority(self._fixture_authority_pin):
-            admission = derive_release_source_admission(source)
-            manifest = json.loads((source / manifest_ref).read_bytes())
-            pins = _pins(manifest)
-            pins.update(_pins(admission))
-            freshness = manifest["source_freshness"]
-            if not isinstance(freshness, dict):
-                raise AssertionError("fixture selected manifest freshness is unavailable")
-            copy_current(freshness["selected_source_registry_ref"])
-            settings_relative = PROJECT_SETTINGS_REF.as_posix()
-            copy_current(settings_relative)
-            structure_relative = _project_structure_ref((source / settings_relative).read_bytes())
-            required = {
-                *pins,
-                ".caprmedio_caprmedio/operators_registry.toml",
-                settings_relative,
-                structure_relative,
-                *control_fixture._UNIT_DEADLINE_SETTINGS,
-            }
-            for relative in sorted(required):
-                copy_current(relative)
-            d580_relative = next(relative for relative in pins if "/CA-D-580-" in relative)
-            d580_raw = (source / d580_relative).read_bytes()
-            for binding_relative, _binding_digest in _prompt_binding_rows(d580_raw):
-                copy_current(binding_relative)
-                binding = json.loads((source / binding_relative).read_bytes())
-                for pin in binding["sources"]:
-                    copy_current(pin["path"])
-            for relative in _selected_source_refresh_frontier(d580_raw, {}):
-                copy_current(relative)
-            copy_control_closure(source, self.root)
+        copy_control_closure(PROJECT_ROOT, self.root)
+        self._fixture_authority_pin = derive_release_execution_source_snapshot(self.root)[2]
 
 
 def _sha256(path: Path) -> str:
