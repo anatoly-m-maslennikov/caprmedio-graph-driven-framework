@@ -1190,6 +1190,34 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
             return "Operator authorization contains unknown or incomplete bindings"
         return None
 
+    @staticmethod
+    def _release_request_module() -> Any:
+        # Load the implementation from the MCP image, never caller Project code.
+        release_tools = Path(__file__).resolve().parents[1] / "201_TOOLS/RELEASE_VERSION"
+        if str(release_tools) not in sys.path:
+            sys.path.insert(0, str(release_tools))
+        return importlib.import_module("release_version")
+
+    def _prepare_release_parameters(self, request: Mapping[str, Any]) -> dict[str, Any]:
+        """Resolve intent before preview sealing, or validate frozen native inputs.
+
+        The caller's original parameter digest has already been checked.  A
+        preparation produces a new digest and never carries an old authorization
+        over to the expanded candidate boundary.  Execution only validates the
+        supplied frozen boundary; it cannot prepare replacement parameters.
+        """
+        normalized = dict(request)
+        parameters = normalized["parameters"]
+        native = self._release_request_module()
+        if "candidateSnapshotManifest" not in parameters:
+            if normalized["mode"] != "preview":
+                raise SelectedRouteError("Release execution requires resolved parameters from the exact preview")
+            normalized["parameters"] = native.prepare_release_request(self.root, parameters)
+            normalized["parameters_digest"] = canonical_digest(normalized["parameters"])
+        else:
+            native.validate_prepared_release_request(self.root, parameters)
+        return normalized
+
     def invoke(self, route: str, request: Any) -> dict[str, Any]:
         try:
             self.manifest = load_selected_manifest(self.root)
@@ -1198,9 +1226,16 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
         except SelectedRouteError as error:
             return self._result(request, "rejected", "rejected", str(error))
         if normalized["mode"] == "execute":
+            if route == _OPTIONAL_RELEASE_ROUTE_NAME and "candidateSnapshotManifest" not in normalized["parameters"]:
+                return self._result(normalized, "blocked", "blocked", "Release execution requires resolved parameters from the exact preview")
             blocked = self._validate_execute(normalized)
             if blocked:
                 return self._result(normalized, "blocked", "blocked", blocked)
+        if route == _OPTIONAL_RELEASE_ROUTE_NAME:
+            try:
+                normalized = self._prepare_release_parameters(normalized)
+            except (ImportError, AttributeError, TypeError, ValueError, RuntimeError, OSError) as error:
+                return self._result(normalized, "blocked", "blocked", f"Release preparation refused the current source boundary: {error}")
         lifecycle_refusal = self._preflight_lifecycle(normalized)
         if lifecycle_refusal is not None:
             return lifecycle_refusal
@@ -1210,7 +1245,11 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
                     "source_freshness": normalized["source_freshness"], "diagnostics": ["shared implement_run_support is unavailable"]}
         try:
             handler: Callable[[dict[str, Any]], dict[str, Any]] = getattr(support, "run_selected_operation")
-            return handler(normalized)
+            result = handler(normalized)
+            if route == _OPTIONAL_RELEASE_ROUTE_NAME and normalized["mode"] == "preview" and result.get("disposition") == "preview":
+                result = {**result, "resolved_parameters": copy.deepcopy(normalized["parameters"]),
+                          "resolved_parameters_digest": normalized["parameters_digest"]}
+            return result
         except (AttributeError, TypeError, ValueError, RuntimeError) as error:
             return self._result(normalized, "blocked", "blocked", f"shared support rejected request: {error}")
 

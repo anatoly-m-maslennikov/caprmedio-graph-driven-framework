@@ -6,6 +6,7 @@ import hashlib
 import importlib.util
 import json
 import os
+import re
 import shutil
 import sys
 import tempfile
@@ -17,6 +18,7 @@ from release_contract import CandidateBuildRequest, ReleaseContractError, Valida
 from release_handoff import (
     COMPILER_ENTRYPOINT_RELATIVE,
     MATERIALIZED_RELATIVE,
+    NativeInstalledNBinding,
     CompilerEntrypoint,
     CompilerSuccessEvidence,
     SealedCandidateCompilation,
@@ -521,11 +523,18 @@ def preflight_release_compilation(project_root: Path | str, *, candidate_release
 
 def build_preflight_validated_candidate(
     project_root: Path | str, *, candidate_release: str, full_suite_environment: Mapping[str, Any],
-    candidate_image_reference: str,
+    candidate_image_reference: str | None = None,
+    native_installed_n: NativeInstalledNBinding | None = None,
 ) -> tuple[ReleaseCompilationPreflight, ValidatedCandidate]:
     """Use predicted local hashes as D566 expectations, never caller hash values."""
 
     preflight = preflight_release_compilation(project_root, candidate_release=candidate_release)
+    if candidate_image_reference is None:
+        # Docker tags admit fewer characters than the release identifier.
+        # Bind the local tag to observed source bytes without accepting another
+        # mutable caller-controlled release input.
+        version_tag = re.sub(r"[^a-z0-9_.-]", "-", candidate_release.lower())[:100]
+        candidate_image_reference = f"caprmedio-release:{version_tag}-{preflight.canonical_source_snapshot_digest[:16]}"
     request = CandidateBuildRequest.model_validate(
         {
             "candidate_release": candidate_release,
@@ -539,6 +548,7 @@ def build_preflight_validated_candidate(
         project_root,
         request,
         observed_source_frontier_digest=preflight.compiler_frontier_digest,
+        native_installed_n=native_installed_n,
     )
     if candidate.manifest.canonical_source_snapshot_digest != preflight.canonical_source_snapshot_digest:
         raise _error("release-currentness-stale", "preflight source snapshot changed before candidate sealing")
