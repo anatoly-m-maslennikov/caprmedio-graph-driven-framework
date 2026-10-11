@@ -12,6 +12,7 @@ sys.path.insert(0, str(TOOLS))
 from subject_notation import (  # noqa: E402
     SubjectNotationError,
     get_profile,
+    parse_initial_atom_selector,
     parse_subject,
     profile_evidence,
 )
@@ -24,6 +25,10 @@ class SubjectNotationTest(unittest.TestCase):
             [("Atom.Content", None), ("Carrier", "/"), ("Delivery.Policy", ":")],
         )
         self.assertEqual(parse_subject("Atom..Content"), [("Atom..Content", None)])
+        self.assertEqual(
+            parse_subject('Atom"Quoted"/Carrier'),
+            [('Atom"Quoted"', None), ("Carrier", "/")],
+        )
 
     def test_approved_mixed_operators_remain_distinct(self) -> None:
         self.assertEqual(
@@ -39,6 +44,40 @@ class SubjectNotationTest(unittest.TestCase):
         self.assertEqual(approved.separators, ("/", ".", ":"))
         self.assertEqual(approved.bearer_separator, ".")
 
+    def test_approved_initial_atom_selector_preserves_literal_and_owner_term(self) -> None:
+        literal = 'atom( content_role = "Plan/Type: Blue.Green" , type = "Plan" )'
+        self.assertEqual(
+            parse_subject(f"{literal}.Status", subject_profile="approved"),
+            [(literal, None), ("Status", ".")],
+        )
+        selector = parse_initial_atom_selector(literal, subject_profile="approved")
+        self.assertIsNotNone(selector)
+        assert selector is not None
+        self.assertEqual(literal, selector.literal)
+        self.assertEqual(
+            {"content_role": "Plan/Type: Blue.Green", "type": "Plan"},
+            dict(selector.selector),
+        )
+        self.assertEqual("Atom", selector.entity_type_term)
+        with self.assertRaises(TypeError):
+            selector.selector["type"] = "Other"  # type: ignore[index]
+        self.assertIsNone(parse_initial_atom_selector("Atom", subject_profile="approved"))
+
+    def test_approved_atom_id_selector_is_initial_only_and_does_not_normalize_atom(self) -> None:
+        literal = 'atom(atom_id="CA-O-135")'
+        self.assertEqual(
+            parse_subject(f"{literal}.Status", subject_profile="approved"),
+            [(literal, None), ("Status", ".")],
+        )
+        self.assertEqual(
+            {"atom_id": "CA-O-135"},
+            dict(parse_initial_atom_selector(literal, subject_profile="approved").selector),  # type: ignore[union-attr]
+        )
+        self.assertEqual(
+            [("Atom", None), ("Status", ".")],
+            parse_subject("Atom.Status", subject_profile="approved"),
+        )
+
     def test_profiles_and_pins_are_immutable(self) -> None:
         legacy = get_profile()
         self.assertEqual(legacy.name, "legacy")
@@ -53,6 +92,17 @@ class SubjectNotationTest(unittest.TestCase):
             legacy.name = "approved"  # type: ignore[misc]
         with self.assertRaises(FrozenInstanceError):
             legacy.grammar_pins[0].version = 0  # type: ignore[misc]
+
+        self.assertEqual(
+            [
+                ("CA-R-1931", 1, "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8"),
+                ("CA-R-1321", 14, "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df"),
+                ("CA-R-1324", 12, "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3"),
+                ("CA-M-228", 16, "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d"),
+                ("CA-E-383", 15, "6baca162365f248e08fc8d8a29b27e350149ff478290553b3cd6ee0441b4a6a6"),
+            ],
+            [(pin.atom_id, pin.version, pin.sha256) for pin in get_profile("approved").grammar_pins],
+        )
 
     def test_evidence_is_exactly_scoped_and_fresh(self) -> None:
         first = profile_evidence("approved")
@@ -90,6 +140,51 @@ class SubjectNotationTest(unittest.TestCase):
                 with self.subTest(profile=profile, value=value), self.assertRaises(SubjectNotationError) as context:
                     parse_subject(value, subject_profile=profile)
                 self.assertEqual(context.exception.code, "subject-form-unsupported")
+
+    def test_selector_forms_are_approved_only_and_reject_invalid_syntax(self) -> None:
+        accepted = (
+            'atom(atom_id="CA-O-135").Status',
+            'atom(content_role="Plan").Status',
+            'atom(content_role = "Plan" , type = "Plan" ).Status',
+        )
+        for value in accepted:
+            with self.subTest(value=value):
+                self.assertEqual("atom", parse_subject(value, subject_profile="approved")[0][0][:4])
+                with self.assertRaises(SubjectNotationError) as legacy:
+                    parse_subject(value, subject_profile="legacy")
+                self.assertEqual("subject-form-unsupported", legacy.exception.code)
+
+        rejected = (
+            "atom",
+            'Atom(content_role="Plan").Status',
+            'ATOM(atom_id="CA-O-135").Status',
+            'atom().Status',
+            'atom(type="Plan").Status',
+            'atom(type="Plan",content_role="Plan").Status',
+            'atom(atom_id="CA-O-135",content_role="Plan").Status',
+            'atom(content_role="Plan",atom_id="CA-O-135").Status',
+            'atom(content_role="Plan",type="Plan",type="Other").Status',
+            'atom(content_role="Plan",unknown="Other").Status',
+            'atom("Plan").Status',
+            'atom(content_role="").Status',
+            'atom(content_role="   ").Status',
+            'atom(content_role="Plan\\Role").Status',
+            'atom(content_role="Plan*").Status',
+            'atom(content_role="Plan").atom(atom_id="CA-O-135")',
+        )
+        for value in rejected:
+            with self.subTest(value=value), self.assertRaises(SubjectNotationError):
+                parse_subject(value, subject_profile="approved")
+
+        for value in (
+            'atom(content_role="Plan*")',
+            'atom(content_role="Plan@Current")',
+            'atom(content_role="Plan\\Role")',
+            'atom(content_role="$PLAN")',
+            'atom(content_role="Plan\u0001")',
+        ):
+            with self.subTest(helper_value=value), self.assertRaises(SubjectNotationError):
+                parse_initial_atom_selector(value, subject_profile="approved")
 
 
 if __name__ == "__main__":

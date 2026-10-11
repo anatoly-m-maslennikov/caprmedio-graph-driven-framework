@@ -317,12 +317,61 @@ def scalar_value(raw: str) -> str:
     return value
 
 
-def yaml_scalar_or_list(raw: str, *, path: str, field: str) -> list[str]:
+def _approved_subject_yaml(raw: str, *, path: str, field: str) -> str | list[str]:
+    """Decode only YAML text scalars and flow lists for approved Subjects.
+
+    YAML quoting is carrier serialization, not escaping within the decoded
+    Subject grammar.  Keep this reader separate from the frozen legacy reader.
+    """
+
+    import yaml
+
+    try:
+        if any(isinstance(token, (yaml.tokens.AliasToken, yaml.tokens.AnchorToken, yaml.tokens.TagToken))
+               for token in yaml.scan(raw)):
+            raise ValueError("Subject values cannot use YAML aliases, anchors, or tags")
+        node = yaml.compose(raw, Loader=yaml.SafeLoader)
+
+        def text_value(value: object) -> str:
+            if (not isinstance(value, yaml.ScalarNode) or value.tag != "tag:yaml.org,2002:str"
+                    or value.style in {"|", ">"} or not value.value.strip()):
+                raise ValueError("Subject values must be non-empty YAML text scalars")
+            return value.value
+
+        if isinstance(node, yaml.SequenceNode) and node.flow_style:
+            return [text_value(item) for item in node.value]
+        return text_value(node)
+    except (yaml.YAMLError, ValueError) as error:
+        raise EntityGraphError(
+            "subjects-yaml-invalid", "Subject value must be a YAML text scalar or flow list of text",
+            path=path, field=field,
+        ) from error
+
+
+def subject_scalar_value(
+    raw: str, *, path: str, field: str, subject_profile: str = "legacy"
+) -> str:
+    """Decode one Subject scalar without changing legacy carrier semantics."""
+
+    if subject_profile != "approved":
+        return scalar_value(raw)
+    value = _approved_subject_yaml(raw, path=path, field=field)
+    if not isinstance(value, str):
+        raise EntityGraphError("subjects-yaml-invalid", "Subject item must be text", path=path, field=field)
+    return value
+
+
+def yaml_scalar_or_list(
+    raw: str, *, path: str, field: str, subject_profile: str = "legacy"
+) -> list[str]:
     """Read the narrow scalar/inline-list YAML form used by current Subjects."""
 
     value = raw.strip()
     if not value:
         return []
+    if subject_profile == "approved":
+        decoded = _approved_subject_yaml(value, path=path, field=field)
+        return [decoded] if isinstance(decoded, str) else decoded
     if not (value.startswith("[") and value.endswith("]")):
         return [scalar_value(value)]
     body = value[1:-1].strip()
@@ -530,7 +579,8 @@ def parse_subject_relations(
                     kind=current_kind,
                 )
             inline_values = yaml_scalar_or_list(
-                kind_match.group(2) or "", path=carrier.carrier_path, field=current_kind
+                kind_match.group(2) or "", path=carrier.carrier_path, field=current_kind,
+                subject_profile=subject_profile,
             )
             for subject_path in inline_values:
                 append(current_kind, subject_path, "CURRENT", current_kind)
@@ -548,7 +598,8 @@ def parse_subject_relations(
             if candidate_form in TEMPORAL_FORMS:
                 current_form = candidate_form
                 for subject_path in yaml_scalar_or_list(
-                    form_match.group(2) or "", path=carrier.carrier_path, field=candidate_form
+                    form_match.group(2) or "", path=carrier.carrier_path, field=candidate_form,
+                    subject_profile=subject_profile,
                 ):
                     append(current_kind, subject_path, TEMPORAL_FORMS[candidate_form], current_kind)
                 continue
@@ -567,7 +618,10 @@ def parse_subject_relations(
                     path=carrier.carrier_path,
                     line=line,
                 )
-            append(current_kind, scalar_value(current_item_match.group(1)), "CURRENT", current_kind)
+            append(current_kind, subject_scalar_value(
+                current_item_match.group(1), path=carrier.carrier_path, field=current_kind,
+                subject_profile=subject_profile,
+            ), "CURRENT", current_kind)
             continue
         item_match = re.fullmatch(r"      -\s*(.+?)\s*", line)
         if not item_match:
@@ -586,7 +640,10 @@ def parse_subject_relations(
                 path=carrier.carrier_path,
                 line=line,
             )
-        append(current_kind, scalar_value(item_match.group(1)), TEMPORAL_FORMS[current_form], current_kind)
+        append(current_kind, subject_scalar_value(
+            item_match.group(1), path=carrier.carrier_path, field=current_kind,
+            subject_profile=subject_profile,
+        ), TEMPORAL_FORMS[current_form], current_kind)
     if legacy_keys:
         diagnostics.append(
             {
@@ -630,8 +687,12 @@ def _subject_parts(
 
 def terminal_term(subject_path: str, *, subject_profile: str = "legacy") -> str:
     """Return the terminal Term named by one complete Subject Expression."""
-
-    return _subject_parts(subject_path, subject_profile=subject_profile)[-1][0]
+    parts = _subject_parts(subject_path, subject_profile=subject_profile)
+    if subject_profile == "approved" and len(parts) == 1:
+        selector = subject_notation.parse_initial_atom_selector(parts[0][0], subject_profile=subject_profile)
+        if selector is not None:
+            return selector.entity_type_term
+    return parts[-1][0]
 
 
 def _subject_prefix(

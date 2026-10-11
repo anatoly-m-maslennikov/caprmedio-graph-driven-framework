@@ -44,35 +44,35 @@ APPROVED_GRAMMAR_PINS = [
     ),
     (
         "CA-R-1321",
-        13,
+        14,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
         "METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/"
         "CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
-        "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+        "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df",
     ),
     (
         "CA-R-1324",
-        11,
+        12,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
         "METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/"
         "CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
-        "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7",
+        "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3",
     ),
     (
         "CA-M-228",
-        15,
+        16,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
         "METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/"
         "CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
-        "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+        "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d",
     ),
     (
         "CA-E-383",
-        14,
+        15,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
         "METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/"
         "CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
-        "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+        "6baca162365f248e08fc8d8a29b27e350149ff478290553b3cd6ee0441b4a6a6",
     ),
 ]
 

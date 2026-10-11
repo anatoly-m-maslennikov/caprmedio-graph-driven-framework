@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import shutil
 import sys
 import tempfile
@@ -26,7 +27,7 @@ TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 
 
 def atom_text(atom_id: str, subject: str, *, depends_on: tuple[str, ...] = ()) -> str:
-    dependencies = "\n".join(f"    - {value!r}" for value in depends_on)
+    dependencies = "\n".join(f"    - {json.dumps(value)}" for value in depends_on)
     dependency_block = "  depends_on: []" if not dependencies else f"  depends_on:\n{dependencies}"
     return "\n".join(
         (
@@ -39,7 +40,7 @@ def atom_text(atom_id: str, subject: str, *, depends_on: tuple[str, ...] = ()) -
             "current_scope_unit: CORE_META_MODEL",
             "claim_target_scope_unit: CORE_META_MODEL",
             "subjects:",
-            f"  governs: {subject!r}",
+            f"  governs: {json.dumps(subject)}",
             dependency_block,
             "---",
             "# Summary",
@@ -70,6 +71,14 @@ class SubjectProfileGraphTests(unittest.TestCase):
         rows, diagnostics = graph.discover_atoms(self.repository, self.selected)
         self.assertEqual([], diagnostics)
         return rows
+
+    def write_subject_block(self, atom_id: str, block: str) -> Path:
+        path = self.selected / f"{atom_id}.md"
+        text = atom_text(atom_id, "Placeholder").replace(
+            'subjects:\n  governs: "Placeholder"\n  depends_on: []', block
+        )
+        path.write_text(text, encoding="utf-8")
+        return path
 
     def copy_current_approved_pins(self) -> None:
         for pin in subject_notation.get_profile("approved").grammar_pins:
@@ -143,6 +152,128 @@ class SubjectProfileGraphTests(unittest.TestCase):
                 for row in default["term_system"]["edges"]
             ],
         )
+
+    def test_bare_selectors_name_only_existing_atom_term_and_preserve_owner_identities(self) -> None:
+        selectors = (
+            'atom(atom_id="CA-O-135")',
+            'atom(content_role="Plan")',
+            'atom(content_role="Plan",type="Plan")',
+            'atom( content_role = "Owner/Plan.Kind: Value, O\'Brien" , type = "Plan/Kind" )',
+        )
+        for index, selector in enumerate(selectors):
+            with self.subTest(selector=selector):
+                self.assertEqual([(selector, None)], graph._subject_parts(selector, subject_profile="approved"))
+                self.assertEqual("Atom", graph.terminal_term(selector, subject_profile="approved"))
+                self.assertEqual("Status", graph.terminal_term(selector + ".Status", subject_profile="approved"))
+            self.write(f"CA-R-{2080 + index}", selector)
+
+        projection = graph.generate_projection(self.repository, self.selected, subject_profile="approved")
+        self.assertEqual(["Atom"], projection["declared_terms"])
+        self.assertEqual([], projection["term_system"]["edges"])
+        self.assertEqual(sorted(selectors), projection["governed_subjects"])
+        self.assertEqual(sorted(selectors), sorted(row["subject_path"] for row in projection["claim_subject_relations"]))
+        roots = projection["sets"]["declared_term_tree"]
+        self.assertEqual(sorted(selectors), [node["subject_path"] for node in roots])
+        self.assertTrue(all(node["declared_term"] == "Atom" for node in roots))
+
+    def test_selected_owner_edges_tree_and_incidence_do_not_flatten_patterns(self) -> None:
+        owners = ('atom(atom_id="CA-O-135")', 'atom(content_role="Plan")', 'atom(content_role="Plan",type="Plan")')
+        for index, owner in enumerate(owners):
+            self.write(f"CA-R-{2090 + index}", owner + ".Status: Active", depends_on=(owner,))
+        projection = graph.generate_projection(self.repository, self.selected, subject_profile="approved")
+        self.assertEqual(["Active"], projection["declared_terms"])
+        edges = projection["term_system"]["edges"]
+        self.assertEqual(6, len(edges))
+        for owner in owners:
+            bearer = next(row for row in edges if row["source_subject"] == owner + ".Status")
+            self.assertEqual(("IS_BORNE_BY", "Status", owner, "Atom"),
+                             (bearer["relation"], bearer["source_term"], bearer["target_subject"], bearer["target_term"]))
+            self.assertEqual(owner + ".Status: Active", bearer["evidence"][0]["subject_path"])
+            value = next(row for row in edges if row["source_subject"] == owner + ".Status: Active")
+            self.assertEqual(("IS_ALLOWED_VALUE_OF", owner + ".Status", "Status"),
+                             (value["relation"], value["target_subject"], value["target_term"]))
+        self.assertEqual(sorted(owners), [node["subject_path"] for node in projection["sets"]["declared_term_tree"]])
+        self.assertEqual({owner + ".Status: Active" for owner in owners},
+                         {row["subject_path"] for row in projection["claim_subject_relations"] if row["kind"] == "GOVERNS"})
+        self.assertFalse(any(row["relation"] == "NARROWER_THAN" for row in edges))
+
+    def test_selector_first_separator_retains_slash_dot_and_colon_semantics(self) -> None:
+        owner = 'atom(content_role="Plan",type="Plan")'
+        for separator, dependent in (("/", "Child"), (".", "Status"), (":", "Plan")):
+            with self.subTest(separator=separator):
+                subject = owner + separator + (" " if separator == ":" else "") + dependent
+                self.assertEqual([(owner, None), (dependent, separator)], graph._subject_parts(subject, subject_profile="approved"))
+                self.write("CA-R-2100", subject)
+                projection = graph.generate_projection(self.repository, self.selected, subject_profile="approved")
+                edges = projection["term_system"]["edges"]
+                if separator == "/":
+                    self.assertEqual([], edges)
+                    self.assertIsNone(projection["sets"]["declared_term_tree"][0]["children"][0]["relation_from_parent"])
+                else:
+                    self.assertEqual(1, len(edges))
+                    self.assertEqual(owner, edges[0]["target_subject"])
+                    self.assertEqual("Atom", edges[0]["target_term"])
+                    self.assertEqual("IS_BORNE_BY" if separator == "." else "IS_ALLOWED_VALUE_OF", edges[0]["relation"])
+                self.assertEqual(subject, graph.parse_subject_relations(self.carriers()[0], subject_profile="approved")[0][0].subject_path)
+
+    def test_approved_yaml_quotes_flow_and_block_lists_preserve_decoded_selectors_and_source_spans(self) -> None:
+        self.copy_current_approved_pins()
+        owner = 'atom( content_role = "Owner/Plan.Kind: Value, O\'Brien" , type = "Plan" )'
+        governs = owner + ".Status: Active"
+        dependencies = ('atom(atom_id="CA-O-135").Status', 'atom(content_role="Plan",type="Plan")/Child')
+        for quotes in ("double", "single"):
+            quote = json.dumps if quotes == "double" else lambda value: "'" + value.replace("'", "''") + "'"
+            for collection in ("flow", "block"):
+                with self.subTest(quotes=quotes, collection=collection):
+                    dependency_yaml = "[" + ", ".join(quote(value) for value in dependencies) + "]" if collection == "flow" else "\n" + "\n".join("    - " + quote(value) for value in dependencies)
+                    self.write_subject_block("CA-R-2101", "subjects:\n  governs: " + quote(governs) + "\n  depends_on: " + dependency_yaml)
+                    carriers = self.carriers()
+                    rows, diagnostics = graph.parse_subject_relations(carriers[0], subject_profile="approved")
+                    self.assertEqual([], diagnostics)
+                    self.assertEqual({governs, *dependencies}, {row.subject_path for row in rows})
+                    result = sources.collect_subject_model_sources(self.repository, carriers, subject_profile="approved").as_dict()
+                    self.assertEqual("complete", result["coverage"]["disposition"])
+                    self.assertEqual([], result["diagnostics"])
+                    self.assertEqual({governs, *dependencies}, {row["subject_path"] for row in result["occurrences"]})
+                    raw = (self.repository / carriers[0].carrier_path).read_bytes()
+                    for row in result["occurrences"]:
+                        ref = row["source_ref"]["contribution"]
+                        span = b"".join(raw.splitlines(keepends=True)[ref["start_line"] - 1:ref["end_line"]])
+                        self.assertEqual(hashlib.sha256(span).hexdigest(), ref["text_sha256"])
+                        self.assertIn(quote(row["subject_path"]).encode(), span)
+
+    def test_approved_yaml_requires_text_and_rejects_malformed_selectors_without_legacy_drift(self) -> None:
+        self.copy_current_approved_pins()
+        for encoded in ("true", "12", "null", "{owner: Atom}", '"unterminated', "&owner Atom", "!!str Atom", '["Atom", 12]'):
+            with self.subTest(encoded=encoded):
+                self.write_subject_block("CA-R-2102", "subjects:\n  governs: Atom\n  depends_on: " + encoded)
+                with self.assertRaises(graph.EntityGraphError) as failure:
+                    graph.parse_subject_relations(self.carriers()[0], subject_profile="approved")
+                self.assertEqual("subjects-yaml-invalid", failure.exception.code)
+                result = sources.collect_subject_model_sources(
+                    self.repository, self.carriers(), subject_profile="approved"
+                ).as_dict()
+                self.assertEqual("incomplete", result["coverage"]["disposition"])
+                self.assertEqual([], result["occurrences"])
+        for malformed in (
+            'atom(type="Plan").Status',
+            'atom(atom_id="CA-O-135",content_role="Plan").Status',
+            'Atom(content_role="Plan").Status',
+            'Artifact/atom(atom_id="CA-O-135")',
+            'atom(content_role="Plan").Status@current',
+            'atom(content_role="Plan")/',
+        ):
+            with self.subTest(malformed=malformed):
+                with self.assertRaises(graph.EntityGraphError):
+                    graph._subject_parts(malformed, subject_profile="approved")
+        for ordinary in ("atom", 'Ordinary "quoted" Term', "Core.Atom"):
+            self.assertEqual(ordinary, graph.terminal_term(ordinary))
+            self.assertEqual([(ordinary, None)], graph._subject_parts(ordinary))
+        self.assertEqual('a\\"b', graph.scalar_value('"a\\"b"'))
+        with self.assertRaises(graph.EntityGraphError):
+            graph.terminal_term("atom", subject_profile="approved")
+        with self.assertRaises(graph.EntityGraphError):
+            graph.terminal_term('atom(content_role="Plan").Status')
 
     def test_profile_failures_and_at_rejection_keep_graph_error_codes(self) -> None:
         with self.assertRaises(graph.EntityGraphError) as unknown:

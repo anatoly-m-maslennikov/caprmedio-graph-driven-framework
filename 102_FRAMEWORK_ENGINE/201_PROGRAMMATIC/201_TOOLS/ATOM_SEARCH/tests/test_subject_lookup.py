@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 import tempfile
 import unittest
@@ -42,18 +43,18 @@ APPROVED_PROFILE_EVIDENCE = {
         {"atom_id": "CA-R-1931", "version": 1,
          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
          "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8"},
-        {"atom_id": "CA-R-1321", "version": 13,
+        {"atom_id": "CA-R-1321", "version": 14,
          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
-         "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f"},
-        {"atom_id": "CA-R-1324", "version": 11,
+         "sha256": "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df"},
+        {"atom_id": "CA-R-1324", "version": 12,
          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
-         "sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7"},
-        {"atom_id": "CA-M-228", "version": 15,
+         "sha256": "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3"},
+        {"atom_id": "CA-M-228", "version": 16,
          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
-         "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70"},
-        {"atom_id": "CA-E-383", "version": 14,
+         "sha256": "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d"},
+        {"atom_id": "CA-E-383", "version": 15,
          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
-         "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143"},
+         "sha256": "6baca162365f248e08fc8d8a29b27e350149ff478290553b3cd6ee0441b4a6a6"},
     ],
     "native_admission": "not_performed",
 }
@@ -82,9 +83,9 @@ class SubjectLookupTest(unittest.TestCase):
                role: str = "Requirement", status: str = "Active") -> Path:
         path = (directory or self.role) / f"{atom_id}-CORE-REQUIREMENT--fixture.md"
         path.parent.mkdir(parents=True, exist_ok=True)
-        dependencies = "\n".join(f"    - {value}" for value in depends)
+        dependencies = "\n".join(f"    - {json.dumps(value)}" for value in depends)
         path.write_text(
-            f"---\natom_id: {atom_id}\nversion: 1\nstatus: {status}\ncontent_role: {role}\ncurrent_scope_unit: CORE\nupdated_at: now\nsubjects:\n  governs: {governs}\n"
+            f"---\natom_id: {atom_id}\nversion: 1\nstatus: {status}\ncontent_role: {role}\ncurrent_scope_unit: CORE\nupdated_at: now\nsubjects:\n  governs: {json.dumps(governs)}\n"
             + (f"  depends_on:\n{dependencies}\n" if dependencies else "") + "---\nCore/Atom in body only\n",
             encoding="utf-8",
         )
@@ -120,6 +121,69 @@ class SubjectLookupTest(unittest.TestCase):
         self.assertEqual(approved["occurrences"][0]["value"], "Core.Atom.child")
         self.assertEqual(approved["subject_profile"], "approved")
         self.assertEqual(approved["subject_profile_evidence"], APPROVED_PROFILE_EVIDENCE)
+
+    def test_approved_selectors_are_case_sensitive_literal_subject_components(self) -> None:
+        """Selectors qualify text syntax; they do not select fixture Atom rows."""
+
+        named_status = 'atom(content_role="Plan").Status'
+        quoted_status = 'atom(content_role="Plan/Type: Exact").Status'
+        self._write("CA-R-3", f"{named_status}: Accepted", [])
+        self._write("CA-R-4", f"{quoted_status}: Active", [])
+        self._write("CA-R-5", 'atom(content_role="plan").Status: Rejected', [])
+        self._write("CA-R-6", "Atom.Status", [])
+
+        named = run_subject_search(
+            self.root,
+            self._args(subject=named_status, subject_match="prefix", subject_profile="approved"),
+        )
+        self.assertEqual(
+            [("CA-R-3", "governs", None, f"{named_status}: Accepted")],
+            [(row["atom_id"], row["field"], row["index"], row["value"])
+             for row in named["occurrences"]],
+        )
+        # The slash and colon inside the quoted selector value are one literal
+        # selector token, not prefix boundaries.
+        quoted = run_subject_search(
+            self.root,
+            self._args(subject=quoted_status, subject_match="prefix", subject_profile="approved"),
+        )
+        self.assertEqual(
+            [("CA-R-4", "governs", None, f"{quoted_status}: Active")],
+            [(row["atom_id"], row["field"], row["index"], row["value"])
+             for row in quoted["occurrences"]],
+        )
+        # ``Atom`` remains a literal ordinary component and is never the
+        # lowercase selector keyword by case-folding or aliasing.
+        ordinary = run_subject_search(
+            self.root,
+            self._args(subject="Atom.Status", subject_match="exact", subject_profile="approved"),
+        )
+        self.assertEqual(
+            [("CA-R-6", "governs", None, "Atom.Status")],
+            [(row["atom_id"], row["field"], row["index"], row["value"])
+             for row in ordinary["occurrences"]],
+        )
+
+    def test_legacy_and_malformed_selector_queries_fail_before_source_search(self) -> None:
+        with self.assertRaises(ToolError):
+            run_subject_search(
+                self.root,
+                self._args(
+                    subject='atom(content_role="Plan").Status',
+                    subject_profile="legacy",
+                ),
+            )
+        for subject in (
+            'atom(type="Plan").Status',
+            'atom(type="Plan",content_role="Plan").Status',
+            'atom(content_role=Plan).Status',
+            'atom(content_role="Plan",type="Plan",type="Plan").Status',
+        ):
+            with self.subTest(subject=subject), self.assertRaises(ToolError):
+                run_subject_search(
+                    self.root,
+                    self._args(subject=subject, subject_profile="approved"),
+                )
 
     def test_profile_and_subject_syntax_fail_before_search_and_sources_are_diagnostic(self) -> None:
         with self.assertRaises(ToolError) as context:
@@ -174,7 +238,10 @@ class SubjectLookupTest(unittest.TestCase):
         analysis = self._write("CA-A-9", "Core/Atom", [], role="Analysis")
         result = run_subject_search(self.root, self._args(content_role=["Analysis"]))
         self.assertEqual(result["count"], 1)
-        analysis.write_text(analysis.read_text(encoding="utf-8").replace("  governs: Core/Atom\n", ""), encoding="utf-8")
+        original = analysis.read_text(encoding="utf-8")
+        governs_line = '  governs: "Core/Atom"\n'
+        self.assertIn(governs_line, original)
+        analysis.write_text(original.replace(governs_line, "", 1), encoding="utf-8")
         invalid = run_subject_search(self.root, self._args(subject_field="depends_on"))
         self.assertIn("subject-invalid", {item["code"] for item in invalid["diagnostics"]})
 

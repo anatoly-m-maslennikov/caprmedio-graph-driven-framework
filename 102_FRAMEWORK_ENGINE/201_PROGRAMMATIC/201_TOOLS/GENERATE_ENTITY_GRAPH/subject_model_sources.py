@@ -49,27 +49,27 @@ _APPROVED_CORE_GRAMMAR_PINS = (
     },
     {
         "atom_id": "CA-R-1321",
-        "version": 13,
+        "version": 14,
         "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
-        "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+        "sha256": "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df",
     },
     {
         "atom_id": "CA-R-1324",
-        "version": 11,
+        "version": 12,
         "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
-        "sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7",
+        "sha256": "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3",
     },
     {
         "atom_id": "CA-M-228",
-        "version": 15,
+        "version": 16,
         "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
-        "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+        "sha256": "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d",
     },
     {
         "atom_id": "CA-E-383",
-        "version": 14,
+        "version": 15,
         "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
-        "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+        "sha256": "6baca162365f248e08fc8d8a29b27e350149ff478290553b3cd6ee0441b4a6a6",
     },
 )
 
@@ -193,6 +193,12 @@ class SubjectModelSources:
 
 
 def _scalar_path(value: str, *, subject_profile: str = "legacy") -> str:
+    if subject_profile == "approved":
+        try:
+            path = graph.subject_scalar_value(value, path="", field="subjects", subject_profile=subject_profile)
+        except graph.EntityGraphError as error:
+            raise _UnsupportedForm("subject-scalar-unsupported") from error
+        return _checked_subject_path(path, subject_profile=subject_profile)
     raw = value.strip()
     if not raw or raw[0] in "[{*&!|>" or raw[-1:] in {"[", "{"}:
         raise _UnsupportedForm("subject-scalar-unsupported")
@@ -202,7 +208,10 @@ def _scalar_path(value: str, *, subject_profile: str = "legacy") -> str:
         raise _UnsupportedForm("subject-scalar-unsupported")
     if raw[0] not in "\"'" and any(char in raw for char in "[]{}"):
         raise _UnsupportedForm("subject-scalar-unsupported")
-    path = graph.scalar_value(raw)
+    return _checked_subject_path(graph.scalar_value(raw), subject_profile=subject_profile)
+
+
+def _checked_subject_path(path: str, *, subject_profile: str) -> str:
     try:
         graph._subject_parts(path, subject_profile=subject_profile)
     except graph.EntityGraphError as error:
@@ -215,6 +224,12 @@ def _inline_paths(value: str, *, subject_profile: str = "legacy") -> list[str]:
     raw = value.strip()
     if not (raw.startswith("[") and raw.endswith("]")):
         raise _UnsupportedForm("subject-dependencies-not-collection")
+    if subject_profile == "approved":
+        try:
+            decoded = graph.yaml_scalar_or_list(raw, path="", field="depends_on", subject_profile=subject_profile)
+        except graph.EntityGraphError as error:
+            raise _UnsupportedForm("subject-scalar-unsupported") from error
+        return [_checked_subject_path(item, subject_profile=subject_profile) for item in decoded]
     body = raw[1:-1].strip()
     if not body:
         return []

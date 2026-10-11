@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import hashlib
 import sys
 import tempfile
@@ -163,6 +164,67 @@ class SubjectPatchPreviewTests(unittest.TestCase):
                 subject_patch.preview_subject_patches(self.root, payload, subject_profile="approved")
         self.assertEqual(context.exception.code, self._notation_code("Atom@Status", "approved"))
         validate.assert_not_called()
+
+    def test_approved_selector_patches_are_literal_and_seal_current_profile_evidence(self) -> None:
+        """Selectors are syntax only; quoted separators stay inside one token."""
+
+        old = 'atom(content_role="Plan/Type: Exact",type="Plan").Status'
+        new = 'atom(atom_id="CA-R-501").Status: Accepted'
+        self.path.write_bytes(
+            self.path.read_bytes().replace(b'governs: "Atom/Status"', f"governs: {old!r}".encode("utf-8"))
+        )
+        before = self.path.read_bytes()
+        payload = self._payload([{"field": "governs", "old": old, "new": new}])
+        preview = self._preview(payload, subject_profile="approved")
+
+        self.assertEqual(before, self.path.read_bytes())
+        change = preview["atoms"][0]
+        self.assertEqual(old, change["patches"][0]["old"])
+        self.assertEqual(new, change["patches"][0]["new"])
+        self.assertIn("The exact body mentions Atom/Status and must not be changed.", change["proposed_carrier"])
+        self.assertEqual(
+            [("CA-R-1931", 1), ("CA-R-1321", 14), ("CA-R-1324", 12),
+             ("CA-M-228", 16), ("CA-E-383", 15)],
+            [(pin["atom_id"], pin["version"])
+             for pin in preview["subject_profile_evidence"]["grammar_pins"]],
+        )
+        unsigned = copy.deepcopy(preview)
+        supplied = unsigned.pop("preview_sha256")
+        self.assertEqual(supplied, hashlib.sha256(operations.canonical_json(unsigned).encode("utf-8")).hexdigest())
+        unsigned["subject_profile_evidence"]["grammar_pins"][1]["version"] = 13
+        self.assertNotEqual(supplied, hashlib.sha256(operations.canonical_json(unsigned).encode("utf-8")).hexdigest())
+
+        stale = copy.deepcopy(payload)
+        stale[0]["expected"]["sha256"] = "0" * 64
+        with patch.object(operations, "_validate_complete_carrier") as validate:
+            with self.assertRaises(operations.ToolError) as context:
+                subject_patch.preview_subject_patches(
+                    self.root, stale, timestamp="2026-10-11 10:20:30 +0400", subject_profile="approved"
+                )
+        self.assertEqual("subject-pin-stale", context.exception.code)
+        validate.assert_not_called()
+
+    def test_approved_profile_rejects_legacy_or_malformed_selectors(self) -> None:
+        selector = 'atom(content_role="Plan").Status'
+        payload = self._payload([{"field": "governs", "old": "Atom/Status", "new": selector}])
+        with patch.object(operations, "_validate_complete_carrier") as validate:
+            with self.assertRaises(operations.ToolError):
+                subject_patch.preview_subject_patches(
+                    self.root, payload, timestamp="2026-10-11 10:20:30 +0400", subject_profile="legacy"
+                )
+        validate.assert_not_called()
+        for malformed in (
+            'atom(type="Plan").Status',
+            'atom(content_role=Plan).Status',
+            'atom(type="Plan",content_role="Plan").Status',
+        ):
+            with self.subTest(malformed=malformed), patch.object(operations, "_validate_complete_carrier") as validate:
+                bad = self._payload([{"field": "governs", "old": "Atom/Status", "new": malformed}])
+                with self.assertRaises(operations.ToolError):
+                    subject_patch.preview_subject_patches(
+                        self.root, bad, timestamp="2026-10-11 10:20:30 +0400", subject_profile="approved"
+                    )
+                validate.assert_not_called()
 
     def test_unknown_or_malformed_profile_fails_before_source_validation(self) -> None:
         for supplied in ("unknown", None):

@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from types import MappingProxyType
+from typing import Mapping
 
 
 @dataclass(frozen=True)
@@ -30,6 +31,15 @@ class SubjectProfile:
     separators: tuple[str, ...]
     bearer_separator: str
     grammar_pins: tuple[GrammarPin, ...]
+
+
+@dataclass(frozen=True)
+class InitialAtomSelector:
+    """The syntax-only initial ``atom(...)`` component of an approved Subject."""
+
+    literal: str
+    selector: Mapping[str, str]
+    entity_type_term: str = "Atom"
 
 
 class SubjectNotationError(ValueError):
@@ -82,27 +92,27 @@ _APPROVED_PINS = (
     ),
     GrammarPin(
         "CA-R-1321",
-        13,
+        14,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
-        "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+        "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df",
     ),
     GrammarPin(
         "CA-R-1324",
-        11,
+        12,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
-        "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7",
+        "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3",
     ),
     GrammarPin(
         "CA-M-228",
-        15,
+        16,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
-        "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+        "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d",
     ),
     GrammarPin(
         "CA-E-383",
-        14,
+        15,
         ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
-        "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+        "6baca162365f248e08fc8d8a29b27e350149ff478290553b3cd6ee0441b4a6a6",
     ),
 )
 
@@ -123,7 +133,12 @@ _PROFILES = MappingProxyType(
     }
 )
 
-_UNSUPPORTED_EXPRESSION_MARKERS = frozenset("\\[]{}(),&|?*")
+_UNSUPPORTED_EXPRESSION_MARKERS = frozenset("\\[]{}&|?*")
+_NON_SELECTOR_COMPONENT_MARKERS = frozenset('(),"')
+_LEGACY_UNSUPPORTED_COMPONENT_MARKERS = frozenset("(),")
+_UNSUPPORTED_SELECTOR_LITERAL_MARKERS = frozenset("\\[]{}&|?*@$")
+_SELECTOR_KEYWORD = "atom"
+_SELECTOR_ENTITY_TYPE_TERM = "Atom"
 
 
 def get_profile(name: str = "legacy") -> SubjectProfile:
@@ -137,13 +152,59 @@ def get_profile(name: str = "legacy") -> SubjectProfile:
         raise SubjectNotationError("profile-unknown", f"unknown subject profile: {name}") from error
 
 
+def parse_initial_atom_selector(
+    component: str,
+    *,
+    subject_profile: str = "legacy",
+) -> InitialAtomSelector | None:
+    """Return one exact approved initial selector without resolving any Atom.
+
+    The result preserves its complete selector literal and exposes the selected
+    owner's existing Entity-type Term, ``Atom``.  It performs syntax validation
+    only; callers must not treat it as a Term, a new Entity kind, or native
+    endpoint admission.
+    """
+
+    profile = get_profile(subject_profile)
+    if not isinstance(component, str):
+        raise SubjectNotationError("subject-invalid", "Subject component must be text")
+    literal = component.strip()
+    if "@" in literal:
+        raise SubjectNotationError("subject-at-unsupported", "@ is not a Subject notation operator")
+    if profile.name != "approved":
+        if _looks_like_selector(literal) or literal == _SELECTOR_KEYWORD:
+            raise SubjectNotationError(
+                "subject-form-unsupported",
+                "Subject selectors are unsupported in the legacy profile",
+            )
+        return None
+    if literal == _SELECTOR_KEYWORD:
+        raise SubjectNotationError("subject-selector-invalid", "bare atom is not a Subject selector")
+    if literal.startswith(f"{_SELECTOR_KEYWORD}("):
+        selector, end = _parse_selector_literal(literal)
+        if end != len(literal):
+            raise SubjectNotationError("subject-selector-invalid", "selector must be one complete component")
+        return InitialAtomSelector(
+            literal=literal,
+            selector=MappingProxyType(selector),
+            entity_type_term=_SELECTOR_ENTITY_TYPE_TERM,
+        )
+    if _looks_like_selector(literal):
+        raise SubjectNotationError(
+            "subject-selector-invalid",
+            "Subject selector keyword must be exact lowercase atom",
+        )
+    return None
+
+
 def parse_subject(value: str, *, subject_profile: str = "legacy") -> list[tuple[str, str | None]]:
     """Parse a Subject string into component and preceding-separator tuples.
 
     Components are whitespace-normalized at their boundaries only.  Internal
-    whitespace remains literal.  The parser deliberately accepts no grammar
-    beyond separators: it does not determine whether a component is an Atom,
-    Property, allowed value, or admitted native endpoint.
+    whitespace remains literal.  In the approved profile alone, the initial
+    component can be one exact lowercase ``atom(...)`` selector.  The parser
+    deliberately does not resolve that selector, determine a Subject target,
+    or admit a native endpoint.
     """
 
     profile = get_profile(subject_profile)
@@ -161,25 +222,157 @@ def parse_subject(value: str, *, subject_profile: str = "legacy") -> list[tuple[
     if not value:
         raise SubjectNotationError("subject-empty", "subject must contain one non-empty component")
 
+    if profile.name == "legacy":
+        if any(marker in value for marker in _LEGACY_UNSUPPORTED_COMPONENT_MARKERS):
+            raise SubjectNotationError(
+                "subject-form-unsupported",
+                "Subject selectors, conjunctions, wildcards, and escapes are unsupported",
+            )
+        return _split_subject_components(value, profile)
+
+    selector, position = _initial_selector_prefix(value)
+    if selector is None:
+        if _looks_like_selector(value):
+            raise SubjectNotationError(
+                "subject-selector-invalid",
+                "Subject selector keyword must be exact lowercase atom",
+            )
+        return _split_subject_components(value, profile)
+
+    parsed: list[tuple[str, str | None]] = [(selector.literal, None)]
+    if position == len(value):
+        return parsed
+    separator = value[position]
+    if separator not in profile.separators:
+        raise SubjectNotationError("subject-selector-invalid", "selector must be followed by a Subject separator")
+    parsed.extend(_split_subject_components(value[position + 1 :], profile, preceding_separator=separator))
+    return parsed
+
+
+def _split_subject_components(
+    value: str,
+    profile: SubjectProfile,
+    *,
+    preceding_separator: str | None = None,
+) -> list[tuple[str, str | None]]:
+    """Split ordinary Subject components after selector handling, if any."""
+
     parsed: list[tuple[str, str | None]] = []
     component: list[str] = []
-    preceding_separator: str | None = None
     for character in value:
         if character not in profile.separators:
             component.append(character)
             continue
-        text = "".join(component).strip()
-        if not text:
-            raise SubjectNotationError("subject-malformed", "Subject separators require non-empty components")
-        parsed.append((text, preceding_separator))
+        parsed.append((_ordinary_component(component, profile), preceding_separator))
         component.clear()
         preceding_separator = character
 
+    parsed.append((_ordinary_component(component, profile), preceding_separator))
+    return parsed
+
+
+def _ordinary_component(component: list[str], profile: SubjectProfile) -> str:
     text = "".join(component).strip()
     if not text:
         raise SubjectNotationError("subject-malformed", "Subject separators require non-empty components")
-    parsed.append((text, preceding_separator))
-    return parsed
+    if profile.name == "approved" and (_looks_like_selector(text) or text == _SELECTOR_KEYWORD):
+        raise SubjectNotationError("subject-selector-position", "atom selector may occur only as the initial component")
+    if profile.name == "approved" and any(marker in text for marker in _NON_SELECTOR_COMPONENT_MARKERS):
+        raise SubjectNotationError("subject-form-unsupported", "selector punctuation is unsupported outside atom(...)")
+    return text
+
+
+def _initial_selector_prefix(value: str) -> tuple[InitialAtomSelector | None, int]:
+    """Parse an approved selector at byte zero and return its separator index."""
+
+    if value == _SELECTOR_KEYWORD:
+        raise SubjectNotationError("subject-selector-invalid", "bare atom is not a Subject selector")
+    if not value.startswith(f"{_SELECTOR_KEYWORD}("):
+        return None, 0
+    selector, end = _parse_selector_literal(value)
+    literal = value[:end]
+    position = end
+    while position < len(value) and value[position].isspace():
+        position += 1
+    if position < len(value) and value[position] not in get_profile("approved").separators:
+        raise SubjectNotationError("subject-selector-invalid", "selector must be followed by a Subject separator")
+    return (
+        InitialAtomSelector(
+            literal=literal,
+            selector=MappingProxyType(selector),
+            entity_type_term=_SELECTOR_ENTITY_TYPE_TERM,
+        ),
+        position,
+    )
+
+
+def _parse_selector_literal(value: str) -> tuple[dict[str, str], int]:
+    """Parse exactly one lowercase selector and return its map plus end index."""
+
+    position = len(_SELECTOR_KEYWORD) + 1
+    selector: dict[str, str] = {}
+    while True:
+        position = _skip_whitespace(value, position)
+        key_start = position
+        while position < len(value) and (value[position].isalnum() or value[position] == "_"):
+            position += 1
+        key = value[key_start:position]
+        if not key:
+            raise SubjectNotationError("subject-selector-invalid", "selector requires a named key")
+        position = _skip_whitespace(value, position)
+        if position >= len(value) or value[position] != "=":
+            raise SubjectNotationError("subject-selector-invalid", "selector key requires one quoted value")
+        position = _skip_whitespace(value, position + 1)
+        if position >= len(value) or value[position] != '"':
+            raise SubjectNotationError("subject-selector-invalid", "selector values must be double-quoted")
+        position += 1
+        literal_start = position
+        while position < len(value) and value[position] != '"':
+            if value[position] == "\\":
+                raise SubjectNotationError("subject-selector-invalid", "selector escaping is unsupported")
+            position += 1
+        if position >= len(value):
+            raise SubjectNotationError("subject-selector-invalid", "selector value is unterminated")
+        literal = value[literal_start:position]
+        if not literal.strip() or any(ord(character) < 32 or ord(character) == 127 for character in literal):
+            raise SubjectNotationError("subject-selector-invalid", "selector values must be non-empty printable literals")
+        if any(marker in literal for marker in _UNSUPPORTED_SELECTOR_LITERAL_MARKERS):
+            raise SubjectNotationError(
+                "subject-selector-invalid",
+                "selector literals do not support escaping, wildcards, or expansion",
+            )
+        if key in selector:
+            raise SubjectNotationError("subject-selector-invalid", "selector keys must not repeat")
+        selector[key] = literal
+        position = _skip_whitespace(value, position + 1)
+        if position >= len(value):
+            raise SubjectNotationError("subject-selector-invalid", "selector is unterminated")
+        if value[position] == ")":
+            position += 1
+            break
+        if value[position] != ",":
+            raise SubjectNotationError("subject-selector-invalid", "selector entries require commas")
+        position += 1
+
+    keys = tuple(selector)
+    if keys == ("atom_id",) or keys == ("content_role",) or keys == ("content_role", "type"):
+        return selector, position
+    raise SubjectNotationError(
+        "subject-selector-invalid",
+        "selector must use atom_id or content_role followed by optional type",
+    )
+
+
+def _skip_whitespace(value: str, position: int) -> int:
+    while position < len(value) and value[position].isspace():
+        position += 1
+    return position
+
+
+def _looks_like_selector(value: str) -> bool:
+    return value[:4].casefold() == _SELECTOR_KEYWORD and (
+        value == _SELECTOR_KEYWORD or (len(value) > 4 and value[4] == "(")
+    )
 
 
 def profile_evidence(name: str = "legacy") -> dict[str, object]:
@@ -202,9 +395,11 @@ def profile_evidence(name: str = "legacy") -> dict[str, object]:
 
 __all__ = [
     "GrammarPin",
+    "InitialAtomSelector",
     "SubjectNotationError",
     "SubjectProfile",
     "get_profile",
+    "parse_initial_atom_selector",
     "parse_subject",
     "profile_evidence",
 ]

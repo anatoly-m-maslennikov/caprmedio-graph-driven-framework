@@ -1,6 +1,6 @@
 # Current Subject Tool contract — CA-P-2162
 
-This derived contract supersedes the pre-selector CA-P-2062 contract. It does not rewrite captured review evidence. Exact current Core and Engine pins are in [selector-tools.current-contract.json](selector-tools.current-contract.json). Code alignment is the separate CA-P-2163 task.
+This derived contract supersedes the pre-selector CA-P-2062 contract. It does not rewrite captured review evidence. Exact current Core and Engine pins are in [selector-tools.current-contract.json](selector-tools.current-contract.json). CA-P-2163 implemented and independently verified the code alignment; Root's combined418-test run passed. This is not ordinary Subject migration or native admission.
 
 ## Latest Operator decision
 
