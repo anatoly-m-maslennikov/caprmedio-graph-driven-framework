@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 79
-updated_at: "2026-10-11 06:13:41 +0400"
+version: 80
+updated_at: "2026-10-11 06:15:52 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -117,12 +117,14 @@ Independent semantic-review children assess the 573 currently proposed follow-up
 
 ### Current review checkpoint
 
+CA-P-2085 is Done: All seven remaining generic Operator references are supported as Actor.Type: Operator. No named Actor or permission/Execution identity is invented; original Subjects remain unchanged.
+
 CA-P-2084 is Done: Seven Scope Unit field mappings are supported; the single Scope Unit Scope reference remains null because no field identity is established. No original Subject was edited.
 
 - [CA-P-2082 — Resolve Atom scope field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/68-CA-P-2082-TASK--resolve-atom-scope-field-mappings.md)
 - [CA-P-2083 — Resolve Atom identity field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/69-CA-P-2083-TASK--resolve-atom-identity-field-mappings.md)
 - [CA-P-2084 — Resolve Scope Unit field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/70-CA-P-2084-TASK--resolve-scope-unit-field-mappings.md)
-- [CA-P-2085 — Resolve remaining Actor role mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/71-CA-P-2085-TASK--resolve-remaining-actor-role-mappings.md)
+- [CA-P-2085 — Resolve remaining Actor role mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/71-CA-P-2085-TASK--resolve-remaining-actor-role-mappings.md)
 
 CA-P-2082–2085 investigate 93 additional disjoint unresolved occurrences: Atom scope, Atom identity, Scope Unit fields and Actor roles. Their original source pins are current and none were part of the earlier semantic reviews. The pending selector choice is not inferred; these are bounded research Tasks, not source edits.
 
