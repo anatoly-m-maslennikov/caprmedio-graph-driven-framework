@@ -45,6 +45,7 @@ CONTRACTS = (
     STAGE / "working-ledger.contract.md",
     STAGE / "working-ledger.followups-2094-2099.contract.md",
     STAGE / "working-ledger.followups-2103-2108.contract.md",
+    STAGE / "working-ledger.followups-2112-2117.contract.md",
 )
 WORKING = STAGE / "working-ledger"
 LEDGER = WORKING / "working-mapping-ledger.json"
@@ -127,7 +128,28 @@ SUBJECT_FAMILY_GROUP = ResearchLayerGroup(
     specifications=SUBJECT_FAMILY_LAYER_SPECS,
     expected_rows=183,
 )
-RESEARCH_LAYER_GROUPS = (FOLLOWUP_GROUP, SUBJECT_FAMILY_GROUP)
+FINAL_SUBJECT_FAMILY_HISTORICAL_WORKING_PIN = {
+    "path": (WORKING / "working-mapping-ledger.json").as_posix(),
+    "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+}
+FINAL_SUBJECT_FAMILY_LAYER_SPECS = (
+    ("CA-P-2112", STAGE / "semantic-reviews/task-2112.research.json", "e65fe0ec394ca5655ee23052d869467aab0a632abede70d3311b86425f58b3d7", 17, 8, 9),
+    ("CA-P-2113", STAGE / "semantic-reviews/task-2113.research.json", "97dae252cfe7cdfce21864bb38bf3bb12fc0c2a2ef489edd668387faa4415a6c", 27, 24, 3),
+    ("CA-P-2114", STAGE / "semantic-reviews/task-2114.research.json", "c4a3db04a629185cddf1b56b2f52860b14262eb3d42a92aa68d43a5af4e3ade7", 28, 9, 19),
+    ("CA-P-2115", STAGE / "semantic-reviews/task-2115.research.json", "cbad7db5ae4f00f397f67eb240d593596402fcb8bc02a247bdfd2b78abcf75b3", 24, 9, 15),
+    ("CA-P-2116", STAGE / "semantic-reviews/task-2116.research.json", "90d3027a973bd4ff6ecfbe8c6d2288744513df48cf99d6be1c38a3fccf9ce50d", 15, 13, 2),
+    ("CA-P-2117", STAGE / "semantic-reviews/task-2117.research.json", "d49221d9c8468f92b0f8144f879163538cc438699b5145fe2f36ed18bd8ffb8f", 26, 24, 2),
+)
+FINAL_SUBJECT_FAMILY_GROUP = ResearchLayerGroup(
+    label="CA-P-2112–2117",
+    manifest=STAGE / "semantic-reviews/followups-2112-2117.inputs.json",
+    manifest_sha256="397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5",
+    registration_commit="9a584ff18f338aef87ac8c1d45116e430abf41b5",
+    historical_working_pin=FINAL_SUBJECT_FAMILY_HISTORICAL_WORKING_PIN,
+    specifications=FINAL_SUBJECT_FAMILY_LAYER_SPECS,
+    expected_rows=137,
+)
+RESEARCH_LAYER_GROUPS = (FOLLOWUP_GROUP, SUBJECT_FAMILY_GROUP, FINAL_SUBJECT_FAMILY_GROUP)
 ORIGIN_FIELDS = (
     "occurrence_id", "source_path", "source_atom_id", "source_version", "source_sha256",
     "field", "index", "old_value", "quarantined",
@@ -136,11 +158,12 @@ ORIGIN_FIELDS = (
 
 def validate_research_group_configuration(groups: tuple[ResearchLayerGroup, ...]) -> None:
     """Keep this closed one-off integration from turning into layer discovery."""
-    if groups != (FOLLOWUP_GROUP, SUBJECT_FAMILY_GROUP):
+    if groups != (FOLLOWUP_GROUP, SUBJECT_FAMILY_GROUP, FINAL_SUBJECT_FAMILY_GROUP):
         fail("research layer group order or membership changed")
     expected_tasks = (
         "CA-P-2094", "CA-P-2095", "CA-P-2096", "CA-P-2097", "CA-P-2098", "CA-P-2099",
         "CA-P-2103", "CA-P-2104", "CA-P-2105", "CA-P-2106", "CA-P-2107", "CA-P-2108",
+        "CA-P-2112", "CA-P-2113", "CA-P-2114", "CA-P-2115", "CA-P-2116", "CA-P-2117",
     )
     tasks = tuple(specification[0] for group in groups for specification in group.specifications)
     if tasks != expected_tasks:
@@ -820,7 +843,7 @@ def run_negative_probes() -> None:
     validate_research_group_configuration(RESEARCH_LAYER_GROUPS)
     require_rejection(
         "research_group_omission",
-        lambda: validate_research_group_configuration((FOLLOWUP_GROUP,)),
+        lambda: validate_research_group_configuration((FOLLOWUP_GROUP, SUBJECT_FAMILY_GROUP)),
     )
     canonical_decision_record_pin({"operator_decision_record": pin(DECISION_RECORD)})
     unrelated_plan = Path(

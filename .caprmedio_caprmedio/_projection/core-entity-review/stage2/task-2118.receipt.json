@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2118",
+  "recorded_at": "2026-10-11 09:23:21 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded integrate accepted subject-family research; not migration approval",
+  "verification": {
+    "task": "CA-P-2118",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/consolidate_reviewed_mappings.py",
+      "sha256": "e7f2211cc7cbba6df5f389029a8da15e7e42897552b6fee2f29cd34f895464c5"
+    },
+    "result": "PASS: closed third research group, negative probes and create-free preview",
+    "negative_probes": {
+      "command": "uv run --no-project --offline --with pydantic==2.13.5 --with PyYAML==6.0.3 python -B <consolidator> --negative-probes",
+      "exit_code": 0,
+      "outcome": "NEGATIVE_PROBES_PASS"
+    },
+    "preview": {
+      "sources": 907,
+      "occurrences": 4534,
+      "proposed": 1735,
+      "unchanged": 1540,
+      "unresolved": 1259,
+      "quarantined_sources": 8,
+      "quarantined_occurrences": 35,
+      "draft_writes": "not_performed"
+    },
+    "independent_review": {
+      "reviewer": "/root/followup_semantic_acceptance",
+      "final_report_sha256": "e7f2211cc7cbba6df5f389029a8da15e7e42897552b6fee2f29cd34f895464c5",
+      "result": "PASS: exact closed group, receipt/final-hash/live-evidence checks, canonical Operator-only exception, all earlier gates and create-only writes preserved"
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/followup_semantic_acceptance",
+    "final_report_sha256": "e7f2211cc7cbba6df5f389029a8da15e7e42897552b6fee2f29cd34f895464c5",
+    "result": "PASS: exact closed group, receipt/final-hash/live-evidence checks, canonical Operator-only exception, all earlier gates and create-only writes preserved"
+  },
+  "completion_scope": "The one-off consolidator now includes exactly the six independently accepted final-family reports at priorities 26–31. Closed-group, receipt/final-review, current owning/supporting evidence and canonical Operator-only checks pass; the independently reviewed create-free preview matches the 1735/1540/1259 forecast. Existing derived drafts and original Core were not replaced.",
+  "registration_commit": "8c960cc46a9f45141320e2cd97a909cb81af03fb",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
