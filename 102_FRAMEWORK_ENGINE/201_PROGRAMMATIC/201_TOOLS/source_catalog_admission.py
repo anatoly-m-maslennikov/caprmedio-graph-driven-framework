@@ -734,6 +734,7 @@ def admit_package_sources(
     sealed_source_snapshot: object,
     *,
     invocation_admitter: Callable[[AdmissionInvocationRequest], TrustedSourceAdmissionInvocation],
+    publication_root: Path | str | None = None,
 ) -> SourceCatalogAdmission:
     """Explicitly retain one D602 receipt and matching catalog for a snapshot.
 
@@ -747,6 +748,18 @@ def admit_package_sources(
     observed = _checked_snapshot(sealed_source_snapshot)
     if _snapshot_project_root(observed) != root:
         _refuse("source-admission-project-mismatch", "caller project root differs from the sealed source snapshot")
+    carrier = root
+    if publication_root is not None:
+        run_id = getattr(observed, "candidate_run_id", None)
+        private = getattr(observed, "private_compilation", None)
+        export = getattr(private, "methodology_export", None)
+        expected = root / ".caprmedio_tmp" / "release_candidates" / str(run_id)
+        if (not isinstance(run_id, str) or not run_id or Path(run_id).name != run_id
+                or run_id in {".", ".."}
+                or getattr(export, "release_candidate_root", None) != expected.relative_to(root).as_posix()
+                or Path(publication_root) != expected):
+            _refuse("source-admission-publication-root-invalid", "admission publication must name the exact sealed private candidate")
+        carrier = _project_root(publication_root)
     sources = _descriptors_from_snapshot(observed)
     snapshot = source_snapshot_sha256(sources)
     request = AdmissionInvocationRequest(snapshot, sources)
@@ -754,7 +767,7 @@ def admit_package_sources(
     # Observe any prior output before asking the host to bind an Action Run.
     # The receipt fields depend on trusted callback evidence, so only a
     # pre-existing catalog can be checked before the callback.
-    catalog_path = root / CATALOG_NAME
+    catalog_path = carrier / CATALOG_NAME
     existing_catalog = _regular_existing(
         catalog_path,
         code="source-admission-catalog-conflict",
@@ -779,11 +792,11 @@ def admit_package_sources(
     if existing_catalog is not None and existing_catalog != catalog_bytes:
         _refuse("source-admission-catalog-conflict", "existing catalog differs from the admitted request")
 
-    admissions = root.joinpath(*ADMISSIONS_DIRECTORY.parts)
+    admissions = carrier.joinpath(*ADMISSIONS_DIRECTORY.parts)
     _ensure_regular_directory(admissions, label="admissions directory")
     receipt_path = admissions / f"{receipt.sha256}.json"
     _publish_exact(admissions, receipt_path.name, receipt_bytes, label="admission receipt")
-    _publish_exact(root, CATALOG_NAME, catalog_bytes, label="catalog")
+    _publish_exact(carrier, CATALOG_NAME, catalog_bytes, label="catalog")
 
     reopened_receipt_bytes = _regular_existing(
         receipt_path,

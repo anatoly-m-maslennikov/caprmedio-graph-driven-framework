@@ -579,7 +579,8 @@ def _admit_stage_candidate_sources(run: ReleaseActionRun, snapshot: SealedPortab
         )
 
     try:
-        return admit_package_sources(run.project_root, snapshot, invocation_admitter=admit)
+        return admit_package_sources(run.project_root, snapshot, invocation_admitter=admit,
+                                     publication_root=_native_candidate_root(run))
     except SourceCatalogAdmissionError as error:
         raise ReleaseContractError(error.code, str(error)) from error
 
@@ -659,7 +660,7 @@ def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: Valida
             raise ReleaseContractError("release-action-result-mismatch", "private Methodology export is not bound to the frozen candidate")
         snapshot = collect_portable_source_snapshot(candidate, private, candidate_run_id=run.workflow_run_id)
         admission = _admit_stage_candidate_sources(run, snapshot)
-        portable = seal_portable_source_snapshot(snapshot)
+        portable = seal_portable_source_snapshot(snapshot, publication_root=_native_candidate_root(run))
         if portable.candidate != candidate or portable.private_compilation != private:
             raise ReleaseContractError("release-action-result-mismatch", "portable compilation differs from the sealed private Methodology frontier")
         package = prepare_portable_release_package(run.project_root, portable)
@@ -674,7 +675,7 @@ def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: Valida
         run.prepared_portable_package = package
         return "completed", "complete private Methodology export, compilation, catalog and package prepared", (
             f"{private.compiled_root}/compiled-delivery-manifest.json#sha256={private.compiled_manifest_sha256}",
-            f"catalog.toml#sha256={portable.source_catalog_sha256}",
+            f"{next(row.source_path for row in portable.portable_package_rows if row.resource == 'CATALOG')}#sha256={portable.source_catalog_sha256}",
             admission.receipt_path.relative_to(Path(run.project_root)).as_posix(),
             f"{package.private_package_root.relative_to(run.project_root).as_posix()}/manifest.toml",
         ), package

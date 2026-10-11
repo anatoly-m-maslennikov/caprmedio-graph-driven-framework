@@ -483,6 +483,8 @@ def _catalog_records(
 def _admission_rows(
     root: Path,
     records: tuple[tuple[str, Mapping[str, Any]], ...],
+    *,
+    carrier: Path | None = None,
 ) -> list[PortablePackageRow]:
     """Reopen each catalog-referenced proof once and match every descriptor.
 
@@ -500,7 +502,8 @@ def _admission_rows(
         receipt = receipts.get(digest)
         if receipt is None:
             relative = Path("admissions") / f"{digest}.json"
-            receipt_file = _regular_file(root, relative, code="portable-contract-admission-missing")
+            source_relative = relative if carrier is None else carrier.relative_to(root) / relative
+            receipt_file = _regular_file(root, source_relative, code="portable-contract-admission-missing")
             try:
                 receipt = read_source_admission_receipt(receipt_file.read_bytes(), expected_sha256=digest)
             except SourceCatalogAdmissionError as error:
@@ -657,6 +660,8 @@ def revalidate_portable_source_snapshot(value: SealedPortableSourceSnapshot) -> 
 
 def seal_portable_source_snapshot(
     snapshot: SealedPortableSourceSnapshot,
+    *,
+    publication_root: Path | str | None = None,
 ) -> SealedPortableCandidateCompilation:
     """Finalize one physically revalidated pre-catalog source snapshot.
 
@@ -667,14 +672,20 @@ def seal_portable_source_snapshot(
 
     source_snapshot = revalidate_portable_source_snapshot(snapshot)
     root = _root(source_snapshot.candidate.project_root)
-    catalog_file = _regular_file(root, CATALOG, code="portable-contract-catalog-missing")
+    carrier = root
+    if publication_root is not None:
+        expected = root / source_snapshot.private_compilation.methodology_export.release_candidate_root
+        if Path(publication_root) != expected:
+            raise _error("portable-contract-catalog-root-invalid", "catalog carrier must name the exact sealed private candidate")
+        carrier = expected
+    catalog_file = _regular_file(root, carrier.relative_to(root) / CATALOG, code="portable-contract-catalog-missing")
     catalog_bytes = catalog_file.read_bytes()
     catalog_digest = _digest(catalog_bytes)
     catalog_row = _row("CATALOG", root, catalog_file, CATALOG, expected_sha256=catalog_digest)
     rows = [*source_snapshot.portable_package_rows, catalog_row]
     provisional = tuple(sorted(rows, key=lambda row: (row.destination_path, row.source_path, row.sha256)))
     records = _catalog_records(catalog_bytes, provisional, source_snapshot.binding_atoms)
-    rows.extend(_admission_rows(root, records))
+    rows.extend(_admission_rows(root, records, carrier=carrier))
     sealed_rows = _validate_rows(rows, records)
     return SealedPortableCandidateCompilation(
         candidate_run_id=source_snapshot.candidate_run_id,
@@ -716,10 +727,17 @@ def revalidate_sealed_portable_compilation(value: SealedPortableCandidateCompila
 
     if not isinstance(value, SealedPortableCandidateCompilation):
         raise _error("portable-contract-untrusted", "portable compilation must be a typed sealed contract")
-    observed = build_sealed_portable_compilation(
-        value.candidate,
-        value.private_compilation,
-        candidate_run_id=value.candidate_run_id,
+    catalogs = [row for row in value.portable_package_rows if row.resource == "CATALOG"]
+    if len(catalogs) != 1:
+        raise _error("portable-contract-catalog-root-invalid", "sealed compilation must retain one exact catalog source")
+    root = _root(value.candidate.project_root)
+    catalog_source = _relative(catalogs[0].source_path, field="sealed catalog source")
+    if catalog_source.name != CATALOG.name:
+        raise _error("portable-contract-catalog-root-invalid", "sealed catalog source must retain its canonical name")
+    carrier = root / catalog_source.parent
+    observed = seal_portable_source_snapshot(
+        collect_portable_source_snapshot(value.candidate, value.private_compilation, candidate_run_id=value.candidate_run_id),
+        publication_root=None if carrier == root else carrier,
     )
     if observed != value:
         raise _error("portable-contract-stale", "portable package inputs changed after sealing")

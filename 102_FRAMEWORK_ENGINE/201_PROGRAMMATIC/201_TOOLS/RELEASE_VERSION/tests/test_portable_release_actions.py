@@ -191,6 +191,7 @@ class PortableReleaseActionsTests(unittest.TestCase):
 
     def test_native_private_preparation_precedes_the_full_gate(self) -> None:
         (self.root / "catalog.toml").unlink()
+        prior_root_admissions = {path.name: path.read_bytes() for path in (self.root / "admissions").glob("*.json")}
         self.assertEqual(self.execute(0).outcome, "completed")
         self.bind_stage_session()
         result = self.execute(1)
@@ -201,10 +202,14 @@ class PortableReleaseActionsTests(unittest.TestCase):
         self.assertIsNotNone(self.run.private_compilation)
         self.assertIsNotNone(self.run.portable_source_snapshot)
         self.assertIsInstance(self.run.portable_compilation, SealedPortableCandidateCompilation)
-        self.assertTrue((self.root / "catalog.toml").is_file())
+        private_root = self.root / ".caprmedio_tmp/release_candidates/portable-001"
+        self.assertTrue((private_root / "catalog.toml").is_file())
+        self.assertFalse((self.root / "catalog.toml").exists())
+        self.assertEqual({path.name: path.read_bytes() for path in (self.root / "admissions").glob("*.json")},
+                         prior_root_admissions)
         current_receipts = [
             read_source_admission_receipt(path.read_bytes())
-            for path in (self.root / "admissions").glob("*.json")
+            for path in (private_root / "admissions").glob("*.json")
         ]
         self.assertIn(self.context(1).action_run_id, {receipt.action_run_id for receipt in current_receipts})
         self.assertIn("admissions/", " ".join(result.effect_evidence_refs))

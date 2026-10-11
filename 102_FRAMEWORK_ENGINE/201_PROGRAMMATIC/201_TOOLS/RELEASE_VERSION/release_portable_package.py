@@ -181,7 +181,7 @@ def _row_paths(row: object) -> tuple[str, Path, Path, str, int]:
     return resource, source, destination, digest, mode
 
 
-def _require_destination(resource: str, source: Path, destination: Path) -> None:
+def _require_destination(resource: str, source: Path, destination: Path, *, admission_carrier: Path = Path()) -> None:
     if resource == "FRAMEWORK_ENGINE":
         if not source.is_relative_to(ENGINE_ROOT):
             raise PortableReleasePackageError("portable-package-input-invalid", "Engine row source is outside the Framework Engine")
@@ -197,15 +197,15 @@ def _require_destination(resource: str, source: Path, destination: Path) -> None
             raise PortableReleasePackageError("portable-package-input-invalid", "package control row must retain root version.toml")
         return
     if resource == "CATALOG":
-        if source != Path("catalog.toml") or destination != source:
+        if destination != Path("catalog.toml") or source != admission_carrier / destination:
             raise PortableReleasePackageError("portable-package-input-invalid", "catalog row must retain root catalog.toml")
         return
     if resource == "SOURCE_ADMISSION":
         if (
-            source != destination
-            or source.parent != Path("admissions")
-            or source.suffix != ".json"
-            or not _is_sha256(source.stem)
+            source != admission_carrier / destination
+            or destination.parent != Path("admissions")
+            or destination.suffix != ".json"
+            or not _is_sha256(destination.stem)
         ):
             raise PortableReleasePackageError("portable-package-input-invalid", "admission row must retain its exact receipt path")
         return
@@ -269,6 +269,8 @@ def _validate_complete_rows(
     root: Path,
     rows: Iterable[object],
     binding_atoms: tuple[PortableBindingAtom, ...],
+    *,
+    candidate_run_id: str | None = None,
 ) -> tuple[tuple[object, ...], dict[str, tuple[str, Path, Path, str, int]]]:
     records = tuple(rows)
     parsed = tuple(_row_paths(row) for row in records)
@@ -277,8 +279,15 @@ def _validate_complete_rows(
     destinations = [item[2].as_posix() for item in parsed]
     if len(destinations) != len(set(destinations)):
         raise PortableReleasePackageError("portable-package-input-invalid", "portable package rows have duplicate destinations")
+    catalogs = [item for item in parsed if item[0] == "CATALOG"]
+    if len(catalogs) != 1:
+        raise PortableReleasePackageError("portable-package-input-incomplete", "portable rows require one exact catalog carrier")
+    admission_carrier = catalogs[0][1].parent
+    if admission_carrier != Path() and (candidate_run_id is None
+            or admission_carrier != PRIVATE_CANDIDATES_ROOT / candidate_run_id):
+        raise PortableReleasePackageError("portable-package-input-invalid", "admission sources must name this exact private candidate")
     for resource, source, destination, _digest, _mode in parsed:
-        _require_destination(resource, source, destination)
+        _require_destination(resource, source, destination, admission_carrier=admission_carrier)
 
     by_resource: dict[str, list[tuple[str, Path, Path, str, int]]] = {}
     for item in parsed:
@@ -309,7 +318,7 @@ def _validate_complete_rows(
         raise PortableReleasePackageError("portable-package-input-incomplete", "portable rows lack exact dependency carriers")
     if [item[1].as_posix() for item in by_resource.get("PACKAGE_CONTROL", [])] != ["version.toml"]:
         raise PortableReleasePackageError("portable-package-input-incomplete", "portable rows lack exact version carrier")
-    if [item[1].as_posix() for item in by_resource.get("CATALOG", [])] != ["catalog.toml"]:
+    if [item[2].as_posix() for item in by_resource.get("CATALOG", [])] != ["catalog.toml"]:
         raise PortableReleasePackageError("portable-package-input-incomplete", "portable rows lack exact catalog carrier")
     if not by_resource.get("SOURCE_ADMISSION"):
         raise PortableReleasePackageError("portable-package-input-incomplete", "portable rows lack source-admission proof")
@@ -329,7 +338,7 @@ def _validate_complete_rows(
     for _resource, source, _destination, digest, _mode in by_resource["SOURCE_ADMISSION"]:
         if source.stem != digest:
             raise PortableReleasePackageError("portable-package-input-invalid", "admission filename must equal its sealed byte digest")
-    catalog_rows = {item[1].as_posix(): item for item in by_resource.get("CATALOG", [])}
+    catalog_rows = {item[2].as_posix(): item for item in by_resource.get("CATALOG", [])}
     return records, catalog_rows
 
 
@@ -399,7 +408,8 @@ def prepare_portable_release_package(
         raise PortableReleasePackageError("portable-package-untrusted", "sealed compilation is not bound to its candidate manifest")
     candidate_run_id = _candidate_run_id(current)
     binding_atoms = _binding_atoms(current)
-    rows, by_source = _validate_complete_rows(root, _portable_rows(current), binding_atoms)
+    rows, by_source = _validate_complete_rows(root, _portable_rows(current), binding_atoms,
+                                            candidate_run_id=candidate_run_id)
     _validate_catalog_binding(current, by_source)
     package_root = _candidate_package_root(root, candidate_run_id)
 

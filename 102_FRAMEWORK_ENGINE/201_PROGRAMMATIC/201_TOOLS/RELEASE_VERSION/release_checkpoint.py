@@ -63,7 +63,7 @@ from release_portable_contract import (
     SealedPortableCandidateCompilation,
     SealedPortableSourceSnapshot,
     collect_portable_source_snapshot,
-    seal_portable_source_snapshot,
+    revalidate_sealed_portable_compilation,
 )
 from release_portable_package import (
     PreparedPortableReleasePackage,
@@ -1768,7 +1768,10 @@ def _load_native_compilation(value: Any, snapshot: SealedPortableSourceSnapshot,
             expected_atoms,
         )
     else:
-        observed = seal_portable_source_snapshot(snapshot)
+        observed = revalidate_sealed_portable_compilation(SealedPortableCandidateCompilation(
+            expected["candidate_run_id"], snapshot.candidate, snapshot.private_compilation, expected_rows,
+            expected["source_catalog_sha256"], expected["input_manifest_sha256"], expected_atoms,
+        ))
     if _native_compilation_value(observed) != expected:
         raise _error("release-checkpoint-binding-mismatch", "portable catalog/admission compilation changed after checkpoint")
     return observed
