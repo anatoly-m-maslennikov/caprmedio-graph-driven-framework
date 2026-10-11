@@ -43,8 +43,8 @@ class ReleaseManifestAdmissionTest(unittest.TestCase):
         source_goldens.ReleaseSourceAdmissionTest.setUpClass()
 
     def setUp(self) -> None:
-        # D572@36 derives all current pins from its copied Project authoring
-        # sources; production pins and source bytes are never rewritten.
+        # D572@36 is a historical parser fixture.  Its sealed golden authority
+        # bytes are copied only into this disposable Project; production stays current.
         self.fixture = self._resealed_d572_fixture()
         self.root = self.fixture.root
         self.base, self.path = self._resealed_fifteen_route_manifest()

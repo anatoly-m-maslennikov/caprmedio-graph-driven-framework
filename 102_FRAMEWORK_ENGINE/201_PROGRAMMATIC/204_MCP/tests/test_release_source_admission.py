@@ -1,4 +1,4 @@
-"""Current D572@36 source-admission derivation tests; no manifest writes."""
+"""Historical D572@36 source-admission parser regressions; no manifest writes."""
 from __future__ import annotations
 
 import copy
@@ -14,7 +14,11 @@ from unittest.mock import patch
 
 MCP = Path(__file__).resolve().parents[1]
 REPOSITORY = MCP.parents[2]
-sys.path.insert(0, str(MCP))
+RELEASE_ROOT = MCP.parent / "201_TOOLS/RELEASE_VERSION"
+RELEASE_TESTS = RELEASE_ROOT / "tests"
+for location in (MCP, RELEASE_ROOT, RELEASE_TESTS):
+    if str(location) not in sys.path:
+        sys.path.insert(0, str(location))
 
 import release_source_admission as admission_module  # noqa: E402
 from release_source_admission import (  # noqa: E402
@@ -26,9 +30,13 @@ from release_source_admission import (  # noqa: E402
     validate_release_source_admissions,
 )
 from selected_routes import canonical_digest  # noqa: E402
+from full_suite_golden.control_fixture import copy_control_closure  # noqa: E402
 
 
 AUTHORITY_REF = admission_module.AUTHORITY_REF
+AUTHORITY_GOLDEN = (
+    Path(__file__).with_name("release_source_admission_golden") / "ca_d_572_v36.md"
+)
 
 
 def all_pins(record: dict[str, object]) -> list[dict[str, object]]:
@@ -40,32 +48,28 @@ def all_pins(record: dict[str, object]) -> list[dict[str, object]]:
 class ReleaseSourceAdmissionTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        authority = REPOSITORY / AUTHORITY_REF
+        authority = AUTHORITY_GOLDEN
+        if authority.is_symlink() or not authority.is_file():
+            raise AssertionError("D572@36 golden fixture is unavailable")
         actual = authority.read_bytes()
         pin = admission_module.AUTHORITY_PIN
         if (hashlib.sha256(actual).hexdigest() != pin["digest"]
                 or admission_module._metadata(actual) != (pin["atom_id"], pin["version"])):
-            raise AssertionError("current D572 does not match the active parser source pin")
-        cls.expected = derive_release_source_admission(REPOSITORY)
+            raise AssertionError("D572@36 golden bytes do not match the legacy parser source pin")
+        cls.legacy_authority = actual
+        cls.legacy_authority_mode = authority.stat().st_mode & 0o777
+        cls.expected: dict[str, object] | None = None
         cls.private_carriers: list[dict[str, str]] = []
 
-    @staticmethod
-    def copy_sources(root: Path) -> None:
-        relative_paths = {AUTHORITY_REF,
-                          *[pin["source_path"] for pin in all_pins(ReleaseSourceAdmissionTest.expected)]}
-        for relative in relative_paths:
-            target = root / relative
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(REPOSITORY / relative, target)
-        for relative in (admission_module._OPERATIONS_ROOT,
-                         *admission_module._RMED_ROOTS.values(),
-                         *admission_module._TOOLS_RMED_ROOTS.values()):
-            (root / relative).mkdir(parents=True, exist_ok=True)
-        for filename in ("project_structure.toml", "caprmedio_project_settings.toml"):
-            source = REPOSITORY / ".caprmedio_caprmedio" / filename
-            target = root / ".caprmedio_caprmedio" / filename
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(source, target)
+    @classmethod
+    def copy_sources(cls, root: Path) -> None:
+        """Materialize the closed golden controls, then substitute D572@36 only."""
+        copy_control_closure(REPOSITORY, root)
+        target = root / AUTHORITY_REF
+        if target.is_symlink() or not target.is_file():
+            raise AssertionError("golden control fixture did not materialize the D572 authority path")
+        target.write_bytes(cls.legacy_authority)
+        target.chmod(cls.legacy_authority_mode)
 
     def setUp(self) -> None:
         temporary = REPOSITORY / ".caprmedio_tmp/tests/release-source-admission"
@@ -75,6 +79,10 @@ class ReleaseSourceAdmissionTest(unittest.TestCase):
         self.root = Path(self.temporary.name)
         self.copy_sources(self.root)
         self.record = derive_release_source_admission(self.root)
+        if self.expected is None:
+            type(self).expected = copy.deepcopy(self.record)
+        else:
+            self.assertEqual(self.expected, self.record)
         self.graph = derive_release_route_graph(self.root)
         self.route = {"route": "release_version", **copy.deepcopy(self.graph)}
         self.manifest = {"routes": [self.route], "release_source_admissions": [copy.deepcopy(self.record)]}
@@ -90,9 +98,9 @@ class ReleaseSourceAdmissionTest(unittest.TestCase):
             validate_release_source_admissions(self.root, manifest)
         self.assertEqual(before, self.snapshot(), "rejected admission mutated Project evidence")
 
-    def test_current_authority_derives_current_ten_phase_record(self) -> None:
+    def test_archived_authority_derives_legacy_ten_phase_record(self) -> None:
         before = self.snapshot()
-        self.assertEqual(self.expected, self.record)
+        self.assertEqual(self.record, derive_release_source_admission(self.root))
         self.assertEqual(self.record["workflow"], self.record["acceptance_frontier"])
         self.assertEqual(10, len(self.record["ordered_steps"]))
         self.assertEqual(
