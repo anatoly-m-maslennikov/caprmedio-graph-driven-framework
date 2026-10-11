@@ -36,6 +36,7 @@ import framework_installation_command as command_module  # noqa: E402
 from framework_package import _path_digest, assemble_framework_package  # noqa: E402
 from installation_context import TargetProjectRequest, bind_target_project_context  # noqa: E402
 from source_admission_fixture import write_source_admission_receipt  # noqa: E402
+from direct_action_golden_fixture import action_fixture  # noqa: E402
 import test_detached_native_full_gate as detached_gate_fixture  # noqa: E402
 import test_native_installation_proof as proof_fixture  # noqa: E402
 import test_native_selected_installation as selected_fixture  # noqa: E402
@@ -50,12 +51,11 @@ def _repository_root() -> Path:
         source = (
             candidate
             / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
-            / "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations"
-            / INSTALLATION_ATOM_RELATIVE.name
+            / "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
         )
         if source.is_file():
             return candidate
-    raise RuntimeError("repository O200 source is unavailable")
+    raise RuntimeError("repository default settings source is unavailable")
 
 
 REPOSITORY_ROOT = _repository_root()
@@ -84,12 +84,7 @@ class FrameworkInstallationCommandTests(unittest.TestCase):
     def _package(self):
         source = self.base / "package-source"
         releases = self.base / "package-releases"
-        action_source = (
-            REPOSITORY_ROOT
-            / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
-            / "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/09_operations"
-            / INSTALLATION_ATOM_RELATIVE.name
-        )
+        action_source = action_fixture(INSTALLATION_ATOM_RELATIVE)
         action_relative = INSTALLATION_ATOM_RELATIVE.as_posix()
         self._write(source, "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool = 'fixture'\n", mode=0o755)
         self._write(

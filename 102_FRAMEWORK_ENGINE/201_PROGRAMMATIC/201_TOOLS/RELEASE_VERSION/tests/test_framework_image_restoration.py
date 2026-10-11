@@ -62,18 +62,11 @@ from direct_action_session import (  # noqa: E402
     RESTORATION_ATOM_VERSION,
 )
 from framework_image_restoration_mcp import FrameworkImageRestorationAdapter  # noqa: E402
+from direct_action_golden_fixture import action_fixture  # noqa: E402
 
 
 OLD_IMAGE = "sha256:" + "a" * 64
 NEW_IMAGE = "sha256:" + "b" * 64
-O187 = (
-    "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/"
-    "003_PROJECT_CONFIGURATION/09_operations/"
-    "CA-O-187-PROJECT_CONFIGURATION-ACTION--restore-the-selected-missing-bootstrap-image.md"
-)
-O187_SHA256 = "6e0320a7026f37c6e0e4199051d47a4c597cdbe22bb5fb1bfb7b0626258852c1"
-
-
 class RecordingJournal:
     def __init__(self) -> None:
         self.intents: list[dict] = []
@@ -178,9 +171,8 @@ class FrameworkImageRestorationTests(unittest.TestCase):
             PROJECT_ROOT / ".caprmedio_caprmedio/operators_registry.toml",
             self.root / ".caprmedio_caprmedio/operators_registry.toml",
         )
-        source = PROJECT_ROOT / ".caprmedio_caprmedio" / O187
-        self.assertEqual(O187_SHA256, hashlib.sha256(source.read_bytes()).hexdigest())
-        target = self.root / ".caprmedio_caprmedio" / O187
+        source = action_fixture(RESTORATION_ATOM_RELATIVE)
+        target = self.root / RESTORATION_ATOM_RELATIVE
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
         self.currentness = CanonicalCompilerCurrentness(
