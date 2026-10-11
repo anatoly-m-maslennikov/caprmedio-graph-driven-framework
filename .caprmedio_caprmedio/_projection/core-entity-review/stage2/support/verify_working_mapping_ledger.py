@@ -33,6 +33,8 @@ FOLLOWUP_MANIFEST_REL = STAGE2_REL / "semantic-reviews/followups-2094-2099.input
 FOLLOWUP_MANIFEST_SHA256 = "5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d"
 SECOND_FOLLOWUP_MANIFEST_REL = STAGE2_REL / "semantic-reviews/followups-2103-2108.inputs.json"
 SECOND_FOLLOWUP_MANIFEST_SHA256 = "7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3"
+THIRD_FOLLOWUP_MANIFEST_REL = STAGE2_REL / "semantic-reviews/followups-2112-2117.inputs.json"
+THIRD_FOLLOWUP_MANIFEST_SHA256 = "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
 OPERATOR_DECISION_REL = STAGE2_REL / "operator.subject-decisions.2026-10-11.json"
 OPERATOR_DECISION_SHA256 = "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
 STRUCTURE_REL = Path(".caprmedio_caprmedio/project_structure.toml")
@@ -83,16 +85,27 @@ SECOND_FOLLOWUP_LAYER_SPECS = (
     ("CA-P-2107", "research", 26, 4, 22, "149a9a3c35f2c4c3a08733e9dac790093d4c592da428f5bbfd262fbb396c458a"),
     ("CA-P-2108", "research", 34, 25, 9, "eb40f1fc810edb418f3acdeec8ce798837109264e45a966d348c86b810945da5"),
 )
+THIRD_FOLLOWUP_LAYER_SPECS = (
+    ("CA-P-2112", "research", 17, 8, 9, "e65fe0ec394ca5655ee23052d869467aab0a632abede70d3311b86425f58b3d7"),
+    ("CA-P-2113", "research", 27, 24, 3, "97dae252cfe7cdfce21864bb38bf3bb12fc0c2a2ef489edd668387faa4415a6c"),
+    ("CA-P-2114", "research", 28, 9, 19, "c4a3db04a629185cddf1b56b2f52860b14262eb3d42a92aa68d43a5af4e3ade7"),
+    ("CA-P-2115", "research", 24, 9, 15, "cbad7db5ae4f00f397f67eb240d593596402fcb8bc02a247bdfd2b78abcf75b3"),
+    ("CA-P-2116", "research", 15, 13, 2, "90d3027a973bd4ff6ecfbe8c6d2288744513df48cf99d6be1c38a3fccf9ce50d"),
+    ("CA-P-2117", "research", 26, 24, 2, "d49221d9c8468f92b0f8144f879163538cc438699b5145fe2f36ed18bd8ffb8f"),
+)
 FOLLOWUP_TASKS = {task for task, _kind, _rows, _proposed, _unresolved, _sha256 in FOLLOWUP_LAYER_SPECS}
 SECOND_FOLLOWUP_TASKS = {task for task, _kind, _rows, _proposed, _unresolved, _sha256 in SECOND_FOLLOWUP_LAYER_SPECS}
-ALL_FOLLOWUP_TASKS = FOLLOWUP_TASKS | SECOND_FOLLOWUP_TASKS
-SECOND_FOLLOWUP_PROOF_FIELDS = ("evidence", "candidate_basis", "preserved_distinctions")
+THIRD_FOLLOWUP_TASKS = {task for task, _kind, _rows, _proposed, _unresolved, _sha256 in THIRD_FOLLOWUP_LAYER_SPECS}
+ALL_FOLLOWUP_TASKS = FOLLOWUP_TASKS | SECOND_FOLLOWUP_TASKS | THIRD_FOLLOWUP_TASKS
+LATER_FOLLOWUP_TASKS = SECOND_FOLLOWUP_TASKS | THIRD_FOLLOWUP_TASKS
+LATER_FOLLOWUP_PROOF_FIELDS = ("evidence", "candidate_basis", "preserved_distinctions")
 LAYER_PRIORITY = [task for task, _kind in LAYER_SPECS] + ["CA-P-2058 coverage_only", "CA-P-2087 recheck_gate"]
 GRAMMAR_ACCEPTED_PRIORITY = "CA-P-2087 accepted_current_grammar"
 ORDINARY_LAYER_PRIORITY = {
     **{task: index for index, (task, _kind) in enumerate(LAYER_SPECS, start=1)},
     **{task: len(LAYER_SPECS) + index for index, (task, _kind, _rows, _proposed, _unresolved, _sha256) in enumerate(FOLLOWUP_LAYER_SPECS, start=1)},
     **{task: len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + index for index, (task, _kind, _rows, _proposed, _unresolved, _sha256) in enumerate(SECOND_FOLLOWUP_LAYER_SPECS, start=1)},
+    **{task: len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + index for index, (task, _kind, _rows, _proposed, _unresolved, _sha256) in enumerate(THIRD_FOLLOWUP_LAYER_SPECS, start=1)},
 }
 
 
@@ -131,6 +144,7 @@ def _layer_layout(ledger: dict[str, Any]) -> tuple[tuple[tuple[str, str, int, in
     old_with_grammar = base_count + 2
     first_followup_with_grammar = base_count + 1 + len(FOLLOWUP_LAYER_SPECS) + 1
     second_followup_with_grammar = first_followup_with_grammar + len(SECOND_FOLLOWUP_LAYER_SPECS)
+    third_followup_with_grammar = second_followup_with_grammar + len(THIRD_FOLLOWUP_LAYER_SPECS)
     base = tuple((task, kind, position, position + 1) for position, (task, kind) in enumerate(LAYER_SPECS))
     if len(accepted) == old_without_grammar:
         return base, base_count, None
@@ -146,8 +160,14 @@ def _layer_layout(ledger: dict[str, Any]) -> tuple[tuple[tuple[str, str, int, in
         (task, kind, base_count + len(FOLLOWUP_LAYER_SPECS) + index, base_count + len(FOLLOWUP_LAYER_SPECS) + index + 1)
         for index, (task, kind, _rows, _proposed, _unresolved, _sha256) in enumerate(SECOND_FOLLOWUP_LAYER_SPECS)
     )
-    require(len(accepted) == second_followup_with_grammar, "complete accepted-layer manifest")
-    return base + followup + second_followup, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS), second_followup_with_grammar - 1
+    if len(accepted) == second_followup_with_grammar:
+        return base + followup + second_followup, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS), second_followup_with_grammar - 1
+    third_followup = tuple(
+        (task, kind, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + index, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + index + 1)
+        for index, (task, kind, _rows, _proposed, _unresolved, _sha256) in enumerate(THIRD_FOLLOWUP_LAYER_SPECS)
+    )
+    require(len(accepted) == third_followup_with_grammar, "complete accepted-layer manifest")
+    return base + followup + second_followup + third_followup, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + len(THIRD_FOLLOWUP_LAYER_SPECS), third_followup_with_grammar - 1
 
 
 def _require_followup_extension_when_receipts_exist(root: Path, ledger: dict[str, Any]) -> None:
@@ -155,12 +175,15 @@ def _require_followup_extension_when_receipts_exist(root: Path, ledger: dict[str
 
     first_receipts_exist = any((root / STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json").is_file() for task in FOLLOWUP_TASKS)
     second_receipts_exist = any((root / STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json").is_file() for task in SECOND_FOLLOWUP_TASKS)
+    third_receipts_exist = any((root / STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json").is_file() for task in THIRD_FOLLOWUP_TASKS)
     specs, _actor_position, _grammar_position = _layer_layout(ledger)
     admitted = {task for task, _kind, _position, _priority in specs}
     if first_receipts_exist:
         require(FOLLOWUP_TASKS <= admitted, "accepted first follow-up extension required")
     if second_receipts_exist:
         require(FOLLOWUP_TASKS <= admitted and SECOND_FOLLOWUP_TASKS <= admitted, "accepted second follow-up extension required")
+    if third_receipts_exist:
+        require(FOLLOWUP_TASKS <= admitted and SECOND_FOLLOWUP_TASKS <= admitted and THIRD_FOLLOWUP_TASKS <= admitted, "accepted third follow-up extension required")
 
 
 def relative_path(root: Path, value: Any, label: str) -> Path:
@@ -381,7 +404,7 @@ def _span_matches(root: Path, evidence: dict[str, Any], expected: dict[str, Any]
     return end <= len(lines) and sha(b"".join(lines[start - 1 : end])) == evidence["span_sha256"]
 
 
-def _second_followup_evidence_is_current(
+def _later_followup_evidence_is_current(
     root: Path,
     evidence: dict[str, Any],
     current_source_pins: dict[str, str],
@@ -389,9 +412,9 @@ def _second_followup_evidence_is_current(
 ) -> bool:
     """Accept only a current Core source or the exact Operator decision record.
 
-    This deliberately applies only to CA-P-2103--2108.  Earlier accepted
-    layers retain their historical verifier boundary, while this group must
-    prove every supporting span that its accepted report relies on.
+    This deliberately applies only to CA-P-2103--2117. Earlier accepted
+    layers retain their historical verifier boundary, while these two later
+    groups must prove every supporting span that their accepted reports rely on.
     """
 
     if not isinstance(evidence, dict):
@@ -466,15 +489,15 @@ def _normalized_layer_row(kind: str, row: dict[str, Any], label: str) -> tuple[s
     return "unresolved", None, float(confidence) if isinstance(confidence, (int, float)) and not isinstance(confidence, bool) else 0.0
 
 
-def _verify_second_followup_final_proof(row: dict[str, Any], references: dict[str, Any], label: str) -> None:
-    """Ensure a second-group decision retains its accepted report proof fields."""
+def _verify_later_followup_final_proof(row: dict[str, Any], references: dict[str, Any], label: str) -> None:
+    """Ensure a later-group decision retains its accepted report proof fields."""
 
     proofs = references.get("proofs")
-    require(isinstance(proofs, dict) and row["occurrence_id"] in proofs, f"{label} second follow-up proof provenance")
+    require(isinstance(proofs, dict) and row["occurrence_id"] in proofs, f"{label} later follow-up proof provenance")
     proof = proofs[row["occurrence_id"]]
-    require(isinstance(proof, dict), f"{label} second follow-up proof mapping")
-    for field in SECOND_FOLLOWUP_PROOF_FIELDS:
-        require(row.get(field) == proof.get(field), f"{label} second follow-up preserved {field}")
+    require(isinstance(proof, dict), f"{label} later follow-up proof mapping")
+    for field in LATER_FOLLOWUP_PROOF_FIELDS:
+        require(row.get(field) == proof.get(field), f"{label} later follow-up preserved {field}")
 
 
 def _verify_layers(
@@ -532,8 +555,8 @@ def _verify_layers(
             require(layer.get("report") == references.get("report") and layer.get("receipt") == references.get("receipt"), f"{label} layer provenance")
             if "independent_review_sha256" in references:
                 require(layer.get("independent_review_sha256") == references["independent_review_sha256"], f"{label} layer independent-review provenance")
-            if task in SECOND_FOLLOWUP_TASKS:
-                _verify_second_followup_final_proof(row, references, label)
+            if task in LATER_FOLLOWUP_TASKS:
+                _verify_later_followup_final_proof(row, references, label)
             require(layer.get("decision") == decision and layer.get("proposed_value") == target, f"{label} layer target")
             if task in ALL_FOLLOWUP_TASKS:
                 require(layer.get("confidence") == confidence, f"{label} layer confidence")
@@ -666,6 +689,7 @@ def _read_accepted_grammar_rows(
         len(LAYER_SPECS),
         len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS),
         len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS),
+        len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS) + len(THIRD_FOLLOWUP_LAYER_SPECS),
     }, "accepted grammar ordinary layers")
     item = accepted[grammar_position]
     require(isinstance(item, dict) and item.get("task") == "CA-P-2087" and item.get("priority") == "current_grammar" and item.get("kind") == "current_grammar_subject_recheck" and item.get("rows") == 33, "accepted grammar manifest")
@@ -837,7 +861,7 @@ def _read_followup_layer_rows(
             if verify_supporting_evidence:
                 require(
                     all(
-                        _second_followup_evidence_is_current(
+                        _later_followup_evidence_is_current(
                             root, evidence, current_source_pins, f"{label} report {task} row {number} supporting evidence"
                         )
                         for evidence in row["evidence"]
@@ -855,7 +879,7 @@ def _read_followup_layer_rows(
         reference: dict[str, Any] = {"report": report_pin, "receipt": receipt_pin, "independent_review_sha256": report_sha}
         if verify_supporting_evidence:
             reference["proofs"] = {
-                row["occurrence_id"]: {field: row.get(field) for field in SECOND_FOLLOWUP_PROOF_FIELDS}
+                row["occurrence_id"]: {field: row.get(field) for field in LATER_FOLLOWUP_PROOF_FIELDS}
                 for row in rows
             }
         references[task] = reference
@@ -911,9 +935,9 @@ def _layer_refs(ledger: dict[str, Any], followup_refs: dict[str, dict[str, Any]]
                 continue
             require(references.get(task) == {"report": followup_refs[task]["report"], "receipt": followup_refs[task]["receipt"]}, f"follow-up per-row manifest references {task}")
             references[task]["independent_review_sha256"] = followup_refs[task]["independent_review_sha256"]
-            if task in SECOND_FOLLOWUP_TASKS:
+            if task in LATER_FOLLOWUP_TASKS:
                 proofs = followup_refs[task].get("proofs")
-                require(isinstance(proofs, dict), f"second follow-up proof references {task}")
+                require(isinstance(proofs, dict), f"later follow-up proof references {task}")
                 references[task]["proofs"] = proofs
     if grammar_position is not None:
         item = accepted[grammar_position]
@@ -959,6 +983,22 @@ def _read_layer_rows(
         )
         followup_rows.update(second_rows)
         followup_refs.update(second_refs)
+    if THIRD_FOLLOWUP_TASKS <= admitted_tasks:
+        third_rows, third_refs = _read_followup_layer_rows(
+            root,
+            ledger,
+            expected_occurrences,
+            baseline_rows,
+            THIRD_FOLLOWUP_LAYER_SPECS,
+            THIRD_FOLLOWUP_MANIFEST_REL,
+            THIRD_FOLLOWUP_MANIFEST_SHA256,
+            len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS),
+            "third follow-up",
+            "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+            True,
+        )
+        followup_rows.update(third_rows)
+        followup_refs.update(third_refs)
     for task, kind, position, priority in specs:
         if task in ALL_FOLLOWUP_TASKS:
             output[task] = followup_rows[task]

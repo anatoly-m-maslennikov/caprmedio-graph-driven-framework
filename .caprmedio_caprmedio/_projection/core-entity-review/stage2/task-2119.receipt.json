@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2119",
+  "recorded_at": "2026-10-11 09:26:22 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded verify accepted subject-family layers independently; not migration approval",
+  "verification": {
+    "task": "CA-P-2119",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+      "sha256": "f41f2273026d3e062714dd7b7239ddc0ce5d238b6c0a0c9f3bc5ffe140e5b7f1"
+    },
+    "test_output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_working_mapping_ledger.py",
+      "sha256": "7d80b12ad833c4b0a0e7588fb438f043c08f1d9a4c309ad69edad17eccc3592d"
+    },
+    "result": "PASS: independent fixed third-group verifier, live old-ledger rejection, focused suite and complete prospective control",
+    "focused_tests": {
+      "tests": 23,
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    "prospective_gate": {
+      "result": "PASS: prospective live frontier and ten valid-control negatives",
+      "counts": {
+        "outcome": "PASS",
+        "sources": 907,
+        "occurrences": 4534,
+        "proposed": 1735,
+        "unchanged": 1540,
+        "unresolved": 1259,
+        "quarantined_sources": 8,
+        "excluded_sources": 11203
+      },
+      "prospective_outputs": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2",
+          "size_bytes": 19739830
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+          "size_bytes": 3642901
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "sha256": "e08e5f1cc8311cd0bea25f0cb0fd7767028baaf04523aebaba384edb170ac819",
+          "size_bytes": 3197267
+        }
+      ],
+      "negative_checks_rejected": [
+        {
+          "probe": "missing_layer",
+          "reason": "complete accepted-layer manifest"
+        },
+        {
+          "probe": "omit_all_followups",
+          "reason": "accepted third follow-up extension required"
+        },
+        {
+          "probe": "missing_selected_row",
+          "reason": "exact current occurrence coverage"
+        },
+        {
+          "probe": "stale_source",
+          "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs exact current origin/pin"
+        },
+        {
+          "probe": "wrong_target",
+          "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs final selected-layer target"
+        },
+        {
+          "probe": "wrong_priority",
+          "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs accepted layer priority"
+        },
+        {
+          "probe": "wrong_confidence",
+          "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs final selected-layer confidence"
+        },
+        {
+          "probe": "stale_receipt",
+          "reason": "third follow-up accepted pins CA-P-2112"
+        },
+        {
+          "probe": "missing_independent_review",
+          "reason": "third follow-up manifest independent-review hash CA-P-2112"
+        },
+        {
+          "probe": "executable_row",
+          "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs non-executable"
+        }
+      ],
+      "draft_writes": "not_performed"
+    },
+    "independent_review": {
+      "reviewer": "/root/grammar_graph",
+      "final_report_sha256": "f41f2273026d3e062714dd7b7239ddc0ce5d238b6c0a0c9f3bc5ffe140e5b7f1",
+      "reviewed_test_sha256": "7d80b12ad833c4b0a0e7588fb438f043c08f1d9a4c309ad69edad17eccc3592d",
+      "result": "PASS: no producer import; exact fixed third-group/live evidence/receipt/final-review/proof checks and actual-tree omission guard preserved",
+      "execution_evidence": "Root executed 23 focused tests and full prospective control with ten wrong-data rejections; reviewer independently inspected exact code and tests."
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/grammar_graph",
+    "final_report_sha256": "f41f2273026d3e062714dd7b7239ddc0ce5d238b6c0a0c9f3bc5ffe140e5b7f1",
+    "reviewed_test_sha256": "7d80b12ad833c4b0a0e7588fb438f043c08f1d9a4c309ad69edad17eccc3592d",
+    "result": "PASS: no producer import; exact fixed third-group/live evidence/receipt/final-review/proof checks and actual-tree omission guard preserved",
+    "execution_evidence": "Root executed 23 focused tests and full prospective control with ten wrong-data rejections; reviewer independently inspected exact code and tests."
+  },
+  "completion_scope": "The independent verifier admits exactly the third six-report group and rejects complete omission once live receipts exist. All current origins/supporting spans, accepted receipts/final-review hashes, proof fields and earlier gates are preserved. Twenty-three focused tests, a complete 33-layer prospective control and ten wrong-data controls pass. No derived draft or original Core was changed.",
+  "registration_commit": "8c960cc46a9f45141320e2cd97a909cb81af03fb",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
