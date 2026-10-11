@@ -250,9 +250,9 @@ class ReleaseCheckpointTests(unittest.TestCase):
         self.assertEqual(restored.contexts, self.run.contexts)
         self.assertEqual(restored.contexts[0].workflow_version, 6)
 
-    def test_rejects_unknown_frozen_workflow_revision(self) -> None:
+    def test_rejects_nonpositive_frozen_workflow_revision(self) -> None:
         payload = json.loads(encode_release_action_checkpoint(self.run))
-        payload["contexts"][0]["context"]["workflow_version"] = 7
+        payload["contexts"][0]["context"]["workflow_version"] = 0
         payload["sha256"] = release_action_checkpoint_sha256(payload)
 
         with self.assertRaises(ReleaseContractError):
@@ -327,17 +327,15 @@ class ReleaseCheckpointTests(unittest.TestCase):
         )
         outputs = {
             0: self.candidate,
-            1: self.candidate,
-            2: self.run.source_copy,
-            3: self.run.compilation,
-            4: self.run.suite,
-            5: self.run.package,
-            6: self.run.build,
-            7: self.run.verification,
-            8: self.run.e2e,
-            9: self.run.full_gate,
-            10: self.run.promotion,
-            11: self.run.retirement,
+            1: self.run.package,
+            2: self.run.suite,
+            3: self.run.build,
+            4: self.run.verification,
+            5: self.run.e2e,
+            6: self.run.full_gate,
+            7: self.run.source_copy,
+            8: self.run.compilation,
+            9: self.run.promotion,
         }
         self.run.contexts = {
             index: SelectedReleaseActionContext(
@@ -349,12 +347,12 @@ class ReleaseCheckpointTests(unittest.TestCase):
         self.run.results = {
             index: ReleasePhaseResult(
                 "workflow-1", f"step-{index}", f"action-{index}", *PHASES[index],
-                "completed" if index < 11 else "pending", "observed", self.candidate.manifest.sha256,
+                "completed", "observed", self.candidate.manifest.sha256,
                 (), (), ("journal-event-1",), output=outputs[index],
             )
             for index in range(len(PHASES))
         }
-        self.run.next_phase = 11
+        self.run.next_phase = len(PHASES)
         self.run.stopped = True
         encoded = encode_release_action_checkpoint(self.run)
         restored = restore_release_action_checkpoint(encoded)
@@ -383,7 +381,7 @@ class ReleaseCheckpointTests(unittest.TestCase):
             with self.subTest(state=state_name), self.assertRaises(ReleaseContractError):
                 restore_release_action_checkpoint(json.dumps(changed, sort_keys=True, separators=(",", ":")).encode())
         self.run.full_gate = replace(self.run.full_gate, outcome="failed")
-        self.run.results[9] = replace(self.run.results[9], output=self.run.full_gate)
+        self.run.results[6] = replace(self.run.results[6], output=self.run.full_gate)
         with self.assertRaises(ReleaseContractError):
             encode_release_action_checkpoint(self.run)
 

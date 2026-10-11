@@ -1067,9 +1067,9 @@ def _context_value(context: SelectedReleaseActionContext) -> dict[str, Any]:
 
 
 # Checkpoints preserve the selected Workflow definition recorded when the Run
-# began.  Retain the immediately preceding O164 revision for status/recovery,
-# but reject an unknown revision rather than silently rebinding it.
-_SUPPORTED_RELEASE_WORKFLOW_VERSIONS = frozenset({5, 6, 9, 11})
+# began.  The selected provider separately proves that positive revision
+# against the exact frozen, source-admitted graph; the codec must not invent a
+# copied current-revision pin.
 
 
 def _load_context(value: Any, index: int, *, root: str, workflow_run_id: str, fingerprint: str) -> SelectedReleaseActionContext:
@@ -1082,7 +1082,7 @@ def _load_context(value: Any, index: int, *, root: str, workflow_run_id: str, fi
         or context.frozen_parameters_sha256 != fingerprint
         or context.workflow_atom_id != "CA-O-164"
         or type(context.workflow_version) is not int
-        or context.workflow_version not in _SUPPORTED_RELEASE_WORKFLOW_VERSIONS
+        or context.workflow_version < 1
     ):
         raise _error("release-checkpoint-binding-mismatch", "context does not belong to the frozen selected Run")
     for name, identity in (("step_run_id", context.step_run_id), ("action_run_id", context.action_run_id)):
@@ -1452,7 +1452,7 @@ def _load_pending_recordings(
 
 
 def _native_portable_run(run: ReleaseActionRun) -> bool:
-    """Identify the current O164@11 portable frontier from selected contexts only."""
+    """Identify one helper-bound, source-admitted portable frontier."""
 
     contexts = [*run.contexts.values()]
     if run.in_progress is not None:
@@ -1460,11 +1460,19 @@ def _native_portable_run(run: ReleaseActionRun) -> bool:
     versions = {context.workflow_version for context in contexts}
     if not versions:
         return False
-    if versions == {11}:
-        return True
+    if len(versions) == 1 and all(type(version) is int and version > 0 for version in versions):
+        # The freeze phase captures these Project-local helper bytes before
+        # the first checkpoint.  Their presence distinguishes the current
+        # portable frontier from retained legacy checkpoints without copying
+        # an O164 revision into this codec.
+        if run.local_helper_binding is not None:
+            return True
+        if versions <= {5, 6, 9, 11}:
+            return False
+        raise _error("release-checkpoint-binding-mismatch", "current portable Run lacks its frozen local helper binding")
     if versions <= {5, 6}:
         return False
-    raise _error("release-checkpoint-binding-mismatch", "checkpoint mixes unsupported selected workflow revisions")
+    raise _error("release-checkpoint-binding-mismatch", "checkpoint mixes selected workflow revisions")
 
 
 def _native_rows(rows: tuple[PortablePackageRow, ...], label: str) -> list[dict[str, Any]]:
@@ -2233,8 +2241,8 @@ def _encode_native_release_action_checkpoint(
         raise _error("release-checkpoint-binding-mismatch", "native run request, root, or fingerprint is not frozen")
     contexts = []
     for index, context in sorted(run.contexts.items()):
-        if context.workflow_version != 11:
-            raise _error("release-checkpoint-binding-mismatch", "native checkpoint context is not current O164@11")
+        if type(context.workflow_version) is not int or context.workflow_version < 1:
+            raise _error("release-checkpoint-binding-mismatch", "native checkpoint context has no positive frozen O164 revision")
         _load_context(_context_value(context), _index(index, "contexts.index"), root=root,
                       workflow_run_id=run.workflow_run_id, fingerprint=run.frozen_parameters_sha256)
         contexts.append({"index": index, "context": _context_value(context)})
@@ -2253,8 +2261,8 @@ def _encode_native_release_action_checkpoint(
         _load_native_result(encoded, index, run.contexts[index], candidate, restored_state)
         results.append({"index": index, "result": encoded})
     if run.in_progress is not None:
-        if run.in_progress.workflow_version != 11:
-            raise _error("release-checkpoint-binding-mismatch", "native in-progress context is not current O164@11")
+        if type(run.in_progress.workflow_version) is not int or run.in_progress.workflow_version < 1:
+            raise _error("release-checkpoint-binding-mismatch", "native in-progress context has no positive frozen O164 revision")
         _load_context(_context_value(run.in_progress), run.next_phase, root=root,
                       workflow_run_id=run.workflow_run_id, fingerprint=run.frozen_parameters_sha256)
     _validate_phase_continuity(next_phase=run.next_phase, stopped=run.stopped, in_progress=run.in_progress,
@@ -2444,7 +2452,7 @@ def derive_unknown_effect_terminal_checkpoint(payload: Mapping[str, Any]) -> dic
 def _restore_native_release_action_checkpoint(
     payload: Mapping[str, Any], *, image_executor: AdmittedImageExecutor | None = None,
 ) -> tuple[ReleaseActionRun, dict[int, dict[str, Any]], dict[int, dict[str, str]]]:
-    """Restore the closed current O164@11 portable frontier without coercion."""
+    """Restore a closed, single-revision portable frontier without coercion."""
 
     source, helper_binding = _native_checkpoint_envelope(dict(payload), "native checkpoint")
     if source["schema"] not in {NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA} or source["kind"] != "release_action_run":
@@ -2470,6 +2478,7 @@ def _restore_native_release_action_checkpoint(
     state = _load_native_state(source["state"], root, documentary_publication_frontier=partial_hint)
     candidate = state["candidate"]
     contexts: dict[int, SelectedReleaseActionContext] = {}
+    native_revision: int | None = None
     if not isinstance(source["contexts"], list):
         raise _error("release-checkpoint-invalid", "native contexts must be a canonical list")
     for entry in source["contexts"]:
@@ -2478,8 +2487,10 @@ def _restore_native_release_action_checkpoint(
         if index in contexts:
             raise _error("release-checkpoint-invalid", "native contexts repeat a selected phase")
         context = _load_context(record["context"], index, root=root, workflow_run_id=workflow_run_id, fingerprint=fingerprint)
-        if context.workflow_version != 11:
-            raise _error("release-checkpoint-binding-mismatch", "native checkpoint context is not current O164@11")
+        if native_revision is None:
+            native_revision = context.workflow_version
+        elif context.workflow_version != native_revision:
+            raise _error("release-checkpoint-binding-mismatch", "native checkpoint mixes frozen O164 revisions")
         contexts[index] = context
     if not isinstance(source["results"], list) or candidate is None:
         if source["results"] or candidate is not None:
@@ -2497,8 +2508,10 @@ def _restore_native_release_action_checkpoint(
     if source["in_progress"] is not None:
         in_progress = _load_context(source["in_progress"], source["next_phase"], root=root,
                                     workflow_run_id=workflow_run_id, fingerprint=fingerprint)
-        if in_progress.workflow_version != 11:
-            raise _error("release-checkpoint-binding-mismatch", "native in-progress context is not current O164@11")
+        if native_revision is None:
+            native_revision = in_progress.workflow_version
+        elif in_progress.workflow_version != native_revision:
+            raise _error("release-checkpoint-binding-mismatch", "native checkpoint mixes frozen O164 revisions")
     _validate_phase_continuity(next_phase=source["next_phase"], stopped=source["stopped"], in_progress=in_progress,
                                contexts=contexts, results=results)
     _validate_native_result_outputs(results, state)

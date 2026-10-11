@@ -1040,7 +1040,7 @@ def execute_release_action(request: ReleaseVersionRequest | Mapping[str, Any], *
         run.next_phase = index
         result = _result(
             run, context, phase, "blocked",
-            f"shared checkpoint failed before phase invocation: {type(error).__name__}",
+            f"shared checkpoint failed before phase invocation: {getattr(error, 'code', type(error).__name__)}",
         )
         run.results[index], run.stopped = result, True
         return result
