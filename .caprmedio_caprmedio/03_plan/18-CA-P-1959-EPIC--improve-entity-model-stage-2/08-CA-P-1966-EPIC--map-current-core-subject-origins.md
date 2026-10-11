@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 77
-updated_at: "2026-10-11 05:43:33 +0400"
+version: 78
+updated_at: "2026-10-11 06:02:10 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -116,6 +116,13 @@ Independent semantic-review children assess the 573 currently proposed follow-up
 - [CA-P-2077 — Audit current-source drift in mapping evidence](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/64-CA-P-2077-TASK--audit-current-source-drift-in-mapping-evidence.md)
 
 ### Current review checkpoint
+
+- [CA-P-2082 — Resolve Atom scope field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/68-CA-P-2082-TASK--resolve-atom-scope-field-mappings.md)
+- [CA-P-2083 — Resolve Atom identity field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/69-CA-P-2083-TASK--resolve-atom-identity-field-mappings.md)
+- [CA-P-2084 — Resolve Scope Unit field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/70-CA-P-2084-TASK--resolve-scope-unit-field-mappings.md)
+- [CA-P-2085 — Resolve remaining Actor role mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/71-CA-P-2085-TASK--resolve-remaining-actor-role-mappings.md)
+
+CA-P-2082–2085 investigate 93 additional disjoint unresolved occurrences: Atom scope, Atom identity, Scope Unit fields and Actor roles. Their original source pins are current and none were part of the earlier semantic reviews. The pending selector choice is not inferred; these are bounded research Tasks, not source edits.
 
 - [CA-P-2078 — Correct generic Carrier mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/65-CA-P-2078-TASK--correct-generic-carrier-mapping-candidates.md)
 - [CA-P-2079 — Preserve named Operation mapping identities](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/66-CA-P-2079-TASK--preserve-named-operation-mapping-identities.md)
