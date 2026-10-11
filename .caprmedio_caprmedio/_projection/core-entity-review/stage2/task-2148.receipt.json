@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2148",
+  "recorded_at": "2026-10-11 12:03:38 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining unqualified subjects 005; not migration approval",
+  "verification": {
+    "task": "CA-P-2148",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2148.research.json",
+      "sha256": "3b206222d47f5365baacbc332600341a32c57d18966b4505b43c210b0b5e7c20"
+    },
+    "rows": 23,
+    "counts": {
+      "unresolved": 8,
+      "proposed": 15
+    },
+    "exact_evidence_spans": 65,
+    "exact_supporting_definition_spans": 17,
+    "exact_input_pins": 31,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision",
+      "foreign_meaning_evidence",
+      "wrong_registration",
+      "partial_owner_body"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2144-2151.inputs.json",
+      "sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+    },
+    "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/grammar_graph",
+      "final_report_sha256": "3b206222d47f5365baacbc332600341a32c57d18966b4505b43c210b0b5e7c20",
+      "result": "PASS: fifteen supported proposals and eight justified nulls after correcting inverse-kind admission",
+      "meaning_checks": [
+        "Live D256 Claim32 defines primitive CARRIES as Carrier-to-Entity; D257 Scope27/Claim31 defines IS_CARRIED_BY as the inverse Entity-to-Carrier view.",
+        "D505's inverse reference now stays null rather than inventing a second Kind or reversing its direction; all other twenty-two current rows remain semantically valid.",
+        "Carrier bindings remain separate roots, not per-Property carrier registries; settings dependencies retain named Artifact owners.",
+        "Journal Record, Atom Priority/target Scope Unit and Content Roles keep record/execution, applicability/ownership and value-domain distinctions.",
+        "Filename/location/carrier-content syntax, Terms, compound revision binding, broad contextual Evaluation and quarantined D559 remain explicit nulls."
+      ],
+      "rejected_previous_revisions": [
+        {
+          "sha256": "bf4a87ab14efd1d6582ede0ddd6fba1bcc6ba2e70ac6e5259dfd5b4decbe0b60",
+          "reviewer": "/root",
+          "result": "FAIL: CA-D-505's IS_CARRIED_BY inverse promoted as a separate primitive Kind; independent review reversed explicit D256/D257 directions",
+          "evidence": [
+            "CA-D-256 Claim line32 defines CARRIES as direct Carrier-to-Entity.",
+            "CA-D-257 Scope27/Claim31 defines IS_CARRIED_BY as inverse of CARRIES, Entity-to-Carrier."
+          ]
+        }
+      ],
+      "review_correction": "Earlier review reversed explicit current Carrier-relation directions; Root re-read the live definitions and required the independent corrected FAIL then final reacceptance."
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/grammar_graph",
+    "final_report_sha256": "3b206222d47f5365baacbc332600341a32c57d18966b4505b43c210b0b5e7c20",
+    "result": "PASS: fifteen supported proposals and eight justified nulls after correcting inverse-kind admission",
+    "meaning_checks": [
+      "Live D256 Claim32 defines primitive CARRIES as Carrier-to-Entity; D257 Scope27/Claim31 defines IS_CARRIED_BY as the inverse Entity-to-Carrier view.",
+      "D505's inverse reference now stays null rather than inventing a second Kind or reversing its direction; all other twenty-two current rows remain semantically valid.",
+      "Carrier bindings remain separate roots, not per-Property carrier registries; settings dependencies retain named Artifact owners.",
+      "Journal Record, Atom Priority/target Scope Unit and Content Roles keep record/execution, applicability/ownership and value-domain distinctions.",
+      "Filename/location/carrier-content syntax, Terms, compound revision binding, broad contextual Evaluation and quarantined D559 remain explicit nulls."
+    ],
+    "rejected_previous_revisions": [
+      {
+        "sha256": "bf4a87ab14efd1d6582ede0ddd6fba1bcc6ba2e70ac6e5259dfd5b4decbe0b60",
+        "reviewer": "/root",
+        "result": "FAIL: CA-D-505's IS_CARRIED_BY inverse promoted as a separate primitive Kind; independent review reversed explicit D256/D257 directions",
+        "evidence": [
+          "CA-D-256 Claim line32 defines CARRIES as direct Carrier-to-Entity.",
+          "CA-D-257 Scope27/Claim31 defines IS_CARRIED_BY as inverse of CARRIES, Entity-to-Carrier."
+        ]
+      }
+    ],
+    "review_correction": "Earlier review reversed explicit current Carrier-relation directions; Root re-read the live definitions and required the independent corrected FAIL then final reacceptance."
+  },
+  "completion_scope": "All 23 selected origins across 19 owners passed complete current-body/pin/span/coverage controls, fourteen wrong-data controls and independent semantic reacceptance: fifteen supported proposals and eight explicit nulls. The unsupported primitive IS_CARRIED_BY target was withdrawn; the actual direct/inverse Carrier directions remain distinct. Original Core is unchanged.",
+  "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
