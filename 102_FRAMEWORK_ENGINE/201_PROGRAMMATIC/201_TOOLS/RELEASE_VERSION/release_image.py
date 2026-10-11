@@ -167,6 +167,16 @@ class ImageRetirementEvidence:
     receipt_sha256: str | None = None
 
 
+@dataclass(frozen=True)
+class SupersededImageCleanupEvidence:
+    """Observed post-startup cleanup; deliberately separate from one-prior retirement."""
+    candidate_snapshot_manifest_sha256: str
+    outcome: Literal["cleaned", "incomplete", "effect_uncertain", "recording_uncertain"]
+    reason: str
+    report_ref: str
+    receipt_sha256: str | None = None
+
+
 def _digest(payload: bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
 
@@ -1767,6 +1777,158 @@ def _prove_prior_absence(executor, prior_image, root, attempt, records, timeout)
     return prior_image not in images
 
 
+def _retained_owned_images(root: Path) -> dict[str, tuple[str, str]]:
+    """Read only exact immutable IDs backed by this Project's completed builds."""
+    owned: dict[str, tuple[str, str]] = {}
+    conflicted: set[str] = set()
+    base = root / IMAGE_ROOT
+    if base.is_symlink() or not base.is_dir():
+        return owned
+    for candidate_dir in base.iterdir():
+        if (candidate_dir.is_symlink() or not candidate_dir.is_dir()
+                or _SHA256.fullmatch(candidate_dir.name) is None):
+            continue
+        build_dir = candidate_dir / "build"
+        if build_dir.is_symlink() or not build_dir.is_dir():
+            continue
+        for receipt_path in build_dir.glob("attempt-*/receipt.json"):
+            try:
+                if receipt_path.parent.is_symlink() or receipt_path.is_symlink() or not receipt_path.is_file():
+                    continue
+                raw = receipt_path.read_bytes()
+                payload = json.loads(raw)
+                if not isinstance(payload, dict):
+                    continue
+                image = payload.get("candidate_image_digest")
+                context = payload.get("context_sha256")
+                fields = set(payload) if isinstance(payload, dict) else set()
+                portable = fields == set(PortableImageBuildEvidence.__dataclass_fields__)
+                legacy = fields == set(ImageBuildEvidence.__dataclass_fields__)
+                if (not (portable or legacy)
+                        or raw != canonical_json(payload)
+                        or payload.get("receipt_sha256") is not None
+                        or payload.get("outcome") != "built"
+                        or payload.get("execution_kind") != "docker-subprocess"
+                        or not isinstance(payload.get("reason"), str)
+                        or not isinstance(image, str) or IMAGE_ID.fullmatch(image) is None
+                        or not isinstance(context, str) or _SHA256.fullmatch(context) is None
+                        or payload.get("candidate_snapshot_manifest_sha256") != candidate_dir.name
+                        or any(not isinstance(payload.get(name), str) or _SHA256.fullmatch(payload[name]) is None
+                               for name in ("package_manifest_sha256", "suite_receipt_sha256", "commands_sha256"))
+                        or not isinstance(payload.get("context_root"), str)
+                        or not isinstance(payload.get("evidence_root"), str)):
+                    continue
+                if portable and (payload.get("package_schema") != "portable-1"
+                                 or any(not isinstance(payload.get(name), str) or not payload[name]
+                                        for name in ("source_catalog_sha256", "candidate_run_id",
+                                                     "input_manifest_sha256", "framework_version",
+                                                     "version_toml_sha256", "package_evidence_sha256",
+                                                     "package_evidence_relpath"))):
+                    continue
+                prior = owned.get(image)
+                binding = (candidate_dir.name, context)
+                if image in conflicted:
+                    continue
+                if prior is None:
+                    owned[image] = binding
+                elif prior != binding:
+                    owned.pop(image)
+                    conflicted.add(image)
+            except (OSError, ValueError, TypeError):
+                continue
+    return owned
+
+
+def cleanup_superseded_release_images(candidate: ValidatedCandidate, compilation: SealedCandidateCompilation,
+                                      suite: SuiteGateEvidence, build: ImageBuildEvidence,
+                                      verification: ImageVerificationEvidence, promotion, *,
+                                      e2e: CandidateE2EGateEvidence, full_gate: FullGateEvidence,
+                                      executor: DockerExecutor, timeout_seconds: float = 120,
+                                      prepared_package: PreparedPortableReleasePackage | None = None) -> SupersededImageCleanupEvidence:
+    """Remove only receipt-proven Project images after the exact promotion remains valid."""
+    from release_promotion import PromotionEvidence, verify_bound_promotion_evidence
+    import release_promotion as promotion_module
+
+    native_type = getattr(promotion_module, "NativePromotionEvidence", None)
+    native_promotion = native_type is not None and isinstance(promotion, native_type)
+    def verify_promotion():
+        if native_promotion:
+            return promotion_module.verify_native_promotion_evidence(
+                candidate, compilation, suite, build, verification, promotion,
+                e2e=e2e, full_gate=full_gate, prepared_package=prepared_package,
+            )
+        if not isinstance(promotion, PromotionEvidence):
+            raise ReleaseContractError("release-image-cleanup-promotion-untrusted", "cleanup requires observed bound promotion")
+        return verify_bound_promotion_evidence(candidate, compilation, suite, build, verification, promotion,
+                                               e2e=e2e, full_gate=full_gate)
+
+    root = verify_promotion()
+    if isinstance(timeout_seconds, bool) or not isinstance(timeout_seconds, (int, float)) or not 0 < timeout_seconds <= 120:
+        raise ReleaseContractError("release-image-timeout-invalid", "cleanup timeout must be within (0, 120]")
+    attempt = _attempt(root, candidate.manifest.sha256, "cleanup")
+    records: list[dict] = []
+    report: list[dict] = []
+    try:
+        inventory = _command(executor, ("docker", "image", "ls", "--all", "--quiet", "--no-trunc"), root, attempt, records, timeout_seconds)
+        if inventory.timed_out or inventory.exit_code != 0:
+            raise ReleaseContractError("release-image-cleanup-inventory-unavailable", "immutable image inventory is unavailable")
+        listed = sorted(set(inventory.stdout.decode("ascii").splitlines()))
+        if any(IMAGE_ID.fullmatch(image) is None for image in listed):
+            raise ReleaseContractError("release-image-cleanup-inventory-invalid", "immutable image inventory is malformed")
+        owned = _retained_owned_images(root)
+        for image in listed:
+            if image == promotion.candidate_image_digest:
+                report.append({"image": image, "outcome": "candidate_protected"})
+                continue
+            binding = owned.get(image)
+            if binding is None:
+                report.append({"image": image, "outcome": "excluded_unproven"})
+                continue
+            candidate_sha, context_sha = binding
+            inspected = _command(executor, ("docker", "image", "inspect", image), root, attempt, records, timeout_seconds)
+            try:
+                rows = json.loads(inspected.stdout)
+                labels = rows[0]["Config"]["Labels"]
+                if not isinstance(labels, dict):
+                    raise ValueError("image labels are not a mapping")
+                proven = (inspected.exit_code == 0 and not inspected.timed_out and len(rows) == 1
+                          and rows[0]["Id"] == image and labels.get(CANDIDATE_LABEL) == candidate_sha
+                          and labels.get(CONTEXT_LABEL) == context_sha)
+            except (ValueError, TypeError, KeyError, IndexError):
+                proven = False
+            if not proven:
+                report.append({"image": image, "outcome": "unproven"})
+                continue
+            condition, required_images, required_refs = _retention_settings(root, candidate, image)
+            if image in required_images or (condition == "retain_prior" and image == promotion.prior_image_digest):
+                report.append({"image": image, "outcome": "protected", "references": list(required_refs)})
+                continue
+            containers = _retaining_containers(executor, image, root, attempt, records, timeout_seconds)
+            if containers:
+                report.append({"image": image, "outcome": "in_use", "containers": list(containers)})
+                continue
+            claim = attempt / f"removal-{image.removeprefix('sha256:')}.json"
+            _write(claim, canonical_json({"schema": "caprmedio.release_version.image_cleanup_intent.v1", "image": image,
+                                          "candidate": candidate.manifest.sha256, "promotion": promotion.receipt_sha256}))
+            removal = _command(executor, ("docker", "image", "rm", image), root, attempt, records, timeout_seconds)
+            absent = _prove_prior_absence(executor, image, root, attempt, records, timeout_seconds)
+            report.append({"image": image, "outcome": "removed" if not removal.timed_out and removal.exit_code == 0 and absent is True else "uncertain"})
+        verify_promotion()
+        outcome = ("effect_uncertain" if any(row["outcome"] == "uncertain" for row in report) else
+                   "cleaned" if all(row["outcome"] in {"removed", "candidate_protected", "excluded_unproven"} for row in report) else "incomplete")
+        reason = "all receipt-proven superseded images were removed" if outcome == "cleaned" else "some receipt-proven images were protected, unproven, in use, or uncertain"
+    except (OSError, ValueError, RuntimeError, ReleaseContractError) as error:
+        outcome = "effect_uncertain" if any(row.get("outcome") == "uncertain" for row in report) else "incomplete"
+        reason = f"cleanup observation is incomplete: {getattr(error, 'code', type(error).__name__)}"
+    payload = canonical_json({"candidate_snapshot_manifest_sha256": candidate.manifest.sha256, "outcome": outcome,
+                              "reason": reason, "items": report, "commands": records})
+    report_path = attempt / "cleanup-report.json"
+    _write(report_path, payload)
+    evidence = SupersededImageCleanupEvidence(candidate.manifest.sha256, outcome, reason,
+                                               report_path.relative_to(root).as_posix())
+    return _record(attempt, evidence)
+
+
 def retire_prior_image(candidate: ValidatedCandidate, compilation: SealedCandidateCompilation,
                        suite: SuiteGateEvidence, build: ImageBuildEvidence,
                        verification: ImageVerificationEvidence, promotion: PromotionEvidence, *,
@@ -1922,4 +2084,5 @@ def retire_prior_image(candidate: ValidatedCandidate, compilation: SealedCandida
 __all__ = ["DockerCommandResult", "DockerExecutor", "DockerSubprocessExecutor", "ImageBuildEvidence",
            "PortableImageBuildEvidence", "ImageVerificationEvidence", "PortableImageVerificationEvidence",
            "ImageRetirementEvidence", "build_candidate_image", "verify_candidate_image", "verify_bound_image_evidence",
-           "read_image_execution_artifacts", "read_detached_image_execution_artifacts", "retire_prior_image"]
+           "SupersededImageCleanupEvidence", "read_image_execution_artifacts", "read_detached_image_execution_artifacts",
+           "retire_prior_image", "cleanup_superseded_release_images"]

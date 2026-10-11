@@ -45,7 +45,7 @@ from release_handoff import (
 )
 from release_image import (
     DockerExecutor, ImageBuildEvidence, ImageVerificationEvidence, ImageRetirementEvidence,
-    build_candidate_image, verify_candidate_image, retire_prior_image,
+    build_candidate_image, verify_candidate_image, retire_prior_image, cleanup_superseded_release_images,
 )
 from release_packaging import stage_framework_package
 from release_portable_contract import (
@@ -814,6 +814,23 @@ def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: Valida
                 return "effect_uncertain", "native publication occurred but installed MCP did not report ready", (
                     installed_root, *bindings.checkpoint_refs, *refs,
                 ), promoted, promoted.outcome
+            try:
+                cleanup = cleanup_superseded_release_images(
+                    candidate, portable, suite, run.build, run.verification, promoted,
+                    e2e=run.e2e, full_gate=run.full_gate, executor=_executor(run),
+                    prepared_package=package,
+                )
+            except (OSError, ValueError, RuntimeError) as error:
+                return "effect_uncertain", f"installation succeeded but image cleanup stopped: {getattr(error, 'code', type(error).__name__)}", (
+                    installed_root, *bindings.checkpoint_refs, *refs,
+                ), promoted, promoted.outcome
+            refs = (*refs, cleanup.report_ref)
+            if cleanup.outcome != "cleaned":
+                cleanup_outcome = cleanup.outcome if cleanup.outcome in {"effect_uncertain", "recording_uncertain"} else "pending"
+                return cleanup_outcome, f"installation succeeded; {cleanup.reason}", (
+                    installed_root, *bindings.checkpoint_refs, *refs,
+                ), promoted, promoted.outcome
+            reason = f"{reason}; {cleanup.reason}"
         return outcome, reason, (installed_root, *bindings.checkpoint_refs, *refs), promoted, promoted.outcome if promoted is not None else outcome
     raise ReleaseContractError("release-action-phase-unselected", "unknown selected native portable phase")
 
