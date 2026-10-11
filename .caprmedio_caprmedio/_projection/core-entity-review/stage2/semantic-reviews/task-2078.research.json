@@ -1,0 +1,744 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2078",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2078-2080.inputs.json",
+      "sha256": "5182fc07308a38092acf3ca624dd7edf8b71c83eb6fa87b06304ebb2d6b72142"
+    },
+    "prior_semantic_reviews": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+        "sha256": "867e784ea0c58fef0c59f00048817fa47c90978ff54ca7ebb2c30b14d394b299"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2073.review.json",
+        "sha256": "ce551767db4ae135371bc12455da301a8722fab65f9050b1820cbd24d3e483ac"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2074.review.json",
+        "sha256": "03b3ff9a2797035667af76f9b768f8e833bc36af490a2a66a88620214b0f2c84"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2076.review.json",
+        "sha256": "142b092991c78078e2440ade1685670b5048bfb5d12dd664d722794ad5f10a11"
+      }
+    ],
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      }
+    ],
+    "current_grammar": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/subject-tools.grammar-contract.md",
+        "sha256": "aa267553ff481c7473c86fedcd757e902bbf00ffe3e2f2deef90b99201598f59"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-tools.current-contract.md",
+        "sha256": "cab46c2481e61fdca0ee7df38bce638d178eb37865e2e9e0be580179b2f3dbb6"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/65-CA-P-2078-TASK--correct-generic-carrier-mapping-candidates.md",
+      "sha256": "da54340da4322847237279fef80975e83d71a4f5031b8097ee7ad45935ddfbda"
+    }
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1361-CORE_META_MODEL--define-canonical-scope-signature.md#subjects.depends_on[3]",
+      "old_value": "Artifact/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Artifact.Carrier",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1361-CORE_META_MODEL--define-canonical-scope-signature.md",
+          "sha256": "7e5fce4d3eeafe4bc4cab3f4fcd972c5e3a94b5ba86fc96f3d0285d7737a977f",
+          "start_line": 22,
+          "end_line": 50,
+          "span_sha256": "8edeb4aa44f7c9d4c317fa9b3f65fd05561d827574a755aa55f8715d1b74d59c",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier remains a separate root Entity, not a Property or a filename/path surrogate",
+        "The source-local Atom or Artifact restriction remains an evidence-backed condition, not newly admitted conditional-owner grammar",
+        "No per-Entity Carrier binding, native relation, or D-property registry is inferred"
+      ],
+      "reason": "The source identifies one active Atom Carrier by its registered Atom ID and requires the signature to resolve only against that selected source frontier. Carrier is therefore an explicit generic root reference, while the source keeps the active-Atom restriction; this research does not encode or admit an Atom-to-Carrier binding relation.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1586-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-details.md#subjects.depends_on[2]",
+      "old_value": "Atom/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Atom.Carrier",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1586-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-details.md",
+          "sha256": "bb52ec824445518fb7eebdcca7c55c2a99fe46677bb4f615f3c06c6722a1cf5b",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "d16d0188ef06f5a2d03df16c4e9f20db8738c831588185ef344b250c4e2078b7",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The prior Atom or Artifact qualifier is not silently discarded",
+        "Carrier remains distinct from filename, path, and per-property serialization convention",
+        "No conditional-owner notation, binding Entity, or native relation is inferred"
+      ],
+      "reason": "The body defines Plan Details but does not itself establish any Carrier concept or Atom-to-Carrier restriction. The old Atom/Carrier value cannot be narrowed to generic Carrier without inventing the omitted link.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1590-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-standalone-plans.md#subjects.depends_on[1]",
+      "old_value": "Atom/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Atom.Carrier",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1590-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-standalone-plans.md",
+          "sha256": "38b8d2288aab37581afe93b2f207a55d141cfc3b0a06673ef791c7963b2eb35f",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "7276de1822a9dc48e11b6157be5d3e112855d9ec8ec98857ffff6f9959d38970",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The prior Atom or Artifact qualifier is not silently discarded",
+        "Carrier remains distinct from filename, path, and per-property serialization convention",
+        "No conditional-owner notation, binding Entity, or native relation is inferred"
+      ],
+      "reason": "The body permits a standalone Plan as an Atom but does not establish a Carrier concept or storage restriction. Generic Carrier would be a lexical replacement without source-backed meaning.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1598-CORE_META_MODEL-CORE-REQUIREMENT--keep-every-atom-self-sufficient.md#subjects.depends_on[3]",
+      "old_value": "Atom/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Atom.Carrier",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1598-CORE_META_MODEL-CORE-REQUIREMENT--keep-every-atom-self-sufficient.md",
+          "sha256": "b76be3aa6457c81127c7864a53ee75952417f8dbc14f8f0e534e2d0abdcf9983",
+          "start_line": 23,
+          "end_line": 39,
+          "span_sha256": "981633acb0fe653ad2d3ff7cf8d298f0a8c57b98e7ad6d82ef4b73a244cbd2ac",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier remains a separate root Entity, not a Property or a filename/path surrogate",
+        "The source-local Atom or Artifact restriction remains an evidence-backed condition, not newly admitted conditional-owner grammar",
+        "No per-Entity Carrier binding, native relation, or D-property registry is inferred"
+      ],
+      "reason": "The source expressly makes an Atom Revision self-sufficient in its own Markdown Carrier and separately preserves relation ownership. Carrier is a source-backed root reference; the Revision/Atom restriction remains in the current body, not in a new dependent notation or binding relation.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md#subjects.depends_on[1]",
+      "old_value": "Artifact/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Artifact.Carrier",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+          "sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+          "start_line": 21,
+          "end_line": 42,
+          "span_sha256": "09613c33577fb980bc02a49045080c915645dc526665e4faedf44cc3fd194f99",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The prior Atom or Artifact qualifier is not silently discarded",
+        "Carrier remains distinct from filename, path, and per-property serialization convention",
+        "No conditional-owner notation, binding Entity, or native relation is inferred"
+      ],
+      "reason": "The recovery body records observed Carrier state and Artifact movement as separate facts. It supplies no source-backed Artifact-to-Carrier meaning, so a generic Carrier target would collapse the distinction.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL--refresh-updated-at-whenever-an-atom-changes.md#subjects.depends_on[1]",
+      "old_value": "Artifact/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Artifact.Carrier",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.92,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL--refresh-updated-at-whenever-an-atom-changes.md",
+          "sha256": "253278979269bbc4ce755a729f601409798ce309eaa035f03ee7a18d708373b6",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "397c5b1889376206af01c6e7044003a6fdc9df4ed7e255391f6b6c865dd3ba1c",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier remains a separate root Entity, not a Property or a filename/path surrogate",
+        "The source-local Atom or Artifact restriction remains an evidence-backed condition, not newly admitted conditional-owner grammar",
+        "No per-Entity Carrier binding, native relation, or D-property registry is inferred"
+      ],
+      "reason": "The source expressly limits the event to an accepted edit of one Markdown Atom Carrier, with the same Atom Revision refreshed. Carrier is an explicit root concept here and the Atom/Revision lifecycle restriction remains source-local; no generic carrier binding is asserted.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-241-CORE_META_MODEL--derive-canonical-scope-signatures-without-source-rewrite.md#subjects.depends_on[2]",
+      "old_value": "Atom/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Atom.Carrier",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-241-CORE_META_MODEL--derive-canonical-scope-signatures-without-source-rewrite.md",
+          "sha256": "97f0b470a85ecdd81c279fea0008177f6fefabb5669030c94ca6e65ee15f2efc",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "77bd9f98d2f79a22c857a24c306d7d13f5d9745a8329a81adcb4ccd52dd247dc",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier remains a separate root Entity, not a Property or a filename/path surrogate",
+        "The source-local Atom or Artifact restriction remains an evidence-backed condition, not newly admitted conditional-owner grammar",
+        "No per-Entity Carrier binding, native relation, or D-property registry is inferred"
+      ],
+      "reason": "The method expressly inspects active Carriers only inside the caller-selected Atom Carrier folder and forbids source-carrier rewrite. That supports the generic Carrier root while retaining the caller-selected Atom and no-rewrite restrictions in source meaning.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-407-CORE_META_MODEL-EVALUATION_APPROACH--validate-canonical-scope-signature-boundary.md#subjects.depends_on[2]",
+      "old_value": "Atom/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Atom.Carrier",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-407-CORE_META_MODEL-EVALUATION_APPROACH--validate-canonical-scope-signature-boundary.md",
+          "sha256": "ef78590cf46f4f2679aa38bd0dd034bf97e6816adfb0c6e1030b5a0ff82ce65b",
+          "start_line": 24,
+          "end_line": 41,
+          "span_sha256": "1d2ffb01d8c3aa0cdca0d769d58e8c391d16fa4d19a30eb462017e64cc81cad5",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The prior Atom or Artifact qualifier is not silently discarded",
+        "Carrier remains distinct from filename, path, and per-property serialization convention",
+        "No conditional-owner notation, binding Entity, or native relation is inferred"
+      ],
+      "reason": "The evaluation only prohibits rewriting a source Carrier during derivation. It does not establish that carrier as an Atom Carrier or specify an identity-preserving Carrier relation, so the old Atom restriction cannot be retained.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-EVALUATION_APPROACH--validate-atom-replacement-event-evidence.md#subjects.depends_on[7]",
+      "old_value": "Artifact/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Artifact.Carrier",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-EVALUATION_APPROACH--validate-atom-replacement-event-evidence.md",
+          "sha256": "e1b8a1f6f8c8a64966578f24f74f153ffc6f7bffd60ae9b252a3ff8bbd701dcb",
+          "start_line": 31,
+          "end_line": 56,
+          "span_sha256": "63f45df62e919afde2d3422f46f7a396feab29915fc1affba053b452074d6b61",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The prior Atom or Artifact qualifier is not silently discarded",
+        "Carrier remains distinct from filename, path, and per-property serialization convention",
+        "No conditional-owner notation, binding Entity, or native relation is inferred"
+      ],
+      "reason": "The replacement-evidence body preserves archive and event facts but supplies no explicit Carrier concept or Artifact-to-Carrier restriction. A generic Carrier target would be unsupported.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-CORE-QA_CASE--check-the-journal-storage-boundary.md#subjects.depends_on[1]",
+      "old_value": "Artifact/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Artifact.Carrier",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-CORE-QA_CASE--check-the-journal-storage-boundary.md",
+          "sha256": "6ab9828f130133780eb89ea7dac13b3e3cc60134a92ab8a120d31da9a23ea2ae",
+          "start_line": 27,
+          "end_line": 56,
+          "span_sha256": "882a6ee220040b72a81dbec0ce0cc42dddf5ad02e51a4f872467172fdb3ad4c5",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The prior Atom or Artifact qualifier is not silently discarded",
+        "Carrier remains distinct from filename, path, and per-property serialization convention",
+        "No conditional-owner notation, binding Entity, or native relation is inferred"
+      ],
+      "reason": "The journal-storage QA body tests event and storage boundaries, not a Carrier concept or an Artifact-to-Carrier relation. The old Artifact qualifier has no source-backed target here.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-482-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-principle-content-role-semantics.md#subjects.depends_on[13]",
+      "old_value": "Artifact/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Artifact.Carrier",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-482-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-principle-content-role-semantics.md",
+          "sha256": "63074cf1df61acaee8b72785316a000db1b1d4a5b893591c789fa2d88706683f",
+          "start_line": 42,
+          "end_line": 67,
+          "span_sha256": "60aaaf37ea6de8361cebd90ef93fad5a490d72427605134b81710cb2ca454746",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The prior Atom or Artifact qualifier is not silently discarded",
+        "Carrier remains distinct from filename, path, and per-property serialization convention",
+        "No conditional-owner notation, binding Entity, or native relation is inferred"
+      ],
+      "reason": "The content-role evaluation distinguishes what a Carrier stores, represents, and places, but does not identify an Artifact binding. The candidate root alone cannot recover that missing Artifact restriction.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md#subjects.depends_on[2]",
+      "old_value": "Artifact/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Artifact.Carrier",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md",
+          "sha256": "70f17039419cd20eee9a38c3d106b9d75b7bf4b563b732b3632b9c5115f601a0",
+          "start_line": 32,
+          "end_line": 58,
+          "span_sha256": "9eed858245e2fd7fe6cb4b6ffc38461c6cc2bb21fccd67628dd508069627fe69",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier remains a separate root Entity, not a Property or a filename/path surrogate",
+        "The source-local Atom or Artifact restriction remains an evidence-backed condition, not newly admitted conditional-owner grammar",
+        "No per-Entity Carrier binding, native relation, or D-property registry is inferred"
+      ],
+      "reason": "The QA case expressly tests accepted changes to a Markdown Atom Carrier and derives semantic Version and Updated At behavior from that change. Carrier is a source-backed root reference; the Atom/Markdown and lifecycle constraints remain explicit in the current body.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-285-CORE_META_MODEL--serialize-local-tier-filename-tokens.md#subjects.depends_on[5]",
+      "old_value": "Artifact/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Artifact.Carrier",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-285-CORE_META_MODEL--serialize-local-tier-filename-tokens.md",
+          "sha256": "4434a46931e802ff2c4e0a722f2be39a907314480e8e057c7ac31a99f1b94856",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "afd37c824d1e9a36f172c09fd0480c48951d7653ef64ff2a519884da908a4a0c",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The prior Atom or Artifact qualifier is not silently discarded",
+        "Carrier remains distinct from filename, path, and per-property serialization convention",
+        "No conditional-owner notation, binding Entity, or native relation is inferred"
+      ],
+      "reason": "The filename-token delivery body names local filename syntax but does not establish a Carrier concept or Artifact-to-Carrier link. Filename/path are expressly not Carrier identity.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.depends_on[4]",
+      "old_value": "Artifact/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Artifact.Carrier",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The prior Atom or Artifact qualifier is not silently discarded",
+        "Carrier remains distinct from filename, path, and per-property serialization convention",
+        "No conditional-owner notation, binding Entity, or native relation is inferred"
+      ],
+      "reason": "The journal-event serialization body uses Carrier for a Work Journal Event record while retaining observed filenames and paths as evidence. It does not establish an Artifact carrier relation, and generic Carrier would discard the record-specific qualification.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md#subjects.depends_on[5]",
+      "old_value": "Atom/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Atom.Carrier",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 26,
+          "end_line": 36,
+          "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier remains a separate root Entity, not a Property or a filename/path surrogate",
+        "The source-local Atom or Artifact restriction remains an evidence-backed condition, not newly admitted conditional-owner grammar",
+        "No per-Entity Carrier binding, native relation, or D-property registry is inferred"
+      ],
+      "reason": "The delivery body expressly distinguishes a Directory Carrier containing a Projection from an Atom Carrier and forbids treating the Projection as that Atom Carrier. A generic Carrier reference preserves the named root without inventing a Projection-to-Carrier binding; the negative Atom restriction remains explicit in the source.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-386-CORE_META_MODEL-DELIVERY--serialize-concern-priority.md#subjects.governs",
+      "old_value": "Atom/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Atom.Carrier",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-386-CORE_META_MODEL-DELIVERY--serialize-concern-priority.md",
+          "sha256": "fe423e168cf55a7451cad44871f1826b1138bd24324c54c651b61f8c177db0ce",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "33799b26c03694929b3335dbdffff7bf577762139b6d2d57406d90ada10cd001",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier remains a separate root Entity, not a Property or a filename/path surrogate",
+        "The source-local Atom or Artifact restriction remains an evidence-backed condition, not newly admitted conditional-owner grammar",
+        "No per-Entity Carrier binding, native relation, or D-property registry is inferred"
+      ],
+      "reason": "The delivery body expressly scopes Priority serialization to a Concern Atom Carrier and requires omission for a non-Concern Atom Carrier. Carrier is directly named as a root concept, while the Concern/Atom conditional remains source evidence rather than inferred Subject grammar.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-457-CORE_META_MODEL-STANDARD--serialize-operations-atom-type-tokens.md#subjects.depends_on[5]",
+      "old_value": "Artifact/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Artifact.Carrier",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-457-CORE_META_MODEL-STANDARD--serialize-operations-atom-type-tokens.md",
+          "sha256": "7d73a21345f51c21e15bd24b2ca4f6e76291063db2bd2c7fb6362cdd6e89981d",
+          "start_line": 23,
+          "end_line": 42,
+          "span_sha256": "bd9740618837ca62f1a37cf2ce5fde1d321b2f8f1604dda0cef63513ff2d8bf0",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The prior Atom or Artifact qualifier is not silently discarded",
+        "Carrier remains distinct from filename, path, and per-property serialization convention",
+        "No conditional-owner notation, binding Entity, or native relation is inferred"
+      ],
+      "reason": "The operations serialization body expressly names a File Carrier for an Operations Atom. The candidate does not admit a source-backed conversion from the old Artifact/Carrier relation to this more specific file target, so choosing either generic Carrier or a new subtype would lose or invent meaning.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DELIVERY--store-workflow-graphs-and-steps-in-separate-carriers.md#subjects.depends_on[2]",
+      "old_value": "Artifact/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Artifact.Carrier",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DELIVERY--store-workflow-graphs-and-steps-in-separate-carriers.md",
+          "sha256": "0532c2205f96363bcf23105b3fe469a1829c0caf2a3fb3d8a5f14e7c0221c171",
+          "start_line": 22,
+          "end_line": 38,
+          "span_sha256": "1e0179224549ed6e706e91cbfddf6191e5510b42c06b33af5b13e3102acee132",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The prior Atom or Artifact qualifier is not silently discarded",
+        "Carrier remains distinct from filename, path, and per-property serialization convention",
+        "No conditional-owner notation, binding Entity, or native relation is inferred"
+      ],
+      "reason": "The workflow delivery body distinguishes a folder-backed Workflow Directory Carrier, one Workflow Atom Markdown Carrier, and separate Step Markdown Carriers. No single candidate target retains those different carrier kinds and the old Artifact qualifier without inventing binding syntax.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md#subjects.depends_on[2]",
+      "old_value": "Atom/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Atom.Carrier",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md",
+          "sha256": "60bb7faad37efa795acd0a730b8af40c6759fd29cbf435aa4ea1599902088234",
+          "start_line": 22,
+          "end_line": 41,
+          "span_sha256": "3d6982dbc93bc0ab77e3f9fdacf54d592fa3623853f47a363ab328dbabd9db38",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier remains a separate root Entity, not a Property or a filename/path surrogate",
+        "The source-local Atom or Artifact restriction remains an evidence-backed condition, not newly admitted conditional-owner grammar",
+        "No per-Entity Carrier binding, native relation, or D-property registry is inferred"
+      ],
+      "reason": "The delivery body expressly carries applicability in registered sections of a Markdown Atom Carrier and prohibits inferring applicability from filename or path. This supports generic Carrier only; the Atom, Markdown, and body-section restrictions remain in current source meaning.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md#subjects.depends_on[3]",
+      "old_value": "Atom/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Atom.Carrier",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md",
+          "sha256": "a5fc844d29549361d9a835786324956ef6040a2dc9ab88c3a884aeac103850ff",
+          "start_line": 24,
+          "end_line": 37,
+          "span_sha256": "c9c0bf1365cccf2438a5488e5957aa58b3495e1c9579dffc2f0f4a57f3bbe179",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier remains a separate root Entity, not a Property or a filename/path surrogate",
+        "The source-local Atom or Artifact restriction remains an evidence-backed condition, not newly admitted conditional-owner grammar",
+        "No per-Entity Carrier binding, native relation, or D-property registry is inferred"
+      ],
+      "reason": "The operation expressly archives the predecessor as a whole Carrier and persists the successor through ordered transitions, preserving identity and history facts. Carrier is a source-backed root concept; the Atom replacement/lifecycle restriction remains in the source rather than a newly admitted relation.",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md#subjects.depends_on[7]",
+      "old_value": "Artifact/Carrier",
+      "prior_disposition": "rejected",
+      "input_proposed_value": "Artifact.Carrier",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+          "sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+          "start_line": 30,
+          "end_line": 44,
+          "span_sha256": "b32490be3e76a16ef6d5d62fe8b9891b05dd396b96868ee84dc6fd500bda5ada",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier remains a separate root Entity, not a Property or a filename/path surrogate",
+        "The source-local Atom or Artifact restriction remains an evidence-backed condition, not newly admitted conditional-owner grammar",
+        "No per-Entity Carrier binding, native relation, or D-property registry is inferred"
+      ],
+      "reason": "The operation expressly resolves Project and Framework Settings from registered authoritative Carriers before derived structure. This supports the generic Carrier root while retaining the source-local settings/artifact authority restriction; it does not create a Carrier binding property or a native relation.",
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned": 21,
+    "covered": 21,
+    "proposed": 10,
+    "unresolved": 11,
+    "current_sources": 21,
+    "current_evidence_spans": 21
+  },
+  "limits": [
+    "Research only; every proposed value requires independent semantic review before ledger acceptance.",
+    "Carrier remains a separate root Entity with identity distinct from filename and path; D policy does not create a per-property carrier registry.",
+    "No conditional-owner grammar, selector, @ operator, Carrier binding Entity, native relation, source migration, or live graph change is admitted.",
+    "An unresolved row remains null whenever the exact Atom or Artifact restriction cannot be retained from current source evidence."
+  ]
+}

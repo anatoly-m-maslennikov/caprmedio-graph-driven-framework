@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 21
-updated_at: "2026-10-11 05:30:49 +0400"
+version: 22
+updated_at: "2026-10-11 05:43:33 +0400"
 relations: {}
 ---
 # Summary
@@ -113,6 +113,10 @@ Step 2 must classify proposed edits before writing. Current authority requires a
 CA-P-1965 and CA-P-1975 are Done: the selected-profile lookup, sealed preview and internal graph parser are implemented, independently verified and committed. This is ordinary Tool readiness, not semantic mapping or a live migration receipt. Original Core Subjects and ordinary content are unchanged.
 
 CA-P-2072–2077 completed five independent mapping reviews and one source-drift audit, each with a separate commit. Of 573 proposed follow-up occurrences, 433 have supported candidate meanings, 62 are rejected and 78 remain unresolved. This does not settle the original unresolved research or authorize source edits. The current drift audit matches only the five approved grammar effects; raw stale grammar references and eight quarantined sources stay visible.
+
+CA-P-2078–2080 then checked 52 selected rejected/unresolved cases. Independent review supports ten generic Carrier references and two Applicable Methodology-as-Projection targets; 40 cases remain null. Earlier review files and the baseline ledger are preserved, not rewritten. These are additional supported candidate meanings, not applied Subject edits.
+
+The 27 named Workflow/Step cases expose an identity-qualification gap as well as the existing role/type-owner gap: generic Atom/Workflow or Atom/Step would lose a named definition or binding. Current notation admits neither selectors nor singleton kinds for this purpose. A new Operator question asks whether Atom selectors should cover named and qualified owners; the earlier subtype-only recommendation is insufficient for those named cases. No answer or grammar adoption is inferred.
 
 A confirmed remaining modeling choice affects 220 role/type-qualified mappings across 123 sources: Type, Status and similar fields remain Atom-owned, but selecting a role/type-qualified owner needs either explicit narrower Atom kinds or new selector syntax. The Operator question is unanswered. Do not reinterpret the allowed value Plan as the bearer of those fields or invent a mapping. The known protected-registry authority-path mismatch remains outside this Tool gate and must not be counted as a graph pass.
 
