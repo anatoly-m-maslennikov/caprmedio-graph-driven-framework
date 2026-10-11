@@ -26,7 +26,7 @@ from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
 
 class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True)
+        self.temp = tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True)
         self.addCleanup(self.temp.cleanup)
         self.base = Path(self.temp.name).resolve()
         self.selections = []

@@ -21,7 +21,7 @@ from release_contract import ReleaseContractError  # noqa: E402
 
 class LocalReleaseHelperBindingTests(unittest.TestCase):
     def _project(self) -> Path:
-        root = Path(tempfile.mkdtemp(prefix="caprmedio-local-helper-", dir="/private/tmp"))
+        root = Path(tempfile.mkdtemp(prefix="caprmedio-local-helper-", dir=tempfile.gettempdir()))
         helpers = root / "PROJECT_TOOLS/RELEASE_VERSION"
         helpers.mkdir(parents=True)
         (helpers / "local_release.py").write_text('VALUE = "frozen"\n', encoding="utf-8")

@@ -151,14 +151,14 @@ class PublicFreshE2ETests(unittest.TestCase):
         )
 
     def test_producer_refuses_an_untyped_executor_before_input_reopen(self) -> None:
-        with tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True) as temporary:
+        with tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True) as temporary:
             root = Path(temporary).resolve()
             with self.assertRaises(public_e2e.PublicFreshE2EError) as caught:
                 public_e2e.run_public_candidate_e2e_gate(_inputs(root), _suite(), executor=object())
         self.assertEqual("public-fresh-e2e-executor-untrusted", caught.exception.code)
 
     def test_original_unit_receipt_is_refused_before_any_path_read(self) -> None:
-        with tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True) as temporary:
+        with tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True) as temporary:
             root = Path(temporary).resolve()
             stale = _suite(receipt="0" * 64)
             with self.assertRaises(public_e2e.PublicFreshE2EError) as caught:
@@ -166,7 +166,7 @@ class PublicFreshE2ETests(unittest.TestCase):
         self.assertEqual("public-fresh-e2e-suite-stale", caught.exception.code)
 
     def test_nonzero_or_missing_fresh_unit_exit_is_refused_before_path_read(self) -> None:
-        with tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True) as temporary:
+        with tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True) as temporary:
             root = Path(temporary).resolve()
             inputs = _inputs(root)
             for exit_code in (None, 1):
@@ -177,7 +177,7 @@ class PublicFreshE2ETests(unittest.TestCase):
                     self.assertEqual("public-fresh-e2e-suite-untrusted", caught.exception.code)
 
     def test_canonical_unit_and_matching_action_phase_edge_are_required(self) -> None:
-        with tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True) as temporary:
+        with tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True) as temporary:
             root = Path(temporary).resolve()
             inputs = _inputs(root)
             suite = _materialize_fresh_suite(root, inputs)
@@ -208,7 +208,7 @@ class PublicFreshE2ETests(unittest.TestCase):
                         self.assertEqual("public-fresh-e2e-phase-binding-mismatch", caught.exception.code)
 
     def test_original_e2e_receipt_is_refused_before_image_or_host_reopen(self) -> None:
-        with tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True) as temporary:
+        with tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True) as temporary:
             root = Path(temporary).resolve()
             stale = _evidence(receipt="b" * 64)
             with self.assertRaises(public_e2e.PublicFreshE2EError) as caught:
@@ -216,14 +216,14 @@ class PublicFreshE2ETests(unittest.TestCase):
         self.assertEqual("public-fresh-e2e-evidence-stale", caught.exception.code)
 
     def test_evidence_directories_are_not_misread_as_regular_files(self) -> None:
-        with tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True) as temporary:
+        with tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True) as temporary:
             root = Path(temporary).resolve()
             directory = root / "e2e" / "attempt-1"
             directory.mkdir(parents=True)
             self.assertEqual(directory, public_e2e._directory(root, "e2e/attempt-1", label="fresh E2E"))
 
     def test_host_producer_runs_exact_inspection_plus_three_fixed_harnesses(self) -> None:
-        with tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True) as temporary:
+        with tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True) as temporary:
             root = Path(temporary).resolve()
             inputs = _inputs(root)
             suite = _suite()

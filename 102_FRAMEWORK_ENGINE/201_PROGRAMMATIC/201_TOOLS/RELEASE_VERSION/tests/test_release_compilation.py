@@ -54,7 +54,7 @@ def carrier(atom_id: str, *, version: int = 1) -> bytes:
 
 class ReleaseCompilationTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True, dir="/private/tmp")
+        self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True, dir=tempfile.gettempdir())
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name).resolve(strict=True)
         self.control = self.root / ".caprmedio_caprmedio"

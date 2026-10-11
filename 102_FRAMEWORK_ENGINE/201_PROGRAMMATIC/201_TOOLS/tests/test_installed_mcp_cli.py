@@ -123,7 +123,7 @@ class _Backend:
 
 class InstalledMcpCliTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True)
+        self.temporary = tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name).resolve()
         self.control = self.root / ".caprmedio_fixture"
@@ -330,7 +330,7 @@ class InstalledMcpCliTests(unittest.TestCase):
 
     def test_stdio_cli_refuses_canonical_project_root_with_comma_before_transport(self) -> None:
         with tempfile.TemporaryDirectory(
-            prefix="caprmedio,cli-", dir="/private/tmp", ignore_cleanup_errors=True,
+            prefix="caprmedio,cli-", dir=tempfile.gettempdir(), ignore_cleanup_errors=True,
         ) as temporary:
             comma_root = Path(temporary).resolve()
             shutil.copytree(

@@ -16,9 +16,12 @@ exporter = fixtures.exporter
 
 class MethodologyExportBatchTests(unittest.TestCase):
     def setUp(self) -> None:
-        temporary = tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True)
+        temporary = tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True)
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name).resolve()
+
+    def test_fixture_uses_platform_temp_directory(self) -> None:
+        self.assertEqual(self.root.parent, Path(tempfile.gettempdir()).resolve())
 
     def pin(self, name: str, data: bytes):
         path = self.root / name

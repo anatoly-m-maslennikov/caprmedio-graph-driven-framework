@@ -80,7 +80,7 @@ def describe_tool():
 
 class RegisteredToolRegistryTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True)
+        self.temporary = tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
         self.programmatic = Path(self.temporary.name) / "201_PROGRAMMATIC"
         (self.programmatic / "204_MCP").mkdir(parents=True)

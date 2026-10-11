@@ -73,7 +73,7 @@ class InstallationStateTests(unittest.TestCase):
         # Legacy carriers are intentionally retention-only.  The managed test
         # host also protects those fixture paths from recursive cleanup, so do
         # not ask ``TemporaryDirectory`` to delete them after the assertion.
-        self.root = Path(tempfile.mkdtemp(dir="/private/tmp"))
+        self.root = Path(tempfile.mkdtemp(dir=tempfile.gettempdir()))
         self.target_context = _digest("target-context")
         self.command = _digest("install-command")
         selector = self.root / ".caprmedio_install" / "current.toml"

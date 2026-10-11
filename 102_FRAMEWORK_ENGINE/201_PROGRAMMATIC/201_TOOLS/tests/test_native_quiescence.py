@@ -85,7 +85,7 @@ class _Provider:
 class NativeQuiescenceTests(unittest.TestCase):
     def setUp(self) -> None:
         # Retained intentionally: macOS can deny recursive fixture cleanup.
-        self.root = Path(tempfile.mkdtemp(prefix="native-quiescence-", dir="/private/tmp"))
+        self.root = Path(tempfile.mkdtemp(prefix="native-quiescence-", dir=tempfile.gettempdir()))
         self.target_context = _sha("prospective native target context")
         self.prior_context = _sha("prior native target context")
         self.predecessor = NativeTargetContextProof(
@@ -315,7 +315,7 @@ class NativeQuiescenceTests(unittest.TestCase):
             self.assertEqual(0o644, path.stat().st_mode & 0o777)
 
     def test_retain_refuses_symlinked_generation_ancestor_before_existing_carrier_read(self) -> None:
-        reference_root = Path(tempfile.mkdtemp(prefix="native-quiescence-reference-", dir="/private/tmp"))
+        reference_root = Path(tempfile.mkdtemp(prefix="native-quiescence-reference-", dir=tempfile.gettempdir()))
         with self._lock() as lock:
             reference_lock = InstallationPublicationLock(
                 reference_root,

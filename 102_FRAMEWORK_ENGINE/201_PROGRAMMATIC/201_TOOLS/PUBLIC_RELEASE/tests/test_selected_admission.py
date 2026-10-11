@@ -25,7 +25,7 @@ from selected_admission import (AUTHORITY_PIN, AUTHORITY_REF, PublicReleaseSourc
 
 class SelectedPublicReleaseAdmissionTests(unittest.TestCase):
     def setUp(self):
-        self.root = Path(tempfile.mkdtemp(prefix="public-release-admission-", dir="/private/tmp"))
+        self.root = Path(tempfile.mkdtemp(prefix="public-release-admission-", dir=tempfile.gettempdir()))
         self.authority = self.root / AUTHORITY_REF
         self.authority_text = (REPOSITORY / AUTHORITY_REF).read_text(encoding="utf-8")
         control = Path(".caprmedio_caprmedio")

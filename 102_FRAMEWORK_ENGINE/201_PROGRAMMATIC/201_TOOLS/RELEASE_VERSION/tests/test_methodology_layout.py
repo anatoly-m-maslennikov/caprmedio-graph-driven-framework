@@ -24,7 +24,7 @@ class LayoutTests(unittest.TestCase):
     def _project(rows):
         # Retain the disposable fixtures for terminal evidence; no cleanup
         # behavior substitutes for a resolver assertion.
-        root = Path(tempfile.mkdtemp(prefix="release-methodology-layout-", dir="/private/tmp"))
+        root = Path(tempfile.mkdtemp(prefix="release-methodology-layout-", dir=tempfile.gettempdir()))
         (root / ".caprmedio_caprmedio").mkdir()
         (root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
             '[paths]\ncontrol_root = ".caprmedio_demo"\n', encoding="utf-8",

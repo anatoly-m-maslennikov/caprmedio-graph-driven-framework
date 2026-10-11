@@ -69,7 +69,7 @@ class CleanupDocker:
 
 class ReleaseImageCleanupTests(unittest.TestCase):
     def setUp(self) -> None:
-        temporary = tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True)
+        temporary = tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True)
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name).resolve()
         self.candidate_sha = "a" * 64

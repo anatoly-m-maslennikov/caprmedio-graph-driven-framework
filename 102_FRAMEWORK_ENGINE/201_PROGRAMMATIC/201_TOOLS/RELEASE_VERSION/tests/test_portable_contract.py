@@ -68,7 +68,7 @@ class PortableContractTests(unittest.TestCase):
     def setUp(self) -> None:
         # Keep synthetic evidence inspectable on hosts that deny recursive
         # cleanup beneath an otherwise writable temporary directory.
-        self.root = Path(tempfile.mkdtemp(dir="/private/tmp")).resolve()
+        self.root = Path(tempfile.mkdtemp(dir=tempfile.gettempdir())).resolve()
         self.addCleanup(self._cleanup)
         self.source = self.root / CANONICAL_SOURCE_RELATIVE
         for layer in ("001_CORE_META_MODEL", "003_PROJECT_CONFIGURATION"):

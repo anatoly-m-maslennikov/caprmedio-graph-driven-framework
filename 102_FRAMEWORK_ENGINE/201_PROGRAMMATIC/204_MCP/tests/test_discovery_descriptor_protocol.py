@@ -54,7 +54,7 @@ class DiscoveryDescriptorProtocolTests(unittest.IsolatedAsyncioTestCase):
         """Compile is effect-free; protocol calls use the exact descriptor models."""
 
         asyncio.get_running_loop().slow_callback_duration = 1.0
-        with tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True) as temporary:
+        with tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True) as temporary:
             root = Path(temporary)
             bindings = _bindings()
             with (

@@ -86,7 +86,7 @@ class _Provider:
 
 class LegacyProcessCoverageTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.root = Path(tempfile.mkdtemp(dir="/private/tmp"))
+        self.root = Path(tempfile.mkdtemp(dir=tempfile.gettempdir()))
         self.target_context = _sha("prospective target context")
         self.prior_context = _sha("prior native context")
         self.prior_selector = _sha("prior execution selector")

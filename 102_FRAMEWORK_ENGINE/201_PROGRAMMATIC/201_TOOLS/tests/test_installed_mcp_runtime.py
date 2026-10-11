@@ -105,7 +105,7 @@ class _AdmittedHttpBackend:
 
 class InstalledMcpRuntimeTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory(dir="/private/tmp", ignore_cleanup_errors=True)
+        self.temporary = tempfile.TemporaryDirectory(dir=tempfile.gettempdir(), ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name).resolve()
         self.control = self.root / ".caprmedio_fixture"

@@ -156,7 +156,7 @@ max_junit_bytes = 1024
         fixture = PortablePackageFixture(extra_engine_members=image_fixtures._test_members())
         prepared = prepare_portable_release_package(fixture.root, fixture.sealed)
         original = retain_retained_candidate_identity(fixture.candidate, fixture.sealed, prepared)
-        archive = Path(tempfile.mkdtemp(prefix="caprmedio-detached-e2e-", dir="/private/tmp")).resolve(strict=True) / "archive"
+        archive = Path(tempfile.mkdtemp(prefix="caprmedio-detached-e2e-", dir=tempfile.gettempdir())).resolve(strict=True) / "archive"
         shutil.copytree(fixture.root, archive)
         retained = read_retained_candidate_identity(
             archive / original.descriptor_path.relative_to(fixture.root),
@@ -212,7 +212,7 @@ max_junit_bytes = 1024
         )
         build, verification = image_fixture._image_receipts(source_fixture, original.package_evidence, suite)
         e2e = self._seed_e2e(fixture.root, fixture.candidate, original, suite, verification)
-        archive = Path(tempfile.mkdtemp(prefix="caprmedio-copied-e2e-", dir="/private/tmp")).resolve(strict=True) / "archive"
+        archive = Path(tempfile.mkdtemp(prefix="caprmedio-copied-e2e-", dir=tempfile.gettempdir())).resolve(strict=True) / "archive"
         shutil.copytree(fixture.root, archive)
         retained = read_retained_candidate_identity(
             archive / original.descriptor_path.relative_to(fixture.root),

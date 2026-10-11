@@ -55,7 +55,7 @@ class DisjointSourceCatalogTests(unittest.TestCase):
     def setUp(self) -> None:
         # Retain synthetic evidence: managed macOS hosts can deny recursive
         # cleanup after a catalog walk, and cleanup must not hide assertions.
-        self.root = Path(tempfile.mkdtemp(prefix="caprmedio-disjoint-catalog-", dir="/private/tmp"))
+        self.root = Path(tempfile.mkdtemp(prefix="caprmedio-disjoint-catalog-", dir=tempfile.gettempdir()))
         self._write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool\n")
         self._write("methodology/active/001_CORE_META_MODEL/04_requirement/core.md", b"core\n")
         self._write("methodology/active/002_INSTALLED_EXTENSIONS/demo/v1/04_requirement/extension.md", b"extension\n")

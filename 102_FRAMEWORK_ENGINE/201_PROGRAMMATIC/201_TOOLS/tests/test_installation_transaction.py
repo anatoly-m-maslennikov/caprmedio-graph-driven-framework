@@ -27,7 +27,7 @@ def _digest(value: str) -> str:
 class InstallationTransactionTests(unittest.TestCase):
     def setUp(self) -> None:
         # Retained legacy fixtures must never be cleaned up by the test code.
-        self.root = Path(tempfile.mkdtemp(dir="/private/tmp")) / "project-a"
+        self.root = Path(tempfile.mkdtemp(dir=tempfile.gettempdir())) / "project-a"
         self.root.mkdir()
         self.context = _digest("project-a")
         self.command = _digest("command-a")

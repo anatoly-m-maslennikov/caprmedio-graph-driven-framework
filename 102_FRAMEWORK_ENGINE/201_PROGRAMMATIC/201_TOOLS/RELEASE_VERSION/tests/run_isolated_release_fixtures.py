@@ -340,7 +340,7 @@ def _arguments(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Prepare a sealed source snapshot for isolated Release fixtures.")
     parser.add_argument("--image", required=True, help="full immutable local Docker image ID, sha256:<64 lowercase hex>")
     parser.add_argument("--project-root", type=Path, default=Path(__file__).resolve().parents[5])
-    parser.add_argument("--snapshot-parent", type=Path, default=Path("/private/tmp"))
+    parser.add_argument("--snapshot-parent", type=Path, default=Path(tempfile.gettempdir()))
     parser.add_argument("--run", action="store_true", help="after snapshot preparation, run selected fixtures in Docker")
     parser.add_argument("--test", action="append", default=[], help="dotted unittest target; repeat for multiple targets")
     options = parser.parse_args(argv)
