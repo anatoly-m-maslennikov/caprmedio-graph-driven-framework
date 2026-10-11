@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2116",
+  "recorded_at": "2026-10-11 09:03:37 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review final projection-family origins; not migration approval",
+  "verification": {
+    "task": "CA-P-2116",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2116.research.json",
+      "sha256": "90d3027a973bd4ff6ecfbe8c6d2288744513df48cf99d6be1c38a3fccf9ce50d"
+    },
+    "rows": 15,
+    "counts": {
+      "proposed": 13,
+      "unresolved": 2
+    },
+    "exact_evidence_spans": 56,
+    "exact_input_pins": 38,
+    "historical_plan_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+      "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+    },
+    "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/followup_semantic_acceptance",
+      "final_report_sha256": "90d3027a973bd4ff6ecfbe8c6d2288744513df48cf99d6be1c38a3fccf9ce50d",
+      "result": "PASS: all fifteen final meanings independently checked; thirteen supported proposals and two justified nulls",
+      "meaning_checks": [
+        "Atom Collection targets Entity without making it a Scope Unit or Atom.",
+        "Hub Atom remains a derived Atom description, not a new subtype.",
+        "Plan Graph and Project Scope Unit Graph remain derived Projections.",
+        "Generic graph-kind and Definition Atom authority qualifiers remain unresolved rather than flattened."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/followup_semantic_acceptance",
+    "final_report_sha256": "90d3027a973bd4ff6ecfbe8c6d2288744513df48cf99d6be1c38a3fccf9ce50d",
+    "result": "PASS: all fifteen final meanings independently checked; thirteen supported proposals and two justified nulls",
+    "meaning_checks": [
+      "Atom Collection targets Entity without making it a Scope Unit or Atom.",
+      "Hub Atom remains a derived Atom description, not a new subtype.",
+      "Plan Graph and Project Scope Unit Graph remain derived Projections.",
+      "Generic graph-kind and Definition Atom authority qualifiers remain unresolved rather than flattened."
+    ]
+  },
+  "completion_scope": "All 15 assigned current origins passed independent meaning review and exact pin/span/coverage checks: thirteen supported proposals and two explicit nulls. Collections, Hub Atom descriptions and derived graph forms retain their distinctions; no original Atom changed.",
+  "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
