@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 124
-updated_at: "2026-10-11 10:45:47 +0400"
+version: 125
+updated_at: "2026-10-11 10:47:59 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -205,7 +205,7 @@ CA-P-2132–2139 review195 previously unreviewed current origins across148 disti
 - [CA-P-2132 — Review remaining Atom and Artifact policy Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/99-CA-P-2132-TASK--review-remaining-atom-and-artifact-policy-subjects.md)
 - [CA-P-2133 — Review governance and expansion topic Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/100-CA-P-2133-TASK--review-governance-and-expansion-topic-subjects.md)
 - [CA-P-2134 — Review remaining role and Implementation Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/101-CA-P-2134-TASK--review-remaining-role-and-implementation-subjects.md)
-- [CA-P-2135 — Review relational Producer and Consumer Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/102-CA-P-2135-TASK--review-relational-producer-and-consumer-subjects.md)
+- [CA-P-2135 — Review relational Producer and Consumer Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/102-CA-P-2135-TASK--review-relational-producer-and-consumer-subjects.md)
 - [CA-P-2136 — Review remaining grammar and expression Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/103-CA-P-2136-TASK--review-remaining-grammar-and-expression-subjects.md)
 - [CA-P-2137 — Review remaining fields history and Carrier Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/104-CA-P-2137-TASK--review-remaining-fields-history-and-carrier-subjects.md)
 - [CA-P-2138 — Review remaining settings and structure Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/105-CA-P-2138-TASK--review-remaining-settings-and-structure-subjects.md)
