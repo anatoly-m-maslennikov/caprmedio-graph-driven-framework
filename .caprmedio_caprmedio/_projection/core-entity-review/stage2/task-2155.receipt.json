@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2155",
+  "recorded_at": "2026-10-11 12:35:23 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded rebuild the unqualified subject ledger; not migration approval",
+  "verification": {
+    "result": "PASS",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99"
+    },
+    "checkpoint": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/checkpoint-unqualified-integration-2144-2151.json",
+      "sha256": "fcdba12a857302b5bba4bdb1fe7e7a1373e45c39b675ff66e6d44143b5683c8e"
+    },
+    "controlled_replacement": {
+      "result": "PASS: all3actualsaved digests equal independently checked prospective bytes",
+      "files": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99",
+          "size_bytes": 20780612
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+          "size_bytes": 3642901
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "sha256": "325906a97a506d5e7343b5a57904d88c7b6b42eaa1f382aa57ee045105f0b3dc",
+          "size_bytes": 3197267
+        }
+      ],
+      "producer_result": {
+        "counts": {
+          "accepted_current_grammar_occurrences": 33,
+          "decisions": {
+            "proposed": 1928,
+            "unchanged": 1540,
+            "unresolved": 1066
+          },
+          "grammar_recheck_required": 0,
+          "occurrences": 4534,
+          "quarantined_occurrences": 35,
+          "quarantined_sources": 8,
+          "sources": 907,
+          "unresolved": 1066
+        },
+        "outcome": "CREATED",
+        "would_create": [
+          ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json"
+        ]
+      },
+      "source_migration": "not_performed",
+      "native_admission": "not_performed"
+    },
+    "pre_replacement_exact_hash_and_git_recovery": {
+      "result": "PASS: three exact derived files recoverable; stability supplemental check pending",
+      "reviewer": "/root/mapping_drift_verify",
+      "recovery_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+      "files": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "current_sha256": "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de",
+          "git_sha256": "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de",
+          "regular_file": true,
+          "symlink": false
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "current_sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+          "git_sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+          "regular_file": true,
+          "symlink": false
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "current_sha256": "d2ddb290cd54b6fa8ddb4b8421cf7fae8cacb5f21e7f179826be8a2228c74056",
+          "git_sha256": "d2ddb290cd54b6fa8ddb4b8421cf7fae8cacb5f21e7f179826be8a2228c74056",
+          "regular_file": true,
+          "symlink": false
+        }
+      ],
+      "core_directory_exists": true,
+      "core_diff_against_441bc48e1_exit": 0,
+      "frozen_pins": {
+        "baseline": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39",
+        "candidate": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+        "operator_decision": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+      },
+      "unrelated_helpers_present": 4,
+      "report_stability": "not claimed until exact-file comparison",
+      "changed_files": []
+    },
+    "prospective_gate": {
+      "result": "PASS: prospective live frontier and ten valid-control negatives",
+      "counts": {
+        "outcome": "PASS",
+        "sources": 907,
+        "occurrences": 4534,
+        "proposed": 1928,
+        "unchanged": 1540,
+        "unresolved": 1066,
+        "quarantined_sources": 8,
+        "excluded_sources": 11203
+      },
+      "prospective_outputs": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99",
+          "size_bytes": 20780612
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+          "size_bytes": 3642901
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "sha256": "325906a97a506d5e7343b5a57904d88c7b6b42eaa1f382aa57ee045105f0b3dc",
+          "size_bytes": 3197267
+        }
+      ],
+      "negative_checks_rejected": [
+        "missing_layer",
+        "omit_all_followups",
+        "missing_selected_row",
+        "stale_source",
+        "wrong_target",
+        "wrong_priority",
+        "wrong_confidence",
+        "stale_receipt",
+        "missing_independent_review",
+        "executable_row"
+      ],
+      "execution": "Root actual offline uv .caprmedio_tmp/check_unqualified_integration.py; exit0; real current inputs with only 3 prospective derived reads substituted; old internally consistent ledger also rejected by live sixth receipts",
+      "producer_sha256": "72bdadf9c62928e3e2a68abb4661e3c22ac5c556f6671e08e6d7421e3a07d3d3",
+      "verifier_sha256": "cc0fe5a31a6c36ce67a7a4f60a8a2bbd4e799eb0012fea3accaa44673e6c4e42",
+      "tests_sha256": "3c473d336a457b308d8f8a8b09422b20016dea3f9e71795fc4520caa45a28902",
+      "draft_writes": "not_performed"
+    },
+    "independent_review": {
+      "result": "PASS: independent actualsaved gate, no preview substitution",
+      "reviewer": "/root/mapping_drift_verify",
+      "exit_code": 0,
+      "counts": {
+        "sources": 907,
+        "occurrences": 4534,
+        "proposed": 1928,
+        "unchanged": 1540,
+        "unresolved": 1066,
+        "quarantined_sources": 8,
+        "quarantined_occurrences": 35,
+        "excluded_sources": 11203
+      },
+      "focused_support_suite": {
+        "tests": 33,
+        "exit_code": 0,
+        "result": "PASS"
+      },
+      "outputs": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99",
+          "size_bytes": 20780612
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+          "size_bytes": 3642901
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "sha256": "325906a97a506d5e7343b5a57904d88c7b6b42eaa1f382aa57ee045105f0b3dc",
+          "size_bytes": 3197267
+        }
+      ],
+      "core_directory_exists": true,
+      "core_diff_against_441bc48e1": "empty",
+      "accepted18reports_receipts_match_a18123c59": true,
+      "changed_repository_files": []
+    },
+    "focused_suite": {
+      "tests": 33,
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    "native_suites": {
+      "result": "PASS",
+      "reviewer": "/root/mapping_drift_verify",
+      "tests": 296,
+      "suites": [
+        {
+          "name": "ATOM_SEARCH",
+          "tests": 44,
+          "exit_code": 0,
+          "real_seconds": 1.32
+        },
+        {
+          "name": "ATOM_UPDATE",
+          "tests": 33,
+          "exit_code": 0,
+          "real_seconds": 0.99
+        },
+        {
+          "name": "GENERATE_ENTITY_GRAPH",
+          "tests": 219,
+          "exit_code": 0,
+          "real_seconds": 15.32
+        }
+      ],
+      "core_directory_exists": true,
+      "core_diff_against_441bc48e1": "empty",
+      "frozen_pins": {
+        "baseline": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39",
+        "candidate": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+        "operator_decision": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+      },
+      "changed_files": []
+    },
+    "frozen_input_gate": {
+      "result": "PASS: exact current frozen3hashes",
+      "files": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+          "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+          "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+          "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+        }
+      ],
+      "exit_code": 0
+    },
+    "accepted_evidence_stability": {
+      "result": "PASS:18 exact accepted paths match Git a18123c59",
+      "reviewer": "/root/mapping_drift_verify",
+      "changed_files": [],
+      "accepted_report_and_receipt_pairs": 8,
+      "audit2152_sha256": "4962a8bc5a8fdd45d24b620febb7fa9ee9d63245b35cef5f83edd5aeed477227",
+      "audit2152_receipt_sha256": "60a62497ebb783563075cbbe2d3a14483e88344d617c9a4df489088b95afc857",
+      "initial_broad_folder_check": "inconclusive; not used; unrelated files included",
+      "exact_check": "each current regular-file bytes equal git showa18123c59:path"
+    },
+    "remaining_gates": [
+      "1066 unresolved occurrences are not guessed or executable",
+      "qualified/named Subject selector decision remains unanswered",
+      "8 quarantined sources/35 occurrences remain explicit",
+      "full semantic mapping and accepted graph gate",
+      "exact sealed preview approval and admitted live source application",
+      "post-migration reproduction/Subject gate before body alignment",
+      "ordinary Summary/Substance/Scope/Details and final Epic completion"
+    ]
+  },
+  "independent_review": {
+    "result": "PASS: independent actualsaved gate, no preview substitution",
+    "reviewer": "/root/mapping_drift_verify",
+    "exit_code": 0,
+    "counts": {
+      "sources": 907,
+      "occurrences": 4534,
+      "proposed": 1928,
+      "unchanged": 1540,
+      "unresolved": 1066,
+      "quarantined_sources": 8,
+      "quarantined_occurrences": 35,
+      "excluded_sources": 11203
+    },
+    "focused_support_suite": {
+      "tests": 33,
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    "outputs": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+        "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99",
+        "size_bytes": 20780612
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+        "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+        "size_bytes": 3642901
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+        "sha256": "325906a97a506d5e7343b5a57904d88c7b6b42eaa1f382aa57ee045105f0b3dc",
+        "size_bytes": 3197267
+      }
+    ],
+    "core_directory_exists": true,
+    "core_diff_against_441bc48e1": "empty",
+    "accepted18reports_receipts_match_a18123c59": true,
+    "changed_repository_files": []
+  },
+  "completion_scope": "Only the three exact declared derived drafts were regenerated after old-byte/Git recovery and independent prospective verification. All saved digests equal the checked preview; the actual independent saved-file gate passes (907 sources/4534 occurrences,1928 proposed/1540 unchanged/1066 unresolved,8 quarantines/35 occurrences,11203 exclusions). The 33 focused and296 native tests pass, alongside ten wrong-ledger controls,112 accepted-report controls and four actual audit controls. Original Core, frozen/captured inputs and all accepted reports/receipts remain unchanged. Support Tasks are separately committed. This completes this bounded integration, not full mapping, native admission, source migration, content updates or the Epic.",
+  "registration_commit": "d28c1c420375ae355334c2312c20e24f0329ae4c",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

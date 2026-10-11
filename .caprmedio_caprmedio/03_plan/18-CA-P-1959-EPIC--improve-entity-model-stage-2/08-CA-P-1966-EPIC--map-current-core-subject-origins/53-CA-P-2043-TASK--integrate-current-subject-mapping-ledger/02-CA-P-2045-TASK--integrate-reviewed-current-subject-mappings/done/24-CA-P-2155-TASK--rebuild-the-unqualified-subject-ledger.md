@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 12:12:24 +0400"
+version: 2
+updated_at: "2026-10-11 12:35:23 +0400"
 relations:
   is_decomposition_of: [CA-P-2045]
   depends_on: ["CA-P-2153","CA-P-2154"]
@@ -35,6 +35,10 @@ Own work: at most fifteen minutes. Own only working-ledger/working-mapping-ledge
 After both support Tasks are independently accepted, Root verifies exact old3draft hashes and Git recovery, previews independently, replaces only the3declaredderived files using the create-only one-off producer, and checks exact preview/persisted hashes and current-source correctness. Forecastonly1928proposed/1540unchanged/1066unresolved; actual evidence decides. No original Core, captured/frozen evidence, raw report or unrelated helper change. Mapping/selectors/quarantines and final migration/content gates remain open.
 
 No original Core, captured/frozen evidence, unrelated helper, native admission, selector adoption, runtime, MCP or FPF changes. Workers are not alone; preserve others. Root owns Plans, receipts, integration and one commit after each actually completed Task. Decompose unfinished own work before exceeding fifteen minutes.
+
+### Completion
+
+Only the three exact declared derived drafts were regenerated after old-byte/Git recovery and independent prospective verification. All saved digests equal the checked preview; the actual independent saved-file gate passes (907 sources/4534 occurrences,1928 proposed/1540 unchanged/1066 unresolved,8 quarantines/35 occurrences,11203 exclusions). The 33 focused and296 native tests pass, alongside ten wrong-ledger controls,112 accepted-report controls and four actual audit controls. Original Core, frozen/captured inputs and all accepted reports/receipts remain unchanged. Support Tasks are separately committed. This completes this bounded integration, not full mapping, native admission, source migration, content updates or the Epic. Exact verification is recorded in `_projection/core-entity-review/stage2/task-2155.receipt.json`.
 
 ### Definition of Done
 

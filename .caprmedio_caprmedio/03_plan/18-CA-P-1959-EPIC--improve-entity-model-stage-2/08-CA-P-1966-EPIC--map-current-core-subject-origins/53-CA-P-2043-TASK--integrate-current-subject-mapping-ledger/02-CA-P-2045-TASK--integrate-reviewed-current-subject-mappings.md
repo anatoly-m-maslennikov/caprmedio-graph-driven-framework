@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 32
-updated_at: "2026-10-11 12:30:34 +0400"
+version: 33
+updated_at: "2026-10-11 12:35:23 +0400"
 relations:
   is_decomposition_of: [CA-P-2043]
   depends_on: ["CA-P-1972","CA-P-2044","CA-P-1992","CA-P-1993","CA-P-1994","CA-P-1995","CA-P-1996","CA-P-1997","CA-P-1998","CA-P-1999","CA-P-2000","CA-P-2001","CA-P-2002","CA-P-2003","CA-P-2004","CA-P-2005","CA-P-2006","CA-P-2007","CA-P-2008","CA-P-2009","CA-P-2010","CA-P-2011","CA-P-2012","CA-P-2013","CA-P-2014","CA-P-2015","CA-P-2016","CA-P-2017","CA-P-2018","CA-P-2019","CA-P-2020","CA-P-2021","CA-P-2022","CA-P-2023","CA-P-2024","CA-P-2025","CA-P-2026","CA-P-2027","CA-P-2028","CA-P-2029","CA-P-2030","CA-P-2031","CA-P-2032","CA-P-2033","CA-P-2034","CA-P-2035","CA-P-2036","CA-P-2037","CA-P-2038","CA-P-2039","CA-P-2040","CA-P-2041","CA-P-2042"]
@@ -89,7 +89,9 @@ CA-P-2144–2152 are Done and separately committed. All 204 selected unqualified
 
 - [CA-P-2153 — Integrate accepted unqualified Subject research](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/22-CA-P-2153-TASK--integrate-accepted-unqualified-subject-research.md)
 - [CA-P-2154 — Verify unqualified Subject layers independently](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/23-CA-P-2154-TASK--verify-unqualified-subject-layers-independently.md)
-- [CA-P-2155 — Rebuild the unqualified Subject ledger](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/24-CA-P-2155-TASK--rebuild-the-unqualified-subject-ledger.md)
+- [CA-P-2155 — Rebuild the unqualified Subject ledger](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/24-CA-P-2155-TASK--rebuild-the-unqualified-subject-ledger.md)
+
+Latest integration checkpoint: CA-P-2144–2155 complete this bounded increment: eight independently accepted reviews cover 204 origins across 145 owners, adding 59 supported mappings and retaining 145 explicit nulls. The actual saved ledger passes independent current-source verification: 907 sources, 4534 references, 1928 proposed, 1540 unchanged and 1066 unresolved. All 329 distinct relevant tests pass (33 focused, 296 native), plus 112 report controls, four frontier-audit controls and ten complete-ledger wrong-output controls. Original Core and frozen evidence are unchanged. Eight quarantines, selector grammar and final graph/preview/application/content gates remain open. Evidence: `_projection/core-entity-review/stage2/checkpoint-unqualified-integration-2144-2151.json`. This is verified mapping progress, not a completed Epic or source migration.
 
 ### Definition of Done
 

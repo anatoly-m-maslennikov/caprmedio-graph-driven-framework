@@ -204,9 +204,9 @@
     "current_occurrences": 4534,
     "current_sources": 907,
     "decisions": {
-      "proposed": 1869,
+      "proposed": 1928,
       "unchanged": 1540,
-      "unresolved": 1125
+      "unresolved": 1066
     },
     "grammar_recheck_occurrences": 0,
     "missing_baseline_counterparts": 0,
