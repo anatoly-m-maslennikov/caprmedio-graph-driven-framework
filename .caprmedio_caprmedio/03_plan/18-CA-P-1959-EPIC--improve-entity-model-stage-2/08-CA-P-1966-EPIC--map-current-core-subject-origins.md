@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 95
-updated_at: "2026-10-11 08:06:01 +0400"
+version: 96
+updated_at: "2026-10-11 08:09:49 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -162,6 +162,15 @@ Carrier-as-dependent proposals were rejected; two Revision.Status proposals are 
 The unanswered conditional-owner notation choice affects 220 additional role/type-qualified occurrences across 123 sources. No choice was inferred. Original Core Subjects and ordinary content remain unchanged; the accepted graph, exact preview, application and reproduction gates are still open.
 
 Current integration checkpoint: CA-P-2094–2102 are Done. The six independently accepted reports cover 180 current origins across 134 owning sources (80 proposals, 100 explicit nulls). Their findings are now included in the live-verified derived ledger: 1548 proposed, 1540 unchanged, 1446 unresolved across 907 sources and4534 occurrences. Eighteen verifier tests and296 ordinary tool tests pass; ten complete-ledger wrong-data controls reject bad variants. Original Core Subjects/content remain unchanged; eight quarantined sources and the unanswered selector choice remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-families-2094-2099.json`. This is progress, not full mapping or migration approval.
+
+CA-P-2103–2108 review the next 183 disjoint baseline-only unresolved origins under the current 50ab0114 ledger. Each lane owns at most 25 sources and excludes all earlier reviewed rows. This is bounded research only; the previous progress ledger remains current until independently accepted findings are integrated.
+
+- [CA-P-2103 — Review next unresolved snapshot fields](08-CA-P-1966-EPIC--map-current-core-subject-origins/79-CA-P-2103-TASK--review-remaining-snapshot-fields.md)
+- [CA-P-2104 — Review next unresolved Scope Unit and Project targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/80-CA-P-2104-TASK--review-remaining-scope-unit-and-project-targets.md)
+- [CA-P-2105 — Review settings and methodology source targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/81-CA-P-2105-TASK--review-settings-and-methodology-source-targets.md)
+- [CA-P-2106 — Review next unresolved Relation targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/82-CA-P-2106-TASK--review-remaining-relation-targets.md)
+- [CA-P-2107 — Review Journal and Actor targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/83-CA-P-2107-TASK--review-journal-and-actor-targets.md)
+- [CA-P-2108 — Review projection and collection targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/84-CA-P-2108-TASK--review-projection-and-collection-targets.md)
 
 ### Definition of Done
 
