@@ -46,6 +46,7 @@ CONTRACTS = (
     STAGE / "working-ledger.followups-2094-2099.contract.md",
     STAGE / "working-ledger.followups-2103-2108.contract.md",
     STAGE / "working-ledger.followups-2112-2117.contract.md",
+    STAGE / "working-ledger.followups-2121-2128.contract.md",
 )
 WORKING = STAGE / "working-ledger"
 LEDGER = WORKING / "working-mapping-ledger.json"
@@ -149,7 +150,35 @@ FINAL_SUBJECT_FAMILY_GROUP = ResearchLayerGroup(
     specifications=FINAL_SUBJECT_FAMILY_LAYER_SPECS,
     expected_rows=137,
 )
-RESEARCH_LAYER_GROUPS = (FOLLOWUP_GROUP, SUBJECT_FAMILY_GROUP, FINAL_SUBJECT_FAMILY_GROUP)
+REMAINING_SUBJECT_DOMAINS_HISTORICAL_WORKING_PIN = {
+    "path": (WORKING / "working-mapping-ledger.json").as_posix(),
+    "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2",
+}
+REMAINING_SUBJECT_DOMAINS_LAYER_SPECS = (
+    ("CA-P-2121", STAGE / "semantic-reviews/task-2121.research.json", "96d906b7769f52f32bfc4b8d1ccfb638ba5eee6c525bcc2e25851827fb4f693b", 22, 21, 1),
+    ("CA-P-2122", STAGE / "semantic-reviews/task-2122.research.json", "3577856baf8a35c61c479c9d2feaa7e54f0252ec2f33f5ec9bb94def9eb928f8", 20, 8, 12),
+    ("CA-P-2123", STAGE / "semantic-reviews/task-2123.research.json", "64c5e84639b39c37d7a175c11e967b407dfabbd840b76a80bc91352dd29e8728", 28, 7, 21),
+    ("CA-P-2124", STAGE / "semantic-reviews/task-2124.research.json", "94b9b57e83a2b23bd493355ece510907ed31277edab45dc56e9ee5eefacfe9e3", 33, 7, 26),
+    ("CA-P-2125", STAGE / "semantic-reviews/task-2125.research.json", "43bca8f0776c3d7ff25321e4e9c6b3da10b3bd5c3333c0cb0a8dbb9d1af7aeb3", 29, 7, 22),
+    ("CA-P-2126", STAGE / "semantic-reviews/task-2126.research.json", "3fa0af8d302898a399cb1406cd9bcfcdd7ee22d3e3bc28f907f322e935dd8c52", 21, 11, 10),
+    ("CA-P-2127", STAGE / "semantic-reviews/task-2127.research.json", "db250a76d1b6f5b4a8226a44656a81eb16e57965faa174c3b7f5a1337f638896", 23, 7, 16),
+    ("CA-P-2128", STAGE / "semantic-reviews/task-2128.research.json", "12aff3f78128cb401ec7f070840d0958a9edcd0e20266f9a0acb231fa8220f56", 29, 3, 26),
+)
+REMAINING_SUBJECT_DOMAINS_GROUP = ResearchLayerGroup(
+    label="CA-P-2121–2128",
+    manifest=STAGE / "semantic-reviews/followups-2121-2128.inputs.json",
+    manifest_sha256="311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f",
+    registration_commit="56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+    historical_working_pin=REMAINING_SUBJECT_DOMAINS_HISTORICAL_WORKING_PIN,
+    specifications=REMAINING_SUBJECT_DOMAINS_LAYER_SPECS,
+    expected_rows=205,
+)
+RESEARCH_LAYER_GROUPS = (
+    FOLLOWUP_GROUP,
+    SUBJECT_FAMILY_GROUP,
+    FINAL_SUBJECT_FAMILY_GROUP,
+    REMAINING_SUBJECT_DOMAINS_GROUP,
+)
 ORIGIN_FIELDS = (
     "occurrence_id", "source_path", "source_atom_id", "source_version", "source_sha256",
     "field", "index", "old_value", "quarantined",
@@ -158,12 +187,19 @@ ORIGIN_FIELDS = (
 
 def validate_research_group_configuration(groups: tuple[ResearchLayerGroup, ...]) -> None:
     """Keep this closed one-off integration from turning into layer discovery."""
-    if groups != (FOLLOWUP_GROUP, SUBJECT_FAMILY_GROUP, FINAL_SUBJECT_FAMILY_GROUP):
+    if groups != (
+        FOLLOWUP_GROUP,
+        SUBJECT_FAMILY_GROUP,
+        FINAL_SUBJECT_FAMILY_GROUP,
+        REMAINING_SUBJECT_DOMAINS_GROUP,
+    ):
         fail("research layer group order or membership changed")
     expected_tasks = (
         "CA-P-2094", "CA-P-2095", "CA-P-2096", "CA-P-2097", "CA-P-2098", "CA-P-2099",
         "CA-P-2103", "CA-P-2104", "CA-P-2105", "CA-P-2106", "CA-P-2107", "CA-P-2108",
         "CA-P-2112", "CA-P-2113", "CA-P-2114", "CA-P-2115", "CA-P-2116", "CA-P-2117",
+        "CA-P-2121", "CA-P-2122", "CA-P-2123", "CA-P-2124",
+        "CA-P-2125", "CA-P-2126", "CA-P-2127", "CA-P-2128",
     )
     tasks = tuple(specification[0] for group in groups for specification in group.specifications)
     if tasks != expected_tasks:
@@ -843,7 +879,7 @@ def run_negative_probes() -> None:
     validate_research_group_configuration(RESEARCH_LAYER_GROUPS)
     require_rejection(
         "research_group_omission",
-        lambda: validate_research_group_configuration((FOLLOWUP_GROUP, SUBJECT_FAMILY_GROUP)),
+        lambda: validate_research_group_configuration(RESEARCH_LAYER_GROUPS[:3]),
     )
     canonical_decision_record_pin({"operator_decision_record": pin(DECISION_RECORD)})
     unrelated_plan = Path(
@@ -1071,7 +1107,11 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
             fail("decided target invalid")
         no_inferred_syntax(value)
         evidence = list(state.get("evidence", []))
-        if decision != "unresolved":
+        selected_layer = state.get("selected_layer_row")
+        if isinstance(selected_layer, dict) and selected_layer.get("kind") == "research":
+            if not any(isinstance(item, dict) and current_span_matches(item, current) for item in evidence):
+                fail("accepted research owning evidence unavailable at emission")
+        elif decision != "unresolved":
             live = current_body_evidence.get(current["source_path"])
             if not live:
                 fail("current source evidence unavailable")
