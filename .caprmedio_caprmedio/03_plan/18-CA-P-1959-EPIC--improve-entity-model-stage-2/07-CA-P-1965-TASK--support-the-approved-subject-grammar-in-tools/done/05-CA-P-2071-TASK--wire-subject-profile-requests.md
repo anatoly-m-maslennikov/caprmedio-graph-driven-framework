@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Tool
   depends_on: [Subject, Atom, Term, Projection, Plan]
-version: 1
-updated_at: "2026-10-11 04:46:20 +0400"
+version: 2
+updated_at: "2026-10-11 04:57:47 +0400"
 relations:
   is_decomposition_of: [CA-P-1965]
 ---
@@ -32,6 +32,10 @@ Realize this bounded part of the independently accepted grammar-aware Subject To
 Estimated own work: 15 minutes. Prerequisite: CA-P-2062 (Done, c6b4525d7). Root owns atom_operations.py and new ATOM_UPDATE/tests/test_subject_profile_wiring.py only. Add Search CLI option/description and reject options without Subject. Validate the closed Subject-only root before _items can discard unknown keys; reject supplied null/unknown profile and mixed modes; pass selected profile to preview. Retain all generic routes/apply guards. Dedicated independent public-route and digest assertions; no mutation or new MCP binding.
 
 Use the compiled subject-tools.grammar-contract.md and current implementation-lanes.md under Stage 2. The small shared API is fixed; code lanes may work in parallel against it, but final tests wait for dependencies. Preserve other lanes; no Git, Plans, governing sources, Journal, runtime, MCP or FPF writes by workers. Root owns integration and each completed Task commit. If own work exceeds 15 minutes, decompose the remaining bounded work before executing it.
+
+### Completion
+
+Completed at 2026-10-11 04:57:47 +0400. Focused checks and independent review passed at the exact implementation pins in `stage2/task-2071.receipt.json`. No authoritative Core Subjects were changed. Final whole-code acceptance remains CA-P-1975.
 
 ### Definition of Done
 

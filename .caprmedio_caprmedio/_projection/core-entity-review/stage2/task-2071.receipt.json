@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "task": "CA-P-2071",
+  "recorded_at": "2026-10-11 04:57:47 +0400",
+  "result": "PASS: bounded code lane complete",
+  "implementation": [
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py",
+      "sha256": "1b41735a7ea5770d745f56cf02751adae0ef458ac7f21c3dabd4c830984385a6"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/tests/test_subject_profile_wiring.py",
+      "sha256": "eb37ffadd48cba75fc4fae135de54085c47be87d6f684f64230ea1857dccbcfe"
+    }
+  ],
+  "checks": {
+    "focused_tests": {
+      "passed": 7,
+      "suite": "test_subject_profile_wiring.py"
+    },
+    "search_update_regression": {
+      "passed": 67,
+      "reviewer": "subject_review_003"
+    },
+    "closed_root_and_explicit_profile": "PASS",
+    "mixed_mode_and_apply_guard": "PASS",
+    "independently_expected_noop_evidence_digest": "PASS",
+    "generic_routes_preserved": "PASS"
+  },
+  "independent_acceptance": {
+    "reviewer": "subject_review_006",
+    "result": "PASS",
+    "scope": "exact listed implementation hashes"
+  },
+  "contract": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/tool-grammar.packet.json",
+    "sha256": "aa535c3927c938922fd661bf89c88e04204a4533d90395b72240e1db933b985e"
+  },
+  "limits": [
+    "Code and isolated fixtures only; no original Core Subject changes, live migration, runtime or MCP activation.",
+    "Final whole-code acceptance remains CA-P-1975; this receipt closes only the bounded implementation lane."
+  ]
+}

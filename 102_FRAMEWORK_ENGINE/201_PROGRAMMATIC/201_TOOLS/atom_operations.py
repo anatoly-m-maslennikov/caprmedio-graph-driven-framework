@@ -747,7 +747,8 @@ def run_search(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         from atom_subject_lookup import run_subject_search
 
         return run_subject_search(root, args)
-    if any(getattr(args, field, None) for field in ("subject_field", "subject_match", "content_role", "scope_unit")):
+    if (any(getattr(args, field, None) for field in ("subject_field", "subject_match", "content_role", "scope_unit"))
+            or getattr(args, "subject_profile", None) is not None):
         raise ToolError("input-invalid", "Subject filters require --subject")
     atoms = scan_atoms(root, under=args.under, lifecycle=args.lifecycle or "all")
     if args.atom:
@@ -817,16 +818,25 @@ def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
 
 def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
-    raw_items = _items(_load_payload(args.input))
+    payload = _load_payload(args.input)
+    raw_items = _items(payload)
     subject_items = ["subject_patches" in item for item in raw_items]
     if any(subject_items):
+        if not set(payload) <= {"atoms", "subject_profile"}:
+            raise ToolError("input-invalid", "Subject-only root contains only atoms and optional subject_profile")
         if not all(subject_items):
             raise ToolError("input-invalid", "Subject-only and generic update items cannot be mixed")
         if args.apply:
             raise ToolError("subject-apply-not-admitted", "Subject-only updates are local previews, not an admitted live writer")
         from atom_subject_patch import preview_subject_patches
 
-        return preview_subject_patches(root, raw_items)
+        profile = payload.get("subject_profile", "legacy")
+        if not isinstance(profile, str) or profile not in {"legacy", "approved"}:
+            raise ToolError("subject-profile-invalid", "subject_profile must be legacy or approved")
+
+        return preview_subject_patches(root, raw_items, subject_profile=profile)
+    if "subject_profile" in payload:
+        raise ToolError("input-invalid", "subject_profile requires Subject-only update items")
     selectors = [item.get("selector") for item in raw_items]
     if any(not isinstance(selector, str) for selector in selectors):
         raise ToolError("input-invalid", "every update item requires selector")
@@ -1211,12 +1221,18 @@ def describe(tool_id: str) -> dict[str, Any]:
         result["subject_lookup"] = {
             "criterion": "--subject VALUE", "fields": ["governs", "depends_on", "both"],
             "matches": ["exact", "prefix"], "prefix_boundaries": ["/", ":"],
+            "profile_option": "--subject-profile", "profiles": ["legacy", "approved"],
+            "default_profile": "legacy",
+            "profile_prefix_boundaries": {"legacy": ["/", ":"], "approved": ["/", ".", ":"]},
             "default_lifecycle": "active", "filters": ["under", "atom", "query", "content_role", "scope_unit", "lifecycle", "limit"],
-            "output": ["source_root", "count", "occurrences", "diagnostics"],
+            "output": ["source_root", "count", "occurrences", "diagnostics", "subject_profile", "subject_profile_evidence"],
             "mcp_binding": None,
         }
     elif tool_id == "ATOM_UPDATE":
         result["subject_preview"] = {
+            "root_fields": ["atoms", "subject_profile (optional)"],
+            "profiles": ["legacy", "approved"], "default_profile": "legacy",
+            "output_evidence": ["subject_profile", "subject_profile_evidence"],
             "item_fields": ["selector", "expected", "subject_patches"],
             "expected_fields": ["atom_id", "version", "sha256"],
             "patch_fields": ["field", "index (depends_on only)", "old", "new"],
@@ -1242,6 +1258,7 @@ def parser(tool_id: str) -> argparse.ArgumentParser:
         run.add_argument("--subject")
         run.add_argument("--subject-field", choices=("governs", "depends_on", "both"))
         run.add_argument("--subject-match", choices=("exact", "prefix"))
+        run.add_argument("--subject-profile", choices=("legacy", "approved"))
         run.add_argument("--content-role", action="append")
         run.add_argument("--scope-unit")
     elif tool_id == "ATOM_READ":

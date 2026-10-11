@@ -14,7 +14,7 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 10
+version: 11
 updated_at: "2026-10-11 04:57:47 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
@@ -50,7 +50,7 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 - [CA-P-2068 — Implement profile-aware Subject lookup](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/02-CA-P-2068-TASK--implement-profile-aware-subject-lookup.md)
 - [CA-P-2069 — Implement profile-aware Subject preview](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/03-CA-P-2069-TASK--implement-profile-aware-subject-preview.md)
 - [CA-P-2070 — Implement profile-aware graph parsing](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/04-CA-P-2070-TASK--implement-profile-aware-graph-parsing.md)
-- [CA-P-2071 — Wire Subject profile requests](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/05-CA-P-2071-TASK--wire-subject-profile-requests.md)
+- [CA-P-2071 — Wire Subject profile requests](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/05-CA-P-2071-TASK--wire-subject-profile-requests.md)
 
 The source gate is independently accepted and committed as c6b4525d7. The settled shared API and exclusive scopes are in `grammar-tools.implementation-lanes.md`; final independent code verification remains CA-P-1975.
 
