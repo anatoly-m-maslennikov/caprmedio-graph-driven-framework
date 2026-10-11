@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "task": "CA-P-1975",
+  "recorded_at": "2026-10-11 05:09:57 +0400",
+  "result": "PASS: grammar-aware ordinary Subject Tool readiness; not live-migration or whole-graph acceptance",
+  "code_integration_commit": "dadfb8d9e",
+  "implementation": [
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/subject_notation.py",
+      "sha256": "97bfbbe5f125eec5d41836f7084e80ef922f4cc79298d054ef3300796ea2cc4c"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_notation.py",
+      "sha256": "3385369c933c1736c832f88b49bb92f8c9b404429978b17a7f960d6999352e89"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py",
+      "sha256": "8d1b7b033712a7ede53e0049f12b4ea873dd8af55374adde3134edd737a94657"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py",
+      "sha256": "1f28f68c93242ff9b96607c91a40fcc9bb408b3e320d7f92bfe9eb31c096e1b7"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_patch.py",
+      "sha256": "b0ed708f607992e6b084ed12bdd06aa1b1f63325fd1b88486a6e60422fa36f45"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/tests/test_subject_patch_preview.py",
+      "sha256": "dc11b8b5422a3c29c91d8d6a4cbdbd7373e1454c636ac560e62ca4fe817b01a2"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/generate_entity_graph.py",
+      "sha256": "d90d5a1933c3dcb01c471c475e79dce391275c8b15a8533c018b8e091f9a94f4"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/subject_model_sources.py",
+      "sha256": "201b5fbb3a891eafc4f1518bd1872b11863aa47b15600ff84f4a63c8763b8ac2"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_subject_profiles.py",
+      "sha256": "401724a6b942c727a83d2c9db6e945938cdda3ab549a78dc897ac9ff83bcfd08"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py",
+      "sha256": "1b41735a7ea5770d745f56cf02751adae0ef458ac7f21c3dabd4c830984385a6"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/tests/test_subject_profile_wiring.py",
+      "sha256": "eb37ffadd48cba75fc4fae135de54085c47be87d6f684f64230ea1857dccbcfe"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/tests/test_subject_profiles_acceptance.py",
+      "sha256": "b5b81db98fab4b1e9ec016d66b397cd7385a8a46b7780e6d819acae0fa66da71"
+    }
+  ],
+  "required_checks": {
+    "all_search_tests": {
+      "passed": 44,
+      "failed": 0
+    },
+    "all_update_tests": {
+      "passed": 33,
+      "failed": 0
+    },
+    "independently_authored_approved_acceptance": {
+      "passed": 3,
+      "reviewer": "subject_review_006",
+      "all_five_RMEDO_roles": true,
+      "CAP_excluded": true,
+      "governs_and_depends_on": true,
+      "literal_occurrence_and_edge_ledgers": true,
+      "corrupted_graph_edge_rejected": true,
+      "corrupted_preview_seal_rejected": true
+    },
+    "approved_graph_profiles": {
+      "passed": 6,
+      "legacy_default_preserved": true,
+      "slash_native_edges": false,
+      "dot": "Dependent IS_BORNE_BY Bearer",
+      "colon": "AllowedValue IS_ALLOWED_VALUE_OF Property"
+    },
+    "exact_source_and_grammar_pins": {
+      "result": "PASS",
+      "reviewer": "subject_review_004",
+      "packet_sha256": "aa535c3927c938922fd661bf89c88e04204a4533d90395b72240e1db933b985e",
+      "source_pins": 12,
+      "grammar_pins": 10,
+      "code_test_pins": 11,
+      "child_plans_done": 5,
+      "structure_sha256": "0ceb85e781490b89fc539f27eb5bf3a5187d4c982a648f27b40b6057257df92c",
+      "candidate_sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+      "base_ledger_sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39",
+      "core": {
+        "tracked_diff_from": "c6b4525d7",
+        "tracked_diff": "empty",
+        "untracked_authority": "empty",
+        "authority_files_excluding_ignored_DS_Store": 12111,
+        "historical_manifest_sha_not_recomputed": true
+      }
+    },
+    "real_complete_validator": {
+      "result": "PASS",
+      "reviewer": "subject_review_005",
+      "source": {
+        "atom_id": "CA-R-866",
+        "version": 14,
+        "sha256": "6971d51a68934c6c8e2a3889d54542b375445e663e8d2e201f8ec94847231c0d"
+      },
+      "unmocked_complete_carrier_validator": true,
+      "profiles": [
+        "legacy",
+        "approved"
+      ],
+      "source_unchanged": true,
+      "no_op_version": [
+        14,
+        14
+      ],
+      "changed_version": [
+        14,
+        15
+      ],
+      "literal_change": [
+        "Tool/ATOM_UPDATE",
+        "Tool/ATOM_UPDATE/Preview Probe"
+      ],
+      "exact_independent_bytes": true,
+      "configured_timezone": "local",
+      "observed_offset": "+0400",
+      "apply_refused": "subject-apply-not-admitted",
+      "digests": {
+        "legacy": {
+          "noop": "4ad9a0dd508c27e96f0d8932d6295e290a6903169d6a4d8dddfcd354ee6aaed",
+          "changed": "60ff375de274efbf847c6ef9ea27c2d6b34aa98ca455eeffa35bf911c5779812"
+        },
+        "approved": {
+          "noop": "b4ce44c87138b212ca7d160f27d522781d9e63d14659cbbc0ab85911e47e75a7",
+          "changed": "da57c5223f281a53437c80a5cfe22bad4f024d5aa4f173f0e6521440011571a8"
+        }
+      },
+      "no_live_effect_or_migration": true,
+      "approved_mixed_syntax": {
+        "result": "PASS",
+        "unmocked_validator": true,
+        "probes": [
+          "Tool/ATOM_UPDATE.Preview Probe",
+          "Tool/ATOM_UPDATE.Preview Probe:Preview Value"
+        ],
+        "version": [
+          14,
+          15
+        ],
+        "exact_independent_bytes": true,
+        "sealed_digest": true,
+        "source_and_ten_grammar_carriers_unchanged": true,
+        "native_admission": "not_performed"
+      }
+    },
+    "closed_root_and_mixed_mode_guards": "PASS",
+    "stale_source_no_follow_duplicate_CRLF_Unicode_bytes": "PASS",
+    "sealed_metadata": "Version +1 and illustrative Project-time preview metadata are sealed; no actual execution-time effect is claimed"
+  },
+  "additional_wider_graph_check": {
+    "passed": 217,
+    "failed": 1,
+    "test": "test_core_relation_registry.CoreRelationRegistryTests.test_actual_current_registered_core_frontier_compiles_three_closed_records",
+    "diagnostic": "registry-core-authority-path-unsupported",
+    "cause": "Protected registry uses retired Core authority path; current project_structure declares the 101_LAYER_1 Framework Methodology source root.",
+    "classification": "Known pre-existing failure; not repaired and not counted as a pass.",
+    "baseline_evidence": "task-1963.receipt.json"
+  },
+  "limits": [
+    "Read-only Tool syntax, lexical lookup, sealed preview and internal graph-profile parsing only.",
+    "No original Core Subject migration, ordinary content edits, native endpoint/kind admission, MCP binding or runtime activation.",
+    "Conditional role/type mappings remain unresolved; the narrower-kind versus selector question is unanswered.",
+    "CA-P-1910 must separately bind current implementation/source pins and actual execution-time metadata in the final approvable migration packet; this is not that approval."
+  ]
+}

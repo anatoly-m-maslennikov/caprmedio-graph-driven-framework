@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 19
-updated_at: "2026-10-11 04:58:37 +0400"
+version: 20
+updated_at: "2026-10-11 05:09:57 +0400"
 relations: {}
 ---
 # Summary
@@ -100,13 +100,19 @@ Step 2 must classify proposed edits before writing. Current authority requires a
 - [CA-P-2061 — Review grammar-aware Subject Tool contracts](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/16-CA-P-2061-TASK--review-grammar-aware-subject-tool-contracts.md)
 - [CA-P-2062 — Align Subject Tool grammar contracts](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/17-CA-P-2062-TASK--align-subject-tool-grammar-contracts.md)
 - [CA-P-1965 — Support the approved Subject grammar in Tools](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools.md)
-- [CA-P-1975 — Verify grammar-aware Subject Tool readiness](18-CA-P-1959-EPIC--improve-entity-model-stage-2/14-CA-P-1975-TASK--verify-grammar-aware-subject-tool-readiness.md)
+- [CA-P-1975 — Verify grammar-aware Subject Tool readiness](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/14-CA-P-1975-TASK--verify-grammar-aware-subject-tool-readiness.md)
 - [CA-P-1966 — Map current Core Subject origins](18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins.md)
 - [CA-P-1967 — Seal the exact Subject migration preview](18-CA-P-1959-EPIC--improve-entity-model-stage-2/09-CA-P-1967-TASK--seal-the-exact-subject-migration-preview.md)
 - [CA-P-1968 — Apply approved Subject migration batches](18-CA-P-1959-EPIC--improve-entity-model-stage-2/10-CA-P-1968-EPIC--apply-approved-subject-migration-batches.md)
 - [CA-P-1969 — Verify Subjects before content updates](18-CA-P-1959-EPIC--improve-entity-model-stage-2/11-CA-P-1969-TASK--verify-subject-migration-before-content-updates.md)
 - [CA-P-1970 — Align Atom content after Subject migration](18-CA-P-1959-EPIC--improve-entity-model-stage-2/12-CA-P-1970-EPIC--align-atom-content-after-subject-migration.md)
 - [CA-P-1971 — Verify the Stage 2 entity model](18-CA-P-1959-EPIC--improve-entity-model-stage-2/13-CA-P-1971-TASK--verify-the-stage-2-entity-model.md)
+
+### Current checkpoint
+
+CA-P-1965 and CA-P-1975 are Done: the selected-profile lookup, sealed preview and internal graph parser are implemented, independently verified and committed. This is ordinary Tool readiness, not semantic mapping or a live migration receipt. Original Core Subjects and ordinary content are unchanged.
+
+A confirmed remaining modeling choice affects 220 role/type-qualified mappings across 123 sources: Type, Status and similar fields remain Atom-owned, but selecting a role/type-qualified owner needs either explicit narrower Atom kinds or new selector syntax. The Operator question is unanswered. Do not reinterpret the allowed value Plan as the bearer of those fields or invent a mapping. The known protected-registry authority-path mismatch remains outside this Tool gate and must not be counted as a graph pass.
 
 ### Definition of Done
 
