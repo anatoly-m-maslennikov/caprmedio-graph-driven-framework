@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from atom_operations import ATOM_ID, ToolError, _inside, _lifecycle, control_root, safe_path
+from subject_notation import SubjectNotationError, get_profile, parse_subject, profile_evidence
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError, parse_carrier
 
 
@@ -26,10 +27,17 @@ def _diagnostic(code: str, path: Path, message: str) -> dict[str, str]:
     return {"code": code, "path": path.as_posix(), "message": message}
 
 
-def _request(args: Any) -> tuple[str, set[str], str, set[str], str | None]:
+def _request(args: Any) -> tuple[str, set[str], str, set[str], str | None, Any]:
     subject = getattr(args, "subject", None)
     if not isinstance(subject, str) or not subject:
         raise ToolError("subject-required", "subject lookup requires one non-empty subject")
+    supplied_profile = getattr(args, "subject_profile", None)
+    profile_name = "legacy" if supplied_profile is None else supplied_profile
+    try:
+        profile = get_profile(profile_name)
+        parse_subject(subject, subject_profile=profile.name)
+    except SubjectNotationError as error:
+        raise ToolError(error.code, str(error)) from error
     field = getattr(args, "subject_field", None) or "both"
     if field == "both":
         fields = set(_FIELDS)
@@ -50,7 +58,7 @@ def _request(args: Any) -> tuple[str, set[str], str, set[str], str | None]:
     owner = getattr(args, "scope_unit", None)
     if owner is not None and (not isinstance(owner, str) or not owner):
         raise ToolError("scope-unit-invalid", "scope_unit must be one registered scope unit name")
-    return subject, fields, match, roles, owner
+    return subject, fields, match, roles, owner, profile
 
 
 def _owners(root: Path) -> dict[str, Path]:
@@ -89,8 +97,10 @@ def _owner_for(path: Path, owners: dict[str, Path]) -> str | None:
     return max(matches, key=lambda item: len(item[0].parts))[1] if matches else None
 
 
-def _subject_match(value: str, subject: str, mode: str) -> bool:
-    return value == subject if mode == "exact" else value == subject or value.startswith(subject + "/") or value.startswith(subject + ":")
+def _subject_match(value: str, subject: str, mode: str, separators: tuple[str, ...]) -> bool:
+    if mode == "exact" or value == subject:
+        return value == subject
+    return any(value.startswith(subject + separator) for separator in separators)
 
 
 def _structured_subjects(metadata: dict[str, Any], fields: set[str]) -> Iterable[tuple[str, int | None, str]]:
@@ -164,7 +174,7 @@ def run_subject_search(root: Path, args: Any) -> dict[str, Any]:
     """Return pinned occurrences matching a structured subject relation."""
 
     root = Path(root).resolve()
-    subject, fields, match_mode, roles, requested_owner = _request(args)
+    subject, fields, match_mode, roles, requested_owner, profile = _request(args)
     atom_filter, queries, limit = _validate_pre_traversal(args)
     owners = _owners(root)
     if requested_owner is not None and requested_owner not in owners:
@@ -232,9 +242,15 @@ def run_subject_search(root: Path, args: Any) -> dict[str, Any]:
             diagnostics.append(_diagnostic("source-invalid", path, "Atom updated_at is required"))
             continue
         try:
-            _structured_subjects(metadata, set())
+            source_subjects = tuple(_structured_subjects(metadata, _FIELDS))
         except ValueError as error:
             diagnostics.append(_diagnostic("subject-invalid", path, str(error)))
+            continue
+        try:
+            for _, _, value in source_subjects:
+                parse_subject(value, subject_profile=profile.name)
+        except SubjectNotationError as error:
+            diagnostics.append(_diagnostic(error.code, path, str(error)))
             continue
         valid.append((path, metadata, parsed.frontmatter, parsed.body, hashlib.sha256(raw).hexdigest()))
     original_counts = Counter(
@@ -262,7 +278,7 @@ def run_subject_search(root: Path, args: Any) -> dict[str, Any]:
             continue
         subjects = _structured_subjects(metadata, fields)
         for field, index, value in subjects:
-            if _subject_match(value, subject, match_mode):
+            if _subject_match(value, subject, match_mode, profile.separators):
                 occurrences.append({"atom_id": metadata["atom_id"], "version": metadata["version"], "status": metadata["status"],
                                     "owner": metadata["current_scope_unit"], "current_scope_unit": metadata["current_scope_unit"],
                                     "relative_path": relative, "sha256": digest, "updated_at": metadata.get("updated_at"),
@@ -274,4 +290,5 @@ def run_subject_search(root: Path, args: Any) -> dict[str, Any]:
     if limit is not None:
         occurrences = occurrences[:limit]
     return {"source_root": base.relative_to(root).as_posix(), "count": len(occurrences), "occurrences": occurrences,
-            "diagnostics": diagnostics, "coverage": "limited" if limited or diagnostics else "full"}
+            "diagnostics": diagnostics, "coverage": "limited" if limited or diagnostics else "full",
+            "subject_profile": profile.name, "subject_profile_evidence": profile_evidence(profile.name)}
