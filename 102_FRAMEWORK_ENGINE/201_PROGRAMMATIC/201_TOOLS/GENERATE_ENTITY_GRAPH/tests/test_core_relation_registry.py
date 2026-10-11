@@ -17,7 +17,7 @@ TOOL_DIRECTORY = Path(__file__).resolve().parents[1]
 WORKSPACE = TOOL_DIRECTORY.parents[3]
 ACTUAL_CORE = (
     WORKSPACE
-    / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+    / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL"
 )
 if str(TOOL_DIRECTORY) not in sys.path:
     sys.path.insert(0, str(TOOL_DIRECTORY))
@@ -31,10 +31,7 @@ class CoreRelationRegistryTests(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
         self.repository = Path(self.temporary.name) / "repository"
         self.control = self.repository / ".caprmedio_caprmedio"
-        self.authority = (
-            self.control
-            / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
-        )
+        self.authority = self.repository / registry._CORE_AUTHORITY_PATH
         self.authority.mkdir(parents=True)
         (self.control / "caprmedio_project_settings.toml").write_text(
             "[paths]\n"
@@ -45,7 +42,7 @@ class CoreRelationRegistryTests(unittest.TestCase):
         (self.control / "project_structure.toml").write_text(
             "[[scope_units]]\n"
             "scope_unit_name = 'CORE_META_MODEL'\n"
-            "authority_path = '.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL'\n"
+            f"authority_path = '{registry._CORE_AUTHORITY_PATH}'\n"
             "authority_mode = 'strict'\n",
             encoding="utf-8",
         )
@@ -258,6 +255,29 @@ class CoreRelationRegistryTests(unittest.TestCase):
         )
         self.assertEqual((), foreign.records)
         self.assertEqual("registry-core-authority-path-unsupported", foreign.diagnostics[0]["code"])
+
+    def test_retired_core_authority_declaration_fails_closed(self) -> None:
+        retired_path = (
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+        )
+        structure = self.control / "project_structure.toml"
+        structure.write_text(
+            structure.read_text(encoding="utf-8").replace(
+                registry._CORE_AUTHORITY_PATH,
+                retired_path,
+                1,
+            ),
+            encoding="utf-8",
+        )
+        carriers, frontier, selection = self.inputs()
+        retired = registry.prepare_core_relation_registry(
+            self.repository, carriers, frontier, selection
+        )
+        self.assertEqual((), retired.records)
+        self.assertEqual(
+            "registry-core-authority-path-unsupported", retired.diagnostics[0]["code"]
+        )
 
     def test_loaded_code_drift_and_untrusted_bundle_fail_closed(self) -> None:
         carriers, frontier, selection = self.inputs()

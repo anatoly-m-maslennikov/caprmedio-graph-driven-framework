@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 23
-updated_at: "2026-10-11 05:53:14 +0400"
+version: 24
+updated_at: "2026-10-11 05:59:28 +0400"
 relations: {}
 ---
 # Summary
@@ -110,7 +110,9 @@ Step 2 must classify proposed edits before writing. Current authority requires a
 
 ### Current checkpoint
 
-- [CA-P-2081 — Align the closed Core registry authority path](18-CA-P-1959-EPIC--improve-entity-model-stage-2/18-CA-P-2081-TASK--align-the-closed-core-registry-authority-path.md)
+- [CA-P-2081 — Align the closed Core registry authority path](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/18-CA-P-2081-TASK--align-the-closed-core-registry-authority-path.md)
+
+CA-P-2081 is Done: the registry's one closed Core path matches the current declaration. Independent review passed and Root ran all 219 graph tests successfully. The nine source pins, three kinds and closed path guards remain unchanged; the retired root is explicitly rejected. This resolves the previously reported registry path failure, not a modeling or migration gate. Older receipts retain their actual historical results.
 
 CA-P-1965 and CA-P-1975 are Done: the selected-profile lookup, sealed preview and internal graph parser are implemented, independently verified and committed. This is ordinary Tool readiness, not semantic mapping or a live migration receipt. Original Core Subjects and ordinary content are unchanged.
 
@@ -120,7 +122,7 @@ CA-P-2078–2080 then checked 52 selected rejected/unresolved cases. Independent
 
 The 27 named Workflow/Step cases expose an identity-qualification gap as well as the existing role/type-owner gap: generic Atom/Workflow or Atom/Step would lose a named definition or binding. Current notation admits neither selectors nor singleton kinds for this purpose. A new Operator question asks whether Atom selectors should cover named and qualified owners; the earlier subtype-only recommendation is insufficient for those named cases. No answer or grammar adoption is inferred.
 
-A confirmed remaining modeling choice affects 220 role/type-qualified mappings across 123 sources: Type, Status and similar fields remain Atom-owned, but selecting a role/type-qualified owner needs either explicit narrower Atom kinds or new selector syntax. The Operator question is unanswered. Do not reinterpret the allowed value Plan as the bearer of those fields or invent a mapping. The known protected-registry authority-path mismatch remains outside this Tool gate and must not be counted as a graph pass.
+A confirmed remaining modeling choice affects 220 role/type-qualified mappings across 123 sources: Type, Status and similar fields remain Atom-owned, but selecting a role/type-qualified owner needs either explicit narrower Atom kinds or new selector syntax. The Operator question is unanswered. Do not reinterpret the allowed value Plan as the bearer of those fields or invent a mapping.
 
 ### Definition of Done
 

@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Projection, Relation, Scope Unit, Tool, Plan]
-version: 1
-updated_at: "2026-10-11 05:53:14 +0400"
+version: 2
+updated_at: "2026-10-11 05:59:28 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
 ---
@@ -36,6 +36,10 @@ The focused registry test currently fails with registry-core-authority-path-unsu
 Edit only GENERATE_ENTITY_GRAPH/core_relation_registry.py and its test_core_relation_registry.py fixture/regressions. Update the one closed authority-path constant to the exact current declaration. Keep exact declaration equality, Core ownership, source-byte/revision pins, foreign-path rejection and no-follow guards. Do not accept arbitrary roots, preserve a retired current-root fallback, widen kinds, change Subjects, admit selectors or mass-rewrite other legacy fixtures. No Core, runtime, MCP/FPF or live graph publication.
 
 Verify the focused current-frontier case, foreign path/symlink rejection and downstream/full graph suites. Root owns Plan lifecycle, receipt and Git. Workers are not alone; preserve all other edits.
+
+### Completion
+
+The closed path now matches the current Project Structure. Independent review found no blocking issue; Root ran all 219 graph tests successfully. The nine source pins, three registered kinds and foreign/symlink rejection are unchanged. The retired root now has an explicit failing-closed regression. Original Core sources were not edited. Evidence: `_projection/core-entity-review/stage2/task-2081.receipt.json`.
 
 ### Definition of Done
 

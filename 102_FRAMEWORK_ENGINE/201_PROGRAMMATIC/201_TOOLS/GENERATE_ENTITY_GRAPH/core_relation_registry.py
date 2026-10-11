@@ -35,8 +35,8 @@ _IMPLEMENTATION_PATH = Path(__file__).resolve()
 _LOADED_IMPLEMENTATION_SHA256 = hashlib.sha256(_IMPLEMENTATION_PATH.read_bytes()).hexdigest()
 _STRUCTURE_PATH = ".caprmedio_caprmedio/project_structure.toml"
 _CORE_AUTHORITY_PATH = (
-    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
+    "METHODOLOGY_SOURCES/001_CORE_META_MODEL"
 )
 _CORE_SCOPE = "CORE_META_MODEL"
 
