@@ -44,6 +44,7 @@ from release_suite import (  # noqa: E402
     SUITE_DRIVER_WORKING_DIRECTORY,
     SuiteExecutionResult,
     _active_n_state,
+    _capture_reference_context,
     _refuse_secret_relative,
     _suite_process_environment,
     execute_bound_release_suite,
@@ -175,6 +176,12 @@ if mode == "fail":
     sys.exit(17)
 '''
 
+_DEFAULT_DEADLINE_SETTINGS_RELATIVE = (
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+    "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
+)
+_INSTANCE_DEADLINE_SETTINGS_RELATIVE = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
+
 
 class FixtureSandboxExecutor:
     """Test-only local stand-in for the production isolated executor.
@@ -280,7 +287,7 @@ class ReleaseSuiteBoundaryTests(unittest.TestCase):
         root = Path("/sealed/project")
         report = Path("/sealed/project/.caprmedio_runtime/release_suite/coverage.xml")
         compilation = SimpleNamespace(child_materialization_root="sealed/compiled")
-        candidate = SimpleNamespace(manifest=SimpleNamespace(sha256="a" * 64))
+        candidate = "a" * 64
 
         environment = _suite_process_environment(
             root, report, compilation, candidate, source_bindings_sha256="a" * 64,
@@ -328,7 +335,7 @@ class ReleaseSuiteTests(unittest.TestCase):
     def _seed_phase_modules(self) -> None:
         methodology_control = self.fixture.core.relative_to(self.root).as_posix()
         self.fixture.write(
-            f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml",
+            _DEFAULT_DEADLINE_SETTINGS_RELATIVE,
             ("[release_suite]\nunit_timeout_seconds = 3600\n\n[release_e2e]\n" + "".join(
                 f"{name} = {value}\n" for name, value in asdict(DEFAULT_RELEASE_E2E_LIMITS).items()
             )).encode(),
@@ -375,10 +382,10 @@ class ReleaseSuiteTests(unittest.TestCase):
         return execute_bound_release_suite(candidate, compilation, **kwargs)
 
     def _default_settings_path(self) -> Path:
-        return self.root / CANONICAL_SOURCE_RELATIVE / "001_CORE_META_MODEL" / "caprmedio_framework_default_settings.toml"
+        return self.root / _DEFAULT_DEADLINE_SETTINGS_RELATIVE
 
     def _instance_settings_path(self) -> Path:
-        return self.root / CANONICAL_SOURCE_RELATIVE / "003_PROJECT_CONFIGURATION" / "caprmedio_framework_settings.toml"
+        return self.root / _INSTANCE_DEADLINE_SETTINGS_RELATIVE
 
     @staticmethod
     def _release_suite_settings(value: object, *, section: bool = True) -> bytes:
@@ -667,7 +674,7 @@ class ReleaseSuiteTests(unittest.TestCase):
 
     def test_instance_deadline_overrides_default_and_is_propagated_exactly(self) -> None:
         self.fixture.write(
-            f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml",
+            _INSTANCE_DEADLINE_SETTINGS_RELATIVE,
             b"[release_suite]\nunit_timeout_seconds = 4800\n",
         )
         candidate, compilation = self.bound("success")
@@ -677,7 +684,7 @@ class ReleaseSuiteTests(unittest.TestCase):
 
     def test_missing_instance_deadline_falls_back_to_source_default(self) -> None:
         self.fixture.write(
-            f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml",
+            _INSTANCE_DEADLINE_SETTINGS_RELATIVE,
             b"[interaction]\nreporting_mode = 'silent'\n",
         )
         candidate, compilation = self.bound("success")
@@ -687,7 +694,7 @@ class ReleaseSuiteTests(unittest.TestCase):
 
     def test_empty_instance_release_suite_table_falls_back_to_source_default(self) -> None:
         self.fixture.write(
-            f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml",
+            _INSTANCE_DEADLINE_SETTINGS_RELATIVE,
             b"[release_suite]\n",
         )
         candidate, compilation = self.bound("success")
@@ -732,7 +739,7 @@ class ReleaseSuiteTests(unittest.TestCase):
 
     def test_explicit_fixture_timeout_can_only_shorten_source_deadline(self) -> None:
         self.fixture.write(
-            f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml",
+            _INSTANCE_DEADLINE_SETTINGS_RELATIVE,
             b"[release_suite]\nunit_timeout_seconds = 4800\n",
         )
         candidate, compilation = self.bound("timeout")
@@ -743,7 +750,7 @@ class ReleaseSuiteTests(unittest.TestCase):
 
     def test_explicit_fixture_timeout_cannot_lengthen_source_deadline(self) -> None:
         self.fixture.write(
-            f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml",
+            _INSTANCE_DEADLINE_SETTINGS_RELATIVE,
             b"[release_suite]\nunit_timeout_seconds = 3600\n",
         )
         candidate, compilation = self.bound("success")
@@ -775,12 +782,19 @@ class ReleaseSuiteTests(unittest.TestCase):
         candidate, compilation = self.bound("success")
         settings_path = self._default_settings_path()
         original_mode = settings_path.stat().st_mode & 0o777
-        try:
+
+        def capture_then_change_mode(*args, **kwargs):
+            context = _capture_reference_context(*args, **kwargs)
             settings_path.chmod(original_mode ^ 0o100)
-            with self.assertRaises(ReleaseContractError):
-                self.execute_suite(candidate, compilation)
+            return context
+
+        try:
+            with patch("release_suite._capture_reference_context", side_effect=capture_then_change_mode):
+                result = self.execute_suite(candidate, compilation)
         finally:
             settings_path.chmod(original_mode)
+        self.assertEqual(result.outcome, "recording_uncertain")
+        self.assertIn("ReleaseSuiteReferenceContextError", result.reason)
         self.assertEqual(self.executor.timeout_calls, [])
 
     def test_actual_background_descendant_cannot_continue_or_pass(self) -> None:
