@@ -370,10 +370,32 @@ class MethodologyExportTest(unittest.TestCase):
 
         self.assertEqual("binding-source-identity-invalid", raised.exception.code)
 
-    def test_actual_control_frontier_contains_required_tool_bindings_without_using_methodology_source_layout(self) -> None:
+    def test_declared_control_frontier_contains_required_tool_bindings_without_using_methodology_source_layout(self) -> None:
+        # These exact inert carriers travel in the sealed Engine test inventory;
+        # the release-only workspace need not carry their live authoring roots.
+        fixtures = Path(__file__).resolve().parent / "tool_control_golden"
         project = Path(__file__).resolve().parents[5]
-        source = project / exporter.compiler.methodology_paths(project).source
-        binding = exporter.reopen_project_export_binding(project, source)
+        for filename, expected_digest, relative, entrypoint in (
+            ("CA-D-591-v5.md", "38bdc56511a802cfb3b2b8c2f228438b79a68936465944815036672625f96160",
+             "201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-591-TOOLS-DELIVERY--bind-same-package-bootstrap-image-restoration-carriers.md",
+             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/framework_image_restoration_mcp.py"),
+            ("CA-D-620-v1.md", "e83b38d0154c9ad8f5b02a537f23dde047b4789a0633b2f4377d51e9f8119fa0",
+             "201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery/CA-D-620-MCP-DELIVERY--expose-direct-framework-runtime-installation.md",
+             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/framework_runtime_installation_mcp.py"),
+        ):
+            fixture = fixtures / filename
+            self.assertFalse(fixture.is_symlink())
+            raw = fixture.read_bytes()
+            self.assertEqual(expected_digest, digest(raw))
+            self.write_engine_delivery(relative, raw)
+            target = self.root / entrypoint
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(project / entrypoint, target)
+        self.write_engine_delivery(
+            "201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/07_delivery/CA-D-602--non-binding-fixture.md",
+            carrier("CA-D-602", content_role="Delivery"),
+        )
+        binding = exporter.reopen_project_export_binding(self.root, self.source)
 
         frontier = exporter._binding_frontier(binding)
 
@@ -382,7 +404,7 @@ class MethodologyExportTest(unittest.TestCase):
         self.assertNotIn("CA-D-602", by_id)  # Source validation is internal Local preparation, not a Tool binding.
         d620 = by_id["CA-D-620"]
         self.assertEqual(
-            ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery/CA-D-620-MCP-DELIVERY--expose-direct-framework-runtime-installation.md",
+            ".control/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/204_FEATURE_MCP/07_delivery/CA-D-620-MCP-DELIVERY--expose-direct-framework-runtime-installation.md",
             d620.source_path,
         )
         self.assertEqual(1, d620.version)
