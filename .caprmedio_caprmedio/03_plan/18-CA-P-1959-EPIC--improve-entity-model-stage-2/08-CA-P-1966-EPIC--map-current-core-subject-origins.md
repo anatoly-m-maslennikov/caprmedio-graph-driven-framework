@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 82
-updated_at: "2026-10-11 06:18:53 +0400"
+version: 83
+updated_at: "2026-10-11 06:24:11 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -117,6 +117,8 @@ Independent semantic-review children assess the 573 currently proposed follow-up
 
 ### Current review checkpoint
 
+CA-P-2083 is Done: Fourteen Atom ID field mappings are supported by the current CA-R-728 definition after independent review corrected an overly conservative all-null proposal. Five compound identity cases remain null; no selector or source rewrite is introduced.
+
 CA-P-2058 is Done: all 43 baseline Actor Type corrections have supported targets (33 Operator, 10 AI Agent). The accepted subset composes independently reviewed rows from CA-P-2072 and CA-P-2085 without rewriting their raw evidence, the baseline ledger or original Subjects.
 
 CA-P-2082 is Done: Thirty-one Claim Target Scope Unit references map to the explicitly defined Atom field; 28 non-uniform Atom Scope references remain null. The target field stays distinct from ownership and Substance applicability.
@@ -126,7 +128,7 @@ CA-P-2085 is Done: All seven remaining generic Operator references are supported
 CA-P-2084 is Done: Seven Scope Unit field mappings are supported; the single Scope Unit Scope reference remains null because no field identity is established. No original Subject was edited.
 
 - [CA-P-2082 — Resolve Atom scope field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/68-CA-P-2082-TASK--resolve-atom-scope-field-mappings.md)
-- [CA-P-2083 — Resolve Atom identity field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/69-CA-P-2083-TASK--resolve-atom-identity-field-mappings.md)
+- [CA-P-2083 — Resolve Atom identity field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/69-CA-P-2083-TASK--resolve-atom-identity-field-mappings.md)
 - [CA-P-2084 — Resolve Scope Unit field mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/70-CA-P-2084-TASK--resolve-scope-unit-field-mappings.md)
 - [CA-P-2085 — Resolve remaining Actor role mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/71-CA-P-2085-TASK--resolve-remaining-actor-role-mappings.md)
 

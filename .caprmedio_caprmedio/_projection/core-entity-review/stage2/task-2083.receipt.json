@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2083",
+  "recorded_at": "2026-10-11 06:24:11 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: exact bounded research; not source migration approval",
+  "verification": {
+    "task": "CA-P-2083",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2083.research.json",
+      "sha256": "b7be809a7f1e79d2b507f67dc1f8506c31846a1aa2ad06fee8cc61ba2215e81b"
+    },
+    "rows": 19,
+    "counts": {
+      "proposed": 14,
+      "unresolved": 5
+    },
+    "source_files": 19,
+    "exact_evidence_spans": 33,
+    "exact_input_pins": 12,
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "corrupt_span",
+      "inferred_selector"
+    ],
+    "historical_plan_context_pins": [],
+    "result": "PASS: exact current coverage, pins, spans, syntax and non-executable proposals"
+  },
+  "independent_review": {
+    "reviewer": "subject_review_006",
+    "reviewed_output_sha256": "b7be809a7f1e79d2b507f67dc1f8506c31846a1aa2ad06fee8cc61ba2215e81b",
+    "accepted_proposals": 14,
+    "rejected_proposals": 0,
+    "correct_unresolved": 5,
+    "result": "PASS: exact CA-R-728@22 definition and span support all 14 Atom.Atom ID fields; frontier/Carrier/relation/allocation/history conditions remain explicit; compound snapshot, bundle and ID-free Draft identities stay null"
+  },
+  "registration_commit": "1fa56f189ef20e4f6a8d9d1eb4af400c1f00cf07",
+  "completion_scope": "Fourteen Atom ID field mappings are supported by the current CA-R-728 definition after independent review corrected an overly conservative all-null proposal. Five compound identity cases remain null; no selector or source rewrite is introduced.",
+  "limits": [
+    "Only this derived report and Plan lifecycle/receipt were authored; original Core Subjects and ordinary content remain unchanged.",
+    "Frozen candidate, baseline ledger, raw supplements and earlier evidence remain unchanged.",
+    "Unresolved research stays tracked. No selector adoption, MCP/FPF, runtime, native or source write admission."
+  ]
+}
