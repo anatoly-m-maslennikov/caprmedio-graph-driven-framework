@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 10
-updated_at: "2026-10-11 07:45:22 +0400"
+version: 11
+updated_at: "2026-10-11 08:00:20 +0400"
 relations:
   is_decomposition_of: [CA-P-2043]
   depends_on: ["CA-P-1972","CA-P-2044","CA-P-1992","CA-P-1993","CA-P-1994","CA-P-1995","CA-P-1996","CA-P-1997","CA-P-1998","CA-P-1999","CA-P-2000","CA-P-2001","CA-P-2002","CA-P-2003","CA-P-2004","CA-P-2005","CA-P-2006","CA-P-2007","CA-P-2008","CA-P-2009","CA-P-2010","CA-P-2011","CA-P-2012","CA-P-2013","CA-P-2014","CA-P-2015","CA-P-2016","CA-P-2017","CA-P-2018","CA-P-2019","CA-P-2020","CA-P-2021","CA-P-2022","CA-P-2023","CA-P-2024","CA-P-2025","CA-P-2026","CA-P-2027","CA-P-2028","CA-P-2029","CA-P-2030","CA-P-2031","CA-P-2032","CA-P-2033","CA-P-2034","CA-P-2035","CA-P-2036","CA-P-2037","CA-P-2038","CA-P-2039","CA-P-2040","CA-P-2041","CA-P-2042"]
@@ -47,7 +47,7 @@ CA-P-2086–2093 are Done, with one commit per completed Task. The full current 
 
 CA-P-2094–2099 are Done: 180 exact current origins across 134 owning sources, with eighty supported proposals and one hundred justified nulls. Each final report has independent semantic acceptance, current pin/span/coverage checks, a receipt and a separate commit. Their raw reports remain immutable evidence. CA-P-2100–2102 integrate these findings into the current derived ledger; the earlier 1468/1540/1526 counts above are the prior Git-preserved checkpoint, not the forecast integration result.
 
-- [CA-P-2100 — Integrate accepted subject-family research](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/07-CA-P-2100-TASK--integrate-accepted-subject-family-research.md)
+- [CA-P-2100 — Integrate accepted subject-family research](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/07-CA-P-2100-TASK--integrate-accepted-subject-family-research.md)
 - [CA-P-2101 — Verify accepted subject-family layers independently](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/08-CA-P-2101-TASK--verify-accepted-subject-family-layers-independently.md)
 - [CA-P-2102 — Rebuild and check the current subject ledger](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/09-CA-P-2102-TASK--rebuild-and-check-the-current-subject-ledger.md)
 
