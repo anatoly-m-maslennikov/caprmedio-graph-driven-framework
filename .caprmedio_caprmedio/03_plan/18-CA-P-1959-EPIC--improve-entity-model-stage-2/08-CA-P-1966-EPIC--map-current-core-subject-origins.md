@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 141
-updated_at: "2026-10-11 11:53:39 +0400"
+version: 142
+updated_at: "2026-10-11 12:01:22 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -224,7 +224,7 @@ CA-P-2144–2151 review all 204 remaining unqualified baseline-only origins acro
 - [CA-P-2144 — Review remaining unqualified Subjects 001](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/108-CA-P-2144-TASK--review-remaining-unqualified-subjects-001.md)
 - [CA-P-2145 — Review remaining unqualified Subjects 002](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/109-CA-P-2145-TASK--review-remaining-unqualified-subjects-002.md)
 - [CA-P-2146 — Review remaining unqualified Subjects 003](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/110-CA-P-2146-TASK--review-remaining-unqualified-subjects-003.md)
-- [CA-P-2147 — Review remaining unqualified Subjects 004](08-CA-P-1966-EPIC--map-current-core-subject-origins/111-CA-P-2147-TASK--review-remaining-unqualified-subjects-004.md)
+- [CA-P-2147 — Review remaining unqualified Subjects 004](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/111-CA-P-2147-TASK--review-remaining-unqualified-subjects-004.md)
 - [CA-P-2148 — Review remaining unqualified Subjects 005](08-CA-P-1966-EPIC--map-current-core-subject-origins/112-CA-P-2148-TASK--review-remaining-unqualified-subjects-005.md)
 - [CA-P-2149 — Review remaining unqualified Subjects 006](08-CA-P-1966-EPIC--map-current-core-subject-origins/113-CA-P-2149-TASK--review-remaining-unqualified-subjects-006.md)
 - [CA-P-2150 — Review remaining unqualified Subjects 007](08-CA-P-1966-EPIC--map-current-core-subject-origins/114-CA-P-2150-TASK--review-remaining-unqualified-subjects-007.md)
