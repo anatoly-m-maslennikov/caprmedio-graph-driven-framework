@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "task": "CA-P-2066",
+  "recorded_at": "2026-10-11 04:46:20 +0400",
+  "result": "PASS: final source/compiled-artifact gate accepted",
+  "reviewer": "subject_review_006",
+  "artifacts": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/tool-grammar.packet.json",
+      "sha256": "aa535c3927c938922fd661bf89c88e04204a4533d90395b72240e1db933b985e"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/tool-grammar.acceptance.md",
+      "sha256": "ed189ecc3ce6e358ea916a700cc2b4c5181a918008e52d77157519e8e82cdbed"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/subject-tools.grammar-contract.md",
+      "sha256": "aa267553ff481c7473c86fedcd757e902bbf00ffe3e2f2deef90b99201598f59"
+    }
+  ],
+  "current_tool_pins": 12,
+  "archives": 10,
+  "grammar_pins": {
+    "legacy": 5,
+    "approved": 5
+  },
+  "journal_events": 30,
+  "checks": "Independent exact pins, schema/count/links and compiled-content checks PASS; Root preserved generic QA byte-exact",
+  "limits": [
+    "Not implementation acceptance.",
+    "No original Core Subject migration, native admission, runtime or MCP activation."
+  ]
+}

@@ -9,12 +9,12 @@ claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Tool, Plan, Projection]
-version: 5
-updated_at: "2026-10-11 04:40:07 +0400"
+version: 6
+updated_at: "2026-10-11 04:46:20 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1965]
@@ -39,11 +39,15 @@ Preserve old byte-exact source versions under role-local archive paths and curre
 
 ### Decomposing Plans
 
-- [CA-P-2063 — Align Subject Tool Requirements and Methods](17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/done/01-CA-P-2063-TASK--align-subject-tool-requirements-and-methods.md)
-- [CA-P-2064 — Align Subject Tool Evaluation and Delivery](17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/done/02-CA-P-2064-TASK--align-subject-tool-evaluation-and-delivery.md)
-- [CA-P-2065 — Align Subject Tool Operations](17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/done/03-CA-P-2065-TASK--align-subject-tool-operations.md)
-- [CA-P-2066 — Accept and compile aligned Subject Tool contracts](17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/04-CA-P-2066-TASK--accept-and-compile-aligned-subject-tool-contracts.md)
+- [CA-P-2063 — Align Subject Tool Requirements and Methods](../17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/done/01-CA-P-2063-TASK--align-subject-tool-requirements-and-methods.md)
+- [CA-P-2064 — Align Subject Tool Evaluation and Delivery](../17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/done/02-CA-P-2064-TASK--align-subject-tool-evaluation-and-delivery.md)
+- [CA-P-2065 — Align Subject Tool Operations](../17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/done/03-CA-P-2065-TASK--align-subject-tool-operations.md)
+- [CA-P-2066 — Accept and compile aligned Subject Tool contracts](../17-CA-P-2062-TASK--align-subject-tool-grammar-contracts/done/04-CA-P-2066-TASK--accept-and-compile-aligned-subject-tool-contracts.md)
 
 ### Definition of Done
 
 Not Done if any required source/pin/evidence is missing or stale, independent acceptance is absent, unrelated source/body/scope changes occur, required effects are overstated, or own work exceeds 15 minutes without decomposition.
+
+### Completion
+
+All four bounded children are Done. The actual ten-source alignment is independently accepted and compiled; fixed delivery bindings, Core Subjects, frozen evidence and implementation are unchanged. CA-P-1965 may now implement this contract. Completion evidence is CA-P-2066's packet/acceptance/compiled contract and thirty actual sealed Journal records, not a code or migration receipt.

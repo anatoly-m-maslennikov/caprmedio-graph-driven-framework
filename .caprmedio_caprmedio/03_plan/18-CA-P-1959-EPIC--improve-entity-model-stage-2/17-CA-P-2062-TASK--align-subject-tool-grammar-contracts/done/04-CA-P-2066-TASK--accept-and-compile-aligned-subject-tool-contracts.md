@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Tool, Plan, Projection]
-version: 1
-updated_at: "2026-10-11 04:20:40 +0400"
+version: 2
+updated_at: "2026-10-11 04:46:20 +0400"
 relations:
   is_decomposition_of: [CA-P-2062]
 ---
@@ -34,3 +34,7 @@ Estimated own work: 15 minutes. After CA-P-2063/2064/2065 source effects are com
 ### Definition of Done
 
 Not Done if any required source/pin/evidence is missing or stale, independent acceptance is absent, unrelated source/body/scope changes occur, required effects are overstated, or own work exceeds 15 minutes without decomposition.
+
+### Completion
+
+All twelve current Tool pins, ten exact historical archives, five legacy and five approved grammar pins, and thirty sealed actual Journal records passed final independent subject_review_006 verification. The new packet, acceptance and compiled contract are `tool-grammar.packet.json`, `tool-grammar.acceptance.md` and `subject-tools.grammar-contract.md` under Stage 2. Generic QA is preserved; original frozen receipts are unchanged. Code, migration, native admission and runtime activation remain unperformed.
