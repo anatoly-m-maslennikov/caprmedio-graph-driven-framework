@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 24
-updated_at: "2026-10-11 05:59:28 +0400"
+version: 25
+updated_at: "2026-10-11 06:25:25 +0400"
 relations: {}
 ---
 # Summary
@@ -109,6 +109,12 @@ Step 2 must classify proposed edits before writing. Current authority requires a
 - [CA-P-1971 — Verify the Stage 2 entity model](18-CA-P-1959-EPIC--improve-entity-model-stage-2/13-CA-P-1971-TASK--verify-the-stage-2-entity-model.md)
 
 ### Current checkpoint
+
+CA-P-2082–2085 are Done and committed separately: 93 additional disjoint occurrences have 59 independently supported candidate targets and 34 explicit nulls. The supported targets cover Claim Target Scope Unit, Atom ID, Scope Unit Type/order and generic Operator roles. Current definitions, not only the candidate display, supplied the evidence; independent review corrected fourteen initially conservative Atom-ID nulls.
+
+CA-P-2058 is also Done: the original 43 Actor Type correction candidates have accepted targets (33 Operator, 10 AI Agent). This composes existing reviewed evidence; it does not double-count those seven new Operator reviews as another source effect. Raw evidence and the baseline ledger remain unchanged.
+
+Current isolated suites pass: graph 219, lookup 44, update/preview 33 (296 total). Original Core Subjects and ordinary content have no diff since the registry Task was registered. The source migration, accepted graph and content-update gates remain open. Exact checkpoint evidence is `_projection/core-entity-review/stage2/checkpoint-field-research-2026-10-11.json`.
 
 - [CA-P-2081 — Align the closed Core registry authority path](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/18-CA-P-2081-TASK--align-the-closed-core-registry-authority-path.md)
 

@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11 06:25:25 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded current field research checkpoint; Stage 2 remains incomplete",
+  "tasks": [
+    "CA-P-2081",
+    "CA-P-2082",
+    "CA-P-2083",
+    "CA-P-2084",
+    "CA-P-2085",
+    "CA-P-2058"
+  ],
+  "field_research": {
+    "occurrences": 93,
+    "supported_candidates": 59,
+    "unresolved": 34,
+    "checks": [
+      {
+        "task": "CA-P-2082",
+        "output": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2082.research.json",
+          "sha256": "84c7f8169f6af81b256cd44b09103694aa8588c6d645f4f469f990dd4ac0df6a"
+        },
+        "rows": 59,
+        "counts": {
+          "unresolved": 28,
+          "proposed": 31
+        },
+        "source_files": 46,
+        "exact_evidence_spans": 89,
+        "exact_input_pins": 15,
+        "negative_checks_rejected": [
+          "missing_row",
+          "duplicate_row",
+          "corrupt_span",
+          "inferred_selector"
+        ],
+        "historical_plan_context_pins": [],
+        "result": "PASS: exact current coverage, pins, spans, syntax and non-executable proposals"
+      },
+      {
+        "task": "CA-P-2083",
+        "output": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2083.research.json",
+          "sha256": "b7be809a7f1e79d2b507f67dc1f8506c31846a1aa2ad06fee8cc61ba2215e81b"
+        },
+        "rows": 19,
+        "counts": {
+          "proposed": 14,
+          "unresolved": 5
+        },
+        "source_files": 19,
+        "exact_evidence_spans": 33,
+        "exact_input_pins": 12,
+        "negative_checks_rejected": [
+          "missing_row",
+          "duplicate_row",
+          "corrupt_span",
+          "inferred_selector"
+        ],
+        "historical_plan_context_pins": [],
+        "result": "PASS: exact current coverage, pins, spans, syntax and non-executable proposals"
+      },
+      {
+        "task": "CA-P-2084",
+        "output": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2084.research.json",
+          "sha256": "8bda725d7f18573d57eee00d9cdf3fb3a78415e1da1f8979a2a25cb1109ac888"
+        },
+        "rows": 8,
+        "counts": {
+          "unresolved": 1,
+          "proposed": 7
+        },
+        "source_files": 14,
+        "exact_evidence_spans": 20,
+        "exact_input_pins": 22,
+        "negative_checks_rejected": [
+          "missing_row",
+          "duplicate_row",
+          "corrupt_span",
+          "inferred_selector"
+        ],
+        "historical_plan_context_pins": [
+          {
+            "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins.md",
+            "sha256": "f9090f82af5bb9c4785e3b01be0c2284000afa2f92bf79c281e2b5db45248cae",
+            "git_commit": "1fa56f189ef20e4f6a8d9d1eb4af400c1f00cf07",
+            "role": "registered historical Plan context"
+          }
+        ],
+        "result": "PASS: exact current coverage, pins, spans, syntax and non-executable proposals"
+      },
+      {
+        "task": "CA-P-2085",
+        "output": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2085.research.json",
+          "sha256": "ebfce47eb8ccd518c692021e1d413bed9b0e6f34e2cc30081964586bce32443d"
+        },
+        "rows": 7,
+        "counts": {
+          "proposed": 7
+        },
+        "source_files": 8,
+        "exact_evidence_spans": 14,
+        "exact_input_pins": 5,
+        "negative_checks_rejected": [
+          "missing_row",
+          "duplicate_row",
+          "corrupt_span",
+          "inferred_selector"
+        ],
+        "historical_plan_context_pins": [],
+        "result": "PASS: exact current coverage, pins, spans, syntax and non-executable proposals"
+      }
+    ]
+  },
+  "actor_type_correction": {
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2058.accepted-subset.json",
+      "sha256": "6e7ac7011df6df68b65d9f162d7f38d58d3d30435c41bb62bf4df471c13d4d8d"
+    },
+    "exact_baseline_occurrences": 43,
+    "operator": 33,
+    "ai_agent": 10
+  },
+  "current_isolated_suites": {
+    "graph": 219,
+    "subject_lookup": 44,
+    "subject_update_preview": 33,
+    "total": 296,
+    "failed": 0
+  },
+  "source_effect_audit": {
+    "core_root": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+    "baseline_commit": "441bc48e1",
+    "current_diff": "empty",
+    "original_subjects": "unchanged",
+    "ordinary_content": "unchanged"
+  },
+  "historical_context_boundary": "Only the registered parent Plan context in the 2084 research is validated against its exact registration Git object after controlled Plan lifecycle changes. Every Core source and meaning-evidence pin still requires current byte equality; no Core pin fallback exists.",
+  "pending_choice": "Atom selectors for named/qualified owners: unanswered. Existing grammar and source adoption are not inferred.",
+  "remaining_gates": [
+    "Complete semantic mapping/current source-frontier reconciliation",
+    "CA-P-1909 accepted graph",
+    "CA-P-1910 exact sealed preview and Operator approval",
+    "CA-P-1911 admitted authorized application",
+    "CA-P-1912 reproduction and CA-P-1969 Subjects-first gate",
+    "Step 2 ordinary content alignment and final verification"
+  ]
+}
