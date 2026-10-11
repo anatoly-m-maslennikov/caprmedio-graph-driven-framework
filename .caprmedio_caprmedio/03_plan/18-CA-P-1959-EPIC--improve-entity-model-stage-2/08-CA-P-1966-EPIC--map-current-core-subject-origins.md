@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 73
-updated_at: "2026-10-11 05:31:10 +0400"
+version: 74
+updated_at: "2026-10-11 05:33:33 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -116,6 +116,12 @@ Independent semantic-review children assess the 573 currently proposed follow-up
 - [CA-P-2077 — Audit current-source drift in mapping evidence](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/64-CA-P-2077-TASK--audit-current-source-drift-in-mapping-evidence.md)
 
 ### Current review checkpoint
+
+- [CA-P-2078 — Correct generic Carrier mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/65-CA-P-2078-TASK--correct-generic-carrier-mapping-candidates.md)
+- [CA-P-2079 — Preserve named Operation mapping identities](08-CA-P-1966-EPIC--map-current-core-subject-origins/66-CA-P-2079-TASK--preserve-named-operation-mapping-identities.md)
+- [CA-P-2080 — Resolve history and methodology mapping meanings](08-CA-P-1966-EPIC--map-current-core-subject-origins/67-CA-P-2080-TASK--resolve-history-and-methodology-mapping-meanings.md)
+
+These bounded follow-ups investigate rejected/unresolved meanings that do not require the pending conditional-owner choice. Their outputs remain proposals until independently reviewed.
 
 CA-P-2072–2077 are Done and committed individually. The five independent semantic reviews cover 573 unique proposed follow-up occurrences: 433 accepted as supported candidate meanings, 62 rejected and 78 unresolved. This is not complete inventory coverage or authorization to apply. Existing unresolved input research remains with CA-P-2049 and its children.
 
