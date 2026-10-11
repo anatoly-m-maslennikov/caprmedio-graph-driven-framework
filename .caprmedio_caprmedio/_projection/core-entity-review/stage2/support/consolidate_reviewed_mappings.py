@@ -47,6 +47,8 @@ CONTRACTS = (
     STAGE / "working-ledger.followups-2103-2108.contract.md",
     STAGE / "working-ledger.followups-2112-2117.contract.md",
     STAGE / "working-ledger.followups-2121-2128.contract.md",
+    STAGE / "working-ledger.followups-2132-2139.contract.md",
+    STAGE / "working-ledger.core-only-successor-2143.contract.md",
 )
 WORKING = STAGE / "working-ledger"
 LEDGER = WORKING / "working-mapping-ledger.json"
@@ -154,6 +156,22 @@ REMAINING_SUBJECT_DOMAINS_HISTORICAL_WORKING_PIN = {
     "path": (WORKING / "working-mapping-ledger.json").as_posix(),
     "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2",
 }
+CORE_ONLY_SUCCESSOR_TASK = "CA-P-2133"
+CORE_ONLY_SUCCESSOR_REPORT = STAGE / "semantic-reviews/task-2133.core-only.research.json"
+CORE_ONLY_SUCCESSOR_RECEIPT = STAGE / "task-2133.core-only.receipt.json"
+CORE_ONLY_SUCCESSOR_REPORT_SHA256 = "4d87d8cfe5376d23d37580b09019b9169b6bd75c976d749f67f10b8840926893"
+CORE_ONLY_SUCCESSOR_TASK_ID = "CA-P-2143"
+CORE_ONLY_SUCCESSOR_REGISTRATION_COMMIT = "74f96a6901765d5a854db87f8180655e3fb922ea"
+CORE_ONLY_SUCCESSOR_PREDECESSOR = {
+    "path": (STAGE / "semantic-reviews/task-2133.research.json").as_posix(),
+    "sha256": "90b13cf54d48ec1f60c21bf778e27ff9f0a794599a37e769612d9ef3cff46445",
+}
+CORE_ONLY_SUCCESSOR_PREDECESSOR_RECEIPT = {
+    "path": (STAGE / "task-2133.receipt.json").as_posix(),
+    "sha256": "ce54fe83aae0618a624f044c54ac4b1c8e1557edf5bbd4ee0255f697c05b6a71",
+}
+CORE_ONLY_SUCCESSOR_CONTRACT = STAGE / "working-ledger.core-only-successor-2143.contract.md"
+CORE_ONLY_SUCCESSOR_CONTRACT_SHA256 = "9019dada59adeb3f23dd2cc114600bc7fd5e9d72daa49034dd9390d46214d7a0"
 REMAINING_SUBJECT_DOMAINS_LAYER_SPECS = (
     ("CA-P-2121", STAGE / "semantic-reviews/task-2121.research.json", "96d906b7769f52f32bfc4b8d1ccfb638ba5eee6c525bcc2e25851827fb4f693b", 22, 21, 1),
     ("CA-P-2122", STAGE / "semantic-reviews/task-2122.research.json", "3577856baf8a35c61c479c9d2feaa7e54f0252ec2f33f5ec9bb94def9eb928f8", 20, 8, 12),
@@ -173,11 +191,35 @@ REMAINING_SUBJECT_DOMAINS_GROUP = ResearchLayerGroup(
     specifications=REMAINING_SUBJECT_DOMAINS_LAYER_SPECS,
     expected_rows=205,
 )
+RESIDUAL_SUBJECT_DOMAINS_HISTORICAL_WORKING_PIN = {
+    "path": (WORKING / "working-mapping-ledger.json").as_posix(),
+    "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186",
+}
+RESIDUAL_SUBJECT_DOMAINS_LAYER_SPECS = (
+    ("CA-P-2132", STAGE / "semantic-reviews/task-2132.research.json", "2c79d4e3114f6db167acda343fecd0762eab6a78988e43f534f575661ffc35d2", 22, 2, 20),
+    ("CA-P-2133", CORE_ONLY_SUCCESSOR_REPORT, CORE_ONLY_SUCCESSOR_REPORT_SHA256, 20, 9, 11),
+    ("CA-P-2134", STAGE / "semantic-reviews/task-2134.research.json", "12805a8750a8b3840870416c0a742ceaf74e312c1bd71444f076a6b558b50303", 25, 11, 14),
+    ("CA-P-2135", STAGE / "semantic-reviews/task-2135.research.json", "e4ca2241b187c266061078a216d2128e7d5b8350903b9fbc298f7aa72e30ba9f", 19, 16, 3),
+    ("CA-P-2136", STAGE / "semantic-reviews/task-2136.research.json", "30ad47d268d8927561d78fe36860eafafaacc888d0408be1f79457f062aa7975", 37, 2, 35),
+    ("CA-P-2137", STAGE / "semantic-reviews/task-2137.research.json", "d89d428d4262410bdb1bf1a833dd28b9bb6186bb153eaa6abf58c9157e39b113", 29, 7, 22),
+    ("CA-P-2138", STAGE / "semantic-reviews/task-2138.research.json", "709b2e24e1e2c6961ef804c0a44460f1d1e1105fcdd49ae47096164b9c888c83", 23, 6, 17),
+    ("CA-P-2139", STAGE / "semantic-reviews/task-2139.research.json", "1c07b8e41e299861b4a507e5f977bbff9e7b4adde19c9f9df4a3fd59a544fb83", 20, 10, 10),
+)
+RESIDUAL_SUBJECT_DOMAINS_GROUP = ResearchLayerGroup(
+    label="CA-P-2132–2139",
+    manifest=STAGE / "semantic-reviews/followups-2132-2139.inputs.json",
+    manifest_sha256="a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd",
+    registration_commit="5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+    historical_working_pin=RESIDUAL_SUBJECT_DOMAINS_HISTORICAL_WORKING_PIN,
+    specifications=RESIDUAL_SUBJECT_DOMAINS_LAYER_SPECS,
+    expected_rows=195,
+)
 RESEARCH_LAYER_GROUPS = (
     FOLLOWUP_GROUP,
     SUBJECT_FAMILY_GROUP,
     FINAL_SUBJECT_FAMILY_GROUP,
     REMAINING_SUBJECT_DOMAINS_GROUP,
+    RESIDUAL_SUBJECT_DOMAINS_GROUP,
 )
 ORIGIN_FIELDS = (
     "occurrence_id", "source_path", "source_atom_id", "source_version", "source_sha256",
@@ -192,6 +234,7 @@ def validate_research_group_configuration(groups: tuple[ResearchLayerGroup, ...]
         SUBJECT_FAMILY_GROUP,
         FINAL_SUBJECT_FAMILY_GROUP,
         REMAINING_SUBJECT_DOMAINS_GROUP,
+        RESIDUAL_SUBJECT_DOMAINS_GROUP,
     ):
         fail("research layer group order or membership changed")
     expected_tasks = (
@@ -200,6 +243,8 @@ def validate_research_group_configuration(groups: tuple[ResearchLayerGroup, ...]
         "CA-P-2112", "CA-P-2113", "CA-P-2114", "CA-P-2115", "CA-P-2116", "CA-P-2117",
         "CA-P-2121", "CA-P-2122", "CA-P-2123", "CA-P-2124",
         "CA-P-2125", "CA-P-2126", "CA-P-2127", "CA-P-2128",
+        "CA-P-2132", "CA-P-2133", "CA-P-2134", "CA-P-2135",
+        "CA-P-2136", "CA-P-2137", "CA-P-2138", "CA-P-2139",
     )
     tasks = tuple(specification[0] for group in groups for specification in group.specifications)
     if tasks != expected_tasks:
@@ -231,6 +276,15 @@ def canonical_decision_record_pin(input_pins: dict[str, Any]) -> dict[str, str]:
     if input_pins.get("operator_decision_record") != canonical:
         fail("research report operator decision-record pin")
     return canonical
+
+
+def core_only_successor_predecessor_pins() -> tuple[dict[str, str], dict[str, str]]:
+    """Keep the withdrawn CA-P-2133 evidence immutable and live-pinned."""
+    report_pin = pin(Path(CORE_ONLY_SUCCESSOR_PREDECESSOR["path"]))
+    receipt_pin_value = pin(Path(CORE_ONLY_SUCCESSOR_PREDECESSOR_RECEIPT["path"]))
+    if report_pin != CORE_ONLY_SUCCESSOR_PREDECESSOR or receipt_pin_value != CORE_ONLY_SUCCESSOR_PREDECESSOR_RECEIPT:
+        fail("Core-only successor predecessor lineage pin")
+    return report_pin, receipt_pin_value
 
 
 def read_json(relative: Path) -> dict[str, Any]:
@@ -653,6 +707,9 @@ def accepted_research_layer(
 ) -> tuple[dict[str, Any], dict[str, str], dict[str, Any]]:
     """Load one final accepted fixed research layer with live proof only."""
     task_id, report_rel, expected_sha, expected_rows, expected_proposed, expected_unresolved = specification
+    is_core_only_successor = task_id == CORE_ONLY_SUCCESSOR_TASK
+    if is_core_only_successor and (report_rel != CORE_ONLY_SUCCESSOR_REPORT or expected_sha != CORE_ONLY_SUCCESSOR_REPORT_SHA256):
+        fail("Core-only successor report binding")
     report = read_json(report_rel)
     report_pin = pin(report_rel)
     if report_pin["sha256"] != expected_sha:
@@ -662,9 +719,23 @@ def accepted_research_layer(
         ("source_migration", "not_performed"), ("native_admission", "not_performed"),
     )):
         fail(f"research report boundary: {task_id}")
+    predecessor_report_pin: dict[str, str] | None = None
+    predecessor_receipt_pin: dict[str, str] | None = None
+    if is_core_only_successor:
+        predecessor_report_pin, predecessor_receipt_pin = core_only_successor_predecessor_pins()
     input_pins = report.get("input_pins")
     if not isinstance(input_pins, dict) or input_pins.get("candidate") != candidate_pin:
         fail(f"research report candidate pin: {task_id}")
+    successor_contract_pin = pin(CORE_ONLY_SUCCESSOR_CONTRACT)
+    if successor_contract_pin["sha256"] != CORE_ONLY_SUCCESSOR_CONTRACT_SHA256:
+        fail("Core-only successor contract SHA-256 changed")
+    if is_core_only_successor:
+        if (report.get("report_revision") != 2 or report.get("successor_task") != CORE_ONLY_SUCCESSOR_TASK_ID
+                or report.get("supersedes") != predecessor_report_pin):
+            fail("Core-only successor report metadata")
+        report_contracts = input_pins.get("contracts")
+        if not isinstance(report_contracts, list) or successor_contract_pin not in report_contracts:
+            fail("Core-only successor report contract pin")
     decision_record_pin = canonical_decision_record_pin(input_pins)
     manifest_descriptors = [input_pins[key] for key in ("selection_manifest", "manifest") if key in input_pins]
     if manifest_descriptors != [manifest_pin]:
@@ -675,7 +746,7 @@ def accepted_research_layer(
     if baseline_descriptors != [pin(BASELINE)]:
         fail(f"research report baseline-ledger pin: {task_id}")
 
-    receipt_rel = STAGE / f"task-{task_id.removeprefix('CA-P-')}.receipt.json"
+    receipt_rel = CORE_ONLY_SUCCESSOR_RECEIPT if is_core_only_successor else STAGE / f"task-{task_id.removeprefix('CA-P-')}.receipt.json"
     receipt = read_json(receipt_rel)
     receipt_pin_value = pin(receipt_rel)
     verification = receipt.get("verification")
@@ -690,6 +761,15 @@ def accepted_research_layer(
             or verification.get("registration_commit") != group.registration_commit
             or receipt.get("registration_commit") != group.registration_commit):
         fail(f"research receipt descriptors: {task_id}")
+    if is_core_only_successor:
+        if (receipt.get("successor_task") != CORE_ONLY_SUCCESSOR_TASK_ID
+                or receipt.get("successor_registration_commit") != CORE_ONLY_SUCCESSOR_REGISTRATION_COMMIT
+                or receipt.get("supersedes") != predecessor_report_pin
+                or receipt.get("successor_contract") != successor_contract_pin
+                or verification.get("successor_task") != CORE_ONLY_SUCCESSOR_TASK_ID
+                or verification.get("successor_registration_commit") != CORE_ONLY_SUCCESSOR_REGISTRATION_COMMIT
+                or verification.get("supersedes") != predecessor_report_pin):
+            fail("Core-only successor receipt metadata")
     for review in (receipt.get("independent_review"), verification.get("independent_review")):
         if (not isinstance(review, dict) or review.get("final_report_sha256") != report_pin["sha256"]
                 or not str(review.get("result", "")).startswith("PASS")):
@@ -765,6 +845,10 @@ def accepted_research_layer(
         "independent_review_sha256": report_pin["sha256"], "rows": expected_rows,
         "kind": "research",
     }
+    if is_core_only_successor:
+        descriptor.update({"successor_task": CORE_ONLY_SUCCESSOR_TASK_ID, "report_revision": 2,
+                           "supersedes": predecessor_report_pin, "predecessor_receipt": predecessor_receipt_pin,
+                           "successor_contract": successor_contract_pin})
     return report, receipt_pin_value, descriptor
 
 
