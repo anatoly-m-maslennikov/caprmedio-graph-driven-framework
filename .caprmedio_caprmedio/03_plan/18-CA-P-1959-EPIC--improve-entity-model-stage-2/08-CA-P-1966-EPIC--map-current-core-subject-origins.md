@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 126
-updated_at: "2026-10-11 10:48:00 +0400"
+version: 127
+updated_at: "2026-10-11 10:48:31 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -202,7 +202,7 @@ Latest integration checkpoint: CA-P-2121–2131 are Done. Eight independently ac
 
 CA-P-2132–2139 review195 previously unreviewed current origins across148 distinct owners. Eight disjoint ownership lanes exclude already reviewed nulls and the known qualified/named-selector gate. These are research Tasks, not authorizations to change Core or shrink the full mapping objective.
 
-- [CA-P-2132 — Review remaining Atom and Artifact policy Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/99-CA-P-2132-TASK--review-remaining-atom-and-artifact-policy-subjects.md)
+- [CA-P-2132 — Review remaining Atom and Artifact policy Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/99-CA-P-2132-TASK--review-remaining-atom-and-artifact-policy-subjects.md)
 - [CA-P-2133 — Review governance and expansion topic Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/100-CA-P-2133-TASK--review-governance-and-expansion-topic-subjects.md)
 - [CA-P-2134 — Review remaining role and Implementation Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/101-CA-P-2134-TASK--review-remaining-role-and-implementation-subjects.md)
 - [CA-P-2135 — Review relational Producer and Consumer Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/102-CA-P-2135-TASK--review-relational-producer-and-consumer-subjects.md)
