@@ -1,0 +1,1212 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2128",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2121-2128.inputs.json",
+      "sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2121-2128.contract.md",
+        "sha256": "77165a20424dbc6d2a67eaf0ee6363bf8bbedc161df3d6f4e003c7f757afe622"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/98-CA-P-2128-TASK--review-term-and-subject-relation-origins.md",
+      "sha256": "b7ec050c4eeb8c725a4796e31f3b23d5200c9fceb49e70eb25d1ba18df8c3b36"
+    },
+    "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+        "sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+        "sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+        "sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md",
+        "sha256": "f897ce81ed4e0d630006ed7f0f382a082204b82bde93664e394d7e31abbf0b12"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL-GENERAL--derive-governed-terms-views-from-selected-authority.md",
+        "sha256": "bab78ca52edb070123af5d40dd61fe4f44cf70941253aeb6aaf9deab0a5283f5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL-GENERAL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+        "sha256": "a373608bb8bcfefc91ea4d5dd836ac5aea2f347c3711cc38aaa86d643d861c96"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-blocking.md",
+        "sha256": "38611796a0d9565a222ef4b85c7ae833cf1a92184e377f026097db675f9b7284"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+        "sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-CORE-REQUIREMENT--register-child-of-and-parent-of-relation-pair.md",
+        "sha256": "81f1773a9c91d42edb267e3be146973d27f54c90966776edb0f79b59966ea6b3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+        "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+        "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md",
+        "sha256": "3c4a8960bac48476767cb4deda9a7771ea48b8fb303a1c6b85da2dc9a0f19e31"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+        "sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md",
+        "sha256": "01e1f3355f52762beabcc19fe30746a536c12f79015f581d00b6ff765a202cd7"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL--author-claim-value-sets.md",
+        "sha256": "f9293974e41c66ef9e209c37203fa8135d012b1a62acdc28c31d116a34891b92"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md",
+        "sha256": "287f47cd2fcf0ed1b4090a376b3924a6aa3e45838d837fbcea306b8e46a81ad6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-terms-graph.md",
+        "sha256": "605b14d1ec40fb708c294bdd01fca7c0b46c56cc8ec5cf3ef463a8575487d840"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--report-exact-claim-value-set-consolidation-candidates.md",
+        "sha256": "3aa9a341876eee5a153e923a4a7d4fadc400d69b2925ff11a7c25c278fa444c9"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md",
+        "sha256": "f4b1f457c746f09e73e68e784f552b45c2157b6587ea319ee8c0ca0f4a37202e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+        "sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14"
+      }
+    ],
+    "global_definitions": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+        "sha256": "933901316d347a2e09222d19d3a985c2feb93c7efc86e0a8332ab292cd169dd0"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+        "sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+        "sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+        "sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1201-CORE_META_MODEL-CORE-REQUIREMENT--require-one-governed-subject-on-every-atom.md",
+        "sha256": "d56b4f7ba89613ab5247e72ec6aadf873b310463731b9269e80a498b2b8408d6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1202-CORE_META_MODEL-CORE-REQUIREMENT--resolve-every-direct-subject-target-once.md",
+        "sha256": "a92e1fc6be791e4fa7f5400efde58cd2d07e5b5e5d6f20a65125acb2ddb9de07"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1246-CORE_META_MODEL-CORE-REQUIREMENT--keep-relation-vocabularies-graph-specific.md",
+        "sha256": "79e1932957ce002ac47ff529f5fb56a1311ebc5bbc07ac85482021ce5b19d4c3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term.md",
+        "sha256": "b30f5d73b9c4aff8cfc69c228a2ed4759c9d260297162cea46d0f42b75dd6e6b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+        "sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1320-CORE_META_MODEL-CORE-REQUIREMENT--define-general-term.md",
+        "sha256": "bc3942892725d065570cd0a36e8f0d7c55c74b5027e0f2a6d14cc83e9422ba02"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1335-CORE_META_MODEL-CORE-REQUIREMENT--define-terms-graph.md",
+        "sha256": "98ef6a5058ada19dd51563545a1c3ad46e8b18a637305dce90dde15eb5bfddf1"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1347-CORE_META_MODEL-CORE-REQUIREMENT--define-root-term.md",
+        "sha256": "8d74cf6b7af6a0738844b4d17054fe713a55773c6bed88cf0e48981eec6f9138"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1435-CORE_META_MODEL-CORE--define-narrower-than.md",
+        "sha256": "15fa6d3511be9f2d4ad76eea38373f13bcbb37522a2f7c5b985e0a4b836f54cb"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+        "sha256": "31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-CORE-REQUIREMENT--register-derived-from-relation.md",
+        "sha256": "a22c2bf49acb072295d3eab10999e0f0ff9ca3258bc035f42d08142e9252ab0a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+        "sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md",
+        "sha256": "8a3dcb7cfdb3369ec268726cc54f3f0e0c1bfbc947841792deb87bb844245414"
+      }
+    ]
+  },
+  "counts": {
+    "sources": 20,
+    "occurrences": 29,
+    "proposed": 3,
+    "unresolved": 26
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+      "source_atom_id": "CA-R-1014",
+      "source_version": 18,
+      "source_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Atom/Governed Subject",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current authority treats this as Atom subject metadata: a direct scalar target path whose key encodes the Subject Relation Kind. It forbids an intermediate Subject Entity and states that Subject GOVERNS/DEPENDS_ON incidence is not a native Entity Relation, so no candidate target preserves the pointer distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+          "sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "f003adc896e74bb23f53d801f32e0c9216a03867e0ce7ec32f8802e64e7de90e",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Subject pointer/metadata remains distinct from its canonical Entity target.",
+        "No intermediate Subject object, native Entity Relation, selector, @ syntax, or carrier registry is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+      "source_atom_id": "CA-R-1026",
+      "source_version": 16,
+      "source_sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+      "field": "governs",
+      "index": null,
+      "old_value": "Dependency Relation Pair",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: depends_on",
+      "confidence": 0.95,
+      "reason": "The owning Claim explicitly defines depends_on as a named direct dependency-ordering Relation Type from dependent Artifact to prerequisite Artifact, with required_by as its inverse-derived view. The confirmed candidate treats Relation Type and Relation Kind as one graph-qualified concept, so the named type preserves the source without creating a singleton or conflating it with Plan Graph BLOCKS.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+          "sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "599394c8148fdaa4671c1a4f8768793342547efd53eeaaa14a6423cf129ae664",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-CORE--register-depends-on-and-required-by-relation-pair.md",
+          "sha256": "e2e76fb76c3e5d47d8e9df3e56e48c6ca3381d006c1b70233b3ee5f0bdfd1cd7",
+          "start_line": 24,
+          "end_line": 30,
+          "span_sha256": "924382977d7ee17b9f2c4398a0c20e204a783e2d4316db599e7a72200d7e40ee",
+          "reason": "The current owning Scope and Claim define the named direct Artifact-to-Artifact relation, its inverse-derived view, and its separation from Plan Graph BLOCKS."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate states that Relation Type and Relation Kind are the same graph-qualified concept and retains each type's permitted endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Artifact-to-Artifact endpoints, inverse-derived required_by view, and dependency-ordering meaning remain source-governed.",
+        "Plan Graph BLOCKS remains separate; no new graph membership, endpoint metadata, or singleton kind is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+      "source_atom_id": "CA-R-1027",
+      "source_version": 15,
+      "source_sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Implementation Relation Pair",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: implementation_of",
+      "confidence": 0.93,
+      "reason": "The owning Claim names implementation_of as the declared upstream relation and implemented_by as its inverse-derived view. Current CA-R-1020 supplies the direct Relation Type's governed-Implementation-carrier source and =1 specification-Atom target, supporting the named Relation Type rather than a generic Relation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1027-CORE_META_MODEL-CORE--register-implementation-of-and-implemented-by-relation-pair.md",
+          "sha256": "da81db4a8fcf73c03994d815f3861a34fdbcc806b3db07d909ffbd98c372a20a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "0bbb719ebd0f233b30ca1c0eac7003a61c293dc8d2e32e2eb92fb5a67849dfee",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+          "sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+          "start_line": 23,
+          "end_line": 29,
+          "span_sha256": "75b8afb65e367257d2bc149bca147b5354eb6d18101af45b49da14e486ed9118",
+          "reason": "Current CA-R-1020 explicitly supplies implementation_of ownership by a governed Implementation carrier and its =1 specification Atom target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same graph-qualified concept while preserving each type's permitted endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The governed Implementation carrier source, =1 specification Atom target, realization-ordering domain, and inverse-derived implemented_by view remain explicit.",
+        "No separate implemented_by type, singleton kind, selector, or carrier registry is created."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md",
+      "source_atom_id": "CA-R-1363",
+      "source_version": 12,
+      "source_sha256": "f897ce81ed4e0d630006ed7f0f382a082204b82bde93664e394d7e31abbf0b12",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Governed Subject",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current authority treats this as Atom subject metadata: a direct scalar target path whose key encodes the Subject Relation Kind. It forbids an intermediate Subject Entity and states that Subject GOVERNS/DEPENDS_ON incidence is not a native Entity Relation, so no candidate target preserves the pointer distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md",
+          "sha256": "f897ce81ed4e0d630006ed7f0f382a082204b82bde93664e394d7e31abbf0b12",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "788d88b9c5b248ee3682d0e2ed2802f667ed961a905c770981607f6e6e09a6cf",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Subject pointer/metadata remains distinct from its canonical Entity target.",
+        "No intermediate Subject object, native Entity Relation, selector, @ syntax, or carrier registry is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL-GENERAL--derive-governed-terms-views-from-selected-authority.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL-GENERAL--derive-governed-terms-views-from-selected-authority.md",
+      "source_atom_id": "CA-R-1454",
+      "source_version": 7,
+      "source_sha256": "bab78ca52edb070123af5d40dd61fe4f44cf70941253aeb6aaf9deab0a5283f5",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Governed Term",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current definitions place this vocabulary distinction in the separate Terms Graph. The candidate does not add Term as an Entity root, so mapping it to a candidate root would erase its explicit graph boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL-GENERAL--derive-governed-terms-views-from-selected-authority.md",
+          "sha256": "bab78ca52edb070123af5d40dd61fe4f44cf70941253aeb6aaf9deab0a5283f5",
+          "start_line": 29,
+          "end_line": 45,
+          "span_sha256": "77a391152f16f1666453dc830c7ce6df16756d52cc2c2360bcc2da1b5c1ca61e",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term distinction remains in the Terms Graph rather than becoming an eighth Entity root.",
+        "No Entity, selector, or carrier subtype is inferred from vocabulary rendering or lookup."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL-GENERAL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL-GENERAL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+      "source_atom_id": "CA-R-1455",
+      "source_version": 7,
+      "source_sha256": "a373608bb8bcfefc91ea4d5dd836ac5aea2f347c3711cc38aaa86d643d861c96",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "General Term",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current definitions place this vocabulary distinction in the separate Terms Graph. The candidate does not add Term as an Entity root, so mapping it to a candidate root would erase its explicit graph boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL-GENERAL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+          "sha256": "a373608bb8bcfefc91ea4d5dd836ac5aea2f347c3711cc38aaa86d643d861c96",
+          "start_line": 36,
+          "end_line": 52,
+          "span_sha256": "43aec6cb5784b0ae03109476ec1e9b454acf5978aec03e684454e805f62b5fdd",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term distinction remains in the Terms Graph rather than becoming an eighth Entity root.",
+        "No Entity, selector, or carrier subtype is inferred from vocabulary rendering or lookup."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL-GENERAL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL-GENERAL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+      "source_atom_id": "CA-R-1455",
+      "source_version": 7,
+      "source_sha256": "a373608bb8bcfefc91ea4d5dd836ac5aea2f347c3711cc38aaa86d643d861c96",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Governed Term",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current definitions place this vocabulary distinction in the separate Terms Graph. The candidate does not add Term as an Entity root, so mapping it to a candidate root would erase its explicit graph boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL-GENERAL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+          "sha256": "a373608bb8bcfefc91ea4d5dd836ac5aea2f347c3711cc38aaa86d643d861c96",
+          "start_line": 36,
+          "end_line": 52,
+          "span_sha256": "43aec6cb5784b0ae03109476ec1e9b454acf5978aec03e684454e805f62b5fdd",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term distinction remains in the Terms Graph rather than becoming an eighth Entity root.",
+        "No Entity, selector, or carrier subtype is inferred from vocabulary rendering or lookup."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL-GENERAL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md#subjects.depends_on[9]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL-GENERAL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+      "source_atom_id": "CA-R-1455",
+      "source_version": 7,
+      "source_sha256": "a373608bb8bcfefc91ea4d5dd836ac5aea2f347c3711cc38aaa86d643d861c96",
+      "field": "depends_on",
+      "index": 9,
+      "old_value": "Subject Path",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current authority treats this as Atom subject metadata: a direct scalar target path whose key encodes the Subject Relation Kind. It forbids an intermediate Subject Entity and states that Subject GOVERNS/DEPENDS_ON incidence is not a native Entity Relation, so no candidate target preserves the pointer distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL-GENERAL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md",
+          "sha256": "a373608bb8bcfefc91ea4d5dd836ac5aea2f347c3711cc38aaa86d643d861c96",
+          "start_line": 36,
+          "end_line": 52,
+          "span_sha256": "43aec6cb5784b0ae03109476ec1e9b454acf5978aec03e684454e805f62b5fdd",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Subject pointer/metadata remains distinct from its canonical Entity target.",
+        "No intermediate Subject object, native Entity Relation, selector, @ syntax, or carrier registry is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-blocking.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-blocking.md",
+      "source_atom_id": "CA-R-1580",
+      "source_version": 4,
+      "source_sha256": "38611796a0d9565a222ef4b85c7ae833cf1a92184e377f026097db675f9b7284",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Subject Relation Kind: DEPENDS_ON",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current authority treats this as Atom subject metadata: a direct scalar target path whose key encodes the Subject Relation Kind. It forbids an intermediate Subject Entity and states that Subject GOVERNS/DEPENDS_ON incidence is not a native Entity Relation, so no candidate target preserves the pointer distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-blocking.md",
+          "sha256": "38611796a0d9565a222ef4b85c7ae833cf1a92184e377f026097db675f9b7284",
+          "start_line": 23,
+          "end_line": 48,
+          "span_sha256": "7a63a440b609a69c7e1b980000dbc871a7cad828325288875c5666fa75835b05",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Subject pointer/metadata remains distinct from its canonical Entity target.",
+        "No intermediate Subject object, native Entity Relation, selector, @ syntax, or carrier registry is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+      "source_atom_id": "CA-R-1765",
+      "source_version": 20,
+      "source_sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "NARROWER_THAN",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "NARROWER_THAN is a Terms Graph relation between Terms. Its Term endpoints are not candidate Entity-graph nodes, so generic Relation would flatten the explicit Terms Graph and endpoint distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+          "sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "ac831b87c46d963e677ce0cf96d73c5cc44639d6dd7766a718cf5c38733ebeea",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Terms Graph ownership and Term-to-Term endpoints remain explicit.",
+        "No Artifact Type admission, Entity hierarchy, or generic Relation kind is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-CORE-REQUIREMENT--register-child-of-and-parent-of-relation-pair.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-CORE-REQUIREMENT--register-child-of-and-parent-of-relation-pair.md",
+      "source_atom_id": "CA-R-879",
+      "source_version": 18,
+      "source_sha256": "81f1773a9c91d42edb267e3be146973d27f54c90966776edb0f79b59966ea6b3",
+      "field": "governs",
+      "index": null,
+      "old_value": "Normative Authority Relation Pair",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning body names a directed relation pair and its inverse-derived view, but does not provide the current graph membership and endpoint-class metadata needed for a supported Entity-graph relation admission. Generic Relation would falsely complete an unproved kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-CORE-REQUIREMENT--register-child-of-and-parent-of-relation-pair.md",
+          "sha256": "81f1773a9c91d42edb267e3be146973d27f54c90966776edb0f79b59966ea6b3",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "ff9234a5dd81fe5b51f1b7a8feda5c650e38df397f2e31490a6edb5d8ff4c80d",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named pair, its direction, inverse-derived status, and governing domain remain source-specific.",
+        "No Relation Kind, endpoints, graph membership, or singleton kind is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_atom_id": "CA-M-114",
+      "source_version": 20,
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Governed Term",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current definitions place this vocabulary distinction in the separate Terms Graph. The candidate does not add Term as an Entity root, so mapping it to a candidate root would erase its explicit graph boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term distinction remains in the Terms Graph rather than becoming an eighth Entity root.",
+        "No Entity, selector, or carrier subtype is inferred from vocabulary rendering or lookup."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+      "source_atom_id": "CA-M-120",
+      "source_version": 14,
+      "source_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+      "field": "governs",
+      "index": null,
+      "old_value": "Relation Kind/registry compilation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Method is registry-compilation behavior, not a Relation instance or Relation Kind. It requires graph-qualified lookup and forbids inventing missing owner or endpoint constraints, so no candidate Entity-graph target is supported.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Compiler/projection behavior remains distinct from a governed Relation Kind.",
+        "Graph-qualified name identity and endpoint constraints remain current-source requirements."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md",
+      "source_atom_id": "CA-M-125",
+      "source_version": 25,
+      "source_sha256": "3c4a8960bac48476767cb4deda9a7771ea48b8fb303a1c6b85da2dc9a0f19e31",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Subject Path",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current authority treats this as Atom subject metadata: a direct scalar target path whose key encodes the Subject Relation Kind. It forbids an intermediate Subject Entity and states that Subject GOVERNS/DEPENDS_ON incidence is not a native Entity Relation, so no candidate target preserves the pointer distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md",
+          "sha256": "3c4a8960bac48476767cb4deda9a7771ea48b8fb303a1c6b85da2dc9a0f19e31",
+          "start_line": 28,
+          "end_line": 53,
+          "span_sha256": "f13fe49a774719c8d73d9f12075cc9674a0efb8a742ba96a82fb1663e9dcd678",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Subject pointer/metadata remains distinct from its canonical Entity target.",
+        "No intermediate Subject object, native Entity Relation, selector, @ syntax, or carrier registry is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md",
+      "source_atom_id": "CA-M-125",
+      "source_version": 25,
+      "source_sha256": "3c4a8960bac48476767cb4deda9a7771ea48b8fb303a1c6b85da2dc9a0f19e31",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Subject",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current authority treats this as Atom subject metadata: a direct scalar target path whose key encodes the Subject Relation Kind. It forbids an intermediate Subject Entity and states that Subject GOVERNS/DEPENDS_ON incidence is not a native Entity Relation, so no candidate target preserves the pointer distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md",
+          "sha256": "3c4a8960bac48476767cb4deda9a7771ea48b8fb303a1c6b85da2dc9a0f19e31",
+          "start_line": 28,
+          "end_line": 53,
+          "span_sha256": "f13fe49a774719c8d73d9f12075cc9674a0efb8a742ba96a82fb1663e9dcd678",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Subject pointer/metadata remains distinct from its canonical Entity target.",
+        "No intermediate Subject object, native Entity Relation, selector, @ syntax, or carrier registry is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md",
+      "source_atom_id": "CA-M-125",
+      "source_version": 25,
+      "source_sha256": "3c4a8960bac48476767cb4deda9a7771ea48b8fb303a1c6b85da2dc9a0f19e31",
+      "field": "governs",
+      "index": null,
+      "old_value": "Subject Assignment",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Method is assignment behavior for direct subject pointers and explicitly forbids an intermediate Subject object. The candidate supplies no method or selector target, so mapping it to an Entity or Relation would lose the operation boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md",
+          "sha256": "3c4a8960bac48476767cb4deda9a7771ea48b8fb303a1c6b85da2dc9a0f19e31",
+          "start_line": 28,
+          "end_line": 53,
+          "span_sha256": "f13fe49a774719c8d73d9f12075cc9674a0efb8a742ba96a82fb1663e9dcd678",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Assignment behavior remains distinct from the resolved canonical Entity target.",
+        "No Subject object, selector, @ syntax, or native Entity Relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+      "source_atom_id": "CA-M-229",
+      "source_version": 12,
+      "source_sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "General Term",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current definitions place this vocabulary distinction in the separate Terms Graph. The candidate does not add Term as an Entity root, so mapping it to a candidate root would erase its explicit graph boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+          "sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84",
+          "start_line": 26,
+          "end_line": 44,
+          "span_sha256": "4823d1af01f0b5255e202d54697e9a8b8b5aba34b588922642db9d34cbd29eea",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term distinction remains in the Terms Graph rather than becoming an eighth Entity root.",
+        "No Entity, selector, or carrier subtype is inferred from vocabulary rendering or lookup."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+      "source_atom_id": "CA-M-229",
+      "source_version": 12,
+      "source_sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Governed Term",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current definitions place this vocabulary distinction in the separate Terms Graph. The candidate does not add Term as an Entity root, so mapping it to a candidate root would erase its explicit graph boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+          "sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84",
+          "start_line": 26,
+          "end_line": 44,
+          "span_sha256": "4823d1af01f0b5255e202d54697e9a8b8b5aba34b588922642db9d34cbd29eea",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term distinction remains in the Terms Graph rather than becoming an eighth Entity root.",
+        "No Entity, selector, or carrier subtype is inferred from vocabulary rendering or lookup."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+      "source_atom_id": "CA-M-229",
+      "source_version": 12,
+      "source_sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84",
+      "field": "governs",
+      "index": null,
+      "old_value": "Governed Term Rendering",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Method or QA case tests lexical rendering rules. It does not define an Entity or Relation; mapping it would turn presentation behavior into a graph node.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+          "sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84",
+          "start_line": 26,
+          "end_line": 44,
+          "span_sha256": "4823d1af01f0b5255e202d54697e9a8b8b5aba34b588922642db9d34cbd29eea",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Lexical case and governed-term rendering remain presentation behavior.",
+        "No Term admission to the Entity graph, Entity subtype, selector, or carrier is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md",
+      "source_atom_id": "CA-M-232",
+      "source_version": 12,
+      "source_sha256": "01e1f3355f52762beabcc19fe30746a536c12f79015f581d00b6ff765a202cd7",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Subject Path",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current authority treats this as Atom subject metadata: a direct scalar target path whose key encodes the Subject Relation Kind. It forbids an intermediate Subject Entity and states that Subject GOVERNS/DEPENDS_ON incidence is not a native Entity Relation, so no candidate target preserves the pointer distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md",
+          "sha256": "01e1f3355f52762beabcc19fe30746a536c12f79015f581d00b6ff765a202cd7",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "6acf436b5b2b1deda381611de802b834e3c3de93deb715ced4d7c79663d8c1d0",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Subject pointer/metadata remains distinct from its canonical Entity target.",
+        "No intermediate Subject object, native Entity Relation, selector, @ syntax, or carrier registry is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md",
+      "source_atom_id": "CA-M-232",
+      "source_version": 12,
+      "source_sha256": "01e1f3355f52762beabcc19fe30746a536c12f79015f581d00b6ff765a202cd7",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Subject",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current authority treats this as Atom subject metadata: a direct scalar target path whose key encodes the Subject Relation Kind. It forbids an intermediate Subject Entity and states that Subject GOVERNS/DEPENDS_ON incidence is not a native Entity Relation, so no candidate target preserves the pointer distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md",
+          "sha256": "01e1f3355f52762beabcc19fe30746a536c12f79015f581d00b6ff765a202cd7",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "6acf436b5b2b1deda381611de802b834e3c3de93deb715ced4d7c79663d8c1d0",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Subject pointer/metadata remains distinct from its canonical Entity target.",
+        "No intermediate Subject object, native Entity Relation, selector, @ syntax, or carrier registry is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL--author-claim-value-sets.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL--author-claim-value-sets.md",
+      "source_atom_id": "CA-M-237",
+      "source_version": 10,
+      "source_sha256": "f9293974e41c66ef9e209c37203fa8135d012b1a62acdc28c31d116a34891b92",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Subject Expression",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Method defines Subject Expression as Claim syntax: ':' and the allowed-value relation are constrained inside that expression. It does not define a standalone Entity, Relation, selector, or carrier target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL--author-claim-value-sets.md",
+          "sha256": "f9293974e41c66ef9e209c37203fa8135d012b1a62acdc28c31d116a34891b92",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "5d390d8b45efaf4dcd3122ea48b98d6a90f217c20f391c5937e0ecd11a4e7024",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Claim syntax and its in-expression value-set constraint remain distinct from Entity-graph nodes.",
+        "No selector grammar, @ syntax, or standalone Subject entity is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md",
+      "source_atom_id": "CA-M-239",
+      "source_version": 11,
+      "source_sha256": "287f47cd2fcf0ed1b4090a376b3924a6aa3e45838d837fbcea306b8e46a81ad6",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "DERIVED_FROM",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: DERIVED_FROM",
+      "confidence": 0.94,
+      "reason": "The owning Method distinguishes DERIVED_FROM from a dependency-ordering edge, and current CA-R-1639 explicitly defines the named direct Relation Type from a derived Artifact Revision to its exact source Artifact Revision. The named type preserves the typed connection without collapsing Revision into Artifact or treating it as a dependency.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md",
+          "sha256": "287f47cd2fcf0ed1b4090a376b3924a6aa3e45838d837fbcea306b8e46a81ad6",
+          "start_line": 25,
+          "end_line": 46,
+          "span_sha256": "0b79e0adc3386b1d620e134d5caa509b120e534d05eb68dc5b46487092fe8a2a",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1639-CORE_META_MODEL-CORE-REQUIREMENT--register-derived-from-relation.md",
+          "sha256": "a22c2bf49acb072295d3eab10999e0f0ff9ca3258bc035f42d08142e9252ab0a",
+          "start_line": 22,
+          "end_line": 28,
+          "span_sha256": "0cd9b3c9185f976d88ee1e651afe9367f41c18e1105a7a746e4005e8e2c3a0eb",
+          "reason": "Current CA-R-1639 explicitly defines DERIVED_FROM as a direct relation from a derived Artifact Revision to its exact source Artifact Revision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as the same graph-qualified concept while preserving each type's permitted endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Both Revision endpoints remain the separate Revision root; no Artifact.Revision subtype or carrier registry is inferred.",
+        "DERIVED_FROM remains distinct from dependency-ordering and from Plan Graph scheduling."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-terms-graph.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-terms-graph.md",
+      "source_atom_id": "CA-E-382",
+      "source_version": 21,
+      "source_sha256": "605b14d1ec40fb708c294bdd01fca7c0b46c56cc8ec5cf3ef463a8575487d840",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Root Term",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current definitions place this vocabulary distinction in the separate Terms Graph. The candidate does not add Term as an Entity root, so mapping it to a candidate root would erase its explicit graph boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-382-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-terms-graph.md",
+          "sha256": "605b14d1ec40fb708c294bdd01fca7c0b46c56cc8ec5cf3ef463a8575487d840",
+          "start_line": 44,
+          "end_line": 86,
+          "span_sha256": "11a854941f094a67443aa97f949932fd2522654ac920c3dda737add6776f638f",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term distinction remains in the Terms Graph rather than becoming an eighth Entity root.",
+        "No Entity, selector, or carrier subtype is inferred from vocabulary rendering or lookup."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--report-exact-claim-value-set-consolidation-candidates.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--report-exact-claim-value-set-consolidation-candidates.md",
+      "source_atom_id": "CA-E-403",
+      "source_version": 12,
+      "source_sha256": "3aa9a341876eee5a153e923a4a7d4fadc400d69b2925ff11a7c25c278fa444c9",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Atom/Governed Subject",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current authority treats this as Atom subject metadata: a direct scalar target path whose key encodes the Subject Relation Kind. It forbids an intermediate Subject Entity and states that Subject GOVERNS/DEPENDS_ON incidence is not a native Entity Relation, so no candidate target preserves the pointer distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--report-exact-claim-value-set-consolidation-candidates.md",
+          "sha256": "3aa9a341876eee5a153e923a4a7d4fadc400d69b2925ff11a7c25c278fa444c9",
+          "start_line": 27,
+          "end_line": 39,
+          "span_sha256": "e2e22baa042a79f6e9f081870a80bba965f853ef7dd041bab250ca3584040dd2",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Subject pointer/metadata remains distinct from its canonical Entity target.",
+        "No intermediate Subject object, native Entity Relation, selector, @ syntax, or carrier registry is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md",
+      "source_atom_id": "CA-E-512",
+      "source_version": 3,
+      "source_sha256": "f4b1f457c746f09e73e68e784f552b45c2157b6587ea319ee8c0ca0f4a37202e",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "General Term",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current definitions place this vocabulary distinction in the separate Terms Graph. The candidate does not add Term as an Entity root, so mapping it to a candidate root would erase its explicit graph boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md",
+          "sha256": "f4b1f457c746f09e73e68e784f552b45c2157b6587ea319ee8c0ca0f4a37202e",
+          "start_line": 32,
+          "end_line": 77,
+          "span_sha256": "55f5aa1cb73f13b7605249d0e411e7abe6cf781b8acd16d993795c8ff5a53d7f",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term distinction remains in the Terms Graph rather than becoming an eighth Entity root.",
+        "No Entity, selector, or carrier subtype is inferred from vocabulary rendering or lookup."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md",
+      "source_atom_id": "CA-E-512",
+      "source_version": 3,
+      "source_sha256": "f4b1f457c746f09e73e68e784f552b45c2157b6587ea319ee8c0ca0f4a37202e",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Governed Term",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Current definitions place this vocabulary distinction in the separate Terms Graph. The candidate does not add Term as an Entity root, so mapping it to a candidate root would erase its explicit graph boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md",
+          "sha256": "f4b1f457c746f09e73e68e784f552b45c2157b6587ea319ee8c0ca0f4a37202e",
+          "start_line": 32,
+          "end_line": 77,
+          "span_sha256": "55f5aa1cb73f13b7605249d0e411e7abe6cf781b8acd16d993795c8ff5a53d7f",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term distinction remains in the Terms Graph rather than becoming an eighth Entity root.",
+        "No Entity, selector, or carrier subtype is inferred from vocabulary rendering or lookup."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md",
+      "source_atom_id": "CA-E-512",
+      "source_version": 3,
+      "source_sha256": "f4b1f457c746f09e73e68e784f552b45c2157b6587ea319ee8c0ca0f4a37202e",
+      "field": "governs",
+      "index": null,
+      "old_value": "Governed Term Rendering",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Method or QA case tests lexical rendering rules. It does not define an Entity or Relation; mapping it would turn presentation behavior into a graph node.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md",
+          "sha256": "f4b1f457c746f09e73e68e784f552b45c2157b6587ea319ee8c0ca0f4a37202e",
+          "start_line": 32,
+          "end_line": 77,
+          "span_sha256": "55f5aa1cb73f13b7605249d0e411e7abe6cf781b8acd16d993795c8ff5a53d7f",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Lexical case and governed-term rendering remain presentation behavior.",
+        "No Term admission to the Entity graph, Entity subtype, selector, or carrier is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+      "source_atom_id": "CAPRMEDIO-GOV-EVAL-005",
+      "source_version": 23,
+      "source_sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation validation",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning QA case validates registered relation facts, endpoint types, graph ownership, and projection behavior; it is not itself a Relation instance or type. The manifest quarantine remains intact.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+          "sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14",
+          "start_line": 29,
+          "end_line": 72,
+          "span_sha256": "c63afa2366d9efe24807b13083d26179df203e903fb3505ed3cf3480c6c16604",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The evaluation/validation role and its quarantine remain explicit.",
+        "No Relation Kind, evaluator Entity, selector, or carrier registry is inferred."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}

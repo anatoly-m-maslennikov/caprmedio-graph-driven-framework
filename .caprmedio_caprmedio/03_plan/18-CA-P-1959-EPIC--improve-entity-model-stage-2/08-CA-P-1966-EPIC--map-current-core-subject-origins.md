@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 118
-updated_at: "2026-10-11 10:05:35 +0400"
+version: 119
+updated_at: "2026-10-11 10:08:15 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -196,7 +196,7 @@ CA-P-2121–2128 review 205 previously unreviewed baseline-only origins in eight
 - [CA-P-2125 — Review Scope and value-expression origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/95-CA-P-2125-TASK--review-scope-and-value-expression-origins.md)
 - [CA-P-2126 — Review legacy model and topic Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/96-CA-P-2126-TASK--review-legacy-model-and-topic-subjects.md)
 - [CA-P-2127 — Review role and execution origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/97-CA-P-2127-TASK--review-role-and-execution-origins.md)
-- [CA-P-2128 — Review Term and Subject-relation origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/98-CA-P-2128-TASK--review-term-and-subject-relation-origins.md)
+- [CA-P-2128 — Review Term and Subject-relation origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/98-CA-P-2128-TASK--review-term-and-subject-relation-origins.md)
 
 ### Definition of Done
 
