@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 103
-updated_at: "2026-10-11 08:51:33 +0400"
+version: 104
+updated_at: "2026-10-11 08:55:45 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -173,6 +173,15 @@ CA-P-2103–2108 review the next 183 disjoint baseline-only unresolved origins u
 - [CA-P-2108 — Review projection and collection targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/84-CA-P-2108-TASK--review-projection-and-collection-targets.md)
 
 Current integration checkpoint: CA-P-2103–2111 are Done. Their six independently accepted reports cover183 exact current origins (100 proposals,83 nulls). The live-verified derived ledger now has1648 proposed,1540 unchanged and1346 unresolved references across907 original Core sources and4534 occurrences. All317 relevant tests pass (21 focused verifier,296 native tool tests), plus ten complete-ledger wrong-data controls and66 report controls. Accepted proof fields and live supporting evidence are retained; arbitrary non-Core files are rejected. Original Core Subjects/content remain unchanged. Eight quarantines, the selector choice and final migration/content gates remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-families-2103-2108.json`; this is progress, not complete mapping or source adoption.
+
+CA-P-2112–2117 cover the final137 baseline-only unresolved origins in these existing research families, with two disjoint Scope Unit/Project partitions. Earlier reviewed nulls and all other families remain open. This is research, not source adoption.
+
+- [CA-P-2112 — Review final snapshot-field origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/85-CA-P-2112-TASK--review-final-snapshot-field-origins.md)
+- [CA-P-2113 — Review remaining scope and project origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/86-CA-P-2113-TASK--review-remaining-scope-and-project-origins.md)
+- [CA-P-2114 — Review final settings and methodology origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/87-CA-P-2114-TASK--review-final-settings-and-methodology-origins.md)
+- [CA-P-2115 — Review final relation-family origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/88-CA-P-2115-TASK--review-final-relation-family-origins.md)
+- [CA-P-2116 — Review final projection-family origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/89-CA-P-2116-TASK--review-final-projection-family-origins.md)
+- [CA-P-2117 — Review scope and project tail origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/90-CA-P-2117-TASK--review-scope-and-project-tail-origins.md)
 
 ### Definition of Done
 
