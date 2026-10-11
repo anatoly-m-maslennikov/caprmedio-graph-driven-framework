@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from pathlib import Path, PurePosixPath
 import shutil
 import tomllib
@@ -17,6 +18,8 @@ from release_suite_reference_context import (
     ReleaseSuiteReferenceContextError,
     _forbid_non_control_path,
     _project_structure_ref,
+    _read_regular,
+    validate_copied_reference_rows,
 )
 from release_source_admission import derive_release_execution_source_snapshot
 from selected_routes import PROJECT_SETTINGS_REF
@@ -170,6 +173,60 @@ def copy_control_closure(repository: Path, root: Path) -> None:
     These files remain disposable fixture inputs. The real reader derives its
     virtual execution snapshot from them; this helper creates no manifest file.
     """
+
+    repository = repository.resolve(strict=True)
+    detached_binding = os.environ.get("CAPRMEDIO_RELEASE_SOURCE_BINDINGS")
+    if repository == Path("/workspace") or detached_binding is not None:
+        # Child test processes intentionally receive no suite environment.
+        # /workspace is the driver's fixed read-only mount, not a live Project.
+        # A supplied fixture frame is an equally explicit context selection;
+        # neither branch may fall back to host source discovery.
+        binding_path = repository / ".caprmedio_release/source_bindings.json"
+        if (root.resolve() == repository
+                or detached_binding is not None and Path(detached_binding) != binding_path
+                or binding_path.parent.is_symlink() or binding_path.is_symlink()
+                or not binding_path.is_file()):
+            raise RuntimeError("detached golden fixture has no exact sealed source bindings")
+        envelope = json.loads(binding_path.read_bytes())
+        if not isinstance(envelope, dict) or envelope.get("schema_version") != 2:
+            raise RuntimeError("detached golden fixture source bindings are invalid")
+        rows = validate_copied_reference_rows(repository, envelope.get("reference_rows"))
+        snapshot_row = next(row for row in rows if row.source_path.endswith("/_projection/release_execution_snapshot.json"))
+        snapshot_payload, snapshot_mode = _read_regular(repository, snapshot_row.source_path)
+        if hashlib.sha256(snapshot_payload).hexdigest() != snapshot_row.sha256 or snapshot_mode != snapshot_row.mode:
+            raise RuntimeError("detached golden fixture snapshot changed before copy")
+        snapshot = json.loads(snapshot_payload)
+        for row in rows:
+            # The disposable Project owns a narrower native Engine inventory.
+            # Re-derive its virtual projection; retain only authoring bytes.
+            if row == snapshot_row:
+                continue
+            payload, mode = _read_regular(repository, row.source_path)
+            if hashlib.sha256(payload).hexdigest() != row.sha256 or mode != row.mode:
+                raise RuntimeError("detached golden fixture reference changed before copy")
+            target = root / row.source_path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(payload)
+            target.chmod(row.mode)
+        settings = (root / PROJECT_SETTINGS_REF).read_bytes()
+        structure_ref = _project_structure_ref(settings)
+        structure = tomllib.loads((root / structure_ref).read_text(encoding="utf-8"))
+        for unit in structure["scope_units"]:
+            if unit.get("scope_unit_name") in {"TOOLS", "PROJECT_TOOLS"}:
+                for role in ("04_requirement", "05_method", "06_evaluation", "07_delivery"):
+                    relative = _forbid_non_control_path(str(Path(unit["authority_path"]) / role))
+                    (root / relative).mkdir(parents=True, exist_ok=True)
+        tool_relative = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_version.py"
+        tool_payload, tool_mode = _read_regular(repository, tool_relative)
+        target = root / tool_relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(tool_payload)
+        target.chmod(tool_mode)
+        route, admission, authority = derive_release_execution_source_snapshot(root)
+        if (snapshot.get("routes") != [route] or snapshot.get("release_source_admissions") != [admission]
+                or snapshot.get("release_execution_snapshot", {}).get("authority") != authority):
+            raise RuntimeError("detached golden fixture differs from its captured Release definitions")
+        return
 
     _route, admission, authority = derive_release_execution_source_snapshot(repository)
     pins = _pins(admission)
