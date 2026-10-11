@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2082",
+  "recorded_at": "2026-10-11 06:16:59 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: exact bounded research; not source migration approval",
+  "verification": {
+    "task": "CA-P-2082",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2082.research.json",
+      "sha256": "84c7f8169f6af81b256cd44b09103694aa8588c6d645f4f469f990dd4ac0df6a"
+    },
+    "rows": 59,
+    "counts": {
+      "unresolved": 28,
+      "proposed": 31
+    },
+    "source_files": 46,
+    "exact_evidence_spans": 89,
+    "exact_input_pins": 15,
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "corrupt_span",
+      "inferred_selector"
+    ],
+    "result": "PASS: exact current coverage, pins, spans, syntax and non-executable proposals"
+  },
+  "independent_review": {
+    "reviewer": "subject_review_003",
+    "reviewed_output_sha256": "1a2097331b8d43a44d162d9216f3a17d3bfab11e0373c2188e06f6a2998f72d9",
+    "accepted_proposals": 31,
+    "rejected_proposals": 0,
+    "correct_unresolved": 28,
+    "result": "PASS: CA-D-482 defines one top-level Claim Target Scope Unit field, distinct from current_scope_unit and body Scope; the compound name does not revive a Claim Entity. The 28 ambiguous Atom/Scope meanings stay null."
+  },
+  "registration_commit": "1fa56f189ef20e4f6a8d9d1eb4af400c1f00cf07",
+  "formatting_normalization": {
+    "reviewed_output_sha256": "1a2097331b8d43a44d162d9216f3a17d3bfab11e0373c2188e06f6a2998f72d9",
+    "final_output_sha256": "84c7f8169f6af81b256cd44b09103694aa8588c6d645f4f469f990dd4ac0df6a",
+    "edit": "Removed exactly one trailing empty line; all other bytes unchanged.",
+    "exact_reverse_hash_and_json_value_equality": "PASS"
+  },
+  "completion_scope": "Thirty-one Claim Target Scope Unit references map to the explicitly defined Atom field; 28 non-uniform Atom Scope references remain null. The target field stays distinct from ownership and Substance applicability.",
+  "limits": [
+    "Only this derived report and Plan lifecycle/receipt were authored; original Core Subjects and ordinary content remain unchanged.",
+    "Frozen candidate, baseline ledger, raw supplements and earlier evidence remain unchanged.",
+    "Unresolved research stays tracked. No selector adoption, MCP/FPF, runtime, native or source write admission."
+  ]
+}
