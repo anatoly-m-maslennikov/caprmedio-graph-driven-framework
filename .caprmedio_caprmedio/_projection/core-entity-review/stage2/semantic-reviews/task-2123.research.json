@@ -1,0 +1,1142 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2123",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2121-2128.inputs.json",
+      "sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2121-2128.contract.md",
+        "sha256": "77165a20424dbc6d2a67eaf0ee6363bf8bbedc161df3d6f4e003c7f757afe622"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/93-CA-P-2123-TASK--review-carrier-structure-origins.md",
+      "sha256": "ae3e79b2a2fb43b5e8c4245571958e9ddb30bccad45f9264edc32fcb7e1cf519",
+      "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md",
+        "sha256": "b6df26c513024ef68bb89cb117cc6ea835e9c584a79a50b2f191dda40ab1d326"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-718-CORE_META_MODEL-CORE--separate-atom-claim-scope-from-structural-ownership.md",
+        "sha256": "6f8b6e7119e86eadcc9ad7a38dbaed1d8a28f9c2f84bac06032507eefba3e21d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
+        "sha256": "570884157745cc3016065c683188b6b80ad0376bba2f76948c279562edc0f947"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md",
+        "sha256": "0aed2ded8b6ea6704021d6cb0dd464d2dda3af84ab0c5f76875fb81916b03709"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-513-CORE_META_MODEL-QA_CASE--validate-the-atom-carrier-validation-workflow-definition.md",
+        "sha256": "47e76173ba795804a5e43e741dbdbd98fef65836dc5911d0ae8ccc7734b2d234"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-256-CORE_META_MODEL-CORE-DELIVERY--define-carries.md",
+        "sha256": "1cc8ccf565aaa36b83d71d8d89514cc85a94ace691281daca38f269342e6b9bd"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-257-CORE_META_MODEL-CORE-DELIVERY--define-is-carried-by.md",
+        "sha256": "c98a25d70836de9a0cf6c3da781fb9e64e810fae5f47a4df734eeaa63d7a5682"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+        "sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter.md",
+        "sha256": "8322273a6938108a8889c01b74c7bfc600b01ba39bfaa0bd0c0c01cc7352a6a3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md",
+        "sha256": "db4a0f0b1952dfd28ddabce2cfb3db1f3c53618fbc1d1b33ddfc5259a32d7d54"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-CORE--replace-and-archive-atoms-as-whole-carriers.md",
+        "sha256": "f3b6503ac723f9ef9465b8f692d92029c1fbffa89cc2e1ed8585b4de8fb711ff"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+        "sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md",
+        "sha256": "568a05be96135d288657d09811f49e48746a3dd78c949d3d9dc6a17e7d5b9ae0"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+        "sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+        "sha256": "0c6bfcce510facf63145fba161ab04307430ceb204b458bc5e4950a8d4db208e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-CORE-DELIVERY--store-every-atom-property-in-one-internal-location.md",
+        "sha256": "a40ad3683ecddd536e5b7eb6c044e8da15806ab44946fa1354c408ce5e966464"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties.md",
+        "sha256": "0819f8433cde89484e21a200466504a9fdcad31b58958c777a761637fbb45ff1"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+        "sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md",
+        "sha256": "60bb7faad37efa795acd0a730b8af40c6759fd29cbf435aa4ea1599902088234"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+        "sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md",
+      "source_atom_id": "CA-R-1342",
+      "source_version": 11,
+      "source_sha256": "b6df26c513024ef68bb89cb117cc6ea835e9c584a79a50b2f191dda40ab1d326",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Entity/Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "reason": "The current Claim defines Delivery by the Carrier model, including Carrier definitions, classification, and the Entity/Carrier binding. Carrier is therefore an explicit semantic root reference; the binding and Delivery-role qualification remain in the source rather than a new per-Entity Carrier property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md",
+          "sha256": "b6df26c513024ef68bb89cb117cc6ea835e9c584a79a50b2f191dda40ab1d326",
+          "start_line": 22,
+          "end_line": 43,
+          "span_sha256": "f5e996ea1afd6ece4534f5d5036c718b2e68ab1d55893568efc1782b6451c81c",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Delivery-role Carrier-model and Entity/Carrier binding qualification in current body evidence.",
+        "Carrier remains a separate root Entity, not a dependent Entity, field name, or per-Entity registry entry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-718-CORE_META_MODEL-CORE--separate-atom-claim-scope-from-structural-ownership.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-718-CORE_META_MODEL-CORE--separate-atom-claim-scope-from-structural-ownership.md",
+      "source_atom_id": "CA-R-718",
+      "source_version": 22,
+      "source_sha256": "6f8b6e7119e86eadcc9ad7a38dbaed1d8a28f9c2f84bac06032507eefba3e21d",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Markdown Atom Carrier/Main Content",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body separates Claim applicability and structural ownership; it does not establish Markdown Carrier or Main Content as a Carrier Entity. Generic Carrier would invent the omitted representation link.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-718-CORE_META_MODEL-CORE--separate-atom-claim-scope-from-structural-ownership.md",
+          "sha256": "6f8b6e7119e86eadcc9ad7a38dbaed1d8a28f9c2f84bac06032507eefba3e21d",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "84504928d4afb7c9dbd472c1f1c9538de59873905006f533a044b414b688a2fc",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Claim targeting and textual applicability remain distinct from Scope Unit structural ownership.",
+        "No Main Content syntax or carrier subtype is promoted to an Entity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
+      "source_atom_id": "CA-M-313",
+      "source_version": 5,
+      "source_sha256": "570884157745cc3016065c683188b6b80ad0376bba2f76948c279562edc0f947",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Entity/Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "reason": "The current Claim requires a Delivery Claim to state its Carrier contribution or Entity/Carrier binding directly. This is an explicit generic Carrier reference; the contribution and binding conditions remain source-local and do not add a Carrier relation for every Entity or Property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
+          "sha256": "570884157745cc3016065c683188b6b80ad0376bba2f76948c279562edc0f947",
+          "start_line": 28,
+          "end_line": 48,
+          "span_sha256": "e2ca46077d12c54535233dd0f84605f4b7195f059d5588d4a82b1aaa5936cdca",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Delivery CCE authoring and binding constraints.",
+        "Carrier remains a separate root Entity; no storage-field or per-Property Carrier relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md",
+      "source_atom_id": "CA-E-506",
+      "source_version": 7,
+      "source_sha256": "0aed2ded8b6ea6704021d6cb0dd464d2dda3af84ab0c5f76875fb81916b03709",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Markdown Atom Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "reason": "The current QA Case expressly assesses Atom Carriers for self-sufficiency and representation consistency. Carrier is a source-backed root reference; the Atom, Markdown, validation, and representation constraints remain in the current Evaluation rather than a new Carrier subtype or binding grammar.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md",
+          "sha256": "0aed2ded8b6ea6704021d6cb0dd464d2dda3af84ab0c5f76875fb81916b03709",
+          "start_line": 26,
+          "end_line": 56,
+          "span_sha256": "e6c6facf04c6a5edc6064579f2d5076e0e86f8b86f1019cc7f6c93021e6f3bad",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the self-sufficiency and outward-representation validation conditions.",
+        "Carrier remains a separate root Entity, not a Markdown syntax token or per-Property carrier registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md",
+      "source_atom_id": "CA-E-506",
+      "source_version": 7,
+      "source_sha256": "0aed2ded8b6ea6704021d6cb0dd464d2dda3af84ab0c5f76875fb81916b03709",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Carrier/Validation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "reason": "The current QA Case expressly assesses Atom Carriers for self-sufficiency and representation consistency. Carrier is a source-backed root reference; the Atom, Markdown, validation, and representation constraints remain in the current Evaluation rather than a new Carrier subtype or binding grammar.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md",
+          "sha256": "0aed2ded8b6ea6704021d6cb0dd464d2dda3af84ab0c5f76875fb81916b03709",
+          "start_line": 26,
+          "end_line": 56,
+          "span_sha256": "e6c6facf04c6a5edc6064579f2d5076e0e86f8b86f1019cc7f6c93021e6f3bad",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the self-sufficiency and outward-representation validation conditions.",
+        "Carrier remains a separate root Entity, not a Markdown syntax token or per-Property carrier registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-513-CORE_META_MODEL-QA_CASE--validate-the-atom-carrier-validation-workflow-definition.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-513-CORE_META_MODEL-QA_CASE--validate-the-atom-carrier-validation-workflow-definition.md",
+      "source_atom_id": "CA-E-513",
+      "source_version": 4,
+      "source_sha256": "47e76173ba795804a5e43e741dbdbd98fef65836dc5911d0ae8ccc7734b2d234",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom Carrier Validation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body governs a read-only Workflow definition check with Step, Action, and transition constraints. No candidate target retains the named validation Workflow meaning; Carrier alone would lose that Operations qualification.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-513-CORE_META_MODEL-QA_CASE--validate-the-atom-carrier-validation-workflow-definition.md",
+          "sha256": "47e76173ba795804a5e43e741dbdbd98fef65836dc5911d0ae8ccc7734b2d234",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "024d591e6312a98ece81430440c459f0b7f925bd47d7dd6f2ba786437334a7a6",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the Workflow-definition, read-only assessment, and Step/Action boundary.",
+        "No Workflow or Carrier subtype is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-256-CORE_META_MODEL-CORE-DELIVERY--define-carries.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-256-CORE_META_MODEL-CORE-DELIVERY--define-carries.md",
+      "source_atom_id": "CA-D-256",
+      "source_version": 14,
+      "source_sha256": "1cc8ccf565aaa36b83d71d8d89514cc85a94ace691281daca38f269342e6b9bd",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Entity/Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "reason": "The current Claim defines CARRIES as a directed Relation from a Carrier to the Entity it stores or represents. Carrier is an explicit semantic endpoint; the direction, Entity endpoint, and exact Revision condition remain current-body qualifications, not a newly admitted relation type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-256-CORE_META_MODEL-CORE-DELIVERY--define-carries.md",
+          "sha256": "1cc8ccf565aaa36b83d71d8d89514cc85a94ace691281daca38f269342e6b9bd",
+          "start_line": 22,
+          "end_line": 38,
+          "span_sha256": "3cd8a32ee90ee17669bec6eb7a76d5dd179aa430602c51aa78724e56d74bad4b",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains CARRIES direction, non-ephemeral Entity endpoint, and exact carried-Revision condition.",
+        "Carrier remains a separate root Entity; no native relation admission or per-Entity binding registry is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-257-CORE_META_MODEL-CORE-DELIVERY--define-is-carried-by.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-257-CORE_META_MODEL-CORE-DELIVERY--define-is-carried-by.md",
+      "source_atom_id": "CA-D-257",
+      "source_version": 13,
+      "source_sha256": "c98a25d70836de9a0cf6c3da781fb9e64e810fae5f47a4df734eeaa63d7a5682",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Entity/Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "reason": "The current Claim defines IS_CARRIED_BY as the inverse Carrier binding direction from an Entity to its Carrier. Carrier is an explicit semantic endpoint; inverse direction and exact carried-Revision conditions remain in source meaning rather than a new Carrier property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-257-CORE_META_MODEL-CORE-DELIVERY--define-is-carried-by.md",
+          "sha256": "c98a25d70836de9a0cf6c3da781fb9e64e810fae5f47a4df734eeaa63d7a5682",
+          "start_line": 21,
+          "end_line": 35,
+          "span_sha256": "2dda5e4d7462d5d16d1fb88ccaa842cd81e054dc4de19df4dee2061d9496c4c5",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains IS_CARRIED_BY inverse direction and exact carried-Revision condition.",
+        "Carrier remains a separate root Entity; no native relation admission or per-Entity binding registry is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+      "source_atom_id": "CA-D-269",
+      "source_version": 12,
+      "source_sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Subjects/Frontmatter",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body defines direct Subject serialization keys and scalar Subject Paths in frontmatter. This is representation syntax and direct-relation encoding, not a standalone Carrier Entity target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+          "sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "434cef4572f255814026d289f689fc6d380dccbe26f4f308f67c11996dbd66b7",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains governs/depends_on relation-kind encoding and canonical target resolution.",
+        "No frontmatter token, intermediate Subject entity, or Carrier subtype is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter.md",
+      "source_atom_id": "CA-D-270",
+      "source_version": 13,
+      "source_sha256": "8322273a6938108a8889c01b74c7bfc600b01ba39bfaa0bd0c0c01cc7352a6a3",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Revision/Frontmatter",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body serializes Version and Updated At Revision metadata in YAML frontmatter and explicitly leaves meaning-change classification outside this Delivery. No candidate target retains these snapshot-field and serialization distinctions without creating Artifact.Revision containment.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter.md",
+          "sha256": "8322273a6938108a8889c01b74c7bfc600b01ba39bfaa0bd0c0c01cc7352a6a3",
+          "start_line": 19,
+          "end_line": 35,
+          "span_sha256": "6644188aa7b504e30eea0beab3f4650b456dd5c44f88b4ecebe47888e82e3c1a",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Revision metadata, timezone, and lexical-versus-identity boundaries.",
+        "No Artifact.Revision path or frontmatter subtype is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md",
+      "source_atom_id": "CA-D-274",
+      "source_version": 17,
+      "source_sha256": "db4a0f0b1952dfd28ddabce2cfb3db1f3c53618fbc1d1b33ddfc5259a32d7d54",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Revision/Author/Frontmatter",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body serializes a resolved Author as a frontmatter Property and validates Project registry membership without another Actor lookup. It does not establish a Carrier Entity target distinct from that metadata/registry rule.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md",
+          "sha256": "db4a0f0b1952dfd28ddabce2cfb3db1f3c53618fbc1d1b33ddfc5259a32d7d54",
+          "start_line": 19,
+          "end_line": 34,
+          "span_sha256": "fc82bf98baf806ed9bd64a5e6a3012972d68209e596d6cd86a363c8fc41b9307",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Author value domain and registry-membership boundary.",
+        "No Actor identity, frontmatter subtype, or Carrier property is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-CORE--replace-and-archive-atoms-as-whole-carriers.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-CORE--replace-and-archive-atoms-as-whole-carriers.md",
+      "source_atom_id": "CA-D-303",
+      "source_version": 11,
+      "source_sha256": "f3b6503ac723f9ef9465b8f692d92029c1fbffa89cc2e1ed8585b4de8fb711ff",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom Carrier Replacement",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body governs an atomic replacement/archive transition for a whole Atom Carrier. The candidate leaves Carrier replacement lifecycle and reuse rules unconfirmed, so generic Carrier would lose the transition/history qualification.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-303-CORE_META_MODEL-CORE--replace-and-archive-atoms-as-whole-carriers.md",
+          "sha256": "f3b6503ac723f9ef9465b8f692d92029c1fbffa89cc2e1ed8585b4de8fb711ff",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "379f910c31d5496e9576cdbfcd67b2925102492b2adb17b64b22022f120ae878",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains atomic whole-carrier transition and Atom replacement/archive boundary.",
+        "No Carrier lifecycle, history relation, or replacement selector is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+      "source_atom_id": "CA-D-330",
+      "source_version": 11,
+      "source_sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Markdown",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body governs GitHub preview compatibility for Markdown, TOML, and YAML syntax. These format labels are representation syntax, not confirmed Carrier Entities or subtypes.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+          "sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "cc02aba98b2f841d2e3df5a6d552778f45ba18ab699cabb758ea35abe9820c60",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains preview, validity, legibility, and navigability conditions.",
+        "No format subtype or editor-syntax Entity is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+      "source_atom_id": "CA-D-330",
+      "source_version": 11,
+      "source_sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "TOML",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body governs GitHub preview compatibility for Markdown, TOML, and YAML syntax. These format labels are representation syntax, not confirmed Carrier Entities or subtypes.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+          "sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "cc02aba98b2f841d2e3df5a6d552778f45ba18ab699cabb758ea35abe9820c60",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains preview, validity, legibility, and navigability conditions.",
+        "No format subtype or editor-syntax Entity is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+      "source_atom_id": "CA-D-330",
+      "source_version": 11,
+      "source_sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "YAML",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body governs GitHub preview compatibility for Markdown, TOML, and YAML syntax. These format labels are representation syntax, not confirmed Carrier Entities or subtypes.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+          "sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "cc02aba98b2f841d2e3df5a6d552778f45ba18ab699cabb758ea35abe9820c60",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains preview, validity, legibility, and navigability conditions.",
+        "No format subtype or editor-syntax Entity is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md",
+      "source_atom_id": "CA-D-336",
+      "source_version": 12,
+      "source_sha256": "568a05be96135d288657d09811f49e48746a3dd78c949d3d9dc6a17e7d5b9ae0",
+      "field": "governs",
+      "index": null,
+      "old_value": "Active Atom Carrier Discovery",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body defines active-Atom discovery from internal identities and selected source frontiers. Although Carrier ID is confirmed separately from filename/path, no candidate target retains the discovery, Active-status, conflict, and frontier qualifications together.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md",
+          "sha256": "568a05be96135d288657d09811f49e48746a3dd78c949d3d9dc6a17e7d5b9ae0",
+          "start_line": 19,
+          "end_line": 35,
+          "span_sha256": "facccc2f6a9ec2363b21e6452a347480382d1b80344227090e2979c588587749",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Carrier-ID-versus-address boundary, Active selection, and zero/multiple-match findings.",
+        "No Carrier identity syntax, discovery Entity, or filename/path identity is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+      "source_atom_id": "CA-D-356",
+      "source_version": 9,
+      "source_sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Markdown Atom Carrier/YAML Frontmatter",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body specifies the ordered YAML Frontmatter/Main Content structure of an authoritative Markdown Atom Carrier. Its selected values are representation sections, not confirmed Carrier subtypes or dependent Entities.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+          "sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "f93b055deb64a0e1a5d5045710a0081d303d254eb88a302ed318da33d1a0c2f8",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains authoritative Carrier structure and ordered representation sections.",
+        "No YAML, Main Content, or structure subtype is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+      "source_atom_id": "CA-D-356",
+      "source_version": 9,
+      "source_sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Markdown Atom Carrier/Main Content",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body specifies the ordered YAML Frontmatter/Main Content structure of an authoritative Markdown Atom Carrier. Its selected values are representation sections, not confirmed Carrier subtypes or dependent Entities.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+          "sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "f93b055deb64a0e1a5d5045710a0081d303d254eb88a302ed318da33d1a0c2f8",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains authoritative Carrier structure and ordered representation sections.",
+        "No YAML, Main Content, or structure subtype is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+      "source_atom_id": "CA-D-356",
+      "source_version": 9,
+      "source_sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+      "field": "governs",
+      "index": null,
+      "old_value": "Markdown Atom Carrier/Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body specifies the ordered YAML Frontmatter/Main Content structure of an authoritative Markdown Atom Carrier. Its selected values are representation sections, not confirmed Carrier subtypes or dependent Entities.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-356-CORE_META_MODEL--structure-markdown-atom-carriers.md",
+          "sha256": "10b60fb45d52735402e54952c7b3b78170c670fbca890a42ddb1a08de34100e6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "f93b055deb64a0e1a5d5045710a0081d303d254eb88a302ed318da33d1a0c2f8",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains authoritative Carrier structure and ordered representation sections.",
+        "No YAML, Main Content, or structure subtype is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+      "source_atom_id": "CA-D-357",
+      "source_version": 9,
+      "source_sha256": "0c6bfcce510facf63145fba161ab04307430ceb204b458bc5e4950a8d4db208e",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Markdown Atom Carrier/YAML Frontmatter",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body defines Main Content as content after YAML Frontmatter. This is a representation boundary, not an independent Carrier Entity or supported subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+          "sha256": "0c6bfcce510facf63145fba161ab04307430ceb204b458bc5e4950a8d4db208e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "9d68f300952a766d144de1e3d2b9c0fa192b2a208b8dc3e67a0f8b5403394410",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the exact after-frontmatter boundary.",
+        "No YAML or Main Content Entity is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+      "source_atom_id": "CA-D-357",
+      "source_version": 9,
+      "source_sha256": "0c6bfcce510facf63145fba161ab04307430ceb204b458bc5e4950a8d4db208e",
+      "field": "governs",
+      "index": null,
+      "old_value": "Markdown Atom Carrier/Main Content",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body defines Main Content as content after YAML Frontmatter. This is a representation boundary, not an independent Carrier Entity or supported subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-357-CORE_META_MODEL--define-markdown-atom-main-content.md",
+          "sha256": "0c6bfcce510facf63145fba161ab04307430ceb204b458bc5e4950a8d4db208e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "9d68f300952a766d144de1e3d2b9c0fa192b2a208b8dc3e67a0f8b5403394410",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the exact after-frontmatter boundary.",
+        "No YAML or Main Content Entity is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-CORE-DELIVERY--store-every-atom-property-in-one-internal-location.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-CORE-DELIVERY--store-every-atom-property-in-one-internal-location.md",
+      "source_atom_id": "CA-D-478",
+      "source_version": 5,
+      "source_sha256": "a40ad3683ecddd536e5b7eb6c044e8da15806ab44946fa1354c408ce5e966464",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Property/Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body assigns each applicable Atom Property one canonical internal location and expressly rejects duplicate values and per-Property relation copies. The confirmed Carrier Delivery policy does not authorize a per-Property Carrier registry or target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-CORE-DELIVERY--store-every-atom-property-in-one-internal-location.md",
+          "sha256": "a40ad3683ecddd536e5b7eb6c044e8da15806ab44946fa1354c408ce5e966464",
+          "start_line": 23,
+          "end_line": 41,
+          "span_sha256": "5468c142a6e16b7fca6040febd7ce68feb7f82a48e8cb794cb10adf5135e16bc",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains one internal value source and Relation owning-direction constraints.",
+        "No Atom.Property.Carrier, per-Property Carrier relation, or storage-field identity is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties.md",
+      "source_atom_id": "CA-D-479",
+      "source_version": 6,
+      "source_sha256": "0819f8433cde89484e21a200466504a9fdcad31b58958c777a761637fbb45ff1",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Markdown Atom Carrier/Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body governs exact heading structure and Property boundaries inside Markdown Main Content. Those headings and sections are representation syntax; generic Carrier would discard the role-specific section and Property-boundary qualification.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties.md",
+          "sha256": "0819f8433cde89484e21a200466504a9fdcad31b58958c777a761637fbb45ff1",
+          "start_line": 23,
+          "end_line": 51,
+          "span_sha256": "fe60f66c9d3ac45439de8de4217726e857d8d2cae303c506ff5c092fea55d1c6",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains role-specific headings, primary-content blocks, and Property-boundary rules.",
+        "No Main Content or structure subtype is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties.md",
+      "source_atom_id": "CA-D-479",
+      "source_version": 6,
+      "source_sha256": "0819f8433cde89484e21a200466504a9fdcad31b58958c777a761637fbb45ff1",
+      "field": "governs",
+      "index": null,
+      "old_value": "Markdown Atom Carrier/Main Content",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body governs exact heading structure and Property boundaries inside Markdown Main Content. Those headings and sections are representation syntax; generic Carrier would discard the role-specific section and Property-boundary qualification.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-DELIVERY--use-stable-headings-for-atom-body-properties.md",
+          "sha256": "0819f8433cde89484e21a200466504a9fdcad31b58958c777a761637fbb45ff1",
+          "start_line": 23,
+          "end_line": 51,
+          "span_sha256": "fe60f66c9d3ac45439de8de4217726e857d8d2cae303c506ff5c092fea55d1c6",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains role-specific headings, primary-content blocks, and Property-boundary rules.",
+        "No Main Content or structure subtype is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+      "source_atom_id": "CA-D-485",
+      "source_version": 4,
+      "source_sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718",
+      "field": "governs",
+      "index": null,
+      "old_value": "Markdown Atom Carrier/YAML Frontmatter/Default",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body distinguishes defaulted Atom values from inherited external settings and their canonical locations. It does not establish YAML Frontmatter Default as a Carrier Entity or supported subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+          "sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718",
+          "start_line": 22,
+          "end_line": 38,
+          "span_sha256": "c5bd6d1192eda02f3331db1c94f92d4030a62d31546117d431f106a215e07a41",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains default versus inherited-setting and selected-override distinctions.",
+        "No frontmatter/default Carrier subtype is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md",
+      "source_atom_id": "CA-D-495",
+      "source_version": 1,
+      "source_sha256": "60bb7faad37efa795acd0a730b8af40c6759fd29cbf435aa4ea1599902088234",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Markdown Atom Carrier/Main Content",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body governs Claim applicability in registered body sections and rejects duplicate frontmatter copies. No candidate target retains the Claim/applicability/body-section qualification without making Carrier a per-Claim binding or syntax subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md",
+          "sha256": "60bb7faad37efa795acd0a730b8af40c6759fd29cbf435aa4ea1599902088234",
+          "start_line": 22,
+          "end_line": 41,
+          "span_sha256": "3d6982dbc93bc0ab77e3f9fdacf54d592fa3623853f47a363ab328dbabd9db38",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains applicability, Claim Target Scope Unit, and registered-body-section distinctions.",
+        "No Atom.Claim.Carrier property, Main Content subtype, or second scope representation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md",
+      "source_atom_id": "CA-D-495",
+      "source_version": 1,
+      "source_sha256": "60bb7faad37efa795acd0a730b8af40c6759fd29cbf435aa4ea1599902088234",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Claim/Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The body governs Claim applicability in registered body sections and rejects duplicate frontmatter copies. No candidate target retains the Claim/applicability/body-section qualification without making Carrier a per-Claim binding or syntax subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md",
+          "sha256": "60bb7faad37efa795acd0a730b8af40c6759fd29cbf435aa4ea1599902088234",
+          "start_line": 22,
+          "end_line": 41,
+          "span_sha256": "3d6982dbc93bc0ab77e3f9fdacf54d592fa3623853f47a363ab328dbabd9db38",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains applicability, Claim Target Scope Unit, and registered-body-section distinctions.",
+        "No Atom.Claim.Carrier property, Main Content subtype, or second scope representation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+      "source_atom_id": "CA-D-505",
+      "source_version": 1,
+      "source_sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+      "field": "governs",
+      "index": null,
+      "old_value": "Entity/Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "reason": "The current Claim defines the Entity Carrier binding as a Property referring to the Carrier that stores or represents the Entity, and explicitly keeps the referenced Carrier a Primary Entity. Carrier is therefore source-backed as the separate root; the binding Property and IS_CARRIED_BY direction remain body-qualified rather than a new dependent Carrier Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+          "sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+          "start_line": 24,
+          "end_line": 40,
+          "span_sha256": "bc28eb163874f0a9519793627af8bbd78ec1f60e518383e820dcdbbdb47eda82",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and retained distinctions."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Defines Carrier as what carries or stores an Entity representation and places it as a separate root Entity, not a Property."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "Confirms that removing per-Entity Carrier relation types does not remove the Carrier concept or all generic semantic Carrier links."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Entity/Carrier binding and IS_CARRIED_BY direction in current body evidence.",
+        "Carrier remains a separate root Entity and is not converted into a per-Entity dependent Property."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned": 28,
+    "covered": 28,
+    "owning_sources": 20,
+    "current_sources": 20,
+    "current_evidence_spans": 28,
+    "owning_current_evidence_spans": 28,
+    "proposed": 7,
+    "unresolved": 21
+  },
+  "limits": [
+    "CA-P-2123 owns exactly the 28 carrier_structures manifest occurrences and no other origins.",
+    "Candidate research only: this report neither adopts Subject grammar nor changes native admission, sources, or mappings.",
+    "Every proposal remains executable=false; syntax, snapshot, history, and unsupported Carrier distinctions remain explicit nulls."
+  ]
+}

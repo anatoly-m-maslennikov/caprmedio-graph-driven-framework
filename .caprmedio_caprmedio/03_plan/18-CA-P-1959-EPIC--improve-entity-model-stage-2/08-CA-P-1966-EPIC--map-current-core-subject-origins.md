@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 114
-updated_at: "2026-10-11 09:55:36 +0400"
+version: 115
+updated_at: "2026-10-11 09:57:51 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -191,7 +191,7 @@ CA-P-2121–2128 review 205 previously unreviewed baseline-only origins in eight
 
 - [CA-P-2121 — Review remaining Atom-field and tier origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/91-CA-P-2121-TASK--review-remaining-atom-field-and-tier-origins.md)
 - [CA-P-2122 — Review Entity-identity and authority origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/92-CA-P-2122-TASK--review-entity-identity-and-authority-origins.md)
-- [CA-P-2123 — Review Carrier-structure origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/93-CA-P-2123-TASK--review-carrier-structure-origins.md)
+- [CA-P-2123 — Review Carrier-structure origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/93-CA-P-2123-TASK--review-carrier-structure-origins.md)
 - [CA-P-2124 — Review CCE language and registry origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/94-CA-P-2124-TASK--review-cce-language-and-registry-origins.md)
 - [CA-P-2125 — Review Scope and value-expression origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/95-CA-P-2125-TASK--review-scope-and-value-expression-origins.md)
 - [CA-P-2126 — Review legacy model and topic Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/96-CA-P-2126-TASK--review-legacy-model-and-topic-subjects.md)
