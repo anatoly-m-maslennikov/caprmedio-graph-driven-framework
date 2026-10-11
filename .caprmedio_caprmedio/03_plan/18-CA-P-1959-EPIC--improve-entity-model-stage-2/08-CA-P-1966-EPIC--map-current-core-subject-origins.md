@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 86
-updated_at: "2026-10-11 06:55:40 +0400"
+version: 87
+updated_at: "2026-10-11 07:09:49 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -117,9 +117,11 @@ Independent semantic-review children assess the 573 currently proposed follow-up
 
 ### Current review checkpoint
 
+CA-P-2086–2093 are Done, with one commit per completed Task. The full current working ledger covers 907 sources and 4534 occurrences: 1468 proposed, 1540 unchanged and 1526 unresolved. All 33 current grammar-source rows are independently re-reviewed (15 proposed, 18 null) and included. Eight quarantined sources remain explicit. The strengthened independent live gate and 14 wrong-data/control tests pass; the ordinary lookup/update/graph suites also pass (296 tests). Exact evidence is `_projection/core-entity-review/stage2/checkpoint-working-ledger-2026-10-11.json`. This is a complete progress ledger, not complete semantic mapping or authorized source adoption. Original Core Subjects/content remain unchanged; the selector choice and final 1909–1912/1969 gates remain open.
+
 - [CA-P-2087 — Recheck current grammar Subject origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/72-CA-P-2087-TASK--recheck-current-grammar-subject-origins.md)
 
-CA-P-2086/2088/2089 prepare and verify one complete working ledger under CA-P-2045. CA-P-2087 supplies current meaning evidence for the five adopted grammar-source effects. This consolidates existing progress and current provenance; it does not infer selectors, edit original Subjects or close the mapping Epic.
+CA-P-2086/2088/2089 completed the working-ledger construction, independent verification and initial provenance audit under CA-P-2045. CA-P-2087 supplied current meaning evidence for the five grammar-source effects, then CA-P-2092/2093 integrated and independently checked it. These tasks are Done; the mapping Epic remains Active for actual unresolved meanings and final migration gates.
 
 CA-P-2083 is Done: Fourteen Atom ID field mappings are supported by the current CA-R-728 definition after independent review corrected an overly conservative all-null proposal. Five compound identity cases remain null; no selector or source rewrite is introduced.
 

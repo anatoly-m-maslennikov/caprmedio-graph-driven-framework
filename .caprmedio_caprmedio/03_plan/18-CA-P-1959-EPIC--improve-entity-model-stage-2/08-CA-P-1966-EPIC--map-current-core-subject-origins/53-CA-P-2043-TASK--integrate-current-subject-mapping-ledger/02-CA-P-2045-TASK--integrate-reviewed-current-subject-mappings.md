@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 8
-updated_at: "2026-10-11 07:07:45 +0400"
+version: 9
+updated_at: "2026-10-11 07:09:49 +0400"
 relations:
   is_decomposition_of: [CA-P-2043]
   depends_on: ["CA-P-1972","CA-P-2044","CA-P-1992","CA-P-1993","CA-P-1994","CA-P-1995","CA-P-1996","CA-P-1997","CA-P-1998","CA-P-1999","CA-P-2000","CA-P-2001","CA-P-2002","CA-P-2003","CA-P-2004","CA-P-2005","CA-P-2006","CA-P-2007","CA-P-2008","CA-P-2009","CA-P-2010","CA-P-2011","CA-P-2012","CA-P-2013","CA-P-2014","CA-P-2015","CA-P-2016","CA-P-2017","CA-P-2018","CA-P-2019","CA-P-2020","CA-P-2021","CA-P-2022","CA-P-2023","CA-P-2024","CA-P-2025","CA-P-2026","CA-P-2027","CA-P-2028","CA-P-2029","CA-P-2030","CA-P-2031","CA-P-2032","CA-P-2033","CA-P-2034","CA-P-2035","CA-P-2036","CA-P-2037","CA-P-2038","CA-P-2039","CA-P-2040","CA-P-2041","CA-P-2042"]
@@ -36,6 +36,8 @@ Own work: none after initial ledger creation. CA-P-2057 owns the remaining indep
 Read and follow current-subjects.contract.md and current-subjects.review.contract.md. No Core, captured review, grammar, native admission, MCP/FPF, runtime or source mutation. Root owns integration and Git. This Plan records work, not completion.
 
 ### Decomposing Plans
+
+CA-P-2086–2093 are Done, with one commit per completed Task. The full current working ledger covers 907 sources and 4534 occurrences: 1468 proposed, 1540 unchanged and 1526 unresolved. All 33 current grammar-source rows are independently re-reviewed (15 proposed, 18 null) and included. Eight quarantined sources remain explicit. The strengthened independent live gate and 14 wrong-data/control tests pass; the ordinary lookup/update/graph suites also pass (296 tests). Exact evidence is `_projection/core-entity-review/stage2/checkpoint-working-ledger-2026-10-11.json`. This is a complete progress ledger, not complete semantic mapping or authorized source adoption. Original Core Subjects/content remain unchanged; the selector choice and final 1909–1912/1969 gates remain open.
 
 - [CA-P-2086 — Consolidate reviewed Subject mapping layers](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/04-CA-P-2086-TASK--consolidate-reviewed-subject-mapping-layers.md)
 - [CA-P-2088 — Verify the working Subject ledger independently](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/05-CA-P-2088-TASK--verify-the-working-subject-ledger-independently.md)

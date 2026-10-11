@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 25
-updated_at: "2026-10-11 06:25:25 +0400"
+version: 26
+updated_at: "2026-10-11 07:09:49 +0400"
 relations: {}
 ---
 # Summary
@@ -109,6 +109,8 @@ Step 2 must classify proposed edits before writing. Current authority requires a
 - [CA-P-1971 — Verify the Stage 2 entity model](18-CA-P-1959-EPIC--improve-entity-model-stage-2/13-CA-P-1971-TASK--verify-the-stage-2-entity-model.md)
 
 ### Current checkpoint
+
+CA-P-2086–2093 are Done, with one commit per completed Task. The full current working ledger covers 907 sources and 4534 occurrences: 1468 proposed, 1540 unchanged and 1526 unresolved. All 33 current grammar-source rows are independently re-reviewed (15 proposed, 18 null) and included. Eight quarantined sources remain explicit. The strengthened independent live gate and 14 wrong-data/control tests pass; the ordinary lookup/update/graph suites also pass (296 tests). Exact evidence is `_projection/core-entity-review/stage2/checkpoint-working-ledger-2026-10-11.json`. This is a complete progress ledger, not complete semantic mapping or authorized source adoption. Original Core Subjects/content remain unchanged; the selector choice and final 1909–1912/1969 gates remain open.
 
 CA-P-2082–2085 are Done and committed separately: 93 additional disjoint occurrences have 59 independently supported candidate targets and 34 explicit nulls. The supported targets cover Claim Target Scope Unit, Atom ID, Scope Unit Type/order and generic Operator roles. Current definitions, not only the candidate display, supplied the evidence; independent review corrected fourteen initially conservative Atom-ID nulls.
 

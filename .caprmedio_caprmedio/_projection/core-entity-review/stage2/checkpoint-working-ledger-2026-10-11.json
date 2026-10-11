@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11 07:09:49 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: complete current working ledger consolidation and independent verification; Stage 2 remains incomplete",
+  "completed_tasks": [
+    "CA-P-2086",
+    "CA-P-2087",
+    "CA-P-2088",
+    "CA-P-2089",
+    "CA-P-2090",
+    "CA-P-2091",
+    "CA-P-2092",
+    "CA-P-2093"
+  ],
+  "working_ledger": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+    "sha256": "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d"
+  },
+  "source_frontier": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+    "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4"
+  },
+  "diagnostics": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+    "sha256": "8de107c0151ee7c1e0bded56828ff4e19e1a174e45d58ed485a59835b579413a"
+  },
+  "current_coverage": {
+    "sources": 907,
+    "occurrences": 4534,
+    "proposed": 1468,
+    "unchanged": 1540,
+    "unresolved": 1526,
+    "quarantined_sources": 8,
+    "quarantined_occurrences": 35,
+    "excluded_sources": 11203
+  },
+  "accepted_current_grammar": {
+    "rows": 33,
+    "proposed": 15,
+    "unresolved": 18,
+    "current_source_recheck_null_reset": 0,
+    "report": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/current-grammar-subjects.review.json",
+      "sha256": "22b5c03a7a927728fed6324e458bd27eed2b5c3b27a51ae83a10f357ee619bfd"
+    }
+  },
+  "verification": {
+    "independent_live_gate": "PASS",
+    "ledger_adversarial_tests": 14,
+    "ordinary_tool_suites": {
+      "lookup": 44,
+      "update_preview": 33,
+      "graph": 219,
+      "total": 296
+    },
+    "guards": [
+      "strict current source coverage and exclusions",
+      "exact frozen/current counterpart; only five declared grammar effects",
+      "required full selected-layer priority and final decision/target/confidence",
+      "exact per-row report/receipt provenance",
+      "43 Actor canonical targets",
+      "present accepted grammar receipt cannot be omitted",
+      "stale pins/spans, missing/duplicate rows, wrong target/history, inferred syntax and executable outputs rejected"
+    ]
+  },
+  "source_effect_audit": {
+    "reference_commit": "441bc48e1",
+    "core_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+    "current_diff": "empty",
+    "original_subjects": "unchanged",
+    "ordinary_content": "unchanged"
+  },
+  "preserved": [
+    "frozen baseline ledger and inventory",
+    "captured candidate and original snapshot",
+    "raw reviews and previous immutable receipts",
+    "unrelated untracked support helpers"
+  ],
+  "pending_operator_choice": "Atom selectors for named and role/type-qualified owners; unanswered. Neither selectors nor singleton narrower kinds are inferred.",
+  "remaining_gates": [
+    "1526 unresolved occurrence meanings and eight quarantined sources",
+    "CA-P-1909 final accepted graph",
+    "CA-P-1910 exact sealed preview and Operator approval",
+    "CA-P-1911 admitted authorized application",
+    "CA-P-1912 reproduction and CA-P-1969 complete Subjects-first gate",
+    "CA-P-1970 ordinary content alignment only afterward; CA-P-1971 final verification"
+  ],
+  "authority_boundary": "This derived working ledger is a complete progress ledger, not complete semantic mapping, final graph acceptance or permission to edit source Atoms."
+}
