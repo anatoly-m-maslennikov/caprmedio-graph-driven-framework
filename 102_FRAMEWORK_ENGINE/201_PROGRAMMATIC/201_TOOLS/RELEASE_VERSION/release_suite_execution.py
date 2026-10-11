@@ -22,7 +22,7 @@ from release_contract import ReleaseContractError, ValidatedCandidate, canonical
 from release_handoff import (CURRENT_SELECTOR_RELATIVE, NativeInstalledNBinding,
                              SealedCandidateCompilation, reopen_native_installed_n,
                              selected_n_identity)
-from release_image import CANDIDATE_LABEL, CONTEXT_LABEL, DockerExecutor, IMAGE_ID
+from release_image import CANDIDATE_LABEL, CONTEXT_LABEL, DockerExecutor, IMAGE_ID, _command as _capture_command
 from release_portable_contract import SealedPortableCandidateCompilation, revalidate_sealed_portable_compilation
 from release_suite_limits import MAX_UNIT_TIMEOUT_SECONDS
 from bootstrap_image import BootstrapImageError, read_retained_initial_framework_image
@@ -719,7 +719,9 @@ def fresh_unit_suite_executor(candidate, compilation, *, project_root: str, dock
     with (attempt / "intent.json").open("xb") as stream:
         stream.write(canonical_json({"candidate_snapshot_manifest_sha256": candidate.manifest.sha256,
                                      "input_sha256": input_sha256, "command": list(argv)}))
-    result = docker.run(argv, cwd=root, timeout_seconds=900)
+    # Retain bounded Docker output so failed builds are diagnosable.
+    command_records = []
+    result = _capture_command(docker, argv, root, attempt, command_records, 900)
     with (attempt / "build-result.json").open("xb") as stream:
         stream.write(canonical_json({"exit_code": result.exit_code, "timed_out": result.timed_out,
                                      "stdout_sha256": hashlib.sha256(result.stdout).hexdigest(),

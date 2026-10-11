@@ -205,6 +205,29 @@ class FreshUnitRunnerFactoryTests(unittest.TestCase):
         self.assertEqual(receipt["input_sha256"], executor.runner_binding.input_sha256)
         self.assertEqual(receipt["image_digest"], IMAGE)
 
+    def test_fresh_runner_failed_build_retains_bounded_stderr_bytes(self):
+        stderr = b"locked dependency resolution failed"
+        original = self.docker.run
+
+        def fail_build(argv, *, cwd, timeout_seconds):
+            if argv[:2] == ("docker", "build"):
+                self.docker.calls.append((argv, cwd, timeout_seconds))
+                return DockerCommandResult(1, b"", stderr)
+            return original(argv, cwd=cwd, timeout_seconds=timeout_seconds)
+
+        self.docker.run = fail_build
+
+        with self.assertRaises(ReleaseContractError) as rejected:
+            self.factory()
+
+        self.assertEqual(rejected.exception.code, "release-unit-runner-build-failed")
+        attempts = sorted((self.fixture.root / ".caprmedio_tmp/release_unit_runners").glob("attempt-*"))
+        self.assertEqual(len(attempts), 1)
+        attempt = attempts[0]
+        self.assertEqual((attempt / "command-0.stderr").read_bytes(), stderr)
+        result = json.loads((attempt / "build-result.json").read_bytes())
+        self.assertEqual(result["stderr_sha256"], hashlib.sha256(stderr).hexdigest())
+
     def test_stale_lock_refuses_before_any_docker_effect(self):
         lock = self.fixture.root / "uv.lock"
         lock.write_bytes(lock.read_bytes() + b"\n# changed\n")
