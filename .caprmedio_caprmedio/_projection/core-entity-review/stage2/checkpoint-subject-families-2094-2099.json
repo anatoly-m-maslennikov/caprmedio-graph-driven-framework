@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11 08:06:01 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: accepted subject-family research integrated and independently verified; full Stage2 remains incomplete",
+  "completed_tasks": [
+    "CA-P-2094",
+    "CA-P-2095",
+    "CA-P-2096",
+    "CA-P-2097",
+    "CA-P-2098",
+    "CA-P-2099",
+    "CA-P-2100",
+    "CA-P-2101",
+    "CA-P-2102"
+  ],
+  "reviewed_followups": {
+    "occurrences": 180,
+    "owning_sources": 134,
+    "proposed": 80,
+    "unresolved": 100,
+    "disjoint_selection": true,
+    "semantic_review": "Each final report independently accepted; rejected R1018 generalization and21 settings nulls corrected before acceptance"
+  },
+  "outputs": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "50ab0114669787dba6331b58f8054cd8fb33b5abbed33df6fbf5b52df53923fa"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+      "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+      "sha256": "3837d4ef67d7515fa5023ff1aa2cb323be2bac348118bb22175e409cf9fe0b77"
+    }
+  ],
+  "current_coverage": {
+    "sources": 907,
+    "occurrences": 4534,
+    "proposed": 1548,
+    "unchanged": 1540,
+    "unresolved": 1446,
+    "quarantined_sources": 8,
+    "quarantined_occurrences": 35,
+    "excluded_sources": 11203,
+    "accepted_current_grammar_occurrences": 33,
+    "current_grammar_recheck_required": 0
+  },
+  "prior_context": {
+    "working_ledger_sha256": "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d",
+    "git_commit": "da5074e2d2ac47d44f001526f0e88c947f963ef2",
+    "role": "Historical derived selection context, not current Core evidence"
+  },
+  "verification": {
+    "independent_live_gate": "PASS",
+    "focused_verifier_tests": 18,
+    "ordinary_tests": {
+      "lookup": 44,
+      "update_preview": 33,
+      "graph": 219,
+      "total": 296
+    },
+    "final_report_adversarial_probes": 66,
+    "prospective_integration_wrong_data_probes": 10,
+    "wrong_data_control": "Complete valid prospective ledger passed before each deliberately wrong copy was rejected",
+    "persisted_hashes_match_preview": true,
+    "source_effect_audit": {
+      "reference_commit": "441bc48e1",
+      "core_diff": "empty"
+    },
+    "replacement_scope": "Only the three declared derived drafts; prior bytes recoverable in Git; source frontier byte-identical"
+  },
+  "support_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/consolidate_reviewed_mappings.py",
+      "sha256": "f32535a033924d9b9acad83f23be3430e206eed645789ce834367ea169068a5c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+      "sha256": "d12d8473509e1f61cafc77e7bf153ee0db267c5d07a039840a9b3407e841f15c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_working_mapping_ledger.py",
+      "sha256": "b69e56eac39e86304ddbd5d45f81c557f1ba8208aaa5d8cd271bfadebc7a820b"
+    }
+  ],
+  "pending_operator_choice": "Qualified/named Atom selector grammar remains unanswered; no selector or singleton narrower kind is inferred.",
+  "remaining_gates": [
+    "1446 unresolved meanings and8 quarantined sources remain explicit work",
+    "CA-P-1909 final accepted graph",
+    "CA-P-1910 sealed preview and exact Operator approval",
+    "CA-P-1911 admitted authorized application",
+    "CA-P-1912 reproduction and CA-P-1969 full Subjects-first gate",
+    "CA-P-1970 ordinary content alignment only afterward; CA-P-1971 final verification"
+  ],
+  "preserved": [
+    "frozen baseline and captured candidate/snapshot",
+    "all raw source-pinned reviews and earlier receipts/checkpoints",
+    "original Core Subjects and ordinary content",
+    "unrelated untracked support helpers"
+  ],
+  "authority_boundary": "A verified derived progress ledger is not complete semantic mapping or permission to apply the original Subject migration."
+}

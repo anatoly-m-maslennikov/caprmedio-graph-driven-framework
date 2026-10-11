@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 12
-updated_at: "2026-10-11 08:00:21 +0400"
+version: 13
+updated_at: "2026-10-11 08:06:01 +0400"
 relations:
   is_decomposition_of: [CA-P-2043]
   depends_on: ["CA-P-1972","CA-P-2044","CA-P-1992","CA-P-1993","CA-P-1994","CA-P-1995","CA-P-1996","CA-P-1997","CA-P-1998","CA-P-1999","CA-P-2000","CA-P-2001","CA-P-2002","CA-P-2003","CA-P-2004","CA-P-2005","CA-P-2006","CA-P-2007","CA-P-2008","CA-P-2009","CA-P-2010","CA-P-2011","CA-P-2012","CA-P-2013","CA-P-2014","CA-P-2015","CA-P-2016","CA-P-2017","CA-P-2018","CA-P-2019","CA-P-2020","CA-P-2021","CA-P-2022","CA-P-2023","CA-P-2024","CA-P-2025","CA-P-2026","CA-P-2027","CA-P-2028","CA-P-2029","CA-P-2030","CA-P-2031","CA-P-2032","CA-P-2033","CA-P-2034","CA-P-2035","CA-P-2036","CA-P-2037","CA-P-2038","CA-P-2039","CA-P-2040","CA-P-2041","CA-P-2042"]
@@ -49,7 +49,9 @@ CA-P-2094–2099 are Done: 180 exact current origins across 134 owning sources, 
 
 - [CA-P-2100 — Integrate accepted subject-family research](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/07-CA-P-2100-TASK--integrate-accepted-subject-family-research.md)
 - [CA-P-2101 — Verify accepted subject-family layers independently](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/08-CA-P-2101-TASK--verify-accepted-subject-family-layers-independently.md)
-- [CA-P-2102 — Rebuild and check the current subject ledger](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/09-CA-P-2102-TASK--rebuild-and-check-the-current-subject-ledger.md)
+- [CA-P-2102 — Rebuild and check the current subject ledger](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/09-CA-P-2102-TASK--rebuild-and-check-the-current-subject-ledger.md)
+
+Current integration checkpoint: CA-P-2094–2102 are Done. The six independently accepted reports cover 180 current origins across 134 owning sources (80 proposals, 100 explicit nulls). Their findings are now included in the live-verified derived ledger: 1548 proposed, 1540 unchanged, 1446 unresolved across 907 sources and4534 occurrences. Eighteen verifier tests and296 ordinary tool tests pass; ten complete-ledger wrong-data controls reject bad variants. Original Core Subjects/content remain unchanged; eight quarantined sources and the unanswered selector choice remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-families-2094-2099.json`. This is progress, not full mapping or migration approval.
 
 ### Definition of Done
 

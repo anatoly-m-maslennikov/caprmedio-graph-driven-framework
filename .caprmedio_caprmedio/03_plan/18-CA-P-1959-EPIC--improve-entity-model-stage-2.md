@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 26
-updated_at: "2026-10-11 07:09:49 +0400"
+version: 27
+updated_at: "2026-10-11 08:06:01 +0400"
 relations: {}
 ---
 # Summary
@@ -131,6 +131,8 @@ CA-P-2078–2080 then checked 52 selected rejected/unresolved cases. Independent
 The 27 named Workflow/Step cases expose an identity-qualification gap as well as the existing role/type-owner gap: generic Atom/Workflow or Atom/Step would lose a named definition or binding. Current notation admits neither selectors nor singleton kinds for this purpose. A new Operator question asks whether Atom selectors should cover named and qualified owners; the earlier subtype-only recommendation is insufficient for those named cases. No answer or grammar adoption is inferred.
 
 A confirmed remaining modeling choice affects 220 role/type-qualified mappings across 123 sources: Type, Status and similar fields remain Atom-owned, but selecting a role/type-qualified owner needs either explicit narrower Atom kinds or new selector syntax. The Operator question is unanswered. Do not reinterpret the allowed value Plan as the bearer of those fields or invent a mapping.
+
+Current integration checkpoint: CA-P-2094–2102 are Done. The six independently accepted reports cover 180 current origins across 134 owning sources (80 proposals, 100 explicit nulls). Their findings are now included in the live-verified derived ledger: 1548 proposed, 1540 unchanged, 1446 unresolved across 907 sources and4534 occurrences. Eighteen verifier tests and296 ordinary tool tests pass; ten complete-ledger wrong-data controls reject bad variants. Original Core Subjects/content remain unchanged; eight quarantined sources and the unanswered selector choice remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-families-2094-2099.json`. This is progress, not full mapping or migration approval.
 
 ### Definition of Done
 
