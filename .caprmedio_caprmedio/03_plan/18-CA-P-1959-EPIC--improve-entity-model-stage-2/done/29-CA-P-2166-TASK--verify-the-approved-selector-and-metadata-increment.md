@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Atom
   depends_on: [Subject, Carrier, Revision, Operator, Plan]
-version: 1
-updated_at: "2026-10-11 17:45:11 +0400"
+version: 2
+updated_at: "2026-10-11 18:45:20 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   depends_on: [CA-P-2162, CA-P-2163, CA-P-2164, CA-P-2165]
@@ -33,6 +33,10 @@ The approved selector and metadata changes have the exact, verified effect assig
 Own work: at most fifteen minutes; create bounded children if this own-work limit is exceeded. Independently verify the exact grammar/code/ID/timestamp effects, complete focused suites, old/new history and journals, and current original Core inventory. Preserve the old 907-source ledger and captured snapshots as historical evidence if current pins change. Publish exact current delta/checkpoint, not full mapping/native admission or completed Epic. Keep remaining mapping and final accepted-graph/preview/source migration gates explicit.
 
 Root owns Git, Plan lifecycle and shared Journal recording. Workers are not alone; preserve unrelated release changes. Scratch and caches stay in `.caprmedio_tmp`; use uv. No unsupported MCP/FPF, general migration framework, runtime/release activation or Step 2 body sweep.
+
+### Completion
+
+Independently checked current authority/history/Journal effects and verified the418-test,8-suite combined run against stable production code. Confirmed907 Core sources,4534 unchanged Subject occurrences,0 carrier quarantines,24 exact source effects and58 actual Journal records. Only the bounded approved increment is complete; parent Epic remains Active. Exact verification is recorded in `_projection/core-entity-review/stage2/task-2166.receipt.json`.
 
 ### Definition of Done
 

@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 45
-updated_at: "2026-10-11 18:42:30 +0400"
+version: 46
+updated_at: "2026-10-11 18:45:20 +0400"
 relations: {}
 ---
 # Summary
@@ -169,7 +169,7 @@ The Operator answered all three questions and then requested implementation. Imp
 - [CA-P-2163 — Implement case-sensitive Atom selectors](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/26-CA-P-2163-TASK--implement-case-sensitive-atom-selectors.md)
 - [CA-P-2164 — Migrate six legacy Core Atom identities](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/27-CA-P-2164-TASK--migrate-six-legacy-core-atom-identities.md)
 - [CA-P-2165 — Use explicit offsets for Atom timestamps](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/28-CA-P-2165-TASK--use-explicit-offsets-for-atom-timestamps.md)
-- [CA-P-2166 — Verify the approved selector and metadata increment](18-CA-P-1959-EPIC--improve-entity-model-stage-2/29-CA-P-2166-TASK--verify-the-approved-selector-and-metadata-increment.md)
+- [CA-P-2166 — Verify the approved selector and metadata increment](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/29-CA-P-2166-TASK--verify-the-approved-selector-and-metadata-increment.md)
 
 Post-ID checkpoint (CA-P-2164): six legacy current Core identities now use CA-R-1932 and CA-E-620–624, with Version +1 and quoted actual offset timestamps; CA-R-1677's one current inbound relation is relinked. Seven exact prior carriers are archived and 21 actual schema-v3 Journal observations/effects are validated. Independent verification preserves all other Core files and all bodies/Subjects. Current inventory remains 907 sources / 4534 references, with only the two naive timestamp quarantines left. Earlier mapping ledger/current-pin claims are historical after these identity effects; rebind through the exact approved delta before later mapping or source application.
 
@@ -184,6 +184,10 @@ The explicit-offset timestamp policy and operative emitters are aligned. CA-D-39
 ### Selector implementation checkpoint — CA-P-2163
 
 The explicit approved profile now parses the reviewed initial lowercase `atom(...)` forms in structural lookup, sealed Subject preview and internal graph/source parsing. `Atom` remains the case-significant Entity-type Term. YAML quote/list serialization is decoded before grammar validation; full literal selected-owner paths remain distinct. Lookup/preview needed no new write path. Independent code/negative checks and Root's418-test combined run passed. Legacy/default behavior, frozen snapshot, source pin sealing and standalone apply rejection remain intact. Current original Core Subject values are still unchanged; native admission and actual Source migration are separate gates.
+
+### Approved increment integration checkpoint — CA-P-2166
+
+CA-P-2162–2166 are complete and committed separately. The final independent original-Core/history/Journal check and Root's418-test run passed with stable production code pins. Fresh Core inventory has907 sources,4534 Subject occurrences and0 carrier quarantines. All24 declared source effects,48 current/archive pins and58 actual Journal events were verified. Original Subjects and frozen captures remain unchanged. `_projection/core-entity-review/stage2/approved-implementation/current-increment.md` records the bounded result. This Epic remains Active: refresh current mapping/evidence, complete the shared accepted-graph/sealed-preview/application/reproduction gates, then perform ordinary content alignment. The old mapping ledger remains historical, not source-fresh approval.
 
 ### Definition of Done
 
