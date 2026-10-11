@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2122",
+  "recorded_at": "2026-10-11 09:55:36 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review entity-identity and authority origins; not migration approval",
+  "verification": {
+    "task": "CA-P-2122",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2122.research.json",
+      "sha256": "3577856baf8a35c61c479c9d2feaa7e54f0252ec2f33f5ec9bb94def9eb928f8"
+    },
+    "rows": 20,
+    "counts": {
+      "unresolved": 12,
+      "proposed": 8
+    },
+    "exact_evidence_spans": 20,
+    "exact_supporting_definition_spans": 7,
+    "exact_input_pins": 31,
+    "historical_context_pins": [
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/92-CA-P-2122-TASK--review-entity-identity-and-authority-origins.md",
+        "sha256": "73621fcac9513e765bac64953a0086e65ab0b5e950cb4db7bce5b06232fba7fb",
+        "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+        "git_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+        "role": "Plan context only"
+      }
+    ],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2121-2128.inputs.json",
+      "sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+    },
+    "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/semantic_labels_2126",
+      "final_report_sha256": "3577856baf8a35c61c479c9d2feaa7e54f0252ec2f33f5ec9bb94def9eb928f8",
+      "result": "PASS: all twenty exact meanings independently reviewed; eight supported proposals and twelve justified nulls",
+      "meaning_checks": [
+        "Entity.Type and Artifact.Type preserve explicitly declared bearers.",
+        "Artifact Local Tier and Governance Origin preserve allowed domains.",
+        "Structural Path and Structural Coordinate remain Scope Unit-owned.",
+        "Authority Mode, source authority, revision qualification, provenance and expression distinctions are not collapsed."
+      ],
+      "formatting_normalization": {
+        "original_reviewed_sha256": "2ebd95e89ab78d467a1235daf765d289c180cc596dd8cba57b9d1b1c63646240",
+        "removed_eof_lfs": 2,
+        "byte_reversal_and_json_equality": "PASS independently confirmed by /root/semantic_labels_2126"
+      }
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/semantic_labels_2126",
+    "final_report_sha256": "3577856baf8a35c61c479c9d2feaa7e54f0252ec2f33f5ec9bb94def9eb928f8",
+    "result": "PASS: all twenty exact meanings independently reviewed; eight supported proposals and twelve justified nulls",
+    "meaning_checks": [
+      "Entity.Type and Artifact.Type preserve explicitly declared bearers.",
+      "Artifact Local Tier and Governance Origin preserve allowed domains.",
+      "Structural Path and Structural Coordinate remain Scope Unit-owned.",
+      "Authority Mode, source authority, revision qualification, provenance and expression distinctions are not collapsed."
+    ],
+    "formatting_normalization": {
+      "original_reviewed_sha256": "2ebd95e89ab78d467a1235daf765d289c180cc596dd8cba57b9d1b1c63646240",
+      "removed_eof_lfs": 2,
+      "byte_reversal_and_json_equality": "PASS independently confirmed by /root/semantic_labels_2126"
+    }
+  },
+  "completion_scope": "All 20 assigned current origins passed independent semantic acceptance and exact coverage/source/span checks: eight supported proposals and twelve explicit nulls. Entity/Artifact Type, Governance Origin and Scope Unit structure preserve their actual owners; original Core remains unchanged.",
+  "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
