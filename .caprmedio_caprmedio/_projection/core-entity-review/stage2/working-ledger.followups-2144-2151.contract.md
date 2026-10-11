@@ -26,6 +26,10 @@ Preserve every accepted evidence,candidate_basis,preserved_distinctions field ex
 
 CA-P-2153 owns only support/consolidate_reviewed_mappings.py, previewonly. CA-P-2154 owns support/verify_working_mapping_ledger.py and support/test_working_mapping_ledger.py; no producerimport. Once any real sixth-group receipt exists, omitting the complete sixth group must fail in the actual currenttree; old isolated fixtures without those receipts may retain existing historical layouts. Add valid-control negatives for missing group/layer/selectedorigin, stale source/receipt/review hash, wrong target/order/confidence and executableflags. Both code revisions require independent review and actual prospective gates. Neither worker replaces drafts or changes source authority.
 
+## Count-map representation boundary
+
+Root's accepted mechanical verification uses a Counter histogram: CA-P-2151 records `{"unresolved":21}` because its confirmed proposed count is zero. Keep that accepted report/receipt immutable. A missing count key is equivalent to zero only for the closed `proposed`/`unresolved` histogram and only when the contracted count and actual accepted rows both prove zero. Missing nonzero counts, unknown keys, non-integer counts and wrong totals still reject. This is a mechanical format check, not proof expansion, changed decisions, new aliases or supporting-evidence admission. Producer and independent verifier must test positive zero omission and negative nonzero omission/wrong zero/unknown counts.
+
 ## Controlled replacement
 
 Only Root/CA-P-2155 may replace these3explicitderiveddrafts after exactoldhash+Git-recovery proof:
