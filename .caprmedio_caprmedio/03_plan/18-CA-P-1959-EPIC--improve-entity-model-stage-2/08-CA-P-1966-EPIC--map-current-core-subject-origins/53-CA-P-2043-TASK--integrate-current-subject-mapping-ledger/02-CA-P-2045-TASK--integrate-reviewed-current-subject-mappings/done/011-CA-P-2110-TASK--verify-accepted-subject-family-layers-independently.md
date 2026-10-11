@@ -14,11 +14,11 @@ status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 2
-updated_at: "2026-10-11 08:47:42 +0400"
+version: 3
+updated_at: "2026-10-11 08:52:49 +0400"
 relations:
   is_decomposition_of: [CA-P-2045]
-  follows: [CA-P-2103, CA-P-2104, CA-P-2105, CA-P-2106, CA-P-2107, CA-P-2108]
+  depends_on: [CA-P-2103, CA-P-2104, CA-P-2105, CA-P-2106, CA-P-2107, CA-P-2108]
 ---
 # Summary
 
