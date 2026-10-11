@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Tool, Operator]
-version: 4
-updated_at: "2026-10-11 06:56:14 +0400"
+version: 5
+updated_at: "2026-10-11 07:07:41 +0400"
 relations:
   is_decomposition_of: [CA-P-2045]
 ---
@@ -35,7 +35,7 @@ This is implementation/preparation evidence, not original Source writes, selecto
 
 ### Current integration task
 
-[CA-P-2092 — Integrate the accepted current grammar review](04-CA-P-2086-TASK--consolidate-reviewed-subject-mapping-layers/02-CA-P-2092-TASK--integrate-the-accepted-current-grammar-review.md) incorporates the now-accepted CA-P-2087 evidence. This group remains Active until that child and its live integration checks pass; the earlier no-receipt draft is only an intermediate checkpoint.
+[CA-P-2092 — Integrate the accepted current grammar review](04-CA-P-2086-TASK--consolidate-reviewed-subject-mapping-layers/done/02-CA-P-2092-TASK--integrate-the-accepted-current-grammar-review.md) incorporates the now-accepted CA-P-2087 evidence. This group remains Active until that child and its live integration checks pass; the earlier no-receipt draft is only an intermediate checkpoint.
 
 ### Definition of Done
 

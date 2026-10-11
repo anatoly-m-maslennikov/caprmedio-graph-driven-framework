@@ -65,6 +65,8 @@ LAYER_SPECS = (
     ("CA-P-2085", STAGE / "semantic-reviews/task-2085.research.json", "research"),
 )
 ACTOR_SUBSET = STAGE / "semantic-reviews/task-2058.accepted-subset.json"
+CURRENT_GRAMMAR_TASK = "CA-P-2087"
+CURRENT_GRAMMAR_REPORT = STAGE / "semantic-reviews/current-grammar-subjects.review.json"
 
 
 def fail(message: str) -> None:
@@ -401,6 +403,98 @@ def matched_origin(
     return candidates[0]
 
 
+def current_span_matches(evidence: dict[str, Any], current: dict[str, Any]) -> bool:
+    if evidence.get("path") != current.get("source_path") or evidence.get("sha256") != current.get("source_sha256"):
+        return False
+    start, end = evidence.get("start_line"), evidence.get("end_line")
+    span_sha = evidence.get("span_sha256")
+    if not isinstance(start, int) or isinstance(start, bool) or not isinstance(end, int) or isinstance(end, bool) or start < 1 or end < start or not isinstance(span_sha, str):
+        return False
+    path = checked_relative_path(Path(evidence["path"]), "current grammar evidence")
+    if not path.is_file() or path.is_symlink():
+        return False
+    raw = path.read_bytes()
+    if sha(raw) != evidence["sha256"]:
+        return False
+    lines = raw.splitlines(keepends=True)
+    return end <= len(lines) and sha(b"".join(lines[start - 1 : end])) == span_sha
+
+
+def accepted_current_grammar_review(
+    current_by_id: dict[str, dict[str, Any]], current_effects: dict[str, dict[str, Any]],
+) -> dict[str, Any] | None:
+    """Load CA-P-2087 only when its accepted receipt and live current proof agree."""
+    receipt_rel = STAGE / "task-2087.receipt.json"
+    receipt_path = checked_relative_path(receipt_rel, "current grammar receipt")
+    if not receipt_path.exists():
+        return None
+    if receipt_path.is_symlink():
+        fail("unsafe current grammar receipt")
+    report = read_json(CURRENT_GRAMMAR_REPORT)
+    report_pin = pin(CURRENT_GRAMMAR_REPORT)
+    receipt = receipt_pin(CURRENT_GRAMMAR_TASK, report_pin)
+    if (report.get("schema_version") != 1 or report.get("task_id") != CURRENT_GRAMMAR_TASK
+            or report.get("non_authoritative") is not True or report.get("source_migration") != "not_performed"
+            or report.get("native_admission") != "not_performed"):
+        fail("current grammar report boundary")
+    verification = read_json(receipt_rel).get("verification")
+    if not isinstance(verification, dict) or verification.get("output") != report_pin or verification.get("rows") != 33 or verification.get("current_sources") != 5:
+        fail("current grammar receipt coverage/pin")
+    expected_ids = {occurrence_id for occurrence_id, current in current_by_id.items() if current.get("source_atom_id") in current_effects}
+    if len(expected_ids) != 33:
+        fail("audited grammar occurrence coverage changed")
+    rows = report.get("occurrences")
+    if not isinstance(rows, list) or len(rows) != 33:
+        fail("current grammar report rows")
+    rows_by_id: dict[str, dict[str, Any]] = {}
+    decisions = Counter()
+    for row in rows:
+        if not isinstance(row, dict) or not isinstance(row.get("occurrence_id"), str) or row["occurrence_id"] in rows_by_id:
+            fail("current grammar duplicate or invalid occurrence")
+        occurrence_id = row["occurrence_id"]
+        current = current_by_id.get(occurrence_id)
+        if current is None or {key: row.get(key) for key in current} != current:
+            fail(f"current grammar row has stale or conflicting origin: {occurrence_id}")
+        if row.get("executable") is not False or not isinstance(row.get("reason"), str) or not row["reason"].strip():
+            fail(f"current grammar row safety/reason: {occurrence_id}")
+        evidence = row.get("evidence")
+        if not isinstance(evidence, list) or not any(isinstance(item, dict) and current_span_matches(item, current) for item in evidence):
+            fail(f"current grammar row stale evidence: {occurrence_id}")
+        decision, value, confidence = row.get("decision"), row.get("proposed_value"), row.get("confidence")
+        if decision == "proposed":
+            if not isinstance(value, str) or not value or not isinstance(confidence, (int, float)) or isinstance(confidence, bool) or confidence < .90:
+                fail(f"current grammar proposal shape: {occurrence_id}")
+            no_inferred_syntax(value)
+            basis = row.get("candidate_basis")
+            if not isinstance(basis, list) or not basis or any(not isinstance(item, dict) or not isinstance(item.get("pointer"), str) or not isinstance(item.get("reason"), str) for item in basis):
+                fail(f"current grammar proposal basis: {occurrence_id}")
+        elif decision == "unresolved":
+            if value is not None or not isinstance(confidence, (int, float)) or isinstance(confidence, bool) or not 0 <= confidence < .90:
+                fail(f"current grammar null shape: {occurrence_id}")
+        else:
+            fail(f"current grammar decision: {occurrence_id}")
+        decisions[decision] += 1
+        rows_by_id[occurrence_id] = row
+    if set(rows_by_id) != expected_ids or decisions != Counter({"proposed": 15, "unresolved": 18}):
+        fail("current grammar exact decision coverage")
+    counts = report.get("counts")
+    if not isinstance(counts, dict) or any(counts.get(key) != value for key, value in {"sources": 5, "occurrences": 33, "proposed": 15, "unresolved": 18, "unchanged": 0}.items()):
+        fail("current grammar report counts")
+    sources = report.get("sources")
+    if not isinstance(sources, list) or len(sources) != 5:
+        fail("current grammar source coverage")
+    report_atoms = {source.get("atom_id") for source in sources if isinstance(source, dict)}
+    if report_atoms != set(current_effects):
+        fail("current grammar source identities")
+    for source in sources:
+        effect = current_effects[source["atom_id"]]
+        after = effect["after"]
+        if (source.get("path"), source.get("version"), source.get("sha256")) != (after["path"], after["version"], after["sha256"]):
+            fail(f"current grammar source pin: {source['atom_id']}")
+    return {"task": CURRENT_GRAMMAR_TASK, "report": report_pin, "receipt": receipt, "rows": rows_by_id,
+            "counts": dict(sorted(decisions.items())), "sources": sorted(report_atoms)}
+
+
 def run_negative_probes() -> None:
     """Isolated fail-closed probes; they do not read or write project inputs."""
     baseline_source = {"relative_path": "core/CA-R-1.md", "atom_id": "CA-R-1", "version": 1, "full_file_sha256": "a" * 64}
@@ -482,6 +576,7 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
     missing_current_counterparts = sorted(set(baseline_by_id).difference(matched_baseline_ids))
     if missing_current_counterparts:
         fail(f"frozen baseline occurrences missing current counterpart: {missing_current_counterparts[0]}")
+    current_grammar = accepted_current_grammar_review(current_by_id, current_effects)
 
     accepted_layers: list[dict[str, Any]] = []
     for priority, (task_id, report_rel, kind) in enumerate(LAYER_SPECS, start=1):
@@ -526,19 +621,44 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
                             "receipt": actor_receipt, "rows": 43, "kind": "canonical_target_check"})
 
     grammar_rechecks: list[dict[str, Any]] = []
+    grammar_review_rows: list[dict[str, Any]] = []
     for occurrence_id, record in states.items():
         if not record["needs_recheck"]:
             continue
         state = record["state"]
-        state["applied_layers"].append({"layer": "CA-P-2087", "status": "not_independently_accepted",
-                                        "decision": "unresolved", "proposed_value": None})
-        state.update({"decision": "unresolved", "proposed_value": None, "confidence": 0.0,
-                      "reason": "Current source is one of the five audited grammar changed/replaced sources; without independently accepted CA-P-2087 current-grammar Subject evidence its mapping is reset to null.",
-                      "evidence": next(source["body_evidence"] for source in sources if source["relative_path"] == record["current"]["source_path"]),
-                      "candidate_basis": [], "preserved_distinctions": ["Historical baseline and selected-layer hypotheses remain provenance only.", "No old source hash is treated as current semantic evidence.", "No selector or grammar rebind is inferred."], "question": None,
-                      "current_source_semantic_recheck_required": True})
-        grammar_rechecks.append({"occurrence_id": occurrence_id, "source_atom_id": record["current"].get("source_atom_id"),
-                                 "source_path": record["current"]["source_path"]})
+        if current_grammar is None:
+            state["applied_layers"].append({"layer": CURRENT_GRAMMAR_TASK, "status": "not_independently_accepted",
+                                            "decision": "unresolved", "proposed_value": None})
+            state.update({"decision": "unresolved", "proposed_value": None, "confidence": 0.0,
+                          "reason": "Current source is one of the five audited grammar changed/replaced sources; without independently accepted CA-P-2087 current-grammar Subject evidence its mapping is reset to null.",
+                          "evidence": next(source["body_evidence"] for source in sources if source["relative_path"] == record["current"]["source_path"]),
+                          "candidate_basis": [], "preserved_distinctions": ["Historical baseline and selected-layer hypotheses remain provenance only.", "No old source hash is treated as current semantic evidence.", "No selector or grammar rebind is inferred."], "question": None,
+                          "current_source_semantic_recheck_required": True})
+            grammar_rechecks.append({"occurrence_id": occurrence_id, "source_atom_id": record["current"].get("source_atom_id"),
+                                     "source_path": record["current"]["source_path"]})
+            continue
+        review_row = current_grammar["rows"].get(occurrence_id)
+        if review_row is None:
+            fail(f"accepted current grammar row missing: {occurrence_id}")
+        decision, value, confidence = review_row["decision"], review_row["proposed_value"], review_row["confidence"]
+        state["applied_layers"].append({"layer": CURRENT_GRAMMAR_TASK, "status": "independently_accepted_current_grammar",
+                                        "report": current_grammar["report"], "receipt": current_grammar["receipt"],
+                                        "priority": "current_grammar",
+                                        "decision": decision, "proposed_value": value, "confidence": confidence,
+                                        "accepted": decision == "proposed"})
+        state.update({"decision": decision, "proposed_value": value, "confidence": confidence,
+                      "reason": review_row["reason"], "evidence": review_row["evidence"],
+                      "candidate_basis": review_row.get("candidate_basis", []),
+                      "preserved_distinctions": review_row.get("preserved_distinctions", []), "question": review_row.get("question"),
+                      "selected_layer_row": {"task": CURRENT_GRAMMAR_TASK, "kind": "current_grammar"},
+                      "current_source_semantic_recheck_required": False})
+        grammar_review_rows.append({"occurrence_id": occurrence_id, "source_atom_id": record["current"].get("source_atom_id"),
+                                    "source_path": record["current"]["source_path"], "decision": decision})
+
+    if current_grammar is not None:
+        accepted_layers.append({"task": CURRENT_GRAMMAR_TASK, "priority": "current_grammar",
+                                "report": current_grammar["report"], "receipt": current_grammar["receipt"],
+                                "rows": len(current_grammar["rows"]), "kind": "current_grammar_subject_recheck"})
 
     rows: list[dict[str, Any]] = []
     for occurrence_id in sorted(states):
@@ -589,13 +709,15 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
                    "quarantined_sources": sum(source["quarantined"] for source in sources),
                    "quarantined_occurrences": sum(row["quarantined"] for row in rows),
                    "grammar_recheck_occurrences": len(grammar_rechecks),
+                   "accepted_current_grammar_occurrences": len(grammar_review_rows),
                    "missing_baseline_counterparts": 0,
                    "missing_current_counterparts": len(missing_current_counterparts),
                    "decisions": dict(sorted(decisions.items()))},
-        "grammar_recheck_required": grammar_rechecks, "missing_baseline_counterparts": [],
+        "grammar_recheck_required": grammar_rechecks, "accepted_current_grammar_rows": grammar_review_rows,
+        "missing_baseline_counterparts": [],
         "missing_current_counterparts": missing_current_counterparts,
         "excluded_sources": excluded,
-        "limits": ["CA-P-2087 is not independently accepted; all five grammar changed/replaced source occurrences are explicit nulls.", "This derived draft is not migration approval or native admission."],
+        "limits": ["CA-P-2087 current-grammar conclusions apply only when its independently accepted receipt/report pins validate; otherwise all five grammar changed/replaced source occurrences are explicit nulls.", "This derived draft is not migration approval or native admission."],
     }
     frontier = {"schema_version": 1, "task_id": "CA-P-2086", "non_authoritative": True,
                 "source_migration": "not_performed", "native_admission": "not_performed",
@@ -606,10 +728,11 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
     ledger = {"schema_version": 1, "task_id": "CA-P-2086", "non_authoritative": True,
               "source_migration": "not_performed", "native_admission": "not_performed",
               "scope": "Create-only current-frontier working mapping ledger; not semantic final acceptance or source migration.",
-              "input_pins": input_pins, "layer_priority": [item[0] for item in LAYER_SPECS] + ["CA-P-2058 coverage_only", "CA-P-2087 recheck_gate"],
+              "input_pins": input_pins, "layer_priority": [item[0] for item in LAYER_SPECS] + ["CA-P-2058 coverage_only", "CA-P-2087 accepted_current_grammar" if current_grammar is not None else "CA-P-2087 recheck_gate"],
               "counts": {"sources": len(source_rows), "occurrences": len(rows), "quarantined_sources": sum(source["quarantined"] for source in source_rows),
                          "quarantined_occurrences": sum(row["quarantined"] for row in rows), "decisions": dict(sorted(decisions.items())),
-                         "unresolved": decisions["unresolved"], "grammar_recheck_required": len(grammar_rechecks)},
+                         "unresolved": decisions["unresolved"], "grammar_recheck_required": len(grammar_rechecks),
+                         "accepted_current_grammar_occurrences": len(grammar_review_rows)},
               "source_reviews": source_rows, "occurrences": rows,
               "remaining_gaps": {"diagnostics_path": (WORKING / "diagnostics.json").as_posix(), "grammar_recheck_occurrences": len(grammar_rechecks),
                                  "unresolved_occurrences": decisions["unresolved"]}}
