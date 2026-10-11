@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2072",
+  "recorded_at": "2026-10-11 05:28:52 +0400",
+  "non_authoritative": true,
+  "result": "PASS: bounded independent semantic review; not migration approval",
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "verification": {
+    "task": "CA-P-2072",
+    "review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "sha256": "867e784ea0c58fef0c59f00048817fa47c90978ff54ca7ebb2c30b14d394b299"
+    },
+    "rows": 57,
+    "counts": {
+      "accepted": 55,
+      "unresolved": 2
+    },
+    "owning_sources": 47,
+    "exact_evidence_spans": 58,
+    "input_pins": 8,
+    "checks": "PASS: assigned coverage, exact input/source/span pins, dispositions, confidence, approved syntax, no executable rows"
+  },
+  "review_method": "Independent source-meaning review, with Root exact assigned coverage/pin/span/confidence/profile checks",
+  "task_input_boundary": "The review pins Task version 1 at registration commit 94e773ac3 where provided. Closure version 2 is not that original input.",
+  "completion_scope": "The 55 accepted candidates preserve Actor Type and snapshot-field ownership. Two Revision.Status candidates lack support in the latest model and remain unresolved.",
+  "limits": [
+    "All rows remain non-executable. Accepted means candidate meaning supported, not authorized source edits.",
+    "Rejected/unresolved rows and the parent mapping gate remain open.",
+    "The frozen candidate, baseline ledger, research inputs and authoritative Core are unchanged."
+  ]
+}
