@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2161",
+  "non_authoritative": true,
+  "recorded_at": "2026-10-11 14:43:37 +0400",
+  "source": {
+    "kind": "actual_operator_message",
+    "thread_id": "01a0263a-7510-7672-bce4-58830bc4d184",
+    "question": "Use Atom selectors in Subjects, keeping the Atom as owner rather than making Content Role allowed values own its properties?",
+    "explained_examples": [
+      "Atom.Status",
+      "atom(content_role=\"Plan\").Status",
+      "atom(atom_id=\"CA-O-135\").Status"
+    ],
+    "answer": "yes, good. but dont mess Atom and atom"
+  },
+  "decision": {
+    "status": "approved_direction",
+    "use_selectors_for_qualified_and_named_atoms": true,
+    "case_significant": true,
+    "distinct_tokens": {
+      "Atom": "The Entity type in the model.",
+      "atom": "The selector notation atom(...); not another spelling of the Entity type."
+    },
+    "normalize_atom_into_Atom": false,
+    "normalize_Atom_into_atom": false,
+    "selector_is_new_entity_kind": false,
+    "property_ownership": "Properties remain owned by the selected Atom. A Content Role allowed value does not become their bearer.",
+    "carrier_field_renaming": false
+  },
+  "limits": [
+    "The exact lowercase selector form atom(...) and uppercase Entity name Atom stay distinct.",
+    "No case-folding or interchange of these tokens is approved.",
+    "This records a choice; grammar-policy alignment, parser implementation, full mapping and source effects still require their actual checks.",
+    "No native admission, live Subject migration, new root, YAML key rename or Step 2 body effect was performed."
+  ],
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "grammar_changes_applied": false
+}
