@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 71
-updated_at: "2026-10-11 05:29:29 +0400"
+version: 72
+updated_at: "2026-10-11 05:30:49 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -116,5 +116,13 @@ Independent semantic-review children assess the 573 currently proposed follow-up
 - [CA-P-2077 — Audit current-source drift in mapping evidence](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/64-CA-P-2077-TASK--audit-current-source-drift-in-mapping-evidence.md)
 
 ### Definition of Done
+
+### Current review checkpoint
+
+CA-P-2072–2077 are Done and committed individually. The five independent semantic reviews cover 573 unique proposed follow-up occurrences: 433 accepted as supported candidate meanings, 62 rejected and 78 unresolved. This is not complete inventory coverage or authorization to apply. Existing unresolved input research remains with CA-P-2049 and its children.
+
+Carrier-as-dependent proposals were rejected; two Revision.Status proposals are unsupported by the latest snapshot/history model. Selected Tier and relation/Subject evidence was checked with separately pinned current grammar, while the raw reports retain their stale, unselected grammar references.
+
+The unanswered conditional-owner notation choice affects 220 additional role/type-qualified occurrences across 123 sources. No choice was inferred. Original Core Subjects and ordinary content remain unchanged; the accepted graph, exact preview, application and reproduction gates are still open.
 
 The Plan is **not** Done if any selected occurrence is missing or guessed, a mapping lacks current source evidence, unresolved cases are hidden, captured outputs change, or source Atoms are edited; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

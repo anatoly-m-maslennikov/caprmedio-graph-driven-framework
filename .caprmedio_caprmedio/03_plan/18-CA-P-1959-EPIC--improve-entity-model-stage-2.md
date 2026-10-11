@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 20
-updated_at: "2026-10-11 05:09:57 +0400"
+version: 21
+updated_at: "2026-10-11 05:30:49 +0400"
 relations: {}
 ---
 # Summary
@@ -111,6 +111,8 @@ Step 2 must classify proposed edits before writing. Current authority requires a
 ### Current checkpoint
 
 CA-P-1965 and CA-P-1975 are Done: the selected-profile lookup, sealed preview and internal graph parser are implemented, independently verified and committed. This is ordinary Tool readiness, not semantic mapping or a live migration receipt. Original Core Subjects and ordinary content are unchanged.
+
+CA-P-2072–2077 completed five independent mapping reviews and one source-drift audit, each with a separate commit. Of 573 proposed follow-up occurrences, 433 have supported candidate meanings, 62 are rejected and 78 remain unresolved. This does not settle the original unresolved research or authorize source edits. The current drift audit matches only the five approved grammar effects; raw stale grammar references and eight quarantined sources stay visible.
 
 A confirmed remaining modeling choice affects 220 role/type-qualified mappings across 123 sources: Type, Status and similar fields remain Atom-owned, but selecting a role/type-qualified owner needs either explicit narrower Atom kinds or new selector syntax. The Operator question is unanswered. Do not reinterpret the allowed value Plan as the bearer of those fields or invent a mapping. The known protected-registry authority-path mismatch remains outside this Tool gate and must not be counted as a graph pass.
 
