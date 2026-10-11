@@ -25,19 +25,20 @@ from release_test_phases import ReleaseTestPhaseMap, derive_test_phase_map_from_
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 _RUN_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
 _RUNNER_RESOURCES = frozenset({"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"})
+_WORKSPACE_SUPPORT_RESOURCES = frozenset({"DEFAULT", "PACKAGE_CONTROL", "DEPENDENCY"})
 
 
 @dataclass(frozen=True)
 class SealedSourcePath:
     """One regular portable source with a physical path and canonical origin."""
 
-    resource: Literal["FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"]
+    resource: Literal["FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "DEFAULT", "PACKAGE_CONTROL", "DEPENDENCY"]
     source_path: str
     destination_path: str
     sha256: str
     mode: int
     canonical_origin: str
-    origin_kind: Literal["candidate", "engine", "skill_projection", "methodology", "support", "compiled"]
+    origin_kind: Literal["candidate", "engine", "skill_projection", "methodology", "support", "compiled", "workspace_support"]
 
 
 @dataclass(frozen=True)
@@ -54,6 +55,7 @@ class PortableSuiteInputs:
     version_toml_sha256: str
     compiled_root: str
     source_paths: tuple[SealedSourcePath, ...]
+    workspace_paths: tuple[SealedSourcePath, ...]
     phase_map: ReleaseTestPhaseMap
 
 
@@ -98,9 +100,9 @@ def _checked_row(
     sha256: str,
     mode: int,
     canonical_origin: str,
-    origin_kind: Literal["candidate", "engine", "skill_projection", "methodology", "support", "compiled"],
+    origin_kind: Literal["candidate", "engine", "skill_projection", "methodology", "support", "compiled", "workspace_support"],
 ) -> SealedSourcePath:
-    if resource not in _RUNNER_RESOURCES:
+    if resource not in _RUNNER_RESOURCES | _WORKSPACE_SUPPORT_RESOURCES:
         raise _error("release-suite-portable-row-invalid", "portable Unit row has an unsupported resource")
     source = _relative(source_path, field="portable source path")
     destination = _relative(destination_path, field="portable destination path")
@@ -225,6 +227,7 @@ def collect_portable_suite_inputs(
         raise _error("release-suite-portable-binding-invalid", "portable compilation has invalid current bindings")
     root = Path(current_candidate.project_root)
     rows: dict[str, SealedSourcePath] = {}
+    workspace_support: dict[str, SealedSourcePath] = {}
 
     for inventory in current_candidate.manifest.source_inventory_rows:
         if inventory.resource not in _RUNNER_RESOURCES:
@@ -242,6 +245,20 @@ def collect_portable_suite_inputs(
 
     for portable in observed.portable_package_rows:
         resource = portable.resource
+        if resource in _WORKSPACE_SUPPORT_RESOURCES:
+            # These already sealed package inputs are fixture data, not
+            # executable runner sources or phase-map coverage claims.
+            _add(workspace_support, _checked_row(
+                root,
+                resource=resource,
+                source_path=portable.source_path,
+                destination_path=portable.destination_path,
+                sha256=portable.sha256,
+                mode=portable.mode,
+                canonical_origin=portable.source_path,
+                origin_kind="workspace_support",
+            ))
+            continue
         if resource == "METHODOLOGY_SUPPORT":
             resource = "METHODOLOGY"
         if resource not in _RUNNER_RESOURCES:
@@ -265,6 +282,10 @@ def collect_portable_suite_inputs(
     for compiled in _compiled_rows(root, observed):
         _add(rows, compiled)
     source_paths = tuple(sorted(rows.values(), key=lambda row: (row.source_path, row.destination_path, row.sha256)))
+    workspace_rows = dict(rows)
+    for row in workspace_support.values():
+        _add(workspace_rows, row)
+    workspace_paths = tuple(sorted(workspace_rows.values(), key=lambda row: (row.source_path, row.destination_path, row.sha256)))
     phase_origins: dict[str, SealedSourcePath] = {}
     for row in source_paths:
         if row.origin_kind == "skill_projection":
@@ -301,6 +322,7 @@ def collect_portable_suite_inputs(
         observed.version_toml_sha256,
         observed.private_compilation.compiled_root,
         source_paths,
+        workspace_paths,
         phase_map,
     )
 

@@ -412,7 +412,7 @@ def _bound_suite_inputs(
             Path(portable.candidate.project_root),
             portable.candidate,
             portable.source_paths,
-            portable.source_paths,
+            portable.workspace_paths,
             portable.compiled_root,
             portable.phase_map,
             portable,
