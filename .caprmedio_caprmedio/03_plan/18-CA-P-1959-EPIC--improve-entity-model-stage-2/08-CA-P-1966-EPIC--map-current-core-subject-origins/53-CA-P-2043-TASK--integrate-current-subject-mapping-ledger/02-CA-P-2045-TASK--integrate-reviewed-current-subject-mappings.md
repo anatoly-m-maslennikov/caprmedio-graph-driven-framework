@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 25
-updated_at: "2026-10-11 10:25:04 +0400"
+version: 26
+updated_at: "2026-10-11 10:57:18 +0400"
 relations:
   is_decomposition_of: [CA-P-2043]
   depends_on: ["CA-P-1972","CA-P-2044","CA-P-1992","CA-P-1993","CA-P-1994","CA-P-1995","CA-P-1996","CA-P-1997","CA-P-1998","CA-P-1999","CA-P-2000","CA-P-2001","CA-P-2002","CA-P-2003","CA-P-2004","CA-P-2005","CA-P-2006","CA-P-2007","CA-P-2008","CA-P-2009","CA-P-2010","CA-P-2011","CA-P-2012","CA-P-2013","CA-P-2014","CA-P-2015","CA-P-2016","CA-P-2017","CA-P-2018","CA-P-2019","CA-P-2020","CA-P-2021","CA-P-2022","CA-P-2023","CA-P-2024","CA-P-2025","CA-P-2026","CA-P-2027","CA-P-2028","CA-P-2029","CA-P-2030","CA-P-2031","CA-P-2032","CA-P-2033","CA-P-2034","CA-P-2035","CA-P-2036","CA-P-2037","CA-P-2038","CA-P-2039","CA-P-2040","CA-P-2041","CA-P-2042"]
@@ -76,6 +76,12 @@ CA-P-2121–2128 are Done and separately committed:205 exact origins,71 supporte
 - [CA-P-2131 — Rebuild the remaining-domain Subject ledger](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/18-CA-P-2131-TASK--rebuild-the-remaining-domain-subject-ledger.md)
 
 Latest integration checkpoint: CA-P-2121–2131 are Done. Eight independently accepted reviews cover205 exact origins across148 distinct current sources:71 supported mappings and134 explicit nulls. The persisted ledger now has1806 proposed,1540 unchanged and1188 unresolved references across907 original Core sources/4534 occurrences. All321 relevant tests pass (25 focused and296 native), plus88 report controls andten complete-ledger wrong-data controls. Corrected emission preserves accepted proof exactly; rejected interim hypotheses stay out. Original Core remains unchanged; eight quarantines, the unanswered selector decision and final migration/content gates remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-domains-2121-2128.json`. This is progress, not complete mapping or source adoption.
+
+CA-P-2132–2139 are Done and separately committed:195 exact current origins across148 distinct owners,63 supported mappings and132 explicit nulls. CA-P-2140–2142 integrate only those independently accepted final reports; original Core remains unchanged.
+
+- [CA-P-2140 — Integrate accepted residual Subject domains](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/19-CA-P-2140-TASK--integrate-accepted-residual-subject-domains.md)
+- [CA-P-2141 — Verify residual Subject layers independently](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/20-CA-P-2141-TASK--verify-residual-subject-layers-independently.md)
+- [CA-P-2142 — Rebuild the residual-domain Subject ledger](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/21-CA-P-2142-TASK--rebuild-the-residual-domain-subject-ledger.md)
 
 ### Definition of Done
 

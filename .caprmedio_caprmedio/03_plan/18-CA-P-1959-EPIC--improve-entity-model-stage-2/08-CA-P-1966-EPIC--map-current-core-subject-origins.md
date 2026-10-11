@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 131
-updated_at: "2026-10-11 10:55:57 +0400"
+version: 132
+updated_at: "2026-10-11 10:57:18 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -210,6 +210,8 @@ CA-P-2132–2139 review195 previously unreviewed current origins across148 disti
 - [CA-P-2137 — Review remaining fields history and Carrier Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/104-CA-P-2137-TASK--review-remaining-fields-history-and-carrier-subjects.md)
 - [CA-P-2138 — Review remaining settings and structure Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/105-CA-P-2138-TASK--review-remaining-settings-and-structure-subjects.md)
 - [CA-P-2139 — Review remaining relation and projection record Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/106-CA-P-2139-TASK--review-remaining-relation-and-projection-record-subjects.md)
+
+Residual-domain review checkpoint: CA-P-2132–2139 are Done and individually committed. All195 selected origins across148 current owners passed exact pin/span/coverage controls and independent semantic acceptance:63 supported mappings and132 explicit nulls. Broad Structural Parent and missing Status mappings were corrected; unsupported Spec/Change singleton values were rejected. CA-P-2140–2142 integrate only final accepted reports under CA-P-2045. This does not authorize source adoption or complete mapping.
 
 ### Definition of Done
 
