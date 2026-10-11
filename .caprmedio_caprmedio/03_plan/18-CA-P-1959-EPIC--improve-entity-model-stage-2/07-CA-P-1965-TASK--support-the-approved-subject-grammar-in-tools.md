@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 3
-updated_at: "2026-10-10 23:34:31 +0400"
+version: 4
+updated_at: "2026-10-11 04:07:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1975]
@@ -30,7 +30,7 @@ Make lookup, preview, parsing and validation agree on the approved proposed gram
 
 ## Details
 
-Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisite: CA-P-1964.
+Own implementation work: none. Assignee: AI Agent. Required prerequisites: CA-P-1964, CA-P-2059 and CA-P-2061. Add bounded, disjoint implementation children after the current contract review; each child has at most 15 minutes of own work. If Tool RMEDO needs alignment, finish and independently accept that separate source task before starting code.
 
 Use its recorded decision and exact grammar candidate. Update the existing parser/validator/preview implementation with explicitly selected old and proposed profiles; never silently reinterpret old sources. The proposed profile supports / broader-to-narrower, . bearer qualification and : allowed value with the approved direction and character rules.
 
