@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 4
-updated_at: "2026-10-11 04:07:00 +0400"
+version: 6
+updated_at: "2026-10-11 04:27:46 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1975]
@@ -30,9 +30,11 @@ Make lookup, preview, parsing and validation agree on the approved proposed gram
 
 ## Details
 
-Own implementation work: none. Assignee: AI Agent. Required prerequisites: CA-P-1964, CA-P-2059 and CA-P-2061. Add bounded, disjoint implementation children after the current contract review; each child has at most 15 minutes of own work. If Tool RMEDO needs alignment, finish and independently accept that separate source task before starting code.
+Own implementation work: none. Assignee: AI Agent. Required prerequisites: CA-P-1964, CA-P-2059, CA-P-2061 and CA-P-2062. Add bounded, disjoint implementation children after the aligned Tool contracts are accepted; each child has at most 15 minutes of own work. CA-P-2062 owns the required ten-source Tool-RMEDO alignment and independent contract gate before code.
 
 Use its recorded decision and exact grammar candidate. Update the existing parser/validator/preview implementation with explicitly selected old and proposed profiles; never silently reinterpret old sources. The proposed profile supports / broader-to-narrower, . bearer qualification and : allowed value with the approved direction and character rules.
+
+Follow the current contract from CA-P-2062, including the latest removal of @ as a carrier/display operator. D atoms own carrier/storage rules. A negative @ Subject-token test does not register a fourth operator. Preserve the separate historical archive filename convention.
 
 If the Operator refuses or defers the new-grammar exception, this Task is not ready; record the blocked cutover, do not fabricate approval. Include the graph producer in the profile contract. CA-P-1975 must verify the final changed implementation; the earlier CA-P-1963 receipt cannot accept later code.
 

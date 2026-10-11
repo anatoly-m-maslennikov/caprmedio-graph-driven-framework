@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Artifact/Carrier", "Atom Change Classification", "Atom/Revision/Updated At"]
-version: 14
-updated_at: "2026-10-11 04:28:11 +0400"
+version: 13
+updated_at: "2026-10-10 23:53:36 +0400"
 relations:
   relates_to: [CA-O-030, CA-E-304, CA-O-067, CA-R-1432, CA-R-1788, CA-R-1464, CA-R-1415, CA-R-1371]
 ---
@@ -35,43 +35,24 @@ the ATOM_UPDATE Tool **must** provide same-identity updates of the frontmatter, 
 - permit reuse of generic metadata **or** Relation-patch mechanics while retaining responsibility for Atom authority validation, admitted change class, Revision, transaction, **and** effect semantics.
 - default **to** mutation-free dry run. accept `--apply` **only** through authorized Project-local MCP delegation with a sealed Initiative action envelope.
 
-The Tool **must** also accept the additional closed Subject-only preview root
-`{atoms, subject_profile?}`. Every Atom item is exactly
-`{selector, expected, subject_patches}`, where
-`expected = {atom_id, version, sha256}`. Unknown root or item keys **must**
-fail. Each `subject_patches` entry has `field = governs|depends_on`, exact
-`old` and explicit `new` values, and a zero-based `index` when
-`field = depends_on`. An Atom item using `subject_patches` must not also request
-complete-frontmatter or body replacement. The selected files must be unique
-within the payload.
+The Tool **must** also accept the additional
+`{atoms: [{selector, expected: {atom_id, version, sha256}, subject_patches}]}`
+payload shape for an already-valid Atom carrier. Each `subject_patches` entry
+has `field = governs|depends_on`, exact `old` and explicit `new` values, and a
+zero-based `index` when `field = depends_on`. An Atom item using
+`subject_patches` must not also request complete-frontmatter or body
+replacement. The selected files must be unique within the payload.
 
-Omitted `subject_profile` selects `legacy`; `approved` is explicit; unknown or
-malformed supplied profiles **must** fail. Subject patches apply only to direct
-structured `subjects.governs` and `subjects.depends_on` fields, and the selected
-profile validates both the source and resulting scalar Subjects. Legacy uses
-`/` bearer qualification and `:` allowed values with literal dots. Approved
-uses `/` broader-to-narrower, `.` bearer-to-dependent, and `:`
-Property-to-allowed-value. Both reject `@`, escapes, selectors, conjunctions,
-and profile inference in Subject syntax.
-
-Subject patches **must** reject a malformed or nested legacy Subjects shape, an
-absent or ambiguous occurrence, a stale pin, an escaped or symlink target, or a
-duplicate resulting dependency. The Tool **must** retain complete-carrier
-validation and preserve every unrelated byte and line ending. A successful
-Subject value change is a semantic revision with Version `N + 1`; a no-op
-creates no revision. The preview result **must** return the selected
-`subject_profile` and `subject_profile_evidence` containing exactly
-`grammar_pins` and `native_admission: "not_performed"`; every grammar pin
-contains `atom_id`, `version`, `path`, and `sha256`, and preview seals those
-fields in its digest. Legacy cites the five exact historical definitions and
-approved cites the five current definitions. Local use remains preview-only; an
+Subject patches apply only to direct structured `subjects.governs` and
+`subjects.depends_on` fields. They **must** reject a malformed or nested legacy
+Subjects shape, an absent or ambiguous occurrence, a stale pin, an escaped or
+symlink target, or a duplicate resulting dependency. The Tool **must** validate
+the complete resulting carrier and preserve every unrelated byte and line
+ending. A successful Subject value change is a semantic revision with Version
+`N + 1`; a no-op creates no revision. Local use remains preview-only; an
 illustrative preview timestamp is not an execution receipt. This mode does not
-repair, migrate, infer ontology, adopt a Subject grammar, or add an apply path.
+repair, migrate, infer ontology, or adopt a Subject grammar.
 
-CA-M-371 defines the same-profile preview method. The historical
-`@<version>` archive filename convention remains a Delivery concern and is not
-a Subject operator. CA-O-030 defines the operational Action. CA-E-304 supplies
-its automated conformance cases **without** duplicating them **in** this
-capability Requirement.
+CA-O-030 defines the operational Action. CA-E-304 supplies its automated conformance cases **without** duplicating them **in** this capability Requirement.
 
 ## Details

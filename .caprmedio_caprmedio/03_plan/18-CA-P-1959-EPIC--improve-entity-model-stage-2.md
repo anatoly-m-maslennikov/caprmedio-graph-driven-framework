@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 15
-updated_at: "2026-10-11 04:19:02 +0400"
+version: 17
+updated_at: "2026-10-11 04:27:46 +0400"
 relations: {}
 ---
 # Summary
@@ -46,6 +46,8 @@ The Operator added CA-P-1978 as the first Task: review and update the Tools' Req
 - The seven candidate roots are Artifact, Scope Unit, Actor, Relation, Revision, Carrier and Execution. Dependent Entities belong to their owner lifecycle. Candidate display paths, temporal display groups and pseudocode are not automatically native grammar.
 - Keep the captured review frozen at commit `a971d0e00c33c779f485fc8cad63194894d440fb`. The [candidate](../_projection/core-entity-review/presentation/operator.entity-graph.candidate.json) and [consolidated review](../_projection/core-entity-review/consolidated/contract.md) guide decisions; they do not replace live source pins. Their 442 display proposals are not executable replacements, and 149 follow-ups must not be guessed or hidden.
 - Latest Operator input wins. Use the existing 90% threshold: investigate missing evidence; ask only when a concrete unresolved decision remains below it.
+
+Latest notation correction: compact Entity notation uses only `/`, `.` and `:`. Do not use `@` for carriers, even as a display convention; carrier and storage rules belong in D atoms. The captured candidate's earlier four-operator note remains historical, not current direction. The separate D-governed `@<version>` archive filename suffix is unchanged.
 
 The Operator clarified: Atom.Substance is the shared field; Claim, Question and Issue are labels, not separate dependent Entities or allowed values. Preserve the owning Atom's Content Role. Exact Atom/Claim can map to Atom.Substance where it refers to primary content; compound paths retain their separate owner/domain checks. CA-P-2047 records the actual answer as an additional pinned decision, without rewriting the frozen review inputs. Rename body labels later, in Step 2.
 
@@ -96,6 +98,7 @@ Step 2 must classify proposed edits before writing. Current authority requires a
 - [CA-P-1963 — Verify Subject Tools on isolated fixtures](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/05-CA-P-1963-TASK--verify-subject-tools-on-isolated-fixtures.md)
 - [CA-P-1964 — Resolve the Subject grammar cutover boundary](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/06-CA-P-1964-TASK--resolve-the-subject-grammar-cutover-boundary.md)
 - [CA-P-2061 — Review grammar-aware Subject Tool contracts](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/16-CA-P-2061-TASK--review-grammar-aware-subject-tool-contracts.md)
+- [CA-P-2062 — Align Subject Tool grammar contracts](18-CA-P-1959-EPIC--improve-entity-model-stage-2/17-CA-P-2062-TASK--align-subject-tool-grammar-contracts.md)
 - [CA-P-1965 — Support the approved Subject grammar in Tools](18-CA-P-1959-EPIC--improve-entity-model-stage-2/07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools.md)
 - [CA-P-1975 — Verify grammar-aware Subject Tool readiness](18-CA-P-1959-EPIC--improve-entity-model-stage-2/14-CA-P-1975-TASK--verify-grammar-aware-subject-tool-readiness.md)
 - [CA-P-1966 — Map current Core Subject origins](18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins.md)
