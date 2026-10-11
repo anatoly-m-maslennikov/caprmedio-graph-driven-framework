@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2145",
+  "recorded_at": "2026-10-11 11:50:12 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining unqualified subjects 002; not migration approval",
+  "verification": {
+    "task": "CA-P-2145",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2145.research.json",
+      "sha256": "ea17bd333aedc0a0e4b32b926e2697362bc2b9f64172a45974d277432044078f"
+    },
+    "rows": 22,
+    "counts": {
+      "proposed": 13,
+      "unresolved": 9
+    },
+    "exact_evidence_spans": 27,
+    "exact_supporting_definition_spans": 0,
+    "exact_input_pins": 12,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision",
+      "foreign_meaning_evidence",
+      "wrong_registration",
+      "partial_owner_body"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2144-2151.inputs.json",
+      "sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+    },
+    "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/projection_review_2099",
+      "final_report_sha256": "ea17bd333aedc0a0e4b32b926e2697362bc2b9f64172a45974d277432044078f",
+      "result": "PASS: thirteen supported proposals and nine justified nulls",
+      "meaning_checks": [
+        "Structural Parent is the direct child-to-parent Relation.Type, supported by current R1660, not generic Relation.",
+        "Atom.Type and Atom.Atom ID identify shared dependent fields, not owner selectors; Scope Unit property bearers stay separate from Substance applicability.",
+        "Substance follows the canonical Operator decision; current R1284/R978 and owner content support all proposals.",
+        "Nine composite history, structural partition, producer-authority, CCE and Terms/Projection cases require no unsupported broad substitution."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/projection_review_2099",
+    "final_report_sha256": "ea17bd333aedc0a0e4b32b926e2697362bc2b9f64172a45974d277432044078f",
+    "result": "PASS: thirteen supported proposals and nine justified nulls",
+    "meaning_checks": [
+      "Structural Parent is the direct child-to-parent Relation.Type, supported by current R1660, not generic Relation.",
+      "Atom.Type and Atom.Atom ID identify shared dependent fields, not owner selectors; Scope Unit property bearers stay separate from Substance applicability.",
+      "Substance follows the canonical Operator decision; current R1284/R978 and owner content support all proposals.",
+      "Nine composite history, structural partition, producer-authority, CCE and Terms/Projection cases require no unsupported broad substitution."
+    ]
+  },
+  "completion_scope": "All 22 selected origins across 19 owners passed complete current-body/pin/span/coverage controls, fourteen wrong-data controls and independent semantic acceptance: thirteen supported proposals and nine explicit nulls. Structural Parent, shared Atom fields, Scope Unit ownership and Substance applicability remain distinct; original Core is unchanged.",
+  "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
