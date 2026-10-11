@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Tool, Operator]
-version: 3
-updated_at: "2026-10-11 06:56:14 +0400"
+version: 4
+updated_at: "2026-10-11 06:56:50 +0400"
 relations:
   is_decomposition_of: [CA-P-2045]
 ---
@@ -39,6 +39,6 @@ This is implementation/preparation evidence, not original Source writes, selecto
 
 ### Definition of Done
 
-Own work is exhausted. This is now a group with no further own implementation. The remaining acceptance gap is delegated to [CA-P-2091 — Reject omitted mapping layers in independent verification](05-CA-P-2088-TASK--verify-the-working-subject-ledger-independently/01-CA-P-2091-TASK--reject-omitted-mapping-layers-in-independent-verification.md). It remains Active until the child and independent live checks pass; an earlier partial draft/test pass is not completion.
+Own work is exhausted. This is now a group with no further own implementation. The remaining acceptance gap is delegated to [CA-P-2091 — Reject omitted mapping layers in independent verification](05-CA-P-2088-TASK--verify-the-working-subject-ledger-independently/done/01-CA-P-2091-TASK--reject-omitted-mapping-layers-in-independent-verification.md). It remains Active until the child and independent live checks pass; an earlier partial draft/test pass is not completion.
 
 Not Done if assigned output/checks are missing, source/current-evidence pins or exact coverage fail, guesses or unresolved findings are hidden, priority/lineage is unsupported, any authority/captured output changes, or own work exceeds 15 minutes without decomposition.
