@@ -27,6 +27,8 @@ DIAGNOSTICS_REL = WORKING_REL / "diagnostics.json"
 BASELINE_REL = STAGE2_REL / "current-subjects.mapping-ledger.json"
 GRAMMAR_DRIFT_REL = STAGE2_REL / "current-grammar-source-drift.json"
 ACTOR_SUBSET_REL = STAGE2_REL / "semantic-reviews/task-2058.accepted-subset.json"
+GRAMMAR_REPORT_REL = STAGE2_REL / "semantic-reviews/current-grammar-subjects.review.json"
+GRAMMAR_RECEIPT_REL = STAGE2_REL / "task-2087.receipt.json"
 STRUCTURE_REL = Path(".caprmedio_caprmedio/project_structure.toml")
 VALIDATOR_ROOT = ROOT / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS"
 if str(VALIDATOR_ROOT) not in sys.path:
@@ -60,6 +62,7 @@ LAYER_SPECS = (
     ("CA-P-2085", "research"),
 )
 LAYER_PRIORITY = [task for task, _kind in LAYER_SPECS] + ["CA-P-2058 coverage_only", "CA-P-2087 recheck_gate"]
+GRAMMAR_ACCEPTED_PRIORITY = "CA-P-2087 accepted_current_grammar"
 
 
 class VerificationError(AssertionError):
@@ -362,6 +365,8 @@ def _verify_layers(
     layer_rows: dict[str, dict[str, tuple[str, str | None, float]]],
     baseline: dict[str, Any] | None,
     grammar_effects: dict[str, dict[str, Any]],
+    accepted_grammar_rows: dict[str, tuple[str, str | None, float]] | None,
+    layer_refs: dict[str, dict[str, dict[str, str]]],
 ) -> None:
     layers = row.get("applied_layers")
     require(isinstance(layers, list), f"{label} applied layers")
@@ -383,9 +388,20 @@ def _verify_layers(
             require(index == 0 and layer.get("accepted") is False, f"{label} baseline lineage only")
             require(layer.get("decision") == final_decision and layer.get("proposed_value") == final_target, f"{label} baseline decision/target")
         elif task == "CA-P-2087":
-            require(index == len(layers) - 1 and layer.get("status") == "not_independently_accepted", f"{label} grammar recheck gate")
-            require(layer.get("decision") == "unresolved" and layer.get("proposed_value") is None, f"{label} grammar recheck null")
-            final_decision, final_target, final_confidence = "unresolved", None, 0.0
+            require(index == len(layers) - 1, f"{label} grammar recheck final layer")
+            if accepted_grammar_rows is None:
+                require(layer.get("status") == "not_independently_accepted", f"{label} grammar recheck gate")
+                require(layer.get("decision") == "unresolved" and layer.get("proposed_value") is None, f"{label} grammar recheck null")
+                final_decision, final_target, final_confidence = "unresolved", None, 0.0
+            else:
+                expected = accepted_grammar_rows.get(row["occurrence_id"])
+                require(expected is not None and layer.get("priority") == "current_grammar", f"{label} accepted grammar layer")
+                decision, target, confidence = expected
+                references = layer_refs.get("CA-P-2087")
+                require(isinstance(references, dict), f"{label} accepted grammar manifest provenance")
+                require(layer.get("status") == "independently_accepted_current_grammar" and layer.get("report") == references.get("report") and layer.get("receipt") == references.get("receipt"), f"{label} accepted grammar provenance")
+                require(layer.get("decision") == decision and layer.get("proposed_value") == target and layer.get("confidence") == confidence, f"{label} accepted grammar target/confidence")
+                final_decision, final_target, final_confidence = decision, target, confidence
         else:
             require(isinstance(task, str) and task in layer_rows, f"{label} known accepted layer")
             rank = layer.get("priority")
@@ -393,6 +409,9 @@ def _verify_layers(
             expected = layer_rows[task].get(row["occurrence_id"])
             require(expected is not None, f"{label} selected layer occurrence")
             decision, target, confidence = expected
+            references = layer_refs.get(task)
+            require(isinstance(references, dict), f"{label} layer manifest provenance")
+            require(layer.get("report") == references.get("report") and layer.get("receipt") == references.get("receipt"), f"{label} layer provenance")
             require(layer.get("decision") == decision and layer.get("proposed_value") == target, f"{label} layer target")
             final_decision, final_target, final_confidence = decision, target, confidence
     require(row.get("decision") == final_decision, f"{label} final selected-layer decision")
@@ -408,6 +427,8 @@ def _verify_rows(
     layer_rows: dict[str, dict[str, tuple[str, str | None, float]]],
     actor_targets: dict[str, str],
     grammar_effects: dict[str, dict[str, Any]],
+    accepted_grammar_rows: dict[str, tuple[str, str | None, float]] | None,
+    layer_refs: dict[str, dict[str, dict[str, str]]],
 ) -> dict[str, int]:
     require(isinstance(rows, list), "ledger rows list")
     expected_by_id = {row["occurrence_id"]: row for row in expected}
@@ -441,7 +462,7 @@ def _verify_rows(
         require(row.get("executable") is False, f"{label} non-executable")
         require(isinstance(row.get("reason"), str) and row["reason"].strip(), f"{label} reason")
         baseline = _verify_lineage(row, expected_row, baseline_rows, grammar_effects, label)
-        _verify_layers(row, label, layer_rows, baseline, grammar_effects)
+        _verify_layers(row, label, layer_rows, baseline, grammar_effects, accepted_grammar_rows, layer_refs)
         if occurrence_id in actor_targets:
             require(decision == "proposed" and target == actor_targets[occurrence_id], f"{label} Actor canonical target")
         if decision != "unresolved":
@@ -503,6 +524,51 @@ def _grammar_effects(root: Path, ledger: dict[str, Any]) -> dict[str, dict[str, 
     return effects
 
 
+def _read_accepted_grammar_rows(
+    root: Path,
+    ledger: dict[str, Any],
+    expected_occurrences: list[dict[str, Any]],
+    grammar_effects: dict[str, dict[str, Any]],
+) -> dict[str, tuple[str, str | None, float]] | None:
+    pins = ledger.get("input_pins")
+    accepted = pins.get("accepted_layers") if isinstance(pins, dict) else None
+    require(isinstance(accepted, list) and len(accepted) in {len(LAYER_SPECS) + 1, len(LAYER_SPECS) + 2}, "accepted layer manifest size")
+    if len(accepted) == len(LAYER_SPECS) + 1:
+        receipt_path = relative_path(root, GRAMMAR_RECEIPT_REL.as_posix(), "accepted grammar receipt")
+        require(not receipt_path.exists(), "accepted grammar manifest required when receipt exists")
+        return None
+    item = accepted[-1]
+    require(isinstance(item, dict) and item.get("task") == "CA-P-2087" and item.get("priority") == "current_grammar" and item.get("kind") == "current_grammar_subject_recheck" and item.get("rows") == 33, "accepted grammar manifest")
+    report_path = relative_path(root, GRAMMAR_REPORT_REL.as_posix(), "accepted grammar report")
+    receipt_path = relative_path(root, GRAMMAR_RECEIPT_REL.as_posix(), "accepted grammar receipt")
+    report = read_json(report_path, "accepted grammar report")
+    receipt = read_json(receipt_path, "accepted grammar receipt")
+    report_pin = _descriptor(report_path, GRAMMAR_REPORT_REL)
+    receipt_pin = _descriptor(receipt_path, GRAMMAR_RECEIPT_REL)
+    require(item.get("report") == report_pin and item.get("receipt") == receipt_pin, "accepted grammar report/receipt pins")
+    verification = receipt.get("verification")
+    independent = receipt.get("independent_review")
+    require(receipt.get("task") == "CA-P-2087" and isinstance(receipt.get("result"), str) and receipt["result"].startswith("PASS") and receipt.get("non_authoritative") is True, "accepted grammar receipt identity")
+    require(isinstance(verification, dict) and verification.get("task") == "CA-P-2087" and verification.get("output") == report_pin and verification.get("rows") == 33 and verification.get("current_sources") == 5 and verification.get("counts") == {"proposed": 15, "unresolved": 18} and str(verification.get("root_mechanical_checks", "")).startswith("PASS"), "accepted grammar receipt verification")
+    require(isinstance(independent, dict) and independent.get("reviewed_output_sha256") == report_pin["sha256"] and independent.get("accepted_proposals") == 15 and independent.get("correct_unresolved") == 18 and isinstance(independent.get("result"), str) and independent["result"].startswith("PASS"), "accepted grammar independent receipt")
+    require(report.get("schema_version") == 1 and report.get("task_id") == "CA-P-2087" and report.get("non_authoritative") is True and report.get("source_migration") == "not_performed" and report.get("native_admission") == "not_performed", "accepted grammar report boundary")
+    rows = report.get("occurrences")
+    expected_by_id = {row["occurrence_id"]: row for row in expected_occurrences if row["source_atom_id"] in grammar_effects}
+    require(isinstance(rows, list) and len(rows) == 33 and len(expected_by_id) == 33 and report.get("counts", {}).get("occurrences") == 33 and report.get("counts", {}).get("proposed") == 15 and report.get("counts", {}).get("unresolved") == 18, "accepted grammar exact coverage/counts")
+    mapped: dict[str, tuple[str, str | None, float]] = {}
+    for number, row in enumerate(rows):
+        require(isinstance(row, dict), f"accepted grammar row {number}")
+        occurrence_id = row.get("occurrence_id")
+        require(isinstance(occurrence_id, str) and occurrence_id in expected_by_id and occurrence_id not in mapped, f"accepted grammar occurrence {number}")
+        expected = expected_by_id[occurrence_id]
+        require({key: row.get(key) for key in expected} == expected, f"accepted grammar current origin {occurrence_id}")
+        decision, target, confidence = _normalized_layer_row("research", row, f"accepted grammar row {number}")
+        require(row.get("executable") is False and any(_span_matches(root, evidence, expected, f"accepted grammar row {number}") for evidence in row.get("evidence", []) if isinstance(evidence, dict)), f"accepted grammar current evidence {occurrence_id}")
+        mapped[occurrence_id] = (decision, target, confidence)
+    require(set(mapped) == set(expected_by_id), "accepted grammar exact occurrence identities")
+    return mapped
+
+
 def _verify_receipt(task: str, kind: str, receipt: dict[str, Any], report_pin: dict[str, str]) -> None:
     require(receipt.get("task") == task and isinstance(receipt.get("result"), str) and receipt["result"].startswith("PASS"), f"accepted receipt identity {task}")
     if task == "CA-P-2048":
@@ -531,8 +597,8 @@ def _verify_receipt(task: str, kind: str, receipt: dict[str, Any], report_pin: d
 def _read_actor_targets(root: Path, ledger: dict[str, Any]) -> dict[str, str]:
     pins = ledger.get("input_pins")
     accepted = pins.get("accepted_layers") if isinstance(pins, dict) else None
-    require(isinstance(accepted, list) and len(accepted) == len(LAYER_SPECS) + 1, "Actor accepted manifest")
-    item = accepted[-1]
+    require(isinstance(accepted, list) and len(accepted) in {len(LAYER_SPECS) + 1, len(LAYER_SPECS) + 2}, "Actor accepted manifest")
+    item = accepted[len(LAYER_SPECS)]
     require(isinstance(item, dict) and item.get("task") == "CA-P-2058" and item.get("priority") == "coverage_only" and item.get("kind") == "canonical_target_check" and item.get("rows") == 43, "Actor subset manifest")
     report_path = relative_path(root, ACTOR_SUBSET_REL.as_posix(), "Actor subset")
     report = read_json(report_path, "Actor subset")
@@ -556,11 +622,33 @@ def _read_actor_targets(root: Path, ledger: dict[str, Any]) -> dict[str, str]:
     return targets
 
 
+def _layer_refs(ledger: dict[str, Any]) -> dict[str, dict[str, dict[str, str]]]:
+    """Return the manifest descriptors each admitted per-row layer must repeat."""
+
+    pins = ledger.get("input_pins")
+    accepted = pins.get("accepted_layers") if isinstance(pins, dict) else None
+    require(isinstance(accepted, list) and len(accepted) in {len(LAYER_SPECS) + 1, len(LAYER_SPECS) + 2}, "layer provenance manifest coverage")
+    references: dict[str, dict[str, dict[str, str]]] = {}
+    for position, (task, _kind) in enumerate(LAYER_SPECS):
+        item = accepted[position]
+        require(isinstance(item, dict) and item.get("task") == task, f"layer provenance manifest {task}")
+        report, receipt = item.get("report"), item.get("receipt")
+        require(isinstance(report, dict) and isinstance(receipt, dict), f"layer provenance descriptors {task}")
+        references[task] = {"report": report, "receipt": receipt}
+    if len(accepted) == len(LAYER_SPECS) + 2:
+        item = accepted[-1]
+        require(isinstance(item, dict) and item.get("task") == "CA-P-2087", "accepted grammar provenance manifest")
+        report, receipt = item.get("report"), item.get("receipt")
+        require(isinstance(report, dict) and isinstance(receipt, dict), "accepted grammar provenance descriptors")
+        references["CA-P-2087"] = {"report": report, "receipt": receipt}
+    return references
+
+
 def _read_layer_rows(root: Path, ledger: dict[str, Any]) -> dict[str, dict[str, tuple[str, str | None, float]]]:
     pins = ledger.get("input_pins")
     require(isinstance(pins, dict), "ledger input pins")
     accepted = pins.get("accepted_layers")
-    require(isinstance(accepted, list) and len(accepted) == len(LAYER_SPECS) + 1, "accepted layer manifest coverage")
+    require(isinstance(accepted, list) and len(accepted) in {len(LAYER_SPECS) + 1, len(LAYER_SPECS) + 2}, "accepted layer manifest coverage")
     output: dict[str, dict[str, tuple[str, str | None, float]]] = {}
     for position, (task, kind) in enumerate(LAYER_SPECS):
         item = accepted[position]
@@ -602,7 +690,6 @@ def verify_working_ledger(root: Path = ROOT) -> dict[str, Any]:
     require(ledger.get("non_authoritative") is True, "ledger non-authoritative")
     require(ledger.get("source_migration") == "not_performed", "ledger source migration")
     require(ledger.get("native_admission") == "not_performed", "ledger native admission")
-    require(ledger.get("layer_priority") == LAYER_PRIORITY, "ledger accepted layer priority")
     require(ledger.get("source_reviews") == [_source_view(source) for source in expected["selected_sources"]], "ledger exact current source pins")
     require(ledger.get("remaining_gaps", {}).get("diagnostics_path") == DIAGNOSTICS_REL.as_posix(), "ledger diagnostics reference")
     require(diagnostics.get("schema_version") == 1 and diagnostics.get("non_authoritative") is True, "diagnostics envelope")
@@ -610,9 +697,13 @@ def verify_working_ledger(root: Path = ROOT) -> dict[str, Any]:
     require(diagnostics.get("counts", {}).get("quarantined_sources") == sum(source["quarantined"] for source in expected["selected_sources"]), "diagnostics quarantines")
     baseline_rows = _read_baseline_rows(root, ledger)
     grammar_effects = _grammar_effects(root, ledger)
+    accepted_grammar_rows = _read_accepted_grammar_rows(root, ledger, expected["occurrences"], grammar_effects)
+    expected_priority = LAYER_PRIORITY[:-1] + [GRAMMAR_ACCEPTED_PRIORITY if accepted_grammar_rows is not None else LAYER_PRIORITY[-1]]
+    require(ledger.get("layer_priority") == expected_priority, "ledger accepted layer priority")
     layer_rows = _read_layer_rows(root, ledger)
     actor_targets = _read_actor_targets(root, ledger)
-    counts = _verify_rows(root, ledger.get("occurrences"), expected["occurrences"], baseline_rows, layer_rows, actor_targets, grammar_effects)
+    layer_refs = _layer_refs(ledger)
+    counts = _verify_rows(root, ledger.get("occurrences"), expected["occurrences"], baseline_rows, layer_rows, actor_targets, grammar_effects, accepted_grammar_rows, layer_refs)
     actual_counts = ledger.get("counts")
     require(isinstance(actual_counts, dict), "ledger counts")
     require(actual_counts.get("sources") == len(expected["selected_sources"]) and actual_counts.get("occurrences") == len(expected["occurrences"]), "ledger exact coverage counts")

@@ -88,7 +88,19 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
     def _baseline(self, row: dict) -> dict:
         return copy.deepcopy(row["historical_origin"])
 
-    def _verify(self, rows: list[dict], layers: dict | None = None, actors: dict | None = None, grammar: dict | None = None, baseline: dict | None = None) -> dict:
+    def _verify(self, rows: list[dict], layers: dict | None = None, actors: dict | None = None, grammar: dict | None = None, accepted_grammar: dict | None = None, baseline: dict | None = None, layer_refs: dict | None = None) -> dict:
+        layer_refs = layer_refs if layer_refs is not None else {
+            task: {
+                "report": {"path": f"{task}.report.json", "sha256": "a" * 64},
+                "receipt": {"path": f"{task}.receipt.json", "sha256": "a" * 64},
+            }
+            for task in (layers or {})
+        }
+        if accepted_grammar is not None:
+            layer_refs.setdefault("CA-P-2087", {
+                "report": {"path": "grammar.report.json", "sha256": "a" * 64},
+                "receipt": {"path": "grammar.receipt.json", "sha256": "a" * 64},
+            })
         return verifier._verify_rows(
             self.root,
             rows,
@@ -97,6 +109,8 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
             layers or {},
             actors or {},
             grammar or {},
+            accepted_grammar,
+            layer_refs,
         )
 
     def _rejects(self, rows: list[dict]) -> None:
@@ -153,15 +167,24 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
             self._verify([row], {"CA-P-2072": {self.expected["occurrence_id"]: ("proposed", "Atom.Type", .95)}})
 
     def test_true_wrong_target_and_wrong_baseline_are_rejected(self) -> None:
-        wrong_target = self._row()
-        wrong_target["applied_layers"].append({
+        references = {
+            "CA-P-2072": {
+                "report": {"path": "task-2072.review.json", "sha256": "a" * 64},
+                "receipt": {"path": "task-2072.receipt.json", "sha256": "a" * 64},
+            }
+        }
+        valid_target = self._row()
+        valid_target["applied_layers"].append({
             "layer": "CA-P-2072", "priority": 2,
-            "decision": "proposed", "proposed_value": "Atom.Type",
+            **references["CA-P-2072"],
+            "decision": "proposed", "proposed_value": "Atom.Status",
         })
-        wrong_target["decision"] = "proposed"
-        wrong_target["proposed_value"] = "Atom.Type"
+        layers = {"CA-P-2072": {self.expected["occurrence_id"]: ("proposed", "Atom.Status", .95)}}
+        self.assertEqual(self._verify([valid_target], layers, layer_refs=references)["proposed"], 1)
+        wrong_target = copy.deepcopy(valid_target)
+        wrong_target["applied_layers"][-1]["proposed_value"] = "Atom.Type"
         with self.assertRaises(verifier.VerificationError):
-            self._verify([wrong_target], {"CA-P-2072": {self.expected["occurrence_id"]: ("proposed", "Atom.Status", .95)}})
+            self._verify([wrong_target], layers, layer_refs=references)
         wrong_baseline = self._row()
         wrong_baseline["applied_layers"][0]["proposed_value"] = "Atom.Type"
         wrong_baseline["proposed_value"] = "Atom.Type"
@@ -175,6 +198,75 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
         grammar = self._row()
         with self.assertRaises(verifier.VerificationError):
             self._verify([grammar], grammar={"CA-R-1": {}})
+
+    def test_accepted_grammar_layer_is_required_and_exact(self) -> None:
+        accepted = {self.expected["occurrence_id"]: ("proposed", "Atom.Status", .95)}
+        missing = self._row()
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([missing], grammar={"CA-R-1": {}}, accepted_grammar=accepted)
+        references = {
+            "CA-P-2087": {
+                "report": {"path": "grammar.report.json", "sha256": "a" * 64},
+                "receipt": {"path": "grammar.receipt.json", "sha256": "a" * 64},
+            }
+        }
+        valid = self._row()
+        valid["applied_layers"].append({
+            "layer": "CA-P-2087", "priority": "current_grammar",
+            "status": "independently_accepted_current_grammar",
+            **references["CA-P-2087"],
+            "decision": "proposed", "proposed_value": "Atom.Status", "confidence": .95,
+        })
+        self.assertEqual(self._verify([valid], grammar={"CA-R-1": {}}, accepted_grammar=accepted, layer_refs=references)["proposed"], 1)
+        wrong = copy.deepcopy(valid)
+        wrong["applied_layers"][-1]["proposed_value"] = "Atom.Type"
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([wrong], grammar={"CA-R-1": {}}, accepted_grammar=accepted, layer_refs=references)
+
+    def test_accepted_grammar_status_and_recorded_confidence_are_required(self) -> None:
+        accepted = {self.expected["occurrence_id"]: ("proposed", "Atom.Status", .95)}
+        references = {
+            "CA-P-2087": {
+                "report": {"path": "grammar.report.json", "sha256": "a" * 64},
+                "receipt": {"path": "grammar.receipt.json", "sha256": "a" * 64},
+            }
+        }
+        row = self._row()
+        row["applied_layers"].append({
+            "layer": "CA-P-2087", "priority": "current_grammar",
+            "status": "independently_accepted_current_grammar",
+            **references["CA-P-2087"],
+            "decision": "proposed", "proposed_value": "Atom.Status", "confidence": .94,
+        })
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([row], grammar={"CA-R-1": {}}, accepted_grammar=accepted, layer_refs=references)
+        row["applied_layers"][-1]["confidence"] = .95
+        row["applied_layers"][-1]["status"] = "accepted"
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([row], grammar={"CA-R-1": {}}, accepted_grammar=accepted, layer_refs=references)
+
+    def test_stale_per_row_report_descriptor_is_rejected(self) -> None:
+        row = self._row()
+        report = {"path": "task-2072.review.json", "sha256": "a" * 64}
+        receipt = {"path": "task-2072.receipt.json", "sha256": "a" * 64}
+        row["applied_layers"].append({
+            "layer": "CA-P-2072", "priority": 2,
+            "report": {**report, "sha256": "b" * 64},
+            "receipt": receipt,
+            "decision": "proposed", "proposed_value": "Atom.Status",
+        })
+        layers = {"CA-P-2072": {self.expected["occurrence_id"]: ("proposed", "Atom.Status", .95)}}
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([row], layers, layer_refs={"CA-P-2072": {"report": report, "receipt": receipt}})
+
+    def test_present_grammar_receipt_requires_manifest(self) -> None:
+        ledger = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + 1)]}}
+        self.assertIsNone(verifier._read_accepted_grammar_rows(self.root, ledger, [], {}))
+        receipt = self.root / verifier.GRAMMAR_RECEIPT_REL
+        receipt.parent.mkdir(parents=True, exist_ok=True)
+        receipt.write_text("{}\n")
+        with self.assertRaises(verifier.VerificationError):
+            verifier._read_accepted_grammar_rows(self.root, ledger, [], {})
 
     def test_missing_or_wrong_historical_counterpart_is_rejected(self) -> None:
         missing = self._row()

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2093",
+  "recorded_at": "2026-10-11 07:07:42 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded verify the accepted current grammar layer independently; not migration approval",
+  "verification": {
+    "outputs": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+        "sha256": "002d48ebf4a5f0c630950cbe8ba3740b811fbf2a9741da2799a4fe859021250a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_working_mapping_ledger.py",
+        "sha256": "ff9d3231ef6b14e4372365ca0c6b57caa21cf00d8ed5afdc60df311630f823a7"
+      }
+    ],
+    "root_independent_code_review": "PASS",
+    "focused_tests": {
+      "passed": 14,
+      "failed": 0
+    },
+    "independent_live_gate": {
+      "outcome": "PASS",
+      "sources": 907,
+      "occurrences": 4534,
+      "proposed": 1468,
+      "unchanged": 1540,
+      "unresolved": 1526,
+      "quarantined_sources": 8,
+      "quarantined_occurrences": 35,
+      "excluded_sources": 11203,
+      "accepted_current_grammar_occurrences": 33,
+      "grammar_recheck_required": 0,
+      "ledger_sha256": "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d",
+      "focused_tests": 14,
+      "tool_tests": 296,
+      "source_diff": "empty since441bc48e1"
+    },
+    "negative_checks": [
+      "omitted entire accepted grammar manifest",
+      "omitted required row layer",
+      "valid ordinary/grammar target mutated alone",
+      "stale per-row report descriptor",
+      "wrong accepted grammar status/confidence",
+      "wrong source/counterpart/baseline outcome",
+      "stale source/span and missing lineage",
+      "inferred selectors/executable rows"
+    ],
+    "result": "PASS: Root independent current frontier and reviewed source/layer reconstruction"
+  },
+  "independent_review": null,
+  "completion_scope": "The independent live gate verifies the accepted current grammar layer, exact per-row report/receipt provenance, recorded confidence and required layers. Fourteen valid-control/adversarial tests pass; the fresh 4534-row ledger passes. An existing accepted receipt cannot be omitted from the manifest.",
+  "registration_commit": "7da81a352666289fda4404d9d75d910e43208307",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
