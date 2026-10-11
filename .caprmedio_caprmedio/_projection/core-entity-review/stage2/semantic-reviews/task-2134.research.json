@@ -1,0 +1,1885 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2134",
+  "family": "roles_implementation_evaluation",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "selection": {
+    "family": "roles_implementation_evaluation",
+    "sources": 20,
+    "occurrences": 25,
+    "occurrence_id_set_sha256": "0bf89c3b6dac43dcb141167882c09e6808288edfec8a655159ff6df0721fc6af",
+    "manifest_sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+  },
+  "limits": [
+    "Semantic research only; no source migration, native admission, selector, @ syntax, singleton kind, new root, Artifact.Revision target, Carrier registry, or runtime action is authorized.",
+    "Content-role allowed values, concrete non-Atom Implementation Artifacts, reusable Operations definitions, actual Executions/Journal Records, Runtime State, and Evaluation judgments remain distinct.",
+    "Every unresolved value remains null with current owning-source evidence; it is not a completed mapping decision. Candidate display-name absence alone is not grounds for null."
+  ],
+  "counts": {
+    "assigned": 25,
+    "covered": 25,
+    "proposed": 11,
+    "unresolved": 14,
+    "current_sources": 20,
+    "current_evidence_spans": 25
+  },
+  "input_pins": {
+    "manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "frozen_baseline_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2132-2139.contract.md",
+        "sha256": "3ed29d889a2d7905614a0d02c23a75f82fb002ffea51f4dce2714f60865aa6ff"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/101-CA-P-2134-TASK--review-remaining-role-and-implementation-subjects.md",
+      "sha256": "394e0f25bfc0924d3cca481591a54774a6ad798cbaee12ffef3ad796e6a63e51",
+      "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+        "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+        "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source.md",
+        "sha256": "cf857c75b7e791c035eb34ee63801010d72cc4ad8bf39852ea76e933b9fe53a6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+        "sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+        "sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md",
+        "sha256": "42bac0554e085881c7902a8477792c052a4abda9c8538efc0751410f71044aac"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md",
+        "sha256": "6d5e65915b857be8e399aee9b32364dde2caa56ec6757bd8e69282b4ffee0098"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-496-CORE_META_MODEL-QA_CASE--validate-nested-tool-call-evidence.md",
+        "sha256": "7122717a9d94a903bd4268393ebf9dacfac2da9450b55cbf6a800fb7ec311b31"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-498-CORE_META_MODEL-QA_CASE--validate-specification-change-and-implementation-classification.md",
+        "sha256": "dcef550f7b655a5c5d55a8ecdd3a078df436974278faebd86f6bdde97f29a8a5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md",
+        "sha256": "d1e5fed55a099d470da7c7e766ae0b1bec5a6b83c1707c3a648aa26e00802043"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+        "sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md",
+        "sha256": "f4b1f457c746f09e73e68e784f552b45c2157b6587ea319ee8c0ca0f4a37202e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-513-CORE_META_MODEL-QA_CASE--validate-the-atom-carrier-validation-workflow-definition.md",
+        "sha256": "47e76173ba795804a5e43e741dbdbd98fef65836dc5911d0ae8ccc7734b2d234"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md",
+        "sha256": "70f17039419cd20eee9a38c3d106b9d75b7bf4b563b732b3632b9c5115f601a0"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md",
+        "sha256": "3d311421cf753721b84da36b1cb5f67c70bcaa766baa5636bc95453cdf005d62"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md",
+        "sha256": "afa851cac9bc169ee46e90e98fe0deb5646a210881bb50a712fa8cc656d7d931"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-001-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability.md",
+        "sha256": "693e0262b0b4a373fc99d5504b99809e9a25781331bf1b89388c516ba9fbcf6d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-009-CORE_META_MODEL-QA_CASE--effective-priority-selection.md",
+        "sha256": "debf8c3f03344fc462b228052941f60107f165c5d571dfebde4724368c947ada"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md",
+        "sha256": "994b91d17ef0089ff49d3bc8d07776830d0ab3803ebcef5fbbbdfee9343219b6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+        "sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_atom_id": "CA-R-1720",
+      "source_version": 18,
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Implementation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.66,
+      "reason": "The complete current body uses Implementation in the authoritative Work Journal as part of historical lifecycle provenance and governed events. Current Journal definitions distinguish an ordered Journal Record from the event itself, while the candidate reserves Execution for actual runs; mapping this old value to a role or root would lose the Event, Record, and history boundary.",
+      "candidate_basis": [
+        {
+          "pointer": "/history_model/journal_role",
+          "reason": "The candidate says a Journal records what happened and that a record is not the event itself."
+        },
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate reserves Execution for one actual run of an Operation, not a historical Journal Record or Event label."
+        }
+      ],
+      "preserved_distinctions": [
+        "Implementation lifecycle events, Journal Records, and current Implementation Content Role remain distinct.",
+        "A Project Journal is authoritative history; Runtime State and derived views are not extra history.",
+        "No Event or Journal Record root is inferred from this subject string."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 31,
+          "end_line": 46,
+          "span_sha256": "6a0eb5bc1c7e68dc3dc3b59c3afe9cacf7a4cee548a92beef53744f03716fcc0",
+          "reason": "Current explicit global definition CA-R-1720 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 21,
+          "end_line": 34,
+          "span_sha256": "de9e5802a3a0a8d8cb5dc30000a5663943c2b21a257b17e18d80af0968f9ccf2",
+          "reason": "Current explicit global definition CA-R-1745 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md",
+          "sha256": "c50c68fea59b4168b3b694b09e453d220d31feb3166b9cc908ba827a81f2ee96",
+          "start_line": 22,
+          "end_line": 28,
+          "span_sha256": "9a8d77426a8c640fce1ffc52d7102aa1ccdd2d1a091134f3bb047dc2233b9261",
+          "reason": "Current explicit global definition CA-R-1729 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md",
+          "sha256": "996e199076e7e039b094cec23394cdfa22412dd12f69676585ba008c7713dac5",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "696067ed3155170dc2d6aa0802e91591896c2cf946f7e5ead710e86a0a723ea7",
+          "reason": "Current explicit global definition CA-R-1643 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+      "source_atom_id": "CA-R-1724",
+      "source_version": 21,
+      "source_sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Tool",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.66,
+      "reason": "The configuration body treats Tool as an available capability selected, combined, activated, or disabled by Framework Instance Settings. Current Action/Operations definitions distinguish reusable capability/definition from execution and do not provide a Tool root in the candidate; a bare Tool target would lose availability versus activation semantics.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate reserves Execution for one actual run of an Operation and keeps the definition/run boundary."
+        },
+        {
+          "pointer": "/m_e_root_question/decision",
+          "reason": "The candidate keeps specifications role-centred on Atoms and actual performances/checks on Executions."
+        }
+      ],
+      "preserved_distinctions": [
+        "Tool capability availability and instance activation remain distinct.",
+        "Framework Instance Settings is an Artifact/selection policy, not a Tool execution record.",
+        "No Tool root, selector, or singleton kind is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+          "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "7c444811e278c2a554aad6a9eca47f74ced72894770f0fa533bf8e3c880c8290",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md",
+          "sha256": "d469011478752241340e3dd544f0744bddc7b7129e3ae7e1e249144363e5c007",
+          "start_line": 36,
+          "end_line": 38,
+          "span_sha256": "08925702a25ef2f3998e23a287666de4673a15bd479173c8b57f71918bb44e82",
+          "reason": "Current explicit global definition CA-R-1452 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-CORE-REQUIREMENT--define-the-operations-content-role.md",
+          "sha256": "8e6280d4acbbab76d70b936a69803d95d0d6e855845003d1e92e5d71470e328f",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "5c8205d7d4cb4c5c820e35286d9b7d1aebd4fa4fd2c20b14e6b980aae59720ba",
+          "reason": "Current explicit global definition CA-R-1530 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Current explicit global definition CA-R-1683 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "source_atom_id": "CA-R-1873",
+      "source_version": 1,
+      "source_sha256": "cf857c75b7e791c035eb34ee63801010d72cc4ad8bf39852ea76e933b9fe53a6",
+      "field": "governs",
+      "index": null,
+      "old_value": "Implementation/Derivation and Actual-State Authority",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "This quarantined qualified subject combines Implementation derivation with actual-state authority. The current owner explicitly distinguishes native Implementation as the state source from an Implementation Overview Projection; the candidate separates Artifact lifecycle and derived Projection, but has no single target that preserves both qualification facets. The exact combined label is therefore unresolved rather than flattened.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The candidate defines Artifact as one governed lifecycle unit, preserving concrete implementation lifecycle semantics."
+        },
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "The candidate distinguishes a Projection as another Entity instance from its source Entity instance."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "The candidate keeps Projection derived and non-authoritative for source facts."
+        }
+      ],
+      "preserved_distinctions": [
+        "Native Implementation actual state, derivation lineage, and Implementation Overview Projection remain separate.",
+        "Quarantine is retained; no Artifact prefix, Projection subtype, or selector is invented.",
+        "A concrete implementation Artifact is not collapsed into an Atom Content Role."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source.md",
+          "sha256": "cf857c75b7e791c035eb34ee63801010d72cc4ad8bf39852ea76e933b9fe53a6",
+          "start_line": 17,
+          "end_line": 31,
+          "span_sha256": "e508a97b9a4c59674cba7b80b58b4f376c00daa8d551e17702fe8f58064056d4",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source.md",
+          "sha256": "cf857c75b7e791c035eb34ee63801010d72cc4ad8bf39852ea76e933b9fe53a6",
+          "start_line": 18,
+          "end_line": 31,
+          "span_sha256": "8b704d2526ac46b6775953b1aa9cf25a29ec0450ff839919f7478f3539ea1fdb",
+          "reason": "Current explicit global definition CA-R-1873 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1343-CORE_META_MODEL-CORE-REQUIREMENT--define-implementation-content-role.md",
+          "sha256": "ae94de81b2b492632e1dfff2a0adb43bc3587e049e5e0798e23d04aa1e489f1c",
+          "start_line": 20,
+          "end_line": 33,
+          "span_sha256": "24782d0c86c6a981f2ef70485072359d25f018889dfde4a483c7c4e688e009a1",
+          "reason": "Current explicit global definition CA-R-1343 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 26,
+          "end_line": 44,
+          "span_sha256": "d6d699bd99765840d39bfbdaa9f9ae2631bde16f0d69e99886989816dc1eca7d",
+          "reason": "Current explicit global definition CA-R-1703 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+      "source_atom_id": "CA-R-992",
+      "source_version": 17,
+      "source_sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+      "field": "governs",
+      "index": null,
+      "old_value": "Work Sequence Number",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "proposed",
+      "proposed_value": "Atom.Work Sequence Number",
+      "confidence": 0.92,
+      "reason": "The current owner defines Work Sequence Number as a mutable ordinal for Plan navigation and explicitly separates it from Atom identity, scope, type, subtype, decomposition, and blocking. CA-R-991 defines the same field as a Plan-owned navigation value; the qualified Atom property form preserves that field without treating it as an execution selector.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Work Sequence Number remains a Plan navigation ordinal, not identity or execution order.",
+        "The shared Hub/top-level Plan-container uniqueness rule and all Plan qualification remain in the owning bodies.",
+        "No selector syntax or new Work Sequence root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+          "sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "c28fba99e225cd83eac7b7005d533ac09339120be9aebdc1631f488c37a49afa",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md",
+          "sha256": "42669320fd794a333d707b349797f5d596df95b67c0e027be2e6a8084908e39a",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "c5475a81704a92ba645f34078e0397ac40854dec0cc7119526208a87513646f9",
+          "reason": "Current explicit global definition CA-R-991 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+          "sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+          "start_line": 27,
+          "end_line": 37,
+          "span_sha256": "91c6bd4ff27bd46e554f0c7ce44338d9d7dcc56ecb925d7c17704c4ed6747e8e",
+          "reason": "Current explicit global definition CA-R-992 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+          "sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+          "start_line": 24,
+          "end_line": 34,
+          "span_sha256": "90758c94d4c38688b4db4cd8433d5cbb88ef8116f8c561b69afd347b4a28c522",
+          "reason": "Current explicit global definition CA-R-997 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+      "source_atom_id": "CA-R-997",
+      "source_version": 17,
+      "source_sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+      "field": "governs",
+      "index": null,
+      "old_value": "Work Sequence Number",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "proposed",
+      "proposed_value": "Atom.Work Sequence Number",
+      "confidence": 0.92,
+      "reason": "The current owner validates positive unique Work Sequence Numbers among Plans sharing a Hub or top-level Plan container. CA-R-991 and CA-R-997 make this a Plan-owned navigation field, while CA-R-992 forbids identity or execution semantics; the qualified Atom property form preserves those constraints.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Positive uniqueness is scoped to Plans sharing the stated Hub or top-level container.",
+        "Sequence remains navigation ordering only and does not alter identity, decomposition, blocking, or runtime order.",
+        "No selector grammar or Work Sequence root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+          "sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "19fba5fb30eb622a6b504cce98e70baedb4f6837a02f99a99434014d567fda8e",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-991-CORE_META_MODEL-CORE-REQUIREMENT--define-work-sequence-number.md",
+          "sha256": "42669320fd794a333d707b349797f5d596df95b67c0e027be2e6a8084908e39a",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "c5475a81704a92ba645f34078e0397ac40854dec0cc7119526208a87513646f9",
+          "reason": "Current explicit global definition CA-R-991 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-997-CORE_META_MODEL-REQUIREMENT--validate-work-sequence-numbers.md",
+          "sha256": "fe5adbdfd0fdf5b84930e836dbfbc5d67b40a0861e29a3b4ebb37060a9a89e56",
+          "start_line": 24,
+          "end_line": 34,
+          "span_sha256": "90758c94d4c38688b4db4cd8433d5cbb88ef8116f8c561b69afd347b4a28c522",
+          "reason": "Current explicit global definition CA-R-997 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-992-CORE_META_MODEL-CORE-REQUIREMENT--separate-work-sequence-from-atom-identity.md",
+          "sha256": "78ffc3aeea41c075bcd73658d78721eb73d15ee573d903e2ff1288c6ad4813f5",
+          "start_line": 31,
+          "end_line": 37,
+          "span_sha256": "90deedb7e834a226da3b5ecc84e7723831e7dc86aefb5dbeb73459ccfdeab80b",
+          "reason": "Current explicit global definition CA-R-992 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md",
+      "source_atom_id": "CA-M-304",
+      "source_version": 4,
+      "source_sha256": "42bac0554e085881c7902a8477792c052a4abda9c8538efc0751410f71044aac",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Tool",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.66,
+      "reason": "The Method defines a self-contained Agentic Action instruction whose Tool calls are execution details under a Step Run. Current Action, Step, Tool-call, and Operations definitions keep reusable definitions distinct from actual executions and Journal evidence; a bare Tool target cannot retain that nested execution boundary.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate reserves Execution for one actual run of an Operation and keeps the definition/run boundary."
+        },
+        {
+          "pointer": "/m_e_root_question/decision",
+          "reason": "The candidate keeps specifications role-centred on Atoms and actual performances/checks on Executions."
+        }
+      ],
+      "preserved_distinctions": [
+        "Reusable Action/Step/Workflow definitions differ from Tool calls inside an actual Step Run.",
+        "Tool-call inputs, results, and errors remain execution evidence rather than a new Tool root.",
+        "No selector, singleton kind, or extra Step is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md",
+          "sha256": "42bac0554e085881c7902a8477792c052a4abda9c8538efc0751410f71044aac",
+          "start_line": 24,
+          "end_line": 41,
+          "span_sha256": "557c1e7d60ddd2c68b30f62ee1b10805997af3cd77616f03836b0b6111c59420",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md",
+          "sha256": "d469011478752241340e3dd544f0744bddc7b7129e3ae7e1e249144363e5c007",
+          "start_line": 28,
+          "end_line": 38,
+          "span_sha256": "e58c54f322b44e516991643c30c5454e8ca7c0aaba97785d6276157e6baf7707",
+          "reason": "Current explicit global definition CA-R-1452 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1509-CORE_META_MODEL-CORE-REQUIREMENT--define-step.md",
+          "sha256": "29969fbadae10b18096c356dca721982b60e256dbf186301a065210cfbce3083",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "7216b5775b685ae771be04516dd4d8c1e1c45555c323b37f3dc2c362f809f8e1",
+          "reason": "Current explicit global definition CA-R-1509 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-GENERAL-REQUIREMENT--record-tool-calls-within-step-runs.md",
+          "sha256": "6f0398d693b75a32af5778be51539da934a79e25492b73d88a82284b70fda17d",
+          "start_line": 25,
+          "end_line": 42,
+          "span_sha256": "2dd92aa42280fd89c850f4ce85ade99d0e7532a87ed5c27ce805a85045e13512",
+          "reason": "Current explicit global definition CA-R-1528 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-CORE-REQUIREMENT--define-the-operations-content-role.md",
+          "sha256": "8e6280d4acbbab76d70b936a69803d95d0d6e855845003d1e92e5d71470e328f",
+          "start_line": 32,
+          "end_line": 34,
+          "span_sha256": "55a94b9abf5609d1cb0653b06a1bdffbfe58c3bd68cd31d1aefff01c5d380314",
+          "reason": "Current explicit global definition CA-R-1530 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md",
+      "source_atom_id": "CA-E-246",
+      "source_version": 25,
+      "source_sha256": "6d5e65915b857be8e399aee9b32364dde2caa56ec6757bd8e69282b4ffee0098",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Concern",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Concern",
+      "confidence": 0.93,
+      "reason": "The current Evaluation records a Concern when Atom Subject validation fails. CA-R-1283 makes Concern an allowed Content Role value and CA-R-1531 defines Content Role as an Atom Property, so the role-qualified property preserves a validation concern without inventing a separate record or root.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Concern is the role of the affected Atom's content, not a separate Subject or runtime record.",
+        "Evaluation procedure and failure disposition remain distinct from the Concern role."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md",
+          "sha256": "6d5e65915b857be8e399aee9b32364dde2caa56ec6757bd8e69282b4ffee0098",
+          "start_line": 58,
+          "end_line": 98,
+          "span_sha256": "01f439259d6634bda4e9d6b90a3686f2411fb3443e24af086282d223189f38ed",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 26,
+          "end_line": 28,
+          "span_sha256": "5a87104fbca8ff81af44fb63e87e4a2c32e7c0f6a3bd81f7d36eb96baafc8c18",
+          "reason": "Current explicit global definition CA-R-1283 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "245640c3bd3a08e59ad9f3c2ddf69272e2db2d86160008de1e3cf205c1e04c46",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "612cdd055326b56ee61abb970d32702fdf21a1b91549c0a88309c3ffe72e221e",
+          "reason": "Current explicit global definition CA-R-1341 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-496-CORE_META_MODEL-QA_CASE--validate-nested-tool-call-evidence.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-496-CORE_META_MODEL-QA_CASE--validate-nested-tool-call-evidence.md",
+      "source_atom_id": "CA-E-496",
+      "source_version": 4,
+      "source_sha256": "7122717a9d94a903bd4268393ebf9dacfac2da9450b55cbf6a800fb7ec311b31",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Tool",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.68,
+      "reason": "The QA case validates nested Tool-call evidence within a Step Run, including Tool identity, inputs, results, and errors. Current Step/Tool-call definitions place those facts inside Execution evidence and do not make Tool a candidate root; mapping to a bare Tool would erase the nested call and run context.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate reserves Execution for one actual run of an Operation and keeps the definition/run boundary."
+        },
+        {
+          "pointer": "/m_e_root_question/decision",
+          "reason": "The candidate keeps specifications role-centred on Atoms and actual performances/checks on Executions."
+        }
+      ],
+      "preserved_distinctions": [
+        "Tool identity and call evidence remain nested in the Step Run.",
+        "The validation Evaluation is distinct from the actual Execution and Journal Record.",
+        "No Tool root or selector is adopted."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-496-CORE_META_MODEL-QA_CASE--validate-nested-tool-call-evidence.md",
+          "sha256": "7122717a9d94a903bd4268393ebf9dacfac2da9450b55cbf6a800fb7ec311b31",
+          "start_line": 25,
+          "end_line": 46,
+          "span_sha256": "90fc18223d2fd3a6de997fd1453f8974bf819be0408de3baf84009d51c262f20",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-GENERAL-REQUIREMENT--record-tool-calls-within-step-runs.md",
+          "sha256": "6f0398d693b75a32af5778be51539da934a79e25492b73d88a82284b70fda17d",
+          "start_line": 25,
+          "end_line": 42,
+          "span_sha256": "2dd92aa42280fd89c850f4ce85ade99d0e7532a87ed5c27ce805a85045e13512",
+          "reason": "Current explicit global definition CA-R-1528 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1509-CORE_META_MODEL-CORE-REQUIREMENT--define-step.md",
+          "sha256": "29969fbadae10b18096c356dca721982b60e256dbf186301a065210cfbce3083",
+          "start_line": 40,
+          "end_line": 41,
+          "span_sha256": "860c9587df601cb3ae47ab32f873a91d765d71465f9de31e22ae1227f1cb0226",
+          "reason": "Current explicit global definition CA-R-1509 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md",
+          "sha256": "d469011478752241340e3dd544f0744bddc7b7129e3ae7e1e249144363e5c007",
+          "start_line": 36,
+          "end_line": 38,
+          "span_sha256": "08925702a25ef2f3998e23a287666de4673a15bd479173c8b57f71918bb44e82",
+          "reason": "Current explicit global definition CA-R-1452 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md",
+          "sha256": "c50c68fea59b4168b3b694b09e453d220d31feb3166b9cc908ba827a81f2ee96",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "fcfbe98d10c44ca74adf89939f4ffbb7159091b5ca8e3b9e143f225487555e2e",
+          "reason": "Current explicit global definition CA-R-1729 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-498-CORE_META_MODEL-QA_CASE--validate-specification-change-and-implementation-classification.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-498-CORE_META_MODEL-QA_CASE--validate-specification-change-and-implementation-classification.md",
+      "source_atom_id": "CA-E-498",
+      "source_version": 5,
+      "source_sha256": "dcef550f7b655a5c5d55a8ecdd3a078df436974278faebd86f6bdde97f29a8a5",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Spec Content Roles",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The current owner uses Spec Content Roles as a collective classification, not one singleton value. CA-R-1283 lists the allowed Atom Content Role values and excludes Spec and Change; CA-R-1548 defines Spec as the set (Requirement, Method, Evaluation, Delivery). The candidate can represent an Atom property but has no confirmed set-valued role target, so Atom.Content Role: Spec would invent a singleton and lose membership semantics.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Spec Content Roles remain the collective set (Requirement, Method, Evaluation, Delivery), not one allowed Atom Content Role value.",
+        "The current Evaluation's collective classification remains distinct from each member Atom's role property.",
+        "No set-valued notation, singleton Spec value, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-498-CORE_META_MODEL-QA_CASE--validate-specification-change-and-implementation-classification.md",
+          "sha256": "dcef550f7b655a5c5d55a8ecdd3a078df436974278faebd86f6bdde97f29a8a5",
+          "start_line": 26,
+          "end_line": 52,
+          "span_sha256": "cef4cd70b0dcd65e398b428583e5f71866834350451368fd704353f69c14905d",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "a3840c1cf1b48c15cdf444df2bccadbc06507c4ddd2281f19b8882f6e15339a2",
+          "reason": "Current explicit global definition CA-R-1283 was re-read to test this origin; the anchored body span preserves the collective Content Role set boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md",
+          "sha256": "25f7ff661e45ceef86a3a54aa0e02fcd273c32ae4ddac63b10a000cebe1efe5f",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "c407f26045e3986d77da3de601c81404449d279cd89c4f0da9da18f995902300",
+          "reason": "Current explicit global definition CA-R-1548 was re-read to test this origin; the anchored body span preserves the collective Content Role set boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "73a39707957988f6d6c5680ae97be0cd54fba82ff99b99cdc38fb9db27dbcdb6",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the collective Content Role set boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-498-CORE_META_MODEL-QA_CASE--validate-specification-change-and-implementation-classification.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-498-CORE_META_MODEL-QA_CASE--validate-specification-change-and-implementation-classification.md",
+      "source_atom_id": "CA-E-498",
+      "source_version": 5,
+      "source_sha256": "dcef550f7b655a5c5d55a8ecdd3a078df436974278faebd86f6bdde97f29a8a5",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Change Content Roles",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The current owner uses Change Content Roles as a collective classification, not one singleton value. CA-R-1283 lists the allowed Atom Content Role values and excludes Spec and Change; CA-R-1549 defines Change as the set (Concern, Analysis, Plan, Operations). The candidate has no confirmed set-valued role target, so Atom.Content Role: Change would invent a singleton and lose membership semantics.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Change Content Roles remain the collective set (Concern, Analysis, Plan, Operations), not one allowed Atom Content Role value.",
+        "The current Evaluation's collective classification remains distinct from each member Atom's role property.",
+        "No set-valued notation, singleton Change value, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-498-CORE_META_MODEL-QA_CASE--validate-specification-change-and-implementation-classification.md",
+          "sha256": "dcef550f7b655a5c5d55a8ecdd3a078df436974278faebd86f6bdde97f29a8a5",
+          "start_line": 26,
+          "end_line": 52,
+          "span_sha256": "cef4cd70b0dcd65e398b428583e5f71866834350451368fd704353f69c14905d",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "a3840c1cf1b48c15cdf444df2bccadbc06507c4ddd2281f19b8882f6e15339a2",
+          "reason": "Current explicit global definition CA-R-1283 was re-read to test this origin; the anchored body span preserves the collective Content Role set boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1549-CORE_META_MODEL-CORE-REQUIREMENT--define-change-content-roles.md",
+          "sha256": "621e0721ff32f85f65cedd7f213cb3ee6e81268159b53d6496630b2815f426cd",
+          "start_line": 24,
+          "end_line": 34,
+          "span_sha256": "efac2ee86b40a6341f0ef0f8007d41c7398b36614d04548f4051b086790db3d3",
+          "reason": "Current explicit global definition CA-R-1549 was re-read to test this origin; the anchored body span preserves the collective Content Role set boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "73a39707957988f6d6c5680ae97be0cd54fba82ff99b99cdc38fb9db27dbcdb6",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the collective Content Role set boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-498-CORE_META_MODEL-QA_CASE--validate-specification-change-and-implementation-classification.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-498-CORE_META_MODEL-QA_CASE--validate-specification-change-and-implementation-classification.md",
+      "source_atom_id": "CA-E-498",
+      "source_version": 5,
+      "source_sha256": "dcef550f7b655a5c5d55a8ecdd3a078df436974278faebd86f6bdde97f29a8a5",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Implementation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Implementation",
+      "confidence": 0.95,
+      "reason": "The current Evaluation classifies concrete implementation content separately from specification and change content. CA-R-1343 defines Implementation as the current realization of accepted specification and CA-R-1531 makes Content Role an Atom Property, supporting the qualified property target while retaining actual implementation Artifacts and projections as distinct.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Implementation as an Atom Content Role is distinct from a concrete non-Atom implementation Artifact.",
+        "The current realization, accepted specification, and derived Projection boundaries remain intact."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-498-CORE_META_MODEL-QA_CASE--validate-specification-change-and-implementation-classification.md",
+          "sha256": "dcef550f7b655a5c5d55a8ecdd3a078df436974278faebd86f6bdde97f29a8a5",
+          "start_line": 26,
+          "end_line": 52,
+          "span_sha256": "cef4cd70b0dcd65e398b428583e5f71866834350451368fd704353f69c14905d",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1343-CORE_META_MODEL-CORE-REQUIREMENT--define-implementation-content-role.md",
+          "sha256": "ae94de81b2b492632e1dfff2a0adb43bc3587e049e5e0798e23d04aa1e489f1c",
+          "start_line": 20,
+          "end_line": 33,
+          "span_sha256": "24782d0c86c6a981f2ef70485072359d25f018889dfde4a483c7c4e688e009a1",
+          "reason": "Current explicit global definition CA-R-1343 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "a3840c1cf1b48c15cdf444df2bccadbc06507c4ddd2281f19b8882f6e15339a2",
+          "reason": "Current explicit global definition CA-R-1283 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "73a39707957988f6d6c5680ae97be0cd54fba82ff99b99cdc38fb9db27dbcdb6",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md",
+      "source_atom_id": "CA-E-499",
+      "source_version": 7,
+      "source_sha256": "d1e5fed55a099d470da7c7e766ae0b1bec5a6b83c1707c3a648aa26e00802043",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Spec Content Roles",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The tier Evaluation uses Spec Content Roles as a collective classification. CA-R-1283 excludes Spec from the allowed Atom Content Role values, while CA-R-1548 defines Spec as the set (Requirement, Method, Evaluation, Delivery). Without a confirmed set-valued candidate field, Atom.Content Role: Spec would collapse the collective membership boundary and remains unresolved.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Spec Content Roles remain a collective set rather than a singleton role value.",
+        "Tier classification and each member Atom's Content Role remain separate.",
+        "No set-valued notation, singleton Spec value, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md",
+          "sha256": "d1e5fed55a099d470da7c7e766ae0b1bec5a6b83c1707c3a648aa26e00802043",
+          "start_line": 28,
+          "end_line": 57,
+          "span_sha256": "00021d5713b0bc813215305cb7bcbaea029b0abc51ff45a75a995ef8597cc10d",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "a3840c1cf1b48c15cdf444df2bccadbc06507c4ddd2281f19b8882f6e15339a2",
+          "reason": "Current explicit global definition CA-R-1283 was re-read to test this origin; the anchored body span preserves the collective Content Role set boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-CORE-REQUIREMENT--define-specification-content-roles.md",
+          "sha256": "25f7ff661e45ceef86a3a54aa0e02fcd273c32ae4ddac63b10a000cebe1efe5f",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "c407f26045e3986d77da3de601c81404449d279cd89c4f0da9da18f995902300",
+          "reason": "Current explicit global definition CA-R-1548 was re-read to test this origin; the anchored body span preserves the collective Content Role set boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "73a39707957988f6d6c5680ae97be0cd54fba82ff99b99cdc38fb9db27dbcdb6",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the collective Content Role set boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md",
+      "source_atom_id": "CA-E-499",
+      "source_version": 7,
+      "source_sha256": "d1e5fed55a099d470da7c7e766ae0b1bec5a6b83c1707c3a648aa26e00802043",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Change Content Roles",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The tier Evaluation uses Change Content Roles as a collective classification. CA-R-1283 excludes Change from the allowed Atom Content Role values, while CA-R-1549 defines Change as the set (Concern, Analysis, Plan, Operations). Without a confirmed set-valued candidate field, Atom.Content Role: Change would collapse collective membership and remains unresolved.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Change Content Roles remain a collective set rather than a singleton role value.",
+        "Tier classification and each member Atom's Content Role remain separate.",
+        "No set-valued notation, singleton Change value, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md",
+          "sha256": "d1e5fed55a099d470da7c7e766ae0b1bec5a6b83c1707c3a648aa26e00802043",
+          "start_line": 28,
+          "end_line": 57,
+          "span_sha256": "00021d5713b0bc813215305cb7bcbaea029b0abc51ff45a75a995ef8597cc10d",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "a3840c1cf1b48c15cdf444df2bccadbc06507c4ddd2281f19b8882f6e15339a2",
+          "reason": "Current explicit global definition CA-R-1283 was re-read to test this origin; the anchored body span preserves the collective Content Role set boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1549-CORE_META_MODEL-CORE-REQUIREMENT--define-change-content-roles.md",
+          "sha256": "621e0721ff32f85f65cedd7f213cb3ee6e81268159b53d6496630b2815f426cd",
+          "start_line": 24,
+          "end_line": 34,
+          "span_sha256": "efac2ee86b40a6341f0ef0f8007d41c7398b36614d04548f4051b086790db3d3",
+          "reason": "Current explicit global definition CA-R-1549 was re-read to test this origin; the anchored body span preserves the collective Content Role set boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "73a39707957988f6d6c5680ae97be0cd54fba82ff99b99cdc38fb9db27dbcdb6",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the collective Content Role set boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md",
+      "source_atom_id": "CA-E-499",
+      "source_version": 7,
+      "source_sha256": "d1e5fed55a099d470da7c7e766ae0b1bec5a6b83c1707c3a648aa26e00802043",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Implementation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Implementation",
+      "confidence": 0.95,
+      "reason": "The tier Evaluation distinguishes concrete Implementation content from specification and change content. CA-R-1343 defines Implementation as the current realization of accepted specification, while CA-R-1531 places Content Role on the Atom; the target preserves both the role and the concrete realization boundary.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Implementation role is not the concrete non-Atom implementation Artifact itself.",
+        "Tier classification, accepted specification, native realization, and Projection remain distinct."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md",
+          "sha256": "d1e5fed55a099d470da7c7e766ae0b1bec5a6b83c1707c3a648aa26e00802043",
+          "start_line": 28,
+          "end_line": 57,
+          "span_sha256": "00021d5713b0bc813215305cb7bcbaea029b0abc51ff45a75a995ef8597cc10d",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1343-CORE_META_MODEL-CORE-REQUIREMENT--define-implementation-content-role.md",
+          "sha256": "ae94de81b2b492632e1dfff2a0adb43bc3587e049e5e0798e23d04aa1e489f1c",
+          "start_line": 20,
+          "end_line": 33,
+          "span_sha256": "24782d0c86c6a981f2ef70485072359d25f018889dfde4a483c7c4e688e009a1",
+          "reason": "Current explicit global definition CA-R-1343 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "a3840c1cf1b48c15cdf444df2bccadbc06507c4ddd2281f19b8882f6e15339a2",
+          "reason": "Current explicit global definition CA-R-1283 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "73a39707957988f6d6c5680ae97be0cd54fba82ff99b99cdc38fb9db27dbcdb6",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md#subjects.depends_on[13]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+      "source_atom_id": "CA-E-510",
+      "source_version": 3,
+      "source_sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+      "field": "depends_on",
+      "index": 13,
+      "old_value": "Evaluation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Evaluation",
+      "confidence": 0.94,
+      "reason": "The navigation migration QA case uses Evaluation for a falsifiable migration check and evidence judgment. CA-R-1341 explicitly defines Evaluation as a Content Role with falsifiable checks and CA-R-1531 makes that role an Atom Property.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Evaluation remains a reusable/specification content role for the check, not the actual execution of that check.",
+        "Navigation migration evidence and its Concern disposition remain separate."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+          "sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+          "start_line": 35,
+          "end_line": 74,
+          "span_sha256": "7c38b70fd0086092e49c1dbd8a519bc92d0555dfe61ffd500ebc85690693e234",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "252dc6d3e65401ca817c99746c3c171afce3f5c3f20fd4deda6c028887499fd8",
+          "reason": "Current explicit global definition CA-R-1341 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 26,
+          "end_line": 28,
+          "span_sha256": "5a87104fbca8ff81af44fb63e87e4a2c32e7c0f6a3bd81f7d36eb96baafc8c18",
+          "reason": "Current explicit global definition CA-R-1283 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "245640c3bd3a08e59ad9f3c2ddf69272e2db2d86160008de1e3cf205c1e04c46",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md#subjects.depends_on[15]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+      "source_atom_id": "CA-E-510",
+      "source_version": 3,
+      "source_sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+      "field": "depends_on",
+      "index": 15,
+      "old_value": "Concern",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Concern",
+      "confidence": 0.92,
+      "reason": "The navigation migration QA case records Concern for a failed or problematic migration condition. Concern is a current allowed Content Role and Content Role is an Atom Property; the qualified target does not turn the disposition into a separate event or root.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Concern is the affected content's role-specific disposition, while Evaluation remains the checking procedure.",
+        "No independent Concern record or runtime state is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+          "sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+          "start_line": 35,
+          "end_line": 74,
+          "span_sha256": "7c38b70fd0086092e49c1dbd8a519bc92d0555dfe61ffd500ebc85690693e234",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 26,
+          "end_line": 28,
+          "span_sha256": "5a87104fbca8ff81af44fb63e87e4a2c32e7c0f6a3bd81f7d36eb96baafc8c18",
+          "reason": "Current explicit global definition CA-R-1283 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "612cdd055326b56ee61abb970d32702fdf21a1b91549c0a88309c3ffe72e221e",
+          "reason": "Current explicit global definition CA-R-1341 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "245640c3bd3a08e59ad9f3c2ddf69272e2db2d86160008de1e3cf205c1e04c46",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md",
+      "source_atom_id": "CA-E-512",
+      "source_version": 3,
+      "source_sha256": "f4b1f457c746f09e73e68e784f552b45c2157b6587ea319ee8c0ca0f4a37202e",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Concern",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Concern",
+      "confidence": 0.92,
+      "reason": "The lexical-case QA case uses Concern for a failed CCE lexical condition. CA-R-1283 lists Concern among current Content Role values and CA-R-1531 defines the field as an Atom Property, supporting the qualified role target without adding a lexical or failure root.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Lexical-case validation remains an Evaluation; Concern is its role-specific failure disposition.",
+        "No syntax token or independent Concern Entity is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md",
+          "sha256": "f4b1f457c746f09e73e68e784f552b45c2157b6587ea319ee8c0ca0f4a37202e",
+          "start_line": 32,
+          "end_line": 77,
+          "span_sha256": "55f5aa1cb73f13b7605249d0e411e7abe6cf781b8acd16d993795c8ff5a53d7f",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 26,
+          "end_line": 28,
+          "span_sha256": "5a87104fbca8ff81af44fb63e87e4a2c32e7c0f6a3bd81f7d36eb96baafc8c18",
+          "reason": "Current explicit global definition CA-R-1283 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "612cdd055326b56ee61abb970d32702fdf21a1b91549c0a88309c3ffe72e221e",
+          "reason": "Current explicit global definition CA-R-1341 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "245640c3bd3a08e59ad9f3c2ddf69272e2db2d86160008de1e3cf205c1e04c46",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-513-CORE_META_MODEL-QA_CASE--validate-the-atom-carrier-validation-workflow-definition.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-513-CORE_META_MODEL-QA_CASE--validate-the-atom-carrier-validation-workflow-definition.md",
+      "source_atom_id": "CA-E-513",
+      "source_version": 4,
+      "source_sha256": "47e76173ba795804a5e43e741dbdbd98fef65836dc5911d0ae8ccc7734b2d234",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Evaluation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Evaluation",
+      "confidence": 0.94,
+      "reason": "The Atom Carrier Validation Workflow QA case is an Evaluation of a reusable Workflow definition's conformance. CA-R-1341 defines Evaluation as the falsifiable check role and CA-R-1531 places it on an Atom; the target preserves the Workflow definition versus validation judgment distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "The reusable Workflow definition and its Evaluation remain distinct.",
+        "Conformance judgment is not treated as successful Tool execution or a new Evaluation root."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-513-CORE_META_MODEL-QA_CASE--validate-the-atom-carrier-validation-workflow-definition.md",
+          "sha256": "47e76173ba795804a5e43e741dbdbd98fef65836dc5911d0ae8ccc7734b2d234",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "024d591e6312a98ece81430440c459f0b7f925bd47d7dd6f2ba786437334a7a6",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "252dc6d3e65401ca817c99746c3c171afce3f5c3f20fd4deda6c028887499fd8",
+          "reason": "Current explicit global definition CA-R-1341 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 26,
+          "end_line": 28,
+          "span_sha256": "5a87104fbca8ff81af44fb63e87e4a2c32e7c0f6a3bd81f7d36eb96baafc8c18",
+          "reason": "Current explicit global definition CA-R-1283 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "245640c3bd3a08e59ad9f3c2ddf69272e2db2d86160008de1e3cf205c1e04c46",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md",
+      "source_atom_id": "CA-E-521",
+      "source_version": 1,
+      "source_sha256": "70f17039419cd20eee9a38c3d106b9d75b7bf4b563b732b3632b9c5115f601a0",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Evaluation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Evaluation",
+      "confidence": 0.94,
+      "reason": "The updated-at and semantic-version QA case is a falsifiable check of currentness and version behavior. CA-R-1341 explicitly defines Evaluation as the check/acceptance role, and CA-R-1531 defines it as an Atom Property.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Version and Updated At fields remain properties under evaluation; the Evaluation role is not their value.",
+        "The QA check remains distinct from any actual Execution or Journal Record."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md",
+          "sha256": "70f17039419cd20eee9a38c3d106b9d75b7bf4b563b732b3632b9c5115f601a0",
+          "start_line": 32,
+          "end_line": 58,
+          "span_sha256": "9eed858245e2fd7fe6cb4b6ffc38461c6cc2bb21fccd67628dd508069627fe69",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "252dc6d3e65401ca817c99746c3c171afce3f5c3f20fd4deda6c028887499fd8",
+          "reason": "Current explicit global definition CA-R-1341 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-CORE-REQUIREMENT--register-content-role-values.md",
+          "sha256": "499f8b5bfd743359ed9c445dbb7e779913bf57da99a0fcdfdfae1a5c093353e0",
+          "start_line": 26,
+          "end_line": 28,
+          "span_sha256": "5a87104fbca8ff81af44fb63e87e4a2c32e7c0f6a3bd81f7d36eb96baafc8c18",
+          "reason": "Current explicit global definition CA-R-1283 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "245640c3bd3a08e59ad9f3c2ddf69272e2db2d86160008de1e3cf205c1e04c46",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md",
+      "source_atom_id": "CA-E-522",
+      "source_version": 1,
+      "source_sha256": "3d311421cf753721b84da36b1cb5f67c70bcaa766baa5636bc95453cdf005d62",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Runtime State",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.7,
+      "reason": "The storage-boundary Evaluation classifies Runtime State as non-canonical transient state. Current boundary definitions keep persistent authority outside Runtime State and reserve Carrier for what stores an Entity representation; Runtime State is neither a Carrier, an Execution, nor an independent Artifact target.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "The candidate reserves Carrier for what carries or stores an Entity representation."
+        },
+        {
+          "pointer": "/history_model/journal_role",
+          "reason": "The candidate distinguishes Journal records/history from the event itself."
+        }
+      ],
+      "preserved_distinctions": [
+        "Runtime State remains transient/non-canonical and is not promoted to a graph root.",
+        "Carrier storage/representation and Project Journal authority remain separate.",
+        "No runtime write or Execution mapping is implied by this research."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md",
+          "sha256": "3d311421cf753721b84da36b1cb5f67c70bcaa766baa5636bc95453cdf005d62",
+          "start_line": 29,
+          "end_line": 65,
+          "span_sha256": "2a320f47132ed5ea73b92ad7ada46e7583415f9f377e72c3226da34fa86a6943",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+          "sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "b14a6184fba19503330c16ce6e50554cbba58d111d40483b4cd2e9e170e9a874",
+          "reason": "Current explicit global definition CA-D-341 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 31,
+          "end_line": 46,
+          "span_sha256": "6a0eb5bc1c7e68dc3dc3b59c3afe9cacf7a4cee548a92beef53744f03716fcc0",
+          "reason": "Current explicit global definition CA-R-1720 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 21,
+          "end_line": 34,
+          "span_sha256": "de9e5802a3a0a8d8cb5dc30000a5663943c2b21a257b17e18d80af0968f9ccf2",
+          "reason": "Current explicit global definition CA-R-1745 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md",
+      "source_atom_id": "CA-E-523",
+      "source_version": 1,
+      "source_sha256": "afa851cac9bc169ee46e90e98fe0deb5646a210881bb50a712fa8cc656d7d931",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Runtime State",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.7,
+      "reason": "The Journal-view Evaluation distinguishes source Journal events/records from derived views and selection state. Current storage and Journal definitions keep Runtime State non-canonical and do not make it a Carrier, Journal Record, or Execution; the old value cannot be mapped without losing the source-versus-view boundary.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "The candidate reserves Carrier for what carries or stores an Entity representation."
+        },
+        {
+          "pointer": "/history_model/journal_role",
+          "reason": "The candidate distinguishes Journal records/history from the event itself."
+        }
+      ],
+      "preserved_distinctions": [
+        "Source Journal records/events and derived views remain distinct.",
+        "Runtime State and Projection/derived representation do not become independent authority.",
+        "No runtime state root or selector is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md",
+          "sha256": "afa851cac9bc169ee46e90e98fe0deb5646a210881bb50a712fa8cc656d7d931",
+          "start_line": 29,
+          "end_line": 65,
+          "span_sha256": "ae4a728e0ea0fca0152cbbca4c7bced15514a0090dd4708741bef65e5f670246",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+          "sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "b14a6184fba19503330c16ce6e50554cbba58d111d40483b4cd2e9e170e9a874",
+          "reason": "Current explicit global definition CA-D-341 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 31,
+          "end_line": 46,
+          "span_sha256": "6a0eb5bc1c7e68dc3dc3b59c3afe9cacf7a4cee548a92beef53744f03716fcc0",
+          "reason": "Current explicit global definition CA-R-1720 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 21,
+          "end_line": 34,
+          "span_sha256": "de9e5802a3a0a8d8cb5dc30000a5663943c2b21a257b17e18d80af0968f9ccf2",
+          "reason": "Current explicit global definition CA-R-1745 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 26,
+          "end_line": 44,
+          "span_sha256": "d6d699bd99765840d39bfbdaa9f9ae2631bde16f0d69e99886989816dc1eca7d",
+          "reason": "Current explicit global definition CA-R-1703 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-001-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-001-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability.md",
+      "source_atom_id": "CAPRMEDIO-GOV-EVAL-001",
+      "source_version": 20,
+      "source_sha256": "693e0262b0b4a373fc99d5504b99809e9a25781331bf1b89388c516ba9fbcf6d",
+      "field": "governs",
+      "index": null,
+      "old_value": "evaluation",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.68,
+      "reason": "The quarantined lowercase value evaluation names a relation-vocabulary interpretability QA case, not the current capitalized Evaluation Content Role or a separately defined root. Current Evaluation and authority definitions support the check's role context but do not justify a target that preserves this lexical/lowercase subject identity.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate provides Atom as the bearer of named dependent properties but no lowercase evaluation root."
+        },
+        {
+          "pointer": "/m_e_root_question/decision",
+          "reason": "The candidate distinguishes specification/check roles from actual performances and does not create a lexical Evaluation root."
+        }
+      ],
+      "preserved_distinctions": [
+        "The lowercase lexical subject is kept distinct from the capitalized Evaluation role.",
+        "Relation vocabulary interpretation remains an Evaluation procedure, not a new root or syntax selector.",
+        "Quarantine is preserved."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-001-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability.md",
+          "sha256": "693e0262b0b4a373fc99d5504b99809e9a25781331bf1b89388c516ba9fbcf6d",
+          "start_line": 18,
+          "end_line": 38,
+          "span_sha256": "042ba7952686349563d4adc27024a612eac5baa2b26e2b8ee970d8214026b459",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "252dc6d3e65401ca817c99746c3c171afce3f5c3f20fd4deda6c028887499fd8",
+          "reason": "Current explicit global definition CA-R-1341 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 29,
+          "end_line": 39,
+          "span_sha256": "ae80651cbf11a320184a79e7dc1aa7738c3106dff068ea51162d4227e2d2ed73",
+          "reason": "Current explicit global definition CA-R-1683 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-009-CORE_META_MODEL-QA_CASE--effective-priority-selection.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-009-CORE_META_MODEL-QA_CASE--effective-priority-selection.md",
+      "source_atom_id": "CAPRMEDIO-GOV-EVAL-009",
+      "source_version": 19,
+      "source_sha256": "debf8c3f03344fc462b228052941f60107f165c5d571dfebde4724368c947ada",
+      "field": "governs",
+      "index": null,
+      "old_value": "evaluation",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.68,
+      "reason": "The quarantined lowercase value evaluation names a priority-selection QA case. Current definitions support Evaluation as a content role for the check, but the old lowercase subject is a lexical/topic label for this procedure and does not identify an independent candidate Entity; promoting it would invent a selector or root.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate provides Atom as the bearer of named dependent properties but no lowercase evaluation root."
+        },
+        {
+          "pointer": "/m_e_root_question/decision",
+          "reason": "The candidate distinguishes specification/check roles from actual performances and does not create a lexical Evaluation root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Priority selection logic and its Evaluation procedure remain distinct from the capitalized Evaluation role.",
+        "The lowercase spelling is not normalized into a native target.",
+        "Quarantine is preserved and no selector is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-009-CORE_META_MODEL-QA_CASE--effective-priority-selection.md",
+          "sha256": "debf8c3f03344fc462b228052941f60107f165c5d571dfebde4724368c947ada",
+          "start_line": 20,
+          "end_line": 49,
+          "span_sha256": "1633eb5e19df8d3f3d98deb612337d567c9296efd229c4597f32237fd745a2da",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "252dc6d3e65401ca817c99746c3c171afce3f5c3f20fd4deda6c028887499fd8",
+          "reason": "Current explicit global definition CA-R-1341 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 29,
+          "end_line": 39,
+          "span_sha256": "ae80651cbf11a320184a79e7dc1aa7738c3106dff068ea51162d4227e2d2ed73",
+          "reason": "Current explicit global definition CA-R-1683 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md",
+      "source_atom_id": "CAPRMEDIO-GOV-EVAL-010",
+      "source_version": 17,
+      "source_sha256": "994b91d17ef0089ff49d3bc8d07776830d0ab3803ebcef5fbbbdfee9343219b6",
+      "field": "governs",
+      "index": null,
+      "old_value": "Generated-Only Provenance Validation",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The quarantined subject names a Generated-Only Provenance Validation approach spanning Journal/Record, Implementation Relation, and Projection boundaries. Current definitions provide separate Journal, Implementation, Projection, and Evaluation semantics but no single candidate Entity for this named validation approach; flattening it would lose those source/derivation distinctions.",
+      "candidate_basis": [
+        {
+          "pointer": "/history_model/journal_role",
+          "reason": "The candidate distinguishes Journal records from events and generated/derived history."
+        },
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "The candidate distinguishes Projection representation from its source Entity instance."
+        },
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate reserves Execution for actual runs, not a named validation approach."
+        }
+      ],
+      "preserved_distinctions": [
+        "Generated-only validation remains a named Evaluation approach across several subject families.",
+        "Journal/Record, Implementation Relation, and derived Projection remain separate.",
+        "Quarantine is retained; no Tool, selector, or new root is inferred."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md",
+          "sha256": "994b91d17ef0089ff49d3bc8d07776830d0ab3803ebcef5fbbbdfee9343219b6",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "1abc21c53c1ade3395b3f8cacef5c9ebf0c74e4a1f8b0a99e78b6c06f332a0b7",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1341-CORE_META_MODEL-CORE-REQUIREMENT--define-evaluation-content-role.md",
+          "sha256": "d67d9303f02a51d6e1bdde8fa84f5c50d32477ec7a94d09b53ac2fd6b1d680c7",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "612cdd055326b56ee61abb970d32702fdf21a1b91549c0a88309c3ffe72e221e",
+          "reason": "Current explicit global definition CA-R-1341 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-CORE-REQUIREMENT--use-implementation-overview-as-a-projection.md",
+          "sha256": "5190ab56214e8b14d2f871f22e9102e7a70b39c545090cccdce37d73405c9ab2",
+          "start_line": 26,
+          "end_line": 44,
+          "span_sha256": "d6d699bd99765840d39bfbdaa9f9ae2631bde16f0d69e99886989816dc1eca7d",
+          "reason": "Current explicit global definition CA-R-1703 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 31,
+          "end_line": 46,
+          "span_sha256": "6a0eb5bc1c7e68dc3dc3b59c3afe9cacf7a4cee548a92beef53744f03716fcc0",
+          "reason": "Current explicit global definition CA-R-1720 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 21,
+          "end_line": 34,
+          "span_sha256": "de9e5802a3a0a8d8cb5dc30000a5663943c2b21a257b17e18d80af0968f9ccf2",
+          "reason": "Current explicit global definition CA-R-1745 was re-read to test this origin; the anchored body span preserves the current boundary boundary."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+      "source_atom_id": "CA-D-312",
+      "source_version": 12,
+      "source_sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Delivery",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "question": null,
+      "executable": false,
+      "original_fields": null,
+      "decision": "proposed",
+      "proposed_value": "Atom.Content Role: Delivery",
+      "confidence": 0.93,
+      "reason": "The current Delivery definition assigns each Scope Unit a delivery Carrier place. CA-R-1342 defines Delivery as the Content Role for the Carrier model and placement, and CA-R-1531 makes Content Role an Atom Property; the qualified role preserves Delivery while the actual Carrier remains a separate root.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate explicitly makes a Property a dependent Entity node owned by its bearer; the qualified field form therefore does not create a root."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate resolves the bearer as Atom and defines Atom as an Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Delivery is a Content Role describing the Carrier model/placement, not the Carrier Entity itself.",
+        "Authority Carrier place, delivery Carrier place, and owning Scope Unit remain distinct."
+      ],
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+          "sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "fd6579fba4d4d1ce3084a4317018b8c19a18c7d87455139acf2006872fe599a8",
+          "reason": "Complete live owning-source Main Content was re-read for this exact origin; the span begins after the second frontmatter delimiter and ends before trailing blank EOF lines."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1342-CORE_META_MODEL-CORE-REQUIREMENT--define-delivery-content-role.md",
+          "sha256": "b6df26c513024ef68bb89cb117cc6ea835e9c584a79a50b2f191dda40ab1d326",
+          "start_line": 23,
+          "end_line": 43,
+          "span_sha256": "0fd0b4c432d04e48a97689acc16e471df30ee14e66fb44b63865f2332328b05f",
+          "reason": "Current explicit global definition CA-R-1342 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-312-CORE_META_MODEL-CORE--give-each-scope-unit-authority-and-delivery-carrier-places.md",
+          "sha256": "8804af6a0385c8c98c5f07d85f18732d5d5411081a917f4dad2ba35545803faf",
+          "start_line": 20,
+          "end_line": 30,
+          "span_sha256": "320b8a53c0034775cb7bf3c0f7df6ea4d078a080afb6463b7920bcb5cc539f8c",
+          "reason": "Current explicit global definition CA-D-312 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1531-CORE_META_MODEL-CORE-REQUIREMENT--define-the-content-role-property.md",
+          "sha256": "ef8baa4a9672760802aede786ee838d13219566f680a2f01e71a1022ca500114",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "245640c3bd3a08e59ad9f3c2ddf69272e2db2d86160008de1e3cf205c1e04c46",
+          "reason": "Current explicit global definition CA-R-1531 was re-read to test this origin; the anchored body span preserves the current Content Role or field boundary."
+        }
+      ]
+    }
+  ]
+}
