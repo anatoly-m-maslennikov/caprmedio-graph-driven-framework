@@ -31,6 +31,10 @@ GRAMMAR_REPORT_REL = STAGE2_REL / "semantic-reviews/current-grammar-subjects.rev
 GRAMMAR_RECEIPT_REL = STAGE2_REL / "task-2087.receipt.json"
 FOLLOWUP_MANIFEST_REL = STAGE2_REL / "semantic-reviews/followups-2094-2099.inputs.json"
 FOLLOWUP_MANIFEST_SHA256 = "5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d"
+SECOND_FOLLOWUP_MANIFEST_REL = STAGE2_REL / "semantic-reviews/followups-2103-2108.inputs.json"
+SECOND_FOLLOWUP_MANIFEST_SHA256 = "7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3"
+OPERATOR_DECISION_REL = STAGE2_REL / "operator.subject-decisions.2026-10-11.json"
+OPERATOR_DECISION_SHA256 = "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
 STRUCTURE_REL = Path(".caprmedio_caprmedio/project_structure.toml")
 VALIDATOR_ROOT = ROOT / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS"
 if str(VALIDATOR_ROOT) not in sys.path:
@@ -71,12 +75,24 @@ FOLLOWUP_LAYER_SPECS = (
     ("CA-P-2098", "research", 32, 1, 31, "ab4acfbfdf3ea8addfdfee7fc4502b5e84a4808ec91499da82dfd9bebc3784b2"),
     ("CA-P-2099", "research", 27, 15, 12, "0e50e15645a4d56385a240ca47179b1c708ec839aecd4a81c4acfcdc13f4e69b"),
 )
+SECOND_FOLLOWUP_LAYER_SPECS = (
+    ("CA-P-2103", "research", 26, 23, 3, "22db7aa281823d7e01c58454bcc52ee7060d5ffe24a12396e62e6e952f28071c"),
+    ("CA-P-2104", "research", 31, 17, 14, "d19ad7f585610a10910c4b0355aaca1743a670adb3b56c96114a0cfd5d35a5f4"),
+    ("CA-P-2105", "research", 41, 22, 19, "40a2d1c26cc6b617b49ac109172c99996de6727401e99326d17bf89f2adf492e"),
+    ("CA-P-2106", "research", 25, 9, 16, "109edfd87f6f788658a210e561e034275dff6b49df34357b5d386340ba3e8204"),
+    ("CA-P-2107", "research", 26, 4, 22, "149a9a3c35f2c4c3a08733e9dac790093d4c592da428f5bbfd262fbb396c458a"),
+    ("CA-P-2108", "research", 34, 25, 9, "eb40f1fc810edb418f3acdeec8ce798837109264e45a966d348c86b810945da5"),
+)
 FOLLOWUP_TASKS = {task for task, _kind, _rows, _proposed, _unresolved, _sha256 in FOLLOWUP_LAYER_SPECS}
+SECOND_FOLLOWUP_TASKS = {task for task, _kind, _rows, _proposed, _unresolved, _sha256 in SECOND_FOLLOWUP_LAYER_SPECS}
+ALL_FOLLOWUP_TASKS = FOLLOWUP_TASKS | SECOND_FOLLOWUP_TASKS
+SECOND_FOLLOWUP_PROOF_FIELDS = ("evidence", "candidate_basis", "preserved_distinctions")
 LAYER_PRIORITY = [task for task, _kind in LAYER_SPECS] + ["CA-P-2058 coverage_only", "CA-P-2087 recheck_gate"]
 GRAMMAR_ACCEPTED_PRIORITY = "CA-P-2087 accepted_current_grammar"
 ORDINARY_LAYER_PRIORITY = {
     **{task: index for index, (task, _kind) in enumerate(LAYER_SPECS, start=1)},
     **{task: len(LAYER_SPECS) + index for index, (task, _kind, _rows, _proposed, _unresolved, _sha256) in enumerate(FOLLOWUP_LAYER_SPECS, start=1)},
+    **{task: len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + index for index, (task, _kind, _rows, _proposed, _unresolved, _sha256) in enumerate(SECOND_FOLLOWUP_LAYER_SPECS, start=1)},
 }
 
 
@@ -101,9 +117,9 @@ def _layer_layout(ledger: dict[str, Any]) -> tuple[tuple[tuple[str, str, int, in
     """Describe the accepted-layer manifest without accepting arbitrary additions.
 
     The historical working draft remains a valid input until CA-P-2102 performs
-    its controlled replacement.  A replacement must add all six accepted
-    follow-up layers after the thirteen ordinary layers, then preserves the
-    Actor coverage check and final grammar recheck.  A partial extension is
+    its controlled replacement. A replacement appends only complete fixed
+    six-report groups after the thirteen ordinary layers, then preserves the
+    Actor coverage check and final grammar recheck. A partial extension is
     deliberately invalid.
     """
 
@@ -113,27 +129,38 @@ def _layer_layout(ledger: dict[str, Any]) -> tuple[tuple[tuple[str, str, int, in
     base_count = len(LAYER_SPECS)
     old_without_grammar = base_count + 1
     old_with_grammar = base_count + 2
-    followup_with_grammar = base_count + 1 + len(FOLLOWUP_LAYER_SPECS) + 1
+    first_followup_with_grammar = base_count + 1 + len(FOLLOWUP_LAYER_SPECS) + 1
+    second_followup_with_grammar = first_followup_with_grammar + len(SECOND_FOLLOWUP_LAYER_SPECS)
     base = tuple((task, kind, position, position + 1) for position, (task, kind) in enumerate(LAYER_SPECS))
     if len(accepted) == old_without_grammar:
         return base, base_count, None
     if len(accepted) == old_with_grammar:
         return base, base_count, base_count + 1
-    require(len(accepted) == followup_with_grammar, "complete follow-up accepted-layer manifest")
     followup = tuple(
         (task, kind, base_count + index, base_count + index + 1)
         for index, (task, kind, _rows, _proposed, _unresolved, _sha256) in enumerate(FOLLOWUP_LAYER_SPECS)
     )
-    return base + followup, base_count + len(FOLLOWUP_LAYER_SPECS), followup_with_grammar - 1
+    if len(accepted) == first_followup_with_grammar:
+        return base + followup, base_count + len(FOLLOWUP_LAYER_SPECS), first_followup_with_grammar - 1
+    second_followup = tuple(
+        (task, kind, base_count + len(FOLLOWUP_LAYER_SPECS) + index, base_count + len(FOLLOWUP_LAYER_SPECS) + index + 1)
+        for index, (task, kind, _rows, _proposed, _unresolved, _sha256) in enumerate(SECOND_FOLLOWUP_LAYER_SPECS)
+    )
+    require(len(accepted) == second_followup_with_grammar, "complete accepted-layer manifest")
+    return base + followup + second_followup, base_count + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS), second_followup_with_grammar - 1
 
 
 def _require_followup_extension_when_receipts_exist(root: Path, ledger: dict[str, Any]) -> None:
     """Do not let a live accepted receipt silently fall back to the old draft."""
 
-    receipt_exists = any((root / STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json").is_file() for task in FOLLOWUP_TASKS)
+    first_receipts_exist = any((root / STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json").is_file() for task in FOLLOWUP_TASKS)
+    second_receipts_exist = any((root / STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json").is_file() for task in SECOND_FOLLOWUP_TASKS)
     specs, _actor_position, _grammar_position = _layer_layout(ledger)
-    if receipt_exists:
-        require(len(specs) == len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS), "accepted follow-up extension required")
+    admitted = {task for task, _kind, _position, _priority in specs}
+    if first_receipts_exist:
+        require(FOLLOWUP_TASKS <= admitted, "accepted first follow-up extension required")
+    if second_receipts_exist:
+        require(FOLLOWUP_TASKS <= admitted and SECOND_FOLLOWUP_TASKS <= admitted, "accepted second follow-up extension required")
 
 
 def relative_path(root: Path, value: Any, label: str) -> Path:
@@ -354,6 +381,32 @@ def _span_matches(root: Path, evidence: dict[str, Any], expected: dict[str, Any]
     return end <= len(lines) and sha(b"".join(lines[start - 1 : end])) == evidence["span_sha256"]
 
 
+def _second_followup_evidence_is_current(
+    root: Path,
+    evidence: dict[str, Any],
+    current_source_pins: dict[str, str],
+    label: str,
+) -> bool:
+    """Accept only a current Core source or the exact Operator decision record.
+
+    This deliberately applies only to CA-P-2103--2108.  Earlier accepted
+    layers retain their historical verifier boundary, while this group must
+    prove every supporting span that its accepted report relies on.
+    """
+
+    if not isinstance(evidence, dict):
+        return False
+    evidence_path = evidence.get("path")
+    if not isinstance(evidence_path, str):
+        return False
+    expected_sha = current_source_pins.get(evidence_path)
+    if expected_sha is None:
+        expected_sha = OPERATOR_DECISION_SHA256 if evidence_path == OPERATOR_DECISION_REL.as_posix() else None
+    if expected_sha is None:
+        return False
+    return _span_matches(root, evidence, {"source_path": evidence_path, "source_sha256": expected_sha}, label)
+
+
 def _verify_lineage(
     row: dict[str, Any],
     expected: dict[str, Any],
@@ -413,6 +466,17 @@ def _normalized_layer_row(kind: str, row: dict[str, Any], label: str) -> tuple[s
     return "unresolved", None, float(confidence) if isinstance(confidence, (int, float)) and not isinstance(confidence, bool) else 0.0
 
 
+def _verify_second_followup_final_proof(row: dict[str, Any], references: dict[str, Any], label: str) -> None:
+    """Ensure a second-group decision retains its accepted report proof fields."""
+
+    proofs = references.get("proofs")
+    require(isinstance(proofs, dict) and row["occurrence_id"] in proofs, f"{label} second follow-up proof provenance")
+    proof = proofs[row["occurrence_id"]]
+    require(isinstance(proof, dict), f"{label} second follow-up proof mapping")
+    for field in SECOND_FOLLOWUP_PROOF_FIELDS:
+        require(row.get(field) == proof.get(field), f"{label} second follow-up preserved {field}")
+
+
 def _verify_layers(
     row: dict[str, Any],
     label: str,
@@ -468,8 +532,10 @@ def _verify_layers(
             require(layer.get("report") == references.get("report") and layer.get("receipt") == references.get("receipt"), f"{label} layer provenance")
             if "independent_review_sha256" in references:
                 require(layer.get("independent_review_sha256") == references["independent_review_sha256"], f"{label} layer independent-review provenance")
+            if task in SECOND_FOLLOWUP_TASKS:
+                _verify_second_followup_final_proof(row, references, label)
             require(layer.get("decision") == decision and layer.get("proposed_value") == target, f"{label} layer target")
-            if task in FOLLOWUP_TASKS:
+            if task in ALL_FOLLOWUP_TASKS:
                 require(layer.get("confidence") == confidence, f"{label} layer confidence")
             final_decision, final_target, final_confidence = decision, target, confidence
     require(row.get("decision") == final_decision, f"{label} final selected-layer decision")
@@ -596,7 +662,11 @@ def _read_accepted_grammar_rows(
         receipt_path = relative_path(root, GRAMMAR_RECEIPT_REL.as_posix(), "accepted grammar receipt")
         require(not receipt_path.exists(), "accepted grammar manifest required when receipt exists")
         return None
-    require(len(specs) in {len(LAYER_SPECS), len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS)}, "accepted grammar ordinary layers")
+    require(len(specs) in {
+        len(LAYER_SPECS),
+        len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS),
+        len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS) + len(SECOND_FOLLOWUP_LAYER_SPECS),
+    }, "accepted grammar ordinary layers")
     item = accepted[grammar_position]
     require(isinstance(item, dict) and item.get("task") == "CA-P-2087" and item.get("priority") == "current_grammar" and item.get("kind") == "current_grammar_subject_recheck" and item.get("rows") == 33, "accepted grammar manifest")
     report_path = relative_path(root, GRAMMAR_REPORT_REL.as_posix(), "accepted grammar report")
@@ -654,38 +724,47 @@ def _verify_receipt(task: str, kind: str, receipt: dict[str, Any], report_pin: d
         require(isinstance(normalized, dict) and normalized_reviewed == reviewed_sha and normalized.get("final_output_sha256") == report_pin["sha256"] and normalized.get("exact_reverse_hash_and_json_value_equality") == "PASS", f"research receipt normalization {task}")
 
 
-def _read_followup_manifest(root: Path, expected_by_id: dict[str, dict[str, Any]], baseline_rows: dict[str, dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+def _read_followup_manifest(
+    root: Path,
+    expected_by_id: dict[str, dict[str, Any]],
+    baseline_rows: dict[str, dict[str, Any]],
+    specs: tuple[tuple[str, str, int, int, int, str], ...] = FOLLOWUP_LAYER_SPECS,
+    manifest_relative: Path = FOLLOWUP_MANIFEST_REL,
+    manifest_sha256: str = FOLLOWUP_MANIFEST_SHA256,
+    label: str = "first follow-up",
+    historical_working_ledger_sha256: str = "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d",
+) -> dict[str, list[dict[str, Any]]]:
     """Read the fixed selection independently of a derived working-ledger draft."""
 
-    path = relative_path(root, FOLLOWUP_MANIFEST_REL.as_posix(), "follow-up selection manifest")
+    path = relative_path(root, manifest_relative.as_posix(), f"{label} selection manifest")
     raw = path.read_bytes()
-    require(sha(raw) == FOLLOWUP_MANIFEST_SHA256, "follow-up selection manifest pin")
-    manifest = read_json(path, "follow-up selection manifest")
-    require(manifest.get("schema_version") == 1 and manifest.get("non_authoritative") is True, "follow-up selection envelope")
-    require(manifest.get("source_migration") == "not_performed" and manifest.get("native_admission") == "not_performed", "follow-up selection boundary")
-    require(manifest.get("working_ledger") == {"path": LEDGER_REL.as_posix(), "sha256": "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d"}, "historical working-ledger context")
+    require(sha(raw) == manifest_sha256, f"{label} selection manifest pin")
+    manifest = read_json(path, f"{label} selection manifest")
+    require(manifest.get("schema_version") == 1 and manifest.get("non_authoritative") is True, f"{label} selection envelope")
+    require(manifest.get("source_migration") == "not_performed" and manifest.get("native_admission") == "not_performed", f"{label} selection boundary")
+    require(manifest.get("working_ledger") == {"path": LEDGER_REL.as_posix(), "sha256": historical_working_ledger_sha256}, f"{label} historical working-ledger context")
     tasks = manifest.get("tasks")
-    require(isinstance(tasks, list) and len(tasks) == len(FOLLOWUP_LAYER_SPECS), "follow-up task coverage")
+    require(isinstance(tasks, list) and len(tasks) == len(specs), f"{label} task coverage")
     selected: dict[str, list[dict[str, Any]]] = {}
     all_ids: set[str] = set()
-    for position, (task, _kind, row_count, _proposed, _unresolved, _report_sha) in enumerate(FOLLOWUP_LAYER_SPECS):
+    for position, (task, _kind, row_count, _proposed, _unresolved, _report_sha) in enumerate(specs):
         item = tasks[position]
-        require(isinstance(item, dict) and item.get("task_id") == task and item.get("occurrences") == row_count, f"follow-up manifest task {task}")
+        require(isinstance(item, dict) and item.get("task_id") == task and item.get("occurrences") == row_count, f"{label} manifest task {task}")
         rows = item.get("input_rows")
-        require(isinstance(rows, list) and len(rows) == row_count, f"follow-up manifest rows {task}")
+        require(isinstance(rows, list) and len(rows) == row_count, f"{label} manifest rows {task}")
         mapped: list[dict[str, Any]] = []
         for number, row in enumerate(rows):
-            require(isinstance(row, dict), f"follow-up manifest {task} row {number}")
+            require(isinstance(row, dict), f"{label} manifest {task} row {number}")
             occurrence_id = row.get("occurrence_id")
-            require(isinstance(occurrence_id, str) and occurrence_id in expected_by_id and occurrence_id not in all_ids, f"follow-up manifest current occurrence {task} row {number}")
+            require(isinstance(occurrence_id, str) and occurrence_id in expected_by_id and occurrence_id not in all_ids, f"{label} manifest current occurrence {task} row {number}")
             expected = expected_by_id[occurrence_id]
-            require({key: row.get(key) for key in expected} == expected, f"follow-up manifest current origin {occurrence_id}")
+            require({key: row.get(key) for key in expected} == expected, f"{label} manifest current origin {occurrence_id}")
             baseline = baseline_rows.get(occurrence_id)
-            require(isinstance(baseline, dict) and baseline.get("decision") == "unresolved" and baseline.get("proposed_value") is None, f"follow-up manifest baseline-only unresolved {occurrence_id}")
+            require(isinstance(baseline, dict) and baseline.get("decision") == "unresolved" and baseline.get("proposed_value") is None, f"{label} manifest baseline-only unresolved {occurrence_id}")
             all_ids.add(occurrence_id)
             mapped.append(expected)
         selected[task] = mapped
-    require(len(all_ids) == 180, "follow-up exact selected occurrence count")
+    require(len(all_ids) == sum(spec[2] for spec in specs), f"{label} exact selected occurrence count")
     return selected
 
 
@@ -694,60 +773,92 @@ def _read_followup_layer_rows(
     ledger: dict[str, Any],
     expected_occurrences: list[dict[str, Any]],
     baseline_rows: dict[str, dict[str, Any]],
+    specs: tuple[tuple[str, str, int, int, int, str], ...] = FOLLOWUP_LAYER_SPECS,
+    manifest_relative: Path = FOLLOWUP_MANIFEST_REL,
+    manifest_sha256: str = FOLLOWUP_MANIFEST_SHA256,
+    offset: int = len(LAYER_SPECS),
+    label: str = "first follow-up",
+    historical_working_ledger_sha256: str = "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d",
+    verify_supporting_evidence: bool = False,
 ) -> tuple[dict[str, dict[str, tuple[str, str | None, float]]], dict[str, dict[str, Any]]]:
     """Verify all six accepted reports, receipts, live evidence, and selection ownership."""
 
     expected_by_id = {row["occurrence_id"]: row for row in expected_occurrences}
-    selected = _read_followup_manifest(root, expected_by_id, baseline_rows)
+    current_source_pins = {row["source_path"]: row["source_sha256"] for row in expected_occurrences}
+    selected = _read_followup_manifest(root, expected_by_id, baseline_rows, specs, manifest_relative, manifest_sha256, label, historical_working_ledger_sha256)
     _specs, _actor_position, _grammar_position = _layer_layout(ledger)
     pins = ledger.get("input_pins")
     accepted = pins.get("accepted_layers") if isinstance(pins, dict) else None
     require(isinstance(accepted, list), "follow-up accepted manifest")
     output: dict[str, dict[str, tuple[str, str | None, float]]] = {}
     references: dict[str, dict[str, Any]] = {}
-    for index, (task, kind, row_count, proposed_count, unresolved_count, report_sha) in enumerate(FOLLOWUP_LAYER_SPECS):
+    for index, (task, kind, row_count, proposed_count, unresolved_count, report_sha) in enumerate(specs):
         priority = ORDINARY_LAYER_PRIORITY[task]
-        item = accepted[len(LAYER_SPECS) + index]
-        require(isinstance(item, dict) and item.get("task") == task and item.get("kind") == kind and item.get("priority") == priority and item.get("rows") == row_count, f"follow-up accepted manifest {task}")
+        item = accepted[offset + index]
+        require(isinstance(item, dict) and item.get("task") == task and item.get("kind") == kind and item.get("priority") == priority and item.get("rows") == row_count, f"{label} accepted manifest {task}")
         report_relative = _layer_path(task)
-        report_path = relative_path(root, report_relative.as_posix(), f"follow-up {task} report")
+        report_path = relative_path(root, report_relative.as_posix(), f"{label} {task} report")
         receipt_relative = STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json"
-        receipt_path = relative_path(root, receipt_relative.as_posix(), f"follow-up {task} receipt")
+        receipt_path = relative_path(root, receipt_relative.as_posix(), f"{label} {task} receipt")
         report_pin, receipt_pin = _descriptor(report_path, report_relative), _descriptor(receipt_path, receipt_relative)
-        require(report_pin["sha256"] == report_sha and item.get("report") == report_pin and item.get("receipt") == receipt_pin, f"follow-up accepted pins {task}")
-        report, receipt = read_json(report_path, f"follow-up {task} report"), read_json(receipt_path, f"follow-up {task} receipt")
+        require(report_pin["sha256"] == report_sha and item.get("report") == report_pin and item.get("receipt") == receipt_pin, f"{label} accepted pins {task}")
+        report, receipt = read_json(report_path, f"{label} {task} report"), read_json(receipt_path, f"{label} {task} receipt")
         verification, independent = receipt.get("verification"), receipt.get("independent_review")
-        require(receipt.get("task") == task and receipt.get("non_authoritative") is True and receipt.get("source_migration") == "not_performed" and receipt.get("native_admission") == "not_performed" and isinstance(receipt.get("result"), str) and receipt["result"].startswith("PASS"), f"follow-up accepted receipt {task}")
-        require(isinstance(verification, dict) and verification.get("task") == task and verification.get("output") == report_pin and verification.get("rows") == row_count and verification.get("counts") == {"proposed": proposed_count, "unresolved": unresolved_count} and verification.get("input_manifest") == {"path": FOLLOWUP_MANIFEST_REL.as_posix(), "sha256": FOLLOWUP_MANIFEST_SHA256}, f"follow-up receipt verification {task}")
-        require(isinstance(independent, dict) and independent.get("final_report_sha256") == report_sha and isinstance(independent.get("result"), str) and independent["result"].startswith("PASS"), f"follow-up receipt independent review {task}")
-        require(item.get("independent_review_sha256") == report_sha, f"follow-up manifest independent-review hash {task}")
-        require(report.get("schema_version") == 1 and report.get("task_id") == task and report.get("non_authoritative") is True and report.get("source_migration") == "not_performed" and report.get("native_admission") == "not_performed", f"follow-up report boundary {task}")
+        require(receipt.get("task") == task and receipt.get("non_authoritative") is True and receipt.get("source_migration") == "not_performed" and receipt.get("native_admission") == "not_performed" and isinstance(receipt.get("result"), str) and receipt["result"].startswith("PASS"), f"{label} accepted receipt {task}")
+        require(isinstance(verification, dict) and verification.get("task") == task and verification.get("output") == report_pin and verification.get("rows") == row_count and verification.get("counts") == {"proposed": proposed_count, "unresolved": unresolved_count} and verification.get("input_manifest") == {"path": manifest_relative.as_posix(), "sha256": manifest_sha256}, f"{label} receipt verification {task}")
+        require(isinstance(independent, dict) and independent.get("final_report_sha256") == report_sha and isinstance(independent.get("result"), str) and independent["result"].startswith("PASS"), f"{label} receipt independent review {task}")
+        require(item.get("independent_review_sha256") == report_sha, f"{label} manifest independent-review hash {task}")
+        require(report.get("schema_version") == 1 and report.get("task_id") == task and report.get("non_authoritative") is True and report.get("source_migration") == "not_performed" and report.get("native_admission") == "not_performed", f"{label} report boundary {task}")
         report_pins = report.get("input_pins")
-        selection_pin = report_pins.get("selection_manifest") if isinstance(report_pins, dict) else None
-        manifest_pin = report_pins.get("manifest") if isinstance(report_pins, dict) else None
-        expected_selection_pin = {"path": FOLLOWUP_MANIFEST_REL.as_posix(), "sha256": FOLLOWUP_MANIFEST_SHA256}
-        require((selection_pin == expected_selection_pin and manifest_pin is None) or (selection_pin is None and manifest_pin == expected_selection_pin), f"follow-up report selection pin {task}")
+        require(isinstance(report_pins, dict), f"{label} report input pins {task}")
+        selection_pin = report_pins.get("selection_manifest")
+        manifest_pin = report_pins.get("manifest")
+        expected_selection_pin = {"path": manifest_relative.as_posix(), "sha256": manifest_sha256}
+        require((selection_pin == expected_selection_pin and manifest_pin is None) or (selection_pin is None and manifest_pin == expected_selection_pin), f"{label} report selection pin {task}")
+        if verify_supporting_evidence:
+            require(
+                report_pins.get("operator_decision_record") == {
+                    "path": OPERATOR_DECISION_REL.as_posix(), "sha256": OPERATOR_DECISION_SHA256,
+                },
+                f"{label} report exact Operator decision pin {task}",
+            )
         rows = report.get("rows")
-        require(isinstance(rows, list) and len(rows) == row_count, f"follow-up report rows {task}")
+        require(isinstance(rows, list) and len(rows) == row_count, f"{label} report rows {task}")
         mapped: dict[str, tuple[str, str | None, float]] = {}
         expected_ids = {row["occurrence_id"] for row in selected[task]}
         for number, row in enumerate(rows):
-            require(isinstance(row, dict), f"follow-up report {task} row {number}")
+            require(isinstance(row, dict), f"{label} report {task} row {number}")
             occurrence_id = row.get("occurrence_id")
-            require(isinstance(occurrence_id, str) and occurrence_id in expected_ids and occurrence_id not in mapped, f"follow-up report selected occurrence {task} row {number}")
+            require(isinstance(occurrence_id, str) and occurrence_id in expected_ids and occurrence_id not in mapped, f"{label} report selected occurrence {task} row {number}")
             expected = expected_by_id[occurrence_id]
-            require({key: row.get(key) for key in expected} == expected and row.get("prior_decision") == "unresolved", f"follow-up report current origin {occurrence_id}")
-            decision, target, confidence = _normalized_layer_row(kind, row, f"follow-up report {task} row {number}")
-            require(row.get("executable") is False and isinstance(row.get("evidence"), list) and any(_span_matches(root, evidence, expected, f"follow-up report {task} row {number}") for evidence in row["evidence"] if isinstance(evidence, dict)), f"follow-up report current evidence {occurrence_id}")
+            require({key: row.get(key) for key in expected} == expected and row.get("prior_decision") == "unresolved", f"{label} report current origin {occurrence_id}")
+            decision, target, confidence = _normalized_layer_row(kind, row, f"{label} report {task} row {number}")
+            require(row.get("executable") is False and isinstance(row.get("evidence"), list) and any(_span_matches(root, evidence, expected, f"{label} report {task} row {number}") for evidence in row["evidence"] if isinstance(evidence, dict)), f"{label} report current evidence {occurrence_id}")
+            if verify_supporting_evidence:
+                require(
+                    all(
+                        _second_followup_evidence_is_current(
+                            root, evidence, current_source_pins, f"{label} report {task} row {number} supporting evidence"
+                        )
+                        for evidence in row["evidence"]
+                    ),
+                    f"{label} report all supporting evidence current {occurrence_id}",
+                )
             if decision == "proposed":
-                require(target is not None and FORBIDDEN_TARGET_RE.search(target) is None and "selector" not in target.lower(), f"follow-up report target syntax {occurrence_id}")
+                require(target is not None and FORBIDDEN_TARGET_RE.search(target) is None and "selector" not in target.lower(), f"{label} report target syntax {occurrence_id}")
             else:
-                require(row.get("proposed_value") is None and 0 <= confidence < .9, f"follow-up report explicit null {occurrence_id}")
+                require(row.get("proposed_value") is None and 0 <= confidence < .9, f"{label} report explicit null {occurrence_id}")
             mapped[occurrence_id] = (decision, target, confidence)
-        require(set(mapped) == expected_ids, f"follow-up report exact occurrence coverage {task}")
-        require(sum(decision == "proposed" for decision, _target, _confidence in mapped.values()) == proposed_count and sum(decision == "unresolved" for decision, _target, _confidence in mapped.values()) == unresolved_count, f"follow-up report exact decisions {task}")
+        require(set(mapped) == expected_ids, f"{label} report exact occurrence coverage {task}")
+        require(sum(decision == "proposed" for decision, _target, _confidence in mapped.values()) == proposed_count and sum(decision == "unresolved" for decision, _target, _confidence in mapped.values()) == unresolved_count, f"{label} report exact decisions {task}")
         output[task] = mapped
-        references[task] = {"report": report_pin, "receipt": receipt_pin, "independent_review_sha256": report_sha}
+        reference: dict[str, Any] = {"report": report_pin, "receipt": receipt_pin, "independent_review_sha256": report_sha}
+        if verify_supporting_evidence:
+            reference["proofs"] = {
+                row["occurrence_id"]: {field: row.get(field) for field in SECOND_FOLLOWUP_PROOF_FIELDS}
+                for row in rows
+            }
+        references[task] = reference
     return output, references
 
 
@@ -795,9 +906,15 @@ def _layer_refs(ledger: dict[str, Any], followup_refs: dict[str, dict[str, Any]]
         require(isinstance(report, dict) and isinstance(receipt, dict), f"layer provenance descriptors {task}")
         references[task] = {"report": report, "receipt": receipt}
     if followup_refs is not None:
-        for task in FOLLOWUP_TASKS:
+        for task, _kind, _position, _priority in specs:
+            if task not in ALL_FOLLOWUP_TASKS:
+                continue
             require(references.get(task) == {"report": followup_refs[task]["report"], "receipt": followup_refs[task]["receipt"]}, f"follow-up per-row manifest references {task}")
             references[task]["independent_review_sha256"] = followup_refs[task]["independent_review_sha256"]
+            if task in SECOND_FOLLOWUP_TASKS:
+                proofs = followup_refs[task].get("proofs")
+                require(isinstance(proofs, dict), f"second follow-up proof references {task}")
+                references[task]["proofs"] = proofs
     if grammar_position is not None:
         item = accepted[grammar_position]
         require(isinstance(item, dict) and item.get("task") == "CA-P-2087", "accepted grammar provenance manifest")
@@ -821,10 +938,29 @@ def _read_layer_rows(
     output: dict[str, dict[str, tuple[str, str | None, float]]] = {}
     followup_refs: dict[str, dict[str, Any]] = {}
     followup_rows: dict[str, dict[str, tuple[str, str | None, float]]] = {}
-    if len(specs) > len(LAYER_SPECS):
-        followup_rows, followup_refs = _read_followup_layer_rows(root, ledger, expected_occurrences, baseline_rows)
+    admitted_tasks = {task for task, _kind, _position, _priority in specs}
+    if FOLLOWUP_TASKS <= admitted_tasks:
+        first_rows, first_refs = _read_followup_layer_rows(root, ledger, expected_occurrences, baseline_rows)
+        followup_rows.update(first_rows)
+        followup_refs.update(first_refs)
+    if SECOND_FOLLOWUP_TASKS <= admitted_tasks:
+        second_rows, second_refs = _read_followup_layer_rows(
+            root,
+            ledger,
+            expected_occurrences,
+            baseline_rows,
+            SECOND_FOLLOWUP_LAYER_SPECS,
+            SECOND_FOLLOWUP_MANIFEST_REL,
+            SECOND_FOLLOWUP_MANIFEST_SHA256,
+            len(LAYER_SPECS) + len(FOLLOWUP_LAYER_SPECS),
+            "second follow-up",
+            "50ab0114669787dba6331b58f8054cd8fb33b5abbed33df6fbf5b52df53923fa",
+            True,
+        )
+        followup_rows.update(second_rows)
+        followup_refs.update(second_refs)
     for task, kind, position, priority in specs:
-        if task in FOLLOWUP_TASKS:
+        if task in ALL_FOLLOWUP_TASKS:
             output[task] = followup_rows[task]
             continue
         item = accepted[position]
