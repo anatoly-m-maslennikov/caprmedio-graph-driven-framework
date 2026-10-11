@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 138
-updated_at: "2026-10-11 11:50:12 +0400"
+version: 139
+updated_at: "2026-10-11 11:51:38 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -229,6 +229,8 @@ CA-P-2144–2151 review all 204 remaining unqualified baseline-only origins acro
 - [CA-P-2149 — Review remaining unqualified Subjects 006](08-CA-P-1966-EPIC--map-current-core-subject-origins/113-CA-P-2149-TASK--review-remaining-unqualified-subjects-006.md)
 - [CA-P-2150 — Review remaining unqualified Subjects 007](08-CA-P-1966-EPIC--map-current-core-subject-origins/114-CA-P-2150-TASK--review-remaining-unqualified-subjects-007.md)
 - [CA-P-2151 — Review remaining unqualified Subjects 008](08-CA-P-1966-EPIC--map-current-core-subject-origins/115-CA-P-2151-TASK--review-remaining-unqualified-subjects-008.md)
+
+- [CA-P-2152 — Verify the unqualified review frontier](08-CA-P-1966-EPIC--map-current-core-subject-origins/116-CA-P-2152-TASK--verify-the-unqualified-review-frontier.md)
 
 ### Definition of Done
 
