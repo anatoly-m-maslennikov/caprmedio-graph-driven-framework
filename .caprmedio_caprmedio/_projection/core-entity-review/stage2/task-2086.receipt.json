@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2086",
+  "recorded_at": "2026-10-11 07:07:43 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded consolidate reviewed subject mapping layers; not migration approval",
+  "verification": {
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d"
+    },
+    "checks": {
+      "outcome": "PASS",
+      "sources": 907,
+      "occurrences": 4534,
+      "proposed": 1468,
+      "unchanged": 1540,
+      "unresolved": 1526,
+      "quarantined_sources": 8,
+      "quarantined_occurrences": 35,
+      "excluded_sources": 11203,
+      "accepted_current_grammar_occurrences": 33,
+      "grammar_recheck_required": 0,
+      "ledger_sha256": "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d",
+      "focused_tests": 14,
+      "tool_tests": 296,
+      "source_diff": "empty since441bc48e1"
+    },
+    "children": [
+      "CA-P-2090",
+      "CA-P-2092"
+    ],
+    "completed_children_receipts": [
+      ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2090.receipt.json",
+      ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2092.receipt.json"
+    ],
+    "result": "PASS: complete bounded group; parent mapping remains Active"
+  },
+  "independent_review": null,
+  "completion_scope": "The complete non-executable working ledger consolidates frozen baseline, selected independently accepted reviews and current grammar re-review with exact current coverage and source lineage. All child Tasks and independent checks pass. This bounded integration is Done, but 1526 unresolved occurrences and eight quarantined sources remain for CA-P-1966 and the existing final migration gates.",
+  "registration_commit": "5e4356db9950d00bb2eaa1e081e1fcc8e218ee97",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

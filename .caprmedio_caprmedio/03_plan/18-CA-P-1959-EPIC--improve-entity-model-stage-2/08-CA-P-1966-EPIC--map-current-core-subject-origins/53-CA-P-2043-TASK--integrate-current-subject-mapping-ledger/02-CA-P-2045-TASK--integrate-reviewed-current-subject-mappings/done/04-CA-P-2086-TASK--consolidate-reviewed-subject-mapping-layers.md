@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Tool, Operator]
-version: 5
-updated_at: "2026-10-11 07:07:41 +0400"
+version: 6
+updated_at: "2026-10-11 07:07:43 +0400"
 relations:
   is_decomposition_of: [CA-P-2045]
 ---
@@ -36,6 +36,10 @@ This is implementation/preparation evidence, not original Source writes, selecto
 ### Current integration task
 
 [CA-P-2092 — Integrate the accepted current grammar review](04-CA-P-2086-TASK--consolidate-reviewed-subject-mapping-layers/done/02-CA-P-2092-TASK--integrate-the-accepted-current-grammar-review.md) incorporates the now-accepted CA-P-2087 evidence. This group remains Active until that child and its live integration checks pass; the earlier no-receipt draft is only an intermediate checkpoint.
+
+### Completion
+
+The complete non-executable working ledger consolidates frozen baseline, selected independently accepted reviews and current grammar re-review with exact current coverage and source lineage. All child Tasks and independent checks pass. This bounded integration is Done, but 1526 unresolved occurrences and eight quarantined sources remain for CA-P-1966 and the existing final migration gates. Exact verification is recorded in `_projection/core-entity-review/stage2/task-2086.receipt.json`.
 
 ### Definition of Done
 
