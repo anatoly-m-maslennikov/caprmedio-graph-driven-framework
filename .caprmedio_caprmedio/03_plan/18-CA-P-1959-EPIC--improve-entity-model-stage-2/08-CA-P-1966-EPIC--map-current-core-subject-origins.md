@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 121
-updated_at: "2026-10-11 10:10:25 +0400"
+version: 122
+updated_at: "2026-10-11 10:25:03 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -197,6 +197,8 @@ CA-P-2121–2128 review 205 previously unreviewed baseline-only origins in eight
 - [CA-P-2126 — Review legacy model and topic Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/96-CA-P-2126-TASK--review-legacy-model-and-topic-subjects.md)
 - [CA-P-2127 — Review role and execution origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/97-CA-P-2127-TASK--review-role-and-execution-origins.md)
 - [CA-P-2128 — Review Term and Subject-relation origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/98-CA-P-2128-TASK--review-term-and-subject-relation-origins.md)
+
+Latest integration checkpoint: CA-P-2121–2131 are Done. Eight independently accepted reviews cover205 exact origins across148 distinct current sources:71 supported mappings and134 explicit nulls. The persisted ledger now has1806 proposed,1540 unchanged and1188 unresolved references across907 original Core sources/4534 occurrences. All321 relevant tests pass (25 focused and296 native), plus88 report controls andten complete-ledger wrong-data controls. Corrected emission preserves accepted proof exactly; rejected interim hypotheses stay out. Original Core remains unchanged; eight quarantines, the unanswered selector decision and final migration/content gates remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-domains-2121-2128.json`. This is progress, not complete mapping or source adoption.
 
 ### Definition of Done
 

@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2131",
+  "recorded_at": "2026-10-11 10:25:04 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded rebuild the remaining-domain subject ledger; not migration approval",
+  "verification": {
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186",
+      "size_bytes": 20097296
+    },
+    "outputs": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+        "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186",
+        "size_bytes": 20097296
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+        "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+        "size_bytes": 3642901
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+        "sha256": "ff2adf1da48e25f7dfac3d17755fe40ed114315eadbb9406eba7ed105a9dce48",
+        "size_bytes": 3197267
+      }
+    ],
+    "previous": {
+      "git_commit": "cae24a7e1db073eb4ff169e066c5397254766f44",
+      "previous": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "sha256": "e08e5f1cc8311cd0bea25f0cb0fd7767028baaf04523aebaba384edb170ac819"
+        }
+      ],
+      "result": "PASS: exact current bytes and recoverable Git contents"
+    },
+    "counts": {
+      "excluded_sources": 11203,
+      "occurrences": 4534,
+      "outcome": "PASS",
+      "proposed": 1806,
+      "quarantined_sources": 8,
+      "sources": 907,
+      "unchanged": 1540,
+      "unresolved": 1188
+    },
+    "preview_controls": [
+      {
+        "probe": "missing_layer",
+        "reason": "complete accepted-layer manifest"
+      },
+      {
+        "probe": "omit_all_followups",
+        "reason": "accepted fourth follow-up extension required"
+      },
+      {
+        "probe": "missing_selected_row",
+        "reason": "exact current occurrence coverage"
+      },
+      {
+        "probe": "stale_source",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] exact current origin/pin"
+      },
+      {
+        "probe": "wrong_target",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] final selected-layer target"
+      },
+      {
+        "probe": "wrong_priority",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] accepted layer priority"
+      },
+      {
+        "probe": "wrong_confidence",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] final selected-layer confidence"
+      },
+      {
+        "probe": "stale_receipt",
+        "reason": "fourth follow-up accepted pins CA-P-2121"
+      },
+      {
+        "probe": "missing_independent_review",
+        "reason": "fourth follow-up manifest independent-review hash CA-P-2121"
+      },
+      {
+        "probe": "executable_row",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] non-executable"
+      }
+    ],
+    "tests": {
+      "focused": 25,
+      "native": 296,
+      "total": 321
+    },
+    "independent_review": {
+      "reviewer": "/root/grammar_graph",
+      "final_report_sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186",
+      "result": "PASS: actual persisted ledger, source frontier, hashes and corrected authoritative Core diff independently verified",
+      "gate": {
+        "reviewer": "/root/grammar_graph",
+        "result": "PASS: actual persisted ledger accepted by independent verifier",
+        "counts": {
+          "excluded_sources": 11203,
+          "occurrences": 4534,
+          "outcome": "PASS",
+          "proposed": 1806,
+          "quarantined_sources": 8,
+          "sources": 907,
+          "unchanged": 1540,
+          "unresolved": 1188
+        },
+        "outputs": [
+          {
+            "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+            "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186",
+            "size_bytes": 20097296
+          },
+          {
+            "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+            "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+            "size_bytes": 3642901
+          },
+          {
+            "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+            "sha256": "ff2adf1da48e25f7dfac3d17755fe40ed114315eadbb9406eba7ed105a9dce48",
+            "size_bytes": 3197267
+          }
+        ],
+        "scope": "actual persisted hashes/frontier and corrected authoritative Core diff",
+        "core_diff": {
+          "base": "441bc48e1",
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+          "directory_exists": true,
+          "result": "no changed paths"
+        }
+      }
+    },
+    "code_reviews": {
+      "producer": {
+        "reviewer": "/root/domain_semantic_acceptance",
+        "final_report_sha256": "dcb489ec27903736fcd4a730e56d1ec437994d563ebc171578a22f81bb17c2a8",
+        "result": "PASS: exact fixed fourth-group integration and corrected proof-preserving emission independently reviewed",
+        "meaning_checks": [
+          "Exact eight reports, manifest205origins/148owners, historical4f pin and56bb registration match contract.",
+          "Fixed group membership/order, priorities32–39 and all earlier gates preserved.",
+          "Accepted research evidence is retained exactly, with live owning span rechecked; legacy baseline/ordinary bridging unchanged.",
+          "Create-only one-off output path remains; no dynamic discovery or bypass writer."
+        ],
+        "rejected_previous_sha256": "a0eeef3e58436fb972289736711c805a784c24da9c96d4099a5b536471b7e259"
+      },
+      "verifier": {
+        "reviewer": "/root/grammar_graph",
+        "final_report_sha256": "53a09e8d8fff19a8ef7ee0ef36cbce7add34910173c95ff35b583b91cf14cdd5",
+        "related_test_sha256": "d722bafc49e993d3aa0ce053dd3cb3a2c40de91eab6a4014819f066aee7f2262",
+        "result": "PASS: fixed fourth-group verifier and tests independently reviewed without producer import",
+        "meaning_checks": [
+          "Exact eight report/manifest/counts and priorities32–39 constrained.",
+          "Actual current-tree receipt presence rejects whole-fourth-group omission.",
+          "Exact proof, receipt, final-review, confidence and non-executable invariants retained.",
+          "Only live Core or the canonical pinned Operator record support evidence.",
+          "Old isolated layouts remain accepted without new real receipts."
+        ]
+      }
+    },
+    "source_migration": "not_performed",
+    "native_admission": "not_performed"
+  },
+  "independent_review": {
+    "reviewer": "/root/grammar_graph",
+    "final_report_sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186",
+    "result": "PASS: actual persisted ledger, source frontier, hashes and corrected authoritative Core diff independently verified",
+    "gate": {
+      "reviewer": "/root/grammar_graph",
+      "result": "PASS: actual persisted ledger accepted by independent verifier",
+      "counts": {
+        "excluded_sources": 11203,
+        "occurrences": 4534,
+        "outcome": "PASS",
+        "proposed": 1806,
+        "quarantined_sources": 8,
+        "sources": 907,
+        "unchanged": 1540,
+        "unresolved": 1188
+      },
+      "outputs": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186",
+          "size_bytes": 20097296
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+          "size_bytes": 3642901
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "sha256": "ff2adf1da48e25f7dfac3d17755fe40ed114315eadbb9406eba7ed105a9dce48",
+          "size_bytes": 3197267
+        }
+      ],
+      "scope": "actual persisted hashes/frontier and corrected authoritative Core diff",
+      "core_diff": {
+        "base": "441bc48e1",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+        "directory_exists": true,
+        "result": "no changed paths"
+      }
+    }
+  },
+  "completion_scope": "The three exact Git-recoverable derived drafts were regenerated only after both support Tasks and the prospective valid-control gate passed. Persisted hashes equal the checked preview, actual independent verification and321 tests pass, and original Core has no diff. Counts1806/1540/1188 remain a progress ledger, not migration or complete mapping.",
+  "registration_commit": "25e01c58ff02a280c4db965d1977b57db113a3f9",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

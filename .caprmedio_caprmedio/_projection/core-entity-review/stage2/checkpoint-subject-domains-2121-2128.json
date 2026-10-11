@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11 10:25:03 +0400",
+  "non_authoritative": true,
+  "result": "PASS: bounded Subject-domain research, support and derived rebuild; not full mapping or source adoption",
+  "completed_tasks": [
+    "CA-P-2121",
+    "CA-P-2122",
+    "CA-P-2123",
+    "CA-P-2124",
+    "CA-P-2125",
+    "CA-P-2126",
+    "CA-P-2127",
+    "CA-P-2128",
+    "CA-P-2129",
+    "CA-P-2130",
+    "CA-P-2131"
+  ],
+  "scope": {
+    "core_only": true,
+    "subjects_first": true,
+    "ordinary_content_deferred": true,
+    "research_origins": 205,
+    "distinct_owning_sources": 148,
+    "supported_proposals": 71,
+    "explicit_nulls": 134
+  },
+  "inputs": {
+    "manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2121-2128.inputs.json",
+      "sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+    },
+    "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+    "integration_registration_commit": "25e01c58ff02a280c4db965d1977b57db113a3f9",
+    "accepted_reports": [
+      {
+        "task": "CA-P-2121",
+        "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2121.research.json",
+        "sha256": "96d906b7769f52f32bfc4b8d1ccfb638ba5eee6c525bcc2e25851827fb4f693b",
+        "rows": 22,
+        "proposed": 21,
+        "unresolved": 1,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2121.receipt.json"
+      },
+      {
+        "task": "CA-P-2122",
+        "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2122.research.json",
+        "sha256": "3577856baf8a35c61c479c9d2feaa7e54f0252ec2f33f5ec9bb94def9eb928f8",
+        "rows": 20,
+        "proposed": 8,
+        "unresolved": 12,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2122.receipt.json"
+      },
+      {
+        "task": "CA-P-2123",
+        "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2123.research.json",
+        "sha256": "64c5e84639b39c37d7a175c11e967b407dfabbd840b76a80bc91352dd29e8728",
+        "rows": 28,
+        "proposed": 7,
+        "unresolved": 21,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2123.receipt.json"
+      },
+      {
+        "task": "CA-P-2124",
+        "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2124.research.json",
+        "sha256": "94b9b57e83a2b23bd493355ece510907ed31277edab45dc56e9ee5eefacfe9e3",
+        "rows": 33,
+        "proposed": 7,
+        "unresolved": 26,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2124.receipt.json"
+      },
+      {
+        "task": "CA-P-2125",
+        "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2125.research.json",
+        "sha256": "43bca8f0776c3d7ff25321e4e9c6b3da10b3bd5c3333c0cb0a8dbb9d1af7aeb3",
+        "rows": 29,
+        "proposed": 7,
+        "unresolved": 22,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2125.receipt.json"
+      },
+      {
+        "task": "CA-P-2126",
+        "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2126.research.json",
+        "sha256": "3fa0af8d302898a399cb1406cd9bcfcdd7ee22d3e3bc28f907f322e935dd8c52",
+        "rows": 21,
+        "proposed": 11,
+        "unresolved": 10,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2126.receipt.json"
+      },
+      {
+        "task": "CA-P-2127",
+        "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2127.research.json",
+        "sha256": "db250a76d1b6f5b4a8226a44656a81eb16e57965faa174c3b7f5a1337f638896",
+        "rows": 23,
+        "proposed": 7,
+        "unresolved": 16,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2127.receipt.json"
+      },
+      {
+        "task": "CA-P-2128",
+        "report": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2128.research.json",
+        "sha256": "12aff3f78128cb401ec7f070840d0958a9edcd0e20266f9a0acb231fa8220f56",
+        "rows": 29,
+        "proposed": 3,
+        "unresolved": 26,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2128.receipt.json"
+      }
+    ]
+  },
+  "counts": {
+    "excluded_sources": 11203,
+    "occurrences": 4534,
+    "outcome": "PASS",
+    "proposed": 1806,
+    "quarantined_sources": 8,
+    "sources": 907,
+    "unchanged": 1540,
+    "unresolved": 1188
+  },
+  "outputs": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186",
+      "size_bytes": 20097296
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+      "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+      "size_bytes": 3642901
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+      "sha256": "ff2adf1da48e25f7dfac3d17755fe40ed114315eadbb9406eba7ed105a9dce48",
+      "size_bytes": 3197267
+    }
+  ],
+  "support": {
+    "producer": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/consolidate_reviewed_mappings.py",
+      "sha256": "dcb489ec27903736fcd4a730e56d1ec437994d563ebc171578a22f81bb17c2a8"
+    },
+    "verifier": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+      "sha256": "53a09e8d8fff19a8ef7ee0ef36cbce7add34910173c95ff35b583b91cf14cdd5"
+    },
+    "tests": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_working_mapping_ledger.py",
+      "sha256": "d722bafc49e993d3aa0ce053dd3cb3a2c40de91eab6a4014819f066aee7f2262"
+    }
+  },
+  "replacement": {
+    "git_commit": "cae24a7e1db073eb4ff169e066c5397254766f44",
+    "previous": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+        "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+        "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+        "sha256": "e08e5f1cc8311cd0bea25f0cb0fd7767028baaf04523aebaba384edb170ac819"
+      }
+    ],
+    "result": "PASS: exact current bytes and recoverable Git contents"
+  },
+  "verification": {
+    "exact_report_controls": {
+      "reports": 8,
+      "origins": 205,
+      "rejected_variants": 88
+    },
+    "prospective_controls": [
+      {
+        "probe": "missing_layer",
+        "reason": "complete accepted-layer manifest"
+      },
+      {
+        "probe": "omit_all_followups",
+        "reason": "accepted fourth follow-up extension required"
+      },
+      {
+        "probe": "missing_selected_row",
+        "reason": "exact current occurrence coverage"
+      },
+      {
+        "probe": "stale_source",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] exact current origin/pin"
+      },
+      {
+        "probe": "wrong_target",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] final selected-layer target"
+      },
+      {
+        "probe": "wrong_priority",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] accepted layer priority"
+      },
+      {
+        "probe": "wrong_confidence",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] final selected-layer confidence"
+      },
+      {
+        "probe": "stale_receipt",
+        "reason": "fourth follow-up accepted pins CA-P-2121"
+      },
+      {
+        "probe": "missing_independent_review",
+        "reason": "fourth follow-up manifest independent-review hash CA-P-2121"
+      },
+      {
+        "probe": "executable_row",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.depends_on[0] non-executable"
+      }
+    ],
+    "independent_persisted_gate": {
+      "reviewer": "/root/grammar_graph",
+      "result": "PASS: actual persisted ledger accepted by independent verifier",
+      "counts": {
+        "excluded_sources": 11203,
+        "occurrences": 4534,
+        "outcome": "PASS",
+        "proposed": 1806,
+        "quarantined_sources": 8,
+        "sources": 907,
+        "unchanged": 1540,
+        "unresolved": 1188
+      },
+      "outputs": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186",
+          "size_bytes": 20097296
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+          "size_bytes": 3642901
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "sha256": "ff2adf1da48e25f7dfac3d17755fe40ed114315eadbb9406eba7ed105a9dce48",
+          "size_bytes": 3197267
+        }
+      ],
+      "scope": "actual persisted hashes/frontier and corrected authoritative Core diff",
+      "core_diff": {
+        "base": "441bc48e1",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+        "directory_exists": true,
+        "result": "no changed paths"
+      }
+    },
+    "tests": {
+      "focused": 25,
+      "native": {
+        "result": "PASS: fresh independent native regression",
+        "reviewer": "/root/mapping_drift_verify",
+        "tests": 296,
+        "suites": [
+          {
+            "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests",
+            "tests": 44,
+            "exit_code": 0
+          },
+          {
+            "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/tests",
+            "tests": 33,
+            "exit_code": 0
+          },
+          {
+            "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests",
+            "tests": 219,
+            "exit_code": 0
+          }
+        ],
+        "command_pattern": "UV_CACHE_DIR=$PWD/.caprmedio_tmp/cache/uv TMPDIR=$PWD/.caprmedio_tmp PYTHONDONTWRITEBYTECODE=1 uv run --no-project --offline --with pydantic==2.13.5 --with PyYAML==6.0.3 python -B -m unittest discover -s <suite path> -p test_*.py",
+        "changed_files": [],
+        "current_recheck": "2026-10-11 06:13 UTC"
+      },
+      "total": 321
+    },
+    "code_reviews": {
+      "producer": {
+        "reviewer": "/root/domain_semantic_acceptance",
+        "final_report_sha256": "dcb489ec27903736fcd4a730e56d1ec437994d563ebc171578a22f81bb17c2a8",
+        "result": "PASS: exact fixed fourth-group integration and corrected proof-preserving emission independently reviewed",
+        "meaning_checks": [
+          "Exact eight reports, manifest205origins/148owners, historical4f pin and56bb registration match contract.",
+          "Fixed group membership/order, priorities32–39 and all earlier gates preserved.",
+          "Accepted research evidence is retained exactly, with live owning span rechecked; legacy baseline/ordinary bridging unchanged.",
+          "Create-only one-off output path remains; no dynamic discovery or bypass writer."
+        ],
+        "rejected_previous_sha256": "a0eeef3e58436fb972289736711c805a784c24da9c96d4099a5b536471b7e259"
+      },
+      "verifier": {
+        "reviewer": "/root/grammar_graph",
+        "final_report_sha256": "53a09e8d8fff19a8ef7ee0ef36cbce7add34910173c95ff35b583b91cf14cdd5",
+        "related_test_sha256": "d722bafc49e993d3aa0ce053dd3cb3a2c40de91eab6a4014819f066aee7f2262",
+        "result": "PASS: fixed fourth-group verifier and tests independently reviewed without producer import",
+        "meaning_checks": [
+          "Exact eight report/manifest/counts and priorities32–39 constrained.",
+          "Actual current-tree receipt presence rejects whole-fourth-group omission.",
+          "Exact proof, receipt, final-review, confidence and non-executable invariants retained.",
+          "Only live Core or the canonical pinned Operator record support evidence.",
+          "Old isolated layouts remain accepted without new real receipts."
+        ]
+      }
+    },
+    "rejected_prior_preview": {
+      "result": "REJECT",
+      "reason": "Producer appended canonical full-body evidence to accepted partial-body proof; exact later-layer proof equality failed.",
+      "occurrence": "CA-R-940#subjects.governs",
+      "source_writes": "none",
+      "draft_writes": "none",
+      "old_producer_sha256": "a0eeef3e58436fb972289736711c805a784c24da9c96d4099a5b536471b7e259"
+    }
+  },
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "remaining": [
+    "1188 unresolved occurrences and eight quarantined sources remain explicit.",
+    "Qualified/named Atom selector grammar still awaits the Operator answer; none adopted.",
+    "No full mapping or accepted final graph; CA-P-1909–1912 remain the sole approval/application/reproduction route.",
+    "Complete Step-1 gate CA-P-1969 and ordinary Summary/Substance/Scope/Details work remain open."
+  ],
+  "unrelated_work_preserved": [
+    "stage2/supplements/build_other_fields_review.py",
+    "stage2/supplements/content_roles.review.py",
+    "stage2/supplements/operations.review.py",
+    "stage2/supplements/relations_subjects.review.py"
+  ]
+}
