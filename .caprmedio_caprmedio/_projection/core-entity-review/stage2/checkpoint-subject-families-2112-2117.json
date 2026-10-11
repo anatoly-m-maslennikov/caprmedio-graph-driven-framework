@@ -1,0 +1,643 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11 09:30:39 +0400",
+  "result": "PASS: independently accepted final-family research and current derived integration; not source adoption",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "completed_tasks": [
+    "CA-P-2112",
+    "CA-P-2113",
+    "CA-P-2114",
+    "CA-P-2115",
+    "CA-P-2116",
+    "CA-P-2117",
+    "CA-P-2118",
+    "CA-P-2119",
+    "CA-P-2120"
+  ],
+  "input_manifest": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+    "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+  },
+  "research_registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+  "integration_registration_commit": "8c960cc46a9f45141320e2cd97a909cb81af03fb",
+  "research": {
+    "exact_occurrences": 137,
+    "unique_owning_sources": 101,
+    "summed_per_task_sources": 111,
+    "proposed": 87,
+    "unresolved": 50,
+    "reports": [
+      {
+        "task": "CA-P-2112",
+        "output": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2112.research.json",
+          "sha256": "e65fe0ec394ca5655ee23052d869467aab0a632abede70d3311b86425f58b3d7"
+        },
+        "rows": 17,
+        "counts": {
+          "proposed": 8,
+          "unresolved": 9
+        },
+        "exact_evidence_spans": 25,
+        "exact_input_pins": 11,
+        "historical_context_pins": [
+          {
+            "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+            "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+            "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "role": "Historical derived ledger context only"
+          },
+          {
+            "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/85-CA-P-2112-TASK--review-final-snapshot-field-origins.md",
+            "sha256": "588a1970a349c3770a8f25b33602b14c8400113435b2c5784e0538dcffb7b37f",
+            "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "role": "Plan context only"
+          }
+        ],
+        "negative_checks_rejected": [
+          "missing_row",
+          "duplicate_row",
+          "changed_origin",
+          "corrupt_span",
+          "stale_source",
+          "inferred_selector",
+          "missing_context_pin",
+          "low_confidence_proposal",
+          "high_confidence_null",
+          "executable_row",
+          "wrong_prior_decision"
+        ],
+        "input_manifest": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+          "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+        },
+        "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+        "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage"
+      },
+      {
+        "task": "CA-P-2113",
+        "output": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2113.research.json",
+          "sha256": "97dae252cfe7cdfce21864bb38bf3bb12fc0c2a2ef489edd668387faa4415a6c"
+        },
+        "rows": 27,
+        "counts": {
+          "proposed": 24,
+          "unresolved": 3
+        },
+        "exact_evidence_spans": 50,
+        "exact_input_pins": 11,
+        "historical_context_pins": [
+          {
+            "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+            "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+            "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "role": "Historical derived ledger context only"
+          },
+          {
+            "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/86-CA-P-2113-TASK--review-remaining-scope-and-project-origins.md",
+            "sha256": "9e5ad00944f97c2c950642d3a66555562d839bfc4fd4dc6308ae39d8082f05f7",
+            "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "role": "Plan context only"
+          }
+        ],
+        "negative_checks_rejected": [
+          "missing_row",
+          "duplicate_row",
+          "changed_origin",
+          "corrupt_span",
+          "stale_source",
+          "inferred_selector",
+          "missing_context_pin",
+          "low_confidence_proposal",
+          "high_confidence_null",
+          "executable_row",
+          "wrong_prior_decision"
+        ],
+        "input_manifest": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+          "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+        },
+        "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+        "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage"
+      },
+      {
+        "task": "CA-P-2114",
+        "output": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2114.research.json",
+          "sha256": "c4a3db04a629185cddf1b56b2f52860b14262eb3d42a92aa68d43a5af4e3ade7"
+        },
+        "rows": 28,
+        "counts": {
+          "unresolved": 19,
+          "proposed": 9
+        },
+        "exact_evidence_spans": 57,
+        "exact_input_pins": 34,
+        "historical_context_pins": [
+          {
+            "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+            "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+            "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "role": "Historical derived ledger context only"
+          },
+          {
+            "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/87-CA-P-2114-TASK--review-final-settings-and-methodology-origins.md",
+            "sha256": "56e909fa14009b36378f946cc7652f9a4d833248b4604398c23ab7ee3481d389",
+            "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "role": "Plan context only"
+          }
+        ],
+        "negative_checks_rejected": [
+          "missing_row",
+          "duplicate_row",
+          "changed_origin",
+          "corrupt_span",
+          "stale_source",
+          "inferred_selector",
+          "missing_context_pin",
+          "low_confidence_proposal",
+          "high_confidence_null",
+          "executable_row",
+          "wrong_prior_decision"
+        ],
+        "input_manifest": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+          "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+        },
+        "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+        "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage"
+      },
+      {
+        "task": "CA-P-2115",
+        "output": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2115.research.json",
+          "sha256": "cbad7db5ae4f00f397f67eb240d593596402fcb8bc02a247bdfd2b78abcf75b3"
+        },
+        "rows": 24,
+        "counts": {
+          "proposed": 9,
+          "unresolved": 15
+        },
+        "exact_evidence_spans": 25,
+        "exact_input_pins": 29,
+        "historical_context_pins": [
+          {
+            "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+            "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+            "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "role": "Historical derived ledger context only"
+          },
+          {
+            "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/88-CA-P-2115-TASK--review-final-relation-family-origins.md",
+            "sha256": "42cfb62bf8e32362a21c8f3fabac6e7a33308be72075481b500aba2fbdaab23f",
+            "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "role": "Plan context only"
+          }
+        ],
+        "negative_checks_rejected": [
+          "missing_row",
+          "duplicate_row",
+          "changed_origin",
+          "corrupt_span",
+          "stale_source",
+          "inferred_selector",
+          "missing_context_pin",
+          "low_confidence_proposal",
+          "high_confidence_null",
+          "executable_row",
+          "wrong_prior_decision"
+        ],
+        "input_manifest": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+          "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+        },
+        "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+        "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage"
+      },
+      {
+        "task": "CA-P-2116",
+        "output": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2116.research.json",
+          "sha256": "90d3027a973bd4ff6ecfbe8c6d2288744513df48cf99d6be1c38a3fccf9ce50d"
+        },
+        "rows": 15,
+        "counts": {
+          "proposed": 13,
+          "unresolved": 2
+        },
+        "exact_evidence_spans": 56,
+        "exact_input_pins": 38,
+        "historical_context_pins": [
+          {
+            "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+            "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+            "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "role": "Historical derived ledger context only"
+          },
+          {
+            "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/89-CA-P-2116-TASK--review-final-projection-family-origins.md",
+            "sha256": "2374441e56360b6493b2dcc56bebcd9f26edb72e1eeb678514d512bd0a446db8",
+            "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "role": "Plan context only"
+          }
+        ],
+        "negative_checks_rejected": [
+          "missing_row",
+          "duplicate_row",
+          "changed_origin",
+          "corrupt_span",
+          "stale_source",
+          "inferred_selector",
+          "missing_context_pin",
+          "low_confidence_proposal",
+          "high_confidence_null",
+          "executable_row",
+          "wrong_prior_decision"
+        ],
+        "input_manifest": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+          "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+        },
+        "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+        "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage"
+      },
+      {
+        "task": "CA-P-2117",
+        "output": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2117.research.json",
+          "sha256": "d49221d9c8468f92b0f8144f879163538cc438699b5145fe2f36ed18bd8ffb8f"
+        },
+        "rows": 26,
+        "counts": {
+          "proposed": 24,
+          "unresolved": 2
+        },
+        "exact_evidence_spans": 78,
+        "exact_input_pins": 38,
+        "historical_context_pins": [
+          {
+            "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+            "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+            "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "role": "Historical derived ledger context only"
+          },
+          {
+            "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/90-CA-P-2117-TASK--review-scope-and-project-tail-origins.md",
+            "sha256": "ed8d968686bc560ea137b1cdad70abdc02c582709996367906a97c502cca8406",
+            "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+            "role": "Plan context only"
+          }
+        ],
+        "negative_checks_rejected": [
+          "missing_row",
+          "duplicate_row",
+          "changed_origin",
+          "corrupt_span",
+          "stale_source",
+          "inferred_selector",
+          "missing_context_pin",
+          "low_confidence_proposal",
+          "high_confidence_null",
+          "executable_row",
+          "wrong_prior_decision"
+        ],
+        "input_manifest": {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+          "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+        },
+        "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+        "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage"
+      }
+    ],
+    "independent_semantic_acceptance": [
+      {
+        "reviewer": "/root/projection_review_2099",
+        "final_report_sha256": "e65fe0ec394ca5655ee23052d869467aab0a632abede70d3311b86425f58b3d7",
+        "result": "PASS: all seventeen final meanings independently checked; eight supported proposals and nine justified nulls",
+        "meaning_checks": [
+          "Current Activity, Status, Author, Updated At and Change Classification fields remain snapshot dependencies.",
+          "Frontmatter remains representation syntax, not an entity.",
+          "Draft-lineage identity and mixed current/history transitions are not collapsed to Revision.",
+          "Procedural authoring does not establish an Actor or Author field."
+        ]
+      },
+      {
+        "reviewer": "/root/grammar_graph",
+        "final_report_sha256": "97dae252cfe7cdfce21864bb38bf3bb12fc0c2a2ef489edd668387faa4415a6c",
+        "result": "PASS: all twenty-seven final meanings independently checked; twenty-four supported proposals and three justified nulls",
+        "meaning_checks": [
+          "Structural Entity maps to the broader Entity, not the narrower Scope Unit.",
+          "Project remains parentless Scope Unit; Project Structure remains non-Atom Artifact.",
+          "Topology and local-order constraints remain explicit in bodies/evidence.",
+          "Derived nearest-peer and owned-Atom collection contexts remain null without invented identities."
+        ],
+        "normalization_confirmation": "PASS: reviewer independently confirmed only one redundant EOF blank line was removed; JSON values unchanged."
+      },
+      {
+        "reviewer": "/root/subject_review_003",
+        "final_report_sha256": "c4a3db04a629185cddf1b56b2f52860b14262eb3d42a92aa68d43a5af4e3ade7",
+        "result": "PASS after correction: all twenty-eight final meanings independently checked; nine supported proposals and nineteen justified nulls",
+        "rejected_earlier_report_sha256": "c8578dd2b2f53a21bfecc3df90142361ebfd95304e310035ac5ce0706a639256",
+        "meaning_checks": [
+          "Two compiler conflict references preserve Projection realization.",
+          "Seven Settings references preserve distinct Artifact ownership.",
+          "Six named Source Reconciliation Workflow references remain null, preserving typed control-flow/definition-versus-run boundaries.",
+          "Source-frontier, methodology provenance, extensions/configuration and serving instance distinctions remain null rather than flattened."
+        ]
+      },
+      {
+        "reviewer": "/root/subject_review_005",
+        "final_report_sha256": "cbad7db5ae4f00f397f67eb240d593596402fcb8bc02a247bdfd2b78abcf75b3",
+        "result": "PASS: all twenty-four final meanings independently checked; nine supported proposals and fifteen justified nulls",
+        "meaning_checks": [
+          "Relation policy mappings retain topology, authority, endpoints, serialization and syntax constraints.",
+          "Relation Type and Kind remain one concept.",
+          "Explicit IS_ALLOWED_VALUE_OF membership supports Relation.Type allowed-value notation.",
+          "Named Subject relations, evaluation-for, authority-qualified and composition meanings remain null where generic Relation loses meaning."
+        ]
+      },
+      {
+        "reviewer": "/root/followup_semantic_acceptance",
+        "final_report_sha256": "90d3027a973bd4ff6ecfbe8c6d2288744513df48cf99d6be1c38a3fccf9ce50d",
+        "result": "PASS: all fifteen final meanings independently checked; thirteen supported proposals and two justified nulls",
+        "meaning_checks": [
+          "Atom Collection targets Entity without making it a Scope Unit or Atom.",
+          "Hub Atom remains a derived Atom description, not a new subtype.",
+          "Plan Graph and Project Scope Unit Graph remain derived Projections.",
+          "Generic graph-kind and Definition Atom authority qualifiers remain unresolved rather than flattened."
+        ]
+      },
+      {
+        "reviewer": "/root/followup_semantic_acceptance",
+        "final_report_sha256": "d49221d9c8468f92b0f8144f879163538cc438699b5145fe2f36ed18bd8ffb8f",
+        "result": "PASS after evidence correction: all twenty-six outcomes independently checked; twenty-four supported proposals and two justified nulls",
+        "rejected_earlier_report_sha256": "156c7d31efead580502b83daa44d0b817b87b8a31571b19a5cdbe3e5907efd71",
+        "meaning_checks": [
+          "All twelve Project references carry explicit CA-R-1759 parentless/Unordered current body evidence.",
+          "Project Structure remains authoritative non-Atom Artifact.",
+          "Primary/Structural Entity remain broadly Entity, not falsely narrowed Scope Unit.",
+          "Direct Containment retains directed-pair/nearest-directory constraints; owned-Atom collections remain null."
+        ]
+      }
+    ],
+    "corrections": [
+      "Six named Source Reconciliation Workflow proposals were rejected and remain null.",
+      "Twelve Project references received explicit current parentless/Unordered Project evidence.",
+      "One redundant report EOF blank line was removed with exact byte reversal, JSON value equality and final-hash independent confirmation."
+    ]
+  },
+  "outputs": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2",
+      "size_bytes": 19739830
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+      "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+      "size_bytes": 3642901
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+      "sha256": "e08e5f1cc8311cd0bea25f0cb0fd7767028baaf04523aebaba384edb170ac819",
+      "size_bytes": 3197267
+    }
+  ],
+  "counts": {
+    "excluded_sources": 11203,
+    "occurrences": 4534,
+    "outcome": "PASS",
+    "proposed": 1735,
+    "quarantined_sources": 8,
+    "sources": 907,
+    "unchanged": 1540,
+    "unresolved": 1259
+  },
+  "accepted_current_grammar": {
+    "occurrences": 33,
+    "proposed": 15,
+    "unresolved": 18,
+    "recheck_resets": 0
+  },
+  "quarantined_occurrences": 35,
+  "persisted_verification": "PASS: exact accepted-preview hashes and independent current-source/layer/evidence gate",
+  "tests": {
+    "focused": 23,
+    "native": {
+      "result": "PASS: read-only independent native regression",
+      "reviewer": "/root/mapping_drift_verify",
+      "tests": 296,
+      "suites": [
+        {
+          "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests",
+          "tests": 44,
+          "exit_code": 0
+        },
+        {
+          "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/tests",
+          "tests": 33,
+          "exit_code": 0
+        },
+        {
+          "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests",
+          "tests": 219,
+          "exit_code": 0
+        }
+      ],
+      "command_pattern": "UV_CACHE_DIR=$PWD/.caprmedio_tmp/cache/uv TMPDIR=$PWD/.caprmedio_tmp PYTHONDONTWRITEBYTECODE=1 uv run --no-project --offline --with pydantic==2.13.5 --with PyYAML==6.0.3 python -B -m unittest discover -s <suite path> -p test_*.py",
+      "changed_files": []
+    },
+    "total": 319,
+    "focused_post_persist_exit_code": 0,
+    "complete_ledger_wrong_controls": [
+      {
+        "probe": "missing_layer",
+        "reason": "complete accepted-layer manifest"
+      },
+      {
+        "probe": "omit_all_followups",
+        "reason": "accepted third follow-up extension required"
+      },
+      {
+        "probe": "missing_selected_row",
+        "reason": "exact current occurrence coverage"
+      },
+      {
+        "probe": "stale_source",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs exact current origin/pin"
+      },
+      {
+        "probe": "wrong_target",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs final selected-layer target"
+      },
+      {
+        "probe": "wrong_priority",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs accepted layer priority"
+      },
+      {
+        "probe": "wrong_confidence",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs final selected-layer confidence"
+      },
+      {
+        "probe": "stale_receipt",
+        "reason": "third follow-up accepted pins CA-P-2112"
+      },
+      {
+        "probe": "missing_independent_review",
+        "reason": "third follow-up manifest independent-review hash CA-P-2112"
+      },
+      {
+        "probe": "executable_row",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs non-executable"
+      }
+    ],
+    "report_wrong_controls": 66,
+    "producer_negative_probes": "PASS"
+  },
+  "support_acceptance": {
+    "producer": {
+      "task": "CA-P-2118",
+      "output": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/consolidate_reviewed_mappings.py",
+        "sha256": "e7f2211cc7cbba6df5f389029a8da15e7e42897552b6fee2f29cd34f895464c5"
+      },
+      "result": "PASS: closed third research group, negative probes and create-free preview",
+      "negative_probes": {
+        "command": "uv run --no-project --offline --with pydantic==2.13.5 --with PyYAML==6.0.3 python -B <consolidator> --negative-probes",
+        "exit_code": 0,
+        "outcome": "NEGATIVE_PROBES_PASS"
+      },
+      "preview": {
+        "sources": 907,
+        "occurrences": 4534,
+        "proposed": 1735,
+        "unchanged": 1540,
+        "unresolved": 1259,
+        "quarantined_sources": 8,
+        "quarantined_occurrences": 35,
+        "draft_writes": "not_performed"
+      },
+      "independent_review": {
+        "reviewer": "/root/followup_semantic_acceptance",
+        "final_report_sha256": "e7f2211cc7cbba6df5f389029a8da15e7e42897552b6fee2f29cd34f895464c5",
+        "result": "PASS: exact closed group, receipt/final-hash/live-evidence checks, canonical Operator-only exception, all earlier gates and create-only writes preserved"
+      }
+    },
+    "verifier": {
+      "task": "CA-P-2119",
+      "output": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+        "sha256": "f41f2273026d3e062714dd7b7239ddc0ce5d238b6c0a0c9f3bc5ffe140e5b7f1"
+      },
+      "test_output": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_working_mapping_ledger.py",
+        "sha256": "7d80b12ad833c4b0a0e7588fb438f043c08f1d9a4c309ad69edad17eccc3592d"
+      },
+      "result": "PASS: independent fixed third-group verifier, live old-ledger rejection, focused suite and complete prospective control",
+      "focused_tests": {
+        "tests": 23,
+        "exit_code": 0,
+        "result": "PASS"
+      },
+      "prospective_gate": {
+        "result": "PASS: prospective live frontier and ten valid-control negatives",
+        "counts": {
+          "outcome": "PASS",
+          "sources": 907,
+          "occurrences": 4534,
+          "proposed": 1735,
+          "unchanged": 1540,
+          "unresolved": 1259,
+          "quarantined_sources": 8,
+          "excluded_sources": 11203
+        },
+        "prospective_outputs": [
+          {
+            "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+            "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2",
+            "size_bytes": 19739830
+          },
+          {
+            "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+            "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+            "size_bytes": 3642901
+          },
+          {
+            "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+            "sha256": "e08e5f1cc8311cd0bea25f0cb0fd7767028baaf04523aebaba384edb170ac819",
+            "size_bytes": 3197267
+          }
+        ],
+        "negative_checks_rejected": [
+          {
+            "probe": "missing_layer",
+            "reason": "complete accepted-layer manifest"
+          },
+          {
+            "probe": "omit_all_followups",
+            "reason": "accepted third follow-up extension required"
+          },
+          {
+            "probe": "missing_selected_row",
+            "reason": "exact current occurrence coverage"
+          },
+          {
+            "probe": "stale_source",
+            "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs exact current origin/pin"
+          },
+          {
+            "probe": "wrong_target",
+            "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs final selected-layer target"
+          },
+          {
+            "probe": "wrong_priority",
+            "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs accepted layer priority"
+          },
+          {
+            "probe": "wrong_confidence",
+            "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs final selected-layer confidence"
+          },
+          {
+            "probe": "stale_receipt",
+            "reason": "third follow-up accepted pins CA-P-2112"
+          },
+          {
+            "probe": "missing_independent_review",
+            "reason": "third follow-up manifest independent-review hash CA-P-2112"
+          },
+          {
+            "probe": "executable_row",
+            "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs non-executable"
+          }
+        ],
+        "draft_writes": "not_performed"
+      },
+      "independent_review": {
+        "reviewer": "/root/grammar_graph",
+        "final_report_sha256": "f41f2273026d3e062714dd7b7239ddc0ce5d238b6c0a0c9f3bc5ffe140e5b7f1",
+        "reviewed_test_sha256": "7d80b12ad833c4b0a0e7588fb438f043c08f1d9a4c309ad69edad17eccc3592d",
+        "result": "PASS: no producer import; exact fixed third-group/live evidence/receipt/final-review/proof checks and actual-tree omission guard preserved",
+        "execution_evidence": "Root executed 23 focused tests and full prospective control with ten wrong-data rejections; reviewer independently inspected exact code and tests."
+      }
+    }
+  },
+  "original_core_unchanged_since": "441bc48e1",
+  "previous_outputs_recoverable_from_git": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+  "previous_working_ledger_sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+  "remaining_gates": [
+    "1259 current Subject meanings remain unresolved; this exhausts baseline-only origins in these selected families only.",
+    "Eight malformed original sources remain quarantined; no repair packet is approved.",
+    "Qualified and named Atom selector grammar still awaits the Operator answer.",
+    "Accepted graph, exact sealed approval, admitted application and reproduction remain under CA-P-1909–1912.",
+    "Complete Step 1 verification precedes ordinary Summary/Substance/Scope/Details alignment; CA-P-1969–1971 remain open."
+  ],
+  "limits": [
+    "No frozen/captured evidence, raw prior reports, original Core or unrelated helpers were changed.",
+    "Only the three exact derived drafts were regenerated; their earlier bytes remain in Git.",
+    "No MCP/FPF/runtime, native fact admission, source apply, push or competing migration receipt."
+  ]
+}

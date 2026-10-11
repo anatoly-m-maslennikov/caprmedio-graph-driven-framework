@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 111
-updated_at: "2026-10-11 09:17:26 +0400"
+version: 112
+updated_at: "2026-10-11 09:30:39 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -184,6 +184,8 @@ CA-P-2112–2117 cover the final137 baseline-only unresolved origins in these ex
 - [CA-P-2117 — Review scope and project tail origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/90-CA-P-2117-TASK--review-scope-and-project-tail-origins.md)
 
 CA-P-2112–2117 are independently accepted: 137 exact origins, 87 supported proposals and 50 nulls. CA-P-2118–2120 integrate this final continuation for these families without changing authority. This completes their bounded research, not all semantic mapping; the current ledger is still the prior 1648/1540/1346 checkpoint until verified replacement.
+
+Latest integration checkpoint: CA-P-2112–2120 are Done. Six independently accepted reports cover 137 exact origins across 101 distinct current sources (87 proposals, 50 explicit nulls). The persisted derived ledger now has 1735 proposed, 1540 unchanged and 1259 unresolved references across 907 original Core sources and 4534 occurrences. All 319 relevant tests pass (23 focused verifier, 296 native), plus ten complete-ledger wrong-data controls and 66 report controls. Original Core remains unchanged; eight quarantines, the selector decision and final migration/content gates stay open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-families-2112-2117.json`. This is progress, not complete mapping or source adoption.
 
 ### Definition of Done
 
