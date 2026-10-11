@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 6
-updated_at: "2026-10-11 04:27:46 +0400"
+version: 8
+updated_at: "2026-10-11 04:57:20 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1975]
@@ -43,6 +43,16 @@ Exercise mixed operators, malformed paths, reserved-character escaping, collisio
 This Task changes implementation and isolated fixtures only. It does not adopt governing grammar Atoms, activate a runtime, publish graphs or migrate sources. Include exact implementation pins in the subsequent preview. Split larger work before execution.
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
+
+### Decomposing Plans
+
+- [CA-P-2067 — Implement shared Subject notation](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/done/01-CA-P-2067-TASK--implement-shared-subject-notation.md)
+- [CA-P-2068 — Implement profile-aware Subject lookup](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/02-CA-P-2068-TASK--implement-profile-aware-subject-lookup.md)
+- [CA-P-2069 — Implement profile-aware Subject preview](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/03-CA-P-2069-TASK--implement-profile-aware-subject-preview.md)
+- [CA-P-2070 — Implement profile-aware graph parsing](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/04-CA-P-2070-TASK--implement-profile-aware-graph-parsing.md)
+- [CA-P-2071 — Wire Subject profile requests](07-CA-P-1965-TASK--support-the-approved-subject-grammar-in-tools/05-CA-P-2071-TASK--wire-subject-profile-requests.md)
+
+The source gate is independently accepted and committed as c6b4525d7. The settled shared API and exclusive scopes are in `grammar-tools.implementation-lanes.md`; final independent code verification remains CA-P-1975.
 
 ### Definition of Done
 
