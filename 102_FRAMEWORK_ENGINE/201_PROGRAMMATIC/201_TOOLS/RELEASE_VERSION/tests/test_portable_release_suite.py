@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import unittest
 from collections import defaultdict
+from dataclasses import replace
 import hashlib
 from pathlib import Path
 from unittest.mock import patch
@@ -101,6 +102,82 @@ class PortableReleaseSuiteTests(unittest.TestCase):
                 )
                 self.assertEqual({row.sha256 for row in phase_rows}, {phase_rows[0].sha256})
                 self.assertEqual({row.mode for row in phase_rows}, {phase_rows[0].mode})
+
+    def test_same_byte_methodology_projection_allows_export_mode_normalization(self) -> None:
+        # The candidate snapshot preserves a source carrier's restrictive
+        # mode; the sealed export materializes its admissible regular-file
+        # projection at 0644.  The runner must retain both checked carriers
+        # while assigning their one canonical origin only once.
+        self.fixture.atom_one.chmod(0o600)
+        candidate = self.fixture._candidate()
+        observed = replace(self.sealed, candidate=candidate)
+
+        with (
+            patch("release_suite_inputs._revalidate", return_value=candidate),
+            patch("release_suite_inputs.revalidate_sealed_portable_compilation", return_value=observed),
+        ):
+            inputs = collect_portable_suite_inputs(candidate, observed)
+
+        canonical = self.fixture.atom_one.relative_to(self.fixture.root).as_posix()
+        projected = [
+            row for row in inputs.source_paths
+            if row.canonical_origin == canonical and row.origin_kind != "skill_projection"
+        ]
+        self.assertEqual({row.origin_kind for row in projected}, {"candidate", "methodology"})
+        self.assertEqual({row.sha256 for row in projected}, {projected[0].sha256})
+        self.assertEqual({row.mode for row in projected}, {0o600, 0o644})
+        self.assertNotIn("defaults/runtime-config.toml", {row.source_path for row in inputs.source_paths})
+
+    def test_methodology_projection_still_refuses_conflicting_bytes(self) -> None:
+        self.fixture.atom_one.chmod(0o600)
+        candidate = self.fixture._candidate()
+        atom_relative = self.fixture.atom_one.relative_to(self.fixture.source).as_posix()
+        original = next(
+            row for row in self.sealed.portable_package_rows
+            if row.resource == "METHODOLOGY" and row.source_path.endswith(atom_relative)
+        )
+        projection = self.fixture.root / original.source_path
+        replacement = b"---\natom_id: CA-R-001\nstatus: Active\nversion: 1\n---\n# changed projection\n"
+        projection.write_bytes(replacement)
+        replacement_row = replace(original, sha256=hashlib.sha256(replacement).hexdigest())
+        observed = replace(
+            self.sealed,
+            candidate=candidate,
+            portable_package_rows=tuple(
+                replacement_row if row == original else row
+                for row in self.sealed.portable_package_rows
+            ),
+        )
+
+        with (
+            patch("release_suite_inputs._revalidate", return_value=candidate),
+            patch("release_suite_inputs.revalidate_sealed_portable_compilation", return_value=observed),
+            self.assertRaises(ReleaseContractError) as raised,
+        ):
+            collect_portable_suite_inputs(candidate, observed)
+        self.assertEqual(raised.exception.code, "release-suite-portable-origin-conflict")
+
+    def test_methodology_projection_still_refuses_wrong_declared_mode(self) -> None:
+        atom_relative = self.fixture.atom_one.relative_to(self.fixture.source).as_posix()
+        original = next(
+            row for row in self.sealed.portable_package_rows
+            if row.resource == "METHODOLOGY" and row.source_path.endswith(atom_relative)
+        )
+        observed = replace(
+            self.sealed,
+            portable_package_rows=tuple(
+                replace(row, mode=0o600) if row == original else row
+                for row in self.sealed.portable_package_rows
+            ),
+        )
+
+        with (
+            patch("release_suite_inputs._revalidate", return_value=self.fixture.candidate),
+            patch("release_suite_inputs.revalidate_sealed_portable_compilation", return_value=observed),
+            self.assertRaises(ReleaseContractError) as raised,
+        ):
+            collect_portable_suite_inputs(self.fixture.candidate, observed)
+        self.assertEqual(raised.exception.code, "release-suite-portable-stale")
 
     def test_default_executor_retains_native_incomplete_evidence(self) -> None:
         # The portable fixture intentionally has no selected-N retained

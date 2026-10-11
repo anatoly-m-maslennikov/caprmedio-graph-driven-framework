@@ -274,7 +274,12 @@ def collect_portable_suite_inputs(
             phase_origins[row.canonical_origin] = row
             continue
         methodology_twin = {prior.origin_kind, row.origin_kind} <= {"candidate", "methodology", "support"}
-        if not methodology_twin or prior.sha256 != row.sha256 or prior.mode != row.mode:
+        # The source inventory preserves the source carrier's mode, while the
+        # sealed Methodology export deliberately materializes a regular
+        # projection mode.  Both rows have already passed their independent
+        # byte-and-mode checks above; the phase map only needs one canonical
+        # source when their bytes agree.
+        if not methodology_twin or prior.sha256 != row.sha256:
             raise _error("release-suite-portable-origin-conflict", "canonical Unit source has conflicting sealed origins")
     try:
         phase_map = derive_test_phase_map_from_rows(
