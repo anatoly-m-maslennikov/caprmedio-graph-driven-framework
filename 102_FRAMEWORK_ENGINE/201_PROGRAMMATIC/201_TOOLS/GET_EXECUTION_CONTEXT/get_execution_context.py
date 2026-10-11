@@ -37,6 +37,12 @@ class _DescriptorAdapter:
     def __init__(self, root: str | Path) -> None:
         self._service = Service(root)
 
+    def bind_server_frontier(self, *, registered_names, quarantined=(), withheld=()) -> None:
+        """Accept the server's completed registration, never caller parameters."""
+        self._service.bind_server_frontier(
+            registered_names=registered_names, quarantined=quarantined, withheld=withheld,
+        )
+
     def invoke(self, request: Context) -> dict[str, Any]:
         return self._service.context(request)
 

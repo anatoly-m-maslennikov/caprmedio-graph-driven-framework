@@ -480,6 +480,7 @@ def register_catalog_tools(
     tools: Sequence[Mapping[str, Any]],
     *,
     occupied_public_names: Sequence[str] = (),
+    registered_public_names: Sequence[str] = (),
 ) -> RegistrySnapshot:
     """Compile all valid descriptors and register only unoccupied public names.
 
@@ -493,6 +494,7 @@ def register_catalog_tools(
     registered: list[Mapping[str, object]] = []
     quarantined: list[Mapping[str, object]] = list(snapshot.quarantined)
     withheld: list[Mapping[str, object]] = []
+    frontier_binders: list[Callable[..., None]] = []
     occupied = frozenset(name for name in occupied_public_names if isinstance(name, str) and name)
     for record in snapshot.tools:
         mcp_name = record.get("mcp_name")
@@ -533,6 +535,9 @@ def register_catalog_tools(
                 structured_output=True,
             )
             registered.append(record)
+            bind_frontier = getattr(adapter, "bind_server_frontier", None)
+            if callable(bind_frontier):
+                frontier_binders.append(bind_frontier)
         except Exception as error:
             if isinstance(error, RegisteredToolError):
                 field, _, code = str(error).partition(": ")
@@ -542,7 +547,13 @@ def register_catalog_tools(
                 "source": dict(record["source"]),
                 "diagnostics": [_diagnostic(field, code or "failed")],
             })
-    return _snapshot(snapshot.tools, quarantined, registered=registered, withheld=withheld)
+    result = _snapshot(snapshot.tools, quarantined, registered=registered, withheld=withheld)
+    # Names reserved by a caller are not proof of registration.  Only completed
+    # add_tool calls and the server's explicit bootstrap result enter discovery.
+    names = frozenset(registered_public_names) | result.registered_names
+    for bind_frontier in frontier_binders:
+        bind_frontier(registered_names=names, quarantined=result.quarantined, withheld=result.withheld)
+    return result
 
 
 __all__ = ["RegisteredToolError", "RegistrySnapshot", "compile_registry", "register_catalog_tools"]

@@ -94,6 +94,17 @@ class Service:
         self.registry_quarantined = ()
         self.registry_withheld = ()
 
+    def bind_server_frontier(self, *, registered_names, quarantined=(), withheld=()):
+        """Retain the actual transport registration result, outside Tool input.
+
+        Canonical CLI adapters have no exposed MCP names.  Only the server's
+        completed registry injects this frontier; source declarations alone
+        cannot make a capability executable.
+        """
+        self.exposed = set(registered_names)
+        self.registry_quarantined = tuple(quarantined)
+        self.registry_withheld = tuple(withheld)
+
     def read(self, path):
         path = Path(path)
         if not path.is_relative_to(self.root):

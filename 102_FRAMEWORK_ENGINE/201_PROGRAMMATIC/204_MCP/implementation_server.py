@@ -53,6 +53,7 @@ def create_server(root):
         root,
         [tool for tool in catalog_tools if not tool.get('selected_route')],
         occupied_public_names=selected_routes.public_route_names,
+        registered_public_names=('workflow_orchestrator', *selected_routes.public_route_names),
     )
     discovery.registry_quarantined = registry.quarantined
     discovery.registry_withheld = registry.withheld
