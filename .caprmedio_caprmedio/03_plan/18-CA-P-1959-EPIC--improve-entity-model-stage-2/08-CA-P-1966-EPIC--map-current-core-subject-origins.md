@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 122
-updated_at: "2026-10-11 10:25:03 +0400"
+version: 123
+updated_at: "2026-10-11 10:33:45 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -199,6 +199,17 @@ CA-P-2121–2128 review 205 previously unreviewed baseline-only origins in eight
 - [CA-P-2128 — Review Term and Subject-relation origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/98-CA-P-2128-TASK--review-term-and-subject-relation-origins.md)
 
 Latest integration checkpoint: CA-P-2121–2131 are Done. Eight independently accepted reviews cover205 exact origins across148 distinct current sources:71 supported mappings and134 explicit nulls. The persisted ledger now has1806 proposed,1540 unchanged and1188 unresolved references across907 original Core sources/4534 occurrences. All321 relevant tests pass (25 focused and296 native), plus88 report controls andten complete-ledger wrong-data controls. Corrected emission preserves accepted proof exactly; rejected interim hypotheses stay out. Original Core remains unchanged; eight quarantines, the unanswered selector decision and final migration/content gates remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-domains-2121-2128.json`. This is progress, not complete mapping or source adoption.
+
+CA-P-2132–2139 review195 previously unreviewed current origins across148 distinct owners. Eight disjoint ownership lanes exclude already reviewed nulls and the known qualified/named-selector gate. These are research Tasks, not authorizations to change Core or shrink the full mapping objective.
+
+- [CA-P-2132 — Review remaining Atom and Artifact policy Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/99-CA-P-2132-TASK--review-remaining-atom-and-artifact-policy-subjects.md)
+- [CA-P-2133 — Review governance and expansion topic Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/100-CA-P-2133-TASK--review-governance-and-expansion-topic-subjects.md)
+- [CA-P-2134 — Review remaining role and Implementation Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/101-CA-P-2134-TASK--review-remaining-role-and-implementation-subjects.md)
+- [CA-P-2135 — Review relational Producer and Consumer Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/102-CA-P-2135-TASK--review-relational-producer-and-consumer-subjects.md)
+- [CA-P-2136 — Review remaining grammar and expression Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/103-CA-P-2136-TASK--review-remaining-grammar-and-expression-subjects.md)
+- [CA-P-2137 — Review remaining fields history and Carrier Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/104-CA-P-2137-TASK--review-remaining-fields-history-and-carrier-subjects.md)
+- [CA-P-2138 — Review remaining settings and structure Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/105-CA-P-2138-TASK--review-remaining-settings-and-structure-subjects.md)
+- [CA-P-2139 — Review remaining relation and projection record Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/106-CA-P-2139-TASK--review-remaining-relation-and-projection-record-subjects.md)
 
 ### Definition of Done
 
