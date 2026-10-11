@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Actor, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 03:23:03 +0400"
+version: 2
+updated_at: "2026-10-11 06:18:53 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
 ---
@@ -34,6 +34,10 @@ Estimated own work: 15 minutes. The independent ledger check found 33 Operator â
 Read the supplement contract and every owning current source span. Produce supplements/actor_types.review.json with exact coverage of those 43 baseline proposed occurrences only. Use Actor.Type: Operator and Actor.Type: AI Agent when current role meaning is established; otherwise retain unresolved research. Add generic dependent and Actor identity rule basis. Preserve all original occurrence/source/quarantine fields and role distinctions. No instance or Actor Name is invented.
 
 Keep the baseline ledger and frozen reports unchanged. The correction is a derived overlay, not a source edit, semantic acceptance, grammar/native admission or live migration approval. Root verifies it independently and commits the completed Task.
+
+### Completion
+
+All 43 baseline Actor Type correction candidates now have separately reviewed targets: 33 Actor.Type: Operator and 10 Actor.Type: AI Agent. CA-P-2072 independently accepted the original 36 supported rows; CA-P-2085 and its independent review supplied the seven remaining generic Operator meanings. Their disjoint union exactly covers the original selection and all 43 source hashes remain current. Evidence: `semantic-reviews/task-2058.accepted-subset.json` and `task-2058.receipt.json`. The raw supplement and original Subjects remain unchanged; this is not migration approval.
 
 ### Definition of Done
 

@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 81
-updated_at: "2026-10-11 06:16:59 +0400"
+version: 82
+updated_at: "2026-10-11 06:18:53 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -102,7 +102,7 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 - [CA-P-2047 — Record the Substance field decision](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/54-CA-P-2047-TASK--record-the-substance-field-decision.md)
 - [CA-P-2048 — Apply the Substance decision to Subject mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/55-CA-P-2048-TASK--apply-the-substance-decision-to-subject-mappings.md)
 - [CA-P-2049 — Resolve remaining Subject mappings](08-CA-P-1966-EPIC--map-current-core-subject-origins/56-CA-P-2049-TASK--resolve-remaining-subject-mappings.md)
-- [CA-P-2058 — Correct Actor Type Subject candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/57-CA-P-2058-TASK--correct-actor-type-subject-candidates.md)
+- [CA-P-2058 — Correct Actor Type Subject candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/57-CA-P-2058-TASK--correct-actor-type-subject-candidates.md)
 - [CA-P-2060 — Verify current Subject mapping supplements](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/58-CA-P-2060-TASK--verify-current-subject-mapping-supplements.md)
 
 - [CA-P-2072 — Review actor and history mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/59-CA-P-2072-TASK--review-actor-and-history-mapping-candidates.md)
@@ -116,6 +116,8 @@ Independent semantic-review children assess the 573 currently proposed follow-up
 - [CA-P-2077 — Audit current-source drift in mapping evidence](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/64-CA-P-2077-TASK--audit-current-source-drift-in-mapping-evidence.md)
 
 ### Current review checkpoint
+
+CA-P-2058 is Done: all 43 baseline Actor Type corrections have supported targets (33 Operator, 10 AI Agent). The accepted subset composes independently reviewed rows from CA-P-2072 and CA-P-2085 without rewriting their raw evidence, the baseline ledger or original Subjects.
 
 CA-P-2082 is Done: Thirty-one Claim Target Scope Unit references map to the explicitly defined Atom field; 28 non-uniform Atom Scope references remain null. The target field stays distinct from ownership and Substance applicability.
 
