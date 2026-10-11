@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2106",
+  "recorded_at": "2026-10-11 08:30:16 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review next unresolved relation targets; not migration approval",
+  "verification": {
+    "task": "CA-P-2106",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2106.research.json",
+      "sha256": "109edfd87f6f788658a210e561e034275dff6b49df34357b5d386340ba3e8204"
+    },
+    "rows": 25,
+    "counts": {
+      "unresolved": 16,
+      "proposed": 9
+    },
+    "exact_evidence_spans": 26,
+    "exact_input_pins": 12,
+    "historical_plan_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2103-2108.inputs.json",
+      "sha256": "7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3"
+    },
+    "registration_commit": "9edbdb2156d7a2949ca4d11c6d86e511c8bf9cfb",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/subject_review_006",
+      "final_report_sha256": "109edfd87f6f788658a210e561e034275dff6b49df34357b5d386340ba3e8204",
+      "result": "PASS after correction: all twenty-five current meanings accepted; nine supported proposals and sixteen qualified nulls",
+      "rejected_earlier_report_sha256": "d8ab26cfae7a8f10f6cae8d99f4014f502b40ba5d1840644524cbd295007e4a0",
+      "meaning_checks": [
+        "Eight concrete relation policies retain their exact source-body topology, role, scope, history, ordering and authority constraints",
+        "IS_ALLOWED_VALUE_OF remains an active Relation Type allowed value, not assignment",
+        "Kind-independent Structural Parent and unestablished authority/topology identities remain null",
+        "No native kind/endpoint admission or source migration is claimed"
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/subject_review_006",
+    "final_report_sha256": "109edfd87f6f788658a210e561e034275dff6b49df34357b5d386340ba3e8204",
+    "result": "PASS after correction: all twenty-five current meanings accepted; nine supported proposals and sixteen qualified nulls",
+    "rejected_earlier_report_sha256": "d8ab26cfae7a8f10f6cae8d99f4014f502b40ba5d1840644524cbd295007e4a0",
+    "meaning_checks": [
+      "Eight concrete relation policies retain their exact source-body topology, role, scope, history, ordering and authority constraints",
+      "IS_ALLOWED_VALUE_OF remains an active Relation Type allowed value, not assignment",
+      "Kind-independent Structural Parent and unestablished authority/topology identities remain null",
+      "No native kind/endpoint admission or source migration is claimed"
+    ]
+  },
+  "completion_scope": "All 25 assigned relation origins passed current pin/span/coverage checks and independent semantic acceptance after correcting nine overly conservative nulls: nine supported proposals and sixteen qualified nulls. Relation direction, topology, scope, authority, lifecycle and allowed-value distinctions remain explicit. No original Atom was changed.",
+  "registration_commit": "9edbdb2156d7a2949ca4d11c6d86e511c8bf9cfb",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

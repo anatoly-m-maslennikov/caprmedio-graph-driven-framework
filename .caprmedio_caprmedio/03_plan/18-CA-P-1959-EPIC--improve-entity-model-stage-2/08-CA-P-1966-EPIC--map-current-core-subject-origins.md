@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 101
-updated_at: "2026-10-11 08:26:16 +0400"
+version: 102
+updated_at: "2026-10-11 08:30:16 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -168,7 +168,7 @@ CA-P-2103–2108 review the next 183 disjoint baseline-only unresolved origins u
 - [CA-P-2103 — Review next unresolved snapshot fields](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/79-CA-P-2103-TASK--review-remaining-snapshot-fields.md)
 - [CA-P-2104 — Review next unresolved Scope Unit and Project targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/80-CA-P-2104-TASK--review-remaining-scope-unit-and-project-targets.md)
 - [CA-P-2105 — Review settings and methodology source targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/81-CA-P-2105-TASK--review-settings-and-methodology-source-targets.md)
-- [CA-P-2106 — Review next unresolved Relation targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/82-CA-P-2106-TASK--review-remaining-relation-targets.md)
+- [CA-P-2106 — Review next unresolved Relation targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/82-CA-P-2106-TASK--review-remaining-relation-targets.md)
 - [CA-P-2107 — Review Journal and Actor targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/83-CA-P-2107-TASK--review-journal-and-actor-targets.md)
 - [CA-P-2108 — Review projection and collection targets](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/84-CA-P-2108-TASK--review-projection-and-collection-targets.md)
 

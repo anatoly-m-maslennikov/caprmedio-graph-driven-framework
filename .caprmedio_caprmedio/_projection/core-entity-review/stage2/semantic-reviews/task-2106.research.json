@@ -1,0 +1,1165 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2106",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2103-2108.inputs.json",
+      "sha256": "7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3"
+    },
+    "frozen_baseline_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "50ab0114669787dba6331b58f8054cd8fb33b5abbed33df6fbf5b52df53923fa"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2103-2108.contract.md",
+        "sha256": "d136e6577b09f6ea0d72be85d13ab547c2193e6e9c045072141d1fc2ca511e6d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      }
+    ],
+    "current_grammar_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/subject-tools.grammar-contract.md",
+      "sha256": "aa267553ff481c7473c86fedcd757e902bbf00ffe3e2f2deef90b99201598f59"
+    },
+    "project_structure": {
+      "path": ".caprmedio_caprmedio/project_structure.toml",
+      "sha256": "0ceb85e781490b89fc539f27eb5bf3a5187d4c982a648f27b40b6057257df92c"
+    }
+  },
+  "selection": {
+    "family": "relations",
+    "sources": 25,
+    "occurrences": 25,
+    "occurrence_id_set_sha256": "7026469a9ccdb0911a7adc69a11cdd88d6c2b3ec4a1d06301c9c561ca4df46b0",
+    "manifest_sha256": "7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3"
+  },
+  "supporting_current_definitions": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+      "sha256": "933901316d347a2e09222d19d3a985c2feb93c7efc86e0a8332ab292cd169dd0",
+      "span_sha256": "e697d1ff54b036ce90fdd7499676a154da1c9cb0e3ea6c9bc75a7efd2935d0c8",
+      "start_line": 21,
+      "end_line": 33,
+      "reason": "An admitted Relation Kind retains canonical metadata including authority, direction, endpoint classes, graph contexts, cardinality, applicability, and Status."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1246-CORE_META_MODEL-CORE-REQUIREMENT--keep-relation-vocabularies-graph-specific.md",
+      "sha256": "79e1932957ce002ac47ff529f5fb56a1311ebc5bbc07ac85482021ce5b19d4c3",
+      "span_sha256": "0dfe086e099c99f9dbf689fc0e2c99dbb869454c0969222f29be0a5f99559959",
+      "start_line": 21,
+      "end_line": 37,
+      "reason": "A Relation Kind is graph-qualified by owning graph and canonical name; compatible endpoints or names do not make kinds interchangeable."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1436-CORE_META_MODEL-CORE--define-is-allowed-value-of.md",
+      "sha256": "a33bdc582beb140647e6012022730abf531f6311923edf80ed7d1fe1614dabad",
+      "span_sha256": "9b32b753e9f2c14983afdc4907dcd01f237abb7851b5fe5c620759fc93867b89",
+      "start_line": 20,
+      "end_line": 36,
+      "reason": "IS_ALLOWED_VALUE_OF is an active Entities Graph Relation Kind from an allowed value to a Property in qualified context, not generic relation syntax."
+    }
+  ],
+  "counts": {
+    "assigned": 25,
+    "covered": 25,
+    "proposed": 9,
+    "unresolved": 16,
+    "current_sources": 25,
+    "current_evidence_spans": 26
+  },
+  "limits": [
+    "This is semantic research only; no source migration, native relation admission, selector, singleton kind, @ syntax, or Artifact.Revision target is authorized.",
+    "Each null retains the current Relation Kind, authority, endpoint, direction, allowed-value, topology, lifecycle, or ordering qualification rather than collapsing it to generic Relation.",
+    "Current compact notation does not make a grammar operator an admitted endpoint or Relation Kind target."
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+      "source_atom_id": "CA-R-1390",
+      "source_version": 10,
+      "source_sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body relies on the declared direct-parent structural ownership relation. CA-R-1660 defines that relation as child-to-immediate-parent ownership; CA-R-806 and CA-R-1246 require a Relation Kind to retain its graph-qualified authority, endpoints, direction, and metadata. The candidate only confirms generic Relation and its endpoint boundary, so mapping this qualified kind to Relation would discard its structural-parent identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+          "sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+          "span_sha256": "c58cfec88da2ecb7778f833168672500b1e4435af598ad07434db008ae9199a4",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The child-to-immediate-parent ownership meaning and declared-parent source remain distinct from Carrier containment and a generic Relation.",
+        "Graph-qualified Relation Kind direction, endpoint classes, authority, and metadata are not admitted or collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md",
+      "source_atom_id": "CA-R-1392",
+      "source_version": 9,
+      "source_sha256": "15082a8e9a9ab680d750e4386f9cc5aab9975ac5ae2cbedae5b009e424959d98",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body relies on the declared direct-parent structural ownership relation. CA-R-1660 defines that relation as child-to-immediate-parent ownership; CA-R-806 and CA-R-1246 require a Relation Kind to retain its graph-qualified authority, endpoints, direction, and metadata. The candidate only confirms generic Relation and its endpoint boundary, so mapping this qualified kind to Relation would discard its structural-parent identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md",
+          "sha256": "15082a8e9a9ab680d750e4386f9cc5aab9975ac5ae2cbedae5b009e424959d98",
+          "span_sha256": "452fdd893cd29d1f3fc67ad6c8cc015e78d145f94394bb50fc85202fe172c3c6",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The child-to-immediate-parent ownership meaning and declared-parent source remain distinct from Carrier containment and a generic Relation.",
+        "Graph-qualified Relation Kind direction, endpoint classes, authority, and metadata are not admitted or collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+      "source_atom_id": "CA-R-1405",
+      "source_version": 11,
+      "source_sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "IS_ALLOWED_VALUE_OF",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: IS_ALLOWED_VALUE_OF",
+      "confidence": 0.95,
+      "reason": "CA-R-1405 lines 29-33 registers Core allowed values of Artifact Type, and its exact dependency names the Active IS_ALLOWED_VALUE_OF Relation Kind. CA-R-1436 lines 26-36 defines that Active Entities Graph Kind from value V to Property P in qualified context, expressly excluding assignment and cardinality. Relation.Type: IS_ALLOWED_VALUE_OF preserves that Kind/type identity without asserting a Relation instance, endpoint occurrence, assignment, cardinality, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1436-CORE_META_MODEL-CORE--define-is-allowed-value-of.md",
+          "sha256": "a33bdc582beb140647e6012022730abf531f6311923edf80ed7d1fe1614dabad",
+          "span_sha256": "83613b3fa60b04011b787b6592d45717472dcf185cccb8669df0e2d9f3216149",
+          "start_line": 26,
+          "end_line": 36,
+          "reason": "Current supporting definition: Active IS_ALLOWED_VALUE_OF is value-to-Property in a qualified context, not assignment or cardinality."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "Relation is the confirmed root Entity for typed connections; the proposal remains a non-executable type mapping, not a native relation admission."
+        },
+        {
+          "pointer": "/relation_type_model",
+          "reason": "Relation Type and Relation Kind are one confirmed concept with retained endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "IS_ALLOWED_VALUE_OF remains an Active Entities Graph Kind rather than a generic edge or an asserted Relation instance.",
+        "Value-to-Property direction, qualified allowed-value context, and non-assignment/non-cardinality meaning are retained."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+      "source_atom_id": "CA-R-1437",
+      "source_version": 6,
+      "source_sha256": "31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf",
+      "field": "governs",
+      "index": null,
+      "old_value": "Relation/authority",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body governs authoritative source declarations and traceability for independently authored and derived Relation facts, including the existing Relation Kind source-fact boundary. It does not define a snapshot Property target named Relation.Authority. Generic Relation would conflate a connection with the authority conditions governing its fact.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+          "sha256": "31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf",
+          "span_sha256": "0e29e9b297ced7ac025980f02ac9592683869c626fca6a6ea4f3d748513e9088",
+          "start_line": 25,
+          "end_line": 39,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relation-fact authority and traceability remain distinct from a Relation instance.",
+        "The existing Relation Kind explicit-source-fact requirement is retained without inventing a dependent property."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1484-CORE_META_MODEL-GENERAL-REQUIREMENT--establish-scope-units-through-project-structure-declarations.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1484-CORE_META_MODEL-GENERAL-REQUIREMENT--establish-scope-units-through-project-structure-declarations.md",
+      "source_atom_id": "CA-R-1484",
+      "source_version": 5,
+      "source_sha256": "968be06ce2fd2645b1071b6125492cef58ee789f15e96d44c15991c685e279c5",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body relies on the declared direct-parent structural ownership relation. CA-R-1660 defines that relation as child-to-immediate-parent ownership; CA-R-806 and CA-R-1246 require a Relation Kind to retain its graph-qualified authority, endpoints, direction, and metadata. The candidate only confirms generic Relation and its endpoint boundary, so mapping this qualified kind to Relation would discard its structural-parent identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1484-CORE_META_MODEL-GENERAL-REQUIREMENT--establish-scope-units-through-project-structure-declarations.md",
+          "sha256": "968be06ce2fd2645b1071b6125492cef58ee789f15e96d44c15991c685e279c5",
+          "span_sha256": "178d6a2f9a08ca5eba3196b5cc4f34de9dc93716d512d190156cfabc9906ac36",
+          "start_line": 22,
+          "end_line": 34,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The child-to-immediate-parent ownership meaning and declared-parent source remain distinct from Carrier containment and a generic Relation.",
+        "Graph-qualified Relation Kind direction, endpoint classes, authority, and metadata are not admitted or collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1485-CORE_META_MODEL-GENERAL-REQUIREMENT--preserve-consistent-structural-readability-fields.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1485-CORE_META_MODEL-GENERAL-REQUIREMENT--preserve-consistent-structural-readability-fields.md",
+      "source_atom_id": "CA-R-1485",
+      "source_version": 5,
+      "source_sha256": "e58b909c4ef55a69b3426e23e936c0fd4bc2d63f17714e206581e8a3e22b1e4c",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body relies on the declared direct-parent structural ownership relation. CA-R-1660 defines that relation as child-to-immediate-parent ownership; CA-R-806 and CA-R-1246 require a Relation Kind to retain its graph-qualified authority, endpoints, direction, and metadata. The candidate only confirms generic Relation and its endpoint boundary, so mapping this qualified kind to Relation would discard its structural-parent identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1485-CORE_META_MODEL-GENERAL-REQUIREMENT--preserve-consistent-structural-readability-fields.md",
+          "sha256": "e58b909c4ef55a69b3426e23e936c0fd4bc2d63f17714e206581e8a3e22b1e4c",
+          "span_sha256": "4810841845e8b41aaf7ea9abce1fb5006014bec6e7d3d40ccb29dddf83e1155c",
+          "start_line": 22,
+          "end_line": 34,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The child-to-immediate-parent ownership meaning and declared-parent source remain distinct from Carrier containment and a generic Relation.",
+        "Graph-qualified Relation Kind direction, endpoint classes, authority, and metadata are not admitted or collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-CORE-REQUIREMENT--require-acyclic-structural-ownership.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-CORE-REQUIREMENT--require-acyclic-structural-ownership.md",
+      "source_atom_id": "CA-R-1657",
+      "source_version": 18,
+      "source_sha256": "e20f9b5f022621de57a7efe519c5ebbf24a6e69d4f4aa4ce70516b2a2ce6b468",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "CA-R-1657 lines 24-28 directly governs the directed graph formed by active structural_parent relations and its acyclicity. The candidate confirms Relation as the root Entity for typed connections and retains Relation-Type endpoint constraints. Relation preserves this relation-graph target while the active structural_parent Kind, directed topology constraint, and endpoint constraints remain current-source evidence; it does not admit a native kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1657-CORE_META_MODEL-CORE-REQUIREMENT--require-acyclic-structural-ownership.md",
+          "sha256": "e20f9b5f022621de57a7efe519c5ebbf24a6e69d4f4aa4ce70516b2a2ce6b468",
+          "span_sha256": "bbb097465f493856e3cec848baa5e721aaa843bee3bd332d055dacaa21ac4325",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "Relation is the confirmed root Entity for typed connections."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate retains the active structural_parent Kind's endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The active structural_parent Kind remains distinct from a generic edge or admitted native kind.",
+        "Directed-graph acyclicity and endpoint constraints remain current-source constraints."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-REQUIREMENT--derive-inverse-structural-ownership.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-REQUIREMENT--derive-inverse-structural-ownership.md",
+      "source_atom_id": "CA-R-1659",
+      "source_version": 17,
+      "source_sha256": "d693f0772b0a5e8f2cab511e0aa15fc4472d815ab97cd71869fd3935d9bb9a0c",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "CA-R-1659 lines 26-30 directly governs the inverse structural_children view derived from stored structural_parent relations and prohibits separate persistence. The candidate confirms Relation as the root Entity for typed connections and retains Relation-Type endpoint constraints. Relation preserves this relation target while derivation direction, stored-parent authority, and the no-separate-persistence rule remain current-source evidence; it does not admit a native kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1659-CORE_META_MODEL-REQUIREMENT--derive-inverse-structural-ownership.md",
+          "sha256": "d693f0772b0a5e8f2cab511e0aa15fc4472d815ab97cd71869fd3935d9bb9a0c",
+          "span_sha256": "a2c6e4974139c7e1e9be50c6da9195cc226b49b08a50e42adcbee5166d98f7af",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "Relation is the confirmed root Entity for typed connections."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate retains the stored structural_parent and derived structural_children endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The inverse-derived structural_children view remains distinct from stored structural_parent relations.",
+        "Derivation direction and the no-separate-persistence rule remain current-source constraints."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+      "source_atom_id": "CA-R-1660",
+      "source_version": 17,
+      "source_sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+      "field": "governs",
+      "index": null,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body relies on the declared direct-parent structural ownership relation. CA-R-1660 defines that relation as child-to-immediate-parent ownership; CA-R-806 and CA-R-1246 require a Relation Kind to retain its graph-qualified authority, endpoints, direction, and metadata. The candidate only confirms generic Relation and its endpoint boundary, so mapping this qualified kind to Relation would discard its structural-parent identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+          "sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+          "span_sha256": "2d893a9ab3774cc023cc1c721be33dfc26baac42f1ec62ec1b3ee85e10a7d5d5",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The child-to-immediate-parent ownership meaning and declared-parent source remain distinct from Carrier containment and a generic Relation.",
+        "Graph-qualified Relation Kind direction, endpoint classes, authority, and metadata are not admitted or collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md",
+      "source_atom_id": "CA-R-1661",
+      "source_version": 17,
+      "source_sha256": "250e0b3b4d5d2bead9ad7525244f626eb085336af369af7087e5ff7278ca05f6",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body relies on the declared direct-parent structural ownership relation. CA-R-1660 defines that relation as child-to-immediate-parent ownership; CA-R-806 and CA-R-1246 require a Relation Kind to retain its graph-qualified authority, endpoints, direction, and metadata. The candidate only confirms generic Relation and its endpoint boundary, so mapping this qualified kind to Relation would discard its structural-parent identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-REQUIREMENT--derive-structural-path.md",
+          "sha256": "250e0b3b4d5d2bead9ad7525244f626eb085336af369af7087e5ff7278ca05f6",
+          "span_sha256": "cb8e282ac77471a01aabbfb139ced3961300876c9a5711124f7097802144d33e",
+          "start_line": 22,
+          "end_line": 36,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The child-to-immediate-parent ownership meaning and declared-parent source remain distinct from Carrier containment and a generic Relation.",
+        "Graph-qualified Relation Kind direction, endpoint classes, authority, and metadata are not admitted or collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1671-CORE_META_MODEL-REQUIREMENT--permit-orphan-implementation-decisions.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1671-CORE_META_MODEL-REQUIREMENT--permit-orphan-implementation-decisions.md",
+      "source_atom_id": "CA-R-1671",
+      "source_version": 16,
+      "source_sha256": "021856089fca024124250c3bd2519f3037b7d993d9719db07d026af9c5cfb5d1",
+      "field": "governs",
+      "index": null,
+      "old_value": "requirement-topology",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body defines orphan permission for an Implementation Decision, a qualified topology rule rather than an individual Relation or admitted Relation Kind. The candidate confirms no topology Entity or relation target preserving those role and lifecycle conditions, so generic Relation would be lossy.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1671-CORE_META_MODEL-REQUIREMENT--permit-orphan-implementation-decisions.md",
+          "sha256": "021856089fca024124250c3bd2519f3037b7d993d9719db07d026af9c5cfb5d1",
+          "span_sha256": "9ffa12066e91535d5ba45e2711d09ac4d7186f3a00b8ff244ea56fdb4a40b44b",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "Role-specific orphan or terminal permission remains distinct from an individual Relation.",
+        "No topology root, singleton kind, or lifecycle shortcut is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-REQUIREMENT--permit-terminal-implementation-methods.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-REQUIREMENT--permit-terminal-implementation-methods.md",
+      "source_atom_id": "CA-R-1672",
+      "source_version": 16,
+      "source_sha256": "77c703549e168c4d45e6bbf6f3840b4713a69347a757c3913eb85ad089afd900",
+      "field": "governs",
+      "index": null,
+      "old_value": "requirement-topology",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body defines terminal permission for an Implementation Method after absorbed Decisions are archived, a qualified topology rule rather than an individual Relation or admitted Relation Kind. The candidate confirms no topology Entity or relation target preserving those role and lifecycle conditions, so generic Relation would be lossy.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-REQUIREMENT--permit-terminal-implementation-methods.md",
+          "sha256": "77c703549e168c4d45e6bbf6f3840b4713a69347a757c3913eb85ad089afd900",
+          "span_sha256": "71f7084a3ff2ac2006fc46b4f656a1e5d3864e06d618d9287e38d16646cf8fe7",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "Role-specific orphan or terminal permission remains distinct from an individual Relation.",
+        "No topology root, singleton kind, or lifecycle shortcut is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md",
+      "source_atom_id": "CA-R-1676",
+      "source_version": 20,
+      "source_sha256": "c08978c43d93b0d8b0a04f10a9f2087d51ab1432431336ae169ab6e98e5cb275",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "CA-R-1676 lines 26-30 directly governs relations authored by Active RMED Atoms to RMED Atoms and requires Active targets. The candidate confirms Relation as the root Entity for typed connections and retains Relation-Type endpoint constraints. Relation preserves this direct-relation target while the RMED role sets, source/target direction, and Active constraints remain current-source evidence; it does not admit a native kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-CORE-REQUIREMENT--keep-rmed-to-rmed-relations-within-active-authority.md",
+          "sha256": "c08978c43d93b0d8b0a04f10a9f2087d51ab1432431336ae169ab6e98e5cb275",
+          "span_sha256": "f2d3f5531ae549cd717162d5b2251ce3605d0ccad5d4e7dc20292fb0f58274b8",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "Relation is the confirmed root Entity for typed connections."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate retains direct RMED Relation-Type endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The source and target RMED Content Role sets remain distinct from unqualified Relation endpoints.",
+        "The Active source-and-target constraint remains current-source evidence; no native kind is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+      "source_atom_id": "CA-R-1730",
+      "source_version": 19,
+      "source_sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body relies on the declared direct-parent structural ownership relation. CA-R-1660 defines that relation as child-to-immediate-parent ownership; CA-R-806 and CA-R-1246 require a Relation Kind to retain its graph-qualified authority, endpoints, direction, and metadata. The candidate only confirms generic Relation and its endpoint boundary, so mapping this qualified kind to Relation would discard its structural-parent identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+          "sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+          "span_sha256": "92cd0f2f9f29195fd544d448eec6d8905a4707c1ae253f1a146b131f7cefc4ba",
+          "start_line": 25,
+          "end_line": 39,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The child-to-immediate-parent ownership meaning and declared-parent source remain distinct from Carrier containment and a generic Relation.",
+        "Graph-qualified Relation Kind direction, endpoint classes, authority, and metadata are not admitted or collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md",
+      "source_atom_id": "CA-R-1731",
+      "source_version": 17,
+      "source_sha256": "701b5ff6d4f2240e630a89ea9dc3e048ea1038e2f6153224d9172529f008b273",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body relies on the declared direct-parent structural ownership relation. CA-R-1660 defines that relation as child-to-immediate-parent ownership; CA-R-806 and CA-R-1246 require a Relation Kind to retain its graph-qualified authority, endpoints, direction, and metadata. The candidate only confirms generic Relation and its endpoint boundary, so mapping this qualified kind to Relation would discard its structural-parent identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md",
+          "sha256": "701b5ff6d4f2240e630a89ea9dc3e048ea1038e2f6153224d9172529f008b273",
+          "span_sha256": "f48b54e79f4c6ba0d1c75d3fea0e55f1f8621a0bbcd5a5ba53e4176f3870809e",
+          "start_line": 22,
+          "end_line": 34,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The child-to-immediate-parent ownership meaning and declared-parent source remain distinct from Carrier containment and a generic Relation.",
+        "Graph-qualified Relation Kind direction, endpoint classes, authority, and metadata are not admitted or collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md",
+      "source_atom_id": "CA-R-1737",
+      "source_version": 16,
+      "source_sha256": "954cbc9a8247acf143fdf0198ee80999b39eba149483db48e0d7b1c3f3f6ce38",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body relies on the declared direct-parent structural ownership relation. CA-R-1660 defines that relation as child-to-immediate-parent ownership; CA-R-806 and CA-R-1246 require a Relation Kind to retain its graph-qualified authority, endpoints, direction, and metadata. The candidate only confirms generic Relation and its endpoint boundary, so mapping this qualified kind to Relation would discard its structural-parent identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md",
+          "sha256": "954cbc9a8247acf143fdf0198ee80999b39eba149483db48e0d7b1c3f3f6ce38",
+          "span_sha256": "38c7ef1372ba09656c6bf0bd748412b184a9b1d1d6e726f6df9b0436bf2c8ec8",
+          "start_line": 24,
+          "end_line": 36,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The child-to-immediate-parent ownership meaning and declared-parent source remain distinct from Carrier containment and a generic Relation.",
+        "Graph-qualified Relation Kind direction, endpoint classes, authority, and metadata are not admitted or collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+      "source_atom_id": "CA-R-1763",
+      "source_version": 18,
+      "source_sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body relies on the declared direct-parent structural ownership relation. CA-R-1660 defines that relation as child-to-immediate-parent ownership; CA-R-806 and CA-R-1246 require a Relation Kind to retain its graph-qualified authority, endpoints, direction, and metadata. The candidate only confirms generic Relation and its endpoint boundary, so mapping this qualified kind to Relation would discard its structural-parent identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+          "sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+          "span_sha256": "aaa1dac610f0959950d2d7e627be54a41d07f029ae35499ac2130ca44a3ab3d1",
+          "start_line": 21,
+          "end_line": 33,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The child-to-immediate-parent ownership meaning and declared-parent source remain distinct from Carrier containment and a generic Relation.",
+        "Graph-qualified Relation Kind direction, endpoint classes, authority, and metadata are not admitted or collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+      "source_atom_id": "CA-R-1764",
+      "source_version": 18,
+      "source_sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body relies on the declared direct-parent structural ownership relation. CA-R-1660 defines that relation as child-to-immediate-parent ownership; CA-R-806 and CA-R-1246 require a Relation Kind to retain its graph-qualified authority, endpoints, direction, and metadata. The candidate only confirms generic Relation and its endpoint boundary, so mapping this qualified kind to Relation would discard its structural-parent identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+          "sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a",
+          "span_sha256": "4202b8098bd78a5c961b96a8992e75f328773e60b71ff99ab0ee076d298db00c",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The child-to-immediate-parent ownership meaning and declared-parent source remain distinct from Carrier containment and a generic Relation.",
+        "Graph-qualified Relation Kind direction, endpoint classes, authority, and metadata are not admitted or collapsed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md",
+      "source_atom_id": "CA-R-796",
+      "source_version": 18,
+      "source_sha256": "ae92a8bd0ca593b73a8ebf3f4e0c4eb85fbb8106de7483376b1f96bbb8228733",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "CA-R-796 lines 30-34 directly governs tier-parent relations between Atoms and requires the same Atom Scope. The candidate confirms Relation as the root Entity for typed connections and retains Relation-Type endpoint constraints. Relation preserves this relation target while the tier-parent meaning and same-Atom-Scope condition remain current-source evidence; it does not admit a native kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-796-CORE_META_MODEL-CORE-REQUIREMENT--keep-tier-parent-relations-within-atom-scope.md",
+          "sha256": "ae92a8bd0ca593b73a8ebf3f4e0c4eb85fbb8106de7483376b1f96bbb8228733",
+          "span_sha256": "c0106f2a2a5a48d0ab3a7cef2f1d4cac11a55f4fc7bbb724fcf57a822c1d9e8a",
+          "start_line": 24,
+          "end_line": 36,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "Relation is the confirmed root Entity for typed connections."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate retains tier-parent Relation-Type endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The tier-parent relation remains distinct from arbitrary Atom connections.",
+        "The same-Atom-Scope constraint remains current-source evidence; no native kind is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-807-CORE_META_MODEL-CORE-REQUIREMENT--record-replacement-transitions-in-the-journal.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-807-CORE_META_MODEL-CORE-REQUIREMENT--record-replacement-transitions-in-the-journal.md",
+      "source_atom_id": "CA-R-807",
+      "source_version": 19,
+      "source_sha256": "2577d577d6b0804f095ec635a1e9da79da0dfc5a101816800576fb72f228f4b0",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "CA-R-807 line 28 directly governs the relation-model boundary: Journal events record replacement or absorption history, active current-state Atom relations must not carry it, and formal replacement kinds remain deferred. The candidate confirms Relation as the root Entity for typed connections. Relation preserves the relation target without converting Journal history into an active Relation, inventing replacement kinds, or admitting a native kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-807-CORE_META_MODEL-CORE-REQUIREMENT--record-replacement-transitions-in-the-journal.md",
+          "sha256": "2577d577d6b0804f095ec635a1e9da79da0dfc5a101816800576fb72f228f4b0",
+          "span_sha256": "76706608760c5aa67aa04dc539cfc3e1d9076fa1e18c47a2f5955b975f449174",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "Relation is the confirmed root Entity for typed connections."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate retains Relation-Type endpoint constraints without supplying a replacement kind."
+        }
+      ],
+      "preserved_distinctions": [
+        "Journal-only replacement or absorption history remains distinct from active current-state Relations.",
+        "Formal replaced_by and replacement_of kinds remain deferred; no native kind is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-808-CORE_META_MODEL-CORE-REQUIREMENT--apply-relation-direction-within-its-ordering-domain.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-808-CORE_META_MODEL-CORE-REQUIREMENT--apply-relation-direction-within-its-ordering-domain.md",
+      "source_atom_id": "CA-R-808",
+      "source_version": 18,
+      "source_sha256": "497adbeca50b7b5dfa93a0b32bb75048640c3b7ee40c185c1562f96e0308c14f",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "CA-R-808 lines 24-28 directly governs declared relation families: each retains its registered ordering domain, no universal direction is inferred, and an inverse-derived view does not create another declared edge. The candidate confirms Relation as the root Entity for typed connections and retains Relation-Type endpoint constraints. Relation preserves the relation target while family-specific ordering and inverse-derived status remain current-source evidence; it does not admit a native kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-808-CORE_META_MODEL-CORE-REQUIREMENT--apply-relation-direction-within-its-ordering-domain.md",
+          "sha256": "497adbeca50b7b5dfa93a0b32bb75048640c3b7ee40c185c1562f96e0308c14f",
+          "span_sha256": "391c5bce9bcda0f90be9e7114a3aefb0fdf25e889c40023d66808de02337a86a",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "Relation is the confirmed root Entity for typed connections."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate retains Relation-Type endpoint constraints across relation-family groups."
+        }
+      ],
+      "preserved_distinctions": [
+        "Each declared relation family retains its own ordering domain; no universal upstream or downstream rule is inferred.",
+        "An inverse-derived view remains non-declared and does not create another edge or native kind."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-CORE-REQUIREMENT--register-child-of-and-parent-of-relation-pair.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-CORE-REQUIREMENT--register-child-of-and-parent-of-relation-pair.md",
+      "source_atom_id": "CA-R-879",
+      "source_version": 18,
+      "source_sha256": "81f1773a9c91d42edb267e3be146973d27f54c90966776edb0f79b59966ea6b3",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "CA-R-879 lines 25-29 directly governs a declared child_of upstream relation and inverse-derived parent_of downstream relation in the normative-authority ordering domain. The candidate confirms Relation as the root Entity for typed connections and retains Relation-Type endpoint constraints. Relation preserves this relation target while declared-versus-derived status, authority direction, and ordering-domain constraint remain current-source evidence; it does not admit a native kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-879-CORE_META_MODEL-CORE-REQUIREMENT--register-child-of-and-parent-of-relation-pair.md",
+          "sha256": "81f1773a9c91d42edb267e3be146973d27f54c90966776edb0f79b59966ea6b3",
+          "span_sha256": "ff9234a5dd81fe5b51f1b7a8feda5c650e38df397f2e31490a6edb5d8ff4c80d",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "Relation is the confirmed root Entity for typed connections."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate retains child_of and parent_of Relation-Type endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "child_of remains the declared upstream relation and parent_of the inverse-derived downstream view.",
+        "The normative-authority ordering direction remains current-source evidence; no native kind is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-915-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-order-derived-dependencies.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-915-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-order-derived-dependencies.md",
+      "source_atom_id": "CA-R-915",
+      "source_version": 17,
+      "source_sha256": "0b1c42d56318cc187ee18574919131d4d8d151ac6806074edcde63f1a5406a0c",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "CA-R-915 lines 25-29 directly governs related Governed Entities and prohibits inferring or altering dependency from Local Order or a canonical target reference position in relations.<RELATION_KIND>. The candidate confirms Relation as the root Entity for typed connections and retains Relation-Type endpoint constraints. Relation preserves this relation-list rule while the no-order-derived-dependency constraint remains current-source evidence; it does not admit a native kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-915-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-order-derived-dependencies.md",
+          "sha256": "0b1c42d56318cc187ee18574919131d4d8d151ac6806074edcde63f1a5406a0c",
+          "span_sha256": "dfac89c047208a33ce0ef3550c91275bfae5129ba94dc983df47f57fc045a5c4",
+          "start_line": 20,
+          "end_line": 31,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "Relation is the confirmed root Entity for typed connections."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate retains Relation-Type endpoint constraints without making list position a dependency."
+        }
+      ],
+      "preserved_distinctions": [
+        "Local Order and canonical-reference position remain distinct from a dependency relation.",
+        "No dependency is inferred from order or list position, and no native kind is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-916-CORE_META_MODEL-CORE-REQUIREMENT--restrict-ordered-demands-to-earlier-producers.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-916-CORE_META_MODEL-CORE-REQUIREMENT--restrict-ordered-demands-to-earlier-producers.md",
+      "source_atom_id": "CA-R-916",
+      "source_version": 19,
+      "source_sha256": "a7ef3ef10ead4008fc64a493d5c1cef3b9d26fed16947eb0b9613b9824845a9b",
+      "field": "governs",
+      "index": null,
+      "old_value": "relation-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body governs the ordered-sibling constraint on a Demand Atom's producer and consumer Scope Units. This is a relation-model rule with explicit kind, endpoint, direction, authority, lifecycle, or ordering qualifications rather than a generic typed connection. The candidate's Relation root and endpoint boundary do not define a compatible Relation Model target, so a generic Relation mapping would lose those qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-916-CORE_META_MODEL-CORE-REQUIREMENT--restrict-ordered-demands-to-earlier-producers.md",
+          "sha256": "a7ef3ef10ead4008fc64a493d5c1cef3b9d26fed16947eb0b9613b9824845a9b",
+          "span_sha256": "3a2d51e1e8056909eede24a015ae8e9741effcd367abd333b5089c71bc06873b",
+          "start_line": 21,
+          "end_line": 32,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The current relation-model rule remains distinct from an individual generic Relation.",
+        "Its declared kind, endpoint, direction, authority, lifecycle, and ordering qualifications remain intact; no native kind is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-926-CORE_META_MODEL-CORE-REQUIREMENT--let-direct-parents-define-non-project-goals.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-926-CORE_META_MODEL-CORE-REQUIREMENT--let-direct-parents-define-non-project-goals.md",
+      "source_atom_id": "CA-R-926",
+      "source_version": 18,
+      "source_sha256": "d414ebb2adccc21610cc780d1b45602a8bf54a03fb613269d285d63136573888",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The complete current body relies on the declared direct-parent structural ownership relation. CA-R-1660 defines that relation as child-to-immediate-parent ownership; CA-R-806 and CA-R-1246 require a Relation Kind to retain its graph-qualified authority, endpoints, direction, and metadata. The candidate only confirms generic Relation and its endpoint boundary, so mapping this qualified kind to Relation would discard its structural-parent identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-926-CORE_META_MODEL-CORE-REQUIREMENT--let-direct-parents-define-non-project-goals.md",
+          "sha256": "d414ebb2adccc21610cc780d1b45602a8bf54a03fb613269d285d63136573888",
+          "span_sha256": "5f203485c37b95471cc3bd2d1ca575ba1c8013d7335f86182911630b4af225e4",
+          "start_line": 23,
+          "end_line": 34,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The candidate defines Relation only as a generic typed connection between Entities; this does not establish a qualified Relation Kind or relation-model target."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves each Relation Type's endpoint constraints; it does not supply the required named kind, authority, direction, ordering, or topology target for these rows."
+        }
+      ],
+      "preserved_distinctions": [
+        "The child-to-immediate-parent ownership meaning and declared-parent source remain distinct from Carrier containment and a generic Relation.",
+        "Graph-qualified Relation Kind direction, endpoint classes, authority, and metadata are not admitted or collapsed."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}
