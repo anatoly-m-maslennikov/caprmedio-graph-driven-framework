@@ -117,7 +117,10 @@ class VersionSealingConsumerTests(unittest.TestCase):
             selector = root / ".caprmedio_runtime/framework/current.toml"
             selector.parent.mkdir(parents=True, exist_ok=True)
             selector.write_text(f'release = "{identity}"\n', encoding="utf-8")
-            candidate = SimpleNamespace(authority=SimpleNamespace(executing_release=identity))
+            candidate = SimpleNamespace(
+                authority=SimpleNamespace(executing_release=identity),
+                native_installed_n=None,
+            )
             with patch.object(release_suite, "_verify_release") as verified:
                 release_suite._active_n_state(root, candidate)
             self.assertEqual("N", verified.call_args.kwargs["framework_version"])
@@ -135,7 +138,16 @@ class VersionSealingConsumerTests(unittest.TestCase):
             destination = root / "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources"
             destination.parent.mkdir(parents=True)
             shutil.copytree(package / "METHODOLOGY/sources", destination)
-            candidate = SimpleNamespace(authority=SimpleNamespace(executing_release=identity))
+            candidate = SimpleNamespace(
+                authority=SimpleNamespace(executing_release=identity),
+                manifest=SimpleNamespace(
+                    canonical_source_snapshot_ref=(
+                        ".caprmedio_caprmedio/000_CAPRMEDIO_framework/"
+                        "00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
+                    ),
+                ),
+                native_installed_n=None,
+            )
             with patch.object(release_delivery, "_verify_release") as verified:
                 release_delivery._prove_predecessor(root, candidate, destination)
             self.assertEqual("N", verified.call_args.kwargs["framework_version"])
