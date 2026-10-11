@@ -21,8 +21,8 @@ from typing import Any, Literal, Mapping, TYPE_CHECKING
 from release_compilation import (
     ReleaseCompilationPreflight,
     SealedPrivateMethodologyCompilation,
+    compile_sealed_methodology_export,
     preflight_release_compilation,
-    read_sealed_private_methodology_compilation,
     render_release_candidate,
 )
 from release_contract import SHA256, ReleaseContractError, ValidatedCandidate, canonical_json
@@ -39,6 +39,7 @@ from release_handoff import (
     SealedMethodologyExport,
     SealedSourceCopy,
     _revalidate,
+    _exporter_module,
     bind_sealed_methodology_export,
 )
 from release_image import (
@@ -582,6 +583,62 @@ def _admit_stage_candidate_sources(run: ReleaseActionRun, snapshot: SealedPortab
         raise ReleaseContractError(error.code, str(error)) from error
 
 
+def _prepare_native_methodology_compilation(run: ReleaseActionRun, candidate: ValidatedCandidate):
+    """Produce the real private export and compilation within started O167.
+
+    Selection comes only from the current Project-bound active frontier and
+    the frozen candidate inventory, never from caller-supplied export paths.
+    An existing private root is evidence to inspect, not permission to replay.
+    """
+
+    _stage_candidate_selected_session(run)
+    current = _revalidate(candidate)
+    root = Path(current.project_root)
+    source = root / current.manifest.canonical_source_snapshot_ref
+    candidate_root = _native_candidate_root(run)
+    if candidate_root.exists() or candidate_root.is_symlink():
+        raise ReleaseContractError("release-private-candidate-collision", "private candidate preparation already has retained effects")
+    exporter = _exporter_module()
+    binding = exporter.reopen_project_export_binding(root, source)
+    active, _source_digest = exporter._stable_active(source, binding)
+    support = []
+    for row in current.manifest.source_inventory_rows:
+        if row.resource != "METHODOLOGY":
+            continue
+        relative = Path(row.source_path).relative_to(current.manifest.canonical_source_snapshot_ref).as_posix()
+        pin = exporter.SourcePin(relative, row.source_sha256)
+        data = exporter._pin_bytes(source, pin, "support")
+        try:
+            exporter._support_is_atom(pin, data)
+        except exporter.MethodologyExportError as error:
+            if error.code == "support-atom-forbidden":
+                continue
+            raise
+        support.append({"path": relative, "sha256": row.source_sha256})
+    frozen = exporter.freeze_methodology_manifest(
+        source_root=source,
+        selected_atoms=[{"atom_id": atom.atom_id, "version": atom.version} for atom in active],
+        support_inventory=support,
+        catalog_pins=[],
+        project_root=root,
+    )
+    if frozen["selected_atoms"] != frozen["active_frontier"]:
+        raise ReleaseContractError("release-private-source-frontier-stale", "current active export frontier changed during preparation")
+    _revalidate(current)
+    _stage_candidate_selected_session(run)
+    exporter._prepare_candidate(exporter._candidate_root(candidate_root), source)
+    frozen_path = candidate_root / "frozen-methodology-manifest.json"
+    exporter._write(frozen_path, exporter.frozen_manifest_bytes(frozen))
+    exporter.export_selected_methodology(
+        source_root=source,
+        frozen_manifest_path=frozen_path,
+        release_candidate_root=candidate_root,
+        project_root=root,
+    )
+    export = bind_sealed_methodology_export(current, candidate_root)
+    return export, compile_sealed_methodology_export(export)
+
+
 def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: ValidatedCandidate) -> tuple:
     """Execute O164@9's existing occurrences against the portable frontier.
 
@@ -591,10 +648,9 @@ def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: Valida
     """
 
     if phase == "stage_candidate":
-        export = bind_sealed_methodology_export(candidate, _native_candidate_root(run))
+        export, private = _prepare_native_methodology_compilation(run, candidate)
         if export.candidate != candidate:
             raise ReleaseContractError("release-action-result-mismatch", "private Methodology export is not bound to the frozen candidate")
-        private = read_sealed_private_methodology_compilation(export)
         snapshot = collect_portable_source_snapshot(candidate, private, candidate_run_id=run.workflow_run_id)
         admission = _admit_stage_candidate_sources(run, snapshot)
         portable = seal_portable_source_snapshot(snapshot)

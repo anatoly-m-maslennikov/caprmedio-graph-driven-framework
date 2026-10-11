@@ -32,6 +32,7 @@ from release_checkpoint import (  # noqa: E402
     restore_release_action_checkpoint,
 )
 from release_contract import ReleaseContractError, canonical_json  # noqa: E402
+from release_compilation import build_preflight_validated_candidate  # noqa: E402
 from release_portable_contract import SealedPortableCandidateCompilation  # noqa: E402
 from release_portable_package import PreparedPortableReleasePackage  # noqa: E402
 from release_suite import PortableSuiteGateEvidence  # noqa: E402
@@ -83,7 +84,14 @@ class PortableReleaseActionsTests(unittest.TestCase):
             "PROJECT_TOOLS/RELEASE_VERSION/native_hooks.py",
             b"def bind_local_release_core(module):\n    return None\n",
         )
-        self.candidate, _private = self.fixture.sealed()
+        # O167 now creates the actual export/compile seals within the selected
+        # Run. Freeze only the read-only candidate here, never preseed its root.
+        self.candidate = build_preflight_validated_candidate(
+            self.root,
+            candidate_release="N+1",
+            full_suite_environment={"runner": "fixture", "command": ["python", "-m", "unittest"], "working_directory": "."},
+            candidate_image_reference="fixture:N+1",
+        )[1]
         manifest = self.candidate.manifest.model_dump(mode="json", by_alias=True)
         self.request = {
             "operation": "apply",
