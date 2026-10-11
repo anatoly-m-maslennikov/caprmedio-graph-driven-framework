@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2096",
+  "recorded_at": "2026-10-11 07:43:59 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review settings and methodology source targets; not migration approval",
+  "verification": {
+    "task": "CA-P-2096",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2096.research.json",
+      "sha256": "fa53f20f59f5bb9b75223fa407e8233a00d74ae2a962002657d30713da7fd1e7"
+    },
+    "rows": 41,
+    "counts": {
+      "unresolved": 20,
+      "proposed": 21
+    },
+    "exact_evidence_spans": 98,
+    "exact_input_pins": 37,
+    "historical_plan_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2094-2099.inputs.json",
+      "sha256": "5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d"
+    },
+    "registration_commit": "da5074e2d2ac47d44f001526f0e88c947f963ef2",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/followup_semantic_acceptance",
+      "final_report_sha256": "fa53f20f59f5bb9b75223fa407e8233a00d74ae2a962002657d30713da7fd1e7",
+      "result": "PASS after correction: all41 meanings checked;21 supported proposals and20 justified nulls",
+      "rejected_earlier_report_sha256": "90576ebe6135c6e5ed4f26202eba4c8113a68ac5e49a1165fcc9cec04c7d5620",
+      "meaning_checks": [
+        "Named settings kinds are narrower Artifacts supported by explicit current definitions",
+        "Applicable Methodology members remain derived Atom instances with exact source-Revision constraints",
+        "Projection Conflict/Sources remain dependent entities with exact Applicable Methodology owner/frontier and source-conformance qualification",
+        "Core, Extension, Configuration and Framework Instance identities are not collapsed into generic roots"
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/followup_semantic_acceptance",
+    "final_report_sha256": "fa53f20f59f5bb9b75223fa407e8233a00d74ae2a962002657d30713da7fd1e7",
+    "result": "PASS after correction: all41 meanings checked;21 supported proposals and20 justified nulls",
+    "rejected_earlier_report_sha256": "90576ebe6135c6e5ed4f26202eba4c8113a68ac5e49a1165fcc9cec04c7d5620",
+    "meaning_checks": [
+      "Named settings kinds are narrower Artifacts supported by explicit current definitions",
+      "Applicable Methodology members remain derived Atom instances with exact source-Revision constraints",
+      "Projection Conflict/Sources remain dependent entities with exact Applicable Methodology owner/frontier and source-conformance qualification",
+      "Core, Extension, Configuration and Framework Instance identities are not collapsed into generic roots"
+    ]
+  },
+  "completion_scope": "All 41 assigned settings and methodology-source Subject origins passed independent semantic acceptance and exact current-origin/pin/span checks after correcting twenty-one unsupported null decisions. Twenty-one proposals preserve explicit Artifact kinds and Applicable Methodology-dependent meanings; twenty justified source/authority nulls remain tracked. This bounded report is not source adoption.",
+  "registration_commit": "da5074e2d2ac47d44f001526f0e88c947f963ef2",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
