@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 68
-updated_at: "2026-10-11 05:28:53 +0400"
+version: 69
+updated_at: "2026-10-11 05:28:54 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -108,7 +108,7 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 - [CA-P-2072 — Review actor and history mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/59-CA-P-2072-TASK--review-actor-and-history-mapping-candidates.md)
 - [CA-P-2073 — Review operation mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/60-CA-P-2073-TASK--review-operation-mapping-candidates.md)
 - [CA-P-2074 — Review carrier mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/61-CA-P-2074-TASK--review-carrier-mapping-candidates.md)
-- [CA-P-2075 — Review relation and Subject mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/62-CA-P-2075-TASK--review-relation-and-subject-mapping-candidates.md)
+- [CA-P-2075 — Review relation and Subject mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/62-CA-P-2075-TASK--review-relation-and-subject-mapping-candidates.md)
 - [CA-P-2076 — Review simple field mapping candidates](08-CA-P-1966-EPIC--map-current-core-subject-origins/63-CA-P-2076-TASK--review-simple-field-mapping-candidates.md)
 
 Independent semantic-review children assess the 573 currently proposed follow-up rows. Existing unresolved research, the unanswered role/type choice and stale grammar-era source pins remain open; these reviews do not admit the later source migration.
