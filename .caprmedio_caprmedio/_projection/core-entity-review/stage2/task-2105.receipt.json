@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2105",
+  "recorded_at": "2026-10-11 08:21:57 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review settings and methodology source targets; not migration approval",
+  "verification": {
+    "task": "CA-P-2105",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2105.research.json",
+      "sha256": "40a2d1c26cc6b617b49ac109172c99996de6727401e99326d17bf89f2adf492e"
+    },
+    "rows": 41,
+    "counts": {
+      "proposed": 22,
+      "unresolved": 19
+    },
+    "exact_evidence_spans": 91,
+    "exact_input_pins": 44,
+    "historical_plan_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2103-2108.inputs.json",
+      "sha256": "7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3"
+    },
+    "registration_commit": "9edbdb2156d7a2949ca4d11c6d86e511c8bf9cfb",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/grammar_graph",
+      "final_report_sha256": "40a2d1c26cc6b617b49ac109172c99996de6727401e99326d17bf89f2adf492e",
+      "result": "PASS: all forty-one current meanings independently checked; twenty-two supported proposals and nineteen qualified nulls",
+      "meaning_checks": [
+        "Settings keep explicitly defined narrower Artifact types",
+        "Applicable Methodology members remain derived Atom instances with exact source-revision constraints",
+        "Projection Sources and Conflict retain source-set/frontier qualification",
+        "Methodology Source roles and authority/boundary/digest targets do not collapse to generic roots"
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/grammar_graph",
+    "final_report_sha256": "40a2d1c26cc6b617b49ac109172c99996de6727401e99326d17bf89f2adf492e",
+    "result": "PASS: all forty-one current meanings independently checked; twenty-two supported proposals and nineteen qualified nulls",
+    "meaning_checks": [
+      "Settings keep explicitly defined narrower Artifact types",
+      "Applicable Methodology members remain derived Atom instances with exact source-revision constraints",
+      "Projection Sources and Conflict retain source-set/frontier qualification",
+      "Methodology Source roles and authority/boundary/digest targets do not collapse to generic roots"
+    ]
+  },
+  "completion_scope": "All 41 assigned settings/methodology origins passed exact current pin/span/coverage checks and independent meaning acceptance: twenty-two supported proposals and nineteen qualified nulls. Explicit settings Artifact types, derived Atom members and Projection Sources/Conflict retain their source constraints. No original Atom was changed.",
+  "registration_commit": "9edbdb2156d7a2949ca4d11c6d86e511c8bf9cfb",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
