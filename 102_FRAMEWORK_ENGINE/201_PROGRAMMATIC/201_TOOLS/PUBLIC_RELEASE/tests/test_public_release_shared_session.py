@@ -17,13 +17,13 @@ for path in (str(TOOLS), str(PUBLIC_RELEASE), str(PUBLIC_RELEASE / "tests")):
         sys.path.insert(0, path)
 
 from public_release import PublicReleaseError, _run_evidence_ref, run, run_execution_session  # noqa: E402
-from test_public_release import PublicReleaseTests  # noqa: E402
+import test_public_release as _public_release_fixture  # noqa: E402
 from workflow_run_support import RunTracker  # noqa: E402
 
 
 class PublicReleaseSharedSessionTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.fixture = PublicReleaseTests()
+        self.fixture = _public_release_fixture.PublicReleaseTests()
         self.fixture.setUp()
         self.addCleanup(self.fixture.tearDown)
 

@@ -29,13 +29,13 @@ from release_handoff import NativeInstalledNBinding  # noqa: E402
 from release_retained_package import RetainedNativePackageEvidence  # noqa: E402
 from retained_full_gate_packet import RetainedNativeFullGatePacket  # noqa: E402
 from selected_routes import canonical_digest, load_selected_manifest, selected_manifest_ref  # noqa: E402
-from test_release_manifest_admission import ReleaseManifestAdmissionTest  # noqa: E402
+import test_release_manifest_admission as _manifest_admission_fixture  # noqa: E402
 from workflow_run_support import RunExecutionSession, RunTracker, _canonical_digest, _proposal  # noqa: E402
 
 
 class PublicFreshGateInputTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.fixture = ReleaseManifestAdmissionTest()
+        self.fixture = _manifest_admission_fixture.ReleaseManifestAdmissionTest()
         self.fixture.setUpClass()
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
