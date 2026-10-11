@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 12:42:37 +0400"
+version: 2
+updated_at: "2026-10-11 12:52:45 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   depends_on: [CA-P-2155]
@@ -35,6 +35,10 @@ Own work: at most fifteen minutes. Own only `remaining-gates/frontier-audit.json
 Inventory all 1066 unresolved current occurrences from exact saved ledger c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99. Account separately for baseline-only qualified cases, previously reviewed nulls and eight quarantined sources/35 occurrences; use exact IDs, do not count sources or overlaps as additional occurrences. Establish whether any unreviewed nonqualified work remains. No new mapping or semantic adoption. Record actual checks and source/output pins; use a small ad-hoc read-only script only if needed.
 
 Root owns Git, Plans and integration. You are not alone; preserve other work. No original Core, captured/frozen evidence, accepted report, unrelated helper or native/runtime/approval change. Decompose if unfinished own work exceeds fifteen minutes.
+
+### Completion
+
+Root's independently executed census covers all1066 current unresolved origins, rehashes546original Core owners and verifies exact occurrence/row identity. There are242baseline-only origins, all with the explicitly stated qualified-owner prefix, and824non-baseline-layer nulls; the latter are not assumed to be selector gaps. Full quarantine8/35 is distinct from unresolved-subset7/12. Four actual wrong-data controls reject omitted, duplicate-preserving-count, changed-same-ID and stale-digest inputs. This completes the bounded audit only; no new mapping or source effect occurred. Exact verification is recorded in `_projection/core-entity-review/stage2/task-2156.receipt.json`.
 
 ### Definition of Done
 

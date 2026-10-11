@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2156",
+  "recorded_at": "2026-10-11 12:52:45 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded audit the remaining subject frontier; not migration approval",
+  "verification": {
+    "result": "PASS: exact read-only current frontier audit",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/frontier-audit.json",
+      "sha256": "e6ac5b82f3b60ac13ffacd86fa13149de126e83d685d7b1fe8c7eb846dbe68c3"
+    },
+    "independent_review": {
+      "result": "PASS: Root actual independent reproduction",
+      "reviewer": "root",
+      "actual": {
+        "result": "PASS",
+        "input_sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99",
+        "counts": {
+          "unresolved": 1066,
+          "sources": 546,
+          "baseline_only": 242,
+          "baseline_only_qualified": 242,
+          "previously_reviewed_unresolved": 824,
+          "colon_syntax_values": 266,
+          "quarantined_occurrences_unresolved": 12,
+          "quarantined_sources_unresolved": 7,
+          "quarantined_occurrences_full_ledger": 35,
+          "quarantined_sources_full_ledger": 8
+        },
+        "current_sources_rehashed": 546,
+        "source_pin_rows_sha256": "719ccf0236588766ae53e7db2e6d9f1c8f70c422f3fe51f3074d6076368dfe89",
+        "positive_exact_coverage": true,
+        "negative_controls": [
+          {
+            "probe": "omission",
+            "rejected": "exact unresolved ID coverage"
+          },
+          {
+            "probe": "duplicate_preserving_count",
+            "rejected": "duplicate occurrence ID"
+          },
+          {
+            "probe": "changed_same_id",
+            "rejected": "changed current occurrence"
+          },
+          {
+            "probe": "stale_digest",
+            "rejected": "input digest mismatch"
+          }
+        ],
+        "scope_note": "242 baseline-only qualified cases;824 non-baseline-layer unresolved cases are not assumed to be selector gaps."
+      },
+      "reproducer": ".caprmedio_tmp/check_remaining_frontier2156.py",
+      "limits": "Raw lexical predicates only; no semantic completeness or selector coverage inferred."
+    },
+    "rejected_intermediates": {
+      "report_hashes": [
+        "07ccc7a905cf3eae6e1119326dab5c357ebcd25c8be90e2fc4b8685075c7bde5",
+        "7f712d208c4e0a72143e9da860f52de4b4eedf7e826680ca7b02a1b223fb04f2"
+      ],
+      "reason": "Weak reproducer hardcoded full quarantine counts, did not rehash owners, and did not test duplicate coverage while preserving count. Replaced by actual Root positive/control verification; accepted output binds only that executed evidence."
+    }
+  },
+  "independent_review": {
+    "result": "PASS: Root actual independent reproduction",
+    "reviewer": "root",
+    "actual": {
+      "result": "PASS",
+      "input_sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99",
+      "counts": {
+        "unresolved": 1066,
+        "sources": 546,
+        "baseline_only": 242,
+        "baseline_only_qualified": 242,
+        "previously_reviewed_unresolved": 824,
+        "colon_syntax_values": 266,
+        "quarantined_occurrences_unresolved": 12,
+        "quarantined_sources_unresolved": 7,
+        "quarantined_occurrences_full_ledger": 35,
+        "quarantined_sources_full_ledger": 8
+      },
+      "current_sources_rehashed": 546,
+      "source_pin_rows_sha256": "719ccf0236588766ae53e7db2e6d9f1c8f70c422f3fe51f3074d6076368dfe89",
+      "positive_exact_coverage": true,
+      "negative_controls": [
+        {
+          "probe": "omission",
+          "rejected": "exact unresolved ID coverage"
+        },
+        {
+          "probe": "duplicate_preserving_count",
+          "rejected": "duplicate occurrence ID"
+        },
+        {
+          "probe": "changed_same_id",
+          "rejected": "changed current occurrence"
+        },
+        {
+          "probe": "stale_digest",
+          "rejected": "input digest mismatch"
+        }
+      ],
+      "scope_note": "242 baseline-only qualified cases;824 non-baseline-layer unresolved cases are not assumed to be selector gaps."
+    },
+    "reproducer": ".caprmedio_tmp/check_remaining_frontier2156.py",
+    "limits": "Raw lexical predicates only; no semantic completeness or selector coverage inferred."
+  },
+  "completion_scope": "Root's independently executed census covers all1066 current unresolved origins, rehashes546original Core owners and verifies exact occurrence/row identity. There are242baseline-only origins, all with the explicitly stated qualified-owner prefix, and824non-baseline-layer nulls; the latter are not assumed to be selector gaps. Full quarantine8/35 is distinct from unresolved-subset7/12. Four actual wrong-data controls reject omitted, duplicate-preserving-count, changed-same-ID and stale-digest inputs. This completes the bounded audit only; no new mapping or source effect occurred.",
+  "registration_commit": "50bf643d95f3f3171fe79199889f6b9dbf78e019",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

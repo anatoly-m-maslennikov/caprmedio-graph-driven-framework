@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2156",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "input_pins": {"ledger": {"path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json", "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99"}},
+  "reproducer": ".caprmedio_tmp/check_remaining_frontier2156.py",
+  "counts": {"unresolved": 1066, "sources": 546, "baseline_only": 242, "baseline_only_qualified": 242, "previously_reviewed_unresolved": 824, "colon_syntax_values": 266, "quarantined_occurrences_unresolved": 12, "quarantined_sources_unresolved": 7, "quarantined_occurrences_full_ledger": 35, "quarantined_sources_full_ledger": 8},
+  "predicates": {"unresolved": "occurrence.decision == 'unresolved'", "baseline_only": "unresolved and applied_layers layer list exactly ['baseline']", "qualified": "old_value startswith 'Atom/Content Role:'", "colon_syntax": "':' in old_value; descriptive only, not named-identity classification"},
+  "checks": {"current_sources_rehashed": 546, "source_pin_rows_sha256": "719ccf0236588766ae53e7db2e6d9f1c8f70c422f3fe51f3074d6076368dfe89", "positive_exact_coverage": true, "omission_probe": "rejected: exact unresolved ID coverage", "duplicate_preserving_count_probe": "rejected: duplicate occurrence ID", "changed_same_id_probe": "rejected: changed current occurrence", "stale_digest_probe": "rejected: input digest mismatch", "source_pins_rehashed": true},
+  "scope_note": "242 baseline-only qualified cases; 824 non-baseline-layer unresolved cases are not assumed to be selector gaps."
+}
