@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan]
-version: 1
-updated_at: "2026-10-11 11:51:38 +0400"
+version: 2
+updated_at: "2026-10-11 12:02:02 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   depends_on: [CA-P-2142]
@@ -37,6 +37,10 @@ Independently enumerate the current original Core frontier using the existing ve
 Use a valid positive control; deliberately omitted/duplicated/changed origins and a qualified-row admission must reject for their actual defect. Prove original Core and frozen baseline/candidate/decision bytes are unchanged. Report pins/counts/negative outcomes; do not issue semantic acceptance or claim complete mapping.
 
 No Core, Tool, Plan, other report, frozen evidence, runtime, MCP, FPF or Git writes. You are not alone; preserve others. Root controls Task lifecycle, receipt and individual commit. Decompose unfinished work before exceeding the own-work limit.
+
+### Completion
+
+The exact 204 selected origins across 145 owners pass actual read-only reproduction, complete origin/live-pin/digest/source-owner-disjointness checks and four executed wrong-data controls. The independent current-ledger gate corroborates the live 907/4534 frontier and8/35quarantines. Frozen evidence and original Core remain unchanged. Rejected unsupported audit claims were corrected before acceptance; qualified242baseline-only rows stay outside this selection. Exact verification is recorded in `_projection/core-entity-review/stage2/task-2152.receipt.json`.
 
 ### Definition of Done
 
