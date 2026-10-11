@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2157",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "scope": "Four-representative, non-exhaustive audit of remaining entity-model decision gates; not a full mapping review, grammar adoption, source repair, mapping promotion, or statement of every remaining Epic blocker.",
+  "input_pins": {
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99"
+    },
+    "frontier_audit": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/frontier-audit.json",
+      "sha256": "e6ac5b82f3b60ac13ffacd86fa13149de126e83d685d7b1fe8c7eb846dbe68c3"
+    },
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/20-CA-P-2157-TASK--identify-the-remaining-entity-model-decisions.md",
+      "registration_snapshot_commit": "50bf643d95f3f3171fe79199889f6b9dbf78e019",
+      "context_role": "Historical registration-snapshot context only; not live Core meaning authority and not chased across later task-lifecycle updates."
+    },
+    "epic_context": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2.md",
+      "registration_snapshot_commit": "50bf643d95f3f3171fe79199889f6b9dbf78e019",
+      "context_role": "Historical registration-snapshot context only; not live Core meaning authority and not chased across later Epic lifecycle updates."
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "cross_scope_quarantine_context": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/quarantine-audit.json",
+      "sha256": "600729177a2e03ffc6098fe614b2211485993b513fcac950da5ee74747ec6f60",
+      "context_role": "Cross-scope gate context only; it supplies no Entity-meaning proof for this audit."
+    },
+    "contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/contract.md",
+      "sha256": "cea762d3a48929859eb33a5c031c59890360e5cd08a96d5965d57e94e1e0e6ce"
+    }
+  },
+  "counts": {
+    "ledger_sources": 907,
+    "ledger_occurrences": 4534,
+    "ledger_proposed": 1928,
+    "ledger_unchanged": 1540,
+    "ledger_unresolved": 1066,
+    "frontier_audit_baseline_only_qualified": 242,
+    "frontier_audit_previously_reviewed_nulls": 824,
+    "coverage_status": "The ledger and final frontier-audit totals are exact pinned inputs. Semantic inspection is intentionally non-exhaustive: four representative original Core bodies were reopened; this output does not re-review all 1066 nulls, estimate how many a future selector decision would resolve, or identify every remaining Epic gate."
+  },
+  "existing_unavoidable_operator_gate": {
+    "id": "qualified_and_named_atom_identity",
+    "status": "already_asked_unanswered_not_reasked",
+    "decision_boundary": "The existing pending choice is whether Subject expressions may identify a named Atom definition and a role/type-qualified Atom owner by an approved identity mechanism, or whether the model instead introduces explicit narrower Atom kinds. This audit proposes neither syntax nor kinds.",
+    "why_high_blast_radius": "The live Epic records 27 named Workflow/Step cases and a role/type-qualified modeling choice affecting 220 mappings across 123 sources. Those are Plan-context impact statements, not a new count asserted by this audit.",
+    "impact_limit": "No target is promoted, no selector is adopted, and no number of resolvable ledger rows is inferred. The exact current frontier remains 242 baseline-only qualified occurrences plus 824 previously reviewed nulls.",
+    "scope_limit": "This is one existing Entity-meaning gate, not a claim that it is the only unresolved Stage 2 or Epic gate.",
+    "representative_current_core_evidence": [
+      {
+        "source_atom_id": "CA-R-1452",
+        "occurrence_ids": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md#subjects.governs",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md#subjects.depends_on[2]",
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md#subjects.depends_on[8]"
+        ],
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md",
+        "sha256": "d469011478752241340e3dd544f0744bddc7b7129e3ae7e1e249144363e5c007",
+        "start_line": 27,
+        "end_line": 39,
+        "span_sha256": "c4d2539d1695121227304edabbda93764add1d6f91f5532293fa039058d5c57b",
+        "observed_fact": "Action is a reusable Operations Atom with Type Action, explicitly distinct from Actor, Tool, a particular execution, Journal Record, and Carrier. A generic Atom or Execution target would lose the definition and qualified classification."
+      },
+      {
+        "source_atom_id": "CA-O-135",
+        "occurrence_ids": [
+          ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-135-CORE_META_MODEL-STEP--construct-the-requested-entities-graph.md#subjects.governs"
+        ],
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-135-CORE_META_MODEL-STEP--construct-the-requested-entities-graph.md",
+        "sha256": "f4040e234326114694b42dc4a96d494b12a024912342658a87d3ff28fae13805",
+        "start_line": 19,
+        "end_line": 34,
+        "span_sha256": "8262b077f857e2413eef527b32549bbeab739058497d9f1948aa91e538fdbcba",
+        "observed_fact": "The named Step invokes one named Action and remains distinct from its Step Run; a generic Atom, generic Step, or Execution cannot retain that named definition/binding identity."
+      }
+    ],
+    "candidate_context": [
+      {
+        "pointer": "/entity_identity_model/dependent_entity",
+        "observed_fact": "The candidate preserves an owner-selector-plus-dependent-field identity example but marks it pseudocode and explicitly not adopted Subject grammar."
+      },
+      {
+        "pointer": "/execution_definition_policy",
+        "observed_fact": "The candidate distinguishes repeatable Operations definitions from actual Executions; it does not supply a lossless named-Operation Subject identity."
+      }
+    ]
+  },
+  "new_operator_decisions": [],
+  "non_decisions": [
+    {
+      "boundary": "Term vocabulary and Definition Atom authority",
+      "result": "Not an Entities-Graph root or a new Operator question in this audit.",
+      "evidence": {
+        "source_atom_id": "CA-R-1454",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1454-CORE_META_MODEL-GENERAL--derive-governed-terms-views-from-selected-authority.md",
+        "sha256": "bab78ca52edb070123af5d40dd61fe4f44cf70941253aeb6aaf9deab0a5283f5",
+        "start_line": 29,
+        "end_line": 45,
+        "span_sha256": "77a391152f16f1666453dc830c7ce6df16756d52cc2c2360bcc2da1b5c1ca61e",
+        "observed_fact": "The governed Terms Graph view remains a separate graph with source traceability to Definition Atoms and Relations; it does not create another vocabulary authority or Terms Graph type."
+      },
+      "candidate_pointer": "/terms_graph_boundary"
+    },
+    {
+      "boundary": "Mechanism labels versus qualified Atom Type fields",
+      "result": "A source-evidence/domain-modeling gap, not a reason to introduce another Content Role, generic Entity mapping, or a new Operator choice here.",
+      "evidence": {
+        "source_atom_id": "CA-R-1506",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1506-CORE_META_MODEL-CORE-REQUIREMENT--separate-check-mechanism-labels-from-evaluation-atom-types.md",
+        "sha256": "8e30fc8aefaeb60d95efcfd811a82abccfae5b1a6afd2ca235480b735b22591d",
+        "start_line": 20,
+        "end_line": 34,
+        "span_sha256": "079be19ecf03ff2bcd60781acf532687828abc7b47c5630132e85e119b0bf9cd",
+        "observed_fact": "Test and Evaluation mechanism labels are not Evaluation Atom Type values; the body neither creates another Content Role nor closes the applicable Type domain."
+      }
+    },
+    {
+      "boundary": "Atom.Substance and role labels",
+      "result": "Already answered by the canonical Operator record; not reopened.",
+      "evidence": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+        "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+        "start_line": 1,
+        "end_line": 48,
+        "span_sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+        "observed_fact": "Claim, Question, and Issue are labels for the shared Atom.Substance field while the owning Atom Content Role remains preserved; compound ownership is outside that answer."
+      }
+    }
+  ],
+  "safe_next_actions": [
+    {
+      "status": "blocked_by_existing_operator_gate",
+      "action": "Do not promote or flatten the named/qualified representatives. Await the already-open selector-versus-narrower-Atom-kind decision before any new lossless mapping research that depends on it."
+    },
+    {
+      "status": "ready_without_selector",
+      "action": "Preserve the explicit nulls and the separate Terms-graph and mechanism-classification boundaries. This is a safe boundary-preservation action only; it is not a mapping, migration, grammar adoption, or completion claim. Other gate audits may identify independent non-Entity-meaning decisions."
+    }
+  ],
+  "checks": {
+    "ledger_hash_matches_assigned_input": true,
+    "ledger_counts_match_assigned_frontier": true,
+    "new_operator_decision_count": 0,
+    "existing_pending_operator_gate_count": 1,
+    "mapping_promotions_created": 0,
+    "new_roots_or_subject_syntax_created": 0,
+    "full_mapping_claimed": false,
+    "source_authority_changed": false,
+    "cross_scope_context_used_as_entity_meaning_proof": false
+  },
+  "conclusion": "Within this four-representative, non-exhaustive Entity-meaning audit, no new genuine high-blast-radius Operator choice was identified beyond the already-asked qualified/named Atom identity gate. The unresolved frontier cannot be safely completed here by generic Entity, Property, Term, Operation, or classification substitutions. This conclusion is not a claim that the selector gate is the only overall Epic blocker: the separately read quarantine audit identifies independent ID-prefix and timestamp-policy questions, but supplies no meaning proof for this audit."
+}
