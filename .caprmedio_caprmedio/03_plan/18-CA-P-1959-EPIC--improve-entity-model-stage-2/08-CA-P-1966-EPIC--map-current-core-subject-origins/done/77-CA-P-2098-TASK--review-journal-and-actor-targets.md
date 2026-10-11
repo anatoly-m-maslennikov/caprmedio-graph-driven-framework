@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 07:20:10 +0400"
+version: 2
+updated_at: "2026-10-11 07:36:43 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
 ---
@@ -32,6 +32,10 @@ The assigned unresolved Subject origins are supported by current meaning evidenc
 Estimated own work: at most 15 minutes. Follow `_projection/core-entity-review/stage2/followups-current-2094-2099.contract.md`. Own only its assigned manifest rows for journals_and_actors, and `.caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2098.research.json`. Read every owning Main Content and relevant current definitions; a missing display name is not itself a conflict. Do not infer a selector choice or change authoritative Subjects or content.
 
 Workers are not alone. Root owns independent acceptance, lifecycle and a commit after completion. Preserve original Core, captured evidence, prior ledger/reviews, unrelated work and migration gates. No MCP/FPF/runtime/Tool/Git writes. Decompose work that exceeds the bound.
+
+### Completion
+
+All 32 assigned Journal and Actor Subject origins passed independent semantic acceptance and exact source pin/span/coverage checks. One Work Journal-to-Journal proposal is supported; thirty-one policy/Event-qualified meanings remain explicitly unresolved. Journal records are not equated with actual events, and no Actor policy fields are invented. Exact verification is recorded in `_projection/core-entity-review/stage2/task-2098.receipt.json`.
 
 ### Definition of Done
 
