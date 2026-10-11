@@ -6,8 +6,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-10 19:05:35 +0400"
+version: 5
+updated_at: "2026-10-11 18:06:16 +0000"
 subjects:
   governs: "Tool/RELEASE_VERSION/Delivery-plan construction"
   depends_on: [Tool, Manifest, Methodology, Projection, Skill, Image]
@@ -29,6 +29,8 @@ The Tool derives one ordered delivery plan from the sealed manifest: derived sou
 ## Details
 
 The plan binds existing compiler and installer interfaces only where their actual declared surface fits and keeps active runtime/Skill exposure at N until every promotion gate passes. It does not execute a compiler, installer, Docker command, Skill copy, test suite, or image operation.
+
+For Local release's automatic Methodology export, select only the captured active Atoms and exact non-Atom compiler/configuration support declared by the admitted compiler surface. The current automatic operational support is exactly the compiler-declared `001_CORE_META_MODEL/caprmedio_framework_default_settings.toml` beneath the registered Methodology source root; freeze its exact safe source path, captured bytes, SHA-256 and mode with the same candidate snapshot. A file is not support merely because it lacks `atom_id`; unknown, historical, archived or otherwise unselected files are not automatically copied. `.gitkeep` is not operational support. This Local auto-selection rule does not change the generic exporter's explicit support API.
 
 For source-copy replacement, derive a retention plan that preserves the privately reserved parent and uses an absent child for the exact owned predecessor. The plan **must** retain predecessor bytes, modes and empty directories; require safe, unchanged reservation identity and an absent child **before** moving the predecessor; and preserve the existing atomic rename, currentness and publication checks. Removing an empty reservation is not a publication prerequisite. If candidate publication fails, restoration **may** move **only** the actual predecessor child back **when** the fixed target is absent. Retain and report the reservation, staged candidate and actual predecessor carriers after a failure; an empty reservation is not a predecessor tree. Existing recorded Runs and source-copy proofs remain unchanged.
 

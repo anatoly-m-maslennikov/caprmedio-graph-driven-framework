@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import sys
 import unittest
+from dataclasses import replace
 from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -27,6 +28,7 @@ from release_actions import (  # noqa: E402
     execute_release_action,
 )
 from release_checkpoint import dump_release_checkpoint  # noqa: E402
+from release_contract import ReleaseContractError  # noqa: E402
 from release_compilation import read_sealed_private_methodology_compilation  # noqa: E402
 from release_handoff import CANONICAL_SOURCE_RELATIVE, bind_sealed_methodology_export  # noqa: E402
 from workflow_run_support import RecordedActionStartProvenance, RunExecutionSession  # noqa: E402
@@ -70,6 +72,17 @@ class ReleaseStagePreparationTests(unittest.TestCase):
             f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/04_requirement/archive/CA-R-002--prior.md",
             fixtures.carrier("CA-R-002").replace(b"status: Active\n", b"status: Archived\n"),
         )
+        self.undeclared = []
+        for relative, data in (
+            ("001_CORE_META_MODEL/04_requirement/archive/frontmatterless.md", b"# historical text\n"),
+            ("001_CORE_META_MODEL/04_requirement/drafts/frontmatterless.md", b"# draft text\n"),
+            ("001_CORE_META_MODEL/04_requirement/archive/draft-without-id.md", b"---\nstatus: Draft\nversion: 1\n---\n# prior draft\n"),
+            ("001_CORE_META_MODEL/04_requirement/archive/active-labelled.md", fixtures.carrier("CA-R-009")),
+            ("003_PROJECT_CONFIGURATION/unrecognized.txt", b"not declared support\n"),
+            ("003_PROJECT_CONFIGURATION/.gitkeep", b""),
+        ):
+            self.undeclared.append(self.fixture.write(f"{CANONICAL_SOURCE_RELATIVE}/{relative}", data))
+        self.default_settings = self.fixture.source / exporter.compiler.DEFAULT_SETTINGS_RELATIVE
         # Existing product and local settings must survive private preparation.
         self.product = self.fixture.write("101_FRAMEWORK_METHODOLOGY/prior.md", b"prior delivery\n")
         self.skill = self.fixture.write(".agents/skills/ca/SKILL.md", b"prior installed skill\n")
@@ -143,12 +156,18 @@ class ReleaseStagePreparationTests(unittest.TestCase):
                          {("CA-R-001", 1), ("CA-R-002", 2)})
         self.assertEqual({row["path"] for row in sealed.inventory["support"]}, {
             "001_CORE_META_MODEL/caprmedio_framework_default_settings.toml",
-            "003_PROJECT_CONFIGURATION/support.txt",
         })
+        default_pin = next(row for row in self.run.candidate.manifest.source_inventory_rows
+                           if row.source_path == self.default_settings.relative_to(self.root).as_posix())
+        self.assertEqual(sealed.inventory["support"][0]["sha256"], default_pin.source_sha256)
+        self.assertEqual(default_pin.source_sha256, hashlib.sha256(self.default_settings.read_bytes()).hexdigest())
         exported = {path.relative_to(self.candidate_root / "methodology").as_posix()
                     for path in (self.candidate_root / "methodology").rglob("*") if path.is_file()}
         self.assertNotIn(self.inactive.relative_to(self.fixture.source).as_posix(), exported)
         self.assertNotIn(self.archived.relative_to(self.fixture.source).as_posix(), exported)
+        self.assertNotIn(self.fixture.support.relative_to(self.fixture.source).as_posix(), exported)
+        for path in self.undeclared:
+            self.assertNotIn(path.relative_to(self.fixture.source).as_posix(), exported)
         self.assertIsNotNone(self.run.prepared_portable_package)
         self.assertTrue((self.run.prepared_portable_package.private_package_root / "manifest.toml").is_file())
         self.assertEqual(self.protected_bytes(), before)
@@ -161,7 +180,8 @@ class ReleaseStagePreparationTests(unittest.TestCase):
     def test_stage_refuses_frozen_source_or_configuration_drift_before_preparation(self) -> None:
         self.assertEqual(self.execute(0).outcome, "completed")
         self.bind_stage_session()
-        for path in (self.active, self.structure, self.fixture.instance_settings):
+        for path in (self.active, self.structure, self.fixture.instance_settings, self.default_settings,
+                     self.undeclared[0]):
             with self.subTest(path=path.relative_to(self.root).as_posix()):
                 # Independent Run frontier for each drift; a stopped phase is never replayed.
                 self.run = begin_release_action_run(
@@ -181,6 +201,44 @@ class ReleaseStagePreparationTests(unittest.TestCase):
                     self.assertIsNone(self.run.prepared_portable_package)
                 finally:
                     path.write_bytes(original)
+
+    def test_missing_declared_default_settings_pin_refuses_before_private_publication(self) -> None:
+        self.assertEqual(self.execute(0).outcome, "completed")
+        self.bind_stage_session()
+        self.default_settings.unlink()
+        result = self.execute(1)
+        self.assertEqual(result.outcome, "blocked", result.reason)
+        self.assertTrue(self.run.stopped)
+        self.assertFalse(self.candidate_root.exists())
+        self.assertIsNone(self.run.methodology_export)
+        self.assertIsNone(self.run.prepared_portable_package)
+
+    def test_helper_requires_exact_declared_support_pin_and_reopens_its_bytes(self) -> None:
+        self.assertEqual(self.execute(0).outcome, "completed")
+        self.bind_stage_session()
+        candidate = self.run.candidate
+        declared = self.default_settings.relative_to(self.root).as_posix()
+        rows = candidate.manifest.source_inventory_rows
+        actual_exporter = actions._exporter_module()
+        for code, changed in (
+            ("release-private-support-pin-missing", [row for row in rows if row.source_path != declared]),
+            ("support-pin-stale", [row.model_copy(update={"source_sha256": "0" * 64})
+                                   if row.source_path == declared else row for row in rows]),
+        ):
+            with self.subTest(code=code):
+                invalid = replace(candidate, manifest=candidate.manifest.model_copy(update={"source_inventory_rows": changed}))
+                self.run.in_progress = self.context(1)
+                try:
+                    # Branch-level negative test only: skip the broader observer
+                    # to exercise the helper's own pin check, never grant proof.
+                    with patch.object(actions, "_revalidate", return_value=invalid), \
+                         patch.object(actions, "_exporter_module", return_value=actual_exporter):
+                        with self.assertRaises((ReleaseContractError, actual_exporter.MethodologyExportError)) as raised:
+                            actions._prepare_native_methodology_compilation(self.run, invalid)
+                    self.assertEqual(raised.exception.code, code)
+                    self.assertFalse(self.candidate_root.exists())
+                finally:
+                    self.run.in_progress = None
 
     def test_stage_without_current_selected_session_does_not_create_private_export(self) -> None:
         self.assertEqual(self.execute(0).outcome, "completed")

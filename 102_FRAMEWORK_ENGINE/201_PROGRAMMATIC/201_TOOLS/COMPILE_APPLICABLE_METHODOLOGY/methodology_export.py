@@ -8,12 +8,13 @@ import json
 import os
 import re
 import shutil
+import stat
 import sys
 import tempfile
 import tomllib
 from dataclasses import dataclass, replace
 from pathlib import Path
-from typing import Any, Mapping, Sequence
+from typing import Any, Iterable, Iterator, Mapping, Sequence
 
 
 _ROOT = Path(__file__).resolve().parent
@@ -22,6 +23,14 @@ assert _SPEC and _SPEC.loader
 compiler = importlib.util.module_from_spec(_SPEC)
 sys.modules[_SPEC.name] = compiler
 _SPEC.loader.exec_module(compiler)
+
+_INVENTORY_SPEC = importlib.util.spec_from_file_location(
+    "caprmedio_methodology_export_release_inventory", _ROOT.parent / "RELEASE_VERSION" / "release_inventory.py",
+)
+assert _INVENTORY_SPEC and _INVENTORY_SPEC.loader
+_release_inventory = importlib.util.module_from_spec(_INVENTORY_SPEC)
+sys.modules[_INVENTORY_SPEC.name] = _release_inventory
+_INVENTORY_SPEC.loader.exec_module(_release_inventory)
 
 SCHEMA = "caprmedio.methodology_export.v3"
 LEGACY_EXPORT_SCHEMA = "caprmedio.methodology_export.v2"
@@ -124,6 +133,14 @@ def _protected_basename(name: str) -> bool:
     return name.startswith(".env") or name.endswith(".env")
 
 
+def _guard_source_ancestors(root: Path) -> None:
+    for ancestor in (root, *root.parents):
+        if _protected_basename(ancestor.name):
+            raise MethodologyExportError("protected-source-path", "source_root has a protected .env ancestor", path=ancestor.as_posix())
+        if ancestor.is_symlink():
+            raise MethodologyExportError("source-symlink-forbidden", "source_root has a symlinked ancestor", path=ancestor.as_posix())
+
+
 def _guard_source_metadata(root: Path) -> None:
     """Reject protected names using directory metadata before any payload read.
 
@@ -131,11 +148,7 @@ def _guard_source_metadata(root: Path) -> None:
     pinned-source payload read.  It deliberately uses ``scandir`` metadata,
     never ``Path.rglob``/``read_bytes`` on an entry that may be protected.
     """
-    for ancestor in (root, *root.parents):
-        if _protected_basename(ancestor.name):
-            raise MethodologyExportError("protected-source-path", "source_root has a protected .env ancestor", path=ancestor.as_posix())
-        if ancestor.is_symlink():
-            raise MethodologyExportError("source-symlink-forbidden", "source_root has a symlinked ancestor", path=ancestor.as_posix())
+    _guard_source_ancestors(root)
 
     def walk(directory: Path) -> None:
         with os.scandir(directory) as entries:
@@ -191,13 +204,49 @@ def _pins(value: object, field: str) -> tuple[SourcePin, ...]:
 
 
 def _pin_bytes(root: Path, pin: SourcePin, kind: str) -> bytes:
+    return tuple(_pin_batch_bytes(root, (pin,), kind))[0][1]
+
+
+def _pin_batch_bytes(root: Path, pins: Iterable[SourcePin], kind: str) -> Iterator[tuple[SourcePin, bytes]]:
+    """Stream verified pins between whole-tree guards, without a byte cache.
+
+    Every path component is opened without following symlinks; protected
+    names are refused before opening. Standalone reads consume the same
+    bounded batch so they retain the complete source metadata guard.
+    """
     _guard_source_metadata(root)
-    path = root / pin.path
-    if path.is_symlink() or not path.is_file():
-        raise MethodologyExportError(f"{kind}-pin-missing", f"{kind} pin is not a regular source file", path=pin.path)
-    if _digest(path.read_bytes()) != pin.sha256:
-        raise MethodologyExportError(f"{kind}-pin-stale", f"{kind} pin digest does not match source bytes", path=pin.path)
-    return path.read_bytes()
+    root_descriptor = os.open(root, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    try:
+        for pin in pins:
+            relative = _relative(pin.path, f"{kind} pin")
+            parts = Path(relative).parts
+            if any(_protected_basename(part) for part in parts):
+                raise MethodologyExportError("protected-source-path", "source pin has a protected .env component", path=relative)
+            descriptor = os.dup(root_descriptor)
+            try:
+                for index, component in enumerate(parts):
+                    flags = os.O_RDONLY | os.O_NOFOLLOW
+                    if index < len(parts) - 1:
+                        flags |= os.O_DIRECTORY
+                    else:
+                        flags |= os.O_NONBLOCK
+                    following = os.open(component, flags, dir_fd=descriptor)
+                    os.close(descriptor)
+                    descriptor = following
+                if not stat.S_ISREG(os.fstat(descriptor).st_mode):
+                    raise MethodologyExportError(f"{kind}-pin-missing", f"{kind} pin is not a regular source file", path=relative)
+                with os.fdopen(os.dup(descriptor), "rb") as stream:
+                    data = stream.read()
+            except OSError as error:
+                raise MethodologyExportError(f"{kind}-pin-missing", f"{kind} pin is not a regular source file", path=relative) from error
+            finally:
+                os.close(descriptor)
+            if _digest(data) != pin.sha256:
+                raise MethodologyExportError(f"{kind}-pin-stale", f"{kind} pin digest does not match source bytes", path=relative)
+            yield pin, data
+    finally:
+        os.close(root_descriptor)
+        _guard_source_metadata(root)
 
 
 def _project_binding(project_root: Path | str | None, source_root: Path) -> dict[str, object] | None:
@@ -508,7 +557,7 @@ def _binding_control_tree_digest(control_root: Path) -> str:
 
 
 def _framework_engine_inventory_digest(project_binding: Mapping[str, object] | None) -> str | None:
-    """Bind discovery to the full regular Framework Engine inventory, not one path."""
+    """Bind the persisted Framework Engine, excluding only shared transient state."""
     scope = _framework_engine_scope(project_binding)
     if scope is None:
         return None
@@ -518,7 +567,13 @@ def _framework_engine_inventory_digest(project_binding: Mapping[str, object] | N
         return _digest(_json([]))
     if engine.is_symlink() or not engine.is_dir():
         raise MethodologyExportError("framework-engine-inventory-invalid", "Framework Engine inventory root is unsafe", path=engine.as_posix())
-    return _source_tree_digest(engine)
+    _guard_source_ancestors(engine)
+    try:
+        files = _release_inventory.persistent_regular_files(project, engine)
+    except _release_inventory.ReleaseInventoryError as error:
+        raise MethodologyExportError(error.code, str(error)) from error
+    rows = [{"path": path.relative_to(engine).as_posix(), "sha256": _digest(path.read_bytes())} for path in files]
+    return _digest(_json(rows))
 
 
 def _stable_binding_frontier(project_binding: Mapping[str, object] | None) -> tuple[tuple[BindingAtom, ...], str | None]:
@@ -605,10 +660,12 @@ def freeze_methodology_manifest(*, source_root: Path | str, selected_atoms: Sequ
     supports, catalogs = _pins(list(support_inventory), "support_inventory"), _pins(list(catalog_pins), "catalog_pins")
     if {atom.source_path for atom in selected}.intersection(pin.path for pin in supports):
         raise MethodologyExportError("support-overlaps-selected-atom", "support inventory duplicates a selected Atom")
-    for pin in supports:
-        _support_is_atom(pin, _pin_bytes(root, pin, "support"))
-    for pin in catalogs:
-        _pin_bytes(root, pin, "catalog")
+    if supports:
+        for pin, data in _pin_batch_bytes(root, supports, "support"):
+            _support_is_atom(pin, data)
+    if catalogs:
+        for _pin, _data in _pin_batch_bytes(root, catalogs, "catalog"):
+            pass
     bindings, engine_inventory = _stable_binding_frontier(project_binding)
     payload: dict[str, object] = {
         "active_frontier": [atom.record() for atom in active],
@@ -676,15 +733,21 @@ def _frozen(root: Path, value: Path | str, project_root: Path | str | None = Non
         current_bindings, engine_inventory = _stable_binding_frontier(project_binding)
         if current_bindings != bindings:
             raise MethodologyExportError("binding-frontier-stale", "current Tool binding frontier differs from frozen manifest")
-    for pin in supports:
-        _support_is_atom(pin, _pin_bytes(root, pin, "support"))
-    for pin in catalogs:
-        _pin_bytes(root, pin, "catalog")
+    if supports:
+        for pin, data in _pin_batch_bytes(root, supports, "support"):
+            _support_is_atom(pin, data)
+    if catalogs:
+        for _pin, _data in _pin_batch_bytes(root, catalogs, "catalog"):
+            pass
     return FrozenManifest(payload, payload["sha256"], selected, supports, catalogs, bindings, engine_inventory)
 
 
 def _candidate_atom_bytes(root: Path, atom: Atom) -> bytes:
     data = _pin_bytes(root, SourcePin(atom.source_path, atom.sha256), "selected-source")
+    return _validate_candidate_atom_bytes(atom, data)
+
+
+def _validate_candidate_atom_bytes(atom: Atom, data: bytes) -> bytes:
     try:
         frontmatter, _ = compiler.split_frontmatter(data, atom.source_path)
         valid = compiler.derive_atom_id(Path(atom.source_path), frontmatter) == atom.atom_id and compiler.top_scalar(frontmatter, "status") == "Active" and compiler.top_scalar(frontmatter, "version") == str(atom.version)
@@ -693,6 +756,13 @@ def _candidate_atom_bytes(root: Path, atom: Atom) -> bytes:
     if not valid:
         raise MethodologyExportError("selected-source-tampered", "selected source metadata changed", path=atom.source_path)
     return data
+
+
+def _candidate_atom_batch_bytes(root: Path, atoms: Sequence[Atom]) -> Iterator[tuple[Atom, bytes]]:
+    by_path = {atom.source_path: atom for atom in atoms}
+    for pin, data in _pin_batch_bytes(root, (SourcePin(atom.source_path, atom.sha256) for atom in atoms), "selected-source"):
+        atom = by_path[pin.path]
+        yield atom, _validate_candidate_atom_bytes(atom, data)
 
 
 def _candidate_root(value: Path | str) -> Path:
@@ -889,8 +959,9 @@ def export_selected_methodology(*, source_root: Path | str, frozen_manifest_path
                 raise MethodologyExportError("export-run-already-sealed", "candidate already has a different sealed export")
             return sealed
         _write(candidate / UNSEALED_NAME, _json({"frozen_manifest_sha256": frozen.sha256, "schema": SCHEMA, "state": "writing"}) + b"\n")
-        payloads = {atom.source_path: _candidate_atom_bytes(source, atom) for atom in frozen.selected}
-        payloads.update({pin.path: _pin_bytes(source, pin, "support") for pin in frozen.supports})
+        payloads = {atom.source_path: data for atom, data in _candidate_atom_batch_bytes(source, frozen.selected)}
+        if frozen.supports:
+            payloads.update({pin.path: data for pin, data in _pin_batch_bytes(source, frozen.supports, "support")})
         binding_rows: list[dict[str, object]] = []
         binding_root = Path(str(frozen.payload["project_binding"]["project_root"])) if isinstance(frozen.payload.get("project_binding"), Mapping) else None
         if binding_root is None:
@@ -905,7 +976,9 @@ def export_selected_methodology(*, source_root: Path | str, frozen_manifest_path
             payloads[destination] = projected
             binding_rows.append({**binding.record(), "destination_path": destination, "digest": _digest(projected)})
         reread = _frozen(source, frozen_manifest_path, project_root)
-        if reread != frozen or any(_candidate_atom_bytes(source, atom) != payloads[atom.source_path] for atom in frozen.selected) or any(_pin_bytes(source, pin, "support") != payloads[pin.path] for pin in frozen.supports):
+        atoms_changed = any(data != payloads[atom.source_path] for atom, data in _candidate_atom_batch_bytes(source, frozen.selected))
+        support_changed = bool(frozen.supports) and any(data != payloads[pin.path] for pin, data in _pin_batch_bytes(source, frozen.supports, "support"))
+        if reread != frozen or atoms_changed or support_changed:
             raise MethodologyExportError("frozen-manifest-stale", "frozen inputs changed during export")
         atom_rows = [{**atom.record(), "destination_path": atom.source_path, "digest": atom.sha256} for atom in frozen.selected]
         support_rows = [{"path": pin.path, "sha256": pin.sha256} for pin in frozen.supports]

@@ -602,20 +602,18 @@ def _prepare_native_methodology_compilation(run: ReleaseActionRun, candidate: Va
     exporter = _exporter_module()
     binding = exporter.reopen_project_export_binding(root, source)
     active, _source_digest = exporter._stable_active(source, binding)
-    support = []
-    for row in current.manifest.source_inventory_rows:
-        if row.resource != "METHODOLOGY":
-            continue
-        relative = Path(row.source_path).relative_to(current.manifest.canonical_source_snapshot_ref).as_posix()
-        pin = exporter.SourcePin(relative, row.source_sha256)
-        data = exporter._pin_bytes(source, pin, "support")
-        try:
-            exporter._support_is_atom(pin, data)
-        except exporter.MethodologyExportError as error:
-            if error.code == "support-atom-forbidden":
-                continue
-            raise
-        support.append({"path": relative, "sha256": row.source_sha256})
+    # A non-Atom-looking file is not an admitted local-release support. Only
+    # the compiler's declared defaults accompany the complete active frontier;
+    # arbitrary explicit supports remain available to the generic exporter.
+    declared_support = exporter.compiler.DEFAULT_SETTINGS_RELATIVE.as_posix()
+    declared_source = (Path(current.manifest.canonical_source_snapshot_ref) / declared_support).as_posix()
+    matching = [row for row in current.manifest.source_inventory_rows
+                if row.resource == "METHODOLOGY" and row.source_path == declared_source]
+    if len(matching) != 1:
+        raise ReleaseContractError("release-private-support-pin-missing", "compiler-declared default settings lack one frozen source pin")
+    pin = exporter.SourcePin(declared_support, matching[0].source_sha256)
+    exporter._support_is_atom(pin, exporter._pin_bytes(source, pin, "support"))
+    support = [{"path": pin.path, "sha256": pin.sha256}]
     frozen = exporter.freeze_methodology_manifest(
         source_root=source,
         selected_atoms=[{"atom_id": atom.atom_id, "version": atom.version} for atom in active],
@@ -1140,7 +1138,7 @@ def execute_release_action(request: ReleaseVersionRequest | Mapping[str, Any], *
         result = _result(run, context, phase, "blocked" if isinstance(error, ReleaseContractError) else "failed",
                          f"phase stopped: {getattr(error, 'code', type(error).__name__)}", attempted=attempted, refs=refs)
     except Exception as error:
-        result = _result(run, context, phase, "effect_uncertain", f"private phase result is unknown: {type(error).__name__}", attempted=attempted)
+        result = _result(run, context, phase, "effect_uncertain", f"private phase result is unknown: {getattr(error, 'code', type(error).__name__)}", attempted=attempted)
     finally:
         run.in_progress = None
     run.results[index] = result
