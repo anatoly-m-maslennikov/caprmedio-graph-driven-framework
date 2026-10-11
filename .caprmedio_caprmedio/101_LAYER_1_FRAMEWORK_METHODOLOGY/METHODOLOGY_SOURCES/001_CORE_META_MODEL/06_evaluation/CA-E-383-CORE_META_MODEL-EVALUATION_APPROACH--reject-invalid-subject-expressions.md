@@ -14,8 +14,8 @@ subjects:
     - "Scope Unit/Name"
     - "Subject"
     - "Subject Path"
-version: 14
-updated_at: "2026-10-11 03:56:26 +0400"
+version: 15
+updated_at: "2026-10-11 18:04:47 +0400"
 relations:
   evaluation_for:
     - CA-R-1194
@@ -55,7 +55,7 @@ the Evaluation **must** reject a Subject Expression **if**
 - a Dependent Entity occurrence lacks **`=1`** immediate bearer,
 - a reusable Term is rejected **only** for changing ordinal position,
 - a Governed Term begins with a lowercase letter,
-- a named component fails **to** resolve **to** a Term under CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression,
+- an ordinary named component fails **to** resolve **to** a Term under CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression, **or** an `atom(...)` component is **not** one of that Requirement's registered exact initial selector forms,
 - an ordinary General Term is substituted for a required Term reference,
 - a Term name **contains** `/`, `.`, **or** `:`,
 - `@` is used as a Subject token,
@@ -66,6 +66,6 @@ the Evaluation **must** reject a Subject Expression **if**
 
 ### Term-component cases
 
-`Artifact/Atom.Status: Active` **must** pass the component check **only when** its four named Terms **and** exact qualified target are admitted. `/`, `.`, **and** `:` contribute no Term nodes. an unresolved named component **must** fail the source-reference check; the diagnostic **must** preserve the unresolved reference **without** supplying an invented definition. a complete composite path **must not** be admitted as **`=1`** Term merely because it resolves **to** **`=1`** Entity.
+`Artifact/Atom.Status: Active` **must** pass the component check **only when** its four named Terms **and** exact qualified target are admitted. `/`, `.`, **and** `:` contribute no Term nodes. `atom(content_role="Plan").Status`, `atom(content_role="Plan",type="Plan").Status`, **and** `atom(atom_id="CA-O-135").Status` **must** pass only in the approved profile when their selector syntax is exact; lowercase `atom` is **not** a Term, **and** its syntax validation neither enumerates a concrete Atom row nor admits a target Entity. `atom(type="Plan").Status`, a mixed `atom_id`/`content_role` selector, a selector after a Subject separator, **and** every selector in legacy **must** fail. an unresolved ordinary named component **must** fail the source-reference check; the diagnostic **must** preserve the unresolved reference **without** supplying an invented definition. a complete composite path **must not** be admitted as **`=1`** Term merely because it resolves **to** **`=1`** Entity.
 
 `Atom/Content Role: Requirement/Type: Demand` is retained only as a legacy five-component fixture; it does **not** define an approved all-dot role conjunction or selector grammar.

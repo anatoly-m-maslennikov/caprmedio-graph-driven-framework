@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Atom
   depends_on: [Subject, Carrier, Revision, Operator, Plan]
-version: 1
-updated_at: "2026-10-11 17:45:11 +0400"
+version: 2
+updated_at: "2026-10-11 18:14:11 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   depends_on: [CA-P-2161]
@@ -33,6 +33,10 @@ The approved selector and metadata changes have the exact, verified effect assig
 Own work: at most fifteen minutes; create bounded children if this own-work limit is exceeded. Review and align only current Core selector grammar and current Engine Subject Tool RMEDO before code. Atom is the Entity type; atom(...) is case-sensitive selector syntax, not an alias or new Entity kind. Use only the approved named Atom ID or role/type qualification. Preserve Summary, Subjects, unrelated metadata/body and exact prior versions. Record actual grammar effects and pins. This is the approved selector-grammar exception, not mass Subject migration.
 
 Root owns Git, Plan lifecycle and shared Journal recording. Workers are not alone; preserve unrelated release changes. Scratch and caches stay in `.caprmedio_tmp`; use uv. No unsupported MCP/FPF, general migration framework, runtime/release activation or Step 2 body sweep.
+
+### Completion
+
+Adopted and independently verified the14 exact approved Core/Engine selector-grammar revisions (15 exact body deltas), their predecessors and28 actual Journal records. Atom and atom remain case-distinct; ordinary Subjects and unrelated content are unchanged. Exact verification is recorded in `_projection/core-entity-review/stage2/task-2162.receipt.json`.
 
 ### Definition of Done
 

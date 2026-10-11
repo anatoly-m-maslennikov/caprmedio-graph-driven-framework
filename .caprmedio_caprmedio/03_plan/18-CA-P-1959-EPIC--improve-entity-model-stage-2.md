@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 42
-updated_at: "2026-10-11 18:01:19 +0400"
+version: 43
+updated_at: "2026-10-11 18:14:11 +0400"
 relations: {}
 ---
 # Summary
@@ -165,13 +165,17 @@ Current remaining-gates checkpoint (CA-P-2156–2159): all four bounded read-onl
 
 The Operator answered all three questions and then requested implementation. Implement case-sensitive atom(...) selectors, migrate the six audited legacy original IDs to fresh canonical CA IDs, and align quoted updated_at values with explicit UTC offsets. This permits only the necessary selector grammar/Tool RMEDO and timestamp-policy exceptions plus the audited metadata/identity repairs; it does not authorize a general body sweep or mass Subject migration. Keep Atom (Entity type) distinct from atom (selector token). Review/align RMEDO before selector code. Preserve frozen evidence; current source effects make old live pins historical, never silently current.
 
-- [CA-P-2162 — Align RMEDO for case-sensitive Atom selectors](18-CA-P-1959-EPIC--improve-entity-model-stage-2/25-CA-P-2162-TASK--align-rmedo-for-case-sensitive-atom-selectors.md)
+- [CA-P-2162 — Align RMEDO for case-sensitive Atom selectors](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/25-CA-P-2162-TASK--align-rmedo-for-case-sensitive-atom-selectors.md)
 - [CA-P-2163 — Implement case-sensitive Atom selectors](18-CA-P-1959-EPIC--improve-entity-model-stage-2/26-CA-P-2163-TASK--implement-case-sensitive-atom-selectors.md)
 - [CA-P-2164 — Migrate six legacy Core Atom identities](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/27-CA-P-2164-TASK--migrate-six-legacy-core-atom-identities.md)
 - [CA-P-2165 — Use explicit offsets for Atom timestamps](18-CA-P-1959-EPIC--improve-entity-model-stage-2/28-CA-P-2165-TASK--use-explicit-offsets-for-atom-timestamps.md)
 - [CA-P-2166 — Verify the approved selector and metadata increment](18-CA-P-1959-EPIC--improve-entity-model-stage-2/29-CA-P-2166-TASK--verify-the-approved-selector-and-metadata-increment.md)
 
 Post-ID checkpoint (CA-P-2164): six legacy current Core identities now use CA-R-1932 and CA-E-620–624, with Version +1 and quoted actual offset timestamps; CA-R-1677's one current inbound relation is relinked. Seven exact prior carriers are archived and 21 actual schema-v3 Journal observations/effects are validated. Independent verification preserves all other Core files and all bodies/Subjects. Current inventory remains 907 sources / 4534 references, with only the two naive timestamp quarantines left. Earlier mapping ledger/current-pin claims are historical after these identity effects; rebind through the exact approved delta before later mapping or source application.
+
+### Selector grammar checkpoint — CA-P-2162
+
+The separately approved selector increment supersedes the earlier no-selector boundary for the explicit approved profile only. Four Core grammar and ten Engine Subject Tool RMEDO revisions now permit the reviewed initial lowercase `atom(...)` syntax; `Atom` remains the distinct Entity-type Term. All14 exact predecessors are preserved. Independent source/delta verification passed; actual changes are in Journal part7. Current pins are in `selector-tools.current-contract.json`. CA-P-2163 owns code alignment. This is not ordinary Subject migration, native admission or body-sweep approval.
 
 ### Definition of Done
 

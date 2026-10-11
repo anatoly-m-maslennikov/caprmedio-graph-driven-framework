@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Atom/Revision/Updated At", "Update Sealed Atom Carriers", "Artifact/Carrier", "Journal/Record"]
-version: 13
-updated_at: "2026-10-11 04:36:44 +0400"
+version: 14
+updated_at: "2026-10-11 18:04:47 +0400"
 relations:
   evaluation_for: [CA-R-866, CA-O-030, CA-R-1464, CA-R-1415, CA-R-1371]
   relates_to: [CA-O-067, CA-R-1432, CA-R-1788, CA-R-1662]
@@ -52,9 +52,9 @@ For an accepted non-no-op Subject change, require Version `+1` and an actual edi
 
 ### Subject-profile preview cases
 
-The closed Subject-only root envelope is exactly `{atoms, subject_profile?}`; each atom item remains exactly `{selector, expected, subject_patches}`. The exact path selector is a source locator, not Subject syntax. Exercise omission and explicit `legacy`, and explicit `approved`; each preview checks both its pinned source and proposed result with that one profile. Unknown or malformed profiles, extra root/item/patch keys, mixed Subject-only/full-carrier modes, cross-profile conversion, inferred profile selection, escaping, conjunctions, selectors inside a Subject value, and grammar migration fail.
+The closed Subject-only root envelope is exactly `{atoms, subject_profile?}`; each atom item remains exactly `{selector, expected, subject_patches}`. The exact path selector is a source locator, not Subject syntax. Exercise omission and explicit `legacy`, and explicit `approved`; each preview checks both its pinned source and proposed result with that one profile. Unknown or malformed profiles, extra root/item/patch keys, mixed Subject-only/full-carrier modes, cross-profile conversion, inferred profile selection, escaping, conjunctions, selectors inside a Subject value other than the approved initial form, and grammar migration fail.
 
-Legacy keeps dots literal and uses `/` for bearer qualification and `:` for allowed values. Approved recognizes `/` as broader-to-narrower, `.` as bearer-to-dependent, and `:` as Property-to-allowed-value. Both reject `@` in Subject syntax; it is neither a fourth operator nor carrier/display notation. For a non-no-op, verify exact selected scalar replacement, Version `N+1`, illustrative Updated At, full before/after digests, byte preservation outside Subjects/Version/Updated At, and deterministic `preview_sha256`.
+Legacy keeps dots literal, uses `/` for bearer qualification and `:` for allowed values, and rejects every `atom(...)` selector. Approved recognizes `/` as broader-to-narrower, `.` as bearer-to-dependent, and `:` as Property-to-allowed-value, and accepts only the exact positive selector literals in CA-E-301. Prove that `Atom` and `atom` never normalize; reject `@`, empty/type-only/mixed-key/unknown-key/duplicate-key/positional/nested/later-position selectors and unquoted/escaped/wildcard/evaluated/aliased values. In `atom(...).Status`, prove the selected Atom remains Status's bearer and neither content_role nor type becomes Status's allowed value. Selector checks neither enumerate a concrete Atom row nor admit target semantics. For a non-no-op, verify exact selected scalar replacement, Version `N+1`, illustrative Updated At, full before/after digests, byte preservation outside Subjects/Version/Updated At, and deterministic `preview_sha256`.
 
 The preview result includes its `subject_profile` and `subject_profile_evidence` with exactly `grammar_pins` and `native_admission: not_performed`; each grammar pin contains `atom_id`, `version`, `path`, and `sha256`, and these fields are included in the digest. Assert lexical syntax/direction validation only: no native endpoint, typed edge, target conformance, history, archive, Journal, MCP, source effect, or source migration is claimed.
 

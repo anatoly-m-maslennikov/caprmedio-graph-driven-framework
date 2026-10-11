@@ -7,8 +7,8 @@ subjects:
     - "Property"
     - "Subject"
     - "Atom"
-version: 13
-updated_at: "2026-10-11 03:56:26 +0400"
+version: 14
+updated_at: "2026-10-11 18:04:47 +0400"
 relations: {}
 atom_id: "CA-R-1321"
 content_role: "Requirement"
@@ -27,6 +27,6 @@ Subject Expressions formed from Term references **and** registered relation synt
 
 ## Claim
 
-a Subject Expression **means** a reference **to** **`=1`** Entity formed from Term references **and** registered relation syntax. **every** named component, including the initial target name, Property names, **and** named allowed values, references a Term; `/`, `.`, **and** `:` are syntax, **not** Terms. `@` is outside Subject syntax. the expression identifies the target, **not** the Atom's Subject Relation **to** it.
+a Subject Expression **means** a reference **to** **`=1`** Entity formed from Term references, registered relation syntax, **and** an optional registered Atom-owner selector. `Atom` remains the case-significant Entity type **and** ordinary Term component; lowercase `atom(...)` is a distinct case-significant selector keyword, **not** an alias **or** spelling of `Atom` and **not** another Entity kind. Only an approved-profile expression may begin with exactly one of `atom(atom_id="<exact Atom ID>")`, `atom(content_role="<exact Content Role>")`, **or** `atom(content_role="<exact Content Role>",type="<exact Atom Type>")`; `atom_id` is exclusive, **and** `type` has no standalone form. Selector literals are non-empty, double-quoted exact literals with no escaping, evaluation, wildcard, alias, **or** case folding. **every** ordinary named component, including `Atom`, Property names, **and** named allowed values, references a Term; the selector keyword, keys, punctuation, **and** literals are syntax, **not** Terms. `/`, `.`, **and** `:` remain registered syntax; `@` is outside Subject syntax. Selector syntax neither enumerates Atom rows nor admits an Entity endpoint; the canonical Subject target rule remains separate. the expression identifies the target, **not** the Atom's Subject Relation **to** it.
 
 ## Details

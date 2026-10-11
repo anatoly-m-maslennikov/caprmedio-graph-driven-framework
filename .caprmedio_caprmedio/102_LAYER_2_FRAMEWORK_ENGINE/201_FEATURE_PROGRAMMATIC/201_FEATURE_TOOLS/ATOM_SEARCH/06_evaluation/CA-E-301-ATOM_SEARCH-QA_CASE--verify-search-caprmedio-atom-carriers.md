@@ -16,8 +16,8 @@ subjects:
     - "Artifact/Carrier"
     - "Scope Unit"
     - "Search Atom Carriers"
-version: 14
-updated_at: "2026-10-11 04:36:44 +0400"
+version: 15
+updated_at: "2026-10-11 18:04:47 +0400"
 relations: {"evaluation_for":["CA-R-863","CA-O-046"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -56,9 +56,9 @@ Reject missing or unsupported field, value, match, root, lifecycle, `--under`, r
 
 ### Subject-profile cases
 
-Exercise omission and explicit `legacy`, and explicit `approved`; an unknown or malformed supplied profile fails before traversal. Legacy treats `.` as literal and uses only `/` and `:` as prefix boundaries. Approved uses `/`, `.`, and `:` as boundaries. Exact matching stays literal under either profile. In both profiles, reject `@` as Subject syntax; it is neither a boundary nor a fourth operator.
+Exercise omission and explicit `legacy`, and explicit `approved`; an unknown or malformed supplied profile fails before traversal. Legacy treats `.` as literal, uses only `/` and `:` as prefix boundaries, and rejects every `atom(...)` selector. Approved uses `/`, `.`, and `:` as boundaries and accepts only `Atom.Status`, `atom(content_role="Plan").Status`, `atom(content_role="Plan",type="Plan").Status`, and `atom(atom_id="CA-O-135").Status` as independently authored literal syntax. Prove exact case preservation and no Atom/atom normalization; reject `@`, type-only, mixed `atom_id`/`content_role`, duplicate or unknown keys, unquoted/escaped/wildcard/evaluated/aliased values, and selectors after a separator.
 
-Use mixed approved `/`, `.`, and `:` paths and legacy dotted names to prove that a request selects only the boundaries of its selected profile. Exclude lexical near-misses such as `Artifact/Atomology`. Results label the selected `subject_profile` and carry `subject_profile_evidence` with exactly `grammar_pins` and `native_admission: not_performed`; every grammar pin contains `atom_id`, `version`, `path`, and `sha256`. Assert that this evidence and the result are lexical only: no target conformance, native edge, NARROWER_THAN relation, carrier/display notation, selector syntax, source migration, or grammar adoption is inferred.
+Use mixed approved `/`, `.`, and `:` paths and legacy dotted names to prove that a request selects only the boundaries of its selected profile. Exclude lexical near-misses such as `Artifact/Atomology`. Results label the selected `subject_profile` and carry `subject_profile_evidence` with exactly `grammar_pins` and `native_admission: not_performed`; every grammar pin contains `atom_id`, `version`, `path`, and `sha256`. Assert that this evidence and the result are lexical syntax only: no selector-instance enumeration, target conformance, native edge, NARROWER_THAN relation, carrier/display notation, source migration, or grammar adoption is inferred.
 
 ### Acceptance criteria
 

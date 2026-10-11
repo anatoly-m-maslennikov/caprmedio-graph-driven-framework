@@ -13,8 +13,8 @@ subjects:
   governs: "Tool/ATOM_SEARCH/Carrier"
   depends_on:
     - "Tool/ATOM_SEARCH"
-version: 9
-updated_at: "2026-10-11 04:28:03 +0400"
+version: 10
+updated_at: "2026-10-11 18:04:47 +0400"
 relations: {"delivery_for":["CA-R-863"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -39,7 +39,7 @@ The delivered `ATOM_SEARCH` wrapper **must** support the existing `--under PATH`
 - optional `--subject-profile legacy|approved`, where omission means `legacy` and an unknown or malformed supplied profile fails;
 - repeatable `--content-role ROLE` values as an OR set within the valid-file filter, and `--scope-unit OWNER` as a conjunctive owner filter.
 
-Legacy uses `/` as bearer qualification, `:` as Property-to-allowed-value, and literal dots. Approved uses `/` as broader-to-narrower, `.` as bearer-to-dependent, and `:` as Property-to-allowed-value. Exact matching remains literal; prefix matching uses only the selected profile's declared boundaries. Both profiles reject `@` in Subject syntax. It is neither a fourth operator nor carrier/display notation.
+Legacy uses `/` as bearer qualification, `:` as Property-to-allowed-value, and literal dots, and rejects every `atom(...)` selector. Approved uses `/` as broader-to-narrower, `.` as bearer-to-dependent, and `:` as Property-to-allowed-value, and accepts only the exact initial lowercase selector forms registered by CA-R-1321; `Atom` and `atom` remain distinct. Exact matching remains literal; prefix matching uses only the selected profile's declared boundaries. Both profiles reject `@`, and approved rejects every other selector construction, escaping, conjunction, wildcard, evaluation, and alias. It is neither a fourth operator nor carrier/display notation.
 
 Each result **must** identify the source pin and exact occurrence: `atom_id`, `version`, `status`, `owner`, `relative_path`, `sha256`, `updated_at`, `field`, `index`, and `value`. `index` is the list index for `depends_on` and is null for the scalar `governs` field. Results are deterministic and path/field/index ordered. The result also carries the selected `subject_profile` and `subject_profile_evidence` containing exactly the five reviewed grammar pins and `native_admission: not_performed`. Malformed, unreadable, duplicate, or rejected selected files appear in a separate `diagnostics` collection; a valid empty match is returned as an empty result and is not a diagnostic. The lookup is lexical only: it never infers target conformance, ontology relations, a native edge, grammar adoption, or source migration.
 

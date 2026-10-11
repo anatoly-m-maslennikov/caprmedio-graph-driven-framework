@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_SEARCH"
   depends_on: [Atom, Subject, Artifact/Carrier, Scope Unit]
-version: 2
-updated_at: "2026-10-11 04:28:11 +0400"
+version: 3
+updated_at: "2026-10-11 18:04:47 +0400"
 relations:
   relates_to: [CA-R-863, CA-O-046, CA-E-301, CA-D-424]
 ---
@@ -35,12 +35,7 @@ conjunctively under that same profile.
 
 ## Details
 
-Use literal equality for `exact`. For `prefix`, legacy compares the whole value
-or the value followed by `/` or `:` and treats dots literally; approved also
-recognizes `.` as a lexical boundary. Both profiles reject `@`, escapes,
-selectors, conjunctions, and inferred profile detection in a Subject. These
-are lexical checks, not semantic-conformance attestations or inferred relation
-meaning. Emit one ordered occurrence for a matching `governs` value and one
+Use literal equality for `exact`. For `prefix`, legacy compares the whole value or the value followed by `/` or `:` and treats dots literally; approved also recognizes `.` as a lexical boundary. Legacy rejects every `atom(...)` selector. Approved parses only the exact initial lowercase forms registered by CA-R-1321, preserving `Atom`/`atom` case distinction and rejecting every other selector construction, `@`, escaping, conjunctions, wildcards, evaluation, aliases, and inferred profile detection in a Subject. These are lexical syntax checks only: they do not enumerate selector instances, attest semantic conformance, or infer relation meaning. Emit one ordered occurrence for a matching `governs` value and one
 ordered occurrence for each matching `depends_on` index. Attach the carrier's
 exact identity and source pin to each occurrence.
 

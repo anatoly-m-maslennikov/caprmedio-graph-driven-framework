@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: [Atom, Subject, Artifact/Carrier, Atom/Revision]
-version: 2
-updated_at: "2026-10-11 04:28:11 +0400"
+version: 3
+updated_at: "2026-10-11 18:04:47 +0400"
 relations:
   relates_to: [CA-R-866, CA-O-030, CA-E-304, CA-D-425]
 ---
@@ -41,13 +41,7 @@ Accept only the closed root `{atoms, subject_profile?}` and an item exactly
 `expected = {atom_id, version, sha256}`; reject unknown root or item keys.
 Separate `subject_patches` from complete-frontmatter or body replacement. Reject
 duplicate selected files. For each patch, require `field`, `old`, and `new`;
-require the exact dependency `index` for `depends_on`. Legacy uses `/` bearer
-qualification and `:` allowed values with literal dots. Approved uses `/`
-broader-to-narrower, `.` bearer-to-dependent, and `:`
-Property-to-allowed-value. Both reject `@`, escaping, selectors, conjunctions,
-and inferred profile detection in Subject syntax. Reject invalid carrier shape,
-missing or ambiguous old values, stale pins, path escapes, symlink targets and
-duplicate resulting dependencies. Preserve all unrelated bytes and line endings.
+require the exact dependency `index` for `depends_on`. Legacy uses `/` bearer qualification and `:` allowed values with literal dots and rejects every `atom(...)` selector. Approved uses `/` broader-to-narrower, `.` bearer-to-dependent, and `:` Property-to-allowed-value, and accepts only the exact initial lowercase selector forms registered by CA-R-1321. Preserve `Atom`/`atom` case distinction; reject `@`, type-only or mixed-key selectors, duplicate or unknown keys, positional, nested, or later-position selectors, escaping, conjunctions, wildcards, evaluation, aliases, and inferred profile detection in Subject syntax. Reject invalid carrier shape, missing or ambiguous old values, stale pins, path escapes, symlink targets and duplicate resulting dependencies. Preserve all unrelated bytes and line endings. Selector syntax validates neither a selected Atom instance nor a relation, native admission, or source effect.
 
 Classify an actual Subject value change as a semantic revision with Version
 `N + 1`; a no-op creates no revision. The preview result returns the selected

@@ -9,8 +9,8 @@ subjects:
     - "Subject"
     - "GOVERNS"
     - "DEPENDS_ON"
-version: 15
-updated_at: "2026-10-11 03:56:26 +0400"
+version: 16
+updated_at: "2026-10-11 18:04:47 +0400"
 relations: {}
 atom_id: "CA-M-228"
 content_role: "Method"
@@ -31,6 +31,6 @@ authoring one Subject Expression.
 
 ## Claim
 
-**to** write a Subject Expression, start with a canonical Entity reference **and** apply `/` in broader-to-narrower order, `.` in bearer-to-dependent order, **and** `:` in Property-to-allowed-value order. resolve **every** named component, including names **before** **and** **after** the separators, as a Term reference under CA-R-1321. `.` retains the mechanical native fact Dependent IS_BORNE_BY Bearer, **and** `:` retains AllowedValue IS_ALLOWED_VALUE_OF Property; `/` admits no native Subject or Entity relation. the resulting qualified path identifies its existing canonical target **without** copying it; connecting the Atom **to** that target through GOVERNS **or** DEPENDS_ON creates the Subject Relation, **not** another target Entity.
+**to** write a Subject Expression, start with either a canonical Entity reference **or** the exact approved initial lowercase `atom(...)` selector under CA-R-1321, **and** apply `/` in broader-to-narrower order, `.` in bearer-to-dependent order, **and** `:` in Property-to-allowed-value order. resolve **every** ordinary named component, including names **before** **and** **after** the separators, as a Term reference under CA-R-1321. in `atom(content_role="Plan").Status`, `Status` is the dependent Property borne by the selected Atom; `Plan` remains the Content Role allowed value qualifying that Atom, **not** Status's bearer **or** Status's allowed value. `.` retains the mechanical native fact Dependent IS_BORNE_BY Bearer, **and** `:` retains AllowedValue IS_ALLOWED_VALUE_OF Property; `/` admits no native Subject or Entity relation. the resulting qualified path identifies its existing canonical target **without** copying it; connecting the Atom **to** that target through GOVERNS **or** DEPENDS_ON creates the Subject Relation, **not** another target Entity.
 
 ## Details

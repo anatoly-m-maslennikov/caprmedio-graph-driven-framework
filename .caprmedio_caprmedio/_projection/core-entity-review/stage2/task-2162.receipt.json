@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2162",
+  "recorded_at": "2026-10-11 18:14:11 +0400",
+  "non_authoritative": true,
+  "source_migration": "grammar_rmedo_only",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded align rmedo for case-sensitive atom selectors; not migration approval",
+  "verification": {
+    "source_migration": "grammar_rmedo_only",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/approved-implementation/task-2162.verification.json",
+      "sha256": "a617d42f1aa4c76f4ee0841a9c4fc7e11323001ccf216e1ee0b6d6570722ce01"
+    },
+    "independent_review": {
+      "status": "PASS",
+      "reviewer": "followup_semantic_acceptance",
+      "effects": 14,
+      "exact_body_replacements": 15,
+      "all_subjects_and_unrelated_content_preserved": true
+    },
+    "journal": {
+      "path": ".caprmedio_caprmedio/_journal/anatoly-m-maslennikov-2026-10-11-part-7.ndjson",
+      "sha256": "ce150354d5ad3dd8201b1bde23be7737b43b415d3b5cfc53e0639321e515184e",
+      "event_count": 28
+    },
+    "limits": [
+      "Only the separately approved four Core grammar and ten Engine Tool RMEDO body deltas plus exact revision metadata/history were applied.",
+      "No ordinary Subject migration, content sweep, native admission, runtime/MCP activation or new apply path.",
+      "Code alignment is a separate Task. Frozen review packets/mappings remain historical."
+    ]
+  },
+  "independent_review": {
+    "status": "PASS",
+    "reviewer": "followup_semantic_acceptance",
+    "effects": 14,
+    "exact_body_replacements": 15,
+    "all_subjects_and_unrelated_content_preserved": true
+  },
+  "completion_scope": "Adopted and independently verified the14 exact approved Core/Engine selector-grammar revisions (15 exact body deltas), their predecessors and28 actual Journal records. Atom and atom remain case-distinct; ordinary Subjects and unrelated content are unchanged.",
+  "registration_commit": "cd5ea856823d565c285d767209e64297ba680749",
+  "limits": [
+    "Only the separately approved four Core grammar and ten Engine Tool RMEDO body deltas plus exact revision metadata/history were applied.",
+    "No ordinary Subject migration, content sweep, native admission, runtime/MCP activation or new apply path.",
+    "Code alignment is a separate Task. Frozen review packets/mappings remain historical."
+  ]
+}

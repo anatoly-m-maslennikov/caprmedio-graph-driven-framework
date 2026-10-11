@@ -15,8 +15,8 @@ subjects:
     - "Atom"
     - "Artifact/Carrier"
     - "Scope Unit"
-version: 15
-updated_at: "2026-10-11 04:28:11 +0400"
+version: 16
+updated_at: "2026-10-11 18:04:47 +0400"
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
@@ -55,9 +55,7 @@ direct structured `subjects.governs` and `subjects.depends_on` values from an
 already-valid Atom carrier. `exact` is literal equality. `prefix` is lexical
 only: legacy matches the requested value or that value followed by `/` or `:`;
 approved additionally recognizes `.`. Legacy treats dots literally. Both
-profiles reject `@` in a Subject and reject escaping, selectors, conjunctions,
-and inferred profile detection. This does not infer an ontology relation,
-attest source semantic conformance, or adopt a broader Subject grammar.
+Legacy rejects every `atom(...)` selector. Approved accepts only the exact initial lowercase forms registered by CA-R-1321: `atom(atom_id="<exact Atom ID>")`, `atom(content_role="<exact Content Role>")`, **or** `atom(content_role="<exact Content Role>",type="<exact Atom Type>")`; `Atom` and `atom` remain distinct. Both profiles reject `@`, escaping, every other selector construction, conjunctions, wildcards, evaluation, aliases, and inferred profile detection. The lookup validates syntax only: it neither enumerates selector instances nor infers an ontology relation, source semantic conformance, native admission, or broader grammar.
 
 Each match **must** identify the Atom ID, Version, Status, owner Scope Unit,
 repository-relative path, SHA-256, Updated At, matched field, dependency index
