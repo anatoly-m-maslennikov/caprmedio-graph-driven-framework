@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2154",
+  "recorded_at": "2026-10-11 12:28:22 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded verify unqualified subject layers independently; not migration approval",
+  "verification": {
+    "result": "PASS",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+      "sha256": "cc0fe5a31a6c36ce67a7a4f60a8a2bbd4e799eb0012fea3accaa44673e6c4e42"
+    },
+    "test_output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_working_mapping_ledger.py",
+      "sha256": "3c473d336a457b308d8f8a8b09422b20016dea3f9e71795fc4520caa45a28902"
+    },
+    "focused_suite": {
+      "result": "PASS",
+      "tests": 33,
+      "elapsed_seconds": 10.549,
+      "exit_code": 0,
+      "verifier_sha256": "cc0fe5a31a6c36ce67a7a4f60a8a2bbd4e799eb0012fea3accaa44673e6c4e42",
+      "tests_sha256": "3c473d336a457b308d8f8a8b09422b20016dea3f9e71795fc4520caa45a28902",
+      "executed_by": "root",
+      "command": "offline uv unittest discover stage2/support test_working_mapping_ledger.py"
+    },
+    "prospective_current_source_gate": {
+      "result": "PASS: prospective live frontier and ten valid-control negatives",
+      "counts": {
+        "outcome": "PASS",
+        "sources": 907,
+        "occurrences": 4534,
+        "proposed": 1928,
+        "unchanged": 1540,
+        "unresolved": 1066,
+        "quarantined_sources": 8,
+        "excluded_sources": 11203
+      },
+      "prospective_outputs": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99",
+          "size_bytes": 20780612
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+          "size_bytes": 3642901
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "sha256": "325906a97a506d5e7343b5a57904d88c7b6b42eaa1f382aa57ee045105f0b3dc",
+          "size_bytes": 3197267
+        }
+      ],
+      "negative_checks_rejected": [
+        "missing_layer",
+        "omit_all_followups",
+        "missing_selected_row",
+        "stale_source",
+        "wrong_target",
+        "wrong_priority",
+        "wrong_confidence",
+        "stale_receipt",
+        "missing_independent_review",
+        "executable_row"
+      ],
+      "execution": "Root actual offline uv .caprmedio_tmp/check_unqualified_integration.py; exit0; real current inputs with only 3 prospective derived reads substituted; old internally consistent ledger also rejected by live sixth receipts",
+      "producer_sha256": "72bdadf9c62928e3e2a68abb4661e3c22ac5c556f6671e08e6d7421e3a07d3d3",
+      "verifier_sha256": "cc0fe5a31a6c36ce67a7a4f60a8a2bbd4e799eb0012fea3accaa44673e6c4e42",
+      "tests_sha256": "3c473d336a457b308d8f8a8b09422b20016dea3f9e71795fc4520caa45a28902",
+      "draft_writes": "not_performed"
+    },
+    "count_map_boundary": {
+      "receipt": "task-2151.receipt.json",
+      "actual_verified_rows": 21,
+      "proposed": 0,
+      "unresolved": 21,
+      "accepted_representation": {
+        "unresolved": 21
+      },
+      "decision": "Preserve immutable accepted bytes; closed Counter-map omitted-zero equivalence only, with actual accepted row/contract zero counts verified and missing nonzero/unknown/invalid/wrong counts rejecting."
+    },
+    "independent_review": {
+      "result": "PASS: independent precision code review",
+      "reviewer": "/root/grammar_graph",
+      "final_verifier_sha256": "cc0fe5a31a6c36ce67a7a4f60a8a2bbd4e799eb0012fea3accaa44673e6c4e42",
+      "final_tests_sha256": "3c473d336a457b308d8f8a8b09422b20016dea3f9e71795fc4520caa45a28902",
+      "executed_focus_tests": 33,
+      "checks": [
+        "fixed sixth group exact204/59/145/priorities48-55",
+        "any actual sixth receipt rejects whole group omission",
+        "exact current source and receipt/review binding",
+        "accepted evidence preserved exactly",
+        "current Core/canonical Operator proof only",
+        "fixed2133 successor/predecessor/live contract guards",
+        "closed Counter omission only zero after fixed+actual report rows",
+        "no producer import"
+      ],
+      "changed_files": [],
+      "uncertainty": "none concrete"
+    },
+    "source_migration": "not_performed",
+    "native_admission": "not_performed"
+  },
+  "independent_review": {
+    "result": "PASS: independent precision code review",
+    "reviewer": "/root/grammar_graph",
+    "final_verifier_sha256": "cc0fe5a31a6c36ce67a7a4f60a8a2bbd4e799eb0012fea3accaa44673e6c4e42",
+    "final_tests_sha256": "3c473d336a457b308d8f8a8b09422b20016dea3f9e71795fc4520caa45a28902",
+    "executed_focus_tests": 33,
+    "checks": [
+      "fixed sixth group exact204/59/145/priorities48-55",
+      "any actual sixth receipt rejects whole group omission",
+      "exact current source and receipt/review binding",
+      "accepted evidence preserved exactly",
+      "current Core/canonical Operator proof only",
+      "fixed2133 successor/predecessor/live contract guards",
+      "closed Counter omission only zero after fixed+actual report rows",
+      "no producer import"
+    ],
+    "changed_files": [],
+    "uncertainty": "none concrete"
+  },
+  "completion_scope": "The closed sixth-group verifier and tests are independently accepted. Root's prospective current-source gate passes for 907 sources and 4534 occurrences (1928 proposed, 1540 unchanged, 1066 unresolved); all ten deliberately wrong complete-ledger variants reject, and the 33-test focused suite passes. The immutable CA-P-2151 Counter-zero receipt is accepted only after fixed and actual-row counts establish zero; missing nonzero, unknown, non-integer, boolean, negative and wrong counts reject. This completes support verification, not saved-ledger replacement, semantic final mapping or source migration.",
+  "registration_commit": "d28c1c420375ae355334c2312c20e24f0329ae4c",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

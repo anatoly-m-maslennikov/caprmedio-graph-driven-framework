@@ -387,6 +387,12 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
         self.assertEqual([item[3] for item in specs][-8:], [40, 41, 42, 43, 44, 45, 46, 47])
         self.assertEqual(actor_position, len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + len(verifier.FOURTH_FOLLOWUP_LAYER_SPECS) + len(verifier.FIFTH_FOLLOWUP_LAYER_SPECS))
         self.assertEqual(grammar_position, len(fifth_complete["input_pins"]["accepted_layers"]) - 1)
+        sixth_complete = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + len(verifier.FOURTH_FOLLOWUP_LAYER_SPECS) + len(verifier.FIFTH_FOLLOWUP_LAYER_SPECS) + len(verifier.SIXTH_FOLLOWUP_LAYER_SPECS) + 2)]}}
+        specs, actor_position, grammar_position = verifier._layer_layout(sixth_complete)
+        self.assertEqual([item[0] for item in specs][-8:], [item[0] for item in verifier.SIXTH_FOLLOWUP_LAYER_SPECS])
+        self.assertEqual([item[3] for item in specs][-8:], [48, 49, 50, 51, 52, 53, 54, 55])
+        self.assertEqual(actor_position, len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + len(verifier.FOURTH_FOLLOWUP_LAYER_SPECS) + len(verifier.FIFTH_FOLLOWUP_LAYER_SPECS) + len(verifier.SIXTH_FOLLOWUP_LAYER_SPECS))
+        self.assertEqual(grammar_position, len(sixth_complete["input_pins"]["accepted_layers"]) - 1)
 
     def test_live_followup_receipt_requires_complete_extension(self) -> None:
         old_layout = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + 2)]}}
@@ -432,6 +438,15 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
         receipt.write_text("{}\n")
         with self.assertRaises(verifier.VerificationError):
             verifier._require_followup_extension_when_receipts_exist(self.root, fourth_layout)
+
+    def test_live_sixth_followup_receipt_requires_complete_extension(self) -> None:
+        fifth_layout = {"input_pins": {"accepted_layers": [{} for _ in range(len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + len(verifier.FOURTH_FOLLOWUP_LAYER_SPECS) + len(verifier.FIFTH_FOLLOWUP_LAYER_SPECS) + 2)]}}
+        verifier._require_followup_extension_when_receipts_exist(self.root, fifth_layout)
+        receipt = self.root / verifier.STAGE2_REL / "task-2144.receipt.json"
+        receipt.parent.mkdir(parents=True, exist_ok=True)
+        receipt.write_text("{}\n")
+        with self.assertRaises(verifier.VerificationError):
+            verifier._require_followup_extension_when_receipts_exist(self.root, fifth_layout)
 
     def test_second_followup_reports_are_exact_and_per_row_provenance_is_fail_closed(self) -> None:
         current_ledger = verifier.read_json(verifier.ROOT / verifier.LEDGER_REL, "current working ledger")
@@ -777,6 +792,136 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
         self.assertEqual(sum(decision == "proposed" for rows in layers.values() for decision, _target, _confidence in rows.values()), 63)
         self.assertEqual(sum(decision == "unresolved" for rows in layers.values() for decision, _target, _confidence in rows.values()), 132)
 
+    def test_sixth_followup_reports_are_exact_and_per_row_provenance_is_fail_closed(self) -> None:
+        """The fixed 2144--2151 group is live-checked before replacement exists."""
+
+        current_ledger = verifier.read_json(verifier.ROOT / verifier.LEDGER_REL, "current working ledger")
+        baseline = verifier._read_baseline_rows(verifier.ROOT, current_ledger)
+        expected = verifier.enumerate_current_frontier(verifier.ROOT)["occurrences"]
+        offset = len(verifier.LAYER_SPECS) + len(verifier.FOLLOWUP_LAYER_SPECS) + len(verifier.SECOND_FOLLOWUP_LAYER_SPECS) + len(verifier.THIRD_FOLLOWUP_LAYER_SPECS) + len(verifier.FOURTH_FOLLOWUP_LAYER_SPECS) + len(verifier.FIFTH_FOLLOWUP_LAYER_SPECS)
+        accepted = [{} for _ in range(offset)]
+        for task, _kind, rows, _proposed, _unresolved, report_sha in verifier.SIXTH_FOLLOWUP_LAYER_SPECS:
+            report_rel = verifier._layer_path(task)
+            receipt_rel = verifier.STAGE2_REL / f"task-{task.removeprefix('CA-P-')}.receipt.json"
+            accepted.append({
+                "task": task,
+                "kind": "research",
+                "priority": verifier.ORDINARY_LAYER_PRIORITY[task],
+                "rows": rows,
+                "report": verifier._descriptor(verifier.ROOT / report_rel, report_rel),
+                "receipt": verifier._descriptor(verifier.ROOT / receipt_rel, receipt_rel),
+                "independent_review_sha256": report_sha,
+            })
+        accepted.extend(({}, {}))
+        ledger = {"input_pins": {"accepted_layers": accepted}}
+        layers, references = verifier._read_followup_layer_rows(
+            verifier.ROOT,
+            ledger,
+            expected,
+            baseline,
+            verifier.SIXTH_FOLLOWUP_LAYER_SPECS,
+            verifier.SIXTH_FOLLOWUP_MANIFEST_REL,
+            verifier.SIXTH_FOLLOWUP_MANIFEST_SHA256,
+            offset,
+            "sixth follow-up",
+            "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de",
+            True,
+        )
+        self.assertEqual(list(layers), [item[0] for item in verifier.SIXTH_FOLLOWUP_LAYER_SPECS])
+        self.assertEqual(sum(len(rows) for rows in layers.values()), 204)
+        self.assertEqual(sum(decision == "proposed" for rows in layers.values() for decision, _target, _confidence in rows.values()), 59)
+        self.assertEqual(sum(decision == "unresolved" for rows in layers.values() for decision, _target, _confidence in rows.values()), 145)
+        self.assertTrue(all(reference["independent_review_sha256"] == reference["report"]["sha256"] for reference in references.values()))
+
+        task = "CA-P-2144"
+        occurrence_id, (decision, target, confidence) = next(
+            (occurrence_id, value) for occurrence_id, value in layers[task].items() if value[0] == "proposed"
+        )
+        row = self._row(decision=decision, target=target)
+        row["confidence"] = confidence
+        row["applied_layers"].append({
+            "layer": task,
+            "priority": verifier.ORDINARY_LAYER_PRIORITY[task],
+            **references[task],
+            "decision": decision,
+            "proposed_value": target,
+            "confidence": confidence,
+        })
+        row["candidate_basis"] = []
+        row["preserved_distinctions"] = []
+        fixture_reference = copy.deepcopy(references[task])
+        fixture_reference["proofs"] = {
+            self.expected["occurrence_id"]: {
+                field: copy.deepcopy(row.get(field))
+                for field in verifier.LATER_FOLLOWUP_PROOF_FIELDS
+            }
+        }
+        fixture_layers = {task: {self.expected["occurrence_id"]: (decision, target, confidence)}}
+        self.assertEqual(self._verify([row], fixture_layers, layer_refs={task: fixture_reference})[decision], 1)
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([self._row()], fixture_layers, layer_refs={task: fixture_reference})
+        missing_origin = copy.deepcopy(row)
+        missing_origin["occurrence_id"] = f"{self.source_path}#subjects.depends_on[1]"
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([missing_origin], fixture_layers, layer_refs={task: fixture_reference})
+        stale_source = copy.deepcopy(row)
+        stale_source["source_sha256"] = "0" * 64
+        with self.assertRaises(verifier.VerificationError):
+            self._verify([stale_source], fixture_layers, layer_refs={task: fixture_reference})
+        for variant in ("priority", "target", "confidence", "executable", "proof", "review"):
+            wrong = copy.deepcopy(row)
+            if variant == "priority":
+                wrong["applied_layers"][-1]["priority"] = 47
+            elif variant == "target":
+                wrong["applied_layers"][-1]["proposed_value"] = "Atom.Type"
+            elif variant == "confidence":
+                wrong["applied_layers"][-1]["confidence"] = confidence - .01
+            elif variant == "executable":
+                wrong["executable"] = True
+            elif variant == "proof":
+                del wrong["candidate_basis"]
+            else:
+                del wrong["applied_layers"][-1]["independent_review_sha256"]
+            with self.assertRaises(verifier.VerificationError, msg=variant):
+                self._verify([wrong], fixture_layers, layer_refs={task: fixture_reference})
+        stale_receipt_ledger = copy.deepcopy(ledger)
+        stale_receipt_ledger["input_pins"]["accepted_layers"][offset]["receipt"]["sha256"] = "0" * 64
+        with self.assertRaises(verifier.VerificationError):
+            verifier._read_followup_layer_rows(
+                verifier.ROOT,
+                stale_receipt_ledger,
+                expected,
+                baseline,
+                verifier.SIXTH_FOLLOWUP_LAYER_SPECS,
+                verifier.SIXTH_FOLLOWUP_MANIFEST_REL,
+                verifier.SIXTH_FOLLOWUP_MANIFEST_SHA256,
+                offset,
+                "sixth follow-up",
+                "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de",
+                True,
+            )
+
+    def test_closed_research_count_map_keeps_actual_zero_omission_and_rejects_bad_histograms(self) -> None:
+        """CA-P-2151's immutable Counter-style receipt omits only a proven zero."""
+
+        receipt_rel = verifier.STAGE2_REL / "task-2151.receipt.json"
+        actual_counts = verifier.read_json(verifier.ROOT / receipt_rel, "CA-P-2151 receipt")["verification"]["counts"]
+        self.assertEqual(actual_counts, {"unresolved": 21})
+        verifier._verify_closed_research_count_map(actual_counts, 0, 21, 21, "actual CA-P-2151")
+        verifier._verify_closed_research_count_map({"proposed": 0, "unresolved": 21}, 0, 21, 21, "explicit zero")
+        bad_histograms = (
+            ({"unresolved": 21}, 1, 20, 21),
+            ({"proposed": 0, "unresolved": 21}, 1, 20, 21),
+            ({"unresolved": 20}, 0, 21, 21),
+            ({"proposed": 0, "unresolved": 21, "unchanged": 0}, 0, 21, 21),
+            ({"proposed": True, "unresolved": 20}, 1, 20, 21),
+            ({"proposed": -1, "unresolved": 22}, 1, 20, 21),
+            ({"proposed": 1.0, "unresolved": 20}, 1, 20, 21),
+        )
+        for counts, proposed, unresolved, rows in bad_histograms:
+            with self.assertRaises(verifier.VerificationError, msg=repr(counts)):
+                verifier._verify_closed_research_count_map(counts, proposed, unresolved, rows, "bad histogram")
+
     def test_fifth_successor_binding_rejects_withdrawn_foreign_report(self) -> None:
         """CA-P-2133 may use only the separately accepted Core-only successor."""
 
@@ -891,6 +1036,12 @@ class WorkingMappingLedgerVerifierTests(unittest.TestCase):
         self.assertTrue(all(
             verifier._later_followup_evidence_is_current(verifier.ROOT, item, source_pins, "fifth follow-up fixture")
             for row in fifth_report["rows"]
+            for item in row["evidence"]
+        ))
+        sixth_report = verifier.read_json(verifier.ROOT / verifier._layer_path("CA-P-2150"), "sixth follow-up report")
+        self.assertTrue(all(
+            verifier._later_followup_evidence_is_current(verifier.ROOT, item, source_pins, "sixth follow-up fixture")
+            for row in sixth_report["rows"]
             for item in row["evidence"]
         ))
 
