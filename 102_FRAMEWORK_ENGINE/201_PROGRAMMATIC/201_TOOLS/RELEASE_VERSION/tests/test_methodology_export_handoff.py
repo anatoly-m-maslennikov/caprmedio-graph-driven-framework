@@ -16,6 +16,7 @@ for path in (RELEASE_ROOT, EXPORT_ROOT):
         sys.path.insert(0, str(path))
 
 import methodology_export as exporter  # noqa: E402
+from methodology_layout import resolve_methodology_layout  # noqa: E402
 from release_compilation import (  # noqa: E402
     PRIVATE_COMPILED_MANIFEST_NAME,
     build_preflight_validated_candidate,
@@ -51,12 +52,28 @@ class MethodologyExportHandoffTests(unittest.TestCase):
         (self.source / "002_INSTALLED_EXTENSIONS").mkdir(parents=True)
         self.write(".caprmedio_caprmedio/project_structure.toml", (
             "[[scope_units]]\n"
+            'scope_unit_name = "FRAMEWORK_METHODOLOGY"\n'
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY"\n'
+            "[[scope_units]]\n"
             'scope_unit_name = "METHODOLOGY_SOURCES"\n'
+            'parent = "FRAMEWORK_METHODOLOGY"\n'
             f'authority_path = "{CANONICAL_SOURCE_RELATIVE}"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources"\n'
+            "[[scope_units]]\n"
+            'scope_unit_name = "APPLICABLE_METHODOLOGY"\n'
+            'parent = "FRAMEWORK_METHODOLOGY"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/applicable_methodology"\n'
+            "[[scope_units]]\n"
+            'scope_unit_name = "FRAMEWORK_ENGINE"\n'
+            'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE"\n'
+            'delivery_path = "102_FRAMEWORK_ENGINE"\n'
         ).encode())
+        (self.root / ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE").mkdir()
         self.write(".caprmedio_caprmedio/caprmedio_project_settings.toml", b'[paths]\ncontrol_root = ".caprmedio_caprmedio"\n')
         self.write(f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml", b"")
-        self.write(f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml", b"")
+        layout = resolve_methodology_layout(self.root)
+        self.write(f"{layout.installed_root}/caprmedio_framework_settings.toml", b"")
         self.atom = self.write(f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
         self.write(".caprmedio_runtime/framework/current.toml", b'release = "N"\n')
         self.write("version.toml", b'[framework]\nversion = "N+1"\n')
@@ -97,12 +114,14 @@ class MethodologyExportHandoffTests(unittest.TestCase):
             selected_atoms=[{"atom_id": "CA-R-001", "version": 1}],
             support_inventory=[],
             catalog_pins=[],
+            project_root=self.root,
         )
         frozen = self.write("freeze/manifest.json", exporter.frozen_manifest_bytes(manifest))
         exporter.export_selected_methodology(
             source_root=self.source,
             frozen_manifest_path=frozen,
             release_candidate_root=self.candidate_root,
+            project_root=self.root,
         )
 
     def test_sealed_export_binds_candidate_and_private_compiled_manifest(self) -> None:
