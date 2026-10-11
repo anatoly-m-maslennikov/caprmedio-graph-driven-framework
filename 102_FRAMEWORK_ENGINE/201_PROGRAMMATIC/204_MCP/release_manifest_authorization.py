@@ -46,6 +46,7 @@ _O030_REFRESH_ROUTE_NAMES = (*_REFRESH_ROUTE_NAMES, "public.release")
 _O030_REFRESH_PLAN_FIELDS = frozenset({
     "source_refresh_schema_version", "source_refresh_registration_id",
 })
+_O030_REFRESH_SCHEMA_VERSIONS = frozenset({4, 5})
 
 
 class ReleaseManifestAuthorizationError(ValueError):
@@ -220,10 +221,11 @@ def _normalize_refresh_plan(value: Any, root: Path) -> dict[str, Any]:
         )
     is_o030_repair = current == expected_o030_names
     if is_o030_repair:
-        if (type(value.get("source_refresh_schema_version")) is not int
-                or value.get("source_refresh_schema_version") != 4
+        schema_version = value.get("source_refresh_schema_version")
+        if (type(schema_version) is not int
+                or schema_version not in _O030_REFRESH_SCHEMA_VERSIONS
                 or "source_refresh_registration_id" not in value):
-            _reject("publication-plan-invalid", "O030 refresh plan must name the exact schema-4 registration")
+            _reject("publication-plan-invalid", "O030 refresh plan must name the exact schema-4 or schema-5 registration")
     elif _O030_REFRESH_PLAN_FIELDS & fields:
         _reject("publication-plan-invalid", "sixteen-route refresh plan must not claim O030 registration metadata")
     if value["added_route"] != "release_version" or value["added_admission_route"] != "release_version":
@@ -246,7 +248,7 @@ def _normalize_refresh_plan(value: Any, root: Path) -> dict[str, Any]:
     }
     if is_o030_repair:
         normalized.update(
-            source_refresh_schema_version=4,
+            source_refresh_schema_version=schema_version,
             source_refresh_registration_id=_registration_id(
                 value["source_refresh_registration_id"], "source_refresh_registration_id"
             ),
@@ -264,15 +266,17 @@ def _validate_o030_refresh_registration(root: Path, plan: Mapping[str, Any]) -> 
         registration = registered_source_refresh(root)
     except (ImportError, OSError, TypeError, ValueError) as error:
         raise ReleaseManifestAuthorizationError(
-            "publication-source-stale", "O030 schema-4 refresh registration is unavailable"
+            "publication-source-stale", "O030 refresh registration is unavailable"
         ) from error
+    schema_version = plan["source_refresh_schema_version"]
     if (
         not isinstance(registration, Mapping)
-        or registration.get("schema_version") != plan["source_refresh_schema_version"]
-        or registration.get("schema_version") != 4
+        or type(registration.get("schema_version")) is not int
+        or registration.get("schema_version") not in _O030_REFRESH_SCHEMA_VERSIONS
+        or registration.get("schema_version") != schema_version
         or registration.get("registration_id") != plan["source_refresh_registration_id"]
     ):
-        _reject("publication-source-stale", "O030 schema-4 refresh registration differs from the issued plan")
+        _reject("publication-source-stale", "O030 refresh registration differs from the issued plan")
 
 
 def _normalize_public_plan(value: Any, root: Path) -> dict[str, Any]:

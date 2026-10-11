@@ -62,6 +62,17 @@ _D588_V1_REF = (
     "204_FEATURE_MCP/07_delivery/archive/"
     "CA-D-588-MCP-DELIVERY--register-the-prepared-successor-binding-refresh@1.md"
 )
+_D588_V4_REF = (
+    ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
+    "204_FEATURE_MCP/07_delivery/archive/"
+    "CA-D-588-MCP-DELIVERY--register-the-prepared-successor-binding-refresh@5.md"
+)
+_O030_REF = (
+    ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
+    "201_FEATURE_TOOLS/ATOM_UPDATE/09_operations/"
+    "CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers.md"
+)
+_O030_V6_REF = _O030_REF.replace("/09_operations/", "/09_operations/archive/").replace(".md", "@6.md")
 _FROZEN_CARRIERS = {
     _M343_REF: ("ca_m_343_v4.md", "2925b59a15bdacb57625d6492069022546290a6d9e8012cc67306a9329c3c089"),
     _O128_REF: ("ca_o_128_v4.md", "ea36b940a171676977507d366daca9400825e8685018d9c201c15fc5b97eea1c"),
@@ -127,6 +138,15 @@ class RegisteredSelectedSourceRefreshTest(unittest.TestCase):
         return value
 
     @staticmethod
+    def _v4_registration() -> dict[str, object]:
+        text = (REPOSITORY / _D588_V4_REF).read_text(encoding="utf-8")
+        match = re.search(r"(?ms)^### Accepted source revision\s*\n\s*```json\s*\n(.*?)\n```\s*$", text)
+        assert match is not None
+        value = json.loads(match.group(1))
+        assert isinstance(value, dict)
+        return value
+
+    @staticmethod
     def _pin(*, version: int, digest: str) -> dict[str, object]:
         return {
             "atom_id": "CA-O-128",
@@ -167,7 +187,7 @@ class RegisteredSelectedSourceRefreshTest(unittest.TestCase):
         }
 
     def test_closed_registration_is_the_exact_d588_schema4_revision(self) -> None:
-        registration = registered_source_refresh()
+        registration = self._v4_registration()
         self.assertEqual(4, registration["schema_version"])
         self.assertEqual("epic1848-exact-three-pin-binding-repair-20261011", registration["registration_id"])
         self.assertEqual("CA-P-1866", registration["repair_task_id"])
@@ -206,7 +226,7 @@ class RegisteredSelectedSourceRefreshTest(unittest.TestCase):
         self.assertEqual(broken_before, manifest)
 
     def test_schema4_replaces_only_three_registered_pins_and_rederives_only_digests(self) -> None:
-        registration = registered_source_refresh()
+        registration = self._v4_registration()
         manifest = json.loads(GOLDEN_SCHEMA4_INPUT.read_text(encoding="utf-8"))
         before = copy.deepcopy(manifest)
         candidate = derive_registered_source_successor(manifest, registration)
@@ -224,7 +244,7 @@ class RegisteredSelectedSourceRefreshTest(unittest.TestCase):
         self.assertNotEqual(before["canonical_manifest_sha256"], candidate["canonical_manifest_sha256"])
 
     def test_schema4_refuses_nonregistered_route_drift_without_mutating_input(self) -> None:
-        registration = registered_source_refresh()
+        registration = self._v4_registration()
         manifest = json.loads(GOLDEN_SCHEMA4_INPUT.read_text(encoding="utf-8"))
         manifest["routes"][0]["route"] = "other_route"
         before = copy.deepcopy(manifest)
@@ -243,7 +263,7 @@ class RegisteredSchema4SourceRefreshTest(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
-        self.registration = registered_source_refresh()
+        self.registration = RegisteredSelectedSourceRefreshTest._v4_registration()
         self.assertEqual(4, self.registration["schema_version"])
         manifest_ref = selected_manifest_ref(REPOSITORY)
         self.manifest_bytes = GOLDEN_SCHEMA4_INPUT.read_bytes()
@@ -252,7 +272,7 @@ class RegisteredSchema4SourceRefreshTest(unittest.TestCase):
         target = self.root / manifest_ref
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(self.manifest_bytes)
-        self._copy(_D588_REF)
+        self._copy(_D588_REF, from_relative=_D588_V4_REF)
         for source_path in self._pin_paths(self.manifest):
             self._copy(source_path)
         import release_source_admission as admission_module
@@ -264,6 +284,7 @@ class RegisteredSchema4SourceRefreshTest(unittest.TestCase):
                 self._copy(replacement["prior_receipt_ref"])
             else:
                 self._copy(replacement["prior_archive_path"])
+        self._copy(_O030_REF, from_relative=_O030_V6_REF)
         public_release = MCP.parent / "201_TOOLS" / "PUBLIC_RELEASE"
         if str(public_release) not in sys.path:
             sys.path.insert(0, str(public_release))
@@ -277,10 +298,10 @@ class RegisteredSchema4SourceRefreshTest(unittest.TestCase):
         ):
             self._copy(relative)
 
-    def _copy(self, relative: str) -> None:
+    def _copy(self, relative: str, *, from_relative: str | None = None) -> None:
         destination = self.root / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(REPOSITORY / relative, destination)
+        shutil.copy2(REPOSITORY / (from_relative or relative), destination)
 
     @classmethod
     def _pin_paths(cls, value: object) -> set[str]:

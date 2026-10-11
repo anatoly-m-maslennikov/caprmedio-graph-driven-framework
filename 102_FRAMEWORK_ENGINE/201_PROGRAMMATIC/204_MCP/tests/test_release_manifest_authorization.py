@@ -4,7 +4,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import shutil
 import sys
 import tempfile
@@ -17,6 +17,7 @@ REPOSITORY = MCP.parents[2]
 APP_TESTS = MCP.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"
 PUBLIC_RELEASE = MCP.parent / "201_TOOLS/PUBLIC_RELEASE"
 SCHEMA4_INPUT = MCP / "tests/selected_source_refresh_golden/input_manifest.schema4.v1.json"
+SCHEMA5_INPUT_SHA256 = "6d1e3aaacf33d4c3cb645f9ed46641dac38b6480773a080074bac51249c143f4"
 for location in (MCP, APP_TESTS, PUBLIC_RELEASE):
     if str(location) not in sys.path:
         sys.path.insert(0, str(location))
@@ -46,7 +47,12 @@ from release_source_admission import (  # noqa: E402
     derive_release_graph_admission,
 )
 from selected_routes import SELECTED_ROUTE_NAMES, load_selected_manifest, selected_manifest_ref  # noqa: E402
-from selected_source_refresh import derive_registered_source_refresh, registered_source_refresh  # noqa: E402
+from selected_source_refresh import (  # noqa: E402
+    _EXPECTED_V4,
+    derive_registered_source_refresh,
+    derive_registered_source_successor,
+    registered_source_refresh,
+)
 from selected_admission import AUTHORITY_REF as PUBLIC_AUTHORITY_REF  # noqa: E402
 from selected_workflows_docker_fixture import GoldenCase, GoldenProject  # noqa: E402
 
@@ -60,6 +66,19 @@ def _paths(value: object) -> set[str]:
     if isinstance(value, list):
         return set().union(*(_paths(item) for item in value)) if value else set()
     return set()
+
+
+def _frozen_schema5_input() -> bytes:
+    """Reconstruct the sealed schema-5 predecessor from frozen schema-4 bytes."""
+    schema4_input = json.loads(SCHEMA4_INPUT.read_bytes())
+    schema5_input = derive_registered_source_successor(schema4_input, _EXPECTED_V4)
+    payload = (
+        json.dumps(schema5_input, ensure_ascii=False, allow_nan=False, sort_keys=True, separators=(",", ":"))
+        + "\n"
+    ).encode("utf-8")
+    if hashlib.sha256(payload).hexdigest() != SCHEMA5_INPUT_SHA256:
+        raise AssertionError("frozen schema-5 fixture reconstruction digest differs")
+    return payload
 
 
 class ReleaseManifestAuthorizationTest(unittest.TestCase):
@@ -262,7 +281,10 @@ class ReleaseManifestAuthorizationTest(unittest.TestCase):
 
 
 class O030RefreshPlanShapeTest(unittest.TestCase):
-    """The 17-route repair remains an exact schema-4 branch, never a count range."""
+    """The 17-route repair admits only its closed schema-4 or schema-5 branch."""
+
+    _SCHEMA4_REGISTRATION_ID = "epic1848-exact-three-pin-binding-repair-20261011"
+    _SCHEMA5_REGISTRATION_ID = "epic1848-exact-o030-v7-binding-repair-20261011"
 
     def setUp(self) -> None:
         self.root = REPOSITORY
@@ -298,36 +320,41 @@ class O030RefreshPlanShapeTest(unittest.TestCase):
         self.assertEqual(expected, _normalize_refresh_plan(plan, self.root))
         self.assertEqual(plan, _normalized_refresh_plan(plan))
 
-    def test_o030_seventeen_route_refresh_requires_exact_schema4_registration_metadata(self) -> None:
+    def test_o030_seventeen_route_refresh_requires_closed_schema4_or_schema5_registration_metadata(self) -> None:
         incomplete = self._plan(self.names17)
         with self.assertRaises(ReleaseManifestAuthorizationError):
             _normalize_refresh_plan(incomplete, self.root)
         with self.assertRaises(ReleaseManifestLifecycleError):
             _normalized_refresh_plan(incomplete)
 
-        plan = self._plan(
-            self.names17,
-            source_refresh_schema_version=4,
-            source_refresh_registration_id="o030-v6-three-pin-repair",
-        )
-        expected = self._normalized(plan)
-        self.assertEqual(expected, _normalize_refresh_plan(plan, self.root))
-        self.assertEqual(plan, _normalized_refresh_plan(plan))
+        for schema_version, registration_id in (
+            (4, self._SCHEMA4_REGISTRATION_ID),
+            (5, self._SCHEMA5_REGISTRATION_ID),
+        ):
+            with self.subTest(schema_version=schema_version):
+                plan = self._plan(
+                    self.names17,
+                    source_refresh_schema_version=schema_version,
+                    source_refresh_registration_id=registration_id,
+                )
+                expected = self._normalized(plan)
+                self.assertEqual(expected, _normalize_refresh_plan(plan, self.root))
+                self.assertEqual(plan, _normalized_refresh_plan(plan))
 
     def test_o030_branch_rejects_count_route_and_metadata_broadening(self) -> None:
         valid = self._plan(
             self.names17,
-            source_refresh_schema_version=4,
-            source_refresh_registration_id="o030-v6-three-pin-repair",
+            source_refresh_schema_version=5,
+            source_refresh_registration_id=self._SCHEMA5_REGISTRATION_ID,
         )
         variants = (
             {**valid, "candidate_route_names": [*self.names17, "O199"]},
             {**valid, "current_route_names": [*self.names16, "O199"]},
-            {**valid, "source_refresh_schema_version": 5},
+            {**valid, "source_refresh_schema_version": 6},
             {**valid, "source_refresh_schema_version": 4.0},
             {**valid, "source_refresh_schema_version": True},
             {**self._plan(self.names16), "source_refresh_schema_version": 4,
-             "source_refresh_registration_id": "o030-v6-three-pin-repair"},
+             "source_refresh_registration_id": self._SCHEMA4_REGISTRATION_ID},
         )
         for plan in variants:
             with self.subTest(plan=plan):
@@ -337,13 +364,18 @@ class O030RefreshPlanShapeTest(unittest.TestCase):
                     _normalized_refresh_plan(plan)
 
 
-class O030TrustedRefreshEndToEndTest(unittest.TestCase):
-    """Run D588's exact schema-4 repair through the trusted lifecycle in isolation."""
+class _O030TrustedRefreshFixture:
+    """Build one physical D588 input without reading repository state after publish."""
 
     _REGISTRATION_REF = (
         ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
         "204_FEATURE_MCP/07_delivery/CA-D-588-MCP-DELIVERY--register-the-prepared-successor-binding-refresh.md"
     )
+    _REGISTRATION_SOURCE_REF: str
+    _EXPECTED_SCHEMA: int
+    _EXPECTED_REGISTRATION_ID: str
+    _INPUT_FIXTURE: Path | None = None
+    _INPUT_BYTES: bytes | None = None
 
     def setUp(self) -> None:
         temporary = REPOSITORY / ".caprmedio_tmp/tests/o030-trusted-refresh"
@@ -351,11 +383,18 @@ class O030TrustedRefreshEndToEndTest(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory(dir=temporary, ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
-        self.registration = registered_source_refresh(REPOSITORY)
-        self.manifest_ref = selected_manifest_ref(REPOSITORY)
-        self.before = SCHEMA4_INPUT.read_bytes()
+        self._copy(self._REGISTRATION_SOURCE_REF, target_relative=self._REGISTRATION_REF)
+        self.registration = registered_source_refresh(self.root)
+        self.assertEqual(self._EXPECTED_SCHEMA, self.registration["schema_version"])
+        self.assertEqual(self._EXPECTED_REGISTRATION_ID, self.registration["registration_id"])
+        self.manifest_ref = self.registration["input_manifest_ref"]
+        if self._INPUT_BYTES is not None:
+            self.before = self._INPUT_BYTES
+        elif self._INPUT_FIXTURE is None:
+            self.before = (REPOSITORY / self.manifest_ref).read_bytes()
+        else:
+            self.before = self._INPUT_FIXTURE.read_bytes()
         self.input_manifest = json.loads(self.before)
-        self.assertEqual(4, self.registration["schema_version"])
         self.assertEqual(17, len(self.input_manifest["routes"]))
         self.assertEqual(
             self.registration["input_manifest_sha256"], hashlib.sha256(self.before).hexdigest(),
@@ -368,13 +407,12 @@ class O030TrustedRefreshEndToEndTest(unittest.TestCase):
         for source_path in _paths(self.input_manifest):
             self._copy(source_path)
         for replacement in self.registration["replacements"]:
-            self._copy(replacement["current_pin"]["source_path"])
+            self._copy_registered_current_pin(replacement["current_pin"])
             if "prior_archive_path" in replacement:
                 self._copy(replacement["prior_archive_path"])
             if "prior_receipt_ref" in replacement:
                 self._copy(replacement["prior_receipt_ref"])
         for relative in (
-            self._REGISTRATION_REF,
             self.input_manifest["source_freshness"]["selected_source_registry_ref"],
             ".caprmedio_caprmedio/caprmedio_project_settings.toml",
             ".caprmedio_caprmedio/project_structure.toml",
@@ -385,13 +423,33 @@ class O030TrustedRefreshEndToEndTest(unittest.TestCase):
         self._copy(PUBLIC_AUTHORITY_REF)
         self.path = self.root / self.manifest_ref
 
-    def _copy(self, relative: object) -> None:
+    def _copy(self, relative: object, *, target_relative: object | None = None) -> None:
         self.assertIsInstance(relative, str)
-        source, target = REPOSITORY / relative, self.root / relative
+        target_reference = relative if target_relative is None else target_relative
+        self.assertIsInstance(target_reference, str)
+        source, target = REPOSITORY / relative, self.root / target_reference
         self.assertTrue(source.is_file(), relative)
         target.parent.mkdir(parents=True, exist_ok=True)
         if not target.exists():
             shutil.copy2(source, target)
+
+    def _copy_registered_current_pin(self, pin: object) -> None:
+        self.assertIsInstance(pin, dict)
+        source_path = pin["source_path"]
+        version = pin["version"]
+        digest = pin["digest"]
+        self.assertIsInstance(source_path, str)
+        self.assertIsInstance(version, int)
+        self.assertIsInstance(digest, str)
+        source = REPOSITORY / source_path
+        if not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest() != digest:
+            reference = PurePosixPath(source_path)
+            source = REPOSITORY / reference.parent / "archive" / f"{reference.stem}@{version}{reference.suffix}"
+        self.assertTrue(source.is_file(), source)
+        self.assertEqual(digest, hashlib.sha256(source.read_bytes()).hexdigest())
+        target = self.root / source_path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, target)
 
     def _authorize(self, plan: dict[str, object]) -> PublicationAuthorizationContext:
         return authorize_operator_refresh(
@@ -413,12 +471,24 @@ class O030TrustedRefreshEndToEndTest(unittest.TestCase):
     def _assert_unchanged(self, expected: bytes) -> None:
         self.assertEqual(expected, self.path.read_bytes())
 
+    def _assert_registered_replacements(self, loaded: dict[str, object]) -> None:
+        for replacement in self.registration["replacements"]:
+            if replacement["target"] == "route":
+                route_names = [row["route"] for row in loaded["routes"]]
+                actual = loaded["routes"][route_names.index(replacement["route"])]["native_action_calls"][0]
+            else:
+                occurrence = replacement["occurrences"][0]
+                self.assertTrue(occurrence.startswith("rmed_frontier[") and occurrence.endswith("]"))
+                index = int(occurrence.removeprefix("rmed_frontier[").removesuffix("]"))
+                actual = loaded["release_source_admissions"][replacement["admission_index"]]["rmed_frontier"][index]
+            self.assertEqual(replacement["current_pin"], actual)
+
     def test_exact_authorize_execute_strict_readback_and_journal_finalization(self) -> None:
         expected_current, expected_candidate, expected_payload, _ = derive_registered_source_refresh(self.root)
         plan = plan_release_manifest_refresh(self.root)
         self.assertEqual("plan", plan["mode"])
         self.assertEqual("refresh", plan["publication_operation"])
-        self.assertEqual(4, plan["source_refresh_schema_version"])
+        self.assertEqual(self._EXPECTED_SCHEMA, plan["source_refresh_schema_version"])
         self.assertEqual(self.registration["registration_id"], plan["source_refresh_registration_id"])
         self.assertEqual([*SELECTED_ROUTE_NAMES, "release_version", "public.release"], plan["current_route_names"])
         self.assertEqual(plan["current_route_names"], plan["candidate_route_names"])
@@ -454,18 +524,7 @@ class O030TrustedRefreshEndToEndTest(unittest.TestCase):
         self.assertEqual(expected_candidate, {key: value for key, value in loaded.items() if key != "manifest_ref"})
         self.assertEqual(expected_current["routes"][:1], loaded["routes"][:1])
         self.assertEqual(expected_current["routes"][2:], loaded["routes"][2:])
-        self.assertEqual(
-            self.registration["replacements"][0]["current_pin"],
-            loaded["routes"][1]["native_action_calls"][0],
-        )
-        self.assertEqual(
-            self.registration["replacements"][1]["current_pin"],
-            loaded["release_source_admissions"][0]["rmed_frontier"][11],
-        )
-        self.assertEqual(
-            self.registration["replacements"][2]["current_pin"],
-            loaded["release_source_admissions"][0]["rmed_frontier"][31],
-        )
+        self._assert_registered_replacements(loaded)
         self.assertEqual(self.input_manifest["query_source_admissions"], loaded["query_source_admissions"])
         self.assertEqual(
             self.input_manifest["public_release_source_admissions"], loaded["public_release_source_admissions"],
@@ -478,7 +537,7 @@ class O030TrustedRefreshEndToEndTest(unittest.TestCase):
             refresh_release_manifest(self.root, execute=True, authorization=context)
         self._assert_unchanged(published)
 
-    def test_schema4_recording_failure_finalizes_the_same_event_without_replay(self) -> None:
+    def test_recording_failure_finalizes_the_same_event_without_replay(self) -> None:
         plan = plan_release_manifest_refresh(self.root)
         context = self._authorize(plan)
         with self._git_evidence(), patch.object(
@@ -501,6 +560,59 @@ class O030TrustedRefreshEndToEndTest(unittest.TestCase):
         self.assertEqual(pending[0], recovered["event_id"])
         self.assertEqual(published, self.path.read_bytes())
         self.assertEqual([], list(pending_root.glob("release-manifest:*.json")))
+
+
+class O030Schema4TrustedRefreshEndToEndTest(_O030TrustedRefreshFixture, unittest.TestCase):
+    """Keep the prior v6 repair executable from D588@5 after schema-5 advances it."""
+
+    _REGISTRATION_SOURCE_REF = (
+        ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
+        "204_FEATURE_MCP/07_delivery/archive/"
+        "CA-D-588-MCP-DELIVERY--register-the-prepared-successor-binding-refresh@5.md"
+    )
+    _EXPECTED_SCHEMA = 4
+    _EXPECTED_REGISTRATION_ID = "epic1848-exact-three-pin-binding-repair-20261011"
+    _INPUT_FIXTURE = SCHEMA4_INPUT
+
+
+class O030Schema5TrustedRefreshEndToEndTest(_O030TrustedRefreshFixture, unittest.TestCase):
+    """Exercise the current O030 v6-to-v7 registration in a disposable Project."""
+
+    _REGISTRATION_SOURCE_REF = _O030TrustedRefreshFixture._REGISTRATION_REF
+    _EXPECTED_SCHEMA = 5
+    _EXPECTED_REGISTRATION_ID = "epic1848-exact-o030-v7-binding-repair-20261011"
+    _INPUT_BYTES = _frozen_schema5_input()
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.assertEqual(SCHEMA5_INPUT_SHA256, hashlib.sha256(self.before).hexdigest())
+
+    def test_schema5_replaces_only_o030_v6_with_v7(self) -> None:
+        current, expected_candidate, expected_payload, _ = derive_registered_source_refresh(self.root)
+        plan = plan_release_manifest_refresh(self.root)
+        context = self._authorize(plan)
+        with self._git_evidence():
+            result = refresh_release_manifest(self.root, execute=True, authorization=context)
+        self.assertEqual("published", result["disposition"], result)
+        self.assertEqual(expected_payload, self.path.read_bytes())
+        loaded = load_selected_manifest(self.root)
+        self.assertEqual(expected_candidate, {key: value for key, value in loaded.items() if key != "manifest_ref"})
+        self.assertEqual(17, len(current["routes"]))
+        self.assertEqual([row["route"] for row in current["routes"]], [row["route"] for row in loaded["routes"]])
+        update_index = [row["route"] for row in current["routes"]].index("update_atom")
+        before_update = copy.deepcopy(current["routes"][update_index])
+        after_update = copy.deepcopy(loaded["routes"][update_index])
+        self.assertEqual(6, before_update["native_action_calls"][0]["version"])
+        self.assertEqual(7, after_update["native_action_calls"][0]["version"])
+        before_update["native_action_calls"][0] = after_update["native_action_calls"][0]
+        self.assertEqual(before_update, after_update)
+        self.assertEqual(
+            current["routes"][:update_index] + current["routes"][update_index + 1:],
+            loaded["routes"][:update_index] + loaded["routes"][update_index + 1:],
+        )
+        self.assertEqual(current["release_source_admissions"], loaded["release_source_admissions"])
+        self.assertEqual(current["query_source_admissions"], loaded["query_source_admissions"])
+        self.assertEqual(current["public_release_source_admissions"], loaded["public_release_source_admissions"])
 
 
 if __name__ == "__main__":

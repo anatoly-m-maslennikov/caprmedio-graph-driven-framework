@@ -45,6 +45,7 @@ _O030_REFRESH_ROUTE_NAMES = (*_REFRESH_ROUTE_NAMES, "public.release")
 _O030_REFRESH_PLAN_FIELDS = frozenset({
     "source_refresh_schema_version", "source_refresh_registration_id",
 })
+_O030_REFRESH_SCHEMA_VERSIONS = frozenset({4, 5})
 
 
 class ReleaseManifestLifecycleError(RuntimeError):
@@ -136,15 +137,16 @@ def _normalized_refresh_plan(plan: Mapping[str, Any]) -> dict[str, Any]:
         )
     is_o030_repair = result["current_route_names"] == expected_o030_names
     if is_o030_repair:
-        if (type(plan.get("source_refresh_schema_version")) is not int
-                or plan.get("source_refresh_schema_version") != 4):
-            raise ReleaseManifestLifecycleError("O030 refresh plan must name the exact schema-4 registration")
+        schema_version = plan.get("source_refresh_schema_version")
+        if (type(schema_version) is not int
+                or schema_version not in _O030_REFRESH_SCHEMA_VERSIONS):
+            raise ReleaseManifestLifecycleError("O030 refresh plan must name the exact schema-4 or schema-5 registration")
         registration_id = plan.get("source_refresh_registration_id")
         if (not isinstance(registration_id, str) or not registration_id
                 or "\n" in registration_id or "\r" in registration_id):
             raise ReleaseManifestLifecycleError("O030 refresh plan registration identifier is invalid")
         result.update(
-            source_refresh_schema_version=4,
+            source_refresh_schema_version=schema_version,
             source_refresh_registration_id=registration_id,
         )
     elif _O030_REFRESH_PLAN_FIELDS & set(plan):
