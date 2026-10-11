@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2114",
+  "recorded_at": "2026-10-11 09:16:18 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review final settings and methodology origins; not migration approval",
+  "verification": {
+    "task": "CA-P-2114",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2114.research.json",
+      "sha256": "c4a3db04a629185cddf1b56b2f52860b14262eb3d42a92aa68d43a5af4e3ade7"
+    },
+    "rows": 28,
+    "counts": {
+      "unresolved": 19,
+      "proposed": 9
+    },
+    "exact_evidence_spans": 57,
+    "exact_input_pins": 34,
+    "historical_plan_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+      "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+    },
+    "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/subject_review_003",
+      "final_report_sha256": "c4a3db04a629185cddf1b56b2f52860b14262eb3d42a92aa68d43a5af4e3ade7",
+      "result": "PASS after correction: all twenty-eight final meanings independently checked; nine supported proposals and nineteen justified nulls",
+      "rejected_earlier_report_sha256": "c8578dd2b2f53a21bfecc3df90142361ebfd95304e310035ac5ce0706a639256",
+      "meaning_checks": [
+        "Two compiler conflict references preserve Projection realization.",
+        "Seven Settings references preserve distinct Artifact ownership.",
+        "Six named Source Reconciliation Workflow references remain null, preserving typed control-flow/definition-versus-run boundaries.",
+        "Source-frontier, methodology provenance, extensions/configuration and serving instance distinctions remain null rather than flattened."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/subject_review_003",
+    "final_report_sha256": "c4a3db04a629185cddf1b56b2f52860b14262eb3d42a92aa68d43a5af4e3ade7",
+    "result": "PASS after correction: all twenty-eight final meanings independently checked; nine supported proposals and nineteen justified nulls",
+    "rejected_earlier_report_sha256": "c8578dd2b2f53a21bfecc3df90142361ebfd95304e310035ac5ce0706a639256",
+    "meaning_checks": [
+      "Two compiler conflict references preserve Projection realization.",
+      "Seven Settings references preserve distinct Artifact ownership.",
+      "Six named Source Reconciliation Workflow references remain null, preserving typed control-flow/definition-versus-run boundaries.",
+      "Source-frontier, methodology provenance, extensions/configuration and serving instance distinctions remain null rather than flattened."
+    ]
+  },
+  "completion_scope": "All 28 assigned current origins passed independent meaning review and exact pin/span/coverage checks after rejecting six generic-Atom Workflow mappings: nine supported proposals and nineteen explicit nulls. Settings ownership, Projection realization and named Workflow/provenance boundaries remain distinct; no original Atom changed.",
+  "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
