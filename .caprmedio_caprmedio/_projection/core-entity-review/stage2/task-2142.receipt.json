@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2142",
+  "recorded_at": "2026-10-11 11:35:27 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded rebuild the residual-domain subject ledger; not migration approval",
+  "verification": {
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de",
+      "size_bytes": 20451453,
+      "result": "PASS: exact preview hash"
+    },
+    "related_outputs": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+        "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+        "size_bytes": 3642901,
+        "result": "PASS: exact preview hash"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+        "sha256": "d2ddb290cd54b6fa8ddb4b8421cf7fae8cacb5f21e7f179826be8a2228c74056",
+        "size_bytes": 3197267,
+        "result": "PASS: exact preview hash"
+      }
+    ],
+    "actual_counts": {
+      "excluded_sources": 11203,
+      "occurrences": 4534,
+      "outcome": "PASS",
+      "proposed": 1869,
+      "quarantined_sources": 8,
+      "sources": 907,
+      "unchanged": 1540,
+      "unresolved": 1125
+    },
+    "independent_review": {
+      "result": "PASS",
+      "reviewer": "/root/mapping_drift_verify",
+      "actual_live_gate": {
+        "exit_code": 0,
+        "sources": 907,
+        "occurrences": 4534,
+        "proposed": 1869,
+        "unchanged": 1540,
+        "unresolved": 1125,
+        "quarantined_sources": 8
+      },
+      "exact_output_hashes": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "sha256": "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de",
+          "size_bytes": 20451453,
+          "result": "PASS: exact preview hash"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+          "size_bytes": 3642901,
+          "result": "PASS: exact preview hash"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "sha256": "d2ddb290cd54b6fa8ddb4b8421cf7fae8cacb5f21e7f179826be8a2228c74056",
+          "size_bytes": 3197267,
+          "result": "PASS: exact preview hash"
+        }
+      ],
+      "original_core": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+        "directory_exists": true,
+        "comparison": "441bc48e1",
+        "diff": "empty"
+      },
+      "native_tests": {
+        "tests": 296,
+        "suites": [
+          {
+            "name": "ATOM_SEARCH",
+            "tests": 44,
+            "exit_code": 0
+          },
+          {
+            "name": "ATOM_UPDATE",
+            "tests": 33,
+            "exit_code": 0
+          },
+          {
+            "name": "GENERATE_ENTITY_GRAPH",
+            "tests": 219,
+            "exit_code": 0
+          }
+        ]
+      },
+      "changed_files": []
+    },
+    "prospective_controls": [
+      {
+        "probe": "missing_layer",
+        "reason": "complete accepted-layer manifest"
+      },
+      {
+        "probe": "omit_all_followups",
+        "reason": "accepted fifth follow-up extension required"
+      },
+      {
+        "probe": "missing_selected_row",
+        "reason": "exact current occurrence coverage"
+      },
+      {
+        "probe": "stale_source",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.governs exact current origin/pin"
+      },
+      {
+        "probe": "wrong_target",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.governs final selected-layer target"
+      },
+      {
+        "probe": "wrong_priority",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.governs accepted layer priority"
+      },
+      {
+        "probe": "wrong_confidence",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.governs final selected-layer confidence"
+      },
+      {
+        "probe": "stale_receipt",
+        "reason": "fifth follow-up accepted pins CA-P-2132"
+      },
+      {
+        "probe": "missing_independent_review",
+        "reason": "fifth follow-up manifest independent-review hash CA-P-2132"
+      },
+      {
+        "probe": "executable_row",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.governs non-executable"
+      }
+    ],
+    "controlled_replacement": {
+      "files": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186",
+          "git_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+          "result": "PASS: exact recoverable bytes"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+          "git_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+          "result": "PASS: exact recoverable bytes"
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "sha256": "ff2adf1da48e25f7dfac3d17755fe40ed114315eadbb9406eba7ed105a9dce48",
+          "git_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+          "result": "PASS: exact recoverable bytes"
+        }
+      ],
+      "result": "PASS: exact previous files and Git recovery confirmed; only three declared derived targets",
+      "current_hashes_rechecked": "PASS immediately before replacement",
+      "git_commit": "8ce499ac7b58146d3f1908a9aa851b95faba6a6a"
+    },
+    "focused_tests": {
+      "tests": 30,
+      "exit_code": 0
+    },
+    "native_tests": {
+      "tests": 296,
+      "suites": [
+        {
+          "name": "ATOM_SEARCH",
+          "tests": 44,
+          "exit_code": 0
+        },
+        {
+          "name": "ATOM_UPDATE",
+          "tests": 33,
+          "exit_code": 0
+        },
+        {
+          "name": "GENERATE_ENTITY_GRAPH",
+          "tests": 219,
+          "exit_code": 0
+        }
+      ]
+    },
+    "support_review_pins": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/consolidate_reviewed_mappings.py",
+        "sha256": "c785f1ba37b812e17f2c5a8e5a8847e73443aeb004d851d1c252572f4e008efd"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+        "sha256": "6b725d07f6addef369de9edd870f013d9c597f608f24ce653f22efeec1273eb8"
+      }
+    ],
+    "checkpoint": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/checkpoint-subject-domains-2132-2139.json",
+    "original_core": "directory exists; empty diff against 441bc48e1; unchanged original Subjects and content"
+  },
+  "independent_review": {
+    "result": "PASS",
+    "reviewer": "/root/mapping_drift_verify",
+    "actual_live_gate": {
+      "exit_code": 0,
+      "sources": 907,
+      "occurrences": 4534,
+      "proposed": 1869,
+      "unchanged": 1540,
+      "unresolved": 1125,
+      "quarantined_sources": 8
+    },
+    "exact_output_hashes": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+        "sha256": "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de",
+        "size_bytes": 20451453,
+        "result": "PASS: exact preview hash"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+        "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+        "size_bytes": 3642901,
+        "result": "PASS: exact preview hash"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+        "sha256": "d2ddb290cd54b6fa8ddb4b8421cf7fae8cacb5f21e7f179826be8a2228c74056",
+        "size_bytes": 3197267,
+        "result": "PASS: exact preview hash"
+      }
+    ],
+    "original_core": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+      "directory_exists": true,
+      "comparison": "441bc48e1",
+      "diff": "empty"
+    },
+    "native_tests": {
+      "tests": 296,
+      "suites": [
+        {
+          "name": "ATOM_SEARCH",
+          "tests": 44,
+          "exit_code": 0
+        },
+        {
+          "name": "ATOM_UPDATE",
+          "tests": 33,
+          "exit_code": 0
+        },
+        {
+          "name": "GENERATE_ENTITY_GRAPH",
+          "tests": 219,
+          "exit_code": 0
+        }
+      ]
+    },
+    "changed_files": []
+  },
+  "completion_scope": "Only the three declared derived outputs were regenerated after exact old-byte/Git recovery checks. Saved output hashes match the preview, and independent live verification, ten wrong-data controls and 326 fresh relevant tests pass. Original Core and preserved reports remain unchanged; 1125 references stay unresolved and source migration is not performed.",
+  "registration_commit": "71327de0b606ad91f5bf9fc704fcbc4436318161",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

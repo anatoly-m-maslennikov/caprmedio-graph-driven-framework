@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 28
-updated_at: "2026-10-11 11:28:39 +0400"
+version: 29
+updated_at: "2026-10-11 11:35:27 +0400"
 relations:
   is_decomposition_of: [CA-P-2043]
   depends_on: ["CA-P-1972","CA-P-2044","CA-P-1992","CA-P-1993","CA-P-1994","CA-P-1995","CA-P-1996","CA-P-1997","CA-P-1998","CA-P-1999","CA-P-2000","CA-P-2001","CA-P-2002","CA-P-2003","CA-P-2004","CA-P-2005","CA-P-2006","CA-P-2007","CA-P-2008","CA-P-2009","CA-P-2010","CA-P-2011","CA-P-2012","CA-P-2013","CA-P-2014","CA-P-2015","CA-P-2016","CA-P-2017","CA-P-2018","CA-P-2019","CA-P-2020","CA-P-2021","CA-P-2022","CA-P-2023","CA-P-2024","CA-P-2025","CA-P-2026","CA-P-2027","CA-P-2028","CA-P-2029","CA-P-2030","CA-P-2031","CA-P-2032","CA-P-2033","CA-P-2034","CA-P-2035","CA-P-2036","CA-P-2037","CA-P-2038","CA-P-2039","CA-P-2040","CA-P-2041","CA-P-2042"]
@@ -81,7 +81,9 @@ CA-P-2132–2139 are Done and separately committed:195 exact current origins acr
 
 - [CA-P-2140 — Integrate accepted residual Subject domains](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/19-CA-P-2140-TASK--integrate-accepted-residual-subject-domains.md)
 - [CA-P-2141 — Verify residual Subject layers independently](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/20-CA-P-2141-TASK--verify-residual-subject-layers-independently.md)
-- [CA-P-2142 — Rebuild the residual-domain Subject ledger](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/21-CA-P-2142-TASK--rebuild-the-residual-domain-subject-ledger.md)
+- [CA-P-2142 — Rebuild the residual-domain Subject ledger](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/21-CA-P-2142-TASK--rebuild-the-residual-domain-subject-ledger.md)
+
+Residual-domain rebuild checkpoint: CA-P-2140–2142 are Done. The exact saved ledger passes independent current-source verification: 1869 proposed, 1540 unchanged and 1125 unresolved across 907 sources/4534 occurrences. Thirty focused and 296 native tests pass. The separately accepted Core-only CA-P-2133 successor is used; its immutable withdrawn predecessor is not admitted. Original Core is unchanged. Full mapping, quarantines, selector approval and migration/content gates remain open. Evidence: `_projection/core-entity-review/stage2/checkpoint-subject-domains-2132-2139.json`.
 
 ### Definition of Done
 

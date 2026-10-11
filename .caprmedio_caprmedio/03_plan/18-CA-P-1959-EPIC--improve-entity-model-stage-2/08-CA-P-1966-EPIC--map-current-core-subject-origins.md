@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 134
-updated_at: "2026-10-11 11:12:40 +0400"
+version: 135
+updated_at: "2026-10-11 11:35:10 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -216,6 +216,8 @@ Residual-domain review checkpoint: CA-P-2132–2139 are Done and individually co
 The full prospective gate rejects CA-P-2133's old report because its proof contains Project Configuration CA-R-1667. Its raw report/receipt remain historical and are withdrawn from current integration. CA-P-2143 creates a separately accepted Core-only successor; the strict Core/canonical-Operator evidence boundary remains unchanged.
 
 - [CA-P-2143 — Reprove governance Subjects from Core only](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/107-CA-P-2143-TASK--reprove-governance-subjects-from-core-only.md)
+
+Latest integration checkpoint: CA-P-2132–2143 are Done, with one commit per completed Task. Eight accepted reviews cover 195 exact origins across 148 current owners: 63 supported mappings and 132 explicit nulls. The saved ledger has 1869 proposed, 1540 unchanged and 1125 unresolved references across 907 original Core sources and 4534 occurrences. All 326 fresh relevant tests pass (30 focused, 296 native), plus report controls and ten complete-ledger wrong-data controls. CA-P-2133 now uses a separately accepted Core-only successor; the withdrawn raw report and receipt remain unchanged as history. Live contract and predecessor proof checks pass. Original Core remains unchanged. Eight quarantines, the selector choice and final migration/content gates remain open. Exact evidence is `_projection/core-entity-review/stage2/checkpoint-subject-domains-2132-2139.json`. This is progress, not complete mapping or source adoption.
 
 ### Definition of Done
 

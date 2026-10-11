@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 10:57:18 +0400"
+version: 2
+updated_at: "2026-10-11 11:35:27 +0400"
 relations:
   is_decomposition_of: [CA-P-2045]
   depends_on: ["CA-P-2140", "CA-P-2141"]
@@ -35,6 +35,10 @@ Own work: at most fifteen minutes. Own only working-ledger/working-mapping-ledge
 After both support Tasks are accepted, Root verifies exact previous draft hashes and Git recovery, replaces only the three declared derived files using the create-only one-off producer, and independently checks prospective and persisted results. Rejected intermediate reports remain out. Forecast only:1869 proposed/1540 unchanged/1125 unresolved; actual evidence decides. Original Core, captured evidence and raw reports stay unchanged; complete mapping, selectors and graph/approval/apply/reproduction/content gates remain open.
 
 No original Core, captured/frozen evidence, unrelated helper, native admission, selector adoption, runtime, MCP or FPF changes. Workers are not alone; preserve others. Root owns Plans, receipts, shared integration and one commit after each actually completed Task.
+
+### Completion
+
+Only the three declared derived outputs were regenerated after exact old-byte/Git recovery checks. Saved output hashes match the preview, and independent live verification, ten wrong-data controls and 326 fresh relevant tests pass. Original Core and preserved reports remain unchanged; 1125 references stay unresolved and source migration is not performed. Exact verification is recorded in `_projection/core-entity-review/stage2/task-2142.receipt.json`.
 
 ### Definition of Done
 
