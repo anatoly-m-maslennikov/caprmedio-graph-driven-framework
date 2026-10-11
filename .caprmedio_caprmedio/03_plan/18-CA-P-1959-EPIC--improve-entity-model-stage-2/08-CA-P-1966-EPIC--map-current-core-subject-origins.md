@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 110
-updated_at: "2026-10-11 09:16:18 +0400"
+version: 111
+updated_at: "2026-10-11 09:17:26 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -182,6 +182,8 @@ CA-P-2112–2117 cover the final137 baseline-only unresolved origins in these ex
 - [CA-P-2115 — Review final relation-family origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/88-CA-P-2115-TASK--review-final-relation-family-origins.md)
 - [CA-P-2116 — Review final projection-family origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/89-CA-P-2116-TASK--review-final-projection-family-origins.md)
 - [CA-P-2117 — Review scope and project tail origins](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/90-CA-P-2117-TASK--review-scope-and-project-tail-origins.md)
+
+CA-P-2112–2117 are independently accepted: 137 exact origins, 87 supported proposals and 50 nulls. CA-P-2118–2120 integrate this final continuation for these families without changing authority. This completes their bounded research, not all semantic mapping; the current ledger is still the prior 1648/1540/1346 checkpoint until verified replacement.
 
 ### Definition of Done
 
