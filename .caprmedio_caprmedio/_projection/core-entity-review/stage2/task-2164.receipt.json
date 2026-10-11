@@ -1,0 +1,541 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2164",
+  "recorded_at": "2026-10-11 18:01:19 +0400",
+  "non_authoritative": true,
+  "source_migration": "six_legacy_identity_migrations_and_one_reference_update",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded migrate six legacy core atom identities; not migration approval",
+  "verification": {
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/approved-implementation/task-2164.verification.json",
+      "sha256": "2b3d63cd5975f390faf51336b7b5b5d7df6549d2efdd0152376f14e9e3250069"
+    },
+    "source_migration": "six_legacy_identity_migrations_and_one_reference_update",
+    "subject_migration": "not_performed",
+    "independent_review": {
+      "schema_version": 1,
+      "verification_id": "CA-P-2164-independent-verification",
+      "verification_status": "PASS",
+      "verification_date": "2026-10-11",
+      "effect_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/approved-implementation/task-2164.effect.json",
+      "effect_sha256": "e4923ad7069940068701b936dd464469c37f8038996a5a92837a5e40f3cf21ae",
+      "effect_contract": {
+        "task_id": "CA-P-2164",
+        "non_authoritative": true,
+        "effect_status": "applied_pending_independent_verification_and_recording",
+        "updated_at": "2026-10-11 17:56:31 +0400",
+        "effect_count": 7,
+        "operations": [
+          "identity_migration",
+          "identity_migration",
+          "identity_migration",
+          "identity_migration",
+          "identity_migration",
+          "identity_migration",
+          "reference_update"
+        ],
+        "source_migration": "identity_only",
+        "subject_migration": "not_performed"
+      },
+      "effects_verified": [
+        {
+          "operation": "identity_migration",
+          "old_id": "CAPRMEDIO-R-791",
+          "new_id": "CA-R-1932",
+          "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+          "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1932-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+          "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate@15.md",
+          "version": {
+            "before": 15,
+            "after": 16
+          },
+          "before_sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+          "after_sha256": "10b5817c8e356d80bc95723910cdd450bfa2bb206b0f50cd16046dfd3a543260",
+          "archive_matches_before": true,
+          "old_current_path_absent": true,
+          "current_id_filename_version_match": true,
+          "body_unchanged": true,
+          "subjects_unchanged": true,
+          "unrelated_frontmatter_unchanged": true,
+          "relation_effect": "none"
+        },
+        {
+          "operation": "identity_migration",
+          "old_id": "CAPRMEDIO-GOV-EVAL-001",
+          "new_id": "CA-E-620",
+          "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-001-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability.md",
+          "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-620-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability.md",
+          "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CAPRMEDIO-GOV-EVAL-001-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability@20.md",
+          "version": {
+            "before": 20,
+            "after": 21
+          },
+          "before_sha256": "693e0262b0b4a373fc99d5504b99809e9a25781331bf1b89388c516ba9fbcf6d",
+          "after_sha256": "e19e9b8df921060419331c5358dc4da154efcccd0065c23f55c09e7fa2010268",
+          "archive_matches_before": true,
+          "old_current_path_absent": true,
+          "current_id_filename_version_match": true,
+          "body_unchanged": true,
+          "subjects_unchanged": true,
+          "unrelated_frontmatter_unchanged": true,
+          "relation_effect": "none"
+        },
+        {
+          "operation": "identity_migration",
+          "old_id": "CAPRMEDIO-GOV-EVAL-002",
+          "new_id": "CA-E-621",
+          "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+          "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-621-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+          "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability@21.md",
+          "version": {
+            "before": 21,
+            "after": 22
+          },
+          "before_sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4",
+          "after_sha256": "7861884c4356b65162f2c0e26f15fd581232a9375e8e00bc4bbaed48522bb807",
+          "archive_matches_before": true,
+          "old_current_path_absent": true,
+          "current_id_filename_version_match": true,
+          "body_unchanged": true,
+          "subjects_unchanged": true,
+          "unrelated_frontmatter_unchanged": true,
+          "relation_effect": "none"
+        },
+        {
+          "operation": "identity_migration",
+          "old_id": "CAPRMEDIO-GOV-EVAL-005",
+          "new_id": "CA-E-622",
+          "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+          "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+          "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity@23.md",
+          "version": {
+            "before": 23,
+            "after": 24
+          },
+          "before_sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14",
+          "after_sha256": "0a90f5256bf71fde5f7b8c975b1d4e93dd2d90335754ff9d888d035218dcf23d",
+          "archive_matches_before": true,
+          "old_current_path_absent": true,
+          "current_id_filename_version_match": true,
+          "body_unchanged": true,
+          "subjects_unchanged": true,
+          "unrelated_frontmatter_unchanged": true,
+          "relation_effect": "none"
+        },
+        {
+          "operation": "identity_migration",
+          "old_id": "CAPRMEDIO-GOV-EVAL-009",
+          "new_id": "CA-E-623",
+          "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-009-CORE_META_MODEL-QA_CASE--effective-priority-selection.md",
+          "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-623-CORE_META_MODEL-QA_CASE--effective-priority-selection.md",
+          "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CAPRMEDIO-GOV-EVAL-009-CORE_META_MODEL-QA_CASE--effective-priority-selection@19.md",
+          "version": {
+            "before": 19,
+            "after": 20
+          },
+          "before_sha256": "debf8c3f03344fc462b228052941f60107f165c5d571dfebde4724368c947ada",
+          "after_sha256": "354748c5deb089a222a7b7553c70b2d8cecedf53cb9d9b5674830b966f357e9c",
+          "archive_matches_before": true,
+          "old_current_path_absent": true,
+          "current_id_filename_version_match": true,
+          "body_unchanged": true,
+          "subjects_unchanged": true,
+          "unrelated_frontmatter_unchanged": true,
+          "relation_effect": "none"
+        },
+        {
+          "operation": "identity_migration",
+          "old_id": "CAPRMEDIO-GOV-EVAL-010",
+          "new_id": "CA-E-624",
+          "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md",
+          "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-624-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md",
+          "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary@17.md",
+          "version": {
+            "before": 17,
+            "after": 18
+          },
+          "before_sha256": "994b91d17ef0089ff49d3bc8d07776830d0ab3803ebcef5fbbbdfee9343219b6",
+          "after_sha256": "ec129b8b68c794ccc57960f97c57809a3e2c07501185d09590d1c2bba664d5fe",
+          "archive_matches_before": true,
+          "old_current_path_absent": true,
+          "current_id_filename_version_match": true,
+          "body_unchanged": true,
+          "subjects_unchanged": true,
+          "unrelated_frontmatter_unchanged": true,
+          "relation_effect": "none"
+        },
+        {
+          "operation": "reference_update",
+          "old_id": "CA-R-1677",
+          "new_id": "CA-R-1677",
+          "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md",
+          "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md",
+          "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority@20.md",
+          "version": {
+            "before": 20,
+            "after": 21
+          },
+          "before_sha256": "cc874266ba373e0ceadc086d9942236d06828a6a33ee1777bff2b0df0b2b8aee",
+          "after_sha256": "d0eda6f3a5961048d384d49322aa59dea4b1dd5ab008b6f9f9bc702e8b515493",
+          "archive_matches_before": true,
+          "old_current_path_absent": false,
+          "current_id_filename_version_match": true,
+          "body_unchanged": true,
+          "subjects_unchanged": true,
+          "unrelated_frontmatter_unchanged": true,
+          "relation_effect": {
+            "pointer": "relations.child_of[0]",
+            "before": "CAPRMEDIO-R-791",
+            "after": "CA-R-1932",
+            "only_relation_change": true
+          }
+        }
+      ],
+      "selected_original_core": {
+        "authority_root": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+        "current_selected_source_count": 907,
+        "fresh_id_counts": {
+          "CA-R-1932": 1,
+          "CA-E-620": 1,
+          "CA-E-621": 1,
+          "CA-E-622": 1,
+          "CA-E-623": 1,
+          "CA-E-624": 1
+        },
+        "fresh_ids_unique": true,
+        "legacy_id_counts": {
+          "CAPRMEDIO-R-791": 0,
+          "CAPRMEDIO-GOV-EVAL-001": 0,
+          "CAPRMEDIO-GOV-EVAL-002": 0,
+          "CAPRMEDIO-GOV-EVAL-005": 0,
+          "CAPRMEDIO-GOV-EVAL-009": 0,
+          "CAPRMEDIO-GOV-EVAL-010": 0
+        },
+        "legacy_ids_absent_from_current_selected": true,
+        "legacy_ids_in_current_active_relation_metadata": 0
+      },
+      "current_inventory": {
+        "producer": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/inventory_current_subjects.py",
+        "mode": "read-only non-persisting recomputation",
+        "source_count": 907,
+        "excluded_count": 11210,
+        "occurrence_count": 4534,
+        "batch_count": 51,
+        "diagnostic_count": 0,
+        "quarantined_source_count": 2,
+        "quarantined_source_ids": [
+          "CA-R-1873",
+          "CA-D-559"
+        ],
+        "timestamp_quarantine_count": 2,
+        "timestamp_quarantine_ids": [
+          "CA-R-1873",
+          "CA-D-559"
+        ],
+        "six_id_quarantines_gone": true,
+        "two_timestamp_quarantines_remain": true
+      },
+      "unchanged_core": {
+        "exclusion_rule": "sorted (relative_path, sha256) pairs for all Core *.md files, excluding every declared old_path, new_path, and archive_path",
+        "excluded_declared_path_count": 20,
+        "unchanged_core_count": 12103,
+        "unchanged_core_digest": "c0c8c5e0024141ff6530aac17b750fe2120ce672beea341bf42c98b0c541bab3",
+        "matches_effect": true
+      },
+      "checks": {
+        "exactly_seven_effects": true,
+        "six_identity_migrations_plus_one_reference_update": true,
+        "all_current_after_hashes_match_effect": true,
+        "all_seven_archives_match_declared_before_hashes": true,
+        "six_old_current_paths_absent": true,
+        "current_ids_filename_and_versions_match": true,
+        "all_migrated_bodies_unchanged": true,
+        "all_subjects_unchanged": true,
+        "all_unrelated_frontmatter_unchanged": true,
+        "only_r1677_child_of_pointer_relinked": true,
+        "fresh_ids_unique_in_current_selected_original_core": true,
+        "unchanged_core_count_and_digest_match_effect": true,
+        "no_subject_migration": true,
+        "no_source_plan_git_effect_json_or_journal_writes": true,
+        "no_run_or_journal_claim_fabricated": true
+      },
+      "scope_notes": [
+        "The persisted current-subjects.inventory.json was not rewritten; counts above come from the existing read-only producer in non-persisting mode.",
+        "No new Run or Journal receipt was inferred or fabricated; this file records only filesystem/effect verification.",
+        "No broad route repair or unrelated source correction was attempted."
+      ]
+    },
+    "journal": {
+      "path": ".caprmedio_caprmedio/_journal/anatoly-m-maslennikov-2026-10-11-part-6.ndjson",
+      "sha256": "8809ecbeeebe5c182d251f686a20667b90c2b65d470227d6114532282e668ab1",
+      "event_count": 21,
+      "validation": "21 actual schema-v3 observations/changes validated; not Tool or Workflow Run events"
+    },
+    "limits": [
+      "Only six approved original identity changes, the one current inbound relation reference, seven exact archives, actual Journal and Plan lifecycle were changed.",
+      "Bodies and Subjects are byte-preserved; archived/frozen/derived evidence was not relinked.",
+      "The old working mapping ledger is historical after source-pin changes; no mass Subject migration, parser implementation or native admission is claimed."
+    ]
+  },
+  "independent_review": {
+    "schema_version": 1,
+    "verification_id": "CA-P-2164-independent-verification",
+    "verification_status": "PASS",
+    "verification_date": "2026-10-11",
+    "effect_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/approved-implementation/task-2164.effect.json",
+    "effect_sha256": "e4923ad7069940068701b936dd464469c37f8038996a5a92837a5e40f3cf21ae",
+    "effect_contract": {
+      "task_id": "CA-P-2164",
+      "non_authoritative": true,
+      "effect_status": "applied_pending_independent_verification_and_recording",
+      "updated_at": "2026-10-11 17:56:31 +0400",
+      "effect_count": 7,
+      "operations": [
+        "identity_migration",
+        "identity_migration",
+        "identity_migration",
+        "identity_migration",
+        "identity_migration",
+        "identity_migration",
+        "reference_update"
+      ],
+      "source_migration": "identity_only",
+      "subject_migration": "not_performed"
+    },
+    "effects_verified": [
+      {
+        "operation": "identity_migration",
+        "old_id": "CAPRMEDIO-R-791",
+        "new_id": "CA-R-1932",
+        "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+        "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1932-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+        "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate@15.md",
+        "version": {
+          "before": 15,
+          "after": 16
+        },
+        "before_sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+        "after_sha256": "10b5817c8e356d80bc95723910cdd450bfa2bb206b0f50cd16046dfd3a543260",
+        "archive_matches_before": true,
+        "old_current_path_absent": true,
+        "current_id_filename_version_match": true,
+        "body_unchanged": true,
+        "subjects_unchanged": true,
+        "unrelated_frontmatter_unchanged": true,
+        "relation_effect": "none"
+      },
+      {
+        "operation": "identity_migration",
+        "old_id": "CAPRMEDIO-GOV-EVAL-001",
+        "new_id": "CA-E-620",
+        "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-001-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability.md",
+        "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-620-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability.md",
+        "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CAPRMEDIO-GOV-EVAL-001-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability@20.md",
+        "version": {
+          "before": 20,
+          "after": 21
+        },
+        "before_sha256": "693e0262b0b4a373fc99d5504b99809e9a25781331bf1b89388c516ba9fbcf6d",
+        "after_sha256": "e19e9b8df921060419331c5358dc4da154efcccd0065c23f55c09e7fa2010268",
+        "archive_matches_before": true,
+        "old_current_path_absent": true,
+        "current_id_filename_version_match": true,
+        "body_unchanged": true,
+        "subjects_unchanged": true,
+        "unrelated_frontmatter_unchanged": true,
+        "relation_effect": "none"
+      },
+      {
+        "operation": "identity_migration",
+        "old_id": "CAPRMEDIO-GOV-EVAL-002",
+        "new_id": "CA-E-621",
+        "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+        "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-621-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+        "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability@21.md",
+        "version": {
+          "before": 21,
+          "after": 22
+        },
+        "before_sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4",
+        "after_sha256": "7861884c4356b65162f2c0e26f15fd581232a9375e8e00bc4bbaed48522bb807",
+        "archive_matches_before": true,
+        "old_current_path_absent": true,
+        "current_id_filename_version_match": true,
+        "body_unchanged": true,
+        "subjects_unchanged": true,
+        "unrelated_frontmatter_unchanged": true,
+        "relation_effect": "none"
+      },
+      {
+        "operation": "identity_migration",
+        "old_id": "CAPRMEDIO-GOV-EVAL-005",
+        "new_id": "CA-E-622",
+        "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+        "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+        "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity@23.md",
+        "version": {
+          "before": 23,
+          "after": 24
+        },
+        "before_sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14",
+        "after_sha256": "0a90f5256bf71fde5f7b8c975b1d4e93dd2d90335754ff9d888d035218dcf23d",
+        "archive_matches_before": true,
+        "old_current_path_absent": true,
+        "current_id_filename_version_match": true,
+        "body_unchanged": true,
+        "subjects_unchanged": true,
+        "unrelated_frontmatter_unchanged": true,
+        "relation_effect": "none"
+      },
+      {
+        "operation": "identity_migration",
+        "old_id": "CAPRMEDIO-GOV-EVAL-009",
+        "new_id": "CA-E-623",
+        "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-009-CORE_META_MODEL-QA_CASE--effective-priority-selection.md",
+        "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-623-CORE_META_MODEL-QA_CASE--effective-priority-selection.md",
+        "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CAPRMEDIO-GOV-EVAL-009-CORE_META_MODEL-QA_CASE--effective-priority-selection@19.md",
+        "version": {
+          "before": 19,
+          "after": 20
+        },
+        "before_sha256": "debf8c3f03344fc462b228052941f60107f165c5d571dfebde4724368c947ada",
+        "after_sha256": "354748c5deb089a222a7b7553c70b2d8cecedf53cb9d9b5674830b966f357e9c",
+        "archive_matches_before": true,
+        "old_current_path_absent": true,
+        "current_id_filename_version_match": true,
+        "body_unchanged": true,
+        "subjects_unchanged": true,
+        "unrelated_frontmatter_unchanged": true,
+        "relation_effect": "none"
+      },
+      {
+        "operation": "identity_migration",
+        "old_id": "CAPRMEDIO-GOV-EVAL-010",
+        "new_id": "CA-E-624",
+        "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md",
+        "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-624-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md",
+        "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary@17.md",
+        "version": {
+          "before": 17,
+          "after": 18
+        },
+        "before_sha256": "994b91d17ef0089ff49d3bc8d07776830d0ab3803ebcef5fbbbdfee9343219b6",
+        "after_sha256": "ec129b8b68c794ccc57960f97c57809a3e2c07501185d09590d1c2bba664d5fe",
+        "archive_matches_before": true,
+        "old_current_path_absent": true,
+        "current_id_filename_version_match": true,
+        "body_unchanged": true,
+        "subjects_unchanged": true,
+        "unrelated_frontmatter_unchanged": true,
+        "relation_effect": "none"
+      },
+      {
+        "operation": "reference_update",
+        "old_id": "CA-R-1677",
+        "new_id": "CA-R-1677",
+        "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md",
+        "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md",
+        "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority@20.md",
+        "version": {
+          "before": 20,
+          "after": 21
+        },
+        "before_sha256": "cc874266ba373e0ceadc086d9942236d06828a6a33ee1777bff2b0df0b2b8aee",
+        "after_sha256": "d0eda6f3a5961048d384d49322aa59dea4b1dd5ab008b6f9f9bc702e8b515493",
+        "archive_matches_before": true,
+        "old_current_path_absent": false,
+        "current_id_filename_version_match": true,
+        "body_unchanged": true,
+        "subjects_unchanged": true,
+        "unrelated_frontmatter_unchanged": true,
+        "relation_effect": {
+          "pointer": "relations.child_of[0]",
+          "before": "CAPRMEDIO-R-791",
+          "after": "CA-R-1932",
+          "only_relation_change": true
+        }
+      }
+    ],
+    "selected_original_core": {
+      "authority_root": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+      "current_selected_source_count": 907,
+      "fresh_id_counts": {
+        "CA-R-1932": 1,
+        "CA-E-620": 1,
+        "CA-E-621": 1,
+        "CA-E-622": 1,
+        "CA-E-623": 1,
+        "CA-E-624": 1
+      },
+      "fresh_ids_unique": true,
+      "legacy_id_counts": {
+        "CAPRMEDIO-R-791": 0,
+        "CAPRMEDIO-GOV-EVAL-001": 0,
+        "CAPRMEDIO-GOV-EVAL-002": 0,
+        "CAPRMEDIO-GOV-EVAL-005": 0,
+        "CAPRMEDIO-GOV-EVAL-009": 0,
+        "CAPRMEDIO-GOV-EVAL-010": 0
+      },
+      "legacy_ids_absent_from_current_selected": true,
+      "legacy_ids_in_current_active_relation_metadata": 0
+    },
+    "current_inventory": {
+      "producer": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/inventory_current_subjects.py",
+      "mode": "read-only non-persisting recomputation",
+      "source_count": 907,
+      "excluded_count": 11210,
+      "occurrence_count": 4534,
+      "batch_count": 51,
+      "diagnostic_count": 0,
+      "quarantined_source_count": 2,
+      "quarantined_source_ids": [
+        "CA-R-1873",
+        "CA-D-559"
+      ],
+      "timestamp_quarantine_count": 2,
+      "timestamp_quarantine_ids": [
+        "CA-R-1873",
+        "CA-D-559"
+      ],
+      "six_id_quarantines_gone": true,
+      "two_timestamp_quarantines_remain": true
+    },
+    "unchanged_core": {
+      "exclusion_rule": "sorted (relative_path, sha256) pairs for all Core *.md files, excluding every declared old_path, new_path, and archive_path",
+      "excluded_declared_path_count": 20,
+      "unchanged_core_count": 12103,
+      "unchanged_core_digest": "c0c8c5e0024141ff6530aac17b750fe2120ce672beea341bf42c98b0c541bab3",
+      "matches_effect": true
+    },
+    "checks": {
+      "exactly_seven_effects": true,
+      "six_identity_migrations_plus_one_reference_update": true,
+      "all_current_after_hashes_match_effect": true,
+      "all_seven_archives_match_declared_before_hashes": true,
+      "six_old_current_paths_absent": true,
+      "current_ids_filename_and_versions_match": true,
+      "all_migrated_bodies_unchanged": true,
+      "all_subjects_unchanged": true,
+      "all_unrelated_frontmatter_unchanged": true,
+      "only_r1677_child_of_pointer_relinked": true,
+      "fresh_ids_unique_in_current_selected_original_core": true,
+      "unchanged_core_count_and_digest_match_effect": true,
+      "no_subject_migration": true,
+      "no_source_plan_git_effect_json_or_journal_writes": true,
+      "no_run_or_journal_claim_fabricated": true
+    },
+    "scope_notes": [
+      "The persisted current-subjects.inventory.json was not rewritten; counts above come from the existing read-only producer in non-persisting mode.",
+      "No new Run or Journal receipt was inferred or fabricated; this file records only filesystem/effect verification.",
+      "No broad route repair or unrelated source correction was attempted."
+    ]
+  },
+  "completion_scope": "Migrated all six approved legacy original IDs to fresh CA-R-1932 and CA-E-620–624, incrementing each Version exactly once; relinked the single live CA-R-1677 dependency. All seven exact prior carriers are preserved and independently checked. Bodies, Subjects and other metadata are unchanged; 21 actual Journal events record the effects. Current inventory has two remaining timestamp quarantines, not six legacy-ID quarantines.",
+  "registration_commit": "cd5ea856823d565c285d767209e64297ba680749",
+  "limits": [
+    "Only six approved original identity changes, the one current inbound relation reference, seven exact archives, actual Journal and Plan lifecycle were changed.",
+    "Bodies and Subjects are byte-preserved; archived/frozen/derived evidence was not relinked.",
+    "The old working mapping ledger is historical after source-pin changes; no mass Subject migration, parser implementation or native admission is claimed."
+  ]
+}
