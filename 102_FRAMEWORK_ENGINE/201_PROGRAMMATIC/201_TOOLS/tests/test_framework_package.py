@@ -279,6 +279,50 @@ class FrameworkPackageTests(unittest.TestCase):
         evidence = provide_installation_package_evidence(package.root)
         self.assertNotIn("tool-bindings", evidence.selected_source_identities)
 
+    def test_binding_mcp_name_may_be_absent_or_empty_without_a_public_claim(self) -> None:
+        for label, replacement in (("absent", b""), ("empty", b'mcp_name = ""\n')):
+            with self.subTest(label=label):
+                frontier = self._binding_frontier()
+                changed = self._replace_first_binding_source(
+                    frontier,
+                    b'mcp_name = "fixture_901"\n',
+                    replacement,
+                )
+                package = assemble_framework_package(
+                    self.source,
+                    self.root / f"optional-mcp-{label}",
+                    binding_atoms=changed,
+                )
+                projections = read_verified_binding_projections(package)
+                self.assertEqual(projections[0].tool_binding.get("mcp_name"), None if label == "absent" else "")
+                self.assertEqual(projections[1].tool_binding["mcp_name"], "fixture_902")
+
+        self.assertIsNone(package_library._optional_mcp_claim(None))
+        self.assertIsNone(package_library._optional_mcp_claim(""))
+
+    def test_binding_mcp_name_refuses_malformed_and_duplicate_nonempty_claims(self) -> None:
+        mutations = (
+            ("duplicate", b'mcp_name = "fixture_902"\n'),
+            ("integer", b"mcp_name = 7\n"),
+            ("boolean", b"mcp_name = true\n"),
+            ("array", b'mcp_name = ["fixture_901"]\n'),
+        )
+        for label, replacement in mutations:
+            with self.subTest(label=label):
+                frontier = self._binding_frontier()
+                changed = self._replace_first_binding_source(
+                    frontier,
+                    b'mcp_name = "fixture_901"\n',
+                    replacement,
+                )
+                with self.assertRaises(FrameworkPackageError) as raised:
+                    assemble_framework_package(
+                        self.source,
+                        self.root / f"invalid-mcp-{label}",
+                        binding_atoms=changed,
+                    )
+                self.assertEqual(raised.exception.code, "binding-projection-duplicate-claim")
+
     def test_refuses_incomplete_extra_and_noncanonical_binding_projections(self) -> None:
         frontier = self._binding_frontier()
         first = self.source / f"methodology/bindings/{frontier[0]['source_path']}"

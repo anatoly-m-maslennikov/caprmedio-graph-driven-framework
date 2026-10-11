@@ -840,6 +840,15 @@ def _binding_tool_mapping(source: bytes, source_path: str, codec: Any) -> Mappin
     return declarations[0]
 
 
+def _optional_mcp_claim(value: object) -> str | None:
+    """Normalize the source-only empty MCP declaration to no public claim."""
+    if value is None:
+        return None
+    if not isinstance(value, str):
+        raise FrameworkPackageError("binding-projection-duplicate-claim", "binding projections repeat or invalidate an MCP name")
+    return value or None
+
+
 def _validate_binding_source_metadata(source: bytes, atom: PackageBindingAtom, codec: Any) -> None:
     """Bind an inverse-recovered Carrier to its observed authoritative metadata."""
 
@@ -919,11 +928,11 @@ def _binding_projection_records(
             raise FrameworkPackageError(error.code, str(error)) from error
         declaration = _binding_tool_mapping(source, atom.source_path, codec)
         _regular_engine_member(root, declaration.get("entrypoint"))
-        name, mcp_name = declaration.get("name"), declaration.get("mcp_name")
+        name, mcp_name = declaration.get("name"), _optional_mcp_claim(declaration.get("mcp_name"))
         action_ids = declaration.get("action_ids", [])
         if name is not None and (not isinstance(name, str) or not name or name in claimed_names):
             raise FrameworkPackageError("binding-projection-duplicate-claim", "binding projections repeat or invalidate a Tool name")
-        if mcp_name is not None and (not isinstance(mcp_name, str) or not mcp_name or mcp_name in claimed_mcp_names):
+        if mcp_name is not None and mcp_name in claimed_mcp_names:
             raise FrameworkPackageError("binding-projection-duplicate-claim", "binding projections repeat or invalidate an MCP name")
         if not isinstance(action_ids, list) or any(not isinstance(action, str) or not action for action in action_ids) or claimed_actions.intersection(action_ids):
             raise FrameworkPackageError("binding-projection-duplicate-claim", "binding projections repeat or invalidate an Action claim")
