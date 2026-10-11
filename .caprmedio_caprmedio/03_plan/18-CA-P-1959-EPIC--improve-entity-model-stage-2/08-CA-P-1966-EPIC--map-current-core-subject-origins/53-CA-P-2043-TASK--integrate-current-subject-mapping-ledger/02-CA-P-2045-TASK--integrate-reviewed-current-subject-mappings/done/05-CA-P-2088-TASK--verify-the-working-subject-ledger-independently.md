@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Tool, Operator]
-version: 5
-updated_at: "2026-10-11 07:07:42 +0400"
+version: 6
+updated_at: "2026-10-11 07:07:45 +0400"
 relations:
   is_decomposition_of: [CA-P-2045]
 ---
@@ -36,6 +36,10 @@ This is implementation/preparation evidence, not original Source writes, selecto
 ### Current integration task
 
 [CA-P-2093 — Verify the accepted current grammar layer independently](05-CA-P-2088-TASK--verify-the-working-subject-ledger-independently/done/02-CA-P-2093-TASK--verify-the-accepted-current-grammar-layer-independently.md) incorporates the now-accepted CA-P-2087 evidence. This group remains Active until that child and its live integration checks pass; the earlier no-receipt draft is only an intermediate checkpoint.
+
+### Completion
+
+Independent full-frontier, baseline/current lineage, selected layer priority, final outcome and per-row provenance verification passes for the persisted working ledger. All child Tasks and 14 negative/control tests pass. This closes the working-ledger verification group, not complete semantic mapping or live source adoption. Exact verification is recorded in `_projection/core-entity-review/stage2/task-2088.receipt.json`.
 
 ### Definition of Done
 
