@@ -1,0 +1,1464 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2149",
+  "family": "unqualified_origins_006",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2144-2151.inputs.json",
+      "sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+    },
+    "frozen_baseline_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2144-2151.contract.md",
+        "sha256": "0df1d9e998ad2b8cc3e26f7cb5dfdf58421a9e6c9f27a456a828d32c02f4a651"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2132-2139.contract.md",
+        "sha256": "3ed29d889a2d7905614a0d02c23a75f82fb002ffea51f4dce2714f60865aa6ff"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/113-CA-P-2149-TASK--review-remaining-unqualified-subjects-006.md",
+      "sha256": "09619eaf10f78a93f8abaaaf7dee145af2bd8446805dfd7badef60af231ffa89",
+      "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+        "sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+        "sha256": "a0b02c29350738ef1cfa1a20125af3c29bf707b319de60d5744de1dfb53807fc"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+        "sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+        "sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md",
+        "sha256": "66ad7ecaf6fcaa3368539f464be8345818f71135d85d3e9f9d96c2ba7b32e822"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md",
+        "sha256": "4007710401af00358dcaf1c04aaa2f62ed396ef9471d74d7940fb35dcafad1c4"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-004-CORE_META_MODEL-ACTION--select-reconciliation-sources.md",
+        "sha256": "c707d01c61cd00b811260a1e144b811b61f9f42778eddbc5368263aeb4723f4d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-006-CORE_META_MODEL-ACTION--propose-source-corrections.md",
+        "sha256": "c4481d4af8744e326568a4fc3c84ce91d0974605851d7dc589dee8ed31eda677"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+        "sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-017-CORE_META_MODEL-ACTION--prepare-implementation-work.md",
+        "sha256": "02bdc37b110592f3171840bf995c4598af793d6679cc4261a075440aa9be943a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-020-CORE_META_MODEL-ACTION--run-implementation-evaluations.md",
+        "sha256": "13aea0488ac7b230becf1739bd7ad6f29e5f964f0db1e4e1b680aac3b5f59051"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md",
+        "sha256": "841858a2234e54f51952a94724756e1af967249f7baa37623ce27eb4834f2121"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+        "sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+        "sha256": "0e5d328151a63a0fffa4d247f7149924460323bcf670a58c6de8629f7d92b403"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md",
+        "sha256": "19bb9cbe0e7fdeb7ecd60dca272d3d23a6908c0b0c56f2454024ed7125898e58"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+        "sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md",
+        "sha256": "a5fc844d29549361d9a835786324956ef6040a2dc9ab88c3a884aeac103850ff"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+        "sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-053-CORE_META_MODEL-ACTION--migrate-atoms-to-a-current-cce-version.md",
+        "sha256": "0a6fb268305299de993722f2f3984e8edae990938e3c76c02f29baf29bb1fc82"
+      }
+    ]
+  },
+  "selection": {
+    "family": "unqualified_origins_006",
+    "sources": 19,
+    "occurrences": 37,
+    "occurrence_id_set_sha256": "2299dbcd684af1cb025d8f41d75ebc01df8316716774df84d9a690214ecc8448",
+    "manifest_sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+  },
+  "supporting_current_definitions": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-658-CORE_META_MODEL-CORE--define-principle-local-tier.md",
+      "sha256": "738566debe872f674c0a45acd20a80a107d5d62f35117d2c03f790efba178634",
+      "start_line": 1,
+      "end_line": 29,
+      "span_sha256": "738566debe872f674c0a45acd20a80a107d5d62f35117d2c03f790efba178634",
+      "reason": "Current definition: Principle is the Project-only highest Atom Local Tier value."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1774-CORE_META_MODEL--give-every-project-wide-invariant-one-principle-owner.md",
+      "sha256": "04c2a63ac0fec443491c5d835d5b4bcfecc1e282171544c44af083ad563b619c",
+      "start_line": 1,
+      "end_line": 33,
+      "span_sha256": "04c2a63ac0fec443491c5d835d5b4bcfecc1e282171544c44af083ad563b619c",
+      "reason": "Current definition: every project-wide invariant has one active Project Principle owner."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1461-CORE_META_MODEL-CORE-REQUIREMENT--define-reconciled-projection.md",
+      "sha256": "d6120a84090d11d326f41ebe06fb3a780400f4e74e9043e0fc68396027bd2dea",
+      "start_line": 1,
+      "end_line": 37,
+      "span_sha256": "d6120a84090d11d326f41ebe06fb3a780400f4e74e9043e0fc68396027bd2dea",
+      "reason": "Current definition: Reconciled Projection is a Projection Type that preserves selected sources, identities, and final Revisions without merge or synthesis."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "start_line": 1,
+      "end_line": 42,
+      "span_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "reason": "Current definition: a Projection is a non-authoritative derived Artifact view, not a second authority."
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+      "source_atom_id": "CA-D-568",
+      "source_version": 5,
+      "source_sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Tool/Workflow Operations/Atom Lifecycle/Request Parameters",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+          "sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d",
+          "start_line": 32,
+          "end_line": 52,
+          "span_sha256": "6dfcb8cff6983c0e3228868a04c26433cf2c055ad98b3a5dcf2dd841b81cac86",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Delivery makes the lifecycle writer's retained-history entry the sole identity basis and treats caller parameters only as reports. It does not establish an Entity identity for the qualified Tool/Workflow request-parameter phrase; a generic Atom, Carrier, or Revision target would erase the request and retained-history boundaries.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Draft identity, Carrier provenance, retained-history entries, and caller-reported request parameters remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+      "source_atom_id": "CA-O-152",
+      "source_version": 2,
+      "source_sha256": "a0b02c29350738ef1cfa1a20125af3c29bf707b319de60d5744de1dfb53807fc",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Select Reconciliation Sources",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+          "sha256": "a0b02c29350738ef1cfa1a20125af3c29bf707b319de60d5744de1dfb53807fc",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "4b6655fec5a178e67823242a2fc63f50c0d99e8962b934940c1ec19ddfc0ee97",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Step body identifies this value as the exact reusable Action invoked by a Workflow-owned Step. The candidate has no confirmed Operation-definition root or selector syntax; mapping a named Action definition to generic Atom would lose its reusable Action and Step/Workflow binding.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named Action definition, Workflow-owned Step, Workflow Run, and source-authority constraints remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+      "source_atom_id": "CA-O-153",
+      "source_version": 2,
+      "source_sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Assess Source Conflicts",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+          "sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87",
+          "start_line": 30,
+          "end_line": 48,
+          "span_sha256": "64261062d286ff1c5d9855eb9b2f0420f0ba601fc9281c331d9116b72bcd3089",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Step body identifies this value as the exact reusable Action invoked by a Workflow-owned Step. The candidate has no confirmed Operation-definition root or selector syntax; mapping a named Action definition to generic Atom would lose its reusable Action and Step/Workflow binding.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named Action definition, Workflow-owned Step, Workflow Run, and source-authority constraints remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+      "source_atom_id": "CA-O-154",
+      "source_version": 2,
+      "source_sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Propose Source Corrections",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+          "sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "6ff4a9391d36524bf01d8993a75af0d7732fe20a8e395574817c5ce4f661a63f",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Step body identifies this value as the exact reusable Action invoked by a Workflow-owned Step. The candidate has no confirmed Operation-definition root or selector syntax; mapping a named Action definition to generic Atom would lose its reusable Action and Step/Workflow binding.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named Action definition, Workflow-owned Step, Workflow Run, and source-authority constraints remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md",
+      "source_atom_id": "CA-O-156",
+      "source_version": 2,
+      "source_sha256": "66ad7ecaf6fcaa3368539f464be8345818f71135d85d3e9f9d96c2ba7b32e822",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Journal/Record",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md",
+          "sha256": "66ad7ecaf6fcaa3368539f464be8345818f71135d85d3e9f9d96c2ba7b32e822",
+          "start_line": 29,
+          "end_line": 47,
+          "span_sha256": "94af6734a42cc9a924f892b029f700e6ce67016f6cd8423c4573304d0195887a",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Step consumes an approved correction and a recorded decision but does not identify the record as a separately mappable Journal Entity or preserve its record/event boundary. A generic Artifact target would lose the correction, authorization, and re-selection conditions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The approved correction, recorded decision, selected frontier, and separately authorized source-change workflow remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md#subjects.depends_on[12]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md",
+      "source_atom_id": "CA-O-157",
+      "source_version": 2,
+      "source_sha256": "4007710401af00358dcaf1c04aaa2f62ed396ef9471d74d7940fb35dcafad1c4",
+      "field": "depends_on",
+      "index": 12,
+      "old_value": "Projection/Type: Reconciled Projection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md",
+          "sha256": "4007710401af00358dcaf1c04aaa2f62ed396ef9471d74d7940fb35dcafad1c4",
+          "start_line": 32,
+          "end_line": 50,
+          "span_sha256": "d2fd462fa52c6262e9630e423ca1d175b024596debe6abe44891078be3167782",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1461-CORE_META_MODEL-CORE-REQUIREMENT--define-reconciled-projection.md",
+          "sha256": "d6120a84090d11d326f41ebe06fb3a780400f4e74e9043e0fc68396027bd2dea",
+          "start_line": 1,
+          "end_line": 37,
+          "span_sha256": "d6120a84090d11d326f41ebe06fb3a780400f4e74e9043e0fc68396027bd2dea",
+          "reason": "Current definition: Reconciled Projection is a Projection Type that preserves selected sources, identities, and final Revisions without merge or synthesis."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 1,
+          "end_line": 42,
+          "span_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "reason": "Current definition: a Projection is a non-authoritative derived Artifact view, not a second authority."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Artifact/Projection.Type: Reconciled Projection",
+      "confidence": 0.94,
+      "reason": "The current publish Step binds its selected Projection Delivery authority and preserves exact selected Atom IDs, source Revisions, owners, and Claims. CA-R-1461 defines Reconciled Projection as a Projection Type, while CA-R-1746 defines Projection as a non-authoritative Artifact form. The target retains the Artifact/Projection bearer and its Type allowed value rather than admitting an independent Projection root.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate's Artifact root is the lifecycle-bearing form used by the current Projection Artifact definition."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate supports a Property as a dependent Entity of its explicit bearer, retaining the Projection Type/value distinction."
+        },
+        {
+          "pointer": "#/projection_member_model",
+          "reason": "The candidate preserves Projection as a derived whole with its own lifecycle and source authority boundary, not an eighth root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Reconciled Projection remains a Projection Type allowed value, not a standalone root.",
+        "Exact source frontier, source Atom IDs, source Revisions, owners, Claims, Carrier bytes/forms, and unresolved-conflict publication gate remain source-body constraints."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-004-CORE_META_MODEL-ACTION--select-reconciliation-sources.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-004-CORE_META_MODEL-ACTION--select-reconciliation-sources.md",
+      "source_atom_id": "CA-O-004",
+      "source_version": 5,
+      "source_sha256": "c707d01c61cd00b811260a1e144b811b61f9f42778eddbc5368263aeb4723f4d",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Projection/Type: Reconciled Projection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-004-CORE_META_MODEL-ACTION--select-reconciliation-sources.md",
+          "sha256": "c707d01c61cd00b811260a1e144b811b61f9f42778eddbc5368263aeb4723f4d",
+          "start_line": 22,
+          "end_line": 30,
+          "span_sha256": "1a6a4242e70cabd0ae0520a2e88c5aa19f5c5dd3bd6fbf4eca6b3198e7648c9e",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current reusable Action explicitly says selection does not publish a Projection. It therefore does not establish the Reconciled Projection Type named by the old Subject.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Source selection, exact source identities and Revisions, unresolved-selection failure, and non-publication remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-006-CORE_META_MODEL-ACTION--propose-source-corrections.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-006-CORE_META_MODEL-ACTION--propose-source-corrections.md",
+      "source_atom_id": "CA-O-006",
+      "source_version": 6,
+      "source_sha256": "c4481d4af8744e326568a4fc3c84ce91d0974605851d7dc589dee8ed31eda677",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Atom/Local Tier: Principle",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-006-CORE_META_MODEL-ACTION--propose-source-corrections.md",
+          "sha256": "c4481d4af8744e326568a4fc3c84ce91d0974605851d7dc589dee8ed31eda677",
+          "start_line": 29,
+          "end_line": 46,
+          "span_sha256": "861f7a5e25024fcb7709e094f68e0155e392e980dbab3fa2469b4ffd5d8d4538",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-658-CORE_META_MODEL-CORE--define-principle-local-tier.md",
+          "sha256": "738566debe872f674c0a45acd20a80a107d5d62f35117d2c03f790efba178634",
+          "start_line": 1,
+          "end_line": 29,
+          "span_sha256": "738566debe872f674c0a45acd20a80a107d5d62f35117d2c03f790efba178634",
+          "reason": "Current definition: Principle is the Project-only highest Atom Local Tier value."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1774-CORE_META_MODEL--give-every-project-wide-invariant-one-principle-owner.md",
+          "sha256": "04c2a63ac0fec443491c5d835d5b4bcfecc1e282171544c44af083ad563b619c",
+          "start_line": 1,
+          "end_line": 33,
+          "span_sha256": "04c2a63ac0fec443491c5d835d5b4bcfecc1e282171544c44af083ad563b619c",
+          "reason": "Current definition: every project-wide invariant has one active Project Principle owner."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier: Principle",
+      "confidence": 0.94,
+      "reason": "The current Action explicitly uses CA-O-005's assessment including Principle alignment. CA-R-658 defines Principle as the Project-only highest Local Tier, and CA-R-1774 requires one active Project Principle owner per project-wide invariant. Atom.Local Tier: Principle preserves the Atom bearer and allowed-value domain without making Principle a new root, subtype, or selector.",
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node of its bearer, supporting a current explicit bearer-and-field mapping without native admission."
+        },
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "The candidate identifies Atom as the Artifact's narrower Entity, retaining Atom as the Local Tier bearer."
+        }
+      ],
+      "preserved_distinctions": [
+        "Principle remains the Local Tier allowed value, not a new root or Atom subtype.",
+        "Global Tier, Updated At, conflict assessment, source-frontier scope, and Operator escalation remain separate current-body constraints."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md#subjects.depends_on[18]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+      "source_atom_id": "CA-O-011",
+      "source_version": 12,
+      "source_sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124",
+      "field": "depends_on",
+      "index": 18,
+      "old_value": "Journal/Record",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+          "sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124",
+          "start_line": 37,
+          "end_line": 83,
+          "span_sha256": "76883144e1be4db4ab2abd00499016a12ad7d2f8f92f9268f96727a8592b2e73",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Workflow preserves a reusable definition, Workflow-owned Step identities, Workflow-scoped transitions, and a separate execution-evidence boundary. It does not establish a Journal Record Entity for the selected old phrase; a generic Artifact or Carrier target would lose the record, Workflow, and execution distinctions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Applicable Methodology Compilation, Source Reconciliation, shared Actions, Workflow-owned Steps, Workflow and Step Runs, ON_RESULT transitions, and execution evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-017-CORE_META_MODEL-ACTION--prepare-implementation-work.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-017-CORE_META_MODEL-ACTION--prepare-implementation-work.md",
+      "source_atom_id": "CA-O-017",
+      "source_version": 6,
+      "source_sha256": "02bdc37b110592f3171840bf995c4598af793d6679cc4261a075440aa9be943a",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Spec",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-017-CORE_META_MODEL-ACTION--prepare-implementation-work.md",
+          "sha256": "02bdc37b110592f3171840bf995c4598af793d6679cc4261a075440aa9be943a",
+          "start_line": 42,
+          "end_line": 76,
+          "span_sha256": "df2ab91abb05bfe54d69c9cf2880e2e83e130fa91d0c6275c83c47e31ac04eda",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Action body establishes a bounded preparation process over R/E/D/M, Plans, inputs, and execution boundaries, but it does not define the bare Spec label as an Entity or Property identity. No generic Artifact or Atom replacement retains those separate authorities.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Persistent P/Plan work, compiled Method Projection, R/E/D authority, execution inputs, and readiness state remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-020-CORE_META_MODEL-ACTION--run-implementation-evaluations.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-020-CORE_META_MODEL-ACTION--run-implementation-evaluations.md",
+      "source_atom_id": "CA-O-020",
+      "source_version": 5,
+      "source_sha256": "13aea0488ac7b230becf1739bd7ad6f29e5f964f0db1e4e1b680aac3b5f59051",
+      "field": "governs",
+      "index": null,
+      "old_value": "Implementation Evaluation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-020-CORE_META_MODEL-ACTION--run-implementation-evaluations.md",
+          "sha256": "13aea0488ac7b230becf1739bd7ad6f29e5f964f0db1e4e1b680aac3b5f59051",
+          "start_line": 28,
+          "end_line": 41,
+          "span_sha256": "f39398aa40667191fab86e8062c461edab0c024cc9f5f6f31a12f24eceee2a20",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines a reusable Agentic Evaluation Action, including actual check execution and outcome distinctions. Candidate Execution is an actual run, not the named Action definition; generic Atom would lose the Operation-definition boundary.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Reusable Evaluation Action, actual evaluation execution, candidate, test inputs, and passed/failed/blocked outcomes remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md#subjects.depends_on[11]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md",
+      "source_atom_id": "CA-O-021",
+      "source_version": 9,
+      "source_sha256": "841858a2234e54f51952a94724756e1af967249f7baa37623ce27eb4834f2121",
+      "field": "depends_on",
+      "index": 11,
+      "old_value": "Local Tier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md",
+          "sha256": "841858a2234e54f51952a94724756e1af967249f7baa37623ce27eb4834f2121",
+          "start_line": 35,
+          "end_line": 51,
+          "span_sha256": "6866c00386222d90637bed5e3bf859eebbc40a6434095779ba951acf478c60f9",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body gives a named Implementation Repair Action with diagnosis, retry, authority, test, and result semantics. It does not establish one unqualified Entity for the selected diagnosis, retry-control, or Spec labels; mapping them or the governing Action to generic Atom would collapse those distinctions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Implementation Repair, diagnosis, retry allowance, Operator gates, Evaluation/Method/Implementation authority, and repair evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md",
+      "source_atom_id": "CA-O-021",
+      "source_version": 9,
+      "source_sha256": "841858a2234e54f51952a94724756e1af967249f7baa37623ce27eb4834f2121",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Implementation Failure Diagnosis",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md",
+          "sha256": "841858a2234e54f51952a94724756e1af967249f7baa37623ce27eb4834f2121",
+          "start_line": 35,
+          "end_line": 51,
+          "span_sha256": "6866c00386222d90637bed5e3bf859eebbc40a6434095779ba951acf478c60f9",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body gives a named Implementation Repair Action with diagnosis, retry, authority, test, and result semantics. It does not establish one unqualified Entity for the selected diagnosis, retry-control, or Spec labels; mapping them or the governing Action to generic Atom would collapse those distinctions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Implementation Repair, diagnosis, retry allowance, Operator gates, Evaluation/Method/Implementation authority, and repair evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md",
+      "source_atom_id": "CA-O-021",
+      "source_version": 9,
+      "source_sha256": "841858a2234e54f51952a94724756e1af967249f7baa37623ce27eb4834f2121",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Implementation Retry Control",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md",
+          "sha256": "841858a2234e54f51952a94724756e1af967249f7baa37623ce27eb4834f2121",
+          "start_line": 35,
+          "end_line": 51,
+          "span_sha256": "6866c00386222d90637bed5e3bf859eebbc40a6434095779ba951acf478c60f9",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body gives a named Implementation Repair Action with diagnosis, retry, authority, test, and result semantics. It does not establish one unqualified Entity for the selected diagnosis, retry-control, or Spec labels; mapping them or the governing Action to generic Atom would collapse those distinctions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Implementation Repair, diagnosis, retry allowance, Operator gates, Evaluation/Method/Implementation authority, and repair evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md",
+      "source_atom_id": "CA-O-021",
+      "source_version": 9,
+      "source_sha256": "841858a2234e54f51952a94724756e1af967249f7baa37623ce27eb4834f2121",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Spec",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md",
+          "sha256": "841858a2234e54f51952a94724756e1af967249f7baa37623ce27eb4834f2121",
+          "start_line": 35,
+          "end_line": 51,
+          "span_sha256": "6866c00386222d90637bed5e3bf859eebbc40a6434095779ba951acf478c60f9",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body gives a named Implementation Repair Action with diagnosis, retry, authority, test, and result semantics. It does not establish one unqualified Entity for the selected diagnosis, retry-control, or Spec labels; mapping them or the governing Action to generic Atom would collapse those distinctions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Implementation Repair, diagnosis, retry allowance, Operator gates, Evaluation/Method/Implementation authority, and repair evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md",
+      "source_atom_id": "CA-O-021",
+      "source_version": 9,
+      "source_sha256": "841858a2234e54f51952a94724756e1af967249f7baa37623ce27eb4834f2121",
+      "field": "governs",
+      "index": null,
+      "old_value": "Implementation Repair",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-021-CORE_META_MODEL-ACTION--repair-nonconforming-implementation.md",
+          "sha256": "841858a2234e54f51952a94724756e1af967249f7baa37623ce27eb4834f2121",
+          "start_line": 35,
+          "end_line": 51,
+          "span_sha256": "6866c00386222d90637bed5e3bf859eebbc40a6434095779ba951acf478c60f9",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body gives a named Implementation Repair Action with diagnosis, retry, authority, test, and result semantics. It does not establish one unqualified Entity for the selected diagnosis, retry-control, or Spec labels; mapping them or the governing Action to generic Atom would collapse those distinctions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Implementation Repair, diagnosis, retry allowance, Operator gates, Evaluation/Method/Implementation authority, and repair evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+      "source_atom_id": "CA-O-022",
+      "source_version": 6,
+      "source_sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Scope",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+          "sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c",
+          "start_line": 26,
+          "end_line": 43,
+          "span_sha256": "ee64cde2dd6739e1d8f807095d394d73f8228a9da9c62655cd21634feb23542f",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Action uses affected Scope and Project-stage context while resolving an Operator-selected priority model. It does not identify that contextual Scope as a structural Scope Unit or make the priority-model application a candidate Entity independent of its Operator and Project-stage qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Affected Scope, Project stage, Operator-selected model, criteria, constraints, Framework Instance activation, and unresolved state remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+      "source_atom_id": "CA-O-022",
+      "source_version": 6,
+      "source_sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Project/priority model application",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+          "sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c",
+          "start_line": 26,
+          "end_line": 43,
+          "span_sha256": "ee64cde2dd6739e1d8f807095d394d73f8228a9da9c62655cd21634feb23542f",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Action uses affected Scope and Project-stage context while resolving an Operator-selected priority model. It does not identify that contextual Scope as a structural Scope Unit or make the priority-model application a candidate Entity independent of its Operator and Project-stage qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Affected Scope, Project stage, Operator-selected model, criteria, constraints, Framework Instance activation, and unresolved state remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+      "source_atom_id": "CA-O-022",
+      "source_version": 6,
+      "source_sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c",
+      "field": "governs",
+      "index": null,
+      "old_value": "Resolve Operator Priorities",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+          "sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c",
+          "start_line": 26,
+          "end_line": 43,
+          "span_sha256": "ee64cde2dd6739e1d8f807095d394d73f8228a9da9c62655cd21634feb23542f",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Action uses affected Scope and Project-stage context while resolving an Operator-selected priority model. It does not identify that contextual Scope as a structural Scope Unit or make the priority-model application a candidate Entity independent of its Operator and Project-stage qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Affected Scope, Project stage, Operator-selected model, criteria, constraints, Framework Instance activation, and unresolved state remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+      "source_atom_id": "CA-O-023",
+      "source_version": 5,
+      "source_sha256": "0e5d328151a63a0fffa4d247f7149924460323bcf670a58c6de8629f7d92b403",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Resolve Operator Priorities",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+          "sha256": "0e5d328151a63a0fffa4d247f7149924460323bcf670a58c6de8629f7d92b403",
+          "start_line": 28,
+          "end_line": 47,
+          "span_sha256": "3e2023bb6398327065cb81e8b2aed7d02e94bfbe522e8b0e9e93bef20179e8be",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines a named selection Action and qualified priority-model application, not an unqualified candidate Entity. Mapping the named Action, upstream Action result, model application, or lexicographic technique to generic Atom would lose the Operator and comparison constraints.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Named Action, resolved priorities, candidate alternatives, selected comparison model, constraints, evidence, and unresolved ties remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+      "source_atom_id": "CA-O-023",
+      "source_version": 5,
+      "source_sha256": "0e5d328151a63a0fffa4d247f7149924460323bcf670a58c6de8629f7d92b403",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Project/priority model application",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+          "sha256": "0e5d328151a63a0fffa4d247f7149924460323bcf670a58c6de8629f7d92b403",
+          "start_line": 28,
+          "end_line": 47,
+          "span_sha256": "3e2023bb6398327065cb81e8b2aed7d02e94bfbe522e8b0e9e93bef20179e8be",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines a named selection Action and qualified priority-model application, not an unqualified candidate Entity. Mapping the named Action, upstream Action result, model application, or lexicographic technique to generic Atom would lose the Operator and comparison constraints.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Named Action, resolved priorities, candidate alternatives, selected comparison model, constraints, evidence, and unresolved ties remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+      "source_atom_id": "CA-O-023",
+      "source_version": 5,
+      "source_sha256": "0e5d328151a63a0fffa4d247f7149924460323bcf670a58c6de8629f7d92b403",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Project/lexicographic selection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+          "sha256": "0e5d328151a63a0fffa4d247f7149924460323bcf670a58c6de8629f7d92b403",
+          "start_line": 28,
+          "end_line": 47,
+          "span_sha256": "3e2023bb6398327065cb81e8b2aed7d02e94bfbe522e8b0e9e93bef20179e8be",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines a named selection Action and qualified priority-model application, not an unqualified candidate Entity. Mapping the named Action, upstream Action result, model application, or lexicographic technique to generic Atom would lose the Operator and comparison constraints.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Named Action, resolved priorities, candidate alternatives, selected comparison model, constraints, evidence, and unresolved ties remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+      "source_atom_id": "CA-O-023",
+      "source_version": 5,
+      "source_sha256": "0e5d328151a63a0fffa4d247f7149924460323bcf670a58c6de8629f7d92b403",
+      "field": "governs",
+      "index": null,
+      "old_value": "Select Priority-Governed Alternative",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+          "sha256": "0e5d328151a63a0fffa4d247f7149924460323bcf670a58c6de8629f7d92b403",
+          "start_line": 28,
+          "end_line": 47,
+          "span_sha256": "3e2023bb6398327065cb81e8b2aed7d02e94bfbe522e8b0e9e93bef20179e8be",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines a named selection Action and qualified priority-model application, not an unqualified candidate Entity. Mapping the named Action, upstream Action result, model application, or lexicographic technique to generic Atom would lose the Operator and comparison constraints.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Named Action, resolved priorities, candidate alternatives, selected comparison model, constraints, evidence, and unresolved ties remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md",
+      "source_atom_id": "CA-O-024",
+      "source_version": 11,
+      "source_sha256": "19bb9cbe0e7fdeb7ecd60dca272d3d23a6908c0b0c56f2454024ed7125898e58",
+      "field": "governs",
+      "index": null,
+      "old_value": "Implementation Retry Control",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md",
+          "sha256": "19bb9cbe0e7fdeb7ecd60dca272d3d23a6908c0b0c56f2454024ed7125898e58",
+          "start_line": 32,
+          "end_line": 54,
+          "span_sha256": "93a777fb7ef3f849f14b23ca2960b4c4ca21dc67c2d8567b55fc1bb18e7750de",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines the named Implementation Retry Control Action with Workflow-Run accounting and authorization gates. Candidate Execution denotes actual runs and cannot replace the reusable Action definition without losing retry-control semantics.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retry allowance, Workflow Run and Step Run, authorization gates, exact counts, and actual repair/re-evaluation rounds remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+      "source_atom_id": "CA-O-028",
+      "source_version": 8,
+      "source_sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Apply Approved Source Corrections",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+          "sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+          "start_line": 39,
+          "end_line": 86,
+          "span_sha256": "5bf3670811b1f81d538a7afe8ebe076e63269327b1aafa8c6e326bfb73cc9033",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Workflow reuses exact named Actions through Workflow-owned Steps and preserves Workflow-scoped ON_RESULT transitions. It does not establish one unqualified candidate Entity for the selected Action labels, field labels, or Workflow definition; generic Atom or Execution would lose the definition/run and transition qualifications.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Named Actions, Workflow-owned Steps, Workflow/Step Runs, ON_RESULT transitions, source frontier, Principle and Revision checks, and Journal/execution evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md#subjects.depends_on[13]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+      "source_atom_id": "CA-O-028",
+      "source_version": 8,
+      "source_sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+      "field": "depends_on",
+      "index": 13,
+      "old_value": "Atom/Global Tier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+          "sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+          "start_line": 39,
+          "end_line": 86,
+          "span_sha256": "5bf3670811b1f81d538a7afe8ebe076e63269327b1aafa8c6e326bfb73cc9033",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Workflow reuses exact named Actions through Workflow-owned Steps and preserves Workflow-scoped ON_RESULT transitions. It does not establish one unqualified candidate Entity for the selected Action labels, field labels, or Workflow definition; generic Atom or Execution would lose the definition/run and transition qualifications.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Named Actions, Workflow-owned Steps, Workflow/Step Runs, ON_RESULT transitions, source frontier, Principle and Revision checks, and Journal/execution evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md#subjects.depends_on[15]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+      "source_atom_id": "CA-O-028",
+      "source_version": 8,
+      "source_sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+      "field": "depends_on",
+      "index": 15,
+      "old_value": "Atom/Local Tier: Principle",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+          "sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+          "start_line": 39,
+          "end_line": 86,
+          "span_sha256": "5bf3670811b1f81d538a7afe8ebe076e63269327b1aafa8c6e326bfb73cc9033",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-658-CORE_META_MODEL-CORE--define-principle-local-tier.md",
+          "sha256": "738566debe872f674c0a45acd20a80a107d5d62f35117d2c03f790efba178634",
+          "start_line": 22,
+          "end_line": 27,
+          "span_sha256": "281e890117929d933e18aaff368db4afb8d2f3810ea91933aed3c358fd0b80df",
+          "reason": "Current Core definition: Principle is the Project-only highest Local Tier value."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1774-CORE_META_MODEL--give-every-project-wide-invariant-one-principle-owner.md",
+          "sha256": "04c2a63ac0fec443491c5d835d5b4bcfecc1e282171544c44af083ad563b619c",
+          "start_line": 25,
+          "end_line": 31,
+          "span_sha256": "55f5b3f5320208b6d47278fce30d64b9c823bbb9508285b7e45c121237937a66",
+          "reason": "Current Core definition: each project-wide invariant has one active Project Principle owner."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier: Principle",
+      "confidence": 0.94,
+      "reason": "The current Workflow takes applicable Principles as Step inputs, blocks on conflicting active Principles, and requires Principle alignment before completion. CA-R-658 defines Principle as the Project-only highest Local Tier, while CA-R-1774 fixes its active Project owner. Atom.Local Tier: Principle preserves only the Atom Property/value meaning; it does not map the named Workflow, Steps, Actions, transitions, or execution evidence.",
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node of its bearer, supporting a current explicit bearer-and-field mapping without native admission."
+        },
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "The candidate identifies Atom as the Artifact's narrower Entity, retaining Atom as the Local Tier bearer."
+        }
+      ],
+      "preserved_distinctions": [
+        "Principle remains the Local Tier allowed value, not a new root, Atom subtype, named Workflow, or selector.",
+        "Named Actions, Workflow-owned Steps, Workflow/Step Runs, ON_RESULT transitions, source frontier, Revision checks, Journal, and execution evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+      "source_atom_id": "CA-O-028",
+      "source_version": 8,
+      "source_sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Select Reconciliation Sources",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+          "sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+          "start_line": 39,
+          "end_line": 86,
+          "span_sha256": "5bf3670811b1f81d538a7afe8ebe076e63269327b1aafa8c6e326bfb73cc9033",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Workflow reuses exact named Actions through Workflow-owned Steps and preserves Workflow-scoped ON_RESULT transitions. It does not establish one unqualified candidate Entity for the selected Action labels, field labels, or Workflow definition; generic Atom or Execution would lose the definition/run and transition qualifications.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Named Actions, Workflow-owned Steps, Workflow/Step Runs, ON_RESULT transitions, source frontier, Principle and Revision checks, and Journal/execution evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+      "source_atom_id": "CA-O-028",
+      "source_version": 8,
+      "source_sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Assess Source Conflicts",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+          "sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+          "start_line": 39,
+          "end_line": 86,
+          "span_sha256": "5bf3670811b1f81d538a7afe8ebe076e63269327b1aafa8c6e326bfb73cc9033",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Workflow reuses exact named Actions through Workflow-owned Steps and preserves Workflow-scoped ON_RESULT transitions. It does not establish one unqualified candidate Entity for the selected Action labels, field labels, or Workflow definition; generic Atom or Execution would lose the definition/run and transition qualifications.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Named Actions, Workflow-owned Steps, Workflow/Step Runs, ON_RESULT transitions, source frontier, Principle and Revision checks, and Journal/execution evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md#subjects.depends_on[8]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+      "source_atom_id": "CA-O-028",
+      "source_version": 8,
+      "source_sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+      "field": "depends_on",
+      "index": 8,
+      "old_value": "Propose Source Corrections",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+          "sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+          "start_line": 39,
+          "end_line": 86,
+          "span_sha256": "5bf3670811b1f81d538a7afe8ebe076e63269327b1aafa8c6e326bfb73cc9033",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Workflow reuses exact named Actions through Workflow-owned Steps and preserves Workflow-scoped ON_RESULT transitions. It does not establish one unqualified candidate Entity for the selected Action labels, field labels, or Workflow definition; generic Atom or Execution would lose the definition/run and transition qualifications.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Named Actions, Workflow-owned Steps, Workflow/Step Runs, ON_RESULT transitions, source frontier, Principle and Revision checks, and Journal/execution evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md#subjects.depends_on[9]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+      "source_atom_id": "CA-O-028",
+      "source_version": 8,
+      "source_sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+      "field": "depends_on",
+      "index": 9,
+      "old_value": "Obtain Source Correction Decision",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+          "sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+          "start_line": 39,
+          "end_line": 86,
+          "span_sha256": "5bf3670811b1f81d538a7afe8ebe076e63269327b1aafa8c6e326bfb73cc9033",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Workflow reuses exact named Actions through Workflow-owned Steps and preserves Workflow-scoped ON_RESULT transitions. It does not establish one unqualified candidate Entity for the selected Action labels, field labels, or Workflow definition; generic Atom or Execution would lose the definition/run and transition qualifications.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Named Actions, Workflow-owned Steps, Workflow/Step Runs, ON_RESULT transitions, source frontier, Principle and Revision checks, and Journal/execution evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+      "source_atom_id": "CA-O-028",
+      "source_version": 8,
+      "source_sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+      "field": "governs",
+      "index": null,
+      "old_value": "RMEDO Conflict Resolution",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+          "sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+          "start_line": 39,
+          "end_line": 86,
+          "span_sha256": "5bf3670811b1f81d538a7afe8ebe076e63269327b1aafa8c6e326bfb73cc9033",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Workflow reuses exact named Actions through Workflow-owned Steps and preserves Workflow-scoped ON_RESULT transitions. It does not establish one unqualified candidate Entity for the selected Action labels, field labels, or Workflow definition; generic Atom or Execution would lose the definition/run and transition qualifications.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Named Actions, Workflow-owned Steps, Workflow/Step Runs, ON_RESULT transitions, source frontier, Principle and Revision checks, and Journal/execution evidence remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md",
+      "source_atom_id": "CA-O-051",
+      "source_version": 6,
+      "source_sha256": "a5fc844d29549361d9a835786324956ef6040a2dc9ab88c3a884aeac103850ff",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Artifact/Revision/Archive Carrier Basename",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md",
+          "sha256": "a5fc844d29549361d9a835786324956ef6040a2dc9ab88c3a884aeac103850ff",
+          "start_line": 24,
+          "end_line": 37,
+          "span_sha256": "c9c0bf1365cccf2438a5488e5957aa58b3495e1c9579dffc2f0f4a57f3bbe179",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Action requires a canonical archive basename suffix while distinguishing Carrier archival, Atom replacement, Journal history, and formal relations. The candidate preserves Carrier and Revision as separate roots, so generic Carrier or Revision would lose the archive-basename and transition qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Successor activation, predecessor archival, whole Carrier, archive basename suffix, Journal replacement record, and deferred formal relations remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md",
+      "source_atom_id": "CA-O-051",
+      "source_version": 6,
+      "source_sha256": "a5fc844d29549361d9a835786324956ef6040a2dc9ab88c3a884aeac103850ff",
+      "field": "governs",
+      "index": null,
+      "old_value": "Persist Atom Replacement",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md",
+          "sha256": "a5fc844d29549361d9a835786324956ef6040a2dc9ab88c3a884aeac103850ff",
+          "start_line": 24,
+          "end_line": 37,
+          "span_sha256": "c9c0bf1365cccf2438a5488e5957aa58b3495e1c9579dffc2f0f4a57f3bbe179",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current Action requires a canonical archive basename suffix while distinguishing Carrier archival, Atom replacement, Journal history, and formal relations. The candidate preserves Carrier and Revision as separate roots, so generic Carrier or Revision would lose the archive-basename and transition qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Successor activation, predecessor archival, whole Carrier, archive basename suffix, Journal replacement record, and deferred formal relations remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+      "source_atom_id": "CA-O-052",
+      "source_version": 4,
+      "source_sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+      "field": "governs",
+      "index": null,
+      "old_value": "Resolve Project Initialization Inputs",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+          "sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+          "start_line": 30,
+          "end_line": 44,
+          "span_sha256": "b32490be3e76a16ef6d5d62fe8b9891b05dd396b96868ee84dc6fd500bda5ada",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines a reusable initialization-resolution Action. It references Settings Artifacts and their Carriers but does not establish a candidate Entity identity for the named Action; generic Artifact would erase Project-specific authority and pre-derivation ordering.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Project Settings, Framework Instance Settings, registered Settings Carriers, Project Structure, Projection non-substitution, and Project boundary remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-053-CORE_META_MODEL-ACTION--migrate-atoms-to-a-current-cce-version.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-053-CORE_META_MODEL-ACTION--migrate-atoms-to-a-current-cce-version.md",
+      "source_atom_id": "CA-O-053",
+      "source_version": 5,
+      "source_sha256": "0a6fb268305299de993722f2f3984e8edae990938e3c76c02f29baf29bb1fc82",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "CCE",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-053-CORE_META_MODEL-ACTION--migrate-atoms-to-a-current-cce-version.md",
+          "sha256": "0a6fb268305299de993722f2f3984e8edae990938e3c76c02f29baf29bb1fc82",
+          "start_line": 31,
+          "end_line": 46,
+          "span_sha256": "2d711c4734eeefbe958dc76bcfcda423ba32d60ece3d7f4c62f3e3d31115b9e1",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body treats CCE as representation authority and defines a named migration Action. It does not establish CCE as a candidate Entity or permit collapsing the Action into Atom while preserving identity, Claim, Summary, lifecycle, confidence, and Operator boundary.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Representation conversion, Atom identity, Claim, Summary, lifecycle, Projection validation, confidence threshold, and Operator/AI authority remain distinct."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-053-CORE_META_MODEL-ACTION--migrate-atoms-to-a-current-cce-version.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-053-CORE_META_MODEL-ACTION--migrate-atoms-to-a-current-cce-version.md",
+      "source_atom_id": "CA-O-053",
+      "source_version": 5,
+      "source_sha256": "0a6fb268305299de993722f2f3984e8edae990938e3c76c02f29baf29bb1fc82",
+      "field": "governs",
+      "index": null,
+      "old_value": "Migrate Atom CCE Representation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-053-CORE_META_MODEL-ACTION--migrate-atoms-to-a-current-cce-version.md",
+          "sha256": "0a6fb268305299de993722f2f3984e8edae990938e3c76c02f29baf29bb1fc82",
+          "start_line": 31,
+          "end_line": 46,
+          "span_sha256": "2d711c4734eeefbe958dc76bcfcda423ba32d60ece3d7f4c62f3e3d31115b9e1",
+          "reason": "Complete current owning Main Content was read from the second frontmatter delimiter through EOF for this exact assigned origin."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body treats CCE as representation authority and defines a named migration Action. It does not establish CCE as a candidate Entity or permit collapsing the Action into Atom while preserving identity, Claim, Summary, lifecycle, confidence, and Operator boundary.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Representation conversion, Atom identity, Claim, Summary, lifecycle, Projection validation, confidence threshold, and Operator/AI authority remain distinct."
+      ]
+    }
+  ],
+  "counts": {
+    "assigned": 37,
+    "covered": 37,
+    "owning_sources": 19,
+    "current_sources": 19,
+    "current_evidence_spans": 37,
+    "owning_current_evidence_spans": 37,
+    "proposed": 3,
+    "unresolved": 34
+  },
+  "limits": [
+    "CA-P-2149 owns exactly the 37 unqualified_origins_006 manifest occurrences and no other origins.",
+    "This is semantic research only; no source migration, native admission, selector, singleton kind, @ syntax, Artifact.Revision target, or source/Tool/Plan/Git change is authorized.",
+    "Named Operation definitions, runtime/record distinctions, Source Reconciliation bindings, and qualified Project/Scope contexts remain unresolved unless the current owner and live Core definition prove a lossless candidate meaning."
+  ],
+  "executable": false
+}

@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Operator]
-version: 1
-updated_at: "2026-10-11 11:39:50 +0400"
+version: 2
+updated_at: "2026-10-11 12:09:45 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   depends_on: [CA-P-2142]
@@ -35,6 +35,10 @@ Own work: at most fifteen minutes. Own only `_projection/core-entity-review/stag
 Read `followups-current-2144-2151.contract.md` and its required contracts. Read complete owning Main Content; live current selected original Core definitions and actual candidate rules determine meaning, not lexical strings. Preserve exact origins, body spans, evidence, qualifiers, specific unsupported distinctions and explicit nulls. Original-Core-only proof is required; Project Configuration is not supporting authority.
 
 No selector adoption, new roots/singleton kinds, @, Artifact.Revision containment, per-Property Carrier registry, original Core/ordinary body/Tool/Plan/Git/runtime/MCP/FPF writes. Workers are not alone; preserve others. Root owns acceptance, Plans, receipts, integration and one commit after actual completion. Decompose unfinished own work rather than mark partial coverage Done.
+
+### Completion
+
+All 37 selected origins across 19 owners passed complete current-body/pin/span/coverage controls, fourteen wrong-data controls and independent semantic reacceptance: three supported proposals and thirty-four explicit nulls. O028's Principle value was recovered; O157's supported Projection Artifact narrowing was preserved after precise adjudication. Declared counts match actual rows; original Core is unchanged. Exact verification is recorded in `_projection/core-entity-review/stage2/task-2149.receipt.json`.
 
 ### Definition of Done
 
