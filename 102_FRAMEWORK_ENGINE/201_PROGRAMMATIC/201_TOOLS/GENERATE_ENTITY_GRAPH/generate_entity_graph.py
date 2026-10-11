@@ -22,8 +22,10 @@ from pydantic import BaseModel, ConfigDict, JsonValue, RootModel
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import artifact_metadata
 from artifact_metadata import atom_identifier
 from project_runtime import atomic_tempfile
+from project_selection import bound_selection
 import subject_notation
 from tool_description import binding_matches, make_tool_description
 
@@ -1167,7 +1169,7 @@ def generate_projection(
         "projection_kind": "ENTITY_GRAPH",
         "generator": TOOL_ID,
         "generation_procedure": "terminal_terms_typed_term_system_edges_and_claim_subject_relations_from_selected_folder",
-        "updated_at": datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %z"),
+        "updated_at": _projection_timestamp(repository),
         "source": {
             "selected_folder": _display_path(selected_folder, repository),
             "atom_count": len(carriers),
@@ -1377,6 +1379,31 @@ def _configured_projection_root(repository: Path) -> Path:
 
 def _default_publication_path(repository: Path, graph_kind: str) -> Path:
     return _configured_projection_root(repository) / DEFAULT_GRAPH_OUTPUT_NAMES[graph_kind]
+
+
+def _projection_timestamp(repository: Path) -> str:
+    """Emit an offset-qualified projection timestamp with standalone fallback."""
+    if bound_selection(repository) is not None:
+        return artifact_metadata.current_timestamp(repository)
+    settings = sorted(repository.glob(f"*/{PROJECT_SETTINGS_FILENAME}"))
+    if not settings:
+        return datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %z")
+    if len(settings) != 1:
+        raise EntityGraphError("project-settings-unavailable", "Exactly one Project Settings carrier is required")
+    settings_path = settings[0]
+    if settings_path.is_symlink() or not settings_path.is_file():
+        raise EntityGraphError("project-settings-invalid", "Project Settings carrier must be a regular file")
+    try:
+        settings_data = tomllib.loads(settings_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        raise EntityGraphError("project-settings-unreadable", "Project Settings cannot be read") from error
+    artifact_timestamps = settings_data.get("artifact_timestamps", {})
+    if not isinstance(artifact_timestamps, Mapping):
+        raise EntityGraphError("project-settings-invalid", "artifact_timestamps must be a table")
+    timezone = artifact_timestamps.get("timezone", "local")
+    if not isinstance(timezone, str) or not timezone:
+        raise EntityGraphError("project-settings-invalid", "artifact_timestamps.timezone must be text")
+    return artifact_metadata.timestamp_for_timezone(timezone)
 
 
 def _validate_frontier(

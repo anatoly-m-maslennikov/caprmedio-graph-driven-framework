@@ -35,7 +35,8 @@ class AtomOperationsTest(unittest.TestCase):
         for directory in (self.requirements, self.methods, self.archive, self.drafts, self.done):
             directory.mkdir(parents=True, exist_ok=True)
         (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
-            "[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n",
+            "[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n"
+            "[artifact_timestamps]\ntimezone = \"Asia/Kolkata\"\n",
             encoding="utf-8",
         )
         (self.root / ".caprmedio_caprmedio/_projection").mkdir()
@@ -71,6 +72,12 @@ class AtomOperationsTest(unittest.TestCase):
         path = self.root / "input.json"
         path.write_text(json.dumps(payload), encoding="utf-8")
         return str(path)
+
+    def _assert_configured_timestamp(self, path: Path) -> None:
+        self.assertRegex(
+            path.read_text(encoding="utf-8"),
+            r'(?m)^updated_at: "\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} \+0530"$',
+        )
 
     def _wrapper_result(self, tool: str, payload: dict, *, apply: bool) -> subprocess.CompletedProcess[str]:
         input_path = self._input(payload)
@@ -213,6 +220,8 @@ class AtomOperationsTest(unittest.TestCase):
         operations.run_create(self.root, argparse.Namespace(input=self._input(payload), apply=True))
         self.assertTrue(all(path.exists() for path in paths))
         self.assertIn("version: 1", paths[0].read_text(encoding="utf-8"))
+        for path in paths:
+            self._assert_configured_timestamp(path)
 
     def test_canonical_create_and_update_wrappers_refuse_standalone_apply_but_preview(self) -> None:
         create_path = self.requirements / "CA-R-344-FRAMEWORK_METHODOLOGY-REQUIREMENT--cli-create.md"
@@ -270,6 +279,8 @@ class AtomOperationsTest(unittest.TestCase):
         self.assertIn("# Changed", self.first.read_text(encoding="utf-8"))
         self.assertIn("version: 2", self.first.read_text(encoding="utf-8"))
         self.assertIn("version: 5", self.second.read_text(encoding="utf-8"))
+        self._assert_configured_timestamp(self.first)
+        self._assert_configured_timestamp(self.second)
 
     def test_move_is_dry_run_and_preserves_bytes(self) -> None:
         target = self.root / ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/04_requirement"
@@ -364,6 +375,8 @@ class AtomOperationsTest(unittest.TestCase):
         self.assertTrue(upgraded.exists())
         self.assertIn("version: 2", upgraded.read_text(encoding="utf-8"))
         self.assertIn("version: 2", (self.methods / "CA-M-101-FRAMEWORK_METHODOLOGY-CORE-IMPL_METHOD--second.md").read_text(encoding="utf-8"))
+        self._assert_configured_timestamp(upgraded)
+        self._assert_configured_timestamp(self.methods / "CA-M-101-FRAMEWORK_METHODOLOGY-CORE-IMPL_METHOD--second.md")
         invalid = {"atoms": [{"selector": "CA-R-343", "tier": "core"}]}
         with self.assertRaises(operations.ToolError) as context:
             operations.run_upgrade(self.root, argparse.Namespace(input=self._input(invalid), apply=False))
@@ -382,6 +395,7 @@ class AtomOperationsTest(unittest.TestCase):
         self.assertFalse(self.first.exists())
         self.assertTrue(target.exists())
         self.assertEqual(operations.resolve_selector(self.root, "CA-R-343").atom_id, before_id)
+        self._assert_configured_timestamp(target)
 
     def test_upgrade_rejects_missing_explicit_tier(self) -> None:
         payload = {"atoms": [{"selector": "CA-R-343"}]}

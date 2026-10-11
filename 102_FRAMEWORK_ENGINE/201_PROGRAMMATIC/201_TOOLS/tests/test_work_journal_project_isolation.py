@@ -99,10 +99,10 @@ class WorkJournalProjectIsolationTest(unittest.TestCase):
     def test_timestamp_reads_exact_project_settings(self) -> None:
         moment = dt.datetime(2026, 10, 10, 12, tzinfo=dt.UTC)
         with mock.patch.object(work_journal.dt, "datetime") as clock:
-            clock.now.return_value = moment
-            work_journal.current_timestamp(self.alpha)
+            clock.now.side_effect = lambda zone: moment.astimezone(zone)
+            self.assertEqual("2026-10-10 12:00:00 +0000", work_journal.current_timestamp(self.alpha))
             self.assertEqual(dt.UTC, clock.now.call_args.args[0])
-            work_journal.current_timestamp(self.beta)
+            self.assertEqual("2026-10-10 16:00:00 +0400", work_journal.current_timestamp(self.beta))
             self.assertEqual("Asia/Tbilisi", clock.now.call_args.args[0].key)
 
     def test_existing_canonical_project_remains_supported(self) -> None:

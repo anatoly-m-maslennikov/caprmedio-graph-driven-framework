@@ -28,7 +28,7 @@ from collections.abc import Mapping
 
 
 SETTINGS_PATH = Path(".caprmedio_caprmedio/caprmedio_project_settings.toml")
-TIMESTAMP_FORMAT = "%Y-%m-%d %H:%M:%S"
+TIMESTAMP_FORMAT = "%Y-%m-%d %H:%M:%S %z"
 YAML_DELIMITER = "---"
 TOML_DELIMITER = "+++"
 
@@ -100,6 +100,10 @@ def configured_timezone(root: Path) -> dt.tzinfo | None:
     selection = bound_selection(root)
     settings = selection.settings if selection is not None else tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
     value = settings.get("artifact_timestamps", {}).get("timezone", "local")
+    return _timezone_value(value)
+
+
+def _timezone_value(value: str) -> dt.tzinfo | None:
     if value == "local":
         return None
     if value == "UTC":
@@ -110,10 +114,18 @@ def configured_timezone(root: Path) -> dt.tzinfo | None:
         raise RuntimeError(f"unknown artifact timestamp timezone: {value}") from error
 
 
-def current_timestamp(root: Path) -> str:
-    timezone = configured_timezone(root)
+def _timestamp(timezone: dt.tzinfo | None) -> str:
     moment = dt.datetime.now().astimezone() if timezone is None else dt.datetime.now(timezone)
     return moment.strftime(TIMESTAMP_FORMAT)
+
+
+def timestamp_for_timezone(value: str) -> str:
+    """Format a current instant from an already selected timezone setting."""
+    return _timestamp(_timezone_value(value))
+
+
+def current_timestamp(root: Path) -> str:
+    return _timestamp(configured_timezone(root))
 
 
 def split_frontmatter(text: str, path: Path) -> tuple[str, str, str]:
@@ -134,6 +146,8 @@ def property_pattern(delimiter: str, name: str) -> re.Pattern[str]:
 
 def property_line(delimiter: str, name: str, value: str | int) -> str:
     if delimiter == YAML_DELIMITER:
+        if name == "updated_at":
+            return f'{name}: "{value}"'
         return f"{name}: {value}"
     rendered = str(value) if isinstance(value, int) else f'"{value}"'
     return f"{name} = {rendered}"

@@ -1,0 +1,50 @@
+{
+  "task_id": "CA-P-2165",
+  "non_authoritative": true,
+  "effect_status": "applied_pending_independent_verification_and_recording",
+  "updated_at": "2026-10-11 18:10:42 +0400",
+  "effects": [
+    {
+      "operation": "timestamp_policy_revision",
+      "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL--configure-the-artifact-timestamp-timezone.md",
+      "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL--configure-the-artifact-timestamp-timezone.md",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archive/CA-D-390-CORE_META_MODEL--configure-the-artifact-timestamp-timezone@8.md",
+      "old_id": "CA-D-390",
+      "new_id": "CA-D-390",
+      "old_version": 8,
+      "new_version": 9,
+      "before_sha256": "3042bb9e7056b85e8b0b248e83869f8145260da9813ca31101963e923bf4c67e",
+      "after_sha256": "a4957851271de8fbecb7b410675f01f113749ce1e002fe2574185457bc83fdfe",
+      "replacement_count": 1
+    },
+    {
+      "operation": "timestamp_metadata_repair",
+      "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source@1.md",
+      "old_id": "CA-R-1873",
+      "new_id": "CA-R-1873",
+      "old_version": 1,
+      "new_version": 2,
+      "before_sha256": "cf857c75b7e791c035eb34ee63801010d72cc4ad8bf39852ea76e933b9fe53a6",
+      "after_sha256": "aa41d54591c5e81f69469712297bc60e8d3be85baa971c454d604413d3f95735",
+      "replacement_count": 0
+    },
+    {
+      "operation": "timestamp_metadata_repair",
+      "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL--deliver-runtime-journals-to-configured-sinks.md",
+      "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL--deliver-runtime-journals-to-configured-sinks.md",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archive/CA-D-559-CORE_META_MODEL--deliver-runtime-journals-to-configured-sinks@1.md",
+      "old_id": "CA-D-559",
+      "new_id": "CA-D-559",
+      "old_version": 1,
+      "new_version": 2,
+      "before_sha256": "a0efc0dc67bbac626021e6137567d953f20314e8102c926099f8e4f2d71fd7fa",
+      "after_sha256": "05f5fe54a8bf3fbe12389054d202b37f303a96e9fc387e3705bc016c0befc11b",
+      "replacement_count": 0
+    }
+  ],
+  "source_migration": "timestamp_policy_and_two_metadata_repairs_only",
+  "subject_migration": "not_performed",
+  "native_admission": "not_performed"
+}

@@ -8,6 +8,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 
@@ -59,6 +60,79 @@ def atom(
 
 
 class GenerateEntityGraphTests(unittest.TestCase):
+    def _settings(self, value: str, *, duplicate: bool = False) -> None:
+        control = self.root / ".caprmedio_caprmedio"
+        control.mkdir(exist_ok=True)
+        text = f'[artifact_timestamps]\ntimezone = "{value}"\n'
+        (control / "caprmedio_project_settings.toml").write_text(text, encoding="utf-8")
+        if duplicate:
+            other = self.root / "other"
+            other.mkdir()
+            (other / "caprmedio_project_settings.toml").write_text(text, encoding="utf-8")
+
+    def test_projection_timestamp_is_offset_qualified_without_settings(self) -> None:
+        self.write("CA-R-000.md", atom("CA-R-000", cce_form="definition", governs=("Standalone",)))
+        value = generate_entity_graph.generate_projection(self.root, self.selected)["updated_at"]
+        self.assertRegex(value, r"^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} [+-]\d{4}$")
+
+    def test_projection_timestamp_honors_utc_and_iana_settings(self) -> None:
+        self.write("CA-R-001.md", atom("CA-R-001", cce_form="definition", governs=("Configured",)))
+        for zone, suffix in (("UTC", "+0000"), ("Pacific/Kiritimati", "+1400")):
+            with self.subTest(zone=zone):
+                self._settings(zone)
+                value = generate_entity_graph.generate_projection(self.root, self.selected)["updated_at"]
+                self.assertTrue(value.endswith(suffix), value)
+                (self.root / ".caprmedio_caprmedio" / "caprmedio_project_settings.toml").unlink()
+
+    def test_projection_timestamp_honors_valid_alternative_control_settings(self) -> None:
+        self.write("CA-R-001b.md", atom("CA-R-001b", cce_form="definition", governs=("Alternative",)))
+        alternative = self.root / "alternative_control"
+        alternative.mkdir()
+        (alternative / "caprmedio_project_settings.toml").write_text(
+            '[artifact_timestamps]\ntimezone = "UTC"\n', encoding="utf-8"
+        )
+        value = generate_entity_graph.generate_projection(self.root, self.selected)["updated_at"]
+        self.assertTrue(value.endswith("+0000"), value)
+
+    def test_projection_timestamp_rejects_malformed_unknown_and_duplicate_settings(self) -> None:
+        self.write("CA-R-002.md", atom("CA-R-002", cce_form="definition", governs=("Invalid",)))
+        control = self.root / ".caprmedio_caprmedio"
+        control.mkdir()
+        settings = control / "caprmedio_project_settings.toml"
+        settings.write_text("[artifact_timestamps\ntimezone = 'UTC'\n", encoding="utf-8")
+        with self.assertRaises(Exception):
+            generate_entity_graph.generate_projection(self.root, self.selected)
+        settings.write_text('[artifact_timestamps]\ntimezone = "Mars/Unknown"\n', encoding="utf-8")
+        with self.assertRaises(Exception):
+            generate_entity_graph.generate_projection(self.root, self.selected)
+        self._settings("UTC", duplicate=True)
+        with self.assertRaises(generate_entity_graph.EntityGraphError):
+            generate_entity_graph.generate_projection(self.root, self.selected)
+
+    def test_projection_timestamp_rejects_symlink_and_directory_settings(self) -> None:
+        self.write("CA-R-003.md", atom("CA-R-003", cce_form="definition", governs=("Invalid Carrier",)))
+        control = self.root / ".caprmedio_caprmedio"
+        control.mkdir()
+        target = control / "real.toml"
+        target.write_text('[artifact_timestamps]\ntimezone = "UTC"\n', encoding="utf-8")
+        settings = control / "caprmedio_project_settings.toml"
+        settings.symlink_to(target)
+        with self.assertRaises(generate_entity_graph.EntityGraphError):
+            generate_entity_graph.generate_projection(self.root, self.selected)
+        settings.unlink()
+        settings.mkdir()
+        with self.assertRaises(generate_entity_graph.EntityGraphError):
+            generate_entity_graph.generate_projection(self.root, self.selected)
+
+    def test_projection_timestamp_uses_bound_project_selection(self) -> None:
+        self.write("CA-R-004.md", atom("CA-R-004", cce_form="definition", governs=("Bound",)))
+        with patch.object(generate_entity_graph, "bound_selection", return_value=object()), patch.object(
+            generate_entity_graph.artifact_metadata, "current_timestamp", return_value="2026-10-11 00:00:00 +0000"
+        ) as formatter:
+            value = generate_entity_graph.generate_projection(self.root, self.selected)["updated_at"]
+        self.assertEqual("2026-10-11 00:00:00 +0000", value)
+        formatter.assert_called_once_with(self.root)
+
     def test_filename_migration_preserves_unstated_canonical_identity(self) -> None:
         first = self.write("CA-R-123-MMODEL-CORE-REQUIREMENT--old.md",
                            atom("CA-R-123", cce_form="definition", governs=("Atom",)).replace("atom_id: CA-R-123\n", ""))

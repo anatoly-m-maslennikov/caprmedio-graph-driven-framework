@@ -10,12 +10,12 @@ import re
 import sys
 import tomllib
 from dataclasses import dataclass, replace
-from datetime import datetime
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from project_runtime import atomic_tempfile
 from project_selection import bound_selection
+from artifact_metadata import current_timestamp
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
     ProposedCarrierError,
     source_context_from_project,
@@ -325,7 +325,7 @@ def _normalize_frontmatter(value: Any) -> str:
     return normalized
 
 
-def _revision(frontmatter: str, *, creating: bool) -> str:
+def _revision(root: Path, frontmatter: str, *, creating: bool) -> str:
     lines = frontmatter.splitlines()
     index = next((i for i, line in enumerate(lines) if re.fullmatch(r"version:\s*[0-9]+\s*", line)), None)
     current = int(lines[index].split(":", 1)[1]) if index is not None else 0
@@ -334,7 +334,7 @@ def _revision(frontmatter: str, *, creating: bool) -> str:
         lines.append(line)
     else:
         lines[index] = line
-    stamp = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %z")
+    stamp = current_timestamp(root)
     index = next((i for i, line in enumerate(lines) if line.startswith("updated_at:")), None)
     line = f'updated_at: "{stamp}"'
     if index is None:
@@ -488,7 +488,7 @@ def prepare_create_atom_revision(
         return path, normalized, atom_id
     if not isinstance(content, str):
         raise ToolError("complete-carrier-required", "new Atom carrier content is required before preparation")
-    prepared = _revision(normalized, creating=creating) if creating else normalized
+    prepared = _revision(root, normalized, creating=creating) if creating else normalized
     _validate_complete_carrier(root, path, prepared, content, creating=creating)
     return path, prepared, atom_id
 
@@ -801,7 +801,7 @@ def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         if atom_id:
             planned_ids.add(atom_id)
         frontmatter = _with_atom_id(_normalize_frontmatter(item.get("frontmatter", "")), atom_id)
-        frontmatter = _revision(frontmatter, creating=True)
+        frontmatter = _revision(root, frontmatter, creating=True)
         plans.append((path, render(frontmatter, item.get("content", ""))))
     result = {"count": len(plans), "changes": [{"operation": "create", "path": p.relative_to(root).as_posix()} for p, _ in plans]}
     if not args.apply:
@@ -848,7 +848,7 @@ def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         frontmatter = _normalize_frontmatter(item["frontmatter"]) if "frontmatter" in item else atom.frontmatter
         frontmatter = _with_atom_id(frontmatter, atom.atom_id)
         content = item["content"] if "content" in item else atom.content
-        plans.append((atom, render(_revision(frontmatter, creating=False), content)))
+        plans.append((atom, render(_revision(root, frontmatter, creating=False), content)))
     result = {"count": len(plans), "changes": [{"operation": "update", "path": atom.relative} for atom, _ in plans]}
     if not args.apply:
         return result
@@ -1175,7 +1175,7 @@ def run_upgrade(root: Path, args: argparse.Namespace) -> dict[str, Any]:
             raise ToolError("upgrade-location-missing", f"Atom has no content-role location: {atom.relative}")
         target = (rows[target_scope]["full_authority_path"] / role_name / filename).resolve()
         _validate_destination(root, target, filename_required=True)
-        frontmatter = _revision(atom.frontmatter, creating=False)
+        frontmatter = _revision(root, atom.frontmatter, creating=False)
         plans.append((atom, target, render(frontmatter, atom.content), current_tier, target_tier, current_scope, target_scope))
 
     targets = [target for _, target, *_ in plans]

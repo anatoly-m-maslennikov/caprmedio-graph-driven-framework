@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2165",
+  "non_authoritative": true,
+  "result": "PASS",
+  "implementation_pins": [
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/artifact_metadata.py",
+      "sha256": "1a0e5e15cb9f5404a9cb0c782a9761f118a90cc337a1c8a46b5b1261f2e7badf"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/work_journal.py",
+      "sha256": "f2367f563ff9635dfbb8180b2e6164b53ae0359bb1686b8b098a05fbf5ae0c6f"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py",
+      "sha256": "62294825a86437dc85729060b4544367f1a07b25a8c571a47725cc580feebc2c"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/lifecycle_intents.py",
+      "sha256": "5648d362fd48c4a0b1e9c9c30d2f3dac60714323f73712b1ce5bb9da936f30bb"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests/test_artifact_metadata.py",
+      "sha256": "964d45951da6ebbd83cc4adcd4ac7f747478374f6678d4dafdc0297f2feaa524"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests/test_work_journal_project_isolation.py",
+      "sha256": "ee8262f967a85c398a1798960932e9ab486f34c4f84ecc927fd084e06a71b86b"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_atom_operations.py",
+      "sha256": "6b53bad00e9e063ce1fa4c206b26c3c8ce30ca02f59dffd0d8d4cf4ad9bde8af"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests/test_selected_atom_lifecycle.py",
+      "sha256": "ebf0582dfcfeac9c708733ec12ee063bc3903d4be637f57a7324115abf5c503c"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/generate_entity_graph.py",
+      "sha256": "9a883844b1c1e64b0b416db75fe4be871dd7797589d33660a9061362e6811a7a"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_generate_entity_graph.py",
+      "sha256": "1a03b3fdcc056dab2a99c3794fc72629955d93c8c40414ecfd4ce515d0e06fd5"
+    }
+  ],
+  "source_review": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/approved-implementation/task-2165.source-verification.json",
+    "sha256": "b8eef949cc406643f7a416ba5214a6b16fc13411cb74f01864ed0ce179e72e1e"
+  },
+  "independent_static_review": {
+    "reviewer": "domain_semantic_acceptance",
+    "result": "PASS",
+    "independently_executed_tests": false,
+    "findings_resolved": [
+      "present invalid Settings cannot become absent fallback",
+      "alternative selected Settings use their own timezone",
+      "bound Project selection retained"
+    ],
+    "accepted": [
+      "offset formatting",
+      "updated_at-only YAML quoting",
+      "configured local UTC IANA retained",
+      "operative revision and lifecycle root binding",
+      "standalone graph absent-Settings local aware retained"
+    ]
+  },
+  "root_verification": {
+    "schema_version": 1,
+    "task": "CA-P-2166",
+    "non_authoritative": true,
+    "result": "PASS",
+    "total_tests": 171,
+    "suites": [
+      {
+        "suite": "atom-search",
+        "command": [
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/cache/uv/builds-v0/.tmpVZXuYf/bin/python",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests",
+          "-p",
+          "test_*.py"
+        ],
+        "exit_code": 0,
+        "test_count": 49,
+        "test_file_pins": [
+          {
+            "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_atom_operations.py",
+            "sha256": "6b53bad00e9e063ce1fa4c206b26c3c8ce30ca02f59dffd0d8d4cf4ad9bde8af"
+          },
+          {
+            "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py",
+            "sha256": "925cccb20efe2b4f562c6872ab6e56bfd075f21f33fd0c47faefa59073eca575"
+          },
+          {
+            "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_notation.py",
+            "sha256": "ed2618f40f66f24e00eac598d8d2571ef8d680e54762c502b51e307c16f6ddf8"
+          }
+        ],
+        "output": ".................................................\n----------------------------------------------------------------------\nRan 49 tests in 2.282s\n\nOK\n",
+        "output_sha256": "820327ca7677f5aef0f0ed0dcaebfe0b6e252d66896c9cc3cd7dc0c818dda702"
+      },
+      {
+        "suite": "artifact-metadata",
+        "command": [
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/cache/uv/builds-v0/.tmpVZXuYf/bin/python",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests",
+          "-p",
+          "test_artifact_metadata.py"
+        ],
+        "exit_code": 0,
+        "test_count": 8,
+        "test_file_pins": [
+          {
+            "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests/test_artifact_metadata.py",
+            "sha256": "964d45951da6ebbd83cc4adcd4ac7f747478374f6678d4dafdc0297f2feaa524"
+          }
+        ],
+        "output": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.026s\n\nOK\n",
+        "output_sha256": "fdb64f76ee3faf48d76ab43bbb2a2d0a9d4cc51971bf0df9590990e31971669c"
+      },
+      {
+        "suite": "journal-project-isolation",
+        "command": [
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/cache/uv/builds-v0/.tmpVZXuYf/bin/python",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests",
+          "-p",
+          "test_work_journal_project_isolation.py"
+        ],
+        "exit_code": 0,
+        "test_count": 11,
+        "test_file_pins": [
+          {
+            "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests/test_work_journal_project_isolation.py",
+            "sha256": "ee8262f967a85c398a1798960932e9ab486f34c4f84ecc927fd084e06a71b86b"
+          }
+        ],
+        "output": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.126s\n\nOK\n",
+        "output_sha256": "243d9f12aca1e6da8aa0f7b3bcf5ccd1e5fc47e87caff6bc6b68009466b67934"
+      },
+      {
+        "suite": "selected-atom-lifecycle",
+        "command": [
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/cache/uv/builds-v0/.tmpVZXuYf/bin/python",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests",
+          "-p",
+          "test_selected_atom_lifecycle.py"
+        ],
+        "exit_code": 0,
+        "test_count": 30,
+        "test_file_pins": [
+          {
+            "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests/test_selected_atom_lifecycle.py",
+            "sha256": "ebf0582dfcfeac9c708733ec12ee063bc3903d4be637f57a7324115abf5c503c"
+          }
+        ],
+        "output": "..............................\n----------------------------------------------------------------------\nRan 30 tests in 5.184s\n\nOK\n",
+        "output_sha256": "3f6ddc6a83b5590f570844fa0cef3bb935011b082e2c9f3eb2ae5d52a25edb32"
+      },
+      {
+        "suite": "schema-quotation",
+        "command": [
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/cache/uv/builds-v0/.tmpVZXuYf/bin/python",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS/tests",
+          "-p",
+          "test_schema_extended.py"
+        ],
+        "exit_code": 0,
+        "test_count": 40,
+        "test_file_pins": [
+          {
+            "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS/tests/test_schema_extended.py",
+            "sha256": "824ebce351821e7702cf057adec1acadc30e029518a950891171d54c3726b10d"
+          }
+        ],
+        "output": "........................................\n----------------------------------------------------------------------\nRan 40 tests in 4.092s\n\nOK\n",
+        "output_sha256": "e121cbe26cd3aab1906a2149a17cb34d36b873e75f28ccc660f9c940ca3bc476"
+      },
+      {
+        "suite": "authority-checks",
+        "command": [
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/cache/uv/builds-v0/.tmpVZXuYf/bin/python",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS/tests",
+          "-p",
+          "test_authority_checks.py"
+        ],
+        "exit_code": 0,
+        "test_count": 15,
+        "test_file_pins": [
+          {
+            "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS/tests/test_authority_checks.py",
+            "sha256": "4c599334511dfcbe409840b58e9a9ef9400c755ea1406b12fff560a332eb67da"
+          }
+        ],
+        "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.036s\n\nOK\n",
+        "output_sha256": "138be6c28b7ac345ad5e358601bf14e9f604f3d3e1091145731fdfedb4eb64d4"
+      },
+      {
+        "suite": "graph-timestamp",
+        "command": [
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_tmp/cache/uv/builds-v0/.tmpVZXuYf/bin/python",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests",
+          "-p",
+          "test_generate_entity_graph.py"
+        ],
+        "exit_code": 0,
+        "test_count": 18,
+        "test_file_pins": [
+          {
+            "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_generate_entity_graph.py",
+            "sha256": "1a03b3fdcc056dab2a99c3794fc72629955d93c8c40414ecfd4ce515d0e06fd5"
+          }
+        ],
+        "output": "..................\n----------------------------------------------------------------------\nRan 18 tests in 0.824s\n\nOK\n",
+        "output_sha256": "b9805aea75645f98aa1a8d4d877ffce8eea892069d6d1c6878fa82c7ac2fffa3"
+      }
+    ],
+    "source_migration": "not_performed_by_verifier",
+    "native_admission": "not_performed"
+  },
+  "source_migration": "timestamp_policy_and_two_metadata_repairs_only",
+  "subject_migration": "not_performed",
+  "native_admission": "not_performed"
+}

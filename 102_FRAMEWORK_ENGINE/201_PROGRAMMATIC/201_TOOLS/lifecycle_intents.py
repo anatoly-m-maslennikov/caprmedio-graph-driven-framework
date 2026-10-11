@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-from datetime import datetime
 import hashlib
 import json
 import re
@@ -14,6 +13,7 @@ from pathlib import Path
 from typing import Any
 
 from authoritative_status_models import StatusModelError, resolve_status_model
+from artifact_metadata import current_timestamp
 from atom_operations import (
     Atom,
     _atomic_write,
@@ -372,11 +372,11 @@ def _summary(content: str) -> str:
     raise LifecycleError("summary-missing", "# Summary must carry a non-empty value")
 
 
-def _refresh_frontmatter(frontmatter: str, *, version: int | None = None) -> str:
+def _refresh_frontmatter(root: Path, frontmatter: str, *, version: int | None = None) -> str:
     result = frontmatter
     if version is not None:
         result = replace_frontmatter_scalar(result, "version", str(version))
-    stamp = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %z")
+    stamp = current_timestamp(root)
     return replace_frontmatter_scalar(result, "updated_at", f'"{stamp}"')
 
 
@@ -1124,7 +1124,7 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
     if before_bytes is not None and hashlib.sha256(before_bytes).hexdigest() != prior["digest"]:
         raise LifecycleError("carrier-stale", "same-ID Update current bytes changed before publication")
     try:
-        frontmatter = _refresh_frontmatter(proposed["frontmatter"], version=next_version)
+        frontmatter = _refresh_frontmatter(root, proposed["frontmatter"], version=next_version)
         draft_history: tuple[dict[str, str], dict[str, Any], dict[str, Any] | None] | None = None
         if target.lifecycle == "draft":
             from draft_history import DraftHistoryError, append_draft_entry, reserve_history_entry, validate_current_draft_head
@@ -1279,7 +1279,7 @@ def change_status_atom_action(root: Path, parameters: Mapping[str, Any], *, exec
     prior_revision: Atom | None = None
     try:
         frontmatter = replace_frontmatter_scalar(target.frontmatter, "status", requested)
-        frontmatter = _refresh_frontmatter(frontmatter)
+        frontmatter = _refresh_frontmatter(root, frontmatter)
         if requested.casefold() == "draft":
             from draft_history import append_draft_entry, reserve_history_entry
 
@@ -1415,7 +1415,7 @@ def replace_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: b
             created = create_atom_revision(root, successor["path"], successor["frontmatter"], successor["content"])
             published.append(carrier_descriptor(root, created))
         frontmatter = replace_frontmatter_scalar(predecessor.frontmatter, "status", archive_status)
-        frontmatter = _refresh_frontmatter(frontmatter)
+        frontmatter = _refresh_frontmatter(root, frontmatter)
         archived = archive_atom_revision(root, predecessor, frontmatter, predecessor.content)
     except AtomToolError as error:
         if not published:

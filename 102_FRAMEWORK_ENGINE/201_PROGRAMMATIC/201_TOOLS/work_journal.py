@@ -154,7 +154,7 @@ def current_timestamp(root: Path) -> str:
             moment = dt.datetime.now(ZoneInfo(value))
         except ZoneInfoNotFoundError as error:
             raise RuntimeError(f"unknown artifact timestamp timezone: {value}") from error
-    return moment.strftime("%Y-%m-%d %H:%M:%S")
+    return moment.strftime("%Y-%m-%d %H:%M:%S %z")
 
 
 class WorkJournalError(RuntimeError):

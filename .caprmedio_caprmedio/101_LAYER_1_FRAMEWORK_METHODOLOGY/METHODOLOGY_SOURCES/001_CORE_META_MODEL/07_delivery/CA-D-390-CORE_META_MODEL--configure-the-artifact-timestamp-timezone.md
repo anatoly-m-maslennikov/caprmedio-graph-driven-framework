@@ -5,8 +5,8 @@ subjects:
     - "Framework Instance Settings"
     - "Artifact/Revision"
     - "Carrier"
-version: 8
-updated_at: "2026-10-02 19:36:21 +0400"
+version: 9
+updated_at: "2026-10-11 18:10:42 +0400"
 relations:
   child_of:
     - "CA-D-311"
@@ -30,6 +30,6 @@ the Artifact timestamp timezone setting in Framework Instance Settings.
 
 ## Claim
 
-the Framework Instance Settings Artifact **may** set `[artifact_timestamps].timezone` **to** `local`, `UTC`, **or** an IANA timezone name, with `local` as the default; **every** emitted `updated_at` value uses `YYYY-MM-DD HH:MM:SS`, **and** the setting supplies its timezone interpretation.
+the Framework Instance Settings Artifact **may** set `[artifact_timestamps].timezone` **to** `local`, `UTC`, **or** an IANA timezone name, with `local` as the default; **every** emitted `updated_at` value uses `YYYY-MM-DD HH:MM:SS +ZZZZ` with its explicit numeric UTC offset, **and** the setting supplies its timezone interpretation.
 
 ## Details

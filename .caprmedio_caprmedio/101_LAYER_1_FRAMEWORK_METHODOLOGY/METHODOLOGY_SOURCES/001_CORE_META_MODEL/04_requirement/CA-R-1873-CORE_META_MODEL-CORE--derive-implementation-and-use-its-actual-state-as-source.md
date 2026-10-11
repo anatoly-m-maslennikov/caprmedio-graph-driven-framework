@@ -10,8 +10,8 @@ author: Anatoly Maslennikov
 subjects:
   governs: "Implementation/Derivation and Actual-State Authority"
   depends_on: [Implementation, Projection, Journal, Carrier]
-version: 1
-updated_at: 2026-10-04 22:30:05
+version: 2
+updated_at: "2026-10-11 18:10:42 +0400"
 relations: {relates_to: [CA-R-1470, CA-R-1746, CA-R-1343]}
 ---
 # Summary

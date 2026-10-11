@@ -29,20 +29,20 @@ from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier  # noqa: E402
 
 REQUIREMENT_STATUS_AUTHORITY = (
     REPOSITORY
-    / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
-    / "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement"
+    / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+    / "001_CORE_META_MODEL/04_requirement"
     / "CA-R-1309-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-requirement-status-values.md"
 )
 DELIVERY_STATUS_AUTHORITY = (
     REPOSITORY
-    / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
-    / "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement"
+    / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+    / "001_CORE_META_MODEL/04_requirement"
     / "CA-R-1399-CORE_META_MODEL-GENERAL--register-core-delivery-status-values.md"
 )
 SEMANTIC_ASSESSMENT_AUTHORITIES = tuple(
     REPOSITORY
-    / ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY"
-    / "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement"
+    / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+    / "001_CORE_META_MODEL/04_requirement"
     / name
     for name in (
         "CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
@@ -79,7 +79,8 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         )
         self.requirements.mkdir(parents=True)
         (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
-            "[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n", encoding="utf-8"
+            "[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n"
+            "[artifact_timestamps]\ntimezone = \"UTC\"\n", encoding="utf-8"
         )
         self._copy_complete_carrier_authority()
         for authority in (REQUIREMENT_STATUS_AUTHORITY, DELIVERY_STATUS_AUTHORITY):
@@ -96,6 +97,12 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
 
     def tearDown(self) -> None:
         self.temporary.cleanup()
+
+    def _assert_configured_timestamp(self, path: Path) -> None:
+        self.assertRegex(
+            path.read_text(encoding="utf-8"),
+            r'(?m)^updated_at: "\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} \+0000"$',
+        )
 
     def _copy_complete_carrier_authority(self) -> None:
         """Mirror the finite source closure used by proposed-carrier admission."""
@@ -213,6 +220,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual(result["operation"], "create")
         self.assertEqual(result["effects"][0]["state"], "changed")
         self.assertEqual(carrier_descriptor(self.root, "CA-R-103")["version"], 1)
+        self._assert_configured_timestamp(path)
         before = path.read_bytes()
         with self.assertRaisesRegex(LifecycleError, "destination-collision"):
             create_atom_action(self.root, {"carrier": carrier}, execute=True, authorized=True)
@@ -279,6 +287,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         )
         self.assertEqual(carrier_only["observed"]["version"], 1)
         self.assertEqual(carrier_only["effects"][0]["state"], "changed")
+        self._assert_configured_timestamp(self.target)
 
         before_semantic = self.target.read_bytes()
         semantic = update_atom_action(
@@ -782,6 +791,8 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertTrue(archived.exists())
         self.assertIn("@1", archived.name)
         self.assertIn("status: Archived", archived.read_text(encoding="utf-8"))
+        for path in (self.root / first["path"], self.root / second["path"], archived):
+            self._assert_configured_timestamp(path)
 
     def test_replace_requires_prepared_new_successors_and_archives_only_after_all_are_active(self) -> None:
         first = self._carrier("CA-R-105", "first-replacement", "First replacement")
@@ -883,6 +894,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             authorized=True,
         )
         self.assertEqual(archived["outcome"], "applied")
+        self._assert_configured_timestamp(self.root / archived["observed"]["path"])
         self.assertEqual({item["direction"] for item in archived["broken_references"]}, {"inbound", "outgoing"})
         self.assertEqual(archived["repair_handoff"]["operation"], "repair_relations")
         self.assertTrue(self.successor_one.exists())
