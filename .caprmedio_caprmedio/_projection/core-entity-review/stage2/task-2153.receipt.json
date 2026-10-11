@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2153",
+  "recorded_at": "2026-10-11 12:30:34 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded integrate accepted unqualified subject research; not migration approval",
+  "verification": {
+    "result": "PASS",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/consolidate_reviewed_mappings.py",
+      "sha256": "72bdadf9c62928e3e2a68abb4661e3c22ac5c556f6671e08e6d7421e3a07d3d3"
+    },
+    "prospective_current_source_gate": {
+      "result": "PASS: prospective live frontier and ten valid-control negatives",
+      "counts": {
+        "outcome": "PASS",
+        "sources": 907,
+        "occurrences": 4534,
+        "proposed": 1928,
+        "unchanged": 1540,
+        "unresolved": 1066,
+        "quarantined_sources": 8,
+        "excluded_sources": 11203
+      },
+      "prospective_outputs": [
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+          "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99",
+          "size_bytes": 20780612
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+          "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+          "size_bytes": 3642901
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+          "sha256": "325906a97a506d5e7343b5a57904d88c7b6b42eaa1f382aa57ee045105f0b3dc",
+          "size_bytes": 3197267
+        }
+      ],
+      "negative_checks_rejected": [
+        "missing_layer",
+        "omit_all_followups",
+        "missing_selected_row",
+        "stale_source",
+        "wrong_target",
+        "wrong_priority",
+        "wrong_confidence",
+        "stale_receipt",
+        "missing_independent_review",
+        "executable_row"
+      ],
+      "execution": "Root actual offline uv .caprmedio_tmp/check_unqualified_integration.py; exit0; real current inputs with only 3 prospective derived reads substituted; old internally consistent ledger also rejected by live sixth receipts",
+      "producer_sha256": "72bdadf9c62928e3e2a68abb4661e3c22ac5c556f6671e08e6d7421e3a07d3d3",
+      "verifier_sha256": "cc0fe5a31a6c36ce67a7a4f60a8a2bbd4e799eb0012fea3accaa44673e6c4e42",
+      "tests_sha256": "3c473d336a457b308d8f8a8b09422b20016dea3f9e71795fc4520caa45a28902",
+      "draft_writes": "not_performed"
+    },
+    "negative_probes": {
+      "result": "NEGATIVE_PROBES_PASS",
+      "executed_by": "root",
+      "exit_code": 0,
+      "includes": "positive omitted zero and seven invalid count maps; prior origin/group/proof controls remain"
+    },
+    "count_map_boundary": {
+      "receipt": "task-2151.receipt.json",
+      "actual_verified_rows": 21,
+      "proposed": 0,
+      "unresolved": 21,
+      "accepted_representation": {
+        "unresolved": 21
+      },
+      "decision": "Preserve immutable accepted bytes; closed Counter-map omitted-zero equivalence only, with actual accepted row/contract zero counts verified and missing nonzero/unknown/invalid/wrong counts rejecting."
+    },
+    "independent_review": {
+      "result": "PASS: independent precision code review",
+      "reviewer": "/root/domain_semantic_acceptance",
+      "final_producer_sha256": "72bdadf9c62928e3e2a68abb4661e3c22ac5c556f6671e08e6d7421e3a07d3d3",
+      "contract": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.followups-2144-2151.contract.md",
+        "sha256": "f38ca903714211dbe6c17a8be738a3f9311845b48f12115309c8020871ca3f7d",
+        "git_provenance": "a18123c59",
+        "actual_current_and_git_bytes_match": true,
+        "diff_exit": 0,
+        "review_binding_clarification": "Git commit ID is not a content SHA256; reviewer rebind requested, no observed contract drift"
+      },
+      "checks": [
+        "exact sixth fixed group8reports/204/59/145",
+        "priorities48-55 before actor and grammar",
+        "Counterzero only fixed expectations and actual report rows provezero",
+        "current original Core/canonical Operator meaning only",
+        "accepted proof fields exactly preserved",
+        "fixed2133 successor/predecessor/livecontract safeguards unchanged",
+        "create-only writer unchanged"
+      ],
+      "review_binding_history": "initial inconclusive FAIL confused provenance Git commit with contentSHA; actual current/Git byte equality and explicit rebind resolved; no code or contract drift",
+      "changed_files": [],
+      "uncertainty": "none material"
+    },
+    "source_migration": "not_performed",
+    "native_admission": "not_performed"
+  },
+  "independent_review": {
+    "result": "PASS: independent precision code review",
+    "reviewer": "/root/domain_semantic_acceptance",
+    "final_producer_sha256": "72bdadf9c62928e3e2a68abb4661e3c22ac5c556f6671e08e6d7421e3a07d3d3",
+    "contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.followups-2144-2151.contract.md",
+      "sha256": "f38ca903714211dbe6c17a8be738a3f9311845b48f12115309c8020871ca3f7d",
+      "git_provenance": "a18123c59",
+      "actual_current_and_git_bytes_match": true,
+      "diff_exit": 0,
+      "review_binding_clarification": "Git commit ID is not a content SHA256; reviewer rebind requested, no observed contract drift"
+    },
+    "checks": [
+      "exact sixth fixed group8reports/204/59/145",
+      "priorities48-55 before actor and grammar",
+      "Counterzero only fixed expectations and actual report rows provezero",
+      "current original Core/canonical Operator meaning only",
+      "accepted proof fields exactly preserved",
+      "fixed2133 successor/predecessor/livecontract safeguards unchanged",
+      "create-only writer unchanged"
+    ],
+    "review_binding_history": "initial inconclusive FAIL confused provenance Git commit with contentSHA; actual current/Git byte equality and explicit rebind resolved; no code or contract drift",
+    "changed_files": [],
+    "uncertainty": "none material"
+  },
+  "completion_scope": "The existing one-off producer now includes only the eight exact accepted reports at priorities 48–55. Independent code review, Root's actual prospective current-source gate and ten wrong-output controls pass; expected output is 907 sources/4534 occurrences with 1928 proposed,1540 unchanged,1066 unresolved. Accepted proof remains exact and meaning admission remains selected original Core/canonical Operator only. The immutable Counter-zero receipt is handled without evidence rewriting. No derived replacement, original-source migration, new discovery/aliases or writer expansion occurred.",
+  "registration_commit": "d28c1c420375ae355334c2312c20e24f0329ae4c",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

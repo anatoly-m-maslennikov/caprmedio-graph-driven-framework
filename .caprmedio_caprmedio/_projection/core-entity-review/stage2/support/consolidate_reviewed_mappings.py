@@ -48,6 +48,7 @@ CONTRACTS = (
     STAGE / "working-ledger.followups-2112-2117.contract.md",
     STAGE / "working-ledger.followups-2121-2128.contract.md",
     STAGE / "working-ledger.followups-2132-2139.contract.md",
+    STAGE / "working-ledger.followups-2144-2151.contract.md",
     STAGE / "working-ledger.core-only-successor-2143.contract.md",
 )
 WORKING = STAGE / "working-ledger"
@@ -214,12 +215,36 @@ RESIDUAL_SUBJECT_DOMAINS_GROUP = ResearchLayerGroup(
     specifications=RESIDUAL_SUBJECT_DOMAINS_LAYER_SPECS,
     expected_rows=195,
 )
+UNQUALIFIED_SUBJECTS_HISTORICAL_WORKING_PIN = {
+    "path": (WORKING / "working-mapping-ledger.json").as_posix(),
+    "sha256": "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de",
+}
+UNQUALIFIED_SUBJECTS_LAYER_SPECS = (
+    ("CA-P-2144", STAGE / "semantic-reviews/task-2144.research.json", "c8f597de7f0d898fb743864dcf32ce93693ae1e041c40c60750679b0180de85a", 19, 6, 13),
+    ("CA-P-2145", STAGE / "semantic-reviews/task-2145.research.json", "ea17bd333aedc0a0e4b32b926e2697362bc2b9f64172a45974d277432044078f", 22, 13, 9),
+    ("CA-P-2146", STAGE / "semantic-reviews/task-2146.research.json", "567f21ba21eabe86155300820c305ea33594e3cd6d4bac06d6290d09a49fa556", 24, 8, 16),
+    ("CA-P-2147", STAGE / "semantic-reviews/task-2147.research.json", "398330315580e7a2784e45b50fa86cc8b1dc965d0d46c5db01103ebc6228a0fb", 25, 13, 12),
+    ("CA-P-2148", STAGE / "semantic-reviews/task-2148.research.json", "3b206222d47f5365baacbc332600341a32c57d18966b4505b43c210b0b5e7c20", 23, 15, 8),
+    ("CA-P-2149", STAGE / "semantic-reviews/task-2149.research.json", "f1bc95e923e32d2f5e5fb93c77d15106dcd044db45df340b0a2ef74a027bffff", 37, 3, 34),
+    ("CA-P-2150", STAGE / "semantic-reviews/task-2150.research.json", "10daa4c33f9e1651a454cd46f0ee9887a10f2bfdb87478c2cbc742ed3826bef6", 33, 1, 32),
+    ("CA-P-2151", STAGE / "semantic-reviews/task-2151.research.json", "933dbea13f4b13a2cc36677389bdb6c04e612db6b42b0d3b96ef3383ae96a50b", 21, 0, 21),
+)
+UNQUALIFIED_SUBJECTS_GROUP = ResearchLayerGroup(
+    label="CA-P-2144–2151",
+    manifest=STAGE / "semantic-reviews/followups-2144-2151.inputs.json",
+    manifest_sha256="a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92",
+    registration_commit="98d0b4617deb172906712abe278c2562048c3a2e",
+    historical_working_pin=UNQUALIFIED_SUBJECTS_HISTORICAL_WORKING_PIN,
+    specifications=UNQUALIFIED_SUBJECTS_LAYER_SPECS,
+    expected_rows=204,
+)
 RESEARCH_LAYER_GROUPS = (
     FOLLOWUP_GROUP,
     SUBJECT_FAMILY_GROUP,
     FINAL_SUBJECT_FAMILY_GROUP,
     REMAINING_SUBJECT_DOMAINS_GROUP,
     RESIDUAL_SUBJECT_DOMAINS_GROUP,
+    UNQUALIFIED_SUBJECTS_GROUP,
 )
 ORIGIN_FIELDS = (
     "occurrence_id", "source_path", "source_atom_id", "source_version", "source_sha256",
@@ -235,6 +260,7 @@ def validate_research_group_configuration(groups: tuple[ResearchLayerGroup, ...]
         FINAL_SUBJECT_FAMILY_GROUP,
         REMAINING_SUBJECT_DOMAINS_GROUP,
         RESIDUAL_SUBJECT_DOMAINS_GROUP,
+        UNQUALIFIED_SUBJECTS_GROUP,
     ):
         fail("research layer group order or membership changed")
     expected_tasks = (
@@ -245,6 +271,8 @@ def validate_research_group_configuration(groups: tuple[ResearchLayerGroup, ...]
         "CA-P-2125", "CA-P-2126", "CA-P-2127", "CA-P-2128",
         "CA-P-2132", "CA-P-2133", "CA-P-2134", "CA-P-2135",
         "CA-P-2136", "CA-P-2137", "CA-P-2138", "CA-P-2139",
+        "CA-P-2144", "CA-P-2145", "CA-P-2146", "CA-P-2147",
+        "CA-P-2148", "CA-P-2149", "CA-P-2150", "CA-P-2151",
     )
     tasks = tuple(specification[0] for group in groups for specification in group.specifications)
     if tasks != expected_tasks:
@@ -253,6 +281,28 @@ def validate_research_group_configuration(groups: tuple[ResearchLayerGroup, ...]
 
 def fail(message: str) -> None:
     raise ValueError(message)
+
+
+def research_receipt_counts_match(
+    counts: Any, expected_proposed: int, expected_unresolved: int, actual_decisions: Counter[str],
+) -> bool:
+    """Accept only the closed proposed/unresolved Counter representation."""
+    expected = {"proposed": expected_proposed, "unresolved": expected_unresolved}
+    if (not isinstance(counts, dict) or set(counts).difference(expected)
+            or any(type(value) is not int or value < 0 for value in counts.values())):
+        return False
+    if any(actual_decisions.get(decision, 0) != value for decision, value in expected.items()):
+        return False
+    normalized: dict[str, int] = {}
+    for decision, value in expected.items():
+        receipt_value = counts.get(decision)
+        if receipt_value is None:
+            if value != 0 or actual_decisions.get(decision, 0) != 0:
+                return False
+            normalized[decision] = 0
+        else:
+            normalized[decision] = receipt_value
+    return normalized == expected and sum(normalized.values()) == sum(expected.values())
 
 
 def sha(raw: bytes) -> str:
@@ -756,7 +806,6 @@ def accepted_research_layer(
         fail(f"research receipt boundary: {task_id}")
     if (verification.get("task") != task_id or verification.get("output") != report_pin
             or verification.get("rows") != expected_rows
-            or verification.get("counts") != {"proposed": expected_proposed, "unresolved": expected_unresolved}
             or verification.get("input_manifest") != manifest_pin
             or verification.get("registration_commit") != group.registration_commit
             or receipt.get("registration_commit") != group.registration_commit):
@@ -837,6 +886,8 @@ def accepted_research_layer(
         decisions[decision] += 1
     if decisions != Counter({"proposed": expected_proposed, "unresolved": expected_unresolved}):
         fail(f"research final decision coverage: {task_id}")
+    if not research_receipt_counts_match(verification.get("counts"), expected_proposed, expected_unresolved, decisions):
+        fail(f"research receipt count map: {task_id}")
     report_counts = report.get("counts")
     if isinstance(report_counts, dict) and (report_counts.get("proposed") != expected_proposed or report_counts.get("unresolved") != expected_unresolved):
         fail(f"research report counts: {task_id}")
@@ -960,6 +1011,26 @@ def run_negative_probes() -> None:
         "changed_text_at_existing_occurrence_id",
         lambda: matched_origin({**historic_occurrence, "old_value": "Claim"}, {historic_occurrence["occurrence_id"]: historic_occurrence}, {}, {}),
     )
+    zero_omission_decisions = Counter({"unresolved": 2})
+    if not research_receipt_counts_match({"unresolved": 2}, 0, 2, zero_omission_decisions):
+        fail("zero receipt count omission valid control")
+    for label, counts, expected_proposed, expected_unresolved, actual_decisions in (
+        ("research_receipt_missing_nonzero_count", {"unresolved": 2}, 1, 2, Counter({"proposed": 1, "unresolved": 2})),
+        ("research_receipt_wrong_zero_count", {"proposed": 1, "unresolved": 2}, 0, 2, zero_omission_decisions),
+        ("research_receipt_unknown_count", {"proposed": 0, "unresolved": 2, "other": 0}, 0, 2, zero_omission_decisions),
+        ("research_receipt_bool_count", {"proposed": False, "unresolved": 2}, 0, 2, zero_omission_decisions),
+        ("research_receipt_non_integer_count", {"proposed": 0.0, "unresolved": 2}, 0, 2, zero_omission_decisions),
+        ("research_receipt_negative_count", {"proposed": -1, "unresolved": 3}, 0, 2, zero_omission_decisions),
+        ("research_receipt_wrong_total", {"proposed": 0, "unresolved": 3}, 0, 2, zero_omission_decisions),
+    ):
+        require_rejection(
+            label,
+            lambda counts=counts, label=label, expected_proposed=expected_proposed,
+            expected_unresolved=expected_unresolved, actual_decisions=actual_decisions:
+                fail(label) if not research_receipt_counts_match(
+                    counts, expected_proposed, expected_unresolved, actual_decisions,
+                ) else None,
+        )
     validate_research_group_configuration(RESEARCH_LAYER_GROUPS)
     require_rejection(
         "research_group_omission",

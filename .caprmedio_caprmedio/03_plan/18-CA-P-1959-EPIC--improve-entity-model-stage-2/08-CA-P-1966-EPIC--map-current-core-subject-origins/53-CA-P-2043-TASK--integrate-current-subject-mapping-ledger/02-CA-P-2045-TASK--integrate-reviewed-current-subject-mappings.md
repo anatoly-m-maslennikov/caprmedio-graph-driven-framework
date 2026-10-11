@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 31
-updated_at: "2026-10-11 12:28:22 +0400"
+version: 32
+updated_at: "2026-10-11 12:30:34 +0400"
 relations:
   is_decomposition_of: [CA-P-2043]
   depends_on: ["CA-P-1972","CA-P-2044","CA-P-1992","CA-P-1993","CA-P-1994","CA-P-1995","CA-P-1996","CA-P-1997","CA-P-1998","CA-P-1999","CA-P-2000","CA-P-2001","CA-P-2002","CA-P-2003","CA-P-2004","CA-P-2005","CA-P-2006","CA-P-2007","CA-P-2008","CA-P-2009","CA-P-2010","CA-P-2011","CA-P-2012","CA-P-2013","CA-P-2014","CA-P-2015","CA-P-2016","CA-P-2017","CA-P-2018","CA-P-2019","CA-P-2020","CA-P-2021","CA-P-2022","CA-P-2023","CA-P-2024","CA-P-2025","CA-P-2026","CA-P-2027","CA-P-2028","CA-P-2029","CA-P-2030","CA-P-2031","CA-P-2032","CA-P-2033","CA-P-2034","CA-P-2035","CA-P-2036","CA-P-2037","CA-P-2038","CA-P-2039","CA-P-2040","CA-P-2041","CA-P-2042"]
@@ -87,7 +87,7 @@ Residual-domain rebuild checkpoint: CA-P-2140–2142 are Done. The exact saved l
 
 CA-P-2144–2152 are Done and separately committed. All 204 selected unqualified origins across 145 owners passed independent semantic acceptance and 112 exact report controls: 59 supported proposals, 145 explicit nulls. Four actual frontier-audit wrong-data controls reject defects. Corrected Projection/Journal false nulls, inverse-kind admission and the Principle omission are reflected only in final accepted reports; unsupported audit claims and display-only prefix rejection are not accepted. Current saved ledger remains 1869/1540/1125 until CA-P-2153–2155's separate integration passes. Original Core remains unchanged; full mapping, selectors, quarantines and migration/content gates remain open. Evidence: `_projection/core-entity-review/stage2/checkpoint-unqualified-research-2144-2152.json`.
 
-- [CA-P-2153 — Integrate accepted unqualified Subject research](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/22-CA-P-2153-TASK--integrate-accepted-unqualified-subject-research.md)
+- [CA-P-2153 — Integrate accepted unqualified Subject research](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/22-CA-P-2153-TASK--integrate-accepted-unqualified-subject-research.md)
 - [CA-P-2154 — Verify unqualified Subject layers independently](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done/23-CA-P-2154-TASK--verify-unqualified-subject-layers-independently.md)
 - [CA-P-2155 — Rebuild the unqualified Subject ledger](02-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/24-CA-P-2155-TASK--rebuild-the-unqualified-subject-ledger.md)
 
