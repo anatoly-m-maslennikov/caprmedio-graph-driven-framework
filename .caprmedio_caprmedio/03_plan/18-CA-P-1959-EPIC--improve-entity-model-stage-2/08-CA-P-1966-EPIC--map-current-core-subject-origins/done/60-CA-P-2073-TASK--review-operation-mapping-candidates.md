@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-11 05:14:43 +0400"
+version: 2
+updated_at: "2026-10-11 05:28:53 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
 ---
@@ -42,3 +42,11 @@ Workers own only their disjoint review output. They are not alone in the worktre
 ### Definition of Done
 
 Not Done if any assigned proposal is unaccounted for, stale/unsupported meaning is accepted, old qualifiers or identity are discarded, confidence is guessed, a pending Operator choice is inferred, source/frozen evidence changes, or own work exceeds 15 minutes without decomposition.
+
+### Completion
+
+Reviewed all 265 assigned proposals: 199 accepted, 66 unresolved. Root verified exact coverage, current source and Main Content span pins, input pins, confidence, approved notation and non-executable outputs.
+
+The 66 unresolved candidates retain named Workflow/Step distinctions, Agentic Execution Context, Action Execution Kind and Workflow/Carrier boundaries. The unanswered conditional-owner notation choice is not inferred.
+
+Done means this bounded review is complete, not that rejected/unresolved mappings, the parent research or source migration are complete. The original research report and captured inputs remain unchanged. The receipt records the Task version-1 input as historical evidence; Task closure changes only this Plan to version 2.
