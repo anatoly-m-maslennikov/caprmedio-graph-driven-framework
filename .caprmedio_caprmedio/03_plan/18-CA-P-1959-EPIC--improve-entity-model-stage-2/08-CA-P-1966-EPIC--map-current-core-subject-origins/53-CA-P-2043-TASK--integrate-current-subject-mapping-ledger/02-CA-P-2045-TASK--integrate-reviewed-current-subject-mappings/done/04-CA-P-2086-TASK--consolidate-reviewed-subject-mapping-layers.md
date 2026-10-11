@@ -14,8 +14,8 @@ status: Done
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Tool, Operator]
-version: 6
-updated_at: "2026-10-11 07:07:43 +0400"
+version: 7
+updated_at: "2026-10-11 07:08:35 +0400"
 relations:
   is_decomposition_of: [CA-P-2045]
 ---
@@ -35,7 +35,7 @@ This is implementation/preparation evidence, not original Source writes, selecto
 
 ### Current integration task
 
-[CA-P-2092 — Integrate the accepted current grammar review](04-CA-P-2086-TASK--consolidate-reviewed-subject-mapping-layers/done/02-CA-P-2092-TASK--integrate-the-accepted-current-grammar-review.md) incorporates the now-accepted CA-P-2087 evidence. This group remains Active until that child and its live integration checks pass; the earlier no-receipt draft is only an intermediate checkpoint.
+[CA-P-2092 — Integrate the accepted current grammar review](../04-CA-P-2086-TASK--consolidate-reviewed-subject-mapping-layers/done/02-CA-P-2092-TASK--integrate-the-accepted-current-grammar-review.md) incorporates the now-accepted CA-P-2087 evidence. That child and its live checks passed; the earlier no-receipt draft remains only historical intermediate evidence.
 
 ### Completion
 
@@ -43,6 +43,6 @@ The complete non-executable working ledger consolidates frozen baseline, selecte
 
 ### Definition of Done
 
-Own work is exhausted. This is now a group with no further own implementation. The remaining acceptance gap is delegated to [CA-P-2090 — Reject unexpected source drift in the working ledger](04-CA-P-2086-TASK--consolidate-reviewed-subject-mapping-layers/done/01-CA-P-2090-TASK--reject-unexpected-source-drift-in-the-working-ledger.md). It remains Active until the child and independent live checks pass; an earlier partial draft/test pass is not completion.
+Own work is exhausted. This is now a group with no further own implementation. The remaining acceptance gap is delegated to [CA-P-2090 — Reject unexpected source drift in the working ledger](../04-CA-P-2086-TASK--consolidate-reviewed-subject-mapping-layers/done/01-CA-P-2090-TASK--reject-unexpected-source-drift-in-the-working-ledger.md). The child and independent checks are Done; earlier partial draft/test passes did not close this group.
 
 Not Done if assigned output/checks are missing, source/current-evidence pins or exact coverage fail, guesses or unresolved findings are hidden, priority/lineage is unsupported, any authority/captured output changes, or own work exceeds 15 minutes without decomposition.
