@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 133
-updated_at: "2026-10-11 11:06:41 +0400"
+version: 134
+updated_at: "2026-10-11 11:12:40 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -215,7 +215,7 @@ Residual-domain review checkpoint: CA-P-2132–2139 are Done and individually co
 
 The full prospective gate rejects CA-P-2133's old report because its proof contains Project Configuration CA-R-1667. Its raw report/receipt remain historical and are withdrawn from current integration. CA-P-2143 creates a separately accepted Core-only successor; the strict Core/canonical-Operator evidence boundary remains unchanged.
 
-- [CA-P-2143 — Reprove governance Subjects from Core only](08-CA-P-1966-EPIC--map-current-core-subject-origins/107-CA-P-2143-TASK--reprove-governance-subjects-from-core-only.md)
+- [CA-P-2143 — Reprove governance Subjects from Core only](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/107-CA-P-2143-TASK--reprove-governance-subjects-from-core-only.md)
 
 ### Definition of Done
 

@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2143",
+  "recorded_at": "2026-10-11 11:12:40 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded reprove governance subjects from core only; not migration approval",
+  "verification": {
+    "task": "CA-P-2133",
+    "successor_task": "CA-P-2143",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2133.core-only.research.json",
+      "sha256": "4d87d8cfe5376d23d37580b09019b9169b6bd75c976d749f67f10b8840926893"
+    },
+    "rows": 20,
+    "counts": {
+      "unresolved": 11,
+      "proposed": 9
+    },
+    "exact_evidence_spans": 24,
+    "exact_supporting_definition_spans": 10,
+    "exact_input_pins": 32,
+    "historical_context_pins": [
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/100-CA-P-2133-TASK--review-governance-and-expansion-topic-subjects.md",
+        "sha256": "025a8721efb2f3b2c1fb5df4a7a8a037013ed5c09a4e91255704e2b9dcb09c6a",
+        "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+        "git_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+        "role": "Plan context only"
+      }
+    ],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision",
+      "foreign_config_evidence",
+      "unrelated_proof_change",
+      "wrong_revision",
+      "wrong_predecessor",
+      "missing_core_reproof"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+    "successor_registration_commit": "74f96a6901765d5a854db87f8180655e3fb922ea",
+    "supersedes": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2133.research.json",
+      "sha256": "90b13cf54d48ec1f60c21bf778e27ff9f0a794599a37e769612d9ef3cff46445"
+    },
+    "result": "PASS: exact unchanged decisions and Core-only successor proof",
+    "independent_review": {
+      "reviewer": "/root/domain_semantic_acceptance",
+      "final_report_sha256": "4d87d8cfe5376d23d37580b09019b9169b6bd75c976d749f67f10b8840926893",
+      "result": "PASS: Core-only successor proof; twenty unchanged decisions and nineteen identical unaffected rows",
+      "meaning_checks": [
+        "All20 origins retain9 proposals/11 nulls;19 unaffected row objects identical.",
+        "CA-R-1669 retains Atom.Local Tier at0.93; proof uses current original Core owner23–30,CA-R-1767 23–30 andCA-R-1287 26–32.",
+        "All evidence paths are current original Core or canonical Operator; every live full/span pin matches.",
+        "No CA-R-1667/Project Configuration, selectors, new mappings or generic support admission remains.",
+        "Original context pins retained, with exact successor-contract addition; actual candidate rules resolved."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/domain_semantic_acceptance",
+    "final_report_sha256": "4d87d8cfe5376d23d37580b09019b9169b6bd75c976d749f67f10b8840926893",
+    "result": "PASS: Core-only successor proof; twenty unchanged decisions and nineteen identical unaffected rows",
+    "meaning_checks": [
+      "All20 origins retain9 proposals/11 nulls;19 unaffected row objects identical.",
+      "CA-R-1669 retains Atom.Local Tier at0.93; proof uses current original Core owner23–30,CA-R-1767 23–30 andCA-R-1287 26–32.",
+      "All evidence paths are current original Core or canonical Operator; every live full/span pin matches.",
+      "No CA-R-1667/Project Configuration, selectors, new mappings or generic support admission remains.",
+      "Original context pins retained, with exact successor-contract addition; actual candidate rules resolved."
+    ]
+  },
+  "completion_scope": "A separately accepted Core-only successor preserves all20 origins,9 proposals/11 nulls and19 unaffected row objects. CA-R-1669 is re-evidenced using only original Core CA-R-1767/CA-R-1287; sixteen negative controls and independent semantic acceptance pass. Old raw report/receipt remain historical and withdrawn from integration; original Core is unchanged.",
+  "registration_commit": "74f96a6901765d5a854db87f8180655e3fb922ea",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}
