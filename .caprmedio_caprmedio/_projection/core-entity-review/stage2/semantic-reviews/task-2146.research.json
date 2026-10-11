@@ -1,0 +1,1155 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2146",
+  "family": "unqualified_origins_003",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2144-2151.inputs.json",
+      "sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2144-2151.contract.md",
+        "sha256": "0df1d9e998ad2b8cc3e26f7cb5dfdf58421a9e6c9f27a456a828d32c02f4a651"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2132-2139.contract.md",
+        "sha256": "3ed29d889a2d7905614a0d02c23a75f82fb002ffea51f4dce2714f60865aa6ff"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/110-CA-P-2146-TASK--review-remaining-unqualified-subjects-003.md",
+      "sha256": "bb634057422771b163e0b9266b8bc3f778364852970a19ffa7f9860c337e109f",
+      "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-METHOD--write-definitions-of-done.md",
+        "sha256": "5aaaa1e47a069d6a24f00fe4b1a4f5e81353bf9b03b2c9131ffd5315d72f49a3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-225-CORE_META_MODEL--retrieve-applicable-methodology-mechanically.md",
+        "sha256": "a5b42abbafdd7458d70e4282e6912f1ac3073ab697caca67d2d262c85d66b4b5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-231-CORE_META_MODEL--derive-navigation-projections-from-the-cce-claim.md",
+        "sha256": "8bf9e52af16c589304cfc952b90467fb9819411a2ee7d917675a2464c987d09a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md",
+        "sha256": "01e1f3355f52762beabcc19fe30746a536c12f79015f581d00b6ff765a202cd7"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md",
+        "sha256": "287f47cd2fcf0ed1b4090a376b3924a6aa3e45838d837fbcea306b8e46a81ad6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-303-CORE_META_MODEL--declare-update-routing-in-the-calling-workflow.md",
+        "sha256": "2f4c60f6dfc4a019614c0e04a185fc53cf06b88a3a6ddbd580497ff4bb7cf7db"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+        "sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+        "sha256": "fcb2658717a91add097f34751c89d54f03a047442031ee7cf79e89c9f817d965"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+        "sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-386-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-type-qualified-status-and-artifact-activity.md",
+        "sha256": "716b8601f26158d51281729d18c7b19c76bb2d5c6430d8b1f887b333c92de113"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-dependency-order-derivations.md",
+        "sha256": "51031ff0e8565e3cc8502083f1964ef0cde33c088f49b25a709f7df572f888b5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-QA_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+        "sha256": "46d0dd92027080aced49be321e800f842bb2f5e4a3d42262910b82399e3ef970"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-447-CORE_META_MODEL-QA_CASE--validate-three-tier-boundaries-with-concrete-cases.md",
+        "sha256": "8ac530bfc9c0f9340f74e038e40f0f3f711603e83b8857f77fd6f4bdfec3572e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-EVALUATION_APPROACH--validate-framework-parameter-fallback.md",
+        "sha256": "b0e3b69ee1f90356ad48bbac35c6e881b63b0d84c8ff2a0297ab55340e2fa8df"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-framework-settings-artifact.md",
+        "sha256": "b66034350426c662eb4f4de967ed29a5ee4c905f2383b530e6336b95c6b1cc4c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md",
+        "sha256": "3dd9aba19d920554a63cbc500d9ffaa4019a0a47b84d0a8ecefec11d49fdc079"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-EVALUATION_APPROACH--validate-journal-independence-from-git.md",
+        "sha256": "9e5f9364ff97bc669460335b8fb93cc23dbc5e7c438edffd4f8699d3f86c4ead"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-481-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-the-normative-authority-hierarchy.md",
+        "sha256": "b1a06f071e884ebc30afade384f08d25f228f4730ff705def5b7a60f98cfdd71"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+        "sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108"
+      }
+    ]
+  },
+  "selection": {
+    "family": "unqualified_origins_003",
+    "sources": 19,
+    "occurrences": 24,
+    "occurrence_id_set_sha256": "c54ca5ec703fde6485a38ff70c85b259adc900857d2b8f96d3b37e7858c2797f",
+    "manifest_sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+  },
+  "supporting_current_definitions": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1281-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects-graph.md",
+      "sha256": "7630a993ef9c9f370f0c8e56a5721ae6cb5589ad643beb35f78fecb6ad67dfcc",
+      "span_sha256": "0e2fc63f00054d2372590070c5ff992704caea9d6c0269d01d59e2a8d423a0ee",
+      "start_line": 30,
+      "end_line": 44,
+      "reason": "Defines Atom Subjects Graph as the Projection Type over selected current Atom Subjects, retaining direct relation and source authority.",
+      "atom_id": "CA-R-1281"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+      "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+      "span_sha256": "de739737d23e504fb8f410a9edf0043d38b05a42a0f76673e7a8d75acc4c2ba8",
+      "start_line": 22,
+      "end_line": 34,
+      "reason": "Defines Local Tier as an Atom Property distinct from Claim Scope, Content Role, Type, and Methodology Source ownership.",
+      "atom_id": "CA-R-1287"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+      "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+      "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+      "start_line": 20,
+      "end_line": 32,
+      "reason": "Defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project.",
+      "atom_id": "CA-R-1402"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+      "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+      "start_line": 28,
+      "end_line": 40,
+      "reason": "Defines Project Settings as an authoritative Artifact for one Project, not a Projection of Project Atoms or structure.",
+      "atom_id": "CA-R-1738"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1467-CORE_META_MODEL--define-artifact-change-log-projection.md",
+      "sha256": "229bf6c03e338faadbcebd11e7af6f503ee81857fedd87a362a321172560ef52",
+      "span_sha256": "88069ce8cc7cff2f90a3a5f082931467f59324d5946e287a3a9b4f04e8886dae",
+      "start_line": 22,
+      "end_line": 32,
+      "reason": "Defines Artifact Change Log as a non-authoritative Projection retaining canonical event identities and source record references.",
+      "atom_id": "CA-R-1467"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1468-CORE_META_MODEL--define-process-log-projection.md",
+      "sha256": "91312f138e6492934f089b0c2ed62f3d8f24d079215ee8dc8d57d4121d222ab6",
+      "span_sha256": "1673b8df642e24f69a328586ed823bab2e44dcc2fea31da278c4ef0df6b1c376",
+      "start_line": 24,
+      "end_line": 36,
+      "reason": "Defines Process Log as a non-authoritative Projection of recorded execution facts without inferred outcomes.",
+      "atom_id": "CA-R-1468"
+    }
+  ],
+  "counts": {
+    "assigned": 24,
+    "covered": 24,
+    "proposed": 8,
+    "unresolved": 16,
+    "current_sources": 19,
+    "current_evidence_spans": 25
+  },
+  "limits": [
+    "This is non-authoritative semantic research only; it performs no source migration, native admission, selector adoption, singleton-kind admission, @ syntax adoption, Artifact.Revision target, or source/Tool/Plan change.",
+    "Every proposal preserves the current owner, relation or property domain, and source-specific qualification; no proposal creates a per-Property Carrier registry or changes current authority.",
+    "Named Methods and Evaluations remain unresolved where the candidate supplies neither a selected definition identity nor an actual Execution identity that preserves their procedure semantics."
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-METHOD--write-definitions-of-done.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-METHOD--write-definitions-of-done.md",
+      "source_atom_id": "CA-M-123",
+      "source_version": 17,
+      "source_sha256": "5aaaa1e47a069d6a24f00fe4b1a4f5e81353bf9b03b2c9131ffd5315d72f49a3",
+      "field": "governs",
+      "index": null,
+      "old_value": "semantics",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-METHOD--write-definitions-of-done.md",
+          "sha256": "5aaaa1e47a069d6a24f00fe4b1a4f5e81353bf9b03b2c9131ffd5315d72f49a3",
+          "span_sha256": "870f062ae3a072da28abf842bc718c781ffd73631d45510816136b5130fdd02f",
+          "start_line": 23,
+          "end_line": 40,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Semantics here governs the observable and decidable condition-expression requirements for authoring one Definition of Done. It is a cross-cutting meaning and expression rule, not one Artifact, dependent Property, Relation, Execution, or other candidate Entity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Definition of Done remains a Plan falsification condition expression.",
+        "Atomic observability and composite-parenthesis requirements remain source-local."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-225-CORE_META_MODEL--retrieve-applicable-methodology-mechanically.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-225-CORE_META_MODEL--retrieve-applicable-methodology-mechanically.md",
+      "source_atom_id": "CA-M-225",
+      "source_version": 15,
+      "source_sha256": "a5b42abbafdd7458d70e4282e6912f1ac3073ab697caca67d2d262c85d66b4b5",
+      "field": "governs",
+      "index": null,
+      "old_value": "Applicable Methodology Retrieval",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-225-CORE_META_MODEL--retrieve-applicable-methodology-mechanically.md",
+          "sha256": "a5b42abbafdd7458d70e4282e6912f1ac3073ab697caca67d2d262c85d66b4b5",
+          "span_sha256": "84d7db2ce9e6c322281b01b083e0ea6b40da28c785152b45c778dc5bc68f46cf",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Applicable Methodology Retrieval is a named Method procedure that derives indexes and returns query matches. The candidate defines Applicable Methodology as a Projection but does not identify this retrieval procedure as a Projection Entity or actual Execution; mapping to either would lose the query and closure constraints.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "GOVERNS and DEPENDS_ON indexes remain derived on demand.",
+        "Transitive prerequisite closure and membership order remain method constraints."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-231-CORE_META_MODEL--derive-navigation-projections-from-the-cce-claim.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-231-CORE_META_MODEL--derive-navigation-projections-from-the-cce-claim.md",
+      "source_atom_id": "CA-M-231",
+      "source_version": 18,
+      "source_sha256": "8bf9e52af16c589304cfc952b90467fb9819411a2ee7d917675a2464c987d09a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Navigation Projection Derivation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-231-CORE_META_MODEL--derive-navigation-projections-from-the-cce-claim.md",
+          "sha256": "8bf9e52af16c589304cfc952b90467fb9819411a2ee7d917675a2464c987d09a",
+          "span_sha256": "e395e0eb079d03086da0d44168562212e4c5a8f6b57e890ab38571aa9a5d2670",
+          "start_line": 19,
+          "end_line": 35,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Navigation Projection Derivation is a Method for deriving Summary and requested Projections from complete authority. It does not identify one fixed Projection Type or a separately governed output Artifact, so a generic Projection target would discard its source-faithfulness and identity-update conditions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Summary derives from finalized primary contribution within applicability.",
+        "A needed Summary change is not a same-identity refresh."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md",
+      "source_atom_id": "CA-M-232",
+      "source_version": 12,
+      "source_sha256": "01e1f3355f52762beabcc19fe30746a536c12f79015f581d00b6ff765a202cd7",
+      "field": "governs",
+      "index": null,
+      "old_value": "Subject Projection Derivation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md",
+          "sha256": "01e1f3355f52762beabcc19fe30746a536c12f79015f581d00b6ff765a202cd7",
+          "span_sha256": "6acf436b5b2b1deda381611de802b834e3c3de93deb715ced4d7c79663d8c1d0",
+          "start_line": 24,
+          "end_line": 36,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1281-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects-graph.md",
+          "sha256": "7630a993ef9c9f370f0c8e56a5721ae6cb5589ad643beb35f78fecb6ad67dfcc",
+          "span_sha256": "0e2fc63f00054d2372590070c5ff992704caea9d6c0269d01d59e2a8d423a0ee",
+          "start_line": 30,
+          "end_line": 44,
+          "reason": "Defines Atom Subjects Graph as the Projection Type over selected current Atom Subjects, retaining direct relation and source authority.",
+          "atom_id": "CA-R-1281"
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Projection.Type: Atom Subjects Graph",
+      "confidence": 0.95,
+      "reason": "The owner explicitly derives an Atom Subjects Graph, and CA-R-1281 defines that graph as the Type value under Projection. The target preserves a non-authoritative projection whose direct GOVERNS and DEPENDS_ON links retain canonical targets, relation kinds, and source authority.",
+      "candidate_basis": [
+        {
+          "pointer": "/applicable_methodology/instance_boundary",
+          "reason": "The candidate treats a Projection as a distinct Entity instance rather than another representation of a source Entity."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate defines a Property as a dependent Entity of its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The graph remains non-authoritative.",
+        "Subjects remain direct links, not intermediate Subject nodes.",
+        "Relation kinds and endpoint constraints retain their existing authority."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md",
+      "source_atom_id": "CA-M-239",
+      "source_version": 11,
+      "source_sha256": "287f47cd2fcf0ed1b4090a376b3924a6aa3e45838d837fbcea306b8e46a81ad6",
+      "field": "governs",
+      "index": null,
+      "old_value": "Dependency Order Derivation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md",
+          "sha256": "287f47cd2fcf0ed1b4090a376b3924a6aa3e45838d837fbcea306b8e46a81ad6",
+          "span_sha256": "0b79e0adc3386b1d620e134d5caa509b120e534d05eb68dc5b46487092fe8a2a",
+          "start_line": 25,
+          "end_line": 46,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Dependency Order Derivation is a named Method computation over explicit relations.depends_on edges, inverse derivation, topological ordering, and cycle rejection. Relation.Type:depends_on would identify only one input fact and lose the derivation and ordering constraints; the candidate supplies no selected Method or Execution identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Only direct depends_on edges are inputs.",
+        "required_by stays a derived inverse rather than an authored edge.",
+        "Plan BLOCKS readiness remains separate."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-303-CORE_META_MODEL--declare-update-routing-in-the-calling-workflow.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-303-CORE_META_MODEL--declare-update-routing-in-the-calling-workflow.md",
+      "source_atom_id": "CA-M-303",
+      "source_version": 4,
+      "source_sha256": "2f4c60f6dfc4a019614c0e04a185fc53cf06b88a3a6ddbd580497ff4bb7cf7db",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Assess Atom Update Identity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-303-CORE_META_MODEL--declare-update-routing-in-the-calling-workflow.md",
+          "sha256": "2f4c60f6dfc4a019614c0e04a185fc53cf06b88a3a6ddbd580497ff4bb7cf7db",
+          "span_sha256": "89c71e92e11adf9fc6c6b015645546e605794056b52ff96044a39d94717b1056",
+          "start_line": 25,
+          "end_line": 45,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Assess Atom Update Identity is a named assessment Action bound into a calling Workflow with a target Revision, result, authority, and evidence. Qualified Action/Workflow selection is not adopted, and mapping to generic Execution would confuse the definition with an actual run.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The assessment Action does not choose the caller next step.",
+        "Replacement handoff and unresolved evidence paths remain caller Workflow bindings.",
+        "An ending Run does not itself replace or persist an intermediate update."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+      "source_atom_id": "CA-E-207",
+      "source_version": 13,
+      "source_sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Resolve Operator Priorities",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+          "sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+          "span_sha256": "2b5a336859025130d21d96255c5ab2a4d68512641b59e0e02d12c1fedbd8be5f",
+          "start_line": 32,
+          "end_line": 55,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Resolve Operator Priorities names an Evaluation resolution procedure over Operator input, constraints, priority criteria, and unresolved comparisons. It does not identify an Actor instance or Type as the governed target; mapping to Actor.Type:Operator would discard the priority-resolution and authority boundary.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Operator input selects the applicable model and parameters.",
+        "An unresolved comparison returns to the Operator without an invented winner."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+      "source_atom_id": "CA-E-207",
+      "source_version": 13,
+      "source_sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Select Priority-Governed Alternative",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+          "sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+          "span_sha256": "2b5a336859025130d21d96255c5ab2a4d68512641b59e0e02d12c1fedbd8be5f",
+          "start_line": 32,
+          "end_line": 55,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Select Priority-Governed Alternative names the same Evaluation selection procedure, not a standalone candidate Entity. The body preserves active authority, non-negotiable constraints, and selected-model ordering rather than one canonical Artifact, Relation, Actor, or Execution.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Every selected alternative satisfies active authority and constraints.",
+        "Ties and incomparable results do not create an automatic winner."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+      "source_atom_id": "CA-E-249",
+      "source_version": 12,
+      "source_sha256": "fcb2658717a91add097f34751c89d54f03a047442031ee7cf79e89c9f817d965",
+      "field": "governs",
+      "index": null,
+      "old_value": "Methodology Source/expansion mapping",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+          "sha256": "fcb2658717a91add097f34751c89d54f03a047442031ee7cf79e89c9f817d965",
+          "span_sha256": "46303f70354b53b316f0c192b4d653739d0d8e8c5d494020bdc42f74a2469bfb",
+          "start_line": 24,
+          "end_line": 36,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Methodology expansion mapping is an Evaluation boundary over a source element, canonical target, mapping rule, scope, and Core distinctions. Those multiple owners cannot be losslessly collapsed into a generic Artifact or Relation target.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Missing or ambiguous canonical ownership fails the evaluation.",
+        "An approved loss does not count as conformance.",
+        "The affected application remains stopped on a failed boundary."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+      "source_atom_id": "CA-E-379",
+      "source_version": 21,
+      "source_sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023",
+      "field": "governs",
+      "index": null,
+      "old_value": "Applicable Methodology Compilation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+          "sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023",
+          "span_sha256": "366de79e0a541fb56b37777de55c331e7e5b255e9bf9b116d879fa51efae9977",
+          "start_line": 37,
+          "end_line": 71,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Applicable Methodology Compilation is validation of a compilation process across source selection, bindings, conflict decisions, and outputs. The candidate Applicable Methodology Projection does not identify this validation procedure or preserve its source-faithfulness conditions, and it is not an actual Execution.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Core, Project Configuration, and applicable Extension source selection conditions remain distinct.",
+        "A source-to-projection binding is not another Atom or inverse Relation.",
+        "Actual Journal approval remains required for a conflict decision."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-386-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-type-qualified-status-and-artifact-activity.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-386-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-type-qualified-status-and-artifact-activity.md",
+      "source_atom_id": "CA-E-386",
+      "source_version": 19,
+      "source_sha256": "716b8601f26158d51281729d18c7b19c76bb2d5c6430d8b1f887b333c92de113",
+      "field": "governs",
+      "index": null,
+      "old_value": "Type-Qualified Status Validation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-386-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-type-qualified-status-and-artifact-activity.md",
+          "sha256": "716b8601f26158d51281729d18c7b19c76bb2d5c6430d8b1f887b333c92de113",
+          "span_sha256": "6ba446754a5a39f9c16515308ab93906733130899eaa9165ad1cdc1f6e4eb618",
+          "start_line": 23,
+          "end_line": 40,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Type-Qualified Status Validation concerns an Artifact current Revision Status, qualified Type/Role domain, and derived Activity. The candidate excludes Artifact.Revision and Revision Properties, while the current body does not establish one unqualified Artifact.Status owner; choosing Artifact.Status or Atom.Status would lose the required Revision and qualification distinction.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Status domain remains qualified by Type or Atom Content Role and Type.",
+        "Activity derives only where an explicit Status model applies.",
+        "A prior transition cannot coexist as current Status metadata."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-dependency-order-derivations.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-dependency-order-derivations.md",
+      "source_atom_id": "CA-E-404",
+      "source_version": 12,
+      "source_sha256": "51031ff0e8565e3cc8502083f1964ef0cde33c088f49b25a709f7df572f888b5",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Dependency Order Derivation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-dependency-order-derivations.md",
+          "sha256": "51031ff0e8565e3cc8502083f1964ef0cde33c088f49b25a709f7df572f888b5",
+          "span_sha256": "15385cc5c2cd067137045918cedea33fa8d3d3df1e533c04f998ced1a3a86981",
+          "start_line": 23,
+          "end_line": 37,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Dependency Order Derivation is an evaluated derivation over direct dependency edges, ordering, and cycles. Its depends_on relation input does not itself identify the named derivation or Evaluation as a candidate Entity; no definition or Execution selector is adopted.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Only direct relations.depends_on edges are inputs.",
+        "Target-list order and derived_from do not add dependency edges."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-dependency-order-derivations.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-dependency-order-derivations.md",
+      "source_atom_id": "CA-E-404",
+      "source_version": 12,
+      "source_sha256": "51031ff0e8565e3cc8502083f1964ef0cde33c088f49b25a709f7df572f888b5",
+      "field": "governs",
+      "index": null,
+      "old_value": "Dependency Order Derivation Evaluation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-404-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-dependency-order-derivations.md",
+          "sha256": "51031ff0e8565e3cc8502083f1964ef0cde33c088f49b25a709f7df572f888b5",
+          "span_sha256": "15385cc5c2cd067137045918cedea33fa8d3d3df1e533c04f998ced1a3a86981",
+          "start_line": 23,
+          "end_line": 37,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Dependency Order Derivation Evaluation validates the output of the named derivation over non-Plan Artifact dependencies. Relation.Type:depends_on would omit the derived-order, duplicate-target, and cycle criteria, and no candidate Evaluation identity exists.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The endpoint must be an admitted non-Plan Artifact.",
+        "Plan BLOCKS facts remain outside relations.depends_on."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-QA_CASE--validate-confidence-threshold-precedence-and-inheritance.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-QA_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+      "source_atom_id": "CA-E-443",
+      "source_version": 10,
+      "source_sha256": "46d0dd92027080aced49be321e800f842bb2f5e4a3d42262910b82399e3ef970",
+      "field": "governs",
+      "index": null,
+      "old_value": "Confidence Threshold/resolution validation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-QA_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+          "sha256": "46d0dd92027080aced49be321e800f842bb2f5e4a3d42262910b82399e3ef970",
+          "span_sha256": "69285c33f7d928a0899041b551dc40494c9b36686266be17434596a84985c6e5",
+          "start_line": 27,
+          "end_line": 50,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Confidence threshold resolution validation spans direct input, Plan, Hub, Framework Instance Settings, revisions, and execution authorization. No single candidate bearer or Property owner preserves the precedence and inheritance graph without inventing a configuration-field identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "A direct override applies to one execution without copying it.",
+        "Missing mandatory files and ambiguous reached sources remain failures.",
+        "Confidence does not grant additional authority."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-447-CORE_META_MODEL-QA_CASE--validate-three-tier-boundaries-with-concrete-cases.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-447-CORE_META_MODEL-QA_CASE--validate-three-tier-boundaries-with-concrete-cases.md",
+      "source_atom_id": "CA-E-447",
+      "source_version": 17,
+      "source_sha256": "8ac530bfc9c0f9340f74e038e40f0f3f711603e83b8857f77fd6f4bdfec3572e",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom Tier Validation/concrete cases",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-447-CORE_META_MODEL-QA_CASE--validate-three-tier-boundaries-with-concrete-cases.md",
+          "sha256": "8ac530bfc9c0f9340f74e038e40f0f3f711603e83b8857f77fd6f4bdfec3572e",
+          "span_sha256": "70ca9e665dfeff5467416a9875255e18d87d2ea65494b51f514369e80420f747",
+          "start_line": 59,
+          "end_line": 103,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "span_sha256": "de739737d23e504fb8f410a9edf0043d38b05a42a0f76673e7a8d75acc4c2ba8",
+          "start_line": 22,
+          "end_line": 34,
+          "reason": "Defines Local Tier as an Atom Property distinct from Claim Scope, Content Role, Type, and Methodology Source ownership.",
+          "atom_id": "CA-R-1287"
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier",
+      "confidence": 0.94,
+      "reason": "The owner validates complete Atom classifications across Core, General, and Standard tiers, including explicit Local Tier fixtures. CA-R-1287 identifies Local Tier as an Atom Property distinct from Scope, Content Role, Type, and source ownership, supporting the qualified dependent Property target.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "Atom is the confirmed narrower Entity of Artifact."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate defines a Property as a dependent Entity of its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Local Tier remains independent of Content Role.",
+        "Structural Global Tier and Project Goal rank remain distinct classifications.",
+        "Fixture mechanics do not create Atom parentage or a new tier Entity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-EVALUATION_APPROACH--validate-framework-parameter-fallback.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-EVALUATION_APPROACH--validate-framework-parameter-fallback.md",
+      "source_atom_id": "CA-E-450",
+      "source_version": 8,
+      "source_sha256": "b0e3b69ee1f90356ad48bbac35c6e881b63b0d84c8ff2a0297ab55340e2fa8df",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/parameter resolution validation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-450-CORE_META_MODEL-EVALUATION_APPROACH--validate-framework-parameter-fallback.md",
+          "sha256": "b0e3b69ee1f90356ad48bbac35c6e881b63b0d84c8ff2a0297ab55340e2fa8df",
+          "span_sha256": "bd241d5f84d8aa944a98e8d478c7556484f92e59d79a8204ff54aa423ca6d565",
+          "start_line": 28,
+          "end_line": 50,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Framework Instance Settings parameter resolution validation spans explicit parameters, Framework Instance Settings, Default Settings, and cross-Project isolation. Framework Instance Settings is an Artifact, but the body does not establish one candidate Property for the complete fallback procedure; mapping to Artifact would lose the parameter source and fallback distinctions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Explicit false, zero, and empty values remain present values.",
+        "Invalid explicit values cannot be silently replaced by fallback.",
+        "Inherited values are not written back as explicit selections."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-framework-settings-artifact.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-framework-settings-artifact.md",
+      "source_atom_id": "CA-E-458",
+      "source_version": 16,
+      "source_sha256": "b66034350426c662eb4f4de967ed29a5ee4c905f2383b530e6336b95c6b1cc4c",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Framework Instance Settings/Authoritative Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-framework-settings-artifact.md",
+          "sha256": "b66034350426c662eb4f4de967ed29a5ee4c905f2383b530e6336b95c6b1cc4c",
+          "span_sha256": "9e6a0598226c65fe4773114c3a9544694cddfff5176a888277043030e4fb5cfd",
+          "start_line": 33,
+          "end_line": 54,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "Defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project.",
+          "atom_id": "CA-R-1402"
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.92,
+      "reason": "The owner explicitly requires Framework Instance Settings to have exactly one authoritative TOML Carrier. The candidate defines Carrier as the separate root for what carries an Entity representation; this preserves the Framework Instance Settings Artifact binding without creating a per-Property Carrier registry.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Carrier is the confirmed separate root for what carries or stores an Entity representation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings remains an authoritative Artifact, not an Atom or Projection.",
+        "The carrier is exactly one authoritative TOML Carrier in the registered instance directory.",
+        "No Carrier filename or location is treated as Carrier identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-framework-settings-artifact.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-framework-settings-artifact.md",
+      "source_atom_id": "CA-E-458",
+      "source_version": 16,
+      "source_sha256": "b66034350426c662eb4f4de967ed29a5ee4c905f2383b530e6336b95c6b1cc4c",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Framework Instance Settings/Revision Binding",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-458-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-framework-settings-artifact.md",
+          "sha256": "b66034350426c662eb4f4de967ed29a5ee4c905f2383b530e6336b95c6b1cc4c",
+          "span_sha256": "9e6a0598226c65fe4773114c3a9544694cddfff5176a888277043030e4fb5cfd",
+          "start_line": 33,
+          "end_line": 54,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "Defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project.",
+          "atom_id": "CA-R-1402"
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.91,
+      "reason": "The owner explicitly requires Framework Instance Settings to retain an exact current Revision, SHA-256 digest, and governed-change Journal receipt. The candidate Revision root preserves that historical-snapshot meaning without introducing forbidden Artifact.Revision containment.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "Revision is the confirmed separate historical snapshot root, not an Artifact-qualified dependent property."
+        }
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings remains an Artifact distinct from its historical Revision.",
+        "SHA-256 digest and Journal receipt remain required evidence.",
+        "No Artifact.Revision Property or new native relation is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md",
+      "source_atom_id": "CA-E-459",
+      "source_version": 16,
+      "source_sha256": "3dd9aba19d920554a63cbc500d9ffaa4019a0a47b84d0a8ecefec11d49fdc079",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project Settings/Authoritative Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md",
+          "sha256": "3dd9aba19d920554a63cbc500d9ffaa4019a0a47b84d0a8ecefec11d49fdc079",
+          "span_sha256": "4e8925d61eee713a23213e278abe29cbbdb53b208410bff28b5c625f2882d23a",
+          "start_line": 37,
+          "end_line": 62,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "start_line": 28,
+          "end_line": 40,
+          "reason": "Defines Project Settings as an authoritative Artifact for one Project, not a Projection of Project Atoms or structure.",
+          "atom_id": "CA-R-1738"
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.92,
+      "reason": "The owner explicitly requires Project Settings to have exactly one authoritative TOML Carrier. The candidate Carrier root preserves the representation bearer while CA-R-1738 retains Project Settings as the separate authoritative Artifact.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Carrier is the confirmed separate root for what carries or stores an Entity representation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Settings remains an authoritative Artifact, not an Atom or Projection.",
+        "The carrier is one authoritative TOML Carrier at its registered Project-root placement.",
+        "No Carrier filename or location is treated as Carrier identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md",
+      "source_atom_id": "CA-E-459",
+      "source_version": 16,
+      "source_sha256": "3dd9aba19d920554a63cbc500d9ffaa4019a0a47b84d0a8ecefec11d49fdc079",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Project Settings/Revision Binding",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md",
+          "sha256": "3dd9aba19d920554a63cbc500d9ffaa4019a0a47b84d0a8ecefec11d49fdc079",
+          "span_sha256": "4e8925d61eee713a23213e278abe29cbbdb53b208410bff28b5c625f2882d23a",
+          "start_line": 37,
+          "end_line": 62,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "start_line": 28,
+          "end_line": 40,
+          "reason": "Defines Project Settings as an authoritative Artifact for one Project, not a Projection of Project Atoms or structure.",
+          "atom_id": "CA-R-1738"
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.91,
+      "reason": "The owner explicitly requires Project Settings to retain an exact current Revision, SHA-256 digest, and governed-change Work Journal receipt. The candidate Revision root preserves snapshot history without introducing Artifact.Revision containment.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "Revision is the confirmed separate historical snapshot root, not an Artifact-qualified dependent property."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Settings remains an Artifact distinct from its historical Revision.",
+        "Digest and Work Journal receipt remain required evidence.",
+        "No Artifact.Revision Property or new native relation is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-EVALUATION_APPROACH--validate-journal-independence-from-git.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-EVALUATION_APPROACH--validate-journal-independence-from-git.md",
+      "source_atom_id": "CA-E-464",
+      "source_version": 7,
+      "source_sha256": "9e5f9364ff97bc669460335b8fb93cc23dbc5e7c438edffd4f8699d3f86c4ead",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Projection/Type: Artifact Change Log",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-EVALUATION_APPROACH--validate-journal-independence-from-git.md",
+          "sha256": "9e5f9364ff97bc669460335b8fb93cc23dbc5e7c438edffd4f8699d3f86c4ead",
+          "span_sha256": "5b99d43e78e141391307819bc7a1a10f4e9b30a9d5de7ddcb1b879a2a6ab1242",
+          "start_line": 28,
+          "end_line": 42,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1467-CORE_META_MODEL--define-artifact-change-log-projection.md",
+          "sha256": "229bf6c03e338faadbcebd11e7af6f503ee81857fedd87a362a321172560ef52",
+          "span_sha256": "88069ce8cc7cff2f90a3a5f082931467f59324d5946e287a3a9b4f04e8886dae",
+          "start_line": 22,
+          "end_line": 32,
+          "reason": "Defines Artifact Change Log as a non-authoritative Projection retaining canonical event identities and source record references.",
+          "atom_id": "CA-R-1467"
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Projection.Type: Artifact Change Log",
+      "confidence": 0.95,
+      "reason": "The owner names Artifact Change Log as one canonical log Projection that remains valid independently of Git. CA-R-1467 defines it as a non-authoritative Projection of Project Journal records, supporting the qualified Projection Type value without creating another historical authority.",
+      "candidate_basis": [
+        {
+          "pointer": "/applicable_methodology/instance_boundary",
+          "reason": "The candidate treats a Projection as a distinct Entity instance rather than another representation of a source Entity."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate defines a Property as a dependent Entity of its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Project Journal remains authoritative event history.",
+        "Git references may add provenance but do not create a second history.",
+        "The Projection retains source record references and does not author historical facts."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-EVALUATION_APPROACH--validate-journal-independence-from-git.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-EVALUATION_APPROACH--validate-journal-independence-from-git.md",
+      "source_atom_id": "CA-E-464",
+      "source_version": 7,
+      "source_sha256": "9e5f9364ff97bc669460335b8fb93cc23dbc5e7c438edffd4f8699d3f86c4ead",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Projection/Type: Process Log",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-EVALUATION_APPROACH--validate-journal-independence-from-git.md",
+          "sha256": "9e5f9364ff97bc669460335b8fb93cc23dbc5e7c438edffd4f8699d3f86c4ead",
+          "span_sha256": "5b99d43e78e141391307819bc7a1a10f4e9b30a9d5de7ddcb1b879a2a6ab1242",
+          "start_line": 28,
+          "end_line": 42,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1468-CORE_META_MODEL--define-process-log-projection.md",
+          "sha256": "91312f138e6492934f089b0c2ed62f3d8f24d079215ee8dc8d57d4121d222ab6",
+          "span_sha256": "1673b8df642e24f69a328586ed823bab2e44dcc2fea31da278c4ef0df6b1c376",
+          "start_line": 24,
+          "end_line": 36,
+          "reason": "Defines Process Log as a non-authoritative Projection of recorded execution facts without inferred outcomes.",
+          "atom_id": "CA-R-1468"
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Projection.Type: Process Log",
+      "confidence": 0.95,
+      "reason": "The owner names Process Log as one canonical log Projection that remains valid independently of Git. CA-R-1468 defines it as a non-authoritative Projection of recorded executions, supporting the qualified Projection Type value without inferred associations or outcomes.",
+      "candidate_basis": [
+        {
+          "pointer": "/applicable_methodology/instance_boundary",
+          "reason": "The candidate treats a Projection as a distinct Entity instance rather than another representation of a source Entity."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate defines a Property as a dependent Entity of its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Project Journal remains authoritative event history.",
+        "The Process Log includes recorded executions without Artifact changes.",
+        "The Projection does not infer an unrecorded association or successful outcome."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-481-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-the-normative-authority-hierarchy.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-481-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-the-normative-authority-hierarchy.md",
+      "source_atom_id": "CA-E-481",
+      "source_version": 5,
+      "source_sha256": "b1a06f071e884ebc30afade384f08d25f228f4730ff705def5b7a60f98cfdd71",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project/normative authority graph",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-481-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-the-normative-authority-hierarchy.md",
+          "sha256": "b1a06f071e884ebc30afade384f08d25f228f4730ff705def5b7a60f98cfdd71",
+          "span_sha256": "5076295b519ebe24f2a73ccac5bf09803e679f8f47956083a7f97f1e9ed55e6f",
+          "start_line": 21,
+          "end_line": 38,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Project/normative authority graph is an evaluated subgraph over registered direct authority edges and cycle detection. The body deliberately does not select a graph-construction implementation or one concrete Relation Type, so mapping to generic Relation would lose the graph-qualified typing boundary.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Direct authority edges remain distinct from inverse-derived views.",
+        "Unresolved selection or typing cannot be reported as conforming.",
+        "The criterion does not choose a graph-construction implementation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+      "source_atom_id": "CA-E-510",
+      "source_version": 3,
+      "source_sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+      "field": "governs",
+      "index": null,
+      "old_value": "Reconcile Navigation Numbers",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+          "sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+          "span_sha256": "7c38b70fd0086092e49c1dbd8a519bc92d0555dfe61ffd500ebc85690693e234",
+          "start_line": 35,
+          "end_line": 74,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "Reconcile Navigation Numbers is a QA result boundary across Project Structure authority, selected before-state, carrier observations, Operator selections, and migration evidence. A navigation number is not established here as a candidate dependent Entity with one owner, and mapping to Scope Unit or Carrier would lose the evidence and reconciliation conditions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Declared values remain authoritative unless an authorized replacement selects another value.",
+        "An absent declaration is not an empty authoritative source.",
+        "A reported blocked result does not make the candidate ready."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}
