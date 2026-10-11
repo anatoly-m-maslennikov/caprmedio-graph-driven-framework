@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 46
-updated_at: "2026-10-11 18:45:20 +0400"
+version: 47
+updated_at: "2026-10-12 03:19:36 +0400"
 relations: {}
 ---
 # Summary
@@ -32,8 +32,8 @@ The Core Meta-model has consistent Entity origins in RMEDO Subjects, then consis
 1. Review and update RMEDO for the Subject Tools; independently verify it.
 2. Compile the reviewed Tool contracts, then build and verify the safe lookup and patch-preview Tools.
 3. Map and migrate authoritative Core RMEDO Subjects, then rebuild and verify the graph.
-4. Only after the complete Subject gate passes, update Core Summary, Substance, Substance Scope and Details.
-5. Verify the final sources and reproducible graph.
+4. Only after the complete Subject gate passes, update Core Summary, Substance, Substance Scope and Details, including the Terms Graph decisions below and optional Semantics where adopted. Review and update affected RMEDO before aligning the Terms Graph builder.
+5. Verify the final sources, reproducible graphs and Terms Graph acceptance cases.
 
 The Operator added CA-P-1978 as the first Task: review and update the Tools' Requirements, Methods, Evaluations, Delivery and Operations before implementation. This exception covers only Tool-governing RMEDO in their declared Engine Scope Units. Core entity-model Subjects, grammar and ordinary content stay behind their existing gates. Creating or updating this Epic records work; it does not execute the repair or migration.
 
@@ -83,11 +83,27 @@ This Epic owns the Operator's new Subjects-first/content-second sequence. Reuse 
 
 Use MCP only when its advertised, admitted execution capability supports the exact operation. If MCP does not support it, do not use MCP or invent a binding. Use an already admitted, authorized local method if one exists; otherwise report the unsupported operation. Local work must not bypass an MCP-required sealed envelope, approval, source pin or write guard.
 
-Keep the separate Terms graph, MCP delivery, Apps/viewers, native fact admission, release/install/runtime activation and unrelated source/structure work out of scope. Direct authoring and isolated preparation remain without MCP/FPF under the retained Operator instruction. Live writes still require the admitted mutation route and exact approval; if that route is unavailable, stop. No raw internal call, fabricated authorization or Run/Journal receipt is allowed.
+The Terms Graph contract and affected builder/validation work described below are now in scope for Step 2. The Terms Graph remains separate from the Entities/Objects Graph. Keep MCP delivery, Apps/viewers, unrelated native fact admission, release/install/runtime activation and unrelated source/structure work out of scope. Direct authoring and isolated preparation remain without MCP/FPF under the retained Operator instruction. Live writes still require the admitted mutation route and exact approval; if that route is unavailable, stop. No raw internal call, fabricated authorization or Run/Journal receipt is allowed.
 
 One integration owner controls shared-state changes and Git. Parallel workers may own disjoint source reviews, implementation modules or tests. Own-work Tasks fit at most 15 minutes; groups have no own implementation work and must gain bounded child Tasks before execution. BLOCKS records Plan prerequisites; actual Operator decisions/approval, current pins and the admitted route are additional gates. Navigation numbers and Active Status grant no readiness. Scratch/cache files belong in `.caprmedio_tmp`.
 
 Step 2 must classify proposed edits before writing. Current authority requires a new Atom ID when Summary changes; preserve replacement lineage rather than treating that as a same-ID revision. Substance/Scope/Details edits follow their applicable change class. No schema/key rename or waiver of the Summary identity rule is implied by this Epic.
+
+### Terms Graph — agreed direction and planned work
+
+The Operator asked to update this Epic before applying the Terms Graph changes to active Core. The [Terms Graph section of candidate #3](../_projection/core-entity-review/presentation/operator.model.candidate-3.md#33-terms-graph--definitions-from-real-cases) records the agreed direction; neither that candidate nor this Plan is a completed Core adoption or implementation receipt. The following decisions supersede the earlier exclusion of Terms Graph work and the candidate's former single-definition-owner proposal:
+
+- Derive definitions from real uses in selected source Atoms, including their Semantics where present. Do not require a separate layer of Term-definition Atoms or one owning Atom for each Term's meaning.
+- Compiled definitions belong to the Terms Graph Projection. They can be reused when creating Atoms or other Projections and can reveal conflicts, gaps and incoherence. Source Atoms remain authoritative; reuse does not turn derived wording into source authority.
+- Preserve contributing Atom IDs, Version Numbers, source passages, applicability scopes and declared source coverage. Correct conflicting source content, then rebuild affected Projections. Preserve uncertainty instead of inventing a settled meaning.
+- Preserve different meanings in different scopes. Flag a conflict where incompatible meanings apply to the same case; uncertain overlap remains unresolved.
+- A shared meaning does not require identical allowed-value sets. `*.Status` selects actual Status uses; it does not create properties. `Scope Unit.Status` does not exist in the candidate. Keep bearer-qualified properties distinct from the shared Term.
+
+CA-P-1970 owns this work after CA-P-1969 passes; CA-P-1974 prepares its bounded children. First review current Terms Graph RMEDO and author the required replacements/revisions. Start with CA-R-1335, CA-R-126, CA-R-1319, CA-R-1279, CA-M-114 and CA-R-1454, then follow their affected authoring, Evaluation, Operations and Delivery rules. Preserve useful source Claims and native Relation admission; do not delete Definition Atoms merely because the separate-definition requirement changes.
+
+After the affected RMEDO is reviewed and accepted, align the existing graph extraction, compilation and diagnostic code and its fixtures. Reuse CA-P-1872's builder work and account for its existing Terms Graph plans instead of creating a competing generator or completion route. Engine changes are limited to the affected graph capabilities and their governing RMEDO in the declared Engine scopes; they are not part of the Core-only Subject source selection.
+
+Required acceptance cases: a definition compiled from multiple source cases; reusable output with source traceability; equal meaning with different allowed-value sets; distinct meanings in disjoint scopes; incompatible meanings in an overlapping case; unresolved scope or missing evidence; and a source correction reflected by rebuilding. Also reject invented Status properties, authoritative projected definitions, unsupported native edges and silently resolved conflicts. CA-P-1971 checks the independently verified results. Updating this Epic schedules that work; it does not begin content changes, builder execution or live migration.
 
 ### Decomposing Plans
 
@@ -191,4 +207,4 @@ CA-P-2162–2166 are complete and committed separately. The final independent or
 
 ### Definition of Done
 
-The Epic is **not** Done if any decomposing Plan is not Done; Tool implementation began before CA-P-1978's RMEDO repair and independent verification passed; Subject origins remain unaccounted for; a source effect lacks exact approval or current pins; Step 2 began before complete Step-1 verification; ordinary Core entity-model content changed during Step 1 or grammar-body changes exceeded the exact approved exception; required history/records are missing; validation or graph reproduction fails; or completion claims exceed the actual evidence.
+The Epic is **not** Done if any decomposing Plan is not Done; Tool implementation began before CA-P-1978's RMEDO repair and independent verification passed; Subject origins remain unaccounted for; a source effect lacks exact approval or current pins; Step 2 began before complete Step-1 verification; ordinary Core entity-model content changed during Step 1 or grammar-body changes exceeded the exact approved exception; required history/records are missing; validation or graph reproduction fails; Terms Graph RMEDO still requires the rejected separate-definition layer, affected builder behavior is unaligned, or the new acceptance cases lack evidence; or completion claims exceed the actual evidence.

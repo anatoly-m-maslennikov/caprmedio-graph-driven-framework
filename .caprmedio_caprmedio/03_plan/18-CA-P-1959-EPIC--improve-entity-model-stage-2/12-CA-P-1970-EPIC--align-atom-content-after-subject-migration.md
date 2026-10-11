@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 3
-updated_at: "2026-10-10 23:34:31 +0400"
+version: 4
+updated_at: "2026-10-12 03:19:36 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1971]
@@ -41,6 +41,19 @@ Classify each proposed change before writing under current authority. A changed 
 
 Output: reviewed and authorized source changes, exact before/after pins and batch receipts.
 
+### Terms Graph work after the Subject gate
+
+Include the Terms Graph decisions recorded in CA-P-1959 and candidate #3. Definitions are derived from source cases and optional Semantics, without a separate definition-owning layer. Preserve source authority, reusable derived output, shared meaning with locally constrained allowed values, scoped meanings and visible conflicts where incompatible meanings apply to the same case.
+
+Use this order for the affected work:
+
+1. Review current Core and Engine graph RMEDO and identify definition-only assumptions, source evidence requirements and affected consumers. Prepare exact revisions/replacements and acceptance cases.
+2. Apply and independently verify the accepted RMEDO changes, preserving source Claims, history and admitted Relation meanings. Do not retire every Definition Atom as a blanket migration.
+3. Align the existing Terms Graph builder, extraction and diagnostics with those contracts. Reuse CA-P-1872's graph work; bind affected Engine files and fixtures to disjoint child owners.
+4. Independently verify source traceability, reuse, allowed-value differences, scoped conflicts, unresolved evidence and rebuilding after source changes; supply the results to CA-P-1971.
+
+CA-P-1974 must decompose these responsibilities into bounded child Tasks before execution. A Phase-2 plan is not permission to perform content work during Step 1. Updating this Plan does not start Core adoption or implementation.
+
 CA-P-1974's preparation alone cannot complete this group. Require the generated role/batch review, authorized effect and independent verification children and their actual outputs. Record the Summary replacement policy in each affected patch packet before approval.
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
@@ -51,4 +64,4 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 ### Definition of Done
 
-The Plan is **not** Done if work starts before CA-P-1969 passes, content changes lack their required review/authority, meaning or constraints are lost, Scope is confused with ownership, or unrelated migrations enter the batches; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if work starts before CA-P-1969 passes, content changes lack their required review/authority, meaning or constraints are lost, Scope is confused with ownership, or unrelated migrations enter the batches; Terms Graph contracts, affected consumers or required acceptance cases remain unaligned or unverified; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

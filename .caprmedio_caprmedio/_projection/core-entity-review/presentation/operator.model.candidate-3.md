@@ -4,7 +4,7 @@ Status: Candidate; not adopted Core authority.
 
 Saved: 2026-10-11, Asia/Tbilisi.
 
-Updated: 2026-10-12, Asia/Tbilisi — optional Atom Semantics.
+Updated: 2026-10-12, Asia/Tbilisi — Terms Graph definitions derived from source usage.
 
 Basis: the Operator's latest decisions in this conversation. This document
 supersedes the wording of candidate #2 presented in chat, which was not saved.
@@ -155,8 +155,8 @@ Atom content has distinct purposes:
 
 - **Substance:** what the Atom states.
 - **Substance Scope:** where that content applies.
-- **Semantics:** optional meanings of the Terms and values this Atom defines
-  within its stated scope.
+- **Semantics:** optional explanation of what Terms and values mean in this
+  Atom's content and scope.
 - **Details:** examples, rationale and supporting explanation; not another
   competing place to define meanings.
 
@@ -164,22 +164,12 @@ Semantics is governed content, not commentary. It shares the Atom's authority,
 scope, Status, Version and lifecycle. It supports the same authority unit;
 unrelated or independently governed Claims are not hidden in this section.
 
-Define a meaning once in its owning Atom's Semantics. Other Atoms reference
-that meaning rather than copy or silently redefine it. Referring to a Term does
-not make the referring Atom another definition owner.
-
-Illustrative content for the Atom governing Status, not adopted Status definitions:
-
-```text
-Semantics
-  Draft: not yet accepted for active use.
-  Archived: retained, but outside the current active view.
-```
-
-This can replace separate definition Atoms whose only job is to repeat a meaning
-that belongs to this same authority unit. Keep a separate definition Atom when
-the meaning needs independent scope or governance. No existing definition Atom
-is retired or deleted by this candidate update.
+Semantics explains the source case; it does not make this Atom the sole owner
+of a Term's meaning. The Terms Graph compiles meanings from real uses across
+the selected source Atoms, including their Semantics where present. No separate
+layer of Term-definition Atoms is required by this candidate. See section 3.3
+for compilation, reuse and conflict handling. Existing Definition Atoms are
+not retired or deleted by this candidate update.
 
 An Atom subtype inherits Atom obligations. It does not need duplicate definitions
 of those obligations. Inheriting a Carrier obligation does not mean sharing one
@@ -455,14 +445,9 @@ View and authoring concepts
 
 For example, `Atom` names an Object kind; `Method` names a Content Role/concept.
 A particular Method Atom is an Object. Naming Method does not create a separate
-Method Object root. A Term's meaning can be defined in its owning authoritative
-Atom's Semantics without making the Term and that Atom the same instance.
-
-The Terms Graph can derive these definitions from Semantics, retaining the
-source Atom ID, Version Number and definition scope. It remains derived, not
-another definition authority. Already separate definitions remain source facts
-until their replacement is explicitly approved; this document does not claim
-Semantics extraction or duplicate/conflict checking is implemented.
+Method Object root. A source Atom's content and optional Semantics provide
+evidence of how a Term is used. The Terms Graph derives definitions from those
+cases without making the Term and any source Atom the same instance.
 
 Registered allowed-value domains and admitted nodes remain preserved. A raw
 scalar is not automatically a new Term or Object. `:` retains its allowed-value
@@ -515,6 +500,46 @@ actual compiler invocation is an Execution, and its saved output is a Projection
 This list is a candidate vocabulary grouping, not proof that every Term already
 has an admitted definition in current Core.
 
+### 3.3 Terms Graph — definitions from real cases
+
+Source Atoms and their Semantics →
+compile how Terms are used →
+derive definitions in the Terms Graph Projection →
+reuse the Projection when creating Atoms or other Projections →
+compare source cases to find conflicts, gaps and incoherence.
+
+The source Atoms remain authoritative. A compiled definition is part of the
+Projection; it is not a new source of truth or a separate definition layer.
+Terms can develop as their source cases develop. Their meanings are not fixed
+by assigning each Term to one definition-owning Atom.
+
+Each derived meaning retains the contributing Atom IDs, Version Numbers,
+source passages and applicability scopes. The Projection states which sources
+it covers. Missing evidence or unclear scope remains visible; compilation must
+not invent a settled meaning or hide disagreements behind one definition.
+
+Preserve different meanings in different scopes. Flag a conflict when those
+meanings are incompatible for the same applicable case. Different scopes alone
+do not make a conflict; uncertain overlap is an unresolved question.
+
+For example, `*.Status` selects actual Status properties and their source uses
+so the Projection can compile their shared meaning. A shared meaning does not
+require identical allowed-value sets for every bearer or Atom Type. Different
+allowed sets alone are not a meaning conflict. `Atom.Status` is a property;
+the selection does not create missing properties such as `Scope Unit.Status`.
+
+The Projection can inform a new Atom or another Projection. Reuse preserves
+the distinction between source statements and derived interpretation; it does
+not give the reused definition independent authority. Correct source content
+when resolving a source conflict, then rebuild the affected Projections.
+
+Adopting this rule requires replacing the current definition-only assumptions,
+including CA-R-126 and CA-R-1319 (one Definition Atom per Governed Term),
+CA-M-114 and CA-R-1454 (definition-only derivation), and the relevant authoring,
+Terms Graph Operations and Evaluation rules. Preserve source traceability and
+native Relation admission during that change. This candidate update does not
+retire source Atoms or implement extraction, compilation or conflict checking.
+
 ## 4. Selections
 
 ### 4.1 General Selections
@@ -535,7 +560,7 @@ Objects selected by conditions
   applicable Methods, Evaluations or Delivery rules
 
 Terms selected by conditions
-  Terms defined in selected sources
+  Terms used in selected sources
   Terms naming selected Object kinds
   registered values in a selected allowed-value domain
 ```
@@ -589,8 +614,9 @@ accepted input frontier, a completed Run or a Projection.
 Term → names a meaning → Object kind or another concept
 Selection → uses → Terms, identifiers and conditions
 Selection → chooses → existing Objects or Terms
-Artifact → contains a governed definition of → Term or Selection
-Atom.Semantics → defines meaning for → Terms and values in scope
+Artifact → contains source usage of → Terms, or a definition of a Selection
+Atom.Semantics → explains source-case meaning for → Terms and values in scope
+Terms Graph Projection → compiles meanings from → source cases
 Execution → processes → selected inputs
 Projection → materializes a derived result from → selected sources
 ```
