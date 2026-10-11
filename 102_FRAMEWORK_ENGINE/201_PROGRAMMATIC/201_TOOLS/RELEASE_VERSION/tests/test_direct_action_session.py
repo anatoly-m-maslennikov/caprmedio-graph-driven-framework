@@ -29,13 +29,16 @@ import work_journal  # noqa: E402
 import direct_action_session as direct_action  # noqa: E402
 from direct_action_session import (  # noqa: E402
     ACTION_ATOM_RELATIVE,
+    ACTION_ATOM_SHA256,
     DirectActionJournalError,
     DirectActionSession,
     INITIALIZATION_ACTION_ID,
     INSTALLATION_ACTION_ID,
     INSTALLATION_ATOM_RELATIVE,
+    INSTALLATION_ATOM_SHA256,
     RESTORATION_ACTION_ID,
     RESTORATION_ATOM_RELATIVE,
+    RESTORATION_ATOM_SHA256,
 )
 from framework_package import assemble_framework_package  # noqa: E402
 import framework_image_restoration as image_restoration  # noqa: E402
@@ -55,6 +58,56 @@ def _repository_root() -> Path:
 
 
 REPOSITORY_ROOT = _repository_root()
+_ACTION_FIXTURES = Path(__file__).resolve().parent / "direct_action_golden"
+
+
+def _action_fixture(relative: Path) -> Path:
+    """Reopen only the exact reviewed inert Action carrier for this fixture.
+
+    Production admission still checks the copied Project/package carrier;
+    these data files are never an installed-source fallback for production.
+    """
+    fixtures = {
+        ACTION_ATOM_RELATIVE: ("CA-O-180-v3.md", ACTION_ATOM_SHA256),
+        RESTORATION_ATOM_RELATIVE: ("CA-O-187-v2.md", RESTORATION_ATOM_SHA256),
+        INSTALLATION_ATOM_RELATIVE: ("CA-O-200-v1.md", INSTALLATION_ATOM_SHA256),
+    }
+    name, digest = fixtures[relative]
+    source = _ACTION_FIXTURES / name
+    if (_ACTION_FIXTURES.is_symlink() or source.is_symlink() or not source.is_file()
+            or source.resolve(strict=True).parent != _ACTION_FIXTURES.resolve(strict=True)
+            or hashlib.sha256(source.read_bytes()).hexdigest() != digest):
+        raise RuntimeError("direct Action golden fixture is unavailable or differs from its reviewed pin")
+    return source
+
+
+class DirectActionGoldenFixtureTests(unittest.TestCase):
+    def test_exact_pins_reopen_without_an_installed_repository_source(self) -> None:
+        with patch(__name__ + ".REPOSITORY_ROOT", object()):
+            for relative, digest in (
+                (ACTION_ATOM_RELATIVE, ACTION_ATOM_SHA256),
+                (RESTORATION_ATOM_RELATIVE, RESTORATION_ATOM_SHA256),
+                (INSTALLATION_ATOM_RELATIVE, INSTALLATION_ATOM_SHA256),
+            ):
+                with self.subTest(relative=relative):
+                    self.assertEqual(digest, hashlib.sha256(_action_fixture(relative).read_bytes()).hexdigest())
+        with self.assertRaises(KeyError):
+            _action_fixture(Path("undeclared.md"))
+
+    def test_changed_or_symlinked_inert_carrier_is_refused(self) -> None:
+        reviewed_source = _action_fixture(ACTION_ATOM_RELATIVE)
+        temporary = Path(tempfile.mkdtemp(prefix="direct-action-golden-negative-"))
+        fixture = temporary / "CA-O-180-v3.md"
+        fixture.write_bytes(b"not the reviewed source\n")
+        with patch(__name__ + "._ACTION_FIXTURES", temporary):
+            with self.assertRaises(RuntimeError):
+                _action_fixture(ACTION_ATOM_RELATIVE)
+            fixture.unlink()
+            fixture.symlink_to(reviewed_source)
+            with self.assertRaises(RuntimeError):
+                _action_fixture(ACTION_ATOM_RELATIVE)
+
+
 AUTHORIZATION = {"operator": "Anatoly Maslennikov", "authorization_ref": "tmp/operator-authorizations/bootstrap.md"}
 INTENT = {
     "action_id": INITIALIZATION_ACTION_ID,
@@ -133,7 +186,7 @@ class DirectActionSessionTests(unittest.TestCase):
             "caprmedio_framework_default_settings.toml",
             QUERY_DEFAULTS,
         )
-        source = REPOSITORY_ROOT / ACTION_ATOM_RELATIVE
+        source = _action_fixture(ACTION_ATOM_RELATIVE)
         target = self.root / ACTION_ATOM_RELATIVE
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
@@ -194,7 +247,7 @@ class DirectActionSessionTests(unittest.TestCase):
             target.write_bytes(payload)
             target.chmod(mode)
 
-        action_payload = (REPOSITORY_ROOT / ".caprmedio_caprmedio" / "000_CAPRMEDIO_framework" / "00_APPLICABLE_METHODOLOGY" / "000_APPLICABLE_MTHD_sources" / "003_PROJECT_CONFIGURATION" / "09_operations" / INSTALLATION_ATOM_RELATIVE.name).read_bytes()
+        action_payload = _action_fixture(INSTALLATION_ATOM_RELATIVE).read_bytes()
         action_relative = INSTALLATION_ATOM_RELATIVE.as_posix()
         write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool = 'fixture'\n", mode=0o755)
         write("methodology/active/001_CORE_META_MODEL/04_requirement/CA-R-001--fixture.md", b"# core\n")
@@ -251,7 +304,7 @@ class DirectActionSessionTests(unittest.TestCase):
         target = self.root / RESTORATION_ATOM_RELATIVE
         target.parent.mkdir(parents=True, exist_ok=True)
         if not target.exists():
-            shutil.copyfile(REPOSITORY_ROOT / RESTORATION_ATOM_RELATIVE, target)
+            shutil.copyfile(_action_fixture(RESTORATION_ATOM_RELATIVE), target)
         session = DirectActionSession(
             self.root, author="anatoly-m-maslennikov", operator_authorization=authorization,
             action_id=RESTORATION_ACTION_ID,
