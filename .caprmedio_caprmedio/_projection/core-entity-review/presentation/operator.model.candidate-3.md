@@ -1,11 +1,12 @@
-# Candidate #3 — Object, Term, Selection
+# Candidate #3 — Object, Actor, Term, Selection
 
 Status: Candidate; not adopted Core authority.
 
 Saved: 2026-10-11, Asia/Tbilisi.
 
 Updated: 2026-10-12, Asia/Tbilisi — clarified Atom identity, versioning,
-status/currentness, filenames and Applicable Methodology source eligibility.
+status/currentness, filenames and Applicable Methodology source eligibility;
+separated Actor (who) from Object (what) in the Entity taxonomy.
 
 Basis: the Operator's latest decisions in this conversation. This document
 supersedes the wording of candidate #2 presented in chat, which was not saved.
@@ -23,20 +24,28 @@ Entity
   /Object
     /Occurrent
     /Continuant
+  /Actor
   /Term
   /Selection
 ```
 
-- **Entity:** the umbrella for the things represented by this model.
-- **Object:** something whose identity, state or relations we track.
+- **Entity:** the umbrella for everything represented by this model.
+- **Object:** what we track through its identity, state or relations.
+- **Actor:** who performs work, separate from the Object branch.
 - **Term:** a name with a meaning in its context.
-- **Selection:** an expression choosing existing Entities, such as Objects or Terms.
+- **Selection:** an expression choosing existing Entities, such as Objects,
+  Actors or Terms.
 
-Terms describe meaning. Objects represent things. Selections choose things.
+Objects represent what; Actors represent who. Terms describe meaning.
+Selections choose existing Entities.
 
-These are model categories, not a claim that Terms or Selections do not exist.
-A Term can name an Object kind or a concept that has no additional Object node.
+These are sibling model categories, not a claim that Actors, Terms or Selections
+do not exist. Only Object divides into Occurrent and Continuant; Actor does not
+inherit either classification through this taxonomy.
+A Term can name an Object kind, an Actor role or another concept without an
+additional Object or Actor node.
 The Term and the Object it names are not interchangeable.
+Neither are an Actor Type name and the Actor performing work.
 
 General and CAPRMEDIO-project entries are two views of this same model, not two
 sources of truth. General means reusable across projects. Project-specific means
@@ -56,7 +65,7 @@ Indentation outside a taxonomy is grouping or ownership, not an inferred `/` edg
 The relation meanings shown here are candidate meanings, not newly admitted
 native relation names.
 
-## 2. Objects
+## 2. Objects and Actors
 
 ### 2.1 General Objects
 
@@ -106,12 +115,6 @@ Object
       .Local Order
       .Navigational Order Number
 
-    /Actor
-      .Actor Type
-        : Operator
-        : AI Agent
-      .Name
-
     /Carrier
       .Carrier ID
       /File Carrier
@@ -136,7 +139,8 @@ file is a Continuant Carrier; a long-running Workflow Run is an Occurrent.
 - An Atom is the smallest independently governed Artifact.
 - A Projection is derived and does not become authority for its source facts.
 - Properties are dependent Objects. They need a bearer, not a separate Carrier
-  or independent lifecycle.
+  or independent lifecycle. Their bearer may be an Object or an Actor; an
+  Actor bearer does not thereby become an Object.
 - An Atom may be represented by one folder and one file with different roles:
   the folder organizes children; the file contains its classic content. This
   does not require every Atom to have both.
@@ -192,11 +196,9 @@ Implementation; this candidate creates no Implementation Atoms.
 - A Journal Record is a dependent stored record. It is not the event it describes.
 - Git preserves Atom contents and versions. Journals register what happened.
 
-#### Scope Unit, Actor, Carrier and Relation
+#### Scope Unit, Carrier and Relation
 
 - Scope Unit owns Atoms and child Scope Units; it is outside any individual Atom.
-- Actor identifies who performs work. Name is optional; an unnamed Actor Type
-  names a generic role, not a uniquely distinguished performer.
 - Carrier identifies what carries a representation. Its filename/path is a
   location, not identity. General D policies govern field/storage mappings.
 - Relation remains the selected connection concept. An ordinary relation fact
@@ -214,7 +216,6 @@ Implementation; this candidate creates no Implementation Atoms.
 | Scope Unit | `Scope Unit.ID`: `(project prefix)-SU-(number)` |
 | Carrier | Carrier ID; not filename/path |
 | Execution | Execution ID |
-| Actor | Actor Type + optional Name; individual unnamed distinctions deferred |
 | Dependent Object | bearer identity + dependent name |
 | Historical Atom lookup | Atom ID + Version Number, e.g. `CA-P-123`, version `3` |
 | Other unversioned Artifact state | Artifact ID + Updated At |
@@ -417,11 +418,36 @@ Reusable procedures are O Atom definitions. Their performances are Executions.
 Ad hoc work does not require a new O Atom; the Operator decides repeatability.
 A service startup does not, by itself, create a Workflow Run.
 
+### 2.3 Actors
+
+```text
+Actor
+  .Actor Type
+    : Operator
+    : AI Agent
+  .Name
+```
+
+Actor identifies who performs work. It is an Entity branch alongside Object,
+Term and Selection, not an Object subtype or an Occurrent/Continuant subtype.
+The work performed can be an Execution Object; its performer remains an Actor.
+
+Actor Type and Name remain dependent Objects borne by the Actor. Their dot
+qualification does not place the Actor under Object or introduce another
+Property class. Operator and AI Agent remain Actor Type allowed values, not
+new Object kinds or additional Actor subtypes.
+
+Name is optional. The existing identity convention remains Actor Type +
+optional Name; individual unnamed distinctions remain deferred. An unnamed
+Actor Type names a generic role, not a uniquely distinguished performer.
+No new Actor identity field, selector syntax, runtime type or user type is added.
+
 ## 3. Terms
 
 ### 3.1 General Terms
 
-Terms name both Object kinds and concepts without additional Object nodes.
+Terms name Object kinds, Actor roles and concepts without additional Object or
+Actor nodes.
 These groups organize vocabulary; they are not new native Term hierarchies.
 
 ```text
@@ -429,8 +455,12 @@ Object-kind names
   Object, Continuant, Occurrent
   Artifact, Atom, Projection
   History, Revision, Journal
-  Scope Unit, Actor, Carrier, Relation
+  Scope Unit, Carrier, Relation
   Execution, Session
+
+Actor vocabulary
+  Actor, Actor Type
+  Operator, AI Agent (Actor Type allowed values)
 
 Content concepts
   issue, question, objective, rationale
@@ -462,11 +492,11 @@ evidence of how a Term is used. The Terms Graph derives definitions from those
 cases without making the Term and any source Atom the same instance.
 
 Registered allowed-value domains and admitted nodes remain preserved. A raw
-scalar is not automatically a new Term or Object. `:` retains its allowed-value
-meaning; it is not assignment syntax.
+scalar is not automatically a new Term, Object or Actor. `:` retains its
+allowed-value meaning; it is not assignment syntax.
 
-A label or alias does not create another Object. Syntax characters, selector
-keywords/keys and identifier literals are not automatically Terms either.
+A label or alias does not create another Object or Actor. Syntax characters,
+selector keywords/keys and identifier literals are not automatically Terms either.
 The Terms Graph is distinct from the Objects Graph; no new cross-graph native
 relation is admitted by this document.
 
@@ -571,15 +601,22 @@ Objects selected by conditions
   Atoms linked through a declared relation
   applicable Methods, Evaluations or Delivery rules
 
+Actors selected by existing identity or conditions
+  Actors with Actor Type Operator or AI Agent
+  named Actors matched by Actor Type and Name
+
 Terms selected by conditions
   Terms used in selected sources
-  Terms naming selected Object kinds
+  Terms naming selected Object kinds or Actor roles
   registered values in a selected allowed-value domain
 ```
 
-A Selection chooses existing Entities; it does not create a new Object for the
-set. Its expression uses Terms, identifiers and syntax, but is not itself one Term.
+A Selection chooses existing Entities; it does not create a new Object or Actor
+for the set. Its expression uses Terms, identifiers and syntax, but is not itself
+one Term.
 Resolved members retain their identities and provenance.
+Actor selection examples are conceptual; no new Actor selector grammar or
+storage fields are introduced.
 
 The Selection must make its source/view and filters clear. For Scope Units,
 ownership, targeting and applicability are not interchangeable. Current
@@ -625,9 +662,10 @@ accepted input frontier, a completed Run or a Projection.
 ## 5. Connections between the branches
 
 ```text
-Term → names a meaning → Object kind or another concept
+Term → names a meaning → Object kind, Actor role or another concept
 Selection → uses → Terms, identifiers and conditions
-Selection → chooses → existing Objects or Terms
+Selection → chooses → existing Objects, Actors or Terms
+Actor → performs → work represented by an Execution Object
 Artifact → contains source usage of → Terms, or a definition of a Selection
 Atom.Semantics → explains source-case meaning for → Terms and values in scope
 Terms Graph Projection → compiles meanings from → source cases
@@ -636,7 +674,7 @@ Projection → materializes a derived result from → selected sources
 ```
 
 These arrows explain model roles; they do not register native edges. Ordinary
-Object connections still include ownership, GOVERNS/DEPENDS_ON, carrying,
+connections still include ownership, GOVERNS/DEPENDS_ON, carrying,
 derivation, and historical recording with their separately governed endpoints.
 
 Example:
@@ -656,12 +694,19 @@ A saved prompt compiled from those Ms
 
 Running the prompted work
   → Execution Object
+
+Who performs that work
+  → Actor
 ```
 
 ## 6. Adoption boundary
 
 - This document broadens the candidate meaning of Entity. It does not claim the
-  current Core definition or any Object/Term/Selection profile already matches it.
+  current Core definition or any Object/Actor/Term/Selection profile already
+  matches it.
+- Actor is now a sibling of Object in this candidate taxonomy, not merely a
+  separate display group. Actor-borne Properties remain dependent Objects.
+  Current Core classifications, profiles and runtime types are unchanged.
 - Current `subjects.governs` still resolves one canonical Entity under current
   authority. This candidate does not admit an arbitrary Selection as that target.
 - Existing `atom(...)` syntax remains non-enumerating and case-sensitive.
@@ -677,7 +722,7 @@ Running the prompted work
 - Optional `Atom.Semantics` is a candidate content field. Current Atom schemas,
   authoring rules, definition Atoms, Terms extractors and validators are unchanged.
 - Omitted or unreviewed legacy labels are unclassified, not deleted or invalid.
-- No new native Object/Term/Selection instances or relations are admitted.
+- No new native Object/Actor/Term/Selection instances or relations are admitted.
   This document creates no parser changes, Core revisions, Journal events or
   runtime effects.
 - If adopted later, correct authoritative Subjects first; content alignment
@@ -686,3 +731,6 @@ Running the prompted work
 The prior source-pinned 706-identity review remains separate evidence. Candidate
 #3 records the latest conceptual direction; it is not a claim of fresh exhaustive
 review, live execution, implementation completeness or native admission.
+Reports pinned to the prior three-branch candidate remain historical evidence,
+not current acceptance. Re-review affected targets against this revision; do
+not silently replace their candidate pins or inherit their semantic acceptance.
