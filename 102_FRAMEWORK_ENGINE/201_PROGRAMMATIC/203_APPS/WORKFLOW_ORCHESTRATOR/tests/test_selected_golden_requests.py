@@ -51,7 +51,9 @@ class SelectedGoldenRequestsTest(unittest.TestCase):
                 if case == "W15":
                     relative = (".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
                                 "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml")
-                    self.assertEqual((ROOT / relative).read_bytes(), (project.root / relative).read_bytes())
+                    original = (ROOT / ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/"
+                                "METHODOLOGY_SOURCES/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml")
+                    self.assertEqual(original.read_bytes(), (project.root / relative).read_bytes())
                     self.assertIn(b"[query]", (project.root / relative).read_bytes())
                     journal = project.root / ".caprmedio_caprmedio/_journal"
                     self.assertTrue(journal.is_dir())

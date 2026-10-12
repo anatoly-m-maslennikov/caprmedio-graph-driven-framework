@@ -99,7 +99,7 @@ the same Tools and Prompts can work with both →\
 **the framework is built with the framework.**
 
 The framework must describe itself →\
-the [meta-model](.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL) uses Atoms to describe Atoms and other framework concepts →\
+the [meta-model](101_FRAMEWORK_METHODOLOGY/sources/001_CORE_META_MODEL) uses Atoms to describe Atoms and other framework concepts →\
 this creates recursion and needs a starting point →\
 bootstrap seeds provided the first definitions; those seeds are now retired.
 
@@ -265,7 +265,7 @@ for example: one prompt for how to write code, built from all M Atoms that apply
 
 **Different views, one source.** Rebuild Projections from their sources.
 
-Each Project has a `.caprmedio_<project_name>/` folder. Store persistent Journals in `_journal/` and general Projections in `_projection/`. Project-declared Methodology source remains authoritative; the package/root `methodology/` export and Applicable Methodology delivery output below `000_CAPRMEDIO_framework/` are derived deliveries that preserve provenance. They, graph views, and derived Journal views are non-authoritative Projections: none replaces source or grants Action authority.
+Each Project has a `.caprmedio_<project_name>/` folder. Store persistent Journals in `_journal/` and general Projections in `_projection/`. Project-declared Methodology source remains authoritative. In this Project, `101_FRAMEWORK_METHODOLOGY/` is the delivered product and `.caprmedio_caprmedio/000_CAPRMEDIO_framework/` is the installed copy. Both are derived deliveries that preserve provenance. Neither they, graph views, nor derived Journal views replace source or grant Action authority.
 
 With an explicit Project root, Journal writes and queries use that Project's settings and Journal, not those of a parent or sibling Project. Ambiguous control folders and symlinked settings are rejected.
 
@@ -275,68 +275,49 @@ With an explicit Project root, Journal writes and queries use that Project's set
 
 ## First usable cut
 
-The implementation contains a deliberately small, source-bound first cut with
-six route definitions: Create Atom, Update Atom, Replace Atom, Change Status
-Atom, Implementation Workflow, and Build Applicable Methodology. Discovery and
-execution admission are available only when the selected-route manifest reopens
-with current source pins. An admitted Run preserves its identity,
-source/currentness checks, authorized permissions, terminal outcome, and
-shared-Journal evidence. Status reports matching canonical Workflow terminal
-evidence rather than a scheduler or child-Action outcome.
+The original six source-bound routes cover Create Atom, Update Atom, Replace
+Atom, Change Atom Status, Implementation, and Build Applicable Methodology.
+Their existing authorization boundaries remain. Discovery reports what is
+actually callable; a source definition alone does not prove execution support.
+Implementation has golden mock-Agent evidence, not a live-LLM claim.
 
-The MCP remains available over local stdio. The Docker `project-mcp` command
-documented below is a development source launcher: it requires an explicit
-Framework source root and can build a compatible image. It is distinct from
-activation of a selected installed package. Neither transport starts work or
-grants authorization by itself; see the [development and installed activation
-routes](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md#launch-a-selected-project-mcp-endpoint).
+Two Project-owned release commands use a simpler, direct path through MCP:
 
-A reusable Framework package is selected from
-`.caprmedio_install/releases/<package-manifest-sha256>` by
-`.caprmedio_install/current.toml`; Project-owned runtime state remains in
-`.caprmedio_runtime/`. Installation creates `.caprmedio_runtime/config.toml` from the
-package-admitted default only when it is absent, and otherwise preserves its
-existing bytes or refuses a configuration migration. The legacy Tool-version
-replacement erases only its managed `.caprmedio_runtime/tools` surface, never
-Project controls, Journal, or other runtime state.
+- **Local release (`release_version`):** test the intended tools; copy active
+  Methodology Sources into `101_FRAMEWORK_METHODOLOGY`; compile Applicable
+  Methodology; replace the installed Methodology; build and install the Engine
+  package and project-local `ca`; start Docker MCP; remove only proven
+  superseded Project-owned images.
+- **Public release (`public.release`):** test the intended tools; use one content
+  prompt for the full PR description and its concise Version History bullets;
+  update the version and README; push `amm/dev`; create or update the PR to
+  `main`; insert its actual link into Version History. It does not merge the PR.
 
-The native full-package installation path uses
-`.caprmedio_runtime/installation/current.toml` for Project execution, after
-publishing the matching `.caprmedio_install/current.toml` package selection.
-Replacement requires the exact sealed package, complete release evidence and
-verified quiescence of the selected predecessor. It stages the replacement
-before removing only the old selected package; existing configuration and
-Project-owned history remain outside that deletion boundary. An unavailable
-process query is not proof of quiescence and stops replacement before removal.
-The legacy Framework selector is only a pre-transition binding, not a second
-native execution authority.
+Both start only on an Operator command. They commit all safe, nonignored changes
+before each step and at the end. Failures stop for manual handling: no automatic
+rollback, retry, recovery or legacy compatibility path is part of this cut.
 
-Under the installation lock, the runtime command stage writes only
-`command.toml`, `environment.toml`, `wrapper`, and `stage-manifest.toml`; their
-reopened final copies live below
-`.caprmedio_runtime/installation/generations/<positive-N>/`. Those carriers
-bind the selected package's locked `uv run --locked --no-sync --no-env-file`
-command and deterministic environment, but are prospective data only. Actual
-invocation additionally requires an installation-specific Operator command
-binding the exact command digest and target context.
+The reusable beta package is in `.caprmedio_install/simple_local_release/package`;
+its installed Project copy is in `.caprmedio_runtime/simple_local_release/package`.
+Configuration and existing Project records remain outside the replacement
+boundary. Python runs through locked `uv` environments, not system libraries.
 
-A package carries its active Methodology export, non-authoritative
-`methodology/bindings/` projections, and `SKILLS/ca` payload. Only exact
-admitted, selected Methodology active/support rows participate; presence does
-not activate an Extension or Configuration. Publication follows the gated
-installation/promotion path: Methodology output is limited to its declared
-delivery root and never overwrites authoritative source, and Skill publication
-is not automatic host registration. A package-owned CLI is implementation
-capability, not an installation or Workflow-start authority.
+Regular Project MCP runs in Docker on localhost without a password. The release
+commands use host-side stdio MCP so they can use Docker and the Operator's Git
+and GitHub tools without forwarding credentials or a Docker socket into the
+regular MCP container. The [launcher documentation](102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md)
+describes Project selection and endpoint startup.
 
-This cut has golden mock-Agent evidence for the Implementation Workflow (W09),
-not a live-LLM claim. It is not a formal Release or promotion, does not claim
-full sixteen-route coverage, and leaves Scope mutations, Revert, graph builders,
-and standalone advanced Artifact/Journal queries deferred. This README makes
-no claim that a Project has passed native installation, Full Gate, package
-selection, release promotion, public gate, or publication. `RELEASE_VERSION`
-and `PUBLIC_RELEASE` code provides implementation and test capability, not a
-completed public-release receipt.
+Local numbering adds or increments the fourth component (`0.4.2.1` →
+`0.4.2.2`). Public numbering increments the third and removes the fourth
+(`0.4.2.2` → `0.4.3`). Installed Local and published repository versions are
+separate milestones.
+
+The `0.4.2.2` Local run completed on 12 October 2026: all 16 intended tests passed,
+delivered Methodology/runtime/Skill files matched their installed copies, and
+actual Docker MCP initialization succeeded. This is not a claim that every
+historical test or deferred capability passes. The entity-model candidate and
+its research remain non-authoritative; full migration is not claimed complete.
 
 ## Current boundaries
 

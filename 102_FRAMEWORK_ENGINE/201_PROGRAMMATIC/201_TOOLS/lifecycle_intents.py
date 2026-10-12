@@ -476,7 +476,8 @@ def update_assessment_seal(parameters: Mapping[str, Any], evidence: Mapping[str,
     """Bind O145's admitted class and actual comparison to one exact Update input."""
 
     request = _mapping(parameters, "parameters")
-    required = {"target", "proposed", "change_class"}
+    required = ({"target", "subject_patches", "subject_intent_sha256"}
+                if "subject_patches" in request else {"target", "proposed", "change_class"})
     if not required.issubset(request):
         raise LifecycleError("update-parameters-invalid", "assessment requires one complete Update request")
     seal: dict[str, Any] = {"request_digest": hashlib.sha256(canonical_json(request).encode("utf-8")).hexdigest()}
@@ -987,11 +988,18 @@ def create_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
 
 
 def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool = False, authorized: bool = False,
-                       assessment: Mapping[str, Any] | None = None) -> dict[str, Any]:
+                       assessment: Mapping[str, Any] | None = None, session: object | None = None,
+                       action_run_id: str | None = None, prior: Mapping[str, Any] | None = None) -> dict[str, Any]:
     """Apply one assessed identity-preserving Update or return a terminal handoff."""
 
     root = root.resolve()
     request = _mapping(parameters, "parameters")
+    if "subject_patches" in request:
+        from atom_subject_apply import subject_update_action
+        return subject_update_action(
+            root, request, execute=execute, authorized=authorized, assessment=assessment,
+            session=session, action_run_id=action_run_id, prior=prior,
+        )
     allowed = frozenset({"target", "proposed", "change_class", "successors", "legacy_identity_proof", "legacy_identity_mapping",
                          "semantic_assessment_report"})
     unknown = sorted(request.keys() - allowed)

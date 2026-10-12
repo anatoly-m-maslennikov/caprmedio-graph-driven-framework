@@ -1,0 +1,167 @@
+"""Subject Update assessment and selected-child forwarding contract tests.
+
+The native publisher and Journal admission are seam doubles here; the separate
+GoldenProject suite exercises their real authority and effect gates.
+"""
+from __future__ import annotations
+
+import copy
+import hashlib
+import json
+from pathlib import Path
+import sys
+import tempfile
+from types import ModuleType
+import unittest
+from unittest.mock import Mock, patch
+
+
+APP = Path(__file__).resolve().parents[1]
+REPOSITORY = APP.parents[3]
+TOOLS = APP.parents[1] / "201_TOOLS"
+TEST_TEMP_ROOT = REPOSITORY / ".caprmedio_tmp" / "tests" / Path(__file__).stem
+for location in (APP, TOOLS):
+    if str(location) not in sys.path:
+        sys.path.insert(0, str(location))
+
+import lifecycle_intents  # noqa: E402
+from selected_execution import SelectedExecution  # noqa: E402
+
+
+class _ChildSession:
+    def __init__(self, order: list[str]) -> None:
+        self.actual: dict[str, dict[str, str]] = {}
+        self.order = order
+
+    def start_run(self, requested_id: str) -> dict[str, str]:
+        self.order.append("start")
+        record = {"run_id": f"actual::{requested_id}"}
+        self.actual[requested_id] = record
+        return dict(record)
+
+    def finish_run(self, run_id: str, **result: object) -> dict[str, object]:
+        return {"run_id": run_id, "disposition": "terminal", **result}
+
+
+class SubjectUpdateDispatchTests(unittest.TestCase):
+    def setUp(self) -> None:
+        TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+        temporary = tempfile.TemporaryDirectory(dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True)
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name).resolve()
+        self.target = {
+            "atom_id": "CA-R-100", "path": ".caprmedio_caprmedio/FIXTURE/04_requirement/CA-R-100--target.md",
+            "filename": "CA-R-100--target.md", "version": 2, "digest": "a" * 64,
+            "lifecycle": "active", "status": "Active", "updated_at": "2026-10-12 00:00:00 +0000",
+            "content_role": "Requirement", "type": "General",
+        }
+        self.parameters = {
+            "target": self.target,
+            "subject_patches": [{"field": "governs", "before": "Old", "after": "New"}],
+            "subject_intent_sha256": "b" * 64,
+            "subject_profile": "legacy",
+            "semantic_assessment_report": {"path": "report.md", "digest": "c" * 64},
+        }
+        self.evidence = {"admitted_change_class": "semantic_revision", "comparison": {"report": "verified"}}
+
+    def test_assessment_binds_the_original_subject_request(self) -> None:
+        seal = lifecycle_intents.update_assessment_seal(self.parameters, self.evidence)
+        serialized = json.dumps(self.parameters, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        self.assertEqual(hashlib.sha256(serialized.encode("utf-8")).hexdigest(), seal["request_digest"])
+        lifecycle_intents._validate_update_assessment(self.parameters, seal, self.evidence)
+        for field in ("target", "subject_patches", "subject_intent_sha256", "subject_profile", "semantic_assessment_report"):
+            with self.subTest(field=field):
+                changed = copy.deepcopy(self.parameters)
+                changed[field] = "different"
+                with self.assertRaises(lifecycle_intents.LifecycleError) as caught:
+                    lifecycle_intents._validate_update_assessment(changed, seal, self.evidence)
+                self.assertEqual("reassessment-required", caught.exception.code)
+
+    def test_subject_assessment_requires_the_intent_hash(self) -> None:
+        incomplete = {key: value for key, value in self.parameters.items() if key != "subject_intent_sha256"}
+        with self.assertRaises(lifecycle_intents.LifecycleError) as caught:
+            lifecycle_intents.update_assessment_seal(incomplete)
+        self.assertEqual("update-parameters-invalid", caught.exception.code)
+
+    def _dispatch(self, *, prior_state: str = "admitted", retained_child: bool = False) -> tuple[dict[str, object], Mock, _ChildSession, dict[str, object], list[str]]:
+        selected = SelectedExecution(self.root)
+        order: list[str] = []
+        session = _ChildSession(order)
+        requested_child = "requested-child"
+        if retained_child:
+            session.actual[requested_child] = {"run_id": "existing-actual-child"}
+        prior = {"state": prior_state, "event": {"event_id": "prior-event"}, "receipt": {"event_id": "prior-event"}}
+        assessment = lifecycle_intents.update_assessment_seal(self.parameters, self.evidence)
+        saved: list[dict[str, object]] = []
+
+        def publish(_root: Path, parameters: dict[str, object], **call: object) -> dict[str, object]:
+            self.assertEqual(self.parameters, parameters)
+            if not call["execute"]:
+                return {"operation": "update", "outcome": "preview", "observed": self.target}
+            order.append("effect")
+            return {"operation": "update", "outcome": "failed", "observed": self.target, "effects": []}
+
+        def admit(*_args: object) -> dict[str, object]:
+            order.append("prior")
+            return prior
+
+        def save(payload: dict[str, object]) -> str:
+            saved.append(payload)
+            return "native-result.json"
+
+        native = ModuleType("atom_subject_apply")
+        publisher = Mock(side_effect=publish)
+        native.subject_update_action = publisher
+        context = {
+            "route": "update_atom", "parameters": self.parameters, "session": session,
+            "lifecycle_requested_run_id": requested_child,
+            "lifecycle_action_binding": {"atom_id": "CA-O-030"},
+            "lifecycle_result_writer": save, "action_binding": {"atom_id": "CA-O-128"},
+            "action_run_id": "actual-outer-action", "execution_request_id": "request",
+            "lifecycle_prior_results": [{
+                "step_definition_id": "CA-O-145", "action_definition_id": "CA-O-067",
+                "result": "identity-preserving", "native_result": {"assessment": assessment},
+                "completed_receipt": {"disposition": "terminal", "outcome": "completed"},
+            }],
+        }
+        with (
+            patch.dict(sys.modules, {"atom_subject_apply": native}),
+            patch.object(selected, "_replacement_journal_context", return_value=("operator", "2026-10-12", "UTC", "2026-10-12T00:00:00+00:00")),
+            patch.object(selected, "_bound_action_structural_scope", return_value="FIXTURE"),
+            patch.object(selected, "_lifecycle_result_facts", return_value=({"path": self.target["path"], "sha256": "a" * 64}, b"before")),
+            patch.object(selected, "_lifecycle_context_seed", return_value={}),
+            patch("work_journal.seal_append_context", return_value={}),
+            patch("selected_lifecycle_journal.prepare_lifecycle_journal", return_value={}),
+            patch("selected_lifecycle_journal.admit_lifecycle_prior", side_effect=admit),
+        ):
+            result = selected.handlers["CA-O-128"](context)
+        return result, publisher, session, prior, order
+
+    def test_subject_handler_forwards_actual_child_and_full_admitted_prior(self) -> None:
+        result, publisher, session, prior, order = self._dispatch()
+        self.assertEqual("failed", result["result"])
+        self.assertEqual(["prior", "start", "effect"], order)
+        self.assertEqual(2, publisher.call_count)
+        preview_call, effect_call = publisher.call_args_list
+        self.assertIsNone(preview_call.kwargs["session"])
+        self.assertIs(effect_call.kwargs["session"], session)
+        self.assertEqual("actual::requested-child", effect_call.kwargs["action_run_id"])
+        self.assertIs(effect_call.kwargs["prior"], prior)
+        self.assertEqual(lifecycle_intents.update_assessment_seal(self.parameters, self.evidence), effect_call.kwargs["assessment"])
+
+    def test_pending_prior_prevents_child_start_and_native_effect(self) -> None:
+        result, publisher, session, _prior, order = self._dispatch(prior_state="pending")
+        self.assertEqual("lifecycle-prior-pending", result["result"])
+        self.assertEqual(["prior"], order)
+        self.assertEqual({}, session.actual)
+        self.assertEqual(1, publisher.call_count)
+
+    def test_retained_child_never_reinvokes_native_subject_update(self) -> None:
+        result, publisher, _session, _prior, order = self._dispatch(retained_child=True)
+        self.assertEqual("lifecycle-recovery-required", result["result"])
+        self.assertEqual([], order)
+        publisher.assert_not_called()
+
+
+if __name__ == "__main__":
+    unittest.main()

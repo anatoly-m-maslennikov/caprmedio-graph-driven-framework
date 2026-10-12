@@ -6,7 +6,7 @@ claim_target_scope_unit: PROJECT_TOOLS
 local_tier: "Standard"
 global_tier: 11
 author: "Anatoly Maslennikov"
-status: "Active"
+status: Archived
 subjects:
   governs: "Public release full gate"
   depends_on: [Full Gate, Source Proof, Test]
