@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Revision, Journal, Plan, Operator]
-version: 1
-updated_at: "2026-10-12 04:16:55 +0400"
+version: 2
+updated_at: "2026-10-12 04:49:28 +0400"
 relations:
   is_decomposition_of: [CA-P-2173]
   blocks: [CA-P-2182]
@@ -38,6 +38,8 @@ Author explicit expected source/history/effect ledgers with LF/CRLF and non-Acti
 
 Deliver independent fixtures, expected ledgers, contract/API pins and actual controls to CA-P-2182. If the required portfolio exceeds 15 minutes, split only its concrete independent remainder before execution. No production source, Core body, runtime publication or live capability claim is included.
 
+The Operator deferred concurrency safety. Safe fixture preparation/refusal/no-op checks may continue, but the successful publication and concurrent restoration/history-ownership portfolio remains unaccepted, so this Task stays Active. Live changed-Subject writes remain blocked pending CA-P-2179's later design and actual review/verification. Do not convert partial integration evidence or expected failures into a complete application pass.
+
 ### Definition of Done
 
-The Plan is **not** Done if required controls/expected ledgers are missing, assertions merely mirror the producer, deliberately wrong output passes, accepted contracts/interfaces are stale, a predicted failure is reported as a pass, ownership overlaps, or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if concurrent-publication design remains deferred or the required successful-publication/concurrent-restoration portfolio is unaccepted, required controls/expected ledgers are missing, assertions merely mirror the producer, deliberately wrong output passes, accepted contracts/interfaces are stale, a predicted failure is reported as a pass, ownership overlaps, or own work exceeds 15 minutes without decomposition.

@@ -9,60 +9,38 @@ Selected version milestones from committed declarations:
 - **0.2.0 — 15 July 2026:** the executable DSET toolchain gained skill-policy specifications.
 - **0.3.0–0.3.1 — 15 July 2026:** layered work areas and bootstrap release preparation.
 - **0.3.11 — August 2026:** CARMADIO/CAPRMADIO evolved into CAPRMEDIO. The base CAP, RMED, I and O content roles took shape; Atom, Journal and Projection became distinct artifact forms. BSEED Atoms formalized the bootstrap model.
-- **0.4 — 3 October 2026:**
 
-  - Replaced BSEED with the self-applicable Core Meta-Model and compiled Applicable Methodology.
-  - Clarified the file-backed graph with:
+## Version 0.4
 
-    - Stable Atom identities, Entities, Subjects, and typed relations.
-    - CAPRMEDIO Controlled English (CCE).
-    - Explicit Scope Units, planning, and reusable Workflows.
+Full description in pr: https://github.com/anatoly-m-maslennikov/caprmedio-graph-driven-framework/pull/17
 
-  - Delivered a working harness through deterministic Tools and the first local RMED Atoms Base Revise MCP:
+Summary:
 
-    - Gather → check → fix.
-    - Structured results and Journal records.
+- Replace BSEED with the self-applicable Core Meta-Model and compiled Applicable Methodology.
+- Define stable Atom identities, Entities, Subjects, typed relations, CCE, Scope Units, planning, and reusable Workflows.
+- Deliver the first local RMED Atoms Base Revise MCP: gather → check → fix, with structured results and Journal records.
+- Separate the ontology/base model from replaceable interfaces and Tools; graph services and orchestration remain under development.
+- Declare version 0.4 on 3 October 2026; the version declaration is recorded in https://github.com/anatoly-m-maslennikov/caprmedio-graph-driven-framework/pull/18.
 
-  - Separated the ontology/base model from replaceable interfaces and Tools.
-  - Graph services and orchestration were still under development.
+## Version 0.4.1
 
-- **0.4.1 — 8 October 2026:**
+Full description in pr: https://github.com/anatoly-m-maslennikov/caprmedio-graph-driven-framework/pull/25
 
-  - Accepted the first usable Workflow cut:
+Summary:
 
-    - Create Atom.
-    - Update Atom.
-    - Replace Atom.
-    - Change Atom Status.
-    - Implementation.
-    - Build Applicable Methodology.
-
-  - Verified native and Docker/stdio coverage for:
-
-    - Source-bound orchestration.
-    - Canonical Workflow/Action Journals.
-    - Identity and history preservation.
-    - Current Content Role status models.
-
-  - Passed the retained six-Workflow proof for authenticated localhost HTTP MCP in Docker, including:
-
-    - Session and credential checks.
-    - Host/Origin checks.
-    - Token rotation and lifecycle checks.
-
-  - Used the explicit golden mock Agent for Implementation evidence, not a live LLM.
-  - Closed Epic CA-P-1117 only for the agreed first cut.
-  - Deferred:
-
-    - Formal runtime release and promotion.
-    - Scope Unit mutations and Revert.
-    - Graph delivery and standalone queries.
-    - Additional recovery and full-suite hardening.
-
-  - Recorded a source-version milestone without replacing or promoting the installed runtime.
+- Deliver the first usable Workflow cut: Create, Update, Replace, and Change Atom Status; Implementation; and Build Applicable Methodology.
+- Verify native and Docker/stdio orchestration, Workflow/Action Journals, identity/history preservation, and Content Role status models.
+- Verify authenticated localhost HTTP MCP in Docker, including sessions, credentials, Host/Origin checks, and token lifecycle.
+- Use a golden mock Agent for Implementation evidence, not a live LLM; close Epic CA-P-1117 for the agreed first cut.
+- Record the 8 October 2026 source-version milestone without replacing the installed runtime; defer formal runtime promotion, Scope Unit mutations, Revert, graph/query delivery, and additional recovery/full-suite hardening.
 
 <!-- public-release:epic1848-direct-public-20261012-001 -->
-## 0.4.3 [PR](https://github.com/anatoly-m-maslennikov/caprmedio-graph-driven-framework/pull/27)
+## Version 0.4.3
+
+Full description in pr: https://github.com/anatoly-m-maslennikov/caprmedio-graph-driven-framework/pull/27
+
+Summary:
+
 - Add isolated Project-root Docker MCP startup and uv-managed runtimes with preserved configuration.
 - Simplify Operator-invoked Local/Public releases, with active Methodology copies, intended tests, Git checkpoints, and PR-linked release notes.
 - Improve Tool discovery, Subject validation/patching, graph projection foundations, and Methodology authority; retain non-authoritative research separately.
