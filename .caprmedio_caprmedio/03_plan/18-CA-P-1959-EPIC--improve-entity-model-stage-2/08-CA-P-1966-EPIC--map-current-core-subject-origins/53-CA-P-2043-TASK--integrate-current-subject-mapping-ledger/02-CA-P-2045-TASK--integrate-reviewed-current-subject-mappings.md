@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 35
-updated_at: "2026-10-12 19:56:47 +0400"
+version: 36
+updated_at: "2026-10-12 21:18:53 +0400"
 relations:
   is_decomposition_of: [CA-P-2043]
   depends_on: ["CA-P-1972","CA-P-2044","CA-P-1992","CA-P-1993","CA-P-1994","CA-P-1995","CA-P-1996","CA-P-1997","CA-P-1998","CA-P-1999","CA-P-2000","CA-P-2001","CA-P-2002","CA-P-2003","CA-P-2004","CA-P-2005","CA-P-2006","CA-P-2007","CA-P-2008","CA-P-2009","CA-P-2010","CA-P-2011","CA-P-2012","CA-P-2013","CA-P-2014","CA-P-2015","CA-P-2016","CA-P-2017","CA-P-2018","CA-P-2019","CA-P-2020","CA-P-2021","CA-P-2022","CA-P-2023","CA-P-2024","CA-P-2025","CA-P-2026","CA-P-2027","CA-P-2028","CA-P-2029","CA-P-2030","CA-P-2031","CA-P-2032","CA-P-2033","CA-P-2034","CA-P-2035","CA-P-2036","CA-P-2037","CA-P-2038","CA-P-2039","CA-P-2040","CA-P-2041","CA-P-2042"]
@@ -31,7 +31,7 @@ Create the complete current occurrence ledger only after all review and acceptan
 
 ## Details
 
-Fresh Candidate-4 continuation: own work remains none. CA-P-2188 integrates only the fresh inventory and independently accepted per-source review packets; CA-P-2189 checks the resulting persisted ledger. Historical 51-batch prerequisites/receipts below describe earlier increments, not current model compatibility. Explicitly cover every current occurrence and every excluded/finding row; unresolved below-90% mappings require the Operator's answer before candidate adoption/staging. Preserve old reports and all Core sources. Bind [Candidate #4](../../../../_projection/core-entity-review/presentation/operator.model.candidate-4.md), SHA-256 `cc5cfd0854c351d0524a50fe124f6392edb372dc7ea4b43687c8c8a3627c44d7` and inherit CA-P-1959's current model guidance. Before execution, inherit CA-P-1959's Candidate #4 FPF review gate: show the new review Plan, obtain approval, run and validate the different-question review, and resolve concrete findings before application. This gate is pending; no new FPF analysis, acceptance or migration is claimed.
+Fresh Candidate-4 continuation: own work remains none. CA-P-2188 integrates only the fresh inventory and independently accepted per-source review packets; CA-P-2189 checks the resulting persisted ledger. Historical 51-batch prerequisites/receipts below describe earlier increments, not current model compatibility. Explicitly cover every current occurrence and every excluded/finding row; unresolved below-90% mappings require the Operator's answer before candidate adoption/staging. Preserve old reports and all Core sources. Bind [Candidate #4](../../../../_projection/core-entity-review/presentation/operator.model.candidate-4.md), SHA-256 `6e63d7362514ef20c2551366777073c22300b35a9cef5ad79531ad56b770763d` and inherit CA-P-1959's current model guidance. Before execution, inherit CA-P-1959's Candidate #4 review and repair gate, including the completed historical review, Operator dispositions and bounded independent consistency verification of the authorized repairs against the revised target. Affected work waits for that parent check; revised bytes do not inherit the historical analytical PASS. The unchanged full FPF review is not rerun, and no Core adoption or migration is implied.
 
 Own work: none after initial ledger creation. CA-P-2057 owns the remaining independent persisted-ledger verification and research registration. Execute only after CA-P-2044 and all 51 review Tasks are Done. Missing or uncertain meaning remains explicit research; bounded follow-ups cover it before this group completes. Keep the existing CA-P-1909–1912 accepted-graph/approval/application route unchanged. No candidate acceptance or live migration approval is inferred.
 

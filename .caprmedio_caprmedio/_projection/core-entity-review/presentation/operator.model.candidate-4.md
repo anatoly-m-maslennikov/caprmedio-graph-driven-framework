@@ -13,8 +13,11 @@ Basis: the Operator's latest decisions in this conversation. This full candidate
 supersedes the prospective taxonomy in [Candidate #3](operator.model.candidate-3.md).
 Candidate #3, the [older saved candidate](operator.entity-graph.candidate.json),
 the captured 706-identity review, source pins and receipts remain unchanged.
-A new FPF review with different questions is planned, not executed. Its Plan must
-be shown and approved first; no fresh analytical PASS or adoption is claimed.
+A new FPF design-challenge review and independent validation were completed
+against pre-update SHA256
+`cc5cfd0854c351d0524a50fe124f6392edb372dc7ea4b43687c8c8a3627c44d7`.
+The Operator's resulting decisions are reflected below. This update is not
+a fresh FPF PASS or Core adoption.
 
 This is a full conceptual model, not a completed remapping of every old Subject.
 It does not change authoritative Atoms, Project Structure, parsers, storage keys,
@@ -51,7 +54,7 @@ not a claim that every ontology uses these words in the same way.
 
 Under Continuant:
 
-- **Object:** source-authoritative content about what, how or other project concerns,
+- **Object:** always a source of truth about what, how or other project concerns,
   including Atoms and governing configurations.
 - **Actor:** who performs work, separate from Object.
 - **History:** preserved states and records about what happened.
@@ -79,8 +82,9 @@ by this project.
 ### Notation
 
 - `/`: broader kind to narrower kind.
-- `.`: bearer qualification for a dependent entity or component. Actual
-  Properties remain dependent Objects.
+- `.`: bearer qualification for a dependent entity or component. Source
+  Properties are dependent Objects; Projection Properties belong to their
+  Projection and remain derived.
 - `:`: Property to allowed value, not assignment.
 - No `@` relation operator. `@<Version Number>` is filename punctuation only;
   it is neither part of an Atom ID nor Subject relation syntax. Delivery
@@ -175,9 +179,11 @@ does not add a storage schema or require a Carrier node for every field.
 - Governing Configuration is source-authoritative configuration that is not an
   Atom, including `project_structure.toml`. Project Configuration Atoms remain
   Atoms; a configuration file is not made an Atom merely because it governs.
-- Properties are dependent Objects. They need a bearer, not a separate Carrier
-  or independent lifecycle. Their bearer may be an Object, Actor, Journal or
-  Projection; the bearer does not thereby inherit the Object classification.
+- Source Properties are dependent Objects. They need a bearer, not a separate
+  Carrier or independent lifecycle. Their bearer may be an Object, Actor or
+  Journal; the bearer does not thereby inherit the Object classification.
+  Properties inside a Projection belong to that Projection, not the Object
+  branch, and remain derived.
 - An Atom may be represented by one folder and one file with different roles:
   the folder organizes children; the file contains its classic content. This
   does not require every Atom to have both.
@@ -278,13 +284,18 @@ Projection
 | Scope Unit | `Scope Unit.ID`: `(project prefix)-SU-(number)` |
 | Carrier | Carrier ID; not filename/path |
 | Execution | Execution ID |
-| Dependent Object | bearer identity + dependent name |
+| Dependent source Object | bearer identity + dependent name |
+| Derived Projection Property | Projection/view + member where applicable + dependent name |
 | Historical Atom lookup | Atom ID + Version Number, e.g. `CA-P-123`, version `3` |
 | Other unversioned Artifact state | Artifact ID + Updated At |
 
-Example dependent identity: `atom(atom_id="CA-R-123").status` within the selected
-source or Projection view. `Atom` is the Object kind. Lowercase `atom(...)` remains
-distinct case-sensitive selector syntax, not an alias or an enumeration operation.
+Example source dependent identity: `atom(atom_id="CA-R-123").status` within a
+stated source view identifies the source Atom's Status Object. In a Projection
+view, the same selector identifies the projected member's derived Status,
+qualified by that Projection/view and member. These are different dependent
+items even if their values match. `Atom` is the Object kind. Lowercase `atom(...)`
+remains distinct case-sensitive selector syntax, not an alias or an enumeration
+operation. This distinction adds no storage field or selector grammar.
 
 The semantic display names are `Atom.ID` and `Scope Unit.ID`. This does not rename
 storage keys or the `atom_id` selector argument.
@@ -309,12 +320,12 @@ appears only in Atom filenames. All Atom filenames use the required form
 `AtomID@Version-SCOPE_NAME--summary.md`; `SCOPE_NAME` is the Scope Unit Name,
 not its Label or full path.
 
-An ordinary identity-preserving update creates the next Version Number and
-archives the older version without incrementing it again. The new non-archived
+Every Summary change, including wording-only edits, creates a new Atom with a
+new ID and archives the previous Atom. A Type change follows the same replacement
+rule. Other ordinary identity-preserving updates increment Version Number by 1
+and archive the older version without incrementing it again. The new non-archived
 version preserves its intended Status (for example, Done or Backlog); it is not
-forced to Active. A Type change creates a new Atom with a new ID and archives
-its predecessor, rather than making a same-ID version change. Type is not the
-only replacement trigger; the current Summary identity rule remains in force.
+forced to Active.
 
 Across non-archived original authoritative Atom folders together, at most one
 original carries a bare ID. Archived originals may share that bare ID at different
@@ -328,9 +339,10 @@ Projected instances still belong to separate views; a source Atom Object and its
 derived member do not become the same instance merely because they share a bare
 ID. An Applicable Methodology projected Atom member preserves the source Atom
 ID, Version Number and authored content; its projection-local Status and
-provenance may differ. An
-excluded member may be Archived in the Projection without becoming an archived
-historical source version.
+provenance may differ. The member and its Properties, including copied content,
+Status and provenance, belong to the Projection and remain derived. The source
+Atom remains authoritative. An excluded member may be Archived in the Projection
+without becoming an archived historical source version.
 
 Scope Unit ID stays stable when Label, Name or path changes. Metadata folder names
 retain `(project prefix)-SU-(number)-(LABEL)-(NAME_NAME)`. Project-root delivery
@@ -504,9 +516,8 @@ qualification does not place the Actor under Object or introduce another
 Property class. Operator and AI Agent remain Actor Type allowed values, not
 new Object kinds or additional Actor subtypes.
 
-Name is optional. The existing identity convention remains Actor Type +
-optional Name; individual unnamed distinctions remain deferred. An unnamed
-Actor Type names a generic role, not a uniquely distinguished performer.
+Actor Type is required; Name is optional. The naming convention remains Actor
+Type + optional Name. Unnamed AI Agents need not be individually distinguished.
 No new Actor identity field, selector syntax, runtime type or user type is added.
 
 ## 3. Source meanings and Terms Graph
@@ -637,10 +648,11 @@ Preserve different meanings in different scopes. Flag a conflict when those
 meanings are incompatible for the same applicable case. Different scopes alone
 do not make a conflict; uncertain overlap is an unresolved question.
 
-For example, `*.Status` selects actual Status properties and their source uses
-so the Projection can compile their shared meaning. A shared meaning does not
-require identical allowed-value sets for every bearer or Atom Type. Different
-allowed sets alone are not a meaning conflict. `Atom.Status` is a property;
+For example, `*.Status` in a stated source view selects actual source Status
+Properties and their uses so the Projection can compile their shared meaning.
+A shared meaning does not require identical allowed-value sets for every bearer
+or Atom Type. Different allowed sets alone are not a meaning conflict.
+`Atom.Status` is a property;
 the selection does not create missing properties such as `Scope Unit.Status`.
 
 The Projection can inform a new Atom or another Projection. Reuse preserves
@@ -662,7 +674,7 @@ retire source Atoms or implement extraction, compilation or conflict checking.
 ```text
 Objects selected by identity
   one original Atom by ID
-  one dependent Object through its bearer
+  one dependent source Object through its bearer
 
 History selected by identity or recorded references
   one historical Atom Revision by Atom ID + Version Number
@@ -670,7 +682,7 @@ History selected by identity or recorded references
 
 Projections selected by identity or conditions
   a derived graph or document
-  projected members in a stated source view
+  projected members and their Properties in a stated Projection view
 
 Objects selected by conditions
   Active Atoms (a Status view)
@@ -795,9 +807,11 @@ A file bearing the Atom or compiled prompt
   Entity is only their umbrella. It does not claim current Core or profiles already
   match this model.
 - Continuant explicitly excludes Carrier. Object, Actor, History, Projection and
-  Selection are siblings under Continuant, not merely display groups. Dependent
-  Properties remain Objects; current Core classifications, profiles and runtime
-  types are unchanged. No invariant-based classification is adopted.
+  Selection are siblings under Continuant, not merely display groups. Objects
+  are always sources of truth. Source Properties remain dependent Objects;
+  Properties inside Projections belong to their Projection and remain derived.
+  Current Core classifications, profiles and runtime types are unchanged.
+  No invariant-based classification is adopted.
 - Non-Atom Governing Configuration remains source-authoritative. This does not
   convert configuration files into Atoms or change their schemas or contents.
 - Live Executions and Sessions are Occurrents, not Objects. Journal records about
@@ -830,6 +844,8 @@ A file bearing the Atom or compiled prompt
 The prior source-pinned 706-identity review remains separate evidence. Candidate
 #4 records the latest conceptual direction; it is not a claim of fresh exhaustive
 review, live execution, implementation completeness or native admission.
-Reports pinned to earlier candidate revisions remain historical evidence,
-not current acceptance. Re-review affected targets against this revision; do
-not silently replace their candidate pins or inherit their semantic acceptance.
+The completed FPF design-challenge review and its independent validation apply
+to the pre-update revision named above. Reports pinned to earlier candidate
+revisions remain historical evidence, not current acceptance. Re-review affected
+targets against this revision; do not silently replace their candidate pins or
+inherit their semantic acceptance.
