@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 6
-updated_at: "2026-10-12 05:40:17 +0400"
+version: 7
+updated_at: "2026-10-12 05:58:19 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -49,7 +49,7 @@ One integration owner controls shared state and Git. Parallel edit scopes must b
 
 ### Decomposing Plans
 
-- [CA-P-2183 — Stage and validate Subject preview candidates](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/08-CA-P-2183-TASK--stage-and-validate-subject-preview-candidates.md)
+- [CA-P-2183 — Stage and validate Subject preview candidates](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/08-CA-P-2183-TASK--stage-and-validate-subject-preview-candidates.md)
 - [CA-P-2168 — Align Subject preview currentness contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/01-CA-P-2168-TASK--align-subject-preview-currentness-contracts.md)
 - [CA-P-2169 — Align public graph notation contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/02-CA-P-2169-TASK--align-public-graph-notation-contracts.md)
 - [CA-P-2170 — Align admitted Subject application contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/03-CA-P-2170-TASK--align-admitted-subject-application-contracts.md)
@@ -63,6 +63,8 @@ One integration owner controls shared state and Git. Parallel edit scopes must b
 CA-P-2168/2169 are Done after actual source alignment and [independent contract acceptance](../../_projection/core-entity-review/stage2/tools-first/contract-acceptance.md). CA-P-2170/2171 are Done after [fresh seven-source MCP application acceptance](../../_projection/core-entity-review/stage2/tools-first/application-contract-acceptance.md) at commit `89da2e93d`; the overlapping UPDATE packet was independently re-accepted. All three contract packets now pass. CA-P-2178–2180 are released only as their concrete dependencies become ready. Later source changes require renewed acceptance. CA-P-2172/2175/2176 complete the bounded preview/graph snapshot in [independent implementation verification](../../_projection/core-entity-review/stage2/tools-first/preview-graph-verification.md). Application work, CA-P-2174 and this group's complete Tool-readiness gate remain pending; subsequent intent/materialization edits need their own verification.
 
 CA-P-2178 is Done in [independent intent verification and deferred application status](../../_projection/core-entity-review/stage2/tools-first/intent-and-application-status.md). Final UPDATE 66 supersedes the earlier 59; SEARCH 49, dispatch five and selected golden-request five passed in their declared scopes. The native deferred-publication gate has independent static verification; those refusal/no-op/integration checks do not accept publication. Only pure intent/materialization is closed by that receipt. CA-P-2179/2180/2181/2182, CA-P-2173/2174 and this group remain Active where successful concurrent-safe publication is still unaccepted. Live changed-Subject writes are blocked, regardless of otherwise valid packet approval.
+
+CA-P-2183–2186 are Done after [actual contract acceptance](../../_projection/core-entity-review/stage2/tools-first/staged-preview-contract-acceptance.md) at `15d2373db` and [independent staging verification](../../_projection/core-entity-review/stage2/tools-first/staged-preview-verification.md) at `ef39bf1fd`. The independently reviewed staging path and 14-case portfolio passed Root's final UPDATE 80, SEARCH 49, generic lifecycle 30 and selected-Subject eight checks. With CA-P-1963, this releases read-only current-source adaptation/re-pinning/mapping solely to create and review staged candidates. No Core migration or current re-pin is claimed; this group, its full publication gate, shared CA-P-1909–1912 and Step 2 remain pending.
 
 ### Definition of Done
 
