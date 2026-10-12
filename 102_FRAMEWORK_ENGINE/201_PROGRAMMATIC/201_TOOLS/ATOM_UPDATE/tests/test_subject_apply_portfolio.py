@@ -46,9 +46,9 @@ class SubjectApplyProject:
         assert pin["atom_id"] == "CA-O-030" and pin["version"] == 7 and pin["digest"] == O030_V7_SHA256
         source = REPOSITORY / pin["source_path"]
         current_raw = source.read_bytes()
-        assert "version: 10\n" in current_raw.decode("utf-8")
+        assert "version: 11\n" in current_raw.decode("utf-8")
         shutil.copyfile(source, root / pin["source_path"])
-        pin.update(version=10, digest=hashlib.sha256(current_raw).hexdigest())
+        pin.update(version=11, digest=hashlib.sha256(current_raw).hexdigest())
         self.manifest["source_freshness"]["selected_binding_digest"] = digest(self.manifest["routes"])
         self.manifest["canonical_manifest_sha256"] = digest({
             key: value for key, value in self.manifest.items() if key != "canonical_manifest_sha256"
