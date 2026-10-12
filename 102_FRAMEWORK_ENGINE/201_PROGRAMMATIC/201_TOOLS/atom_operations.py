@@ -495,7 +495,7 @@ def read_raw_atom_revision(root: Path, path: Path) -> tuple[bytes, tuple[int, ..
 
 def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
                             expected: tuple[int, ...] | None, mode: int) -> tuple[int, ...] | None:
-    """Publish raw bytes, or remove our exact revision; never overwrite an archive."""
+    """Prototype raw publication; final compare-to-replace/remove is not concurrency-safe."""
 
     parent = _raw_revision_parent(root, path, create=expected is None and raw is not None)
     staging = None
@@ -511,9 +511,9 @@ def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
                                  mode, dir_fd=staging)
             staged = True
             with os.fdopen(descriptor, "wb") as stream:
-                os.fchmod(stream.fileno(), mode)
                 stream.write(raw)
                 stream.flush()
+                os.fchmod(stream.fileno(), mode)
                 os.fsync(stream.fileno())
         try:
             current = os.stat(path.name, dir_fd=parent, follow_symlinks=False)
