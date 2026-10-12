@@ -26,7 +26,7 @@ class SimplePublicReleaseTests(unittest.TestCase):
             "summary": ["Direct public release with one supplied PR description."],
         }
 
-    def _runner(self, *, fail_tests: bool = False, branch: str = "amm/dev"):
+    def _runner(self, *, fail_tests: bool = False, branch: str = "amm/dev", existing_pr: bool = False):
         calls: list[tuple[str, ...]] = []
 
         def run(argv: tuple[str, ...], cwd: Path) -> subprocess.CompletedProcess[str]:
@@ -37,7 +37,8 @@ class SimplePublicReleaseTests(unittest.TestCase):
             if argv[:2] == ("git", "diff"):
                 return subprocess.CompletedProcess(argv, 1, "", "")
             if argv[:3] == ("gh", "pr", "list"):
-                return subprocess.CompletedProcess(argv, 0, "[]", "")
+                output = '[{"url": "https://github.com/acme/project/pull/41"}]' if existing_pr else "[]"
+                return subprocess.CompletedProcess(argv, 0, output, "")
             if argv[:3] == ("gh", "pr", "create"):
                 return subprocess.CompletedProcess(argv, 0, "https://github.com/acme/project/pull/42\n", "")
             if fail_tests and argv[:2] == ("uv", "run"):
@@ -70,7 +71,18 @@ class SimplePublicReleaseTests(unittest.TestCase):
         self.assertEqual(7, len([argv for argv in calls if argv[:2] == ("git", "commit")]))
         self.assertEqual(2, len([argv for argv in calls if argv[:2] == ("git", "push")]))
         create = next(argv for argv in calls if argv[:3] == ("gh", "pr", "create"))
+        self.assertIn("--draft", create)
         self.assertEqual(self.draft["description"], create[create.index("--body") + 1])
+
+    def test_existing_open_pr_is_made_draft_before_editing(self) -> None:
+        runner, calls = self._runner(existing_pr=True)
+        result = run_public_release(self.root, run_id="public-open", content_draft=self.draft, runner=runner)
+
+        self.assertEqual("completed", result["outcome"])
+        ready = ("gh", "pr", "ready", "https://github.com/acme/project/pull/41", "--undo")
+        edit = next(argv for argv in calls if argv[:3] == ("gh", "pr", "edit"))
+        self.assertLess(calls.index(ready), calls.index(edit))
+        self.assertFalse(any(argv[:3] == ("gh", "pr", "create") for argv in calls))
 
     def test_failed_test_stops_before_version_or_document_changes_and_writes_issue(self) -> None:
         runner, calls = self._runner(fail_tests=True)
