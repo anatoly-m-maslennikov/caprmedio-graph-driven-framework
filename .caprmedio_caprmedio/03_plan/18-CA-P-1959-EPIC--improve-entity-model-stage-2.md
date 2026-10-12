@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 51
-updated_at: "2026-10-12 04:25:07 +0400"
+version: 52
+updated_at: "2026-10-12 04:30:14 +0400"
 relations: {}
 ---
 # Summary
@@ -147,7 +147,7 @@ CA-P-2167 now gates affected mapping execution and the shared graph/preview/appl
 
 The Operator chose to extend the existing admitted MCP update action with Subjects-only application. CA-P-2170 aligns that exact route's RMEDO, then independent current contract verification gates CA-P-2173's bounded implementation. This choice grants no local transport exception, completed admission or live Core effects; CA-P-1910's exact sealed migration packet still needs separate approval and current pins.
 
-CA-P-2168/2169 are Done after [independent preview/currentness and public graph contract acceptance](../_projection/core-entity-review/stage2/tools-first/contract-acceptance.md). CA-P-2170/2171 are now Done after [fresh independent acceptance of the seven-source MCP application packet](../_projection/core-entity-review/stage2/tools-first/application-contract-acceptance.md), committed as `89da2e93d`. The new receipt covers the overlapping UPDATE revisions rather than inheriting their old pins. It releases CA-P-2178–2180 only when their concrete dependencies are ready; any later source change requires renewed acceptance. CA-P-2167 remains Active for complete Tool readiness. Only the bounded public graph child CA-P-2176 has an implementation completion receipt; remaining code, independent fixtures, runtime readiness and live migration approval stay pending.
+CA-P-2168/2169 are Done after [independent preview/currentness and public graph contract acceptance](../_projection/core-entity-review/stage2/tools-first/contract-acceptance.md). CA-P-2170/2171 are Done after [fresh independent acceptance of the seven-source MCP application packet](../_projection/core-entity-review/stage2/tools-first/application-contract-acceptance.md), committed as `89da2e93d`. The new receipt covers the overlapping UPDATE revisions rather than inheriting their old pins. It releases CA-P-2178–2180 only when their concrete dependencies are ready; any later source change requires renewed acceptance. CA-P-2172/2175/2176 complete the bounded preview/graph increment in [its verified snapshot](../_projection/core-entity-review/stage2/tools-first/preview-graph-verification.md). CA-P-2167/2174 remain Active: application implementation, combined independent fixtures, runtime readiness and live migration approval stay pending; later intent/materialization changes need fresh verification.
 
 ### Historical checkpoint — CA-P-2144–2155
 

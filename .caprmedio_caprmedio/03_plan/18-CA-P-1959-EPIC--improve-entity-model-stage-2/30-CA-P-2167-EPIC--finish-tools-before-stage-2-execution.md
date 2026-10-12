@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 3
-updated_at: "2026-10-12 04:25:07 +0400"
+version: 4
+updated_at: "2026-10-12 04:30:14 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1966, CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -49,13 +49,13 @@ One integration owner controls shared state and Git. Parallel edit scopes must b
 - [CA-P-2169 — Align public graph notation contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/02-CA-P-2169-TASK--align-public-graph-notation-contracts.md)
 - [CA-P-2170 — Align admitted Subject application contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/03-CA-P-2170-TASK--align-admitted-subject-application-contracts.md)
 - [CA-P-2171 — Verify updated Tool contracts independently](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/04-CA-P-2171-TASK--verify-updated-tool-contracts-independently.md)
-- [CA-P-2172 — Align Subject preview and public graph Tools](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/05-CA-P-2172-TASK--align-subject-preview-and-public-graph-tools.md)
+- [CA-P-2172 — Align Subject preview and public graph Tools](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/05-CA-P-2172-TASK--align-subject-preview-and-public-graph-tools.md)
 - [CA-P-2173 — Implement the admitted Subject application route](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/06-CA-P-2173-TASK--implement-the-admitted-subject-application-route.md)
 - [CA-P-2174 — Verify remaining Tools on isolated fixtures](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/07-CA-P-2174-TASK--verify-remaining-tools-on-isolated-fixtures.md)
 
 ### Contract checkpoint
 
-CA-P-2168/2169 are Done after actual source alignment and [independent contract acceptance](../../_projection/core-entity-review/stage2/tools-first/contract-acceptance.md). CA-P-2170/2171 are Done after [fresh seven-source MCP application acceptance](../../_projection/core-entity-review/stage2/tools-first/application-contract-acceptance.md) at commit `89da2e93d`; the overlapping UPDATE packet was independently re-accepted. All three contract packets now pass. CA-P-2178–2180 are released only as their concrete dependencies become ready. Later source changes require renewed acceptance. Public graph child CA-P-2176 is independently complete; other implementation/fixture work and this group's complete Tool-readiness gate remain pending.
+CA-P-2168/2169 are Done after actual source alignment and [independent contract acceptance](../../_projection/core-entity-review/stage2/tools-first/contract-acceptance.md). CA-P-2170/2171 are Done after [fresh seven-source MCP application acceptance](../../_projection/core-entity-review/stage2/tools-first/application-contract-acceptance.md) at commit `89da2e93d`; the overlapping UPDATE packet was independently re-accepted. All three contract packets now pass. CA-P-2178–2180 are released only as their concrete dependencies become ready. Later source changes require renewed acceptance. CA-P-2172/2175/2176 complete the bounded preview/graph snapshot in [independent implementation verification](../../_projection/core-entity-review/stage2/tools-first/preview-graph-verification.md). Application work, CA-P-2174 and this group's complete Tool-readiness gate remain pending; subsequent intent/materialization edits need their own verification.
 
 ### Definition of Done
 
