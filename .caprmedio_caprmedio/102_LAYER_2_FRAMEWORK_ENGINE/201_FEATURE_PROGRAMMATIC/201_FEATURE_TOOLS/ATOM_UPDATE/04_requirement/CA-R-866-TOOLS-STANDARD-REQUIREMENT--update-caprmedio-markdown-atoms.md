@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Artifact/Carrier", "Atom Change Classification", "Atom/Revision/Updated At"]
-version: 15
-updated_at: "2026-10-11 18:04:47 +0400"
+version: 16
+updated_at: "2026-10-12 04:06:57 +0400"
 relations:
   relates_to: [CA-O-030, CA-E-304, CA-O-067, CA-R-1432, CA-R-1788, CA-R-1464, CA-R-1415, CA-R-1371]
 ---
@@ -44,6 +44,8 @@ fail. Each `subject_patches` entry has `field = governs|depends_on`, exact
 `field = depends_on`. An Atom item using `subject_patches` must not also request
 complete-frontmatter or body replacement. The selected files must be unique
 within the payload.
+
+Subject-only preview **must** select a complete original Atom Carrier with a stable Atom ID, excluding Draft and archived carriers by both carried Status and placement. Both the pinned source and proposed result **must** pass existing complete-carrier validation, including the applicable Content Role/Type Status model and correct Carrier placement. Preserve the carried Status byte-for-byte; do not activate the source or perform a lifecycle transition. Missing, ambiguous, unsupported, or stale validation authority **must** fail closed.
 
 Omitted `subject_profile` selects `legacy`; `approved` is explicit; unknown or malformed supplied profiles **must** fail. Subject patches apply only to direct structured `subjects.governs` and `subjects.depends_on` fields, and the selected profile validates both the source and resulting scalar Subjects. Legacy uses `/` bearer qualification and `:` allowed values with literal dots and rejects every `atom(...)` selector. Approved uses `/` broader-to-narrower, `.` bearer-to-dependent, and `:` Property-to-allowed-value, and accepts only the exact initial lowercase selector forms registered by CA-R-1321. `Atom` and `atom` remain distinct; both profiles reject `@`, escapes, every other selector construction, conjunctions, wildcards, evaluation, aliases, and profile inference in Subject syntax. This is syntax validation only and does not enumerate selector instances, admit a target, or add an apply path.
 

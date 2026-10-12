@@ -13,8 +13,8 @@ subjects:
   governs: "Tool/ATOM_SEARCH/Carrier"
   depends_on:
     - "Tool/ATOM_SEARCH"
-version: 10
-updated_at: "2026-10-11 18:04:47 +0400"
+version: 11
+updated_at: "2026-10-12 04:06:57 +0400"
 relations: {"delivery_for":["CA-R-863"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -38,6 +38,8 @@ The delivered `ATOM_SEARCH` wrapper **must** support the existing `--under PATH`
 - `--subject-match exact|prefix` for literal equality or delimiter-aware lexical prefix matching;
 - optional `--subject-profile legacy|approved`, where omission means `legacy` and an unknown or malformed supplied profile fails;
 - repeatable `--content-role ROLE` values as an OR set within the valid-file filter, and `--scope-unit OWNER` as a conjunctive owner filter.
+
+Subject lookup defaults to Active. Explicit `--lifecycle all` can also return valid non-Active originals, including correctly placed Done or Backlog carriers, with their carried Status and exact source pins preserved. Lookup membership does not grant Subject-preview eligibility or cause a lifecycle transition.
 
 Legacy uses `/` as bearer qualification, `:` as Property-to-allowed-value, and literal dots, and rejects every `atom(...)` selector. Approved uses `/` as broader-to-narrower, `.` as bearer-to-dependent, and `:` as Property-to-allowed-value, and accepts only the exact initial lowercase selector forms registered by CA-R-1321; `Atom` and `atom` remain distinct. Exact matching remains literal; prefix matching uses only the selected profile's declared boundaries. Both profiles reject `@`, and approved rejects every other selector construction, escaping, conjunction, wildcard, evaluation, and alias. It is neither a fourth operator nor carrier/display notation.
 

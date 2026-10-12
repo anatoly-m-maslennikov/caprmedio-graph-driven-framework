@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Atom/Revision/Updated At", "Update Sealed Atom Carriers", "Artifact/Carrier", "Journal/Record"]
-version: 14
-updated_at: "2026-10-11 18:04:47 +0400"
+version: 15
+updated_at: "2026-10-12 04:06:57 +0400"
 relations:
   evaluation_for: [CA-R-866, CA-O-030, CA-R-1464, CA-R-1415, CA-R-1371]
   relates_to: [CA-O-067, CA-R-1432, CA-R-1788, CA-R-1662]
@@ -49,6 +49,8 @@ Apply valid exact list-item changes in each direction and at each explicit index
 Reject before writing when the Atom ID, Version, SHA-256, field/index, or old value is stale or wrong; when Subjects are malformed, nested, missing, duplicated ambiguously, or the final dependency list would contain duplicate values; or when the requested path is absolute, escapes the approved root, is a symlink, a projection, or is missing. Do not repair any rejected carrier. Validate the complete resulting carrier, including frontmatter schema, identity, Subjects, and list indexes, before publication.
 
 For an accepted non-no-op Subject change, require Version `+1` and an actual edit-time Updated At. Preserve all unrelated frontmatter and body bytes, unknown keys, formatting, and CRLF/LF line endings; only the explicit Subject list item and required Version/Updated At may differ. A local preview is deterministic and writes nothing; do not claim a new MCP binding. An old value equal to the new value, or a semantically unchanged resulting list, is a no-op: report it without a new Version, timestamp, archive, Revision, or Journal effect. Recheck the expected pins at apply time, and prove the unchanged standalone `ATOM_UPDATE --apply` guard still rejects unsupported direct apply. Inject a failed validation or publication and prove the fixture returns byte-for-byte to its before ledger.
+
+Use valid stable-ID non-archived originals under their admitted Status models, including correctly placed Plan Done and Backlog carriers. Prove both source and result pass the real complete-carrier validator without mocking it; retain the Active case. Verify exact Status, Summary, identity, placement, unrelated frontmatter, body bytes, and line endings remain unchanged in the proposed Carrier except for the declared Subject and required Version/Updated At spans. Reject Draft or archived Status/placement, invalid role-specific Status, status-folder mismatch, unavailable or ambiguous validation authority, and any otherwise invalid complete source or result without repair or writes. A no-op retains Status and creates no Revision or effect.
 
 ### Subject-profile preview cases
 

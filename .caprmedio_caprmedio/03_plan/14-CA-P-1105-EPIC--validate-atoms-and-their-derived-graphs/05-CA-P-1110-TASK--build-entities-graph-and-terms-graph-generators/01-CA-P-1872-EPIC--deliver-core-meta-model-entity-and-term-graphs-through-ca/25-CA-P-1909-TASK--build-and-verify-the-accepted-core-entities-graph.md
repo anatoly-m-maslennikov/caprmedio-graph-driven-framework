@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 2
-updated_at: "2026-10-10 23:24:00 +0400"
+version: 3
+updated_at: "2026-10-12 04:02:18 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1910, CA-P-1967]
@@ -32,7 +32,7 @@ Apply only the Operator's accepted candidate decisions to a separately saved Cor
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
 
-Stage-2 integration gate: CA-P-1966's current occurrence ledger and CA-P-1975's post-grammar Tool readiness must be Done before this accepted-graph work. The captured candidate still needs its explicit exact-hash Operator acceptance; new Plan creation does not grant it.
+Stage-2 integration gate: CA-P-2167's complete independent Tool receipt, CA-P-1966's current occurrence ledger and CA-P-1975's post-grammar Tool readiness must be Done before this accepted-graph work. The candidate still needs its explicit exact-hash Operator acceptance; new Plan creation or Tool readiness does not grant it.
 
 Readiness conditions: CA-P-1908 is Done, and an explicit recorded Operator decision identifies the exact candidate hash, source pins, occurrence-to-proposed-relation ledger and node-disposition ledger. Handoff, silence, confidence or Plan creation is not acceptance. If the decision or its bindings are missing, ambiguous or stale, remain deferred and ask the Operator; do not apply the candidate.
 

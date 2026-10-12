@@ -16,8 +16,8 @@ subjects:
     - "Artifact/Carrier"
     - "Scope Unit"
     - "Search Atom Carriers"
-version: 15
-updated_at: "2026-10-11 18:04:47 +0400"
+version: 16
+updated_at: "2026-10-12 04:06:57 +0400"
 relations: {"evaluation_for":["CA-R-863","CA-O-046"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -53,6 +53,8 @@ For `field=governs`, `field=depends_on`, and `field=both`, prove direction: a go
 Run the same lookup with conjunctive `--under`, lifecycle, content-role, and owner filters. A value found only in Markdown body text is not a Subject match. Each occurrence records Atom ID, Version, Status, owner, current Scope Unit, repository-relative path, SHA-256, Updated At, field, list index, and exact value; source pins cover the complete carrier bytes and results have stable ordering.
 
 Reject missing or unsupported field, value, match, root, lifecycle, `--under`, role, or owner inputs before traversal. Do not repair or write invalid files. A malformed or unreadable selected file produces a diagnostic. Repeat valid requests against an independently checked ledger, including duplicate list positions and all source pins, and prove every fixture byte remains unchanged.
+
+Include valid Plan Done and Backlog originals in their admitted status folders. Omitted lifecycle keeps the Active default and excludes these originals; explicit `--lifecycle all` returns their expected Subject occurrences with exact carried Status and Atom ID/Version/SHA-256 pins in stable order. Compare the independently authored occurrence ledger and every fixture byte before and after both requests. Lookup membership is not Subject-preview eligibility and performs no activation or lifecycle transition.
 
 ### Subject-profile cases
 

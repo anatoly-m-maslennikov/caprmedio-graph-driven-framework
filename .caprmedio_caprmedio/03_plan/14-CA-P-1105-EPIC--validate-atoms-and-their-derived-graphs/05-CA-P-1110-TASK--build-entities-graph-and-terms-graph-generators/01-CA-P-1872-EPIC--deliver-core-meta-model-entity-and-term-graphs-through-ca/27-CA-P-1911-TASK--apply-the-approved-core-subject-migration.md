@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 1
-updated_at: "2026-10-10 01:17:19 +0400"
+version: 2
+updated_at: "2026-10-12 04:02:18 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1912]
@@ -32,13 +32,13 @@ Apply only the exact separately authorized Core Subject migration while preservi
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
 
-Readiness conditions: CA-P-1910 is Done, and the Operator has explicitly authorized migration of its exact sealed preview, hash, file/patch list and pinned source frontier. The present request creates this Plan only. Candidate acceptance, preview delivery, confidence or Plan creation grants no authority to write sources.
+Readiness conditions: CA-P-2167's complete independent Tool receipt and CA-P-1910 are Done, and the Operator has explicitly authorized migration of its exact sealed preview, hash, file/patch list and pinned source frontier. The present request creates this Plan only. Candidate acceptance, Tool readiness, preview delivery, confidence or Plan creation grants no authority to write sources.
 
 Inputs: the authorized preview, accepted graph and complete ledgers, current source pins, governing Subject/grammar and revision/history contracts, and the verification/recovery plan. Recheck every affected and preserved source pin, current authority, permission and safety condition before writes. Drift, unresolved authority or a changed patch requires a fresh preview and explicit authorization, not substitution of current files.
 
 Write only the approved Subject changes, specifically authorized required grammar contracts and necessary revision/history maintenance. Preserve existing Summaries and YAML key names. Do not alter Claim meaning unless that exact semantic change is separately approved under its governing authority. Broad ontology changes, unapproved generalizations or unsupported Carrier serialization remain blocked and require separate RMED authority.
 
-Use `/`, `.` and `:` only as admitted for the exact approved migration. Do not serialize `@` into Subjects merely because its compact display is approved. Any additional Subject operator requires separate governed admission before use. Preserve source-backed Carrier bindings in their admitted source forms and the ledgers; a display mark is not a source declaration.
+Use `/`, `.` and `:` only as admitted for the exact approved migration. `@` is filename punctuation only, not a graph/Subject Relation operator. Any additional Subject operator requires separate governed admission before use. Preserve source-backed Carrier bindings in their admitted source forms and the ledgers; a display mark is not a source declaration.
 
 Output: the exact applied-change record, before/after source identities, revisions and hashes, preserved-history evidence and truthful failure/recovery disposition. Reconcile only approved source/history/grammar references and internal bindings named in the sealed preview. Record affected external MCP/runtime/release pins for their authorized owner, without refreshing manifests or claiming live admission. External admission remains separately pending and does not block CA-P-1912's local read-only reproduction check. Hand the exact changed snapshot to CA-P-1912.
 

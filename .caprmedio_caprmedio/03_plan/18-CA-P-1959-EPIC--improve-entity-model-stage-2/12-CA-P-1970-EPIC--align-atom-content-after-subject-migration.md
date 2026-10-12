@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 5
-updated_at: "2026-10-12 03:40:17 +0400"
+version: 6
+updated_at: "2026-10-12 04:02:18 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1971]
@@ -39,7 +39,7 @@ The prospective Entity hierarchy is `Entity -> Object | Term | Selection`; Objec
 
 Adopt the semantic names `Atom.ID` and `Scope Unit.ID` while retaining the existing storage keys. Keep `Atom` distinct from lowercase `atom`. For an ordinary identity-preserving update, select the current original NON-ARCHIVED Atom, create exactly Version `+1`, and archive the previous original without a second version bump; the original need not be Active. A Type change instead creates an entirely new Atom and new ID, then archives the old Atom. A changed Summary requires a new ID unless governing policy separately changes; Type is not the sole replacement trigger. Stored IDs remain bare; archived originals share the ID at distinct Versions. Atom filenames in all statuses use `AtomID@Version-SCOPE_NAME--summary.md`, with `@` filename-only; references use ID plus Version.
 
-Plan Step-2 adoption after RMEDO for D-approved carrier/reference changes, identity consumers, Applicable Methodology compiler consumers, and the Terms builder. Do not perform renames during this Plan edit; this Plan does not authorize an automatic runtime or release rebuild.
+Put the affected Tools first within Step 2: review/update and independently verify RMEDO, align and independently verify the existing D-approved carrier/reference and identity consumers, Applicable Methodology compiler and Terms builder, then use them in affected content/consumer work. CA-P-1974 creates the bounded children after the Subject gate. Do not perform renames during this Plan edit; this Plan does not authorize an automatic runtime or release rebuild.
 
 For Applicable Methodology, select current NON-ARCHIVED eligible source versions and preserve source ID, Version and authored content. Only projected Status and provenance may differ. Project Configuration authors corrections first; then select and project one whole lifecycle, with no independently versioned member. A projection is reusable and non-authoritative.
 
@@ -55,8 +55,8 @@ Use this order for the affected work:
 
 1. Review current Core and Engine graph RMEDO and identify definition-only assumptions, source evidence requirements and affected consumers. Prepare exact revisions/replacements and acceptance cases.
 2. Apply and independently verify the accepted RMEDO changes, preserving source Claims, history and admitted Relation meanings. Do not retire every Definition Atom as a blanket migration.
-3. Align the existing Terms Graph builder, extraction and diagnostics with those contracts. Reuse CA-P-1872's graph work; bind affected Engine files and fixtures to disjoint child owners.
-4. Independently verify source traceability, reuse, allowed-value differences, scoped conflicts, unresolved evidence and rebuilding after source changes; supply the results to CA-P-1971.
+3. Align the existing Terms Graph builder, extraction and diagnostics with those contracts before affected content or consumer usage. Reuse CA-P-1872's graph work; bind affected Engine files and isolated fixtures to disjoint child owners.
+4. Independently verify source traceability, reuse, allowed-value differences, scoped conflicts, unresolved evidence and rebuilding after fixture source changes before affected use; supply the results to CA-P-1971. Actual derived Terms compilation remains Step 2 and follows those gates.
 
 CA-P-1974 must decompose these responsibilities into bounded child Tasks only after CA-P-1969's complete current receipt, before execution. A Phase-2 plan is not permission to perform content work during Step 1. Updating this Plan records planning only; it does not start Core adoption or implementation.
 
@@ -70,4 +70,4 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 ### Definition of Done
 
-The Plan is **not** Done if work starts before CA-P-1969 passes, content changes lack their required review/authority, meaning or constraints are lost, Scope is confused with ownership, or unrelated migrations enter the batches; ordinary-update versus new-Atom lifecycle rules, D/consumer adoption, Applicable Methodology lifecycle or positive and negative checks remain unplanned or unverified; Terms Graph contracts, affected consumers or required acceptance cases remain unaligned or unverified; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if work starts before CA-P-1969 passes, affected content/consumer use precedes updated independently verified RMEDO and Tool fixture readiness, content changes lack their required review/authority, meaning or constraints are lost, Scope is confused with ownership, or unrelated migrations enter the batches; ordinary-update versus new-Atom lifecycle rules, D/consumer adoption, Applicable Methodology lifecycle or positive and negative checks remain unplanned or unverified; Terms Graph contracts, affected consumers or required acceptance cases remain unaligned or unverified; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

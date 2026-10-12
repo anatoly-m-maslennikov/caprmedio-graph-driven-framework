@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 4
-updated_at: "2026-10-12 03:41:05 +0400"
+version: 5
+updated_at: "2026-10-12 04:02:18 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1968, CA-P-1973, CA-P-1910]
@@ -30,7 +30,7 @@ Prepare the exact source-pinned candidate packet for CA-P-1910's sole migration 
 
 ## Details
 
-Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisites: CA-P-1963, CA-P-1964, CA-P-1965, completed independently verified CA-P-1966 re-review/adaptation/re-pin, CA-P-1975 and CA-P-1909. Recheck CA-P-1909's actual Done receipt and accepted graph; a frozen candidate is not that gate.
+Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisites: CA-P-2167's complete independent Tool receipt, CA-P-1963, CA-P-1964, CA-P-1965, completed independently verified CA-P-1966 re-review/adaptation/re-pin, CA-P-1975 and CA-P-1909. Recheck CA-P-1909's actual Done receipt and accepted graph; a frozen candidate is not that gate.
 
 Use the verified tools, current occurrence ledger and approved grammar candidate. Classify patches as Subjects, required Version/updated_at/history maintenance, or the exact minimum governing grammar exception. Other body or metadata changes are outside Step 1.
 

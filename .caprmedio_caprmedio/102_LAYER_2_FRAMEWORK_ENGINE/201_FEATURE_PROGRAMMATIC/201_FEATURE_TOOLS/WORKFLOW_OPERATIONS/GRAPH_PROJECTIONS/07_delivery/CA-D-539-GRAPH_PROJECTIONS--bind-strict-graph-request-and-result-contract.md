@@ -7,8 +7,8 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-09 19:48:52 +0400"
+version: 3
+updated_at: "2026-10-12 04:07:03 +0400"
 subjects:
   governs: "Tool/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/Contract"
   depends_on: [Tool, Projection, Artifact, Journal]
@@ -31,7 +31,7 @@ The Tool **must** reject ambiguous or mixed graph requests and return a result t
 
 ### Caller request and trusted invocation
 
-The serializable caller request has `graph_kind`, `source_frontier`, `selection`, optional `display_selection`, `representation_configuration`, optional `output_destination`, optional `existing_projection_evidence`, and `capability_permission_evidence`. Unknown fields, absent/ambiguous frontiers, mixed graph kinds, and unbound destination inputs are errors or blocking conditions. A caller cannot supply `source_fact_context`, `run_recording_context`, passed admission decisions, or a fabricated receipt.
+The serializable caller request has `graph_kind`, `source_frontier`, `selection`, optional `display_selection`, optional `subject_profile`, `representation_configuration`, optional `output_destination`, optional `existing_projection_evidence`, and `capability_permission_evidence`. Unknown fields, absent/ambiguous frontiers, mixed graph kinds, and unbound destination inputs are errors or blocking conditions. A caller cannot supply `source_fact_context`, `run_recording_context`, passed admission decisions, or a fabricated receipt.
 
 `selection` is closed: required sorted unique `atom_ids`, and optional sorted unique `scope_unit_names`; both contain nonempty identity strings and may be empty. `representation_configuration` is exactly `{"format":"canonical-json"}` in this contract version. `existing_projection_evidence`, when supplied, is exactly `{"sha256":"<current-prior-output-sha256>"}` for the resolved output destination. `capability_permission_evidence` is exactly `{"authorized":true}` or `{"authorized":false}` as a request assertion; the executor revalidates actual permission, and that assertion alone grants no capability. Unsupported fields or formats cannot affect settings/no-op hashes silently.
 
@@ -40,6 +40,10 @@ The shared executor adds an actual `run_recording_context` only after confirmed 
 An explicitly present selection with `atom_ids: []` is admissible when the current source frontier proves its empty membership. Absence, unreadability, duplicate identities, unsupported selection, or unknown coverage is not evidenced emptiness. `scope_unit_names` selects declared Project Structure records separately; folder nesting and target Scope do not select native Atoms.
 
 Omitting `output_destination` permits a non-persisting Tool description/construction result with `output_effects.state: none`; it does not invent a destination or prove a completed graph Action. Persist only to an explicitly authorized derived path or a current, unambiguous registered destination. A configured projection root or conventional filename alone is not registration. An existing destination with different bytes requires current evidence for that exact prior output before replacement. Actual destination existence and before/after bytes determine `created`, `replaced`, or `unchanged`, not presence of an optional request field.
+
+`subject_profile`, when present, is exactly `legacy` or `approved`. Omission selects `legacy`; reject null, Boolean/numeric/container values, empty strings and unknown names at both the public descriptor and native request boundary. The builder does not infer a profile from source text, try another profile after a parse failure, or translate between profiles. This selection controls Subject syntax and Atom-incidence extraction only. Both graph kinds reuse the existing parser: the approved profile recognizes `/` as broader-to-narrower, `.` as bearer-to-dependent, `:` as Property-to-allowed-value and the reviewed initial lowercase `atom(...)` forms; `Atom` remains the case-significant Entity-type Term and `@` remains unsupported. Retain full decoded Subject and selected-owner literals. Syntax recognition does not admit a native Entity, Term, Property or Relation, resolve a selector, or alter the existing native recognition/admission profiles and their decisions.
+
+Before parsing an approved request, bind the profile's exact current grammar sources: CA-R-1931 v1, CA-R-1321 v14, CA-R-1324 v12, CA-M-228 v16 and CA-E-383 v15, each with its current original path and SHA-256 digest. Reject missing, unreadable, changed or symlinked pins, including a symlink in any parent path; a matching source digest does not admit native facts. Recheck these pins at the end of construction and immediately before publication or confirmation of an unchanged output. Drift returns truthful stale/failed evidence with no new output effect and preserves an existing output; it cannot be repaired by silently refreshing the selected profile or its pins.
 
 ### Derived fact context
 
@@ -117,6 +121,8 @@ The displayed native graph is the induced subset: a native Relation needs both s
 ### Result and completion
 
 The outward result is closed: required `outcome`, the requested graph namespace, `source_frontier_evidence`, `selection_evidence`, `source_fact_context_evidence`, `lineage`, `quality_dispositions`, `diagnostics`, `non_authoritative: true`, `output_effects`, `completion`, and `run_receipt_refs`; optional `projection_revision` is allowed only for a known persisted output. Unknown result fields are not silently discarded. `outcome` is exactly `built`, `no_op`, `incomplete`, `conflicting`, `stale`, `blocked`, `failed`, or `canceled`. Source/selection/context evidence may be empty objects when unavailable, with the missing condition diagnosed and unresolved; an empty evidence object cannot prove complete empty coverage.
+
+For an approved request, `selection_evidence` additionally retains `subject_profile: approved` and `subject_profile_evidence`. The latter is closed with `grammar_pins` and `native_admission: not_performed`; each pin is closed with `atom_id`, positive integer `version`, repository-relative `path` and lowercase SHA-256 `sha256`, copied from the bound immutable approved profile in its declared order. Retain this evidence in canonical persisted semantic data so profile and pin changes affect output identity and unchanged-output checks. Omitted/default and explicit `legacy` requests retain the existing selection-evidence shape and identical semantic bytes. Missing profile evidence never substitutes for required native fact-context coverage or actual completion evidence.
 
 `quality_dispositions` has exactly `coverage`, `fidelity`, `validity`, `currentness`, `permission`, `persistence`, and `recording`, each `pass`, `fail`, `unresolved`, or `not_applicable`. Every required condition needs its actual governing evidence; not_applicable cannot disguise an applicable unperformed check. `diagnostics` is a sorted array of closed rows with `code`, `severity` (`error`, `warning`, or `info`), `message` (safe descriptive text), `details` (canonical JSON object), and optional exact `source_refs`. It retains the affected frontier and source locator without secret values or raw exception disclosure.
 

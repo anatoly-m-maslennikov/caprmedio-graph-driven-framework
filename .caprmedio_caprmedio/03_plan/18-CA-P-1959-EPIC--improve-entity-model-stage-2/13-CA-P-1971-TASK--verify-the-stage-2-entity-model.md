@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 5
-updated_at: "2026-10-12 03:40:17 +0400"
+version: 6
+updated_at: "2026-10-12 04:02:18 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
 ---
@@ -35,7 +35,7 @@ Independently check final Subjects, Summary, Substance, Scope and Details agains
 
 Check each ordinary identity-preserving update selected its current original NON-ARCHIVED eligible source, made exactly Version `+1`, and archived the previous original without a second bump; current need not be Active. Check Type changes created an entirely new Atom/new ID and archived the old Atom. Check a changed Summary received a new ID unless governing policy separately changed, without claiming Type is its sole trigger. Verify `Atom.ID`/`Scope Unit.ID` semantic names retain storage keys, `Atom` remains distinct from `atom`, stored IDs are bare, archived originals share IDs at distinct Versions, and Atom filenames in all statuses use `AtomID@Version-SCOPE_NAME--summary.md` with filename-only `@` and Scope NAME rather than label/path; references use ID plus Version. Use a separately authored expected ledger/oracle without calling the producer's graph builder, and prove altered outputs are rejected.
 
-Verify the Step-2 sequence ran RMEDO-first and then covered D-approved carrier/reference changes, identity consumers, Applicable Methodology compiler consumers and the Terms builder. Check no unapproved rename or automatic runtime/release rebuild was performed. For Applicable Methodology, independently prove selected sources were current NON-ARCHIVED eligible versions; source ID, Version and authored content were preserved; only projected Status/provenance differed; Project Configuration authored corrections before selection/projection; and the whole Projection remained a reusable, non-authoritative lifecycle output with no independently versioned member.
+Verify CA-P-2167's complete independent Tool receipt preceded affected Step-1 use. Verify the Step-2 sequence ran RMEDO-first with independent contract verification, then covered D-approved carrier/reference changes, identity consumers, Applicable Methodology compiler consumers and the Terms builder with independent fixture proof before affected content/consumer usage. Derived Terms compilation must remain Step 2. Check no unapproved rename or automatic runtime/release rebuild was performed. For Applicable Methodology, independently prove selected sources were current NON-ARCHIVED eligible versions; source ID, Version and authored content were preserved; only projected Status/provenance differed; Project Configuration authored corrections before selection/projection; and the whole Projection remained a reusable, non-authoritative lifecycle output with no independently versioned member.
 
 Rebuild the graph from authoritative Subjects with pinned implementation and compare the final relation semantics with the accepted model. Report unresolved, excluded and deferred matters explicitly. Terms remain a separate graph; same spelling does not authorize a Term edge.
 

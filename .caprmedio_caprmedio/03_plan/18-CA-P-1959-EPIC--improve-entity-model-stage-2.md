@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 48
-updated_at: "2026-10-12 03:40:19 +0400"
+version: 49
+updated_at: "2026-10-12 04:02:18 +0400"
 relations: {}
 ---
 # Summary
@@ -29,13 +29,15 @@ The Core Meta-model has consistent Entity origins in RMEDO Subjects, then consis
 
 ### Order
 
-1. Review and update RMEDO for the Subject Tools; independently verify it.
-2. Compile the reviewed Tool contracts, then build and verify the safe lookup and patch-preview Tools.
-3. Refresh current source evidence and review the proposed Subject mappings against candidate #3 and the latest Operator decisions. Then complete the shared accepted-graph, sealed-preview, migration and reproduction gates.
-4. Only after the complete Subject gate passes, update Core Summary, Substance, Substance Scope and Details, including optional Semantics where adopted. Review and update affected RMEDO before aligning the Terms Graph builder, identity/filename consumers and Applicable Methodology compiler.
+1. Complete CA-P-2167 first: review/update the remaining Tool RMEDO, independently verify the contracts, implement the bounded gaps, then independently verify the actual Tools on isolated fixtures.
+2. Refresh current source evidence and review the proposed Subject mappings against candidate #3 and the latest Operator decisions. Then complete CA-P-1909–1912's shared accepted-graph, sealed-preview, migration and reproduction gates. Independent design/review preparation may run while the Tools are prepared; affected mapping execution and final packets wait for the Tool receipt.
+3. Only after the complete Subject gate passes, review/update and independently verify affected Step-2 RMEDO. Prepare and verify the Terms compiler, identity/filename consumers and Applicable Methodology compiler before their affected content or consumer usage. Derived Terms compilation stays in Step 2.
+4. Update Core Summary, Substance, Substance Scope and Details, including optional Semantics where adopted, in that order through reviewed bounded batches.
 5. Verify the final sources, reproducible graphs and the identity, filename, Applicable Methodology and Terms Graph acceptance cases below.
 
 The Operator added CA-P-1978 as the first Task: review and update the Tools' Requirements, Methods, Evaluations, Delivery and Operations before implementation. This exception covers only Tool-governing RMEDO in their declared Engine Scope Units. Core entity-model Subjects, grammar and ordinary content stay behind their existing gates. Creating or updating this Epic records work; it does not execute the repair or migration.
+
+CA-P-1978 and the completed lookup/preview/selector Tasks remain historical Done receipts. The Operator's latest tools-first request adds CA-P-2167 for the remaining gaps: patch-preview eligibility for current non-archived originals rather than literal `Active`; an explicit approved notation profile at the public graph entry point; and an admitted Subjects-only application route. Each affected implementation waits for updated, independently verified RMEDO. Independent fixture verification precedes use. The existing standalone apply guard remains until the route is intentionally implemented under those contracts; it is never bypassed. Tool readiness does not approve a live source packet.
 
 ### Source and model boundary
 
@@ -111,7 +113,7 @@ The Operator asked to update this Epic before applying the Terms Graph changes t
 - Preserve different meanings in different scopes. Flag a conflict where incompatible meanings apply to the same case; uncertain overlap remains unresolved.
 - A shared meaning does not require identical allowed-value sets. `*.Status` selects actual Status uses; it does not create properties. `Scope Unit.Status` does not exist in the candidate. Keep bearer-qualified properties distinct from the shared Term.
 
-CA-P-1970 owns this work after CA-P-1969 passes; CA-P-1974 prepares its bounded children. First review current Terms Graph RMEDO and author the required replacements/revisions. Start with CA-R-1335, CA-R-126, CA-R-1319, CA-R-1279, CA-M-114 and CA-R-1454, then follow their affected authoring, Evaluation, Operations and Delivery rules. Preserve useful source Claims and native Relation admission; do not delete Definition Atoms merely because the separate-definition requirement changes.
+CA-P-1970 owns this work after CA-P-1969 passes; CA-P-1974 prepares its bounded children with the Terms Tools before affected content or consumer usage. First review current Terms Graph RMEDO, author the required replacements/revisions, and independently verify the actual contract packet. Start with CA-R-1335, CA-R-126, CA-R-1319, CA-R-1279, CA-M-114 and CA-R-1454, then follow their affected authoring, Evaluation, Operations and Delivery rules. Preserve useful source Claims and native Relation admission; do not delete Definition Atoms merely because the separate-definition requirement changes. No new derived Terms compilation or ordinary Core content change is pulled into Step 1.
 
 After the affected RMEDO is reviewed and accepted, align the existing graph extraction, compilation and diagnostic code and its fixtures. Reuse CA-P-1872's builder work and account for its existing Terms Graph plans instead of creating a competing generator or completion route. In particular, reconcile CA-P-1875's definition-extraction contract and CA-P-1877's recognition work with the new contract; their former single-definition-owner checks cannot substitute for the new acceptance cases. Engine changes are limited to the affected graph capabilities and their governing RMEDO in the declared Engine scopes; they are not part of the Core-only Subject source selection.
 
@@ -119,6 +121,7 @@ Required acceptance cases: a definition compiled from multiple source cases; reu
 
 ### Decomposing Plans
 
+- [CA-P-2167 — Finish Tools before Stage 2 execution](18-CA-P-1959-EPIC--improve-entity-model-stage-2/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution.md)
 - [CA-P-1978 — Review and update RMEDO for Subject Tools](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/01-CA-P-1978-TASK--review-and-update-rmedo-for-subject-tools.md)
 - [CA-P-1960 — Define safe Subject Tool contracts](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/02-CA-P-1960-TASK--define-safe-subject-tool-contracts.md)
 - [CA-P-1961 — Implement field-aware Subject lookup](18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/03-CA-P-1961-TASK--implement-field-aware-subject-lookup.md)
@@ -139,6 +142,10 @@ Required acceptance cases: a definition compiled from multiple source cases; reu
 ### Current planning checkpoint
 
 CA-P-2166 records the completed selector/metadata increment and its zero-quarantine inventory in [the increment receipt](../_projection/core-entity-review/stage2/approved-implementation/current-increment.md). Those recorded results supersede the older open-selector/eight-quarantine reports below; they are not a fresh scan performed by this plan update. Candidate #3 and the latest decisions are now the prospective target. CA-P-1966's current-source re-pin and candidate-compatibility review remain pending, as do accepted graph, sealed preview, live Subject migration and Step-2 adoption. No historical mapping receipt establishes readiness for those steps.
+
+CA-P-2167 now gates affected mapping execution and the shared graph/preview/application/reproduction stages. Its three bounded Tool-RMEDO reviews are ready for preparation; implementation waits for independent contract verification, and production use waits for independent fixture verification. Parallel edits require disjoint files. Preview and application share UPDATE contracts, so one file owner serializes those changes and re-pins/re-verifies affected packets after a revision. Current source adaptation/re-pinning is still pending. Live application still needs CA-P-1910's separately Operator-approved exact sealed packet and current pins. Navigation number 30 preserves the historical folders; the new group is first in execution order.
+
+Application transport is a pending Operator choice: current CA-R-866, CA-O-030, CA-D-531 and CA-R-1827 require the admitted MCP boundary, and no admitted Subjects-only path exists yet. CA-P-2170/2173 may prepare evidence but cannot infer a local-route exception or implementation authority from tools-first ordering. Independent preview/graph contract verification and their disjoint implementation need not wait for this choice.
 
 ### Historical checkpoint — CA-P-2144–2155
 
@@ -223,4 +230,4 @@ CA-P-2162–2166 are complete and committed separately. The final independent or
 
 ### Definition of Done
 
-The Epic is **not** Done if any decomposing Plan is not Done; Tool implementation began before CA-P-1978's RMEDO repair and independent verification passed; Subject origins remain unaccounted for or accepted mappings lack current-source and candidate-#3 compatibility checks; a source effect lacks exact approval or current pins; Step 2 began before complete Step-1 verification; ordinary Core entity-model content changed during Step 1 or grammar-body changes exceeded the exact approved exception; required history/records are missing; validation or graph reproduction fails; Terms Graph RMEDO still requires the rejected separate-definition layer; the identity, filename, Applicable Methodology or Terms Graph contracts/consumers remain unaligned or their acceptance cases lack evidence; or completion claims exceed the actual evidence.
+The Epic is **not** Done if any decomposing Plan is not Done; affected Tool implementation began before updated RMEDO and independent contract verification, or affected use began before CA-P-2167's independent fixture verification; Subject origins remain unaccounted for or accepted mappings lack current-source and candidate-#3 compatibility checks; a source effect lacks exact approval or current pins; Step 2 began before complete Step-1 verification; ordinary Core entity-model content changed during Step 1 or grammar-body changes exceeded the exact approved exception; required history/records are missing; validation or graph reproduction fails; Terms Graph RMEDO still requires the rejected separate-definition layer; Step-2 content/consumer usage precedes affected Tool readiness; the identity, filename, Applicable Methodology or Terms Graph contracts/consumers remain unaligned or their acceptance cases lack evidence; or completion claims exceed the actual evidence.

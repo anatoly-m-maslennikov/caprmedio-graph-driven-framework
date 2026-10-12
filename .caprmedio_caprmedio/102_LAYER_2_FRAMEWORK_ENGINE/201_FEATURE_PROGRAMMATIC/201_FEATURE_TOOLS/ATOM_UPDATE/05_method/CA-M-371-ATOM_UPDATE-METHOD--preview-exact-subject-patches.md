@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: [Atom, Subject, Artifact/Carrier, Atom/Revision]
-version: 3
-updated_at: "2026-10-11 18:04:47 +0400"
+version: 4
+updated_at: "2026-10-12 04:06:57 +0400"
 relations:
   relates_to: [CA-R-866, CA-O-030, CA-E-304, CA-D-425]
 ---
@@ -33,6 +33,8 @@ locating the stated direct Subject occurrence. It validates source and result
 syntax under that same profile, replaces only the stated scalar or
 dependency-list item, validates the complete resulting carrier, and returns the
 exact preview without writing a carrier.
+
+Subject-only preview **must** select a complete original Atom Carrier with a stable Atom ID, excluding Draft and archived carriers by both carried Status and placement. Both the pinned source and proposed result **must** pass existing complete-carrier validation, including the applicable Content Role/Type Status model and correct Carrier placement. Preserve the carried Status byte-for-byte; do not activate the source or perform a lifecycle transition. Missing, ambiguous, unsupported, or stale validation authority **must** fail closed.
 
 ## Details
 

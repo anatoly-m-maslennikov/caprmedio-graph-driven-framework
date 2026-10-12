@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 4
-updated_at: "2026-10-12 03:41:05 +0400"
+version: 5
+updated_at: "2026-10-12 04:02:18 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1970, CA-P-1974]
@@ -30,7 +30,7 @@ Prove Step 1 is complete before allowing any ordinary Atom content rewrite.
 
 ## Details
 
-Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisites: completed independently verified CA-P-1966 re-review/adaptation/re-pin, CA-P-1968 and the actual CA-P-1911/1912 completion evidence. CA-P-1912 owns the sole migrated-graph verification receipt; consume and check that receipt here, do not create a competing migration acceptance.
+Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisites: CA-P-2167's complete independent Tool receipt, completed independently verified CA-P-1966 re-review/adaptation/re-pin, CA-P-1968 and the actual CA-P-1911/1912 completion evidence. CA-P-1912 owns the sole migrated-graph verification receipt; consume and check that receipt here, do not create a competing migration acceptance. Fixture Tool verification does not replace actual migration reproduction.
 
 Independently inventory the migrated current authoring Core and compare every changed and unchanged source against the approved packet. Verify the re-reviewed current source hashes and Candidate #3 version/reference, Subject grammar, field direction, unique current identities, ordinary Version increments, preserved intended status, actual history/Journal effects and preservation of ordinary bodies. A type-change discovery must be reported/routed to Step 2, not treated as an ordinary same-ID effect.
 

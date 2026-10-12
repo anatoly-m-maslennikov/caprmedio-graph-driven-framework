@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 4
-updated_at: "2026-10-12 03:41:05 +0400"
+version: 5
+updated_at: "2026-10-12 04:02:18 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1969]
@@ -29,9 +29,9 @@ Apply only the separately approved exact migration packet and retain truthful hi
 
 ## Details
 
-This grouping Plan has no own implementation work. Decompose the approved packet into bounded child Tasks before execution. Required prerequisites: completed independently verified CA-P-1966 re-review/adaptation/re-pin, CA-P-1967, CA-P-1910's actual Done receipt and separate Operator approval of CA-P-1910's exact final preview hash/source frontier. CA-P-1911 owns the sole application execution; these Tasks only organize its bounded batches. Its current execution gates must pass before any effect.
+This grouping Plan has no own implementation work. Decompose the approved packet into bounded child Tasks before execution. Required prerequisites: CA-P-2167's complete independent Tool receipt, completed independently verified CA-P-1966 re-review/adaptation/re-pin, CA-P-1967, CA-P-1910's actual Done receipt and separate Operator approval of CA-P-1910's exact final preview hash/source frontier. CA-P-1911 owns the sole application execution; these Tasks only organize its bounded batches. Its current execution gates must pass before any effect.
 
-Reuse the existing governed mutation boundary. Coordinate the applier with CA-P-1911; one owner applies each source once. If no admitted applier is available, stop and request the required authority; do not invoke raw ATOM_UPDATE internals or remove the standalone apply guard.
+Reuse CA-P-2173's independently verified admitted route within the existing governed mutation boundary. Coordinate the applier with CA-P-1911; one owner applies each source once. If no admitted applier is available, stop and report the missing capability/authority; do not invoke raw ATOM_UPDATE internals or bypass the standalone apply guard. Intentional route implementation under verified contracts is separate from approval of this live packet.
 
 Recheck all pins before effects. Apply only approved Subjects, required ordinary Version +1/updated_at/history effects and the exact approved minimum grammar revisions. Preserve the original intended `status` rather than forcing `Active`, ordinary Summary/Substance/Scope/Details and all unrelated metadata. A type-change discovery is excluded, reported and routed to Step 2; it is not an admitted effect here. Preserve earlier Atom contents through Git and the applicable approved archive policy; record effect/Atom IDs in the Journal, not duplicate Atom bodies.
 

@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Projection
   depends_on: [Entity, Term, Atom, Property, Carrier, Plan]
-version: 2
-updated_at: "2026-10-10 23:24:00 +0400"
+version: 3
+updated_at: "2026-10-12 04:02:18 +0400"
 relations:
   is_decomposition_of: [CA-P-1872]
   blocks: [CA-P-1911, CA-P-1968, CA-P-1973]
@@ -32,13 +32,13 @@ Prepare an exact, sealed migration preview for the verified accepted Core graph 
 
 Estimated own work: 15 minutes. Assignee: AI Agent.
 
-CA-P-1967 supplies the sole source-pinned candidate packet and must be Done before final preview acceptance. Reuse that packet, current grammar/profile and post-grammar Tool verification; do not create a second independent approval route.
+CA-P-1967 supplies the sole source-pinned candidate packet and must be Done before final preview acceptance. Require CA-P-2167's complete independent Tool receipt. Reuse that packet, current approved grammar/profile and post-grammar Tool verification; do not create a second independent approval route.
 
 Readiness condition: CA-P-1909 is Done. Inputs: its verified accepted graph, canonical hash, current source pins, recorded Operator decision and complete occurrence and node ledgers. Candidate or graph approval is not migration approval.
 
 Produce an exact file-and-patch preview. Classify every change as Subject-only, a required governed grammar change, or necessary revision/history maintenance. Bind each patch to its current source bytes, authoritative identity and revision, expected after bytes, accepted decision and ledger rows. Keep excluded and unchanged source files pinned. Identify any change beyond these categories as outside scope and request separate authority.
 
-Preview `/`, `.` and `:` using currently admitted Subject serialization or exact proposed grammar-contract revisions needed for the accepted notation. If the current grammar does not admit a required operator, include its precise proposed governed revision in the sealed preview. An isolated dry-run may evaluate that proposed grammar, but must identify it as proposed, claim no admission and write no authority. `@` remains compact graph display notation, not admitted Subject syntax; retain source-backed IS_CARRIED_BY/CARRIES bindings separately. Unsupported Carrier bindings, new ontology Claim meanings or unrelated semantic changes require separate RMED authority, not an invented serializer or automatic grammar admission.
+Preview `/`, `.` and `:` using currently admitted Subject serialization or exact proposed grammar-contract revisions needed for the accepted notation. If the current grammar does not admit a required operator, include its precise proposed governed revision in the sealed preview. An isolated dry-run may evaluate that proposed grammar, but must identify it as proposed, claim no admission and write no authority. `@` is filename punctuation only, not a graph/Subject Relation operator; retain source-backed IS_CARRIED_BY/CARRIES bindings separately. Unsupported Carrier bindings, new ontology Claim meanings or unrelated semantic changes require separate RMED authority, not an invented serializer or automatic grammar admission.
 
 Output: the sealed exact patch preview and its canonical hash, before/expected-after source pins, change classification, expected graph output, read-only dry-run proof, and verification/recovery plan. Reproduce the accepted qualified nodes, relations and ledgers in an isolated preview without writing the authoritative Core or grammar carriers. State how failures will be detected and how approved recovery would preserve exact revisions and history; do not infer rollback permission.
 

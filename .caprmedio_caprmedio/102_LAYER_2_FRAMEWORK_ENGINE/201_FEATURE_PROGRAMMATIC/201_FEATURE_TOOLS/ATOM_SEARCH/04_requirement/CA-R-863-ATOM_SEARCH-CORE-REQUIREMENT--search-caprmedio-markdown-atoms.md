@@ -15,8 +15,8 @@ subjects:
     - "Atom"
     - "Artifact/Carrier"
     - "Scope Unit"
-version: 16
-updated_at: "2026-10-11 18:04:47 +0400"
+version: 17
+updated_at: "2026-10-12 04:06:57 +0400"
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
@@ -48,6 +48,8 @@ conjunctive request fields:
 - repeatable `--content-role ROLE`; and
 - `--scope-unit OWNER`, together with the existing `--under` and `--lifecycle`
   filters.
+
+Subject lookup defaults to Active. Explicit `--lifecycle all` can also return valid non-Active originals, including correctly placed Done or Backlog carriers, with their carried Status and exact source pins preserved. Lookup membership does not grant Subject-preview eligibility or cause a lifecycle transition.
 
 Omission of `--subject-profile` selects `legacy`; `approved` is explicit.
 Unknown or malformed supplied profiles **must** fail. The lookup reads only
