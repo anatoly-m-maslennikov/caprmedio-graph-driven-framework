@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Artifact/Carrier", "Atom Change Classification", "Atom/Revision/Updated At"]
-version: 16
-updated_at: "2026-10-12 04:06:57 +0400"
+version: 17
+updated_at: "2026-10-12 04:20:25 +0400"
 relations:
   relates_to: [CA-O-030, CA-E-304, CA-O-067, CA-R-1432, CA-R-1788, CA-R-1464, CA-R-1415, CA-R-1371]
 ---
@@ -61,7 +61,7 @@ contains `atom_id`, `version`, `path`, and `sha256`, and preview seals those
 fields in its digest. Legacy cites the five exact historical definitions and
 approved cites the five current definitions. Local use remains preview-only; an
 illustrative preview timestamp is not an execution receipt. This mode does not
-repair, migrate, infer ontology, adopt a Subject grammar, or add an apply path.
+repair, migrate, infer ontology, adopt a Subject grammar, or add a standalone apply path.
 
 CA-M-371 defines the same-profile preview method. The historical
 `@<version>` archive filename convention remains a Delivery concern and is not
@@ -70,3 +70,13 @@ its automated conformance cases **without** duplicating them **in** this
 capability Requirement.
 
 ## Details
+
+### Admitted one-target Subject update
+
+The existing Project-local MCP `update_atom` route **must** also accept the closed Subject-only parameter variant defined by CA-D-531: `{target, subject_patches, subject_intent_sha256, subject_profile?, semantic_assessment_report?}`. It selects exactly one complete current original Carrier and reuses the preview's eligibility, exact scalar-patch, same-profile, complete-carrier and byte-preservation checks. Reject mixed generic replacement fields, unknown fields, projection or delivered copies, owner/path mismatch, competing non-archived originals, and an unsafe or unverifiable claimed competing owner. Bulk preview does not authorize bulk lifecycle execution.
+
+The mutation-free preparation **must** return CA-D-425's deterministic `subject_intent` and `subject_intent_sha256`. For a value change, derive the complete intended proposal by changing only Subjects while retaining the old Version and Updated At for CA-O-067's assessment. Reuse the current completed Analysis Report and exact CA-O-145 assessment under CA-R-1892 and CA-D-585; syntax validation and a caller-supplied class are not identity or lineage evidence. An unresolved, replacement-required, stale, or mismatched assessment prevents this effect.
+
+Application **must** consume CA-D-527's exact authorized execute envelope through the existing selected route, actual selected execution session and canonically recorded CA-O-030 Action start, with the exact completed CA-O-145 assessment. A caller Boolean, adapter envelope, local preview, candidate acceptance, or direct internal call grants no apply authority. Recheck all source, grammar, report, validation, definition, permission and destination evidence before effects.
+
+A changed current Carrier **must** retain ID, Summary, Status, path, filename, every unrelated byte and line ending; set Version exactly to `N+1`; and materialize Updated At once from actual Project time at the effect. Preserve the exact predecessor bytes at Version `N` in the existing Delivery-governed history location, classified as archived history by placement, without a second Version increment or invented status/time edit. Verify actual after bytes and hash and bind them to the intended hash in the shared result. No-op creates no Carrier/history/change event; its actual Run still requires recording. Publication/postcondition failure restores the verified mutable before-frontier and attempt-owned history only; uncertain restoration or missing required recording is not success and never permits automatic effect replay. The local `ATOM_UPDATE --apply` guard and generic request behavior remain unchanged.

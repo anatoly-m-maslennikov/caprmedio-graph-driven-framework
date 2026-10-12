@@ -13,8 +13,8 @@ subjects:
   governs: "Tool/ATOM_UPDATE/Carrier"
   depends_on:
     - "Tool/ATOM_UPDATE"
-version: 11
-updated_at: "2026-10-12 04:06:57 +0400"
+version: 12
+updated_at: "2026-10-12 04:20:25 +0400"
 relations: {"delivery_for":["CA-R-866"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -25,7 +25,7 @@ Deliver ATOM_UPDATE Tool
 
 ## Scope
 
-This Delivery carrier defines the public file-operation contract of the canonical `ATOM_UPDATE` wrapper under owner `TOOLS`. The `ATOM_UPDATE` folder is an artifact collection below `TOOLS`, not an independently registered Scope Unit. It retains the existing generic update input and sealed apply guard and adds one small read-only, Subject-only preview for already-correct Atom files. It does not define Core semantics, grammar adoption, migration decisions, source repair, history/Journal materialization, or a live MCP route.
+This Delivery carrier defines the public file-operation contract of the canonical `ATOM_UPDATE` wrapper under owner `TOOLS`. The `ATOM_UPDATE` folder is an artifact collection below `TOOLS`, not an independently registered Scope Unit. It retains the existing generic update input and sealed apply guard and adds one small read-only, Subject-only preview for already-correct Atom files. It does not define Core semantics, grammar adoption, migration decisions, source repair, or a new MCP route. CA-D-531 binds its separately admitted one-target Subject effect to the existing MCP update action.
 
 ## Claim
 
@@ -43,4 +43,14 @@ Subject-only preview **must** select a complete original Atom Carrier with a sta
 
 The local dry-run result **must** expose the exact patch set, before and after SHA-256 values, expected Version `N+1`, an illustrative `updated_at` value, and a canonical `preview_sha256` over the complete deterministic preview. The illustrative time is not an execution receipt. Empty or unchanged patches are reported as a truthful no-op and do not create a revision. Invalid or nested Subject shapes, missing or repeated occurrences, stale identity/version/digest, invalid profile syntax, collisions, overlapping spans, path escapes, symlink targets, and incomplete files stop before any write.
 
-The existing generic updater remains available for its complete-carrier contract; this mode does not mix with it and does not weaken the standalone `--apply` guard. No MCP support is claimed or invoked. The preview performs no write, history/archive/Journal effect, migration-batch sealing, or source publication. Those effects, if later authorized, belong to a separate ad-hoc packet. CA-R-866 and CA-O-030 remain the governing Requirement and Action; CA-M-371 supplies the focused authoring method when that Method carrier is delivered.
+The existing generic updater remains available for its complete-carrier contract; Subject-only input does not mix with it and does not weaken the standalone `--apply` guard. The local preview invokes no MCP and performs no Carrier, history or Journal write. A separately authorized one-target Subject effect uses only the existing MCP `update_atom` route under CA-D-531 and CA-O-030, not this local wrapper or a new transport. This contract does not itself advertise an installed runtime capability, refresh an image/manifest, select a migration batch or grant source-effect approval.
+
+### Deterministic Subject intent
+
+Pure preparation for that one-target route **must** expose `subject_intent` and `subject_intent_sha256`. The intent is exactly one JSON object with `schema_version: 1`, `target`, `subject_profile`, `subject_profile_evidence`, `subject_patches`, `proposal`, `execution_metadata`, `predecessorArchive` and `noop`. `target` is CA-D-531's complete descriptor and binds the before bytes; profile evidence and ordered patches retain their existing closed representations. `proposal` contains exactly `frontmatter_digest`, `content_digest` and `sha256`: lowercase SHA-256 of the exact UTF-8 intended frontmatter, exact UTF-8 body and complete intended Carrier. Only declared Subject spans differ from the before Carrier; old Version/time remain for assessment.
+
+`execution_metadata` is exactly `{version, updated_at}`. For a change, `version` is the integer `N+1` and `updated_at` is the literal `actual_effect_time`; for no-op, `version` is `N` and `updated_at` is the literal `preserve`. `predecessorArchive` is null for no-op; otherwise it contains exactly `atom_id`, `version`, `path`, `sha256` and `lifecycle`, binding the original ID, `N`, the existing role-local Delivery history path, exact before-byte hash and literal `archived`. It describes exact historical bytes classified by placement, not another current source or carried status/time edit.
+
+`subject_intent_sha256` is lowercase SHA-256 of canonical UTF-8 JSON of this whole object, with keys sorted, no extra whitespace, unescaped Unicode and no non-finite values. It is outside the object and excludes separate illustrative preview bytes/time and future actual-effect receipts. Thus unchanged source/patch/profile/history/metadata-rule evidence yields the same intended hash independently of illustrative time. Unknown intent fields or a mismatched freshly derived hash fail.
+
+The admitted result **must** retain the intended hash and actual `materialization = {version, updated_at, after_sha256}`, observed current/history descriptors and the existing shared result/effect/recording evidence. Changed materialization uses actual Project time and verified final Carrier hash; no-op retains old Version/time/hash and has no history effect. No other generated Carrier slot is admitted. CA-R-866 and CA-O-030 govern the effect; CA-M-371 remains pure preparation and CA-D-585 binds assessment proposal pins.

@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Atom/Revision/Updated At", "Update Sealed Atom Carriers", "Artifact/Carrier", "Journal/Record"]
-version: 15
-updated_at: "2026-10-12 04:06:57 +0400"
+version: 16
+updated_at: "2026-10-12 04:20:25 +0400"
 relations:
   evaluation_for: [CA-R-866, CA-O-030, CA-R-1464, CA-R-1415, CA-R-1371]
   relates_to: [CA-O-067, CA-R-1432, CA-R-1788, CA-R-1662]
@@ -59,6 +59,16 @@ The closed Subject-only root envelope is exactly `{atoms, subject_profile?}`; ea
 Legacy keeps dots literal, uses `/` for bearer qualification and `:` for allowed values, and rejects every `atom(...)` selector. Approved recognizes `/` as broader-to-narrower, `.` as bearer-to-dependent, and `:` as Property-to-allowed-value, and accepts only the exact positive selector literals in CA-E-301. Prove that `Atom` and `atom` never normalize; reject `@`, empty/type-only/mixed-key/unknown-key/duplicate-key/positional/nested/later-position selectors and unquoted/escaped/wildcard/evaluated/aliased values. In `atom(...).Status`, prove the selected Atom remains Status's bearer and neither content_role nor type becomes Status's allowed value. Selector checks neither enumerate a concrete Atom row nor admit target semantics. For a non-no-op, verify exact selected scalar replacement, Version `N+1`, illustrative Updated At, full before/after digests, byte preservation outside Subjects/Version/Updated At, and deterministic `preview_sha256`.
 
 The preview result includes its `subject_profile` and `subject_profile_evidence` with exactly `grammar_pins` and `native_admission: not_performed`; each grammar pin contains `atom_id`, `version`, `path`, and `sha256`, and these fields are included in the digest. Assert lexical syntax/direction validation only: no native endpoint, typed edge, target conformance, history, archive, Journal, MCP, source effect, or source migration is claimed.
+
+### Admitted one-target Subject application cases
+
+Exercise CA-D-531's exact Subject variant through the existing selected `update_atom` envelope and real shared Run/lifecycle composition, retaining generic-route regression cases. Use CA-D-425's deterministic intent and real complete-carrier/status validation with independently authored LF/CRLF before/intended/actual/history byte ledgers. Include Active, correctly placed non-Active current originals and no-op. Reject multiple independent targets, extra or mixed fields, caller authorization Booleans, fabricated starts/assessment, stale intent, grammar/report/definition/source drift, owner/path mismatch, projection/delivered copies, duplicate non-archived originals including unsafe or malformed competing claims, symlink/ancestor/inode swaps and archive collision.
+
+For a non-no-op, verify the existing Done Analysis Report binds the Subject-only intended proposal with old Version/time, and O145/O129 independently reopen exact evidence. Missing, non-Done, malformed, stale, replacement-required, uncertain or wrong-class assessment prevents publication. Changing only illustrative preview time leaves the intent hash unchanged; changing a target/patch/profile pin/history destination or metadata rule changes it or refuses the request. Wrong expected intent or output must fail an independently authored check.
+
+Verify actual canonical O030 start and exact selected execute authorization precede effects; no direct call with an authorization Boolean can write. Require current Version `N+1`, one actual Project-time Updated At within the observed effect interval, exact intended Status/placement/identity/Summary/unrelated-byte preservation, exact predecessor bytes at `N` classified archived by placement, no second predecessor bump/time/status edit, and actual readback hashes bound to the intended hash. Require real prior/change/Run receipts and actual current/history effect references; queue acceptance alone is not completion.
+
+Inject failure after history publication, after current publication and during post-write validation, then prove exact current byte/mode restoration and removal of attempt-owned history while preserving pre-existing history and accepted Journal evidence. Inject failed restoration and verify partial/unknown recovery, retained evidence and no automatic replay. Inject change or terminal recording failure after a real effect; verify visible pending/partial disposition and that recording-only recovery preserves the same event payload without invoking publication again. Repeating the same admitted request never creates another update. Local Subject preview remains mutation-free and standalone `ATOM_UPDATE --apply` remains rejected; none of these cases admits a new MCP route or bulk effect.
 
 ### Acceptance criteria
 

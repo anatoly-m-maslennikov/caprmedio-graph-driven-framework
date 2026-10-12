@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: [Atom, Subject, Artifact/Carrier, Atom/Revision]
-version: 4
-updated_at: "2026-10-12 04:06:57 +0400"
+version: 5
+updated_at: "2026-10-12 04:20:25 +0400"
 relations:
   relates_to: [CA-R-866, CA-O-030, CA-E-304, CA-D-425]
 ---
@@ -21,7 +21,7 @@ Preview exact Subject patches for valid Atom carriers
 
 ## Scope
 
-The Subject-only preview method for ATOM_UPDATE.
+The Subject-only preview and pure intended-proposal preparation method for ATOM_UPDATE.
 
 ## Claim
 
@@ -57,3 +57,7 @@ unchanged. Do not repair legacy carriers, select a migration, infer relations,
 create Journal/history effects, or add an apply path from the preview. The
 historical `@<version>` archive filename convention is Delivery-owned and does
 not give `@` a Subject role.
+
+For reuse by CA-D-531's one-target Subject update, the same pure planner **must** also derive the complete intended Carrier by replacing only the exact Subject spans, retaining the old Version and Updated At. Return the exact proposal pins and CA-D-425's `subject_intent`/`subject_intent_sha256`, which bind the selected complete target, ordered patches, grammar evidence, effect-time metadata rule and exact predecessor-history destination. The hash excludes the separate illustrative timestamp and is unchanged when only that illustrative time changes. A no-op binds unchanged bytes and no history effect. Rechecking a changed source, grammar pin or intended effect yields a changed intent or refusal, never a silently refreshed approval.
+
+This preparation supplies neither an identity assessment nor effect permission. CA-O-067/CA-O-145 assess the intended proposal under CA-R-1892 and CA-D-585; CA-O-030 owns the separately admitted existing-MCP effect. Reuse this planner without converting its local preview into a writer or weakening standalone apply rejection.
