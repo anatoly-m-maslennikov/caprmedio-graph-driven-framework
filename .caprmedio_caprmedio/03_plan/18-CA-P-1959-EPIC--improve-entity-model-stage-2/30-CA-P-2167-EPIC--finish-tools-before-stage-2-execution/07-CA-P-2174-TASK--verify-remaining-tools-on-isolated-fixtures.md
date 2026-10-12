@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Revision, Journal, Plan, Operator]
-version: 2
-updated_at: "2026-10-12 04:49:28 +0400"
+version: 5
+updated_at: "2026-10-13 00:21:20 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
 ---
@@ -29,7 +29,19 @@ Independently prove the actual remaining Tools satisfy the accepted contracts be
 
 ## Details
 
-Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisites: CA-P-2171, CA-P-2172 and CA-P-2173. Bind actual contract, implementation/profile and fixture pins. An independent verifier authors the expected occurrence/edge/effect ledger; it must not call the producer's graph builder. Deliberate wrong output must fail.
+### Prospective rebuilt-contract verification gate
+
+The Operator approved the two FEATURE siblings CONNECTOR_TOOLS and TOOL_WORKFLOWS under PROGRAMMATIC (Level 3, navigation 5/6), with flat role folders and shared Core policies inside each. Root alone updates Project Structure; only rebuilt RMEDO moves to `305_FEATURE_CONNECTOR_TOOLS`/`306_FEATURE_TOOL_WORKFLOWS`. Their future `305_CONNECTOR_TOOLS`/`306_TOOL_WORKFLOWS` delivery roots remain unmaterialized; existing TOOLS, unrelated legacy authority, existing delivery bindings and code paths stay unchanged. This approval supersedes the prior prospective no-new-Scope-Unit restriction for exactly this split.
+
+Connector Core CA-R-1936/CA-M-376/CA-E-628/CA-D-625 must supply a coherent broad logical API across ALL connector Tools: common input/result/precondition/error/effect contracts, not a new transport, database or retry design. Workflow Core policies remain separate. Actual code work must explicitly address hardcoded authority paths, release/admission bindings, selected-execution refresh/seals/pins and the graph generator's incorrect delivery derivation, with legacy Core/content alignment and independent runtime/admission/fixture gates retained. New source ownership or a matching receipt does not make existing code compatible, and successful source authoring grants no live readiness.
+
+CA-P-2248's independent acceptance of the actual rebuilt RMEDO is additionally required before affected implementation or this Task's final verification. Historical CA-P-2171/2172 and isolated-test receipts stay unchanged; they do not prove the new logical connector/Workflow design or current revised source pins. Bind the actual accepted contracts, implemented interfaces and fresh independently authored expected bytes/effects for each affected scope.
+
+Consume CA-P-2167's prospective rebuild behavior rather than conflicting old executable assumptions below: value-selected or full-set property lists, shared section edits, independent connector Workflows, config-specific schema checks and per-Atom stop-first-failure with earlier successes retained and later targets untouched. One-Atom safety and truthful required recording remain mandatory. Resume/retry is explicitly deferred, and the older concurrency/publication gate remains deferred; do not require or infer a recovery design, automatic replay or successful live publication from safe checks.
+
+CA-P-2167 now provides actual bounded implementation/compatibility Tasks and this Task's six independent fixture children below. CA-P-2251's actual approved FPF review of all independently accepted required RMEDO gates affected implementation and final acceptance; validated review planning is not analytical completion. Existing CA-P-2173/2179–2182 retains the separate deferred publication portfolio and is not duplicated.
+
+Own work: none. Complete through CA-P-2273–2278 and the existing required publication portfolio under CA-P-2173. Each child has <=15-minute own work and a verifier independent of implementation authors. Read-only fixture preparation may proceed before implementations; acceptance binds actual current accepted contracts, FPF review, code/profile and fixture pins. Independently authored expected bytes/effects must not call producer builders. Deliberate wrong output must fail.
 
 The Operator deferred concurrent-publication design. This Task remains Active: completed safe preview, pure materialization, no-op or dispatch/golden-request checks cannot replace successful publication, concurrent restoration/history ownership and the full application portfolio. Live changed-Subject writes remain explicitly blocked pending the later design and actual acceptance/verification under CA-P-2179. No concurrency mechanism or exception is approved.
 
@@ -37,6 +49,15 @@ Check a valid non-Active current original succeeds without forcing its Status; a
 
 Exercise application only on isolated valid fixture files. Compare actual history/Journal/source effects, not merely returned success. No production Core source, mapping ledger, carrier rename, native admission or live receipt is created. Deliver one independent Tool receipt with actual checks and limitations. Split independent scopes into bounded children if the required run/review exceeds 15 minutes.
 
+### Decomposing Plans
+
+- [CA-P-2273 — Verify connector API and Query and Read fixtures](../../001_backlog/01-CA-P-2273-TASK--verify-connector-api-and-query-and-read-fixtures.md)
+- [CA-P-2274 — Verify carrier property and section fixtures](../../001_backlog/02-CA-P-2274-TASK--verify-carrier-property-and-section-fixtures.md)
+- [CA-P-2275 — Verify TOML and config Workflow fixtures](../../001_backlog/03-CA-P-2275-TASK--verify-toml-and-config-workflow-fixtures.md)
+- [CA-P-2276 — Verify Scope Unit and Atom lifecycle fixtures](../../001_backlog/04-CA-P-2276-TASK--verify-scope-unit-and-atom-lifecycle-fixtures.md)
+- [CA-P-2277 — Verify Subject stop-first-failure and recording fixtures](../../001_backlog/05-CA-P-2277-TASK--verify-subject-stop-first-failure-and-recording-fixtures.md)
+- [CA-P-2278 — Verify runtime and binding readiness](../../001_backlog/06-CA-P-2278-TASK--verify-runtime-and-binding-readiness.md)
+
 ### Definition of Done
 
-The Plan is **not** Done if concurrent-publication design remains deferred or required successful publication/full portfolio is unaccepted, a required check is failed/missing/stale, output is self-verified, wrong-data controls pass, safeguards or unrelated bytes regress, actual fixture effects lack proof, production authority changes, or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if a direct fixture child is not Done, complete required RMEDO/actual approved FPF review is unaccepted, compatibility/runtime receipts are missing, concurrent-publication design remains deferred or required successful publication/full portfolio is unaccepted, a required check is failed/missing/stale, output is self-verified, wrong-data controls pass, safeguards or unrelated bytes regress, actual fixture effects lack proof, production authority changes, or own work exceeds 15 minutes without decomposition.

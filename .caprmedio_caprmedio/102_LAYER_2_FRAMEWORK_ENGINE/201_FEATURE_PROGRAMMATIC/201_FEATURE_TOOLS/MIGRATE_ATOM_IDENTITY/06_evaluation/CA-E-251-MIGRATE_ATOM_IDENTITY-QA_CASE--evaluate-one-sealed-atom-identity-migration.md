@@ -2,8 +2,8 @@
 subjects:
   governs: "artifact-operations"
   depends_on: []
-version: 10
-updated_at: 2026-09-12 04:15:38 +0400
+version: 11
+updated_at: "2026-10-13 00:04:48 +0400"
 relations:
   evaluation_for:
     - CA-R-1048
@@ -21,4 +21,4 @@ Verify direct `--apply` is rejected **without** authorized project-local MCP del
 
 ## Sources
 
-- [CA-R-1048 — Migrate one sealed Atom identity](../../04_requirement/CA-R-1048-TOOLS-CORE-REQUIREMENT--migrate-one-sealed-atom-identity.md)
+- [CA-R-1048 — Migrate one sealed Atom identity](../../../306_FEATURE_TOOL_WORKFLOWS/04_requirement/CA-R-1048-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--migrate-one-sealed-atom-identity.md)

@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 60
-updated_at: "2026-10-12 21:18:53 +0400"
+version: 63
+updated_at: "2026-10-13 00:21:20 +0400"
 relations: {}
 ---
 # Summary
@@ -52,6 +52,18 @@ Bind the [approved unchanged unresolved-owner decision](../../.caprmedio_tmp/sta
 The Operator added CA-P-1978 as the first Task: review and update the Tools' Requirements, Methods, Evaluations, Delivery and Operations before implementation. This exception covers only Tool-governing RMEDO in their declared Engine Scope Units. Core entity-model Subjects, grammar and ordinary content stay behind their existing gates. Creating or updating this Epic records work; it does not execute the repair or migration.
 
 CA-P-1978 and the completed lookup/preview/selector Tasks remain historical Done receipts. The Operator's latest tools-first request adds CA-P-2167 for the remaining gaps: patch-preview eligibility for current non-archived originals rather than literal `Active`; an explicit approved notation profile at the public graph entry point; and an admitted Subjects-only application route. Each affected implementation waits for updated, independently verified RMEDO. Independent fixture verification precedes use. The existing standalone apply guard remains until the route is intentionally implemented under those contracts; it is never bypassed. Tool readiness does not approve a live source packet.
+
+### Prospective logical connector and Workflow rebuild
+
+The Operator approved the two FEATURE siblings CONNECTOR_TOOLS and TOOL_WORKFLOWS under PROGRAMMATIC (Level 3, navigation 5/6), with flat role folders and shared Core policies inside each. Root alone updates Project Structure; only rebuilt RMEDO moves to `305_FEATURE_CONNECTOR_TOOLS`/`306_FEATURE_TOOL_WORKFLOWS`. Their future `305_CONNECTOR_TOOLS`/`306_TOOL_WORKFLOWS` delivery roots remain unmaterialized; existing TOOLS, unrelated legacy authority, existing delivery bindings and code paths stay unchanged. This approval supersedes the prior prospective no-new-Scope-Unit restriction for exactly this split.
+
+Connector Core CA-R-1936/CA-M-376/CA-E-628/CA-D-625 must supply a coherent broad logical API across ALL connector Tools: common input/result/precondition/error/effect contracts, not a new transport, database or retry design. Workflow Core policies remain separate. Actual code work must explicitly address hardcoded authority paths, release/admission bindings, selected-execution refresh/seals/pins and the graph generator's incorrect delivery derivation, with legacy Core/content alignment and independent runtime/admission/fixture gates retained. New source ownership or a matching receipt does not make existing code compatible, and successful source authoring grants no live readiness.
+
+The Operator approved a new Tool-RMEDO and Plan-authoring increment under CA-P-2167: logical storage-neutral connectors, with file/database details private; independent Find, Read and Modify; createAtom and createSU; archive rather than delete Atoms; shared section/property edits and TOML configuration Workflows; and field/scope-aware Subject search. These prospective contracts supersede earlier file-only, scalar-indexed and cross-Atom all-or-nothing assumptions for the affected rebuild. They do not rewrite historical Done receipts or authorize Core content/Subject migration, database construction, code implementation or live publication in this turn.
+
+Any Summary change creates a fresh Atom ID and archives its predecessor; a same-ID property update must refuse it. Replacement reports the requested target, created successor and archived predecessor IDs without automatically retargeting references. Find and Read are not compulsory predecessors of Modify, and findWorkflow and modifyWorkflow remain independent generally. For multiple requested Atom actions, each action is independent: stop at the first failure, retain earlier successes and leave remaining targets untouched. This rejects cross-Atom all-or-nothing rollback, not the safety and truthful recording obligations of one Atom action. Resume/retry remains explicitly deferred; the earlier concurrent-publication safety gate also remains deferred.
+
+CA-P-2245–2247's current rebuilt source subset has actual independent acceptance; CA-P-2248 still verifies the expanded Plan/current-source packet before completion. Their historical receipts remain frozen, not silently rebound. The latest approved Plan expansion adds CA-P-2249–2250 for missing operation-specific contracts, CA-P-2251 for a show-Plan-first, explicitly approved read-only FPF review of ALL required independently accepted RMEDO, CA-P-2252–2272 for bounded implementation and compatibility, and CA-P-2273–2278 as independent fixture children of existing CA-P-2174. CA-P-2167 links every pending leaf and its dependencies. CA-P-2173/2179 retains the separate deferred Subject-publication chain, not the whole rebuild. Every own-work leaf is <=15 minutes or is decomposed before execution. This turn updates Plans only: preparation, source acceptance and FPF Plan validation are not implementation, analytical review completion, runtime readiness or live permission. The separate content Epic and exact live migration gates remain unchanged.
 
 ### Source and model boundary
 

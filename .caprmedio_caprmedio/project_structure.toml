@@ -181,6 +181,27 @@ navigational_order_number = 1
 authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS"
 delivery_path = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"
 
+# Rebuilt connector and workflow authority; delivery roots are not installed yet.
+[[scope_units]]
+scope_unit_name = "CONNECTOR_TOOLS"
+parent = "PROGRAMMATIC"
+scope_unit_type = "Unordered"
+scope_unit_label = "FEATURE"
+structural_level = 3
+navigational_order_number = 5
+authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/305_FEATURE_CONNECTOR_TOOLS"
+delivery_path = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/305_CONNECTOR_TOOLS"
+
+[[scope_units]]
+scope_unit_name = "TOOL_WORKFLOWS"
+parent = "PROGRAMMATIC"
+scope_unit_type = "Unordered"
+scope_unit_label = "FEATURE"
+structural_level = 3
+navigational_order_number = 6
+authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS"
+delivery_path = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/306_TOOL_WORKFLOWS"
+
 [[scope_units]]
 scope_unit_name = "PROJECT_TOOLS"
 parent = "PROGRAMMATIC"

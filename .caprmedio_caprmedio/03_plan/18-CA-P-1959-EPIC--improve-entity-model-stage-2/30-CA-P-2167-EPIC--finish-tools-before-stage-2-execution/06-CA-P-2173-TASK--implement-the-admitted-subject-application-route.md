@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Revision, Journal, Plan, Operator]
-version: 4
-updated_at: "2026-10-12 04:49:28 +0400"
+version: 7
+updated_at: "2026-10-13 00:21:20 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2174]
@@ -28,6 +28,18 @@ Implement the admitted Subject application route
 The existing governed mutation boundary can apply an exact sealed Subjects-only packet through its admitted route.
 
 ## Details
+
+### Prospective rebuilt-contract gate
+
+The Operator approved the two FEATURE siblings CONNECTOR_TOOLS and TOOL_WORKFLOWS under PROGRAMMATIC (Level 3, navigation 5/6), with flat role folders and shared Core policies inside each. Root alone updates Project Structure; only rebuilt RMEDO moves to `305_FEATURE_CONNECTOR_TOOLS`/`306_FEATURE_TOOL_WORKFLOWS`. Their future `305_CONNECTOR_TOOLS`/`306_TOOL_WORKFLOWS` delivery roots remain unmaterialized; existing TOOLS, unrelated legacy authority, existing delivery bindings and code paths stay unchanged. This approval supersedes the prior prospective no-new-Scope-Unit restriction for exactly this split.
+
+Connector Core CA-R-1936/CA-M-376/CA-E-628/CA-D-625 must supply a coherent broad logical API across ALL connector Tools: common input/result/precondition/error/effect contracts, not a new transport, database or retry design. Workflow Core policies remain separate. Actual code work must explicitly address hardcoded authority paths, release/admission bindings, selected-execution refresh/seals/pins and the graph generator's incorrect delivery derivation, with legacy Core/content alignment and independent runtime/admission/fixture gates retained. New source ownership or a matching receipt does not make existing code compatible, and successful source authoring grants no live readiness.
+
+The latest logical connector/Workflow rebuild under CA-P-2167 is a new prospective contract input, not completion of this implementation. CA-P-2248 must independently accept the actual current affected contracts before implementation proceeds; the old CA-P-2170/2171 receipt remains historical and cannot release work against revised pins. Preserve this Plan's admitted Subject application outcome and the existing exact approval, one-Atom safety, currentness and truthful recording gates.
+
+The prospective CA-P-2167 rebuild section supersedes conflicting older executable assumptions below and in CA-P-2179–2182. Across multiple Atom actions, stop on the first failure, retain prior successful actions and leave remaining targets untouched; no cross-Atom all-or-nothing rollback is allowed. Resume/retry and automatic continuation/replay remain DEFERRED, not an implicit required design. The older concurrent-publication choice also stays deferred under CA-P-2179; no publication mechanism or live capability is enabled.
+
+CA-P-2167 now links actual pending rebuild leaves CA-P-2249–2278. CA-P-2251's completed, explicitly approved FPF review of all independently accepted required RMEDO additionally gates affected implementation, including this retained publication chain. Property/section connectors and receiving Modify/Subject edits belong to CA-P-2257/2258/2259/2263; they do not duplicate this outcome or open deferred live publication. This Plan alone cannot cover the new Tool set, and preparation/source authoring is not implementation. Historical completed children and receipt pins remain unchanged.
 
 Own work: none. Required prerequisite for production implementation: CA-P-2170's actual current application contract packet independently accepted under CA-P-2171; unrelated preview/graph packets need not delay it. CA-P-2177 has prepared the bounded children below. Contract/fixture preparation may proceed independently, but implementation and acceptance must obey each child's gates. All children and their actual isolated outputs must complete; preparation alone cannot finish this group.
 

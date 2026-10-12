@@ -1,0 +1,41 @@
+---
+atom_id: CA-M-375
+content_role: Method
+type: Method
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+local_tier: Standard
+global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+version: 1
+updated_at: "2026-10-12 23:13:45 +0400"
+subjects:
+  governs: "Tool"
+  depends_on: ["Workflow", "Property", "Scope Unit"]
+relations:
+  relates_to: [CA-R-1935, CA-R-1829, CA-O-204, CA-O-205, CA-O-206]
+---
+# Summary
+
+Apply one configuration Workflow through the shared TOML connector
+
+## Scope
+
+One explicit update of a TOML-backed Project configuration.
+
+## Claim
+
+**To** update Project configuration, its distinct configuration Workflow **must**:
+
+1. Select the explicit logical configuration and requested delta under that configuration's meaning and applicable schema. Use the same TOML connector used by the other TOML configuration Workflows.
+2. Read the complete current source through that connector and bind its revision or source pin. Derive only the explicit proposed delta and preserve unrelated configuration.
+3. Validate the complete proposal against the selected configuration's applicable schema before any write. Missing or ambiguous schema authority, invalid values or unresolved required references fails closed.
+4. Produce a mutation-free preview and obtain the applicable exact permission. A verified unchanged configuration is a no-op without a write or fictitious revision or timestamp.
+5. Recheck current source and permission before the connector's authorized write, verify the actual resulting complete configuration and return its actual effects and recording state.
+
+For CreateScopeUnit, use the declared Project Structure change through this shared connector; do not infer a Scope Unit declaration from a filesystem folder. Preserve applicable storage and concurrent-edit safeguards. This Method adds no configuration schema, connector-specific Workflow duplicate or resume/retry policy.
+
+## Details
+
+This is a required design contract. Current implementation, acceptance and any deferred publication concurrency/access decision remain separate.
