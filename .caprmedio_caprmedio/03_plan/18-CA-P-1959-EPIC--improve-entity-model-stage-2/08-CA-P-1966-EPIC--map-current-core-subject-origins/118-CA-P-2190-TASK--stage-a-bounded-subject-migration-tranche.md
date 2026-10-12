@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Subject
   depends_on: [Atom, Entity, Projection, Plan, Tool, Operator]
-version: 3
-updated_at: "2026-10-12 17:03:21 +0400"
+version: 4
+updated_at: "2026-10-12 18:07:04 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   blocks: [CA-P-2191]
@@ -31,6 +31,8 @@ Export one exact supported Subject-only tranche into independently checkable tem
 ## Details
 
 Estimated own work: 15 minutes for one AI Agent and one Root-frozen tranche of at most 20 sources, with validation time checked before execution. Required inputs: CA-P-2189 Done, CA-P-2183's verified staging capability, the exact tranche source list and current accepted patch/profile pins. This Task is not executable until that bounded tranche is assigned; allocate separate bounded continuation Tasks for the remainder. No partial tranche completes the full migration.
+
+Apply inherited CA-P-1959/2193 guidance against [Candidate #3](../../../_projection/core-entity-review/presentation/operator.model.candidate-3.md), SHA-256 `b0ad3f0d803112bf5e2d16c3f882cd0b01032273474c41cf6045db9ee86e40b7`, and the [approved five-branch decision](../../../../.caprmedio_tmp/stage2-migration-20261012/model/root-branches-decision.md), SHA-256 `fd265d787544d4c16f395c920cf6a634ec32285431ee28dad4d52083fee85ba7`: Object, History, Projection, Selection and Actor are sibling Entity branches. Term annotations identify source meanings, allowed values or derived vocabulary entries, not an independent root or an automatically materialized Projection entry. Recheck meanings and obtain current independent acceptance explicitly; older model/report pins remain historical and must not be rewritten. This model binding adds no native Relation semantics, parser/schema changes, live publication or content-work authority.
 
 CA-P-2189's receipt must reconcile the complete 907-source/4534-occurrence review, not only this tranche. Under the [approved content-conflict exclusions](../../../../.caprmedio_tmp/stage2-migration-20261012/model/content-conflict-decision.md), SHA-256 `6f5bdf81ae3861bd2141df69ba7ffa936f78cf7fef0ac0b8f2ae8290c17d09fc`, omit each confirmed content-conflict Atom wholly from the staged payload and preserve its original bytes; retain its evidenced ID/Version/hash/reason and CA-P-1970 queue plus visible unmigrated inventory/graph coverage. Stage other owners only when their whole-Subject changes are fully supported and independently accepted. Uncertainty, omissions or weak evidence must not be mislabeled as content conflicts; reviewed unresolved whole owners instead follow the separate approved unchanged-owner disposition below.
 

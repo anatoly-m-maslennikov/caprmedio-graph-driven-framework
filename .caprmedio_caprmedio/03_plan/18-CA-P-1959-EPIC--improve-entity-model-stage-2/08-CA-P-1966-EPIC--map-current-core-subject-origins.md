@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 156
-updated_at: "2026-10-12 17:03:21 +0400"
+version: 157
+updated_at: "2026-10-12 18:07:04 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -42,6 +42,8 @@ Root owns integration of the complete ledger; workers own disjoint review batche
 CA-P-1972's preparation alone cannot complete this group. The generated review/integration children must be present and Done, with complete actual ledger coverage. The current ledger feeds CA-P-1909's separately accepted graph; it does not grant candidate acceptance.
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
+
+Current model guidance is [Candidate #3](../../_projection/core-entity-review/presentation/operator.model.candidate-3.md), SHA-256 `b0ad3f0d803112bf5e2d16c3f882cd0b01032273474c41cf6045db9ee86e40b7`, plus the [approved five-branch decision](../../../.caprmedio_tmp/stage2-migration-20261012/model/root-branches-decision.md), SHA-256 `fd265d787544d4c16f395c920cf6a634ec32285431ee28dad4d52083fee85ba7`, under CA-P-1959's inherited boundary. Entity branches are Object, History, Projection, Selection and Actor; only Object has Continuant/Occurrent kinds. Preserve source-authoritative non-Atom governing configurations, live Execution Objects versus History records ABOUT actual happened work, and separate derived Projections including Terms Graph. Term annotations are source meanings, allowed values or derived vocabulary entries, not a root or an automatic Projection entry. This supersedes stale descendant model references for execution, not historical report/receipt bytes or their acceptance pins; affected meanings need explicit current re-review and independent acceptance. No native Relation semantics, original migration, content work or descendant completion is adopted by this Plan update.
 
 Current continuation is Subjects-only staging. CA-P-2187 checked the fresh inventory; CA-P-2193 assigns all 48 exact whole-source packets to review Plans with bounded execution Tasks and any required zero-own-work roll-ups. Every Task re-reads current sources against Candidate #3 and the latest Operator decisions, preserving distinct Owning Scope Unit, relational Target Scope Unit and exact governed Substance Scope. The old combined lookup context is a Selection, not a fourth scope. CA-P-2188/2189 integrate and independently verify the new ledger; CA-P-2190/2191 cover a frozen bounded staging tranche and its independent file/graph review. Allocate continuation Tasks for every remaining tranche before execution. Preserve Summary, Substance, scope, Semantics, body and unrelated metadata; only required illustrative Version/time may accompany Subject changes in candidates.
 
@@ -255,11 +257,11 @@ Earlier research and integration totals above are historical.
 
 ### Current prospective baseline and re-review gate
 
-The prospective mapping target is [Candidate #3 — Object, Term, Selection](../../_projection/core-entity-review/presentation/operator.model.candidate-3.md) plus the Operator's later decisions; those decisions outrank the older seven-root/frozen JSON candidate. Frozen captures and the saved ledger remain preserved historical evidence and must not be rewritten.
+The prospective mapping target is [Candidate #3 — Object, History, Projection, Selection, Actor](../../_projection/core-entity-review/presentation/operator.model.candidate-3.md) plus the Operator's later decisions; those decisions outrank the older seven-root/frozen JSON candidate. Frozen captures and the saved ledger remain preserved historical evidence and must not be rewritten.
 
 CA-P-2166 subsequently completed its bounded approved selector and metadata increment; its completed increment is documented in `_projection/core-entity-review/stage2/approved-implementation/current-increment.md`. The historical CA-P-2144–2155 checkpoint above records eight quarantines, selector grammar and final gates as open at that time. This statement does not claim that a fresh re-pin ran today.
 
-**PENDING — CA-P-1966 owns the required re-review, adaptation and re-pin before CA-P-1909 acceptance or CA-P-1967 sealing.** Re-review every prospective mapping against the current original source and Candidate #3, record verified explicit current source hashes plus the candidate version/reference, and retain semantic source evidence for each mapping. No old ledger row, mapping acceptance or frozen pin is silently inherited; settled Operator selector decisions remain settled. Examples such as `Atom.Atom ID` to prospective `Atom.ID`, `Scope Unit.ID`, `Object`/`Term`/`Selection`, and `History` require source evidence, not blind replacement. The current selected-Subject-tool frontier remains an explicit admitted limitation; do not bypass its safe guards.
+**PENDING — CA-P-1966 owns the required re-review, adaptation and re-pin before CA-P-1909 acceptance or CA-P-1967 sealing.** Re-review every prospective mapping against the current original source and Candidate #3, record verified explicit current source hashes plus the candidate version/reference, and retain semantic source evidence for each mapping. No old ledger row, mapping acceptance or frozen pin is silently inherited; settled Operator selector decisions remain settled. Examples such as `Atom.Atom ID` to prospective `Atom.ID`, `Scope Unit.ID`, the five branch identities and retained Term annotations require source evidence, not blind replacement. The current selected-Subject-tool frontier remains an explicit admitted limitation; do not bypass its safe guards.
 
 CA-P-2187 is Done after [independent current inventory acceptance](../../../.caprmedio_tmp/stage2-migration-20261012/inventory-independent-check.json) for 907 sources / 4534 occurrences and four rejected negative controls. Root rechecked all 12124 captured Core/history hashes: unchanged. Capture is accepted, not Candidate-3 semantics; every current source still needs fresh review and independent acceptance before CA-P-2188/2189 and migration staging. This Epic remains Active.
 
