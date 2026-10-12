@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Revision, Journal, Plan, Operator]
-version: 2
-updated_at: "2026-10-12 04:12:42 +0400"
+version: 3
+updated_at: "2026-10-12 04:25:07 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2171, CA-P-2173]
@@ -41,6 +41,12 @@ Bind effect-time metadata and final after hashes to the exact sealed approval co
 Deliver actual contract pins, predecessor evidence and success/refusal/failure cases to CA-P-2171. Split a larger or identity-replacing packet before effect. Contract alignment grants no live source effect or automatic rollback/retry.
 
 Inherit CA-P-1959/2167's source and preservation boundaries.
+
+### Completion receipt
+
+Commit `89da2e93d` contains the seven revised Engine sources and exact predecessor archives. [Fresh independent acceptance](../../../../_projection/core-entity-review/stage2/tools-first/application-contract-acceptance.md) passed for CA-R-866 v17, CA-M-371 v5, CA-O-030 v10, CA-E-304 v16, CA-D-425 v12, CA-D-531 v4 and CA-D-585 v2. IDs, Subjects, Status, ownership, relations and Summary identity were preserved; Versions increased by one and archives match committed predecessors.
+
+The closed one-target MCP variant binds deterministic intent, old proposal metadata, effect-time materialization and exact predecessor history. It retains actual selected-session, Done Analysis Report/assessment, canonical action-start, outer approval and truthful recording guards; a caller Boolean is insufficient. This is fresh acceptance of overlapping UPDATE revisions. It releases CA-P-2178–2180 only when their dependencies are ready, and grants no local route, tested/installed capability, bulk effect or exact CA-P-1910 migration-packet approval.
 
 ### Definition of Done
 

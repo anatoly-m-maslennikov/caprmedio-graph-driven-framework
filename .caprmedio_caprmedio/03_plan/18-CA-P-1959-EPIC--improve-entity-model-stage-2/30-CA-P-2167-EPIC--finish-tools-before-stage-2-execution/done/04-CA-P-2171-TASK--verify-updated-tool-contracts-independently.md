@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Journal, Plan, Operator]
-version: 2
-updated_at: "2026-10-12 04:12:42 +0400"
+version: 3
+updated_at: "2026-10-12 04:25:07 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2174]
@@ -38,9 +38,11 @@ Deliver source-pinned per-packet acceptance and one complete contract receipt, w
 
 ### Per-packet progress
 
-Preview/currentness and public graph profile passed actual independent source verification in [the contract receipt](../../../_projection/core-entity-review/stage2/tools-first/contract-acceptance.md). CA-P-2168/2169 are Done and only CA-P-2175/2176's bounded implementations are released under those pins. The receipt's pending-route wording records the state before the later Operator choice; preserve it as history.
+Preview/currentness and public graph profile passed actual independent source verification in [the first contract receipt](../../../../_projection/core-entity-review/stage2/tools-first/contract-acceptance.md). CA-P-2168/2169 are Done. That receipt's pending-route wording and earlier UPDATE pins remain historical.
 
-The Operator has now chosen extending the existing admitted MCP update action with Subjects-only application. Its actual updated contract packet remains unverified here, so this Task stays Active. Any overlapping UPDATE revision invalidates affected prior pins and requires re-pinning/re-verification. No implementation completion, live migration approval or complete CA-P-2167 pass is recorded.
+The chosen MCP application packet passed [fresh independent acceptance](../../../../_projection/core-entity-review/stage2/tools-first/application-contract-acceptance.md), committed at `89da2e93d`. All seven actual sources and predecessor archives were checked; overlapping UPDATE revisions received new acceptance rather than inheriting earlier pins. The closed one-target intent/effect-time/history contract retains the actual selected session, completed Report/assessment, canonical action start, outer approval and truthful recording boundary.
+
+All three current contract packets now pass, completing this Task. Application acceptance releases CA-P-2178–2180 only as their concrete dependencies are ready. Any later source change requires renewed acceptance. This contract receipt does not complete implementation, installed runtime readiness, live migration approval or CA-P-2167's full Tool gate.
 
 ### Definition of Done
 

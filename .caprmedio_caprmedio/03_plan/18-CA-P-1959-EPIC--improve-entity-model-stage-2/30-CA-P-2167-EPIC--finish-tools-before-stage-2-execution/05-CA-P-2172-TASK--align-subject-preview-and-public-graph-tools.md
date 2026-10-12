@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan]
-version: 1
-updated_at: "2026-10-12 04:02:18 +0400"
+version: 2
+updated_at: "2026-10-12 04:20:54 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2174]
@@ -34,7 +34,11 @@ Own work: none. Each child requires its corresponding actual current contract pa
 ### Decomposing Plans
 
 - [CA-P-2175 — Select current originals in Subject preview](05-CA-P-2172-TASK--align-subject-preview-and-public-graph-tools/01-CA-P-2175-TASK--select-current-originals-in-subject-preview.md)
-- [CA-P-2176 — Bind the public graph notation profile](05-CA-P-2172-TASK--align-subject-preview-and-public-graph-tools/02-CA-P-2176-TASK--bind-the-public-graph-notation-profile.md)
+- [CA-P-2176 — Bind the public graph notation profile](05-CA-P-2172-TASK--align-subject-preview-and-public-graph-tools/done/02-CA-P-2176-TASK--bind-the-public-graph-notation-profile.md)
+
+### Implementation checkpoint
+
+CA-P-2176 is Done: commit `a8da9b50b` contains the bounded public graph profile implementation, independently accepted by `tools_first_verifier`. Root's 245 graph and four MCP descriptor checks passed. CA-P-2175 remains Active pending acceptance of its preview fix, so this group stays Active. This checkpoint does not complete CA-P-2174's combined independent Tool gate or claim live application/migration readiness.
 
 ### Definition of Done
 
