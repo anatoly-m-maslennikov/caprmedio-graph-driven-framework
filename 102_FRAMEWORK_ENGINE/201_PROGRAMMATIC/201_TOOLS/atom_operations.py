@@ -498,13 +498,17 @@ def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
     """Publish raw bytes, or remove our exact revision; never overwrite an archive."""
 
     parent = _raw_revision_parent(root, path, create=expected is None and raw is not None)
+    staging = None
     temporary = ".subject-" + uuid.uuid4().hex + ".tmp"
     staged = False
     published: tuple[int, ...] | None = None
     try:
         if raw is not None:
+            staging = _raw_revision_parent(root, root / ".caprmedio_tmp" / "atom_subject_apply" / "atomic" / temporary, create=True)
+            if os.fstat(staging).st_dev != os.fstat(parent).st_dev:
+                raise ToolError("subject-destination-unsafe", "Subject temporary state is on a different filesystem")
             descriptor = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW,
-                                 mode, dir_fd=parent)
+                                 mode, dir_fd=staging)
             staged = True
             with os.fdopen(descriptor, "wb") as stream:
                 os.fchmod(stream.fileno(), mode)
@@ -528,11 +532,11 @@ def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
         if raw is None:
             os.unlink(path.name, dir_fd=parent)
         elif expected is None:
-            os.link(temporary, path.name, src_dir_fd=parent, dst_dir_fd=parent, follow_symlinks=False)
-            os.unlink(temporary, dir_fd=parent)
+            os.link(temporary, path.name, src_dir_fd=staging, dst_dir_fd=parent, follow_symlinks=False)
+            os.unlink(temporary, dir_fd=staging)
             staged = False
         else:
-            os.replace(temporary, path.name, src_dir_fd=parent, dst_dir_fd=parent)
+            os.replace(temporary, path.name, src_dir_fd=staging, dst_dir_fd=parent)
             staged = False
         if raw is not None:
             published = _raw_revision_fingerprint(os.stat(path.name, dir_fd=parent, follow_symlinks=False))
@@ -545,7 +549,9 @@ def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
                         {"publication_fingerprint": published} if published is not None else {}) from error
     finally:
         if staged:
-            os.unlink(temporary, dir_fd=parent)
+            os.unlink(temporary, dir_fd=staging)
+        if staging is not None:
+            os.close(staging)
         os.close(parent)
 
 
