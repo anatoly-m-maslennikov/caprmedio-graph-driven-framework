@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 155
-updated_at: "2026-10-12 16:31:39 +0400"
+version: 156
+updated_at: "2026-10-12 17:03:21 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -48,6 +48,8 @@ Current continuation is Subjects-only staging. CA-P-2187 checked the fresh inven
 The fresh inventory reports 907 sources and 4534 occurrences with zero errors; independent inventory acceptance passed; fresh semantic coverage remains pending. Old CA-P-2049/2050–2056 domain assignments and prior ledgers remain historical research, not current source partitions or approval. Reuse CA-P-2043/2045 for one Root-owned integrated ledger. Do not mark a group complete from preparation, a partial tranche or unchanged historical bytes.
 
 Bind the additive [compact scope-reference decision](../../../.caprmedio_tmp/stage2-migration-20261012/model/scope-reference-decision.md), SHA-256 `df2303d0128ca9b882e2877f41ebc2f17f2c9fc2ce4a3a7ffefa394000d249c0` alongside the unchanged base decisions: the first two compact names are Atom references, not Scope Unit kinds; combined lookup remains a source-specific Selection. Under the [approved content-conflict exclusions](../../../.caprmedio_tmp/stage2-migration-20261012/model/content-conflict-decision.md), SHA-256 `6f5bdf81ae3861bd2141df69ba7ffa936f78cf7fef0ac0b8f2ae8290c17d09fc`, review all 907 owners/4534 occurrences and independently reconcile every disposition before staging. A confirmed content conflict excludes the whole Atom, preserves its original bytes and inventory/graph presence, and records ID, Version, source hash, contradictory source/model/Operator evidence, reason and CA-P-1970 destination. Supported changes to other whole owners may be staged only after CA-P-2188/2189. Missing sources, uncertainty or weak evidence are not conflict exemptions; no content work or partial unreviewed coverage is approved.
+
+Bind the [approved unchanged unresolved-owner decision](../../../.caprmedio_tmp/stage2-migration-20261012/model/unresolved-owner-decision.md), SHA-256 `d325383d4d4b049347bc77381e3f17616d3a473d93fce587c6b23a11e0ad9912`, separately from confirmed content conflicts. If any required Subject mapping remains uncertain after review, keep the whole original Atom unchanged and omit all its rows from the staging payload. List unresolved owners separately with exact Atom ID, Version, source path/hash, affected occurrences, reason and open question; retain their unchanged inventory and BEFORE/AFTER graph coverage. Unresolved owners are not automatically CA-P-1970 work. This is a reviewed disposition, not permission to omit unreviewed sources, invent meanings or raise confidence. Only other fully supported, independently accepted whole owners may be staged after complete 907-owner/4534-occurrence review and CA-P-2188/2189 ledger/disposition acceptance.
 
 ### Decomposing Plans
 
@@ -263,4 +265,4 @@ CA-P-2187 is Done after [independent current inventory acceptance](../../../.cap
 
 ### Definition of Done
 
-The Plan is **not** Done if any selected occurrence is missing or guessed, a mapping lacks current source evidence, unresolved cases are hidden, confirmed content-conflict exclusions lack whole-owner evidence/preservation or an explicit CA-P-1970 queue, uncertainty is used as a conflict exemption, captured outputs change, or source Atoms are edited; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if any selected occurrence is missing or guessed, a mapping lacks current source evidence, unresolved cases are hidden or their separate whole-owner disposition lacks exact pins/occurrences/reason/open question and unchanged BEFORE/AFTER coverage, confirmed content-conflict exclusions lack whole-owner evidence/preservation or an explicit CA-P-1970 queue, uncertainty is used as a conflict exemption, captured outputs change, or source Atoms are edited; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

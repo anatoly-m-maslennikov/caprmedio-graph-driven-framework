@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 56
-updated_at: "2026-10-12 16:31:39 +0400"
+version: 57
+updated_at: "2026-10-12 17:03:21 +0400"
 relations: {}
 ---
 # Summary
@@ -32,6 +32,8 @@ Review and stage consistent Core Meta-model RMEDO Subject origins, preserving au
 The latest Operator scope is Subjects only. Content migration belongs to the separate deferred CA-P-1970 Epic; no Summary, Substance, Substance Scope, Semantics, Details or other body/metadata change is authorized by this request. Only Subject fields and required illustrative Version/time in staged copies may change. Ordinary Plan and Tool-rule authoring remain separately authorized.
 
 The [approved content-conflict exclusions](../../.caprmedio_tmp/stage2-migration-20261012/model/content-conflict-decision.md), SHA-256 `6f5bdf81ae3861bd2141df69ba7ffa936f78cf7fef0ac0b8f2ae8290c17d09fc` permit a reviewed migration set with whole-Atom exclusions, not unreviewed omissions. Review all 907 sources and 4534 occurrences before staging. A confirmed content conflict leaves the entire original Atom unchanged and records its ID, Version, source hash, contradictory source and candidate/Operator evidence, reason and destination CA-P-1970. Keep excluded owners visible and unmigrated in inventory/graph coverage. Only independently accepted, fully supported whole-owner Subject changes may enter staged tranches after CA-P-2188/2189; uncertainty, weak evidence or an omitted source is not a content-conflict exemption. This does not execute the deferred content Epic or approve live publication.
+
+Bind the [approved unchanged unresolved-owner decision](../../.caprmedio_tmp/stage2-migration-20261012/model/unresolved-owner-decision.md), SHA-256 `d325383d4d4b049347bc77381e3f17616d3a473d93fce587c6b23a11e0ad9912`, separately from confirmed content conflicts. If any required Subject mapping remains uncertain after review, keep the whole original Atom unchanged and omit all its rows from the staging payload. List unresolved owners separately with exact Atom ID, Version, source path/hash, affected occurrences, reason and open question; retain their unchanged inventory and BEFORE/AFTER graph coverage. Unresolved owners are not automatically CA-P-1970 work. This is a reviewed disposition, not permission to omit unreviewed sources, invent meanings or raise confidence. Only other fully supported, independently accepted whole owners may be staged after complete 907-owner/4534-occurrence review and CA-P-2188/2189 ledger/disposition acceptance.
 
 1. Pin and independently check the fresh current Core inventory under CA-P-2187. Verified CA-P-2183 plus CA-P-1963 permit this read-only staged branch without the deferred publication receipt.
 2. Re-review every source and Subject occurrence against Candidate #3 and the latest decisions in disjoint bounded source Tasks. Investigate uncertainty; if confidence remains below 90%, ask the Operator before adopting or staging that mapping.
@@ -218,4 +220,4 @@ Fresh staged-Subject workflow: CA-P-2187's independent inventory capture is acce
 
 ### Definition of Done
 
-The Epic is **not** Done if any current decomposing Plan is not Done; affected Tool implementation/use preceded its independently verified contracts/fixtures; current source coverage or Candidate-3 meaning checks are missing/stale; a below-90% mapping was silently adopted or staged; unresolved/excluded cases or failed checks are hidden, content-conflict evidence/whole-owner preservation or the CA-P-1970 queue is missing, or uncertainty is mislabeled as a content conflict; a candidate changes anything beyond Subjects and required illustrative Version/time; originals/history/Journal change without their separate live authority; staged graph evidence is treated as final acceptance or publication; full publication or shared final gates are incomplete; content migration from the separate CA-P-1970 Epic is treated as this Epic's work or completion prerequisite; or completion exceeds actual evidence.
+The Epic is **not** Done if any current decomposing Plan is not Done; affected Tool implementation/use preceded its independently verified contracts/fixtures; current source coverage or Candidate-3 meaning checks are missing/stale; a below-90% mapping was silently adopted or staged; unresolved/excluded cases or failed checks are hidden, the separate unresolved-owner list lacks exact pins/occurrences/reason/open question or an unresolved owner is partially staged, content-conflict evidence/whole-owner preservation or the CA-P-1970 queue is missing, or uncertainty is mislabeled as a content conflict; a candidate changes anything beyond Subjects and required illustrative Version/time; originals/history/Journal change without their separate live authority; staged graph evidence is treated as final acceptance or publication; full publication or shared final gates are incomplete; content migration from the separate CA-P-1970 Epic is treated as this Epic's work or completion prerequisite; or completion exceeds actual evidence.

@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Subject
   depends_on: [Atom, Entity, Projection, Plan, Tool, Operator]
-version: 2
-updated_at: "2026-10-12 16:31:39 +0400"
+version: 3
+updated_at: "2026-10-12 17:03:21 +0400"
 relations:
   is_decomposition_of: [CA-P-2045]
   blocks: [CA-P-2189]
@@ -36,6 +36,8 @@ Root owns the single derived ledger under `.caprmedio_tmp/stage2-migration-20261
 
 Reconcile all 907 owners and 4534 occurrences. A confirmed content conflict records a whole-Atom staging exclusion, its ID/Version/source hash, contradictory source and candidate/Operator evidence, reason and explicit CA-P-1970 queue entry. Excluded originals remain byte-unchanged and visible as unmigrated in inventory/graph coverage; do not stage even a supported subset of that owner. Mark eligible only independently accepted, fully supported whole-owner Subject changes. Missing coverage, uncertainty or weak evidence must not be relabeled as content conflicts; their existing investigation/Operator gates remain. No partial unreviewed set completes this ledger.
 
+Bind the [approved unchanged unresolved-owner decision](../../../../../../.caprmedio_tmp/stage2-migration-20261012/model/unresolved-owner-decision.md), SHA-256 `d325383d4d4b049347bc77381e3f17616d3a473d93fce587c6b23a11e0ad9912`, separately from confirmed content conflicts. Persist that separate whole-owner list in the complete ledger with exact Atom ID, Version, source path/hash, affected occurrences, reason and open question. An uncertain required mapping leaves the entire original Atom unchanged and all its rows unstaged, even when some rows are supported. Preserve raw report/model/decision pins rather than rewrite historical receipts; bind this additive answer explicitly in integration. Retain unresolved owners in inventory and BEFORE/AFTER coverage, without automatically queuing CA-P-1970. Reconcile all 907 owners/4534 occurrences and obtain independent acceptance of supported meanings and every disposition before staging only other fully supported whole owners; uncertainty never excuses missing review coverage.
+
 ### Definition of Done
 
-Not Done if a fresh batch/independent receipt is missing, a pin or model binding is stale, coverage overlaps/omits an occurrence, uncertainty is silently resolved or mislabeled as a content conflict, an exclusion lacks exact whole-owner evidence/preservation or its CA-P-1970 queue, old approval is reused, source/content bytes change or own work exceeds 15 minutes without decomposition.
+Not Done if a fresh batch/independent receipt is missing, a pin or model binding is stale, coverage overlaps/omits an occurrence, uncertainty is silently resolved or mislabeled as a content conflict, a confirmed content-conflict exclusion lacks exact whole-owner evidence/preservation or its CA-P-1970 queue, the separate unresolved-owner disposition/pins/occurrences/reason/open question or unchanged coverage is missing, old approval is reused, source/content bytes change or own work exceeds 15 minutes without decomposition.
