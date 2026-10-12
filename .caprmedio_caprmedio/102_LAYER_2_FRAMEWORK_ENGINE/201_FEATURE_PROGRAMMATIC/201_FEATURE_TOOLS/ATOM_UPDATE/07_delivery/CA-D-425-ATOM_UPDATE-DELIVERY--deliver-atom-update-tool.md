@@ -13,8 +13,8 @@ subjects:
   governs: "Tool/ATOM_UPDATE/Carrier"
   depends_on:
     - "Tool/ATOM_UPDATE"
-version: 12
-updated_at: "2026-10-12 04:20:25 +0400"
+version: 13
+updated_at: "2026-10-12 05:39:01 +0400"
 relations: {"delivery_for":["CA-R-866"]}
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -25,7 +25,7 @@ Deliver ATOM_UPDATE Tool
 
 ## Scope
 
-This Delivery carrier defines the public file-operation contract of the canonical `ATOM_UPDATE` wrapper under owner `TOOLS`. The `ATOM_UPDATE` folder is an artifact collection below `TOOLS`, not an independently registered Scope Unit. It retains the existing generic update input and sealed apply guard and adds one small read-only, Subject-only preview for already-correct Atom files. It does not define Core semantics, grammar adoption, migration decisions, source repair, or a new MCP route. CA-D-531 binds its separately admitted one-target Subject effect to the existing MCP update action.
+This Delivery carrier defines the public file-operation contract of the canonical `ATOM_UPDATE` wrapper under owner `TOOLS`. The `ATOM_UPDATE` folder is an artifact collection below `TOOLS`, not an independently registered Scope Unit. It retains the existing generic update input and sealed apply guard and adds one small authoritative-source-read-only, Subject-only preview for already-correct Atom files, with opt-in local derived-candidate staging. It does not define Core semantics, grammar adoption, migration decisions, source repair, or a new MCP route. CA-D-531 binds its separately admitted one-target Subject effect to the existing MCP update action.
 
 ## Claim
 
@@ -41,9 +41,21 @@ Subject-only preview **must** select a complete original Atom Carrier with a sta
 
 ## Details
 
-The local dry-run result **must** expose the exact patch set, before and after SHA-256 values, expected Version `N+1`, an illustrative `updated_at` value, and a canonical `preview_sha256` over the complete deterministic preview. The illustrative time is not an execution receipt. Empty or unchanged patches are reported as a truthful no-op and do not create a revision. Invalid or nested Subject shapes, missing or repeated occurrences, stale identity/version/digest, invalid profile syntax, collisions, overlapping spans, path escapes, symlink targets, and incomplete files stop before any write.
+The local dry-run result **must** expose the exact patch set, before and after SHA-256 values, expected Version `N+1`, an illustrative `updated_at` value, and a canonical `preview_sha256` over the complete deterministic preview. The illustrative time is not an execution receipt. Empty or unchanged patches are reported as a truthful no-op and do not create a revision. Invalid or nested Subject shapes, missing or repeated occurrences, stale identity/version/digest, invalid profile syntax, collisions, overlapping spans, path escapes, symlink targets, and incomplete files stop before staging or any authoritative write.
 
-The existing generic updater remains available for its complete-carrier contract; Subject-only input does not mix with it and does not weaken the standalone `--apply` guard. The local preview invokes no MCP and performs no Carrier, history or Journal write. A separately authorized one-target Subject effect uses only the existing MCP `update_atom` route under CA-D-531 and CA-O-030, not this local wrapper or a new transport. This contract does not itself advertise an installed runtime capability, refresh an image/manifest, select a migration batch or grant source-effect approval.
+The existing generic updater remains available for its complete-carrier contract; Subject-only input does not mix with it and does not weaken the standalone `--apply` guard. The default local preview invokes no MCP and performs no filesystem write. Opt-in staging invokes no MCP and writes only derived temporary candidates; it performs no authoritative Carrier, history or Journal write. A separately authorized one-target Subject effect uses only the existing MCP `update_atom` route under CA-D-531 and CA-O-030, not this local wrapper or a new transport. This contract does not itself advertise an installed runtime capability, refresh an image/manifest, select a migration batch or grant source-effect approval.
+
+### Opt-in local staged preview
+
+The existing local `run` command **may** accept `--stage-preview` only for the unchanged closed Subject-only payload `{atoms, subject_profile?}`. Reject this option for generic update input or together with `--apply` before creating artifacts. Default dry run and its result/digest remain unchanged, the pure planner writes no files, and standalone apply remains disabled. The option grants no source effect, promotion, new MCP route, API, runtime or monitoring capability.
+
+After a complete pinned preview passes, create a fresh Tool-generated batch at `.caprmedio_tmp/subject-preview/<opaque-id>/`. The caller does not choose the destination. For the one-based ordinal in payload order, use a directory padded to at least four decimal digits (`0001`, `0002`, ...) and retain the exact source filename beneath it. Thus distinct sources with identical basenames cannot collide; the manifest maps each exact source path. Every created directory/file must remain under the approved Project root through no-follow traversal; use create-only writes, reject symlink/escape/substitution/occupied destinations, and never overwrite a candidate or manifest.
+
+Export the existing preview's complete illustrative `proposed_carrier` as exact UTF-8 bytes. Read back and compare bytes and measured SHA-256 with that preview; independently run existing complete-carrier validation on the actual reopened candidate bytes using the ORIGINAL logical source path, identity, applicable Status and placement, not temporary placement. Candidate Version/time are illustrative; no-op Version/time are unchanged. Finally recheck pinned source bytes/current identity uniqueness and grammar with the SAME illustrative timestamp, requiring the same original `preview_sha256`, per-target pins and intent hashes; any change refuses success rather than silently refreshing the preview.
+
+The separate `manifest.json` is a closed object with exactly `schema_version: 1`, `preview_sha256` and `atoms`. `atoms` follows payload order; each entry contains exactly `source`, `subject_intent_sha256`, `candidate` and `validation`. `source` is exactly `{path, atom_id, version, sha256}` for the pinned original; `candidate` is exactly `{path, sha256}` for the actual safe Project-relative candidate path and measured full-file hash; `validation` is exactly `{state: "passed", logical_source_path}` binding real complete-carrier admission to the source path. The original preview hash already binds the chosen Profile, grammar and illustrative proposal; staging does not replace or recalculate it. Create and independently read back the success manifest only after the complete candidate/readback/validation/final-currentness checks pass.
+
+The enclosing local result must retain the complete original preview unchanged so its `preview_sha256` remains reconstructible, and expose `staging_only: true`, `illustrative: true`, `sources_unchanged: true`, the actual generated stage root, manifest path and measured manifest SHA-256. This is point-in-time candidate evidence, never an approval token; later use must recheck candidate/manifest hashes. On write, readback, validation or currentness failure, report actual retained partial artifact references and diagnostics without returning a success manifest/seal or performing unverified cleanup. Do not write originals, historical revisions or Journal, do not promote candidates, and do not invoke MCP.
 
 ### Deterministic Subject intent
 
@@ -53,4 +65,4 @@ Pure preparation for that one-target route **must** expose `subject_intent` and 
 
 `subject_intent_sha256` is lowercase SHA-256 of canonical UTF-8 JSON of this whole object, with keys sorted, no extra whitespace, unescaped Unicode and no non-finite values. It is outside the object and excludes separate illustrative preview bytes/time and future actual-effect receipts. Thus unchanged source/patch/profile/history/metadata-rule evidence yields the same intended hash independently of illustrative time. Unknown intent fields or a mismatched freshly derived hash fail.
 
-The admitted result **must** retain the intended hash and actual `materialization = {version, updated_at, after_sha256}`, observed current/history descriptors and the existing shared result/effect/recording evidence. Changed materialization uses actual Project time and verified final Carrier hash; no-op retains old Version/time/hash and has no history effect. No other generated Carrier slot is admitted. CA-R-866 and CA-O-030 govern the effect; CA-M-371 remains pure preparation and CA-D-585 binds assessment proposal pins.
+The admitted result **must** retain the intended hash and actual `materialization = {version, updated_at, after_sha256}`, observed current/history descriptors and the existing shared result/effect/recording evidence. Changed materialization uses actual Project time and verified final Carrier hash; no-op retains old Version/time/hash and has no history effect. No other generated Carrier slot is admitted as an effect; local derived staging candidates are not authoritative effect slots. CA-R-866 and CA-O-030 govern the effect; CA-M-371 remains pure preparation and CA-D-585 binds assessment proposal pins.

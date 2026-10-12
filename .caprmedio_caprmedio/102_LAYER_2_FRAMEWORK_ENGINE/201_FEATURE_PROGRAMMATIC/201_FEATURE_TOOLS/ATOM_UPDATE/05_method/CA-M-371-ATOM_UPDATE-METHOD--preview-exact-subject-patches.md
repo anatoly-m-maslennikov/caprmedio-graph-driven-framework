@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: [Atom, Subject, Artifact/Carrier, Atom/Revision]
-version: 5
-updated_at: "2026-10-12 04:20:25 +0400"
+version: 6
+updated_at: "2026-10-12 05:39:01 +0400"
 relations:
   relates_to: [CA-R-866, CA-O-030, CA-E-304, CA-D-425]
 ---
@@ -21,7 +21,7 @@ Preview exact Subject patches for valid Atom carriers
 
 ## Scope
 
-The Subject-only preview and pure intended-proposal preparation method for ATOM_UPDATE.
+The Subject-only preview, opt-in local candidate staging, and pure intended-proposal preparation method for ATOM_UPDATE.
 
 ## Claim
 
@@ -32,7 +32,7 @@ validates each exact selector and its Atom ID, Version and SHA-256 before
 locating the stated direct Subject occurrence. It validates source and result
 syntax under that same profile, replaces only the stated scalar or
 dependency-list item, validates the complete resulting carrier, and returns the
-exact preview without writing a carrier.
+exact default preview without writing a Carrier. The pure planner remains free of filesystem writes; an opt-in local wrapper may export derived preview copies under CA-D-425 without updating any authoritative Carrier.
 
 Subject-only preview **must** select a complete original Atom Carrier with a stable Atom ID, excluding Draft and archived carriers by both carried Status and placement. Both the pinned source and proposed result **must** pass existing complete-carrier validation, including the applicable Content Role/Type Status model and correct Carrier placement. Preserve the carried Status byte-for-byte; do not activate the source or perform a lifecycle transition. Missing, ambiguous, unsupported, or stale validation authority **must** fail closed.
 
@@ -60,4 +60,12 @@ not give `@` a Subject role.
 
 For reuse by CA-D-531's one-target Subject update, the same pure planner **must** also derive the complete intended Carrier by replacing only the exact Subject spans, retaining the old Version and Updated At. Return the exact proposal pins and CA-D-425's `subject_intent`/`subject_intent_sha256`, which bind the selected complete target, ordered patches, grammar evidence, effect-time metadata rule and exact predecessor-history destination. The hash excludes the separate illustrative timestamp and is unchanged when only that illustrative time changes. A no-op binds unchanged bytes and no history effect. Rechecking a changed source, grammar pin or intended effect yields a changed intent or refusal, never a silently refreshed approval.
 
-This preparation supplies neither an identity assessment nor effect permission. CA-O-067/CA-O-145 assess the intended proposal under CA-R-1892 and CA-D-585; CA-O-030 owns the separately admitted existing-MCP effect. Reuse this planner without converting its local preview into a writer or weakening standalone apply rejection.
+This preparation supplies neither an identity assessment nor effect permission. CA-O-067/CA-O-145 assess the intended proposal under CA-R-1892 and CA-D-585; CA-O-030 owns the separately admitted existing-MCP effect. Reuse this planner without converting its local preview into a source-effect writer or weakening standalone apply rejection.
+
+### Opt-in local candidate staging
+
+For `run --stage-preview`, first obtain the existing complete Subject-only preview without changing its closed payload or digest. Reject generic input and `--apply` before staging. Reuse each exact illustrative `proposed_carrier` as UTF-8 bytes, including unchanged no-op metadata; do not recompute a later illustrative time. Export under CA-D-425's fresh generated batch and deterministic numbered-filename layout using create-only, no-follow operations with no overwrite.
+
+Read back every candidate and compare exact bytes and measured SHA-256 with the original preview. Run the real complete-carrier validator using the original logical source path, identity, placement and applicable Status model, not the temporary candidate's placement. Re-run the same pinned preview with the initial illustrative time and require the same `preview_sha256`, target pins and intent hashes after checking source identity/currentness and grammar. Any mismatch refuses success; do not silently refresh sources or candidates.
+
+Only after all checks produce the separate closed manifest and enclosing staging-only result defined by CA-D-425. Return actual partial artifact references on write/readback/validation/currentness failure, without a success seal, authoritative/history/Journal writes, promotion or unverified cleanup. This is a point-in-time check; later use must recheck candidate hashes rather than treat the manifest as approval.

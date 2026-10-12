@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Artifact/Carrier", "Atom Change Classification", "Atom/Revision/Updated At"]
-version: 17
-updated_at: "2026-10-12 04:20:25 +0400"
+version: 18
+updated_at: "2026-10-12 05:39:01 +0400"
 relations:
   relates_to: [CA-O-030, CA-E-304, CA-O-067, CA-R-1432, CA-R-1788, CA-R-1464, CA-R-1415, CA-R-1371]
 ---
@@ -62,6 +62,10 @@ fields in its digest. Legacy cites the five exact historical definitions and
 approved cites the five current definitions. Local use remains preview-only; an
 illustrative preview timestamp is not an execution receipt. This mode does not
 repair, migrate, infer ontology, adopt a Subject grammar, or add a standalone apply path.
+
+The local wrapper **may** provide opt-in `run --stage-preview` for this same closed Subject-only payload, without changing the default dry run. Reject this option with generic update input or `--apply` before creating staged artifacts. Export only the existing illustrative proposed Carriers into a fresh Tool-generated `.caprmedio_tmp/subject-preview/<opaque-id>/` batch under CA-D-425's safe layout. Do not write authoritative originals, history, Journal, or promotion effects. Candidate Version/time remain illustrative; no-op metadata remain unchanged.
+
+Staging **must** independently read back exact candidate bytes and SHA-256, run real complete-carrier validation against each original logical source path and applicable Status, then recheck source/identity/grammar pins using the same illustrative time. Return CA-D-425's separate closed manifest only after the whole batch passes; source drift must refuse success rather than refresh a preview. On failure report retained partial artifacts without a success seal or unsafe cleanup. Staged files are point-in-time review evidence, never effect approval.
 
 CA-M-371 defines the same-profile preview method. The historical
 `@<version>` archive filename convention remains a Delivery concern and is not
