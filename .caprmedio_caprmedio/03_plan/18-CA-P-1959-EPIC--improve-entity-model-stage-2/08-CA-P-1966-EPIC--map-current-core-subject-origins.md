@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 150
-updated_at: "2026-10-12 04:02:18 +0400"
+version: 151
+updated_at: "2026-10-12 05:40:17 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -31,7 +31,7 @@ Map every selected current RMEDO Subject occurrence to its supported candidate E
 
 This grouping Plan has no own implementation work. Before execution, create disjoint child Tasks of at most 15 minutes each.
 
-Required prerequisites for affected mapping execution: CA-P-1963 and CA-P-2167's complete independent Tool receipt. Independent design/review preparation may proceed meanwhile; do not consume unfinished Tool capabilities. Current-source adaptation and re-pinning remain pending. Pin the current authoritative Core frontier and inventory every governs/depends_on occurrence, including unchanged and excluded cases. Compare current meanings with Candidate #3 plus later Operator decisions; older frozen candidate/review inputs remain historical evidence only. Do not overwrite captured inputs or reuse old pins as current.
+Required prerequisites for read-only current-source adaptation/re-pinning/mapping solely to create and review staged candidates: CA-P-1963 and CA-P-2183's independent staging receipt. That branch changes no original, history, Journal or publication state and does not require CA-P-2167's publication receipt. Full source implementation still requires CA-P-2167's complete independent Tool receipt; CA-P-1909–1912 retain the final accepted graph, sealed live packet, exact approval and application/reproduction gates. Independent design/review preparation may proceed meanwhile; do not consume unfinished Tool capabilities. Pin the current authoritative Core frontier and inventory every governs/depends_on occurrence, including unchanged and excluded cases. Compare current meanings with Candidate #3 plus later Operator decisions; older frozen candidate/review inputs remain historical evidence only. Do not overwrite captured inputs or reuse old pins as current.
 
 Read the actual source content to decide whether an old / denotes narrowing or bearer qualification and whether a whole Subject target needs replacement. Keep the governs/dependency distinction and content-role views. The 442 display-path proposals are not executable replacements; the 149 follow-ups remain research work until supported.
 

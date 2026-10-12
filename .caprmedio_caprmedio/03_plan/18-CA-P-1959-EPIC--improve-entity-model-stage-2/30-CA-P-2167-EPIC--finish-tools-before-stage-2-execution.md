@@ -13,11 +13,11 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 5
-updated_at: "2026-10-12 04:49:28 +0400"
+version: 6
+updated_at: "2026-10-12 05:40:17 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
-  blocks: [CA-P-1966, CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
+  blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
 ---
 # Summary
 
@@ -31,11 +31,11 @@ The remaining Subject/graph Tools have updated, independently verified RMEDO, bo
 
 Own work: none. Complete this group through its bounded children. Historical Done Tool Tasks remain Done; this group covers only the remaining gaps.
 
-Review and update three bounded contract packets first: patch-preview currentness, public graph notation/profile selection, and admitted Subjects-only application. Bind each packet to its actual declared Engine scope and current source pins. Preview and application share UPDATE contracts CA-R-866/CA-M-371/CA-E-304/CA-D-425/CA-O-030: one file owner serializes their source changes, then re-pins and independently re-verifies affected packets. CA-P-2171 independently verifies each actual updated packet before its affected implementation. CA-P-2174 independently checks the resulting implementation on isolated fixtures before this group unblocks affected use. Independent design/review preparation can proceed meanwhile; final mapping execution, graph, preview and application cannot consume unfinished Tools.
+Review and update three bounded contract packets first: patch-preview currentness, public graph notation/profile selection, and admitted Subjects-only application. Bind each packet to its actual declared Engine scope and current source pins. Preview and application share UPDATE contracts CA-R-866/CA-M-371/CA-E-304/CA-D-425/CA-O-030: one file owner serializes their source changes, then re-pins and independently re-verifies affected packets. CA-P-2171 independently verifies each actual updated packet before its affected implementation. CA-P-2174 independently checks the resulting implementation on isolated fixtures before this group unblocks full source implementation/use. Read-only staged preparation uses CA-P-2183's separate independent receipt; no branch may consume unfinished Tool capabilities.
 
 Reusable Tools operate valid files only. Reuse the existing lookup, sealed preview, graph entry point and governed mutation boundary; do not create another Atom engine or general repair/migration framework. Preview selects eligible current NON-ARCHIVED originals, not literal `Active`, and preserves intended Status. The public graph entry point binds an explicit approved notation profile; legacy/default behavior stays separately checked. The admitted route must enforce exact sealed approval, current pins, Subjects-only effects, Version +1, actual Project-time metadata, prior history and required actual Journal records. Keep the existing standalone apply guard until an intentional contract-governed route is implemented; never bypass it or fabricate admission/receipts.
 
-This group grants no live Core effects. CA-P-1909–1912 retain the sole accepted graph, sealed preview, application and reproduction route. CA-P-1966's current-source adaptation/re-pin remains pending. Live application needs CA-P-1910's separately Operator-approved exact packet; changed pins require a new preview. No ordinary Core content, carrier rename, native Relation admission, release or runtime activation is included.
+This group grants no live Core effects. CA-P-1909–1912 retain the sole final accepted graph, sealed preview, application and reproduction route. CA-P-1966's read-only current-source adaptation/re-pin for staged candidates requires CA-P-1963 and CA-P-2183's receipt, not the full publication gate. Live application needs CA-P-1910's separately Operator-approved exact packet; changed pins require a new preview. No ordinary Core content, carrier rename, native Relation admission, release or runtime activation is included.
 
 The derived Terms compiler stays in Step 2 under CA-P-1970/1974: RMEDO review/update and independent contract verification, affected Tool alignment and independent fixtures, then affected content/consumer usage. This group does not start Terms compilation or premature Core adoption.
 
@@ -43,10 +43,13 @@ The Operator chose extending the existing admitted MCP update action with Subjec
 
 The later concurrency safety choice is deferred, not approved. Live changed-Subject writes remain blocked pending a later publication design and actual acceptance/verification under CA-P-2179. No exclusive-access requirement, quarantine policy or atomic exchange is inferred. Completed safe preview, pure materialization, no-op and isolated integration evidence do not complete successful publication, the application portfolio or this Tool gate; accepted RMEDO remains binding.
 
+CA-P-2183 adds a bounded non-publishing staging path: opt-in local `ATOM_UPDATE run --stage-preview`, existing `proposed_carrier`, a fresh generated `.caprmedio_tmp/subject-preview/<id>/`, and re-read/validation. Its independent receipt plus CA-P-1963 release read-only current-source adaptation/re-pinning/mapping solely to create and review staged candidates; they do not require this group's publication receipt. Full source implementation still requires this group, and final accepted graph/sealed live packet, effect-time execution and Step 2 retain their gates. Tool RMEDO and Plans are updated normally; migration candidates stay staged. Actual implementation waits for independent verification of the updated, accepted governing RMEDO.
+
 One integration owner controls shared state and Git. Parallel edit scopes must be disjoint; overlapping contract/source changes are serialized and re-pinned. Each own-work leaf fits 15 minutes; split a larger packet before execution. Preparation alone never completes an implementation group.
 
 ### Decomposing Plans
 
+- [CA-P-2183 — Stage and validate Subject preview candidates](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/08-CA-P-2183-TASK--stage-and-validate-subject-preview-candidates.md)
 - [CA-P-2168 — Align Subject preview currentness contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/01-CA-P-2168-TASK--align-subject-preview-currentness-contracts.md)
 - [CA-P-2169 — Align public graph notation contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/02-CA-P-2169-TASK--align-public-graph-notation-contracts.md)
 - [CA-P-2170 — Align admitted Subject application contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/03-CA-P-2170-TASK--align-admitted-subject-application-contracts.md)
@@ -63,4 +66,4 @@ CA-P-2178 is Done in [independent intent verification and deferred application s
 
 ### Definition of Done
 
-The Plan is **not** Done if a direct child is not Done; actual contracts lack independent current verification; a remaining implementation is represented by preparation only; concurrent-publication design remains deferred or successful publication/full portfolio is unaccepted; required isolated positive/negative checks are missing; the producer verifies its own output; an existing guard is bypassed; live source effects are inferred from safe preview/integration or Tool readiness; or affected use begins before the complete Tool receipt.
+The Plan is **not** Done if a direct child is not Done; actual contracts lack independent current verification; a remaining implementation is represented by preparation only; concurrent-publication design remains deferred or successful publication/full portfolio is unaccepted; required isolated positive/negative checks are missing; the producer verifies its own output; an existing guard is bypassed; live source effects are inferred from safe preview/integration or Tool readiness; full source implementation/use begins before the complete Tool receipt; or read-only staged preparation begins before CA-P-2183's independent receipt.
