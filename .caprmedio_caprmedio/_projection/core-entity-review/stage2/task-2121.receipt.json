@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2121",
+  "recorded_at": "2026-10-11 10:10:06 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining atom-field and tier origins; not migration approval",
+  "verification": {
+    "task": "CA-P-2121",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2121.research.json",
+      "sha256": "96d906b7769f52f32bfc4b8d1ccfb638ba5eee6c525bcc2e25851827fb4f693b"
+    },
+    "rows": 22,
+    "counts": {
+      "proposed": 21,
+      "unresolved": 1
+    },
+    "exact_evidence_spans": 47,
+    "exact_supporting_definition_spans": 0,
+    "exact_input_pins": 11,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2121-2128.inputs.json",
+      "sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+    },
+    "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/projection_review_2099",
+      "final_report_sha256": "96d906b7769f52f32bfc4b8d1ccfb638ba5eee6c525bcc2e25851827fb4f693b",
+      "result": "PASS: all twenty-two meanings checked across twenty live owners; twenty-one proposals and one justified null",
+      "meaning_checks": [
+        "Entity.Status and Entity.Label preserve explicitly broad bearer domains rather than narrowing to Atom.",
+        "Local and Global Tiers preserve Atom ownership and allowed-value domains, with Principle Project-only.",
+        "Artifact-to-Atom membership is explicit, not display decoration or historical containment.",
+        "CA-E-520 atom_local profile excludes tier-hierarchy checking; its dependency remains null.",
+        "All candidate pointers resolve actual claimed meanings."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/projection_review_2099",
+    "final_report_sha256": "96d906b7769f52f32bfc4b8d1ccfb638ba5eee6c525bcc2e25851827fb4f693b",
+    "result": "PASS: all twenty-two meanings checked across twenty live owners; twenty-one proposals and one justified null",
+    "meaning_checks": [
+      "Entity.Status and Entity.Label preserve explicitly broad bearer domains rather than narrowing to Atom.",
+      "Local and Global Tiers preserve Atom ownership and allowed-value domains, with Principle Project-only.",
+      "Artifact-to-Atom membership is explicit, not display decoration or historical containment.",
+      "CA-E-520 atom_local profile excludes tier-hierarchy checking; its dependency remains null.",
+      "All candidate pointers resolve actual claimed meanings."
+    ]
+  },
+  "completion_scope": "All 22 selected current origins passed independent semantic acceptance and exact current pin/span/coverage controls: twenty-one supported proposals and one explicit null. Broad Entity properties, Atom tier domains and Artifact/Atom membership preserve actual current definitions. Original Core is unchanged.",
+  "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

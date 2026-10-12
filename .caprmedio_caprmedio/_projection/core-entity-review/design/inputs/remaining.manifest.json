@@ -1,0 +1,38 @@
+{
+  "complete_review": false,
+  "original_partition_sha256": "c9cfb1746d24471eb8aa2743913f062198fa51ab3c2c1874a57fbf08a6425b4e",
+  "partitions": [
+    {
+      "case_count": 13,
+      "file_sha256": "e92415939021171aa7f5b5d7f812a503b2270ab581ca1a22bf1784d8e92b1e62",
+      "partition_sha256": "d39238df987b686bdf6f5c0018d8f21881dbd30fda5302d61c20f6ee82cd668b",
+      "path": ".caprmedio_tmp/planning/core-entity-review/design/remaining-1.input.json",
+      "source_task": "CA-P-1923"
+    },
+    {
+      "case_count": 12,
+      "file_sha256": "0748d92deb2d3432cfb1ce3f5d476cffc3d636d5e064b867af0618ea37cae826",
+      "partition_sha256": "8d2041323e55638a209916a846bab2c97146d11e466f17e5a7fe11eda120f976",
+      "path": ".caprmedio_tmp/planning/core-entity-review/design/remaining-2.input.json",
+      "source_task": "CA-P-1924"
+    },
+    {
+      "case_count": 12,
+      "file_sha256": "2cf8dd8d75cf54f6fcb8051dbb5c703e198456186dffa5631f4ec6209f9e68d8",
+      "partition_sha256": "8581457d521045382e16a063de98a43840f78c4c83f732e6cda6c44954ea68b5",
+      "path": ".caprmedio_tmp/planning/core-entity-review/design/remaining-3.input.json",
+      "source_task": "CA-P-1925"
+    },
+    {
+      "case_count": 12,
+      "file_sha256": "dfa889bcf214b86133572c727d58c4b375d5fb6cb151f7a35717feda255a1daf",
+      "partition_sha256": "fdb8268dadfe724458c9412f02e609637297c32a207a77015f86b379481dbc80",
+      "path": ".caprmedio_tmp/planning/core-entity-review/design/remaining-4.input.json",
+      "source_task": "CA-P-1926"
+    }
+  ],
+  "remaining_case_count": 49,
+  "reviewed_case_count": 16,
+  "reviewed_checkpoint_sha256": "e6f3df07e9f60d124eda754fb486c7d1456d9f55ac380aa209ce334d8a82c2d9",
+  "source_task": "CA-P-1918"
+}

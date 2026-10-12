@@ -1,0 +1,86 @@
+{
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "baseline_sha256": "bc5d99e91fb7dd4dcb42e59ff33cc24cff1d0901c5904764394c769aaa0a9430",
+  "manifest_sha256": "543b6913a4ab010f168ab23c2988b608c5cf75badb7c683f9bd7e5fe05a50581",
+  "non_authoritative": true,
+  "operator_decision": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/operator.decisions.md",
+    "sha256": "53eeb7a3fdaa002cd05170fe185cfb5baeea72814a1f32567d8eea6f56ac65cb"
+  },
+  "partitions": [
+    {
+      "batch": 0,
+      "identity_count": 62,
+      "partition_sha256": "e3e8cb206e382d7e720b4effa94d9d0aebf56aa6e336e4037cb1497a5e5c8dcb",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-0.input.json",
+      "sha256": "15963700170634081945d0e5a662bd7e2505ae0236543d9c0f1af52bfc424ea5",
+      "source_task": "CA-P-1928"
+    },
+    {
+      "batch": 1,
+      "identity_count": 80,
+      "partition_sha256": "a1bc2fddc6465776ed629918e4862a9329624a865adaa7c89387764ad22f40c3",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-1.input.json",
+      "sha256": "a27fb1b439ad791fd7d404f385e41166c6a3c143d8cf3b8fea720db4650f398a",
+      "source_task": "CA-P-1929"
+    },
+    {
+      "batch": 2,
+      "identity_count": 81,
+      "partition_sha256": "98368c1d7661a97677478b923d85f2d5a2d79f43bb7c462bd3fc0ba6182da657",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-2.input.json",
+      "sha256": "6c2fca88b8537bd0259971a2754c978cff1b03181600c9a681ef935b038a6a21",
+      "source_task": "CA-P-1930"
+    },
+    {
+      "batch": 3,
+      "identity_count": 80,
+      "partition_sha256": "88beafef8f20de3b26f0f0c199ada28138d266688d648f3170b036c5cb8cc913",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-3.input.json",
+      "sha256": "dd32659d557158390a52c869c87afbc5c28757f7bcb73a0c5f39a2d2d4c4dc3a",
+      "source_task": "CA-P-1931"
+    },
+    {
+      "batch": 4,
+      "identity_count": 81,
+      "partition_sha256": "774e19e46397d584cbfcfb711cd9e0a52b0ba66348d9e138e35801f2c04bc1ce",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-4.input.json",
+      "sha256": "3ecb4f409fe5f3ebffdd503bb94739541a30f3dd0b2fc75b62f7a2185fc59546",
+      "source_task": "CA-P-1932"
+    },
+    {
+      "batch": 5,
+      "identity_count": 80,
+      "partition_sha256": "c6318d97ab81f8bbfba4648d2e5f291f44640fb977dfad011465996e8015bcc7",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-5.input.json",
+      "sha256": "b8a78fc221a8954036da22c4a82a3eda461c4d9badda807b9da399b6f13c6e54",
+      "source_task": "CA-P-1933"
+    },
+    {
+      "batch": 6,
+      "identity_count": 81,
+      "partition_sha256": "4c294628dfb3db04421a31151de3ce120ead195008560dc557e9f22f2169005c",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-6.input.json",
+      "sha256": "6ffc7e45c5c647e5c299b98761c74db7f9aca3ed76c80a4d7f32cde9df74e71c",
+      "source_task": "CA-P-1934"
+    },
+    {
+      "batch": 7,
+      "identity_count": 80,
+      "partition_sha256": "c15461f84c5e59fad27e16674f00efdb0804c3ec45de2290283ad7c25af85b42",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-7.input.json",
+      "sha256": "9a9188b17a1aca100515a3857e61a7499c07dd840d9672a5589e25739a1be1b6",
+      "source_task": "CA-P-1935"
+    },
+    {
+      "batch": 8,
+      "identity_count": 81,
+      "partition_sha256": "6c3c6b43c92b0c3c61a91714b0507640a345669bdeb931087f8a4e025591ab0a",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-8.input.json",
+      "sha256": "c7652bc1108b67b4fa9b9d037c78a9093ee2a78043f71bc244dec18033588b2b",
+      "source_task": "CA-P-1936"
+    }
+  ],
+  "semantic_classification": "not_performed",
+  "source_task": "CA-P-1907"
+}

@@ -1,0 +1,1218 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2139",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2132-2139.contract.md",
+        "sha256": "3ed29d889a2d7905614a0d02c23a75f82fb002ffea51f4dce2714f60865aa6ff"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/106-CA-P-2139-TASK--review-remaining-relation-and-projection-record-subjects.md",
+      "sha256": "f40381e5f90996220afbee7f9fc8a4614d117d6d54803e26947938bd38b5363c"
+    },
+    "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+        "sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+        "sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+        "sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+        "sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+        "sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+        "sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+        "sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+        "sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+        "sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+        "sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+        "sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1316-CORE_META_MODEL-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md",
+        "sha256": "77786415b5ba50bfb57de0cc935ff689e6736fdf4ad8b0049fe78abb51050daa"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1372-CORE_META_MODEL--derive-journal-revision-updated-at.md",
+        "sha256": "f783243412bcbb5d31b7818db008ad56da84932ec44828f7931a625dd41976e9"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1381-CORE_META_MODEL-CORE--define-ad-hoc-as-an-atom-collection-type.md",
+        "sha256": "69513678e42c76f89109e8e7b36b81c5734018fd21a08a0ae7e1bdcabec91068"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+        "sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1408-CORE_META_MODEL-CORE--define-graph-of-graphs.md",
+        "sha256": "62e1b2247723aebb08fa4c3a4a32acd208fbb58f38031ab2117c66726545d12b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md",
+        "sha256": "4cba155ea2ec0fdc6d5425e85e6590c2d63cc6c8653c325975a4ff74123ec1b9"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+        "sha256": "74b7e6a47a421dd660cc905dd19bdb874b23ef2c2030473b5c3c694f5b9fa487"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1438-CORE_META_MODEL-CORE--define-entities-graph.md",
+        "sha256": "d8eea5e569edc4fe12d24b987724901091a1129e894586b2fe875b62af27ab71"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+        "sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd"
+      }
+    ],
+    "global_definitions": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+        "sha256": "933901316d347a2e09222d19d3a985c2feb93c7efc86e0a8332ab292cd169dd0"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+        "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+        "sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1213-CORE_META_MODEL-CORE-REQUIREMENT--define-applicable-methodology-as-a-compiled-projection.md",
+        "sha256": "6962d60e15445e82bf78866bec337e389b5e1b1cad5a9d830dcf3feb6ec7c7c2"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+        "sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+        "sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1368-CORE_META_MODEL-CORE--define-containment-relation-pair.md",
+        "sha256": "ed02fa6f13ef49e3a3ee1ed8969fa545081f241b599e38e04927bbd62361ef76"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+        "sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+        "sha256": "50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL-CORE--define-general-artifact-graph.md",
+        "sha256": "3a076773130957430f7c9ee585d8199643cb83edba9e90d60b049ce3d0880069"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections.md",
+        "sha256": "c4ae524cad97b270246272ec9604e243318a8eba5cdd32bae80e4c8e13cacd5e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1546-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-atom-collection-type-values.md",
+        "sha256": "f64a0f9b8fd156af219a0243ca885a2ebce4c77be88a5590c22f0d4f1ef273e3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md",
+        "sha256": "345d4038af3b7fd708ddc9111280c32afd65fe7ac8f0cb70ac83948054b52a88"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+        "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-CORE--define-atom-artifact-form.md",
+        "sha256": "28258bfdc5515abe6efa40fe8ab1951cc70a226f58daaa6ced7466036bbca29d"
+      }
+    ]
+  },
+  "counts": {
+    "sources": 20,
+    "occurrences": 20,
+    "proposed": 10,
+    "unresolved": 10
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+      "source_atom_id": "CA-R-1016",
+      "source_version": 15,
+      "source_sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+      "field": "governs",
+      "index": null,
+      "old_value": "Rationale For Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: rationale_for",
+      "confidence": 0.95,
+      "reason": "The owning Claim explicitly registers rationale_for as a direct Relation with named source, target, and cardinality constraints. The confirmed candidate equates Relation Type and Relation Kind as one graph-qualified concept, so the canonical declared type is supported without erasing its endpoint rules or admitting an additional inverse fact.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+          "sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "17d7fb0dd186984491d850a936ea8d2e41ea21e11a16c98f3104f208bb7663be",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+          "sha256": "933901316d347a2e09222d19d3a985c2feb93c7efc86e0a8332ab292cd169dd0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e697d1ff54b036ce90fdd7499676a154da1c9cb0e3ea6c9bc75a7efd2935d0c8",
+          "reason": "Current CA-R-806 requires every admitted Relation Kind to retain graph ownership, canonical name, direction, inverse, endpoint classes, cardinality, and other governing metadata."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "Current CA-M-120 preserves graph-qualified lookup and derives inverse navigation from declared direction without independently authoring an inverse Relation fact."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate states that Relation Type and Relation Kind are one graph-qualified concept and that each type retains permitted endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The declared source/target classes, direction, cardinality, and governing graph remain source-authority constraints.",
+        "No singleton kind, cross-graph import, or separately authored inverse Relation is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+      "source_atom_id": "CA-R-1017",
+      "source_version": 15,
+      "source_sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+      "field": "governs",
+      "index": null,
+      "old_value": "Method For Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: method_for",
+      "confidence": 0.95,
+      "reason": "The owning Claim explicitly registers method_for as a direct Relation with named source, target, and cardinality constraints. The confirmed candidate equates Relation Type and Relation Kind as one graph-qualified concept, so the canonical declared type is supported without erasing its endpoint rules or admitting an additional inverse fact.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+          "sha256": "47ed84b2bf2d5f09dee59e284c018bc96ac6c2e581768079931020841ee02742",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d8cde810de695f7c74f7c0f23bc0fbd0383813775ab6371b0bba67f870c24d11",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+          "sha256": "933901316d347a2e09222d19d3a985c2feb93c7efc86e0a8332ab292cd169dd0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e697d1ff54b036ce90fdd7499676a154da1c9cb0e3ea6c9bc75a7efd2935d0c8",
+          "reason": "Current CA-R-806 requires every admitted Relation Kind to retain graph ownership, canonical name, direction, inverse, endpoint classes, cardinality, and other governing metadata."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "Current CA-M-120 preserves graph-qualified lookup and derives inverse navigation from declared direction without independently authoring an inverse Relation fact."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate states that Relation Type and Relation Kind are one graph-qualified concept and that each type retains permitted endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The declared source/target classes, direction, cardinality, and governing graph remain source-authority constraints.",
+        "No singleton kind, cross-graph import, or separately authored inverse Relation is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+      "source_atom_id": "CA-R-1019",
+      "source_version": 15,
+      "source_sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+      "field": "governs",
+      "index": null,
+      "old_value": "Delivery For Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: delivery_for",
+      "confidence": 0.95,
+      "reason": "The owning Claim explicitly registers delivery_for as a direct Relation with named source, target, and cardinality constraints. The confirmed candidate equates Relation Type and Relation Kind as one graph-qualified concept, so the canonical declared type is supported without erasing its endpoint rules or admitting an additional inverse fact.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+          "sha256": "cfbd19f8872f5934a80d1ee8c8d754de19c847ed6a89923c886dc437957ea468",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "0fa6a86aea1c686da9351b698dcd028dd234a1c121f8ba33cbd85bf51a6162f2",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+          "sha256": "933901316d347a2e09222d19d3a985c2feb93c7efc86e0a8332ab292cd169dd0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e697d1ff54b036ce90fdd7499676a154da1c9cb0e3ea6c9bc75a7efd2935d0c8",
+          "reason": "Current CA-R-806 requires every admitted Relation Kind to retain graph ownership, canonical name, direction, inverse, endpoint classes, cardinality, and other governing metadata."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "Current CA-M-120 preserves graph-qualified lookup and derives inverse navigation from declared direction without independently authoring an inverse Relation fact."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate states that Relation Type and Relation Kind are one graph-qualified concept and that each type retains permitted endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The declared source/target classes, direction, cardinality, and governing graph remain source-authority constraints.",
+        "No singleton kind, cross-graph import, or separately authored inverse Relation is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+      "source_atom_id": "CA-R-1020",
+      "source_version": 15,
+      "source_sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+      "field": "governs",
+      "index": null,
+      "old_value": "Implementation Of Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: implementation_of",
+      "confidence": 0.95,
+      "reason": "The owning Claim explicitly registers implementation_of as a direct Relation with named source, target, and cardinality constraints. The confirmed candidate equates Relation Type and Relation Kind as one graph-qualified concept, so the canonical declared type is supported without erasing its endpoint rules or admitting an additional inverse fact.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-CORE--register-implementation-of-relation.md",
+          "sha256": "4829c83f1e2f7a2dea0859141d472ad1dc0f4aa235e2f507ed0ad57359421b09",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "2d8f2fea4e0d6c97692ffc30b0527f0fb04577147d60455d24c4ecd8536ac5cf",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+          "sha256": "933901316d347a2e09222d19d3a985c2feb93c7efc86e0a8332ab292cd169dd0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e697d1ff54b036ce90fdd7499676a154da1c9cb0e3ea6c9bc75a7efd2935d0c8",
+          "reason": "Current CA-R-806 requires every admitted Relation Kind to retain graph ownership, canonical name, direction, inverse, endpoint classes, cardinality, and other governing metadata."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "Current CA-M-120 preserves graph-qualified lookup and derives inverse navigation from declared direction without independently authoring an inverse Relation fact."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate states that Relation Type and Relation Kind are one graph-qualified concept and that each type retains permitted endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The declared source/target classes, direction, cardinality, and governing graph remain source-authority constraints.",
+        "No singleton kind, cross-graph import, or separately authored inverse Relation is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+      "source_atom_id": "CA-R-1021",
+      "source_version": 15,
+      "source_sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+      "field": "governs",
+      "index": null,
+      "old_value": "Evidence For Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: evidence_for",
+      "confidence": 0.95,
+      "reason": "The owning Claim explicitly registers evidence_for as a direct Relation with named source, target, and cardinality constraints. The confirmed candidate equates Relation Type and Relation Kind as one graph-qualified concept, so the canonical declared type is supported without erasing its endpoint rules or admitting an additional inverse fact.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+          "sha256": "7159e2c54e62e08714e5d07a84558c67ab19bd9f4f1ad2deccc598e31e69ecac",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "956f14a3d2bd9c42a7b9c5600bef656fe2e43ced0ba724b797a896eae02ea38c",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+          "sha256": "933901316d347a2e09222d19d3a985c2feb93c7efc86e0a8332ab292cd169dd0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e697d1ff54b036ce90fdd7499676a154da1c9cb0e3ea6c9bc75a7efd2935d0c8",
+          "reason": "Current CA-R-806 requires every admitted Relation Kind to retain graph ownership, canonical name, direction, inverse, endpoint classes, cardinality, and other governing metadata."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "Current CA-M-120 preserves graph-qualified lookup and derives inverse navigation from declared direction without independently authoring an inverse Relation fact."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate states that Relation Type and Relation Kind are one graph-qualified concept and that each type retains permitted endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The declared source/target classes, direction, cardinality, and governing graph remain source-authority constraints.",
+        "No singleton kind, cross-graph import, or separately authored inverse Relation is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+      "source_atom_id": "CA-R-1022",
+      "source_version": 15,
+      "source_sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+      "field": "governs",
+      "index": null,
+      "old_value": "Concern About Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: concern_about",
+      "confidence": 0.95,
+      "reason": "The owning Claim explicitly registers concern_about as a direct Relation with named source, target, and cardinality constraints. The confirmed candidate equates Relation Type and Relation Kind as one graph-qualified concept, so the canonical declared type is supported without erasing its endpoint rules or admitting an additional inverse fact.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+          "sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "191f32681121f0dd196e0bfd586079d0ca4edb65f7e98e23c9f0da09b3de27d2",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-GENERAL--register-complete-relation-kind-metadata.md",
+          "sha256": "933901316d347a2e09222d19d3a985c2feb93c7efc86e0a8332ab292cd169dd0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e697d1ff54b036ce90fdd7499676a154da1c9cb0e3ea6c9bc75a7efd2935d0c8",
+          "reason": "Current CA-R-806 requires every admitted Relation Kind to retain graph ownership, canonical name, direction, inverse, endpoint classes, cardinality, and other governing metadata."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 35,
+          "end_line": 52,
+          "span_sha256": "ab9c41a03b72d0750d88c277fdbe92a3dca575c5d43e8b18e6a3672eaee4f320",
+          "reason": "Current CA-M-120 preserves graph-qualified lookup and derives inverse navigation from declared direction without independently authoring an inverse Relation fact."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate states that Relation Type and Relation Kind are one graph-qualified concept and that each type retains permitted endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The declared source/target classes, direction, cardinality, and governing graph remain source-authority constraints.",
+        "No singleton kind, cross-graph import, or separately authored inverse Relation is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+      "source_atom_id": "CA-R-1033",
+      "source_version": 15,
+      "source_sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+      "field": "governs",
+      "index": null,
+      "old_value": "Compatible Lineage Impact Disposition",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Claim defines one Lineage Impact disposition with distinct Revision, traversal, successor/archive, or blocking consequences. Current authority establishes the four values, but neither it nor the candidate identifies a lossless bearer-qualified disposition Property or complete allowed-value domain; a Claim, Operation, or generic Revision path would be speculative.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+          "sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "5feb5e3bf5d8f7d7b3d21fab344f461967971890dd58f956354e5884b8fe6e89",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md",
+          "sha256": "345d4038af3b7fd708ddc9111280c32afd65fe7ac8f0cb70ac83948054b52a88",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "3ddd62ee0be11d68dfe1fd5dba8822c42a8ea10c9ee0fd8ec886ba310bd93c60",
+          "reason": "Current CA-R-1632 records the four dispositions as exactly-one classifications for reached dependent children, without defining a candidate bearer-qualified Property path."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+          "sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "e202e443813458ea32d2a0ea6d53453d7ee37929e5bdd92a2ab81cc8ab85eca5",
+          "reason": "Current CA-R-1037 keeps each child Revision and disposition within the content contract of a Lineage Impact Analysis Atom."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named disposition and its Revision/traversal consequences remain distinct from the other three dispositions.",
+        "No new dependent Property, Relation Type, Claim node, or Operation node is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+      "source_atom_id": "CA-R-1034",
+      "source_version": 13,
+      "source_sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa",
+      "field": "governs",
+      "index": null,
+      "old_value": "Update-Required Lineage Impact Disposition",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Claim defines one Lineage Impact disposition with distinct Revision, traversal, successor/archive, or blocking consequences. Current authority establishes the four values, but neither it nor the candidate identifies a lossless bearer-qualified disposition Property or complete allowed-value domain; a Claim, Operation, or generic Revision path would be speculative.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1034-CORE_META_MODEL-GENERAL--define-update-required-lineage-impact-disposition.md",
+          "sha256": "09171e0521b5f71e42b76644e5f208789d24b43502706f084a664934acd957fa",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "a41898f598ddedefacbf65a9a07804e64a5f02db0185d710ed785626305881db",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md",
+          "sha256": "345d4038af3b7fd708ddc9111280c32afd65fe7ac8f0cb70ac83948054b52a88",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "3ddd62ee0be11d68dfe1fd5dba8822c42a8ea10c9ee0fd8ec886ba310bd93c60",
+          "reason": "Current CA-R-1632 records the four dispositions as exactly-one classifications for reached dependent children, without defining a candidate bearer-qualified Property path."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+          "sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "e202e443813458ea32d2a0ea6d53453d7ee37929e5bdd92a2ab81cc8ab85eca5",
+          "reason": "Current CA-R-1037 keeps each child Revision and disposition within the content contract of a Lineage Impact Analysis Atom."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named disposition and its Revision/traversal consequences remain distinct from the other three dispositions.",
+        "No new dependent Property, Relation Type, Claim node, or Operation node is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+      "source_atom_id": "CA-R-1035",
+      "source_version": 13,
+      "source_sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+      "field": "governs",
+      "index": null,
+      "old_value": "Replacement-Required Lineage Impact Disposition",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Claim defines one Lineage Impact disposition with distinct Revision, traversal, successor/archive, or blocking consequences. Current authority establishes the four values, but neither it nor the candidate identifies a lossless bearer-qualified disposition Property or complete allowed-value domain; a Claim, Operation, or generic Revision path would be speculative.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1035-CORE_META_MODEL-GENERAL--define-replacement-required-lineage-impact-disposition.md",
+          "sha256": "c4a55cd9099152602dbc789c909fa74e5341f9b37862e4e87f75b5f51f8a01b7",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d5ff11e33ec297c26584fcd08d05383149a43c661dcbcee683ee50d4363fb1e7",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md",
+          "sha256": "345d4038af3b7fd708ddc9111280c32afd65fe7ac8f0cb70ac83948054b52a88",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "3ddd62ee0be11d68dfe1fd5dba8822c42a8ea10c9ee0fd8ec886ba310bd93c60",
+          "reason": "Current CA-R-1632 records the four dispositions as exactly-one classifications for reached dependent children, without defining a candidate bearer-qualified Property path."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+          "sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "e202e443813458ea32d2a0ea6d53453d7ee37929e5bdd92a2ab81cc8ab85eca5",
+          "reason": "Current CA-R-1037 keeps each child Revision and disposition within the content contract of a Lineage Impact Analysis Atom."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named disposition and its Revision/traversal consequences remain distinct from the other three dispositions.",
+        "No new dependent Property, Relation Type, Claim node, or Operation node is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+      "source_atom_id": "CA-R-1036",
+      "source_version": 13,
+      "source_sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b",
+      "field": "governs",
+      "index": null,
+      "old_value": "Uncertain Lineage Impact Disposition",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Claim defines one Lineage Impact disposition with distinct Revision, traversal, successor/archive, or blocking consequences. Current authority establishes the four values, but neither it nor the candidate identifies a lossless bearer-qualified disposition Property or complete allowed-value domain; a Claim, Operation, or generic Revision path would be speculative.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1036-CORE_META_MODEL-GENERAL--define-uncertain-lineage-impact-disposition.md",
+          "sha256": "940e73ebf82a65a10e1bbf25c2dedfd2bd966d9cab33cd7f130315ecedee427b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "1bee897e3a6fe7e0de74a6da34f1d6816dd02e443c07dc418334a88c05cbc6fc",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1632-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-lineage-impact-with-four-dispositions.md",
+          "sha256": "345d4038af3b7fd708ddc9111280c32afd65fe7ac8f0cb70ac83948054b52a88",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "3ddd62ee0be11d68dfe1fd5dba8822c42a8ea10c9ee0fd8ec886ba310bd93c60",
+          "reason": "Current CA-R-1632 records the four dispositions as exactly-one classifications for reached dependent children, without defining a candidate bearer-qualified Property path."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+          "sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "e202e443813458ea32d2a0ea6d53453d7ee37929e5bdd92a2ab81cc8ab85eca5",
+          "reason": "Current CA-R-1037 keeps each child Revision and disposition within the content contract of a Lineage Impact Analysis Atom."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named disposition and its Revision/traversal consequences remain distinct from the other three dispositions.",
+        "No new dependent Property, Relation Type, Claim node, or Operation node is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+      "source_atom_id": "CA-R-1315",
+      "source_version": 16,
+      "source_sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Applicable Methodology/Member Selection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Claim defines a constrained selection set of current Active RMEDO Atom Revisions. The candidate's Applicable Methodology Projection projects every input Atom somewhere, so neither a generic Projection member nor an Atom target preserves this selection-set condition without changing its meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+          "sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d5845f9b8c123969e6a06aceab4548a8e452b6172fed94050abde93eeafcd6b3",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1213-CORE_META_MODEL-CORE-REQUIREMENT--define-applicable-methodology-as-a-compiled-projection.md",
+          "sha256": "6962d60e15445e82bf78866bec337e389b5e1b1cad5a9d830dcf3feb6ec7c7c2",
+          "start_line": 26,
+          "end_line": 40,
+          "span_sha256": "e09a940aef5914424836a1adde3d6ce586c760ba19fa8c14f782565a963051fb",
+          "reason": "Current CA-R-1213 defines Applicable Methodology as a non-authoritative Reconciled Projection rather than a Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+          "sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c26c7168557daefca8674df42efe874915ff10e8d05b0b5124724b907eb8a186",
+          "reason": "Current CA-R-1314 describes an individual Applicable Methodology member's direct DERIVED_FROM relation to its exact source Revision."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Selection-set membership remains distinct from an individual derived Projection member.",
+        "Current/Active, RMEDO role, and Revision constraints remain source-governed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1316-CORE_META_MODEL-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1316-CORE_META_MODEL-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md",
+      "source_atom_id": "CA-R-1316",
+      "source_version": 11,
+      "source_sha256": "77786415b5ba50bfb57de0cc935ff689e6736fdf4ad8b0049fe78abb51050daa",
+      "field": "governs",
+      "index": null,
+      "old_value": "Applicable Methodology Compilation/Claim Transformation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Claim prohibits a compilation transformation of source Claims. This is compilation behavior, not an independently identified Artifact, Projection member, Entity, Relation, or actual Execution; the candidate supplies no lossless operation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1316-CORE_META_MODEL-CORE-REQUIREMENT--forbid-claim-synthesis-and-merge-during-compilation.md",
+          "sha256": "77786415b5ba50bfb57de0cc935ff689e6736fdf4ad8b0049fe78abb51050daa",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "24e1b6a2835c36ef1f1c53ed01131f7203817df3d756c397dc987c819a61d369",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1213-CORE_META_MODEL-CORE-REQUIREMENT--define-applicable-methodology-as-a-compiled-projection.md",
+          "sha256": "6962d60e15445e82bf78866bec337e389b5e1b1cad5a9d830dcf3feb6ec7c7c2",
+          "start_line": 26,
+          "end_line": 40,
+          "span_sha256": "e09a940aef5914424836a1adde3d6ce586c760ba19fa8c14f782565a963051fb",
+          "reason": "Current CA-R-1213 requires content-preserving derivation of Applicable Methodology from current source Atom Revisions."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Current CA-R-1746 preserves Projection derivation and source traceability without making derived contents authoritative."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Claim-preservation prohibition remains distinct from the compiled Projection and from source Claim authority.",
+        "No Operation definition, Execution, selector, or transformation Entity is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1372-CORE_META_MODEL--derive-journal-revision-updated-at.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1372-CORE_META_MODEL--derive-journal-revision-updated-at.md",
+      "source_atom_id": "CA-R-1372",
+      "source_version": 10,
+      "source_sha256": "f783243412bcbb5d31b7818db008ad56da84932ec44828f7931a625dd41976e9",
+      "field": "governs",
+      "index": null,
+      "old_value": "Journal/Revision",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Claim concerns a Journal-specific Revision and its derived Updated At from the latest accepted Journal entry. The candidate keeps Revision as a separate historical root and distinguishes Journal records from events, but it does not establish a Journal.Revision containment, a Journal-specific dependent field, or a safe unqualified replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1372-CORE_META_MODEL--derive-journal-revision-updated-at.md",
+          "sha256": "f783243412bcbb5d31b7818db008ad56da84932ec44828f7931a625dd41976e9",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "9a15eb697791a6c882757892097d0be2d96c2fc026c6572727605d8a4a1be3f3",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Journal-specific history, Revision identity, and the derived timestamp remain distinct.",
+        "No Artifact.Revision containment, actual Execution, Journal.Record subtype, or new history grammar is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1381-CORE_META_MODEL-CORE--define-ad-hoc-as-an-atom-collection-type.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1381-CORE_META_MODEL-CORE--define-ad-hoc-as-an-atom-collection-type.md",
+      "source_atom_id": "CA-R-1381",
+      "source_version": 10,
+      "source_sha256": "69513678e42c76f89109e8e7b36b81c5734018fd21a08a0ae7e1bdcabec91068",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom Collection/Type: Ad Hoc",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom Collection.Type: Ad Hoc",
+      "confidence": 0.94,
+      "reason": "The owning Claim explicitly defines Ad Hoc as the Type value under Atom Collection, and current Type authority confirms a Type is a single-valued Property with a governed allowed-value set. Current authority defines Atom Collection as a Structural Entity, so the named bearer-qualified Type value is supported even though it is not displayed in the candidate.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1381-CORE_META_MODEL-CORE--define-ad-hoc-as-an-atom-collection-type.md",
+          "sha256": "69513678e42c76f89109e8e7b36b81c5734018fd21a08a0ae7e1bdcabec91068",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "24172680a9d5c642877f5b1dc8947174bf6c8c5b5e8b87c6a1b7545067e56084",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+          "sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "5bdf7c1f09f9b971295f00be943d7f297c812a3522ba537a293f835642674616",
+          "reason": "Current CA-R-1378 explicitly defines Atom Collection as a Structural Entity grouping Atoms without becoming their owning Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+          "sha256": "50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "ce9c172ae5b332ba0bcf58a6f13c58729aa206bba4c3a7c4216d7edbd0124cf9",
+          "reason": "Current CA-R-1379 explicitly classifies Atom Collection as narrower than Structural Entity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+          "sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "992631212174e7f23d303e5b5419cfa5c37f10a9ab79f8e300cbcd69b5ede3e0",
+          "reason": "Current CA-R-1284 defines Type as a single-valued Property with a finite, governed allowed-value set."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1546-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-atom-collection-type-values.md",
+          "sha256": "f64a0f9b8fd156af219a0243ca885a2ebce4c77be88a5590c22f0d4f1ef273e3",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "f1bf6b0fd116aa65fbcfb6e90792ccf950512b0f6ffc785b1545f053279f1447",
+          "reason": "Current CA-R-1546 explicitly admits Ad Hoc as the Core allowed value under Atom Collection.Type."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed candidate defines a Property as a dependent Entity node connected to its owning Entity; the current sources supply the Atom Collection bearer and Type value domain."
+        }
+      ],
+      "preserved_distinctions": [
+        "Atom Collection remains a Structural Entity and not an owning Scope Unit or new root.",
+        "Ad Hoc remains the allowed Type value, not a separate planning boundary or Entity kind."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+      "source_atom_id": "CA-R-1383",
+      "source_version": 10,
+      "source_sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom Collection/Direct Containment",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: CONTAINS",
+      "confidence": 0.92,
+      "reason": "The owning Claim states that one Atom Collection may directly contain another. Current containment authority names CONTAINS as the direct Relation and IS_CONTAINED_BY as its inverse-derived view in the Structural Entity containment domain, supporting the declared direct Relation Type without treating the inverse as another independently authored fact.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+          "sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "fe13b5f7480a15de831a23f052d59ca1eff963a13767dbba1807714f68b19080",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1368-CORE_META_MODEL-CORE--define-containment-relation-pair.md",
+          "sha256": "ed02fa6f13ef49e3a3ee1ed8969fa545081f241b599e38e04927bbd62361ef76",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "cc7e137cef59e8a8c808814f9147583255076b012750f47d77285067457f073d",
+          "reason": "Current CA-R-1368 defines CONTAINS as the direct Relation and IS_CONTAINED_BY as its inverse-derived Relation in the Structural Entity containment domain."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+          "sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "5bdf7c1f09f9b971295f00be943d7f297c812a3522ba537a293f835642674616",
+          "reason": "Current CA-R-1378 defines Atom Collection as a Structural Entity rather than an owning Scope Unit."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The confirmed candidate treats Relation Type and Relation Kind as one graph-qualified concept while retaining each type's endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Both endpoints remain Atom Collections/Structural Entities, not Scope Units by implication.",
+        "IS_CONTAINED_BY remains the inverse-derived view; no second native Relation fact or singleton kind is created."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1408-CORE_META_MODEL-CORE--define-graph-of-graphs.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1408-CORE_META_MODEL-CORE--define-graph-of-graphs.md",
+      "source_atom_id": "CA-R-1408",
+      "source_version": 7,
+      "source_sha256": "62e1b2247723aebb08fa4c3a4a32acd208fbb58f38031ab2117c66726545d12b",
+      "field": "governs",
+      "index": null,
+      "old_value": "Graph of Graphs",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Claim defines a composition of CAPRMEDIO Graphs and says an overview Artifact is optional if generated. A composition, optional derivative, and its source identities are not one always-present candidate Entity; no target preserves all three without inventing a graph or Artifact identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1408-CORE_META_MODEL-CORE--define-graph-of-graphs.md",
+          "sha256": "62e1b2247723aebb08fa4c3a4a32acd208fbb58f38031ab2117c66726545d12b",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "3e391ab6926ac6c29323f7d17dadcbaecdbd26878f8b7e19f82b02f912ec6934",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL-CORE--define-general-artifact-graph.md",
+          "sha256": "3a076773130957430f7c9ee585d8199643cb83edba9e90d60b049ce3d0880069",
+          "start_line": 27,
+          "end_line": 41,
+          "span_sha256": "404c56356440476a2dc75b1abc47b088209aeec0d4ffee918976e83ac98dbf46",
+          "reason": "Current CA-R-1409 defines General Artifact Graph as a derived graph that does not become separate authority."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Current CA-R-1746 preserves Projection source traceability and non-authority."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Graph composition, generated overview Artifact, and source authority remain distinct.",
+        "No Graph-of-Graphs root, Projection Type, Relation Type, or overview Artifact is admitted merely from the label."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md",
+      "source_atom_id": "CA-R-1410",
+      "source_version": 7,
+      "source_sha256": "4cba155ea2ec0fdc6d5425e85e6590c2d63cc6c8653c325975a4ff74123ec1b9",
+      "field": "governs",
+      "index": null,
+      "old_value": "CAPRMEDIO Graph/Connectivity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Claim requires every CAPRMEDIO Graph to connect through shared or referenced source Artifact or Structural Entity identity, but it does not declare one canonical native Relation Type. Generic Relation would discard the source/reference alternative and graph-qualified endpoint authority.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md",
+          "sha256": "4cba155ea2ec0fdc6d5425e85e6590c2d63cc6c8653c325975a4ff74123ec1b9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "47fb5ad7d10548785312b25f4f61b859193661ae9547b20ad1a07f39989a2d19",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections.md",
+          "sha256": "c4ae524cad97b270246272ec9604e243318a8eba5cdd32bae80e4c8e13cacd5e",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "27666e1e6f40afaf4340e47b568c0f1fcd9313a14e2486bda1582369dbfba9c0",
+          "reason": "Current CA-R-1472 requires graph-qualified Relation kinds and does not admit concrete kinds merely from cross-graph connection permission."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Shared versus referenced source identity and Artifact versus Structural Entity endpoint classes remain distinct.",
+        "No generic native Relation, external-node admission, graph root, or display-only Artifact is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+      "source_atom_id": "CA-R-1432",
+      "source_version": 9,
+      "source_sha256": "74b7e6a47a421dd660cc905dd19bdb874b23ef2c2030473b5c3c694f5b9fa487",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Lineage Impact Analysis",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.91,
+      "reason": "The owning Claim uses Lineage Impact Analysis as the required review boundary for admitted Atom changes. Current CA-R-1037 explicitly defines a Lineage Impact Analysis Atom, and the confirmed candidate identifies Atom as the independently governed Artifact form. Artifact/Atom preserves that identity while leaving the analysis content, change classifications, and lifecycle consequences in current authority.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "sha256": "74b7e6a47a421dd660cc905dd19bdb874b23ef2c2030473b5c3c694f5b9fa487",
+          "start_line": 24,
+          "end_line": 47,
+          "span_sha256": "c9a31aec77cd484049b5fbcf2c667461d1247b91c662cfa6f3506e32b239cc86",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1037-CORE_META_MODEL-GENERAL--define-lineage-impact-analysis-content.md",
+          "sha256": "2393ce992f801088b0c2a70a5ce4bfb49587bf933195382032ef987adac73a2b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "e202e443813458ea32d2a0ea6d53453d7ee37929e5bdd92a2ab81cc8ab85eca5",
+          "reason": "Current CA-R-1037 explicitly defines the required content of a Lineage Impact Analysis Atom."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-655-CORE_META_MODEL-CORE--define-atom-artifact-form.md",
+          "sha256": "28258bfdc5515abe6efa40fe8ab1951cc70a226f58daaa6ced7466036bbca29d",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "146629fc6cde75251ee3e64e99348534ffe59e13d28ebb69f9ec72b1262ec15b",
+          "reason": "Current CA-R-655 defines Atom as the smallest independently governed Artifact."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The confirmed candidate identifies Atom as the narrower, independently governed Artifact form."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Lineage Impact Analysis content contract and four change-class consequences remain source-governed.",
+        "No Claim/Question/Issue dependent, Revision containment, Operation, or actual Execution is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1438-CORE_META_MODEL-CORE--define-entities-graph.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1438-CORE_META_MODEL-CORE--define-entities-graph.md",
+      "source_atom_id": "CA-R-1438",
+      "source_version": 8,
+      "source_sha256": "d8eea5e569edc4fe12d24b987724901091a1129e894586b2fe875b62af27ab71",
+      "field": "governs",
+      "index": null,
+      "old_value": "Projection/Type: Entities Graph",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Projection.Type: Entities Graph",
+      "confidence": 0.95,
+      "reason": "The owning Claim explicitly defines Entities Graph as the Type value under Projection. Current Projection authority defines Projection as a non-authoritative generated view, and current Type authority defines a governed single-valued Property; the candidate confirms Projection as a distinct Entity instance and confirms dependent Properties, supporting the qualified Type value without treating the graph as a new root or authority.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1438-CORE_META_MODEL-CORE--define-entities-graph.md",
+          "sha256": "d8eea5e569edc4fe12d24b987724901091a1129e894586b2fe875b62af27ab71",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "6a82e5eee7d905b947dfec523b95fd0282120fe372861d0e5740d878aa34b21c",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Current CA-R-1746 defines Projection as a non-authoritative generated view that retains traceability to authoritative sources."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+          "sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "992631212174e7f23d303e5b5419cfa5c37f10a9ab79f8e300cbcd69b5ede3e0",
+          "reason": "Current CA-R-1284 defines Type as a single-valued Property with a finite, governed allowed-value set."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/applicable_methodology/instance_boundary",
+          "reason": "The confirmed candidate treats a Projection as a distinct Entity instance rather than another representation of its source Entity."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed candidate establishes Property as a dependent Entity of its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Projection remains a non-authoritative derived Artifact/View; its source facts retain their authority.",
+        "Entities Graph remains the Projection Type value, not a new root, native node admission, or Relation Type."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+      "source_atom_id": "CA-R-1554",
+      "source_version": 4,
+      "source_sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Target Set",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Claim requires an exact governed Target Set for a Scripted Migration, but it defines no canonical Entity, Artifact, Projection member, Relation, or Type owner for that set. Mapping it to a generic set or Artifact would invent a collection identity and blur the migration authorization boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+          "sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd",
+          "start_line": 21,
+          "end_line": 39,
+          "span_sha256": "97ff6485edbe1bd8fb1676d50b2f2de7a078edcabaaabc6fbc0c87c999ecf11a",
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact governed target set, AI Agent participation conditions, and migration authorization boundary remain distinct.",
+        "No selector grammar, target-set Artifact, workflow control node, or Execution is inferred."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}

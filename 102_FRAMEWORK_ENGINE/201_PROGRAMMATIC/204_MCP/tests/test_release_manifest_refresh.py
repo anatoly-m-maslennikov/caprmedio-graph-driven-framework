@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 import shutil
 import sys
+import tempfile
 import types
 import unittest
 from unittest.mock import patch
@@ -32,6 +33,7 @@ from release_manifest_authorization import (  # noqa: E402
 from release_manifest_lifecycle import ReleaseManifestLifecycle  # noqa: E402
 from release_manifest_publisher import (  # noqa: E402
     ReleaseManifestPublishError,
+    _refresh_candidate,
     plan_release_manifest_refresh,
     plan_release_manifest_publish,
     publish_release_manifest,
@@ -40,8 +42,11 @@ from release_manifest_publisher import (  # noqa: E402
 )
 from release_source_admission import derive_release_graph_admission  # noqa: E402
 from selected_routes import (  # noqa: E402
+    SELECTED_ROUTE_NAMES,
     SelectedRouteError,
+    _derive_current_public_release_graph_admission,
     canonical_digest,
+    _validate_route,
     load_release_manifest_refresh_base,
     load_selected_manifest,
     selected_manifest_ref,
@@ -67,6 +72,14 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
             "CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom-lifecycle-changes.md"
         )
         archive = old_action.parent / "archive" / (old_action.stem + "@3.md")
+        mutable_selected_pins = {
+            Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+                 "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
+                 "CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md"),
+            Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+                 "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
+                 "CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md"),
+        }
 
         def copy_historical_pin(relative: Path, expected_digest: object) -> None:
             if relative == old_action and expected_digest == "b5d052e97bae6ada98849380199e5c67cbf090900beb33ca202f7872d56301e8":
@@ -75,10 +88,38 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(source, target)
                 return
+            if relative in mutable_selected_pins:
+                target = self.root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(REPOSITORY / relative, target)
+                return
             original_copy_pinned(relative, expected_digest)
 
         project._copy_pinned = copy_historical_pin
         project._copy_reviewed_manifest()
+        selected_manifest = self.root / selected_manifest_ref(self.root)
+        manifest = json.loads(selected_manifest.read_text(encoding="utf-8"))
+
+        def refresh_fixture_pin(value: object) -> None:
+            if isinstance(value, dict):
+                if Path(value.get("source_path", "")) in mutable_selected_pins:
+                    source = REPOSITORY / value["source_path"]
+                    raw = source.read_bytes()
+                    version = re.search(r"(?m)^version:\s*(\d+)\s*$", raw.decode("utf-8"))
+                    self.assertIsNotNone(version)
+                    value["version"] = int(version.group(1))
+                    value["digest"] = hashlib.sha256(raw).hexdigest()
+                for nested in value.values():
+                    refresh_fixture_pin(nested)
+            elif isinstance(value, list):
+                for nested in value:
+                    refresh_fixture_pin(nested)
+
+        refresh_fixture_pin(manifest["routes"])
+        manifest["source_freshness"]["selected_binding_digest"] = canonical_digest(manifest["routes"])
+        unsigned = {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"}
+        manifest["canonical_manifest_sha256"] = canonical_digest(unsigned)
+        selected_manifest.write_text(json.dumps(manifest, separators=(",", ":")), encoding="utf-8")
         for relative in (
             Path(".caprmedio_caprmedio/operators_registry.toml"),
             Path(".caprmedio_caprmedio/caprmedio_project_settings.toml"),
@@ -146,13 +187,11 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
 
     @contextmanager
     def advanced_admission(self):
-        """Advance one legal RMED pin and its D572 trust anchor in this fixture only."""
+        """Advance one source-derived Release workflow pin in this fixture only."""
         old_admission = self.initial["release_source_admissions"][0]
-        private_paths = {row["source_path"] for row in self.fixture.private_carriers}
-        pin = next(pin for pin in old_admission["rmed_frontier"] if pin["source_path"] not in private_paths)
+        pin = old_admission["workflow"]
         source = self.root / pin["source_path"]
-        authority = self.root / source_goldens.AUTHORITY_REF
-        source_before, authority_before = source.read_bytes(), authority.read_bytes()
+        source_before = source.read_bytes()
         updated_source = re.sub(
             rf"(?m)^version:\s*{pin['version']}\s*$",
             f"version: {pin['version'] + 1}",
@@ -160,24 +199,13 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
             count=1,
         ).encode("utf-8")
         self.assertNotEqual(source_before, updated_source)
-        updated_digest = hashlib.sha256(updated_source).hexdigest()
-        old_row = f"| {pin['atom_id']} | {pin['version']} | `{pin['source_path']}` | `{pin['digest']}` |"
-        new_row = f"| {pin['atom_id']} | {pin['version'] + 1} | `{pin['source_path']}` | `{updated_digest}` |"
-        updated_authority = authority_before.decode("utf-8").replace(old_row, new_row, 1).encode("utf-8")
-        self.assertNotEqual(authority_before, updated_authority)
         source.write_bytes(updated_source)
-        authority.write_bytes(updated_authority)
-        trusted_authority = {
-            **admission_module.AUTHORITY_PIN,
-            "digest": hashlib.sha256(updated_authority).hexdigest(),
-        }
         try:
-            with patch.object(admission_module, "AUTHORITY_PIN", trusted_authority):
-                route, admission = derive_release_graph_admission(self.root)
-                yield route, admission
+            route, admission = derive_release_graph_admission(self.root)
+            self.assertNotEqual(pin, admission["workflow"])
+            yield route, admission
         finally:
             source.write_bytes(source_before)
-            authority.write_bytes(authority_before)
 
     def test_stale_additive_sixteen_plan_is_effect_free_and_replaces_only_admission(self) -> None:
         with self.advanced_admission() as (current_route, current_admission):
@@ -196,7 +224,7 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
             loaded = load_selected_manifest(self.root)
             self.assertEqual("published", result["disposition"], result)
             self.assertEqual("refresh", result["publication_operation"])
-            self.assertEqual(self.initial["routes"], loaded["routes"])
+            self.assertEqual(self.initial["routes"][:-1], loaded["routes"][:-1])
             self.assertEqual(self.initial["query_source_admissions"], loaded["query_source_admissions"])
             for field in ("selected_source_registry_ref", "selected_source_registry_version", "selected_source_registry_digest"):
                 self.assertEqual(self.initial["source_freshness"][field], loaded["source_freshness"][field])
@@ -204,12 +232,65 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
             self.assertEqual([current_admission], loaded["release_source_admissions"])
             self.assertNotEqual(self.initial["release_source_admissions"], loaded["release_source_admissions"])
 
+    def test_stale_nonrelease_pins_refuse_before_refresh_or_effects(self) -> None:
+        """The stale-pin exception is exclusively for the D572 release route."""
+        for atom_id in ("CA-O-134", "CA-O-137"):
+            with self.subTest(atom_id=atom_id):
+                manifest = json.loads(self.initial_bytes)
+                pin = next(
+                    item
+                    for route in manifest["routes"][:-1]
+                    for item in route["ordered_actions"]
+                    if item["atom_id"] == atom_id
+                )
+                pin["digest"] = "f" * 64
+                self.path.write_bytes(self._resign(manifest))
+                before = self.path.read_bytes()
+                with self.assertRaisesRegex(SelectedRouteError, "source pin is stale"):
+                    load_release_manifest_refresh_base(self.root)
+                self.assertEqual(before, self.path.read_bytes())
+                self.assertEqual([], self._pending_ids())
+                self.path.write_bytes(self.initial_bytes)
+
+    def test_stale_release_route_graph_drift_refuses_before_effects(self) -> None:
+        with self.advanced_admission():
+            manifest = json.loads(self.initial_bytes)
+            manifest["routes"][-1]["entry_step"] = manifest["routes"][-1]["ordered_steps"][1]["step"]["atom_id"]
+            self.path.write_bytes(self._resign(manifest))
+            before = self.path.read_bytes()
+            with self.assertRaisesRegex(SelectedRouteError, "route graph or metadata differs"):
+                load_release_manifest_refresh_base(self.root)
+            self.assertEqual(before, self.path.read_bytes())
+            self.assertEqual([], self._pending_ids())
+
+    def test_stale_release_route_requires_strict_pin_and_metadata_types(self) -> None:
+        with self.advanced_admission():
+            for field, value, message in (
+                ("workflow.version", True, "Release refresh pin version"),
+                ("mutation_capable", 0, "route binding has no ordered step graph"),
+            ):
+                with self.subTest(field=field):
+                    manifest = json.loads(self.initial_bytes)
+                    route = manifest["routes"][-1]
+                    if field == "workflow.version":
+                        route["workflow"]["version"] = value
+                    else:
+                        route["mutation_capable"] = value
+                    self.path.write_bytes(self._resign(manifest))
+                    before = self.path.read_bytes()
+                    with self.assertRaisesRegex(SelectedRouteError, message):
+                        load_release_manifest_refresh_base(self.root)
+                    self.assertEqual(before, self.path.read_bytes())
+                    self.assertEqual([], self._pending_ids())
+
     def test_closed_registered_source_successor_uses_the_same_trusted_refresh_lifecycle(self) -> None:
         """D588 falls through the existing refresh boundary; it adds no lifecycle."""
-        with self.advanced_admission() as (_, current_admission):
+        with self.advanced_admission() as (current_route, current_admission):
             candidate = copy.deepcopy(self.initial)
             candidate.pop("manifest_ref")
+            candidate["routes"][-1] = copy.deepcopy(current_route)
             candidate["release_source_admissions"] = [copy.deepcopy(current_admission)]
+            candidate["source_freshness"]["selected_binding_digest"] = canonical_digest(candidate["routes"])
             candidate.pop("canonical_manifest_sha256")
             candidate["canonical_manifest_sha256"] = canonical_digest(candidate)
             payload = json.dumps(candidate, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8") + b"\n"
@@ -323,6 +404,316 @@ class ReleaseManifestRefreshTest(unittest.TestCase):
             self.path.symlink_to(copy_path)
             with self.assertRaises(SelectedRouteError):
                 load_release_manifest_refresh_base(self.root)
+
+
+class ReleaseRoutePinRefreshUnitTest(unittest.TestCase):
+    """Pure D572 refresh shape tests, independent of the current source closure.
+
+    These disposable-root cases exercise only the publisher's bounded
+    replacement rule.  They neither refresh D572 pins nor invoke trusted
+    source admission, lifecycle, Git, or selected-manifest writes.
+    """
+
+    def setUp(self) -> None:
+        temporary = REPOSITORY / ".caprmedio_tmp/tests/release-route-pin-refresh"
+        temporary.mkdir(parents=True, exist_ok=True)
+        self.temporary = tempfile.TemporaryDirectory(dir=temporary, ignore_cleanup_errors=True)
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        self.path = self.root / "selected-manifest.json"
+        self.path.write_bytes(b"unchanged input\n")
+        self.old_route, self.old_admission = self._release_pair()
+        self.current = {
+            "routes": [*({"route": name} for name in SELECTED_ROUTE_NAMES), copy.deepcopy(self.old_route)],
+            "release_source_admissions": [copy.deepcopy(self.old_admission)],
+            "source_freshness": {"selected_binding_digest": "0" * 64},
+        }
+
+    @staticmethod
+    def _pin(atom_id: str, version: int, path: str, digest: str) -> dict[str, object]:
+        return {"atom_id": atom_id, "version": version, "source_path": path, "digest": digest}
+
+    def _release_pair(self) -> tuple[dict[str, object], dict[str, object]]:
+        workflow = self._pin("CA-O-164", 1, "workflow.md", "1" * 64)
+        step = self._pin("CA-O-201", 1, "step.md", "2" * 64)
+        action = self._pin("CA-O-301", 1, "action.md", "3" * 64)
+        route = {
+            "route": "release_version",
+            "workflow": copy.deepcopy(workflow),
+            "ordered_steps": [{"step": copy.deepcopy(step), "action": copy.deepcopy(action)}],
+            "ordered_actions": [copy.deepcopy(action)],
+            "entry_step": "CA-O-201",
+            "on_result": [{"from": "CA-O-201", "condition": "success", "to": "complete"}],
+            "mutation_capable": True,
+            "native_action_calls": [],
+        }
+        admission = {
+            "route": "release_version",
+            "acceptance_frontier": self._pin("CA-P-1622", 1, "acceptance.md", "4" * 64),
+            "workflow": copy.deepcopy(workflow),
+            "ordered_steps": copy.deepcopy(route["ordered_steps"]),
+            "ordered_actions": copy.deepcopy(route["ordered_actions"]),
+            "rmed_frontier": [self._pin("CA-D-572", 1, "authority.md", "5" * 64)],
+            "mutation_capable": True,
+            "native_action_calls": [],
+        }
+        return route, admission
+
+    @contextmanager
+    def _derived(self, route: dict[str, object], admission: dict[str, object], *, current: dict[str, object] | None = None):
+        with patch(
+            "selected_routes.load_release_manifest_refresh_base",
+            return_value=copy.deepcopy(self.current if current is None else current),
+        ), patch(
+            "release_manifest_publisher._derive",
+            return_value=(copy.deepcopy(route), copy.deepcopy(admission)),
+        ), patch("release_manifest_publisher.selected_manifest_ref", return_value=Path("selected-manifest.json")):
+            yield
+
+    def _advanced_pair(self) -> tuple[dict[str, object], dict[str, object]]:
+        route, admission = copy.deepcopy(self.old_route), copy.deepcopy(self.old_admission)
+        for pin in (
+            route["workflow"],
+            admission["workflow"],
+        ):
+            pin["version"] = 2
+            pin["digest"] = "a" * 64
+        for pin in (
+            route["ordered_steps"][0]["step"],
+            admission["ordered_steps"][0]["step"],
+        ):
+            pin["version"] = 2
+            pin["digest"] = "b" * 64
+        for pin in (
+            route["ordered_steps"][0]["action"],
+            admission["ordered_steps"][0]["action"],
+        ):
+            pin["version"] = 2
+            pin["digest"] = "c" * 64
+        route["ordered_actions"][0] = copy.deepcopy(route["ordered_steps"][0]["action"])
+        admission["ordered_actions"][0] = copy.deepcopy(admission["ordered_steps"][0]["action"])
+        return route, admission
+
+    @staticmethod
+    def _public_pair() -> tuple[dict[str, object], dict[str, object]]:
+        workflow = ReleaseRoutePinRefreshUnitTest._pin("CA-O-188", 1, "public-workflow.md", "6" * 64)
+        step = ReleaseRoutePinRefreshUnitTest._pin("CA-O-189", 1, "public-step.md", "7" * 64)
+        action = ReleaseRoutePinRefreshUnitTest._pin("CA-O-190", 1, "public-action.md", "8" * 64)
+        route = {
+            "route": "public.release",
+            "workflow": copy.deepcopy(workflow),
+            "ordered_steps": [{"step": copy.deepcopy(step), "action": copy.deepcopy(action)}],
+            "ordered_actions": [copy.deepcopy(action)],
+            "entry_step": "CA-O-189",
+            "on_result": [{"from": "CA-O-189", "condition": "success", "to": "complete"}],
+            "mutation_capable": True,
+            "native_action_calls": [],
+        }
+        admission = {
+            "route": "public.release",
+            "workflow": copy.deepcopy(workflow),
+            "ordered_steps": [copy.deepcopy(step)],
+            "ordered_actions": [copy.deepcopy(action)],
+            "rmed_frontier": {"requirements": [ReleaseRoutePinRefreshUnitTest._pin("CA-R-1920", 1, "public-requirement.md", "9" * 64)],
+                              "methods": [], "evaluations": [], "deliveries": []},
+            "mutation_capable": True,
+            "native_action_calls": [],
+        }
+        return route, admission
+
+    def test_refresh_replaces_only_source_derived_pin_revisions(self) -> None:
+        route, admission = self._advanced_pair()
+
+        with self._derived(route, admission):
+            plan = plan_release_manifest_refresh(self.root)
+            current, candidate, payload, path, refreshed_admission = _refresh_candidate(self.root)
+
+        self.assertEqual("plan", plan["mode"])
+        self.assertEqual(self.current, current)
+        self.assertEqual(self.current["routes"][:-1], candidate["routes"][:-1])
+        self.assertEqual(route, candidate["routes"][-1])
+        self.assertEqual([admission], candidate["release_source_admissions"])
+        self.assertEqual(admission, refreshed_admission)
+        self.assertEqual(self.path, path)
+        self.assertEqual(b"unchanged input\n", self.path.read_bytes())
+        self.assertEqual(payload, json.dumps(candidate, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode() + b"\n")
+
+    def test_seventeen_route_refresh_rederives_both_release_admissions_only(self) -> None:
+        local_route, local_admission = self._advanced_pair()
+        old_public_route, old_public_admission = self._public_pair()
+        public_route, public_admission = copy.deepcopy(old_public_route), copy.deepcopy(old_public_admission)
+        for pin in (
+            public_route["workflow"], public_admission["workflow"],
+            public_route["ordered_steps"][0]["step"], public_admission["ordered_steps"][0],
+            public_route["ordered_steps"][0]["action"], public_admission["ordered_actions"][0],
+            public_route["ordered_actions"][0], public_admission["rmed_frontier"]["requirements"][0],
+        ):
+            pin["version"] = 2
+            pin["digest"] = "a" * 64
+        current = copy.deepcopy(self.current)
+        current["routes"].append(old_public_route)
+        current["public_release_source_admissions"] = [old_public_admission]
+        preserved = copy.deepcopy(current["routes"][:len(SELECTED_ROUTE_NAMES)])
+
+        with patch(
+            "selected_routes.load_release_manifest_refresh_base", return_value=copy.deepcopy(current),
+        ), patch(
+            "release_manifest_publisher._derive", return_value=(copy.deepcopy(local_route), copy.deepcopy(local_admission)),
+        ), patch(
+            "release_manifest_publisher._derive_public", return_value=(copy.deepcopy(public_route), copy.deepcopy(public_admission)),
+        ), patch("release_manifest_publisher.selected_manifest_ref", return_value=Path("selected-manifest.json")):
+            plan = plan_release_manifest_refresh(self.root)
+            observed, candidate, _payload, _path, _admission = _refresh_candidate(self.root)
+
+        self.assertEqual("plan", plan["mode"])
+        self.assertEqual(current, observed)
+        self.assertEqual(preserved, candidate["routes"][:len(SELECTED_ROUTE_NAMES)])
+        self.assertEqual(local_route, candidate["routes"][len(SELECTED_ROUTE_NAMES)])
+        self.assertEqual(public_route, candidate["routes"][-1])
+        self.assertEqual([local_admission], candidate["release_source_admissions"])
+        self.assertEqual([public_admission], candidate["public_release_source_admissions"])
+        self.assertEqual(b"unchanged input\n", self.path.read_bytes())
+
+    def test_structural_route_drift_is_refused_without_replacement(self) -> None:
+        route, admission = self._advanced_pair()
+        route["on_result"][0]["to"] = "another-step"
+
+        with self._derived(route, admission):
+            with self.assertRaisesRegex(ReleaseManifestPublishError, "route identities or structure"):
+                _refresh_candidate(self.root)
+
+        self.assertEqual(b"unchanged input\n", self.path.read_bytes())
+
+    def test_missing_release_route_is_refused_without_replacement(self) -> None:
+        route, admission = self._advanced_pair()
+        missing = copy.deepcopy(self.current)
+        missing["routes"].pop()
+
+        with self._derived(route, admission, current=missing):
+            with self.assertRaisesRegex(ReleaseManifestPublishError, "exact admitted sixteen- or seventeen-route"):
+                _refresh_candidate(self.root)
+
+        self.assertEqual(b"unchanged input\n", self.path.read_bytes())
+
+    def test_stale_authority_and_raw_authorization_are_refused_without_effects(self) -> None:
+        route, admission = self._advanced_pair()
+        with patch(
+            "selected_routes.load_release_manifest_refresh_base",
+            return_value=copy.deepcopy(self.current),
+        ), patch(
+            "release_manifest_publisher._derive",
+            side_effect=ReleaseManifestPublishError("stale D572 authority"),
+        ), patch("release_manifest_publisher.selected_manifest_ref", return_value=Path("selected-manifest.json")):
+            with self.assertRaisesRegex(ReleaseManifestPublishError, "stale D572 authority"):
+                _refresh_candidate(self.root)
+
+        with self._derived(route, admission):
+            with self.assertRaisesRegex(ReleaseManifestPublishError, "trusted host-created refresh context"):
+                refresh_release_manifest(self.root, execute=True, authorization={})
+
+        self.assertEqual(b"unchanged input\n", self.path.read_bytes())
+
+    def test_stale_pin_reader_cannot_bypass_a_normal_route(self) -> None:
+        with self.assertRaisesRegex(SelectedRouteError, "limited to release routes"):
+            _validate_route(self.root, self.old_route, verify_source_pins=False)
+
+
+class CurrentSeventeenRouteRefreshReaderTest(unittest.TestCase):
+    """Exercise the real reader against a disposable, physical 17-route root."""
+
+    _PIN_FIELDS = {"atom_id", "version", "source_path", "digest"}
+
+    def setUp(self) -> None:
+        temporary = REPOSITORY / ".caprmedio_tmp/tests/current-seventeen-route-reader"
+        temporary.mkdir(parents=True, exist_ok=True)
+        self.temporary = tempfile.TemporaryDirectory(dir=temporary, ignore_cleanup_errors=True)
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+
+    @classmethod
+    def _pins(cls, value: object):
+        if isinstance(value, dict):
+            if set(value) == cls._PIN_FIELDS:
+                yield value
+                return
+            for child in value.values():
+                yield from cls._pins(child)
+        elif isinstance(value, list):
+            for child in value:
+                yield from cls._pins(child)
+
+    def _copy_source(self, pin: dict[str, object]) -> None:
+        relative = Path(str(pin["source_path"]))
+        source, target = REPOSITORY / relative, self.root / relative
+        self.assertTrue(source.is_file(), relative.as_posix())
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, target)
+
+    def _refresh_pin(self, pin: dict[str, object]) -> None:
+        raw = (self.root / str(pin["source_path"])).read_bytes()
+        version = re.search(r"(?m)^version:\s*(\d+)\s*$", raw.decode("utf-8"))
+        self.assertIsNotNone(version)
+        pin["version"] = int(version.group(1))
+        pin["digest"] = hashlib.sha256(raw).hexdigest()
+
+    def test_current_seventeen_route_reader_reopens_both_source_admissions(self) -> None:
+        source_manifest = json.loads(
+            (REPOSITORY / selected_manifest_ref(REPOSITORY)).read_text(encoding="utf-8")
+        )
+        local_route, local_admission = derive_release_graph_admission(REPOSITORY)
+        public_route, public_admission = _derive_current_public_release_graph_admission(REPOSITORY)
+        from selected_admission import AUTHORITY_REF as public_authority_ref
+        manifest = copy.deepcopy(source_manifest)
+        manifest["routes"] = [
+            *copy.deepcopy(manifest["routes"][:len(SELECTED_ROUTE_NAMES)]),
+            copy.deepcopy(local_route), copy.deepcopy(public_route),
+        ]
+        manifest["release_source_admissions"] = [copy.deepcopy(local_admission)]
+        manifest["public_release_source_admissions"] = [copy.deepcopy(public_admission)]
+        for source_root in (*admission_module._RMED_ROOTS.values(), *admission_module._TOOLS_RMED_ROOTS.values()):
+            (self.root / source_root).mkdir(parents=True, exist_ok=True)
+        sources = [
+            manifest["routes"][:len(SELECTED_ROUTE_NAMES)],
+            manifest["query_source_admissions"],
+            local_route,
+            local_admission,
+            public_route,
+            public_admission,
+        ]
+        for value in sources:
+            for pin in self._pins(value):
+                self._copy_source(pin)
+        for relative in (
+            Path(".caprmedio_caprmedio/caprmedio_project_settings.toml"),
+            Path(".caprmedio_caprmedio/project_structure.toml"),
+            Path(manifest["source_freshness"]["selected_source_registry_ref"]),
+            Path(admission_module.AUTHORITY_REF),
+            Path(public_authority_ref),
+        ):
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(REPOSITORY / relative, target)
+        for value in (manifest["routes"][:len(SELECTED_ROUTE_NAMES)], manifest["query_source_admissions"]):
+            for pin in self._pins(value):
+                self._refresh_pin(pin)
+        for pin in (manifest["routes"][len(SELECTED_ROUTE_NAMES)]["workflow"],
+                    manifest["release_source_admissions"][0]["workflow"]):
+            pin["digest"] = "0" * 64
+        registry = self.root / manifest["source_freshness"]["selected_source_registry_ref"]
+        manifest["source_freshness"]["selected_source_registry_digest"] = hashlib.sha256(registry.read_bytes()).hexdigest()
+        manifest["source_freshness"]["selected_binding_digest"] = canonical_digest(manifest["routes"])
+        unsigned = {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"}
+        manifest["canonical_manifest_sha256"] = canonical_digest(unsigned)
+        carrier = self.root / selected_manifest_ref(self.root)
+        carrier.parent.mkdir(parents=True, exist_ok=True)
+        carrier.write_text(json.dumps(manifest, separators=(",", ":")), encoding="utf-8")
+
+        loaded = load_release_manifest_refresh_base(self.root)
+
+        self.assertEqual([*SELECTED_ROUTE_NAMES, "release_version", "public.release"],
+                         [entry["route"] for entry in loaded["routes"]])
+        self.assertEqual([manifest["release_source_admissions"][0]], loaded["release_source_admissions"])
+        self.assertEqual([public_admission], loaded["public_release_source_admissions"])
 
 
 if __name__ == "__main__":

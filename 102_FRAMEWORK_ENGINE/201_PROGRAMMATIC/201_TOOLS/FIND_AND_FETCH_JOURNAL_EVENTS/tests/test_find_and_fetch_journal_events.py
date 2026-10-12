@@ -27,9 +27,7 @@ class JournalQueryGoldenTest(unittest.TestCase):
         self.control = self.root / ".caprmedio_fixture"
         journal = self.control / "_journal"
         journal.mkdir(parents=True)
-        bootstrap = self.root / ".caprmedio_caprmedio"
-        bootstrap.mkdir()
-        (bootstrap / "caprmedio_project_settings.toml").write_text(
+        (self.control / "caprmedio_project_settings.toml").write_text(
             "[paths]\ncontrol_root = \".caprmedio_fixture\"\n", encoding="utf-8"
         )
         defaults = self.control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL"
@@ -235,7 +233,8 @@ class JournalQueryGoldenTest(unittest.TestCase):
             (self.control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml").read_text(encoding="utf-8"),
             encoding="utf-8",
         )
-        (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
+        (self.control / "caprmedio_project_settings.toml").unlink()
+        (other / "caprmedio_project_settings.toml").write_text(
             "[paths]\ncontrol_root = \".caprmedio_other\"\n", encoding="utf-8"
         )
         outcome = query(snapshot, {})
@@ -280,7 +279,8 @@ class JournalQueryGoldenTest(unittest.TestCase):
             capture_snapshot(self.root, limits={"max_file_bytes": 1})
         with self.assertRaisesRegex(JournalQueryError, "total-read-limit-exceeded"):
             capture_snapshot(self.root, limits={"max_total_read_bytes": 1})
-        with patch("find_and_fetch_journal_events.time.monotonic", side_effect=(0, 2)):
+        with patch("find_and_fetch_journal_events.time") as query_clock:
+            query_clock.monotonic.side_effect = (0, 2)
             with self.assertRaisesRegex(JournalQueryError, "timeout-exceeded"):
                 capture_snapshot(self.root, limits={"timeout_seconds": 1})
         snapshot = capture_snapshot(self.root)
@@ -361,8 +361,8 @@ class JournalQueryGoldenTest(unittest.TestCase):
 
     def test_limit_provenance_survives_snapshot_and_request_override(self):
         self.write_events("events.ndjson", {"event_id": "E-1"})
-        instance = self.control / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION"
-        instance.mkdir(parents=True)
+        instance = self.control / "000_CAPRMEDIO_framework"
+        instance.mkdir(parents=True, exist_ok=True)
         (instance / "caprmedio_framework_settings.toml").write_text(
             "[query]\nmax_page_size = 1\n", encoding="utf-8"
         )
@@ -372,6 +372,18 @@ class JournalQueryGoldenTest(unittest.TestCase):
         overridden = query(snapshot, {"limits": {"max_page_size": 2}})
         self.assertEqual(overridden["limits"]["max_page_size"]["configured"], 2)
         self.assertEqual(overridden["limits"]["max_page_size"]["source"], "request")
+
+    def test_retired_nested_instance_settings_do_not_override_canonical_defaults(self):
+        self.write_events("events.ndjson", {"event_id": "E-1"})
+        legacy = self.control / (
+            "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"
+        )
+        legacy.parent.mkdir(parents=True)
+        legacy.write_text("[query]\nmax_page_size = 1\n", encoding="utf-8")
+        result = query(capture_snapshot(self.root), {})
+        self.assertEqual(2, result["limits"]["max_page_size"]["configured"])
+        self.assertNotEqual("instance", result["limits"]["max_page_size"]["source"])
 
     def test_malformed_duplicate_ids_duplicate_keys_and_limits_fail_closed(self):
         self.write_events("duplicate-keys.ndjson", {"event_id": "E-1"})

@@ -1,0 +1,1158 @@
+{
+  "source_task": "CA-P-1943",
+  "batch": 3,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "input_file_sha256": "79097f28163465db798f4894dfdbbe4b193c70f28eff83f75be626dcd8581dc6",
+  "partition_sha256": "6372ba71cd56efe8919b805f694596081174463cc30d6de4959cace37a9e66c3",
+  "non_authoritative": true,
+  "semantic_admission": "not_performed",
+  "source_migration": "not_performed",
+  "evidence_catalogue": {
+    "CA-R-1549-32": {
+      "evidence_ref": "CA-R-1549-32",
+      "atom_id": "CA-R-1549",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1549-CORE_META_MODEL-CORE-REQUIREMENT--define-change-content-roles.md",
+      "carrier_sha256": "621e0721ff32f85f65cedd7f213cb3ee6e81268159b53d6496630b2815f426cd",
+      "start_line": 32,
+      "end_line": 34,
+      "quote": "\nChange Content Roles (CAPO) **means** the set (Concern, Analysis, Plan, Operations) used **to** identify, investigate, organize, **and** perform governed Project work, including changes **to** specification **and** Implementation.\n",
+      "text_sha256": "0ebf161f4b88cb47a33ae141de3e919259ab9955c17ca93f1f95cda3a5fa033f"
+    },
+    "CA-O-087-55": {
+      "evidence_ref": "CA-O-087-55",
+      "atom_id": "CA-O-087",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+      "carrier_sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d",
+      "start_line": 55,
+      "end_line": 96,
+      "quote": "\nCheck Atoms **means** the Programmatic Action that checks a selected Atom set against applicable machine-checkable authority **and** returns findings **without** changing the Atoms.\n\n### Inputs and selection\n\n- inputs: a bounded source inventory, a selector, applicable methodology context, reference-resolution context, admitted read boundaries, **and** selected execution limits.\n- select by a Scope Unit's Owned Atoms, optionally including its descendant Scope Units; by Global Tier values; by Local Tier values; **or** by an explicit Atom list. **>=1** selection criterion is required.\n- values within a list are alternatives; supplied selection criteria intersect. Scope Unit selection uses the Atom's carried current Scope Unit; descendants use declared Project Structure parentage, **not** directory nesting. tier filters use internally carried values, **not** filename tokens.\n- an explicit list identifies exact intended source Atoms **or** Revisions; a Carrier locator **may** identify an unassigned Draft **or** a malformed candidate **without** supplying its missing Properties. ambiguous references are unresolved, **not** silently resolved **to** whichever file is found first.\n- enumerate the bounded inventory **and** read **only** the candidate content needed **to** determine selection, subject **to** permissions, protected-file exclusions, **and** execution limits. a candidate later excluded is selection evidence, **not** a validated target; do **not** inspect its unrelated content.\n- unreadable, malformed, **or** missing selection data remains an unresolved candidate with its reason. retain independently decidable selections; unresolved membership **must not** become a successful exclusion. do **not** expand target coverage through reference resolution.\n\n### Check and return\n\n- resolve admitted Properties, sections, Content Roles, Types, Statuses, cardinalities, Subjects, **and** Relation rules from applicable authority; bind executable checks **to** their exact governing Atom Revisions. unknown **or** unsupported authority is a coverage gap, **not** permission **to** invent a rule.\n- safely parse frontmatter **and** structured body sections. check duplicate keys, value types, unknown fields, required/optional/inapplicable Properties, Draft exceptions, missing **or** ambiguous sections, **and** frontmatter/body conflicts. fenced headings remain content.\n- extract Properties **only** from their canonical internal locations. check outward filename/placement representations **after** extraction; never use them **to** fill a missing value. check authored Atom Relations **in** their owning direction **and** under their actual target/Status rules; do **not** require stored inverse **or** transitive copies.\n- check projected Applicable Methodology Carriers against their original source bindings **and** authored bytes under CA-D-305 **and** CA-E-379. projected copies do **not** become independent source Atoms.\n- record passed, failed, not-applicable, **and** not-checked outcomes with target locator, declared identity/Revision **when** available, Property/section, governing rule, reason, **and** bounded evidence. continue independent checks **after** a malformed candidate.\n- bind the assessment **to** its selected input set **and** content fingerprints; recheck membership **and** relevant source, authority, configuration, **and** reference fingerprints **before** returning. changed inputs yield incomplete currentness, **not** mixed-Revision success.\n- return `valid` for a nonempty, fully checked, unchanged set with no failures; `invalid` for complete unchanged coverage with failures; `incomplete` for unresolved selection, empty selection, missing authority, unsupported checks, **or** changed inputs; `error` for execution failure. retain known findings **and** coverage even **when** the result is incomplete **or** error.\n\n### Boundary\n\n- permission **to** read is a precondition; this Action grants no permission. do **not** read secrets **or** outside admitted roots, fetch remote resources, execute supplied content, **or** write sources, Settings, caches, generated copies, **or** Journal files.\n- preparation, checking, **and** report assembly are internal work of this **=1** Action, **not** separate Action **or** Step definitions. a Workflow **may** invoke it through a Step; the Action does **not** select **or** start a repair Workflow.\n- the report assesses mechanical conformance, **not** Claim atomicity, semantic consistency, **or** complete natural-language CCE conformance. the caller/executor owns any admitted persistence of returned execution evidence.\n\n### Candidate, Status, and Revision selection\n\n- enumerate Markdown files inside admitted inventory roots **and** explicit candidate locators, respecting declared exclusions, read permissions, protected-file rules, **and** limits. non-Atom artifacts **may** be excluded **only** from an applicable declared Carrier classification **or** explicit exclusion, **not** because malformed Atom metadata made them inconvenient. record exclusion reasons.\n- directory/filename information **may** locate candidates **and** check their representation; it **must not** fill Atom identity, ownership, Status, tier, **or** other missing Properties.\n- Scope Unit/tier queries default **to** Active Revisions. permit `all` **or** an explicit nonempty Status list instead. resolve Status values **and** Active classification from applicable models, including future values; `all` also admits historical candidates for checking **without** rewriting history.\n- explicit Atom/Revision lists have no implicit Active filter; apply a Status filter **only** **when** supplied. supplied criteria still intersect. a selector by ID alone that leaves multiple authoritative Revisions is unresolved; require a Version **or** unambiguous locator rather than guessing latest.\n- resolve identity ambiguity across the bounded inventory before accepting a unique result. faithful projected copies are representations of their source Revision; differing Versions alone are history, **not** a duplicate-source defect. **every** selected Carrier still receives its own checks.\n- inspect historical Carriers against the explicitly selected methodology **and** report that binding; a conformance finding is **not** permission **to** update historical evidence.\n\n### Execution budgets\n\n- resolve each selected limit from request override, instance setting, **or** Default Settings, retaining its source. invalid **or** missing effective limits stop execution before candidate validation.\n- budget inventory enumeration, candidate/authority/reference reads, currentness rechecks, elapsed monotonic time, **and** result accumulation. stop before the next operation would exceed its bound; return incomplete with retained findings **and** explicit unassessed work. permissions **and** host ceilings remain independent gates.\n",
+      "text_sha256": "c037cab995fa5617fa4eff33586ded11186cb7c4a5837a8c9b45efcfd50c4cef"
+    },
+    "CA-O-088-29": {
+      "evidence_ref": "CA-O-088-29",
+      "atom_id": "CA-O-088",
+      "atom_revision": 3,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-088-CORE_META_MODEL-STEP--check-selected-atoms.md",
+      "carrier_sha256": "d8701707d07be609e8cff2177322fcb66b6b54fb190b29d1bbd73b8c12b8754f",
+      "start_line": 29,
+      "end_line": 34,
+      "quote": "\nCheck Atoms Step **means** the Workflow node that invokes **=1** Action, CA-O-087, with the admitted Workflow Run's source inventory, selector, applicable methodology, reference context, read boundaries, **and** execution limits.\n\n- pass these inputs **without** independent reselection **or** inference from the Step's location.\n- expose the Action's unchanged result tag **and** report payload **to** the Workflow.\n",
+      "text_sha256": "5d6f04e5285f217f3b9c04fff159726b9a18993966b16ca45bb7c0f32efd9812"
+    },
+    "CA-R-960-29": {
+      "evidence_ref": "CA-R-960-29",
+      "atom_id": "CA-R-960",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+      "carrier_sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+      "start_line": 29,
+      "end_line": 31,
+      "quote": "\nChild Composition **means** the classification of one Scope Unit's direct children as **none**, LAYERS, FEATURES, **or** MIXED.\n",
+      "text_sha256": "6e5c2eab5288c70386dbbdfdff4f5ade4462a3558ed48562b6f7bed37d766f6b"
+    },
+    "CA-R-1359-31": {
+      "evidence_ref": "CA-R-1359-31",
+      "atom_id": "CA-R-1359",
+      "atom_revision": 9,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1359-CORE_META_MODEL--define-claim-value-set.md",
+      "carrier_sha256": "26bc473af5b1108bfa751991a56c236437fedc84a0a0cb7e588db0b4eadc0c7c",
+      "start_line": 31,
+      "end_line": 33,
+      "quote": "\na Claim Value Set **means** one Claim expression **in** the form `X: (A, B, C)`, **where** X identifies **`=1`** Property **and** `(A, B, C)` identifies one finite unordered set of **`>=1`** unique canonical values allowed by X; the value order carries no authority, **and** the complete set **must** have one authority unit **and** lifecycle by accepting, replacing, **and** retiring **all** values together as one Claim.\n",
+      "text_sha256": "7aceb9c9d1ced99a616a295635e746909f746dad119d0a55adb6181d9c31ed1b"
+    },
+    "CA-M-237-34": {
+      "evidence_ref": "CA-M-237-34",
+      "atom_id": "CA-M-237",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL--author-claim-value-sets.md",
+      "carrier_sha256": "f9293974e41c66ef9e209c37203fa8135d012b1a62acdc28c31d116a34891b92",
+      "start_line": 34,
+      "end_line": 42,
+      "quote": "\n**to** author one Claim Value Set, the Author **must**:\n\n1. identify **`=1`** Property X within **`=1`** Claim;\n2. write its finite allowed-value set as `X: (A, B, C)`;\n3. include **`>=1`** unique canonical values **and** treat their order as non-authoritative;\n4. retain the complete set as **`=1`** Claim **only** **if** **all** values **must** be accepted, replaced, **and** retired together;\n5. interpret `:` as Claim Value-Set syntax inside that Claim **and** as **`=1`** IS_ALLOWED_VALUE_OF relation **only** inside a Subject Expression.\n",
+      "text_sha256": "ce8300e49179b6cd74843c62631abf6f0a8508956bddbb80b1bea4bef0481ba3"
+    },
+    "CA-E-403-36": {
+      "evidence_ref": "CA-E-403-36",
+      "atom_id": "CA-E-403",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--report-exact-claim-value-set-consolidation-candidates.md",
+      "carrier_sha256": "3aa9a341876eee5a153e923a4a7d4fadc400d69b2925ff11a7c25c278fa444c9",
+      "start_line": 36,
+      "end_line": 38,
+      "quote": "\nthe Evaluation **must** report **`=1`** Claim Value Set consolidation candidate **only** **if** **every** contributing active Atom has the same Atom Scope, Atom Governed Subject, Claim Target Scope Unit, textual Claim Scope, Property, **and** exact qualifiers, has **`=1`** mechanically parseable single-value Claim, **and** differs **only** by **`=1`** unique value proven through IS_ALLOWED_VALUE_OF for that Property; it **must not** mutate, merge, archive, replace, compile, **or** change a Source Atom by another operation, use semantic **or** LLM inference, **or** cause Applicable Methodology compilation **to** fail.\n",
+      "text_sha256": "6ed147fdd2a2a049fc979c9a7a5339a1aab80cdcbd8d1f217fc0e6123d74da98"
+    },
+    "CA-E-402-35": {
+      "evidence_ref": "CA-E-402-35",
+      "atom_id": "CA-E-402",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-402-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-claim-value-sets.md",
+      "carrier_sha256": "cffc334a0cfc39cca910ac8893452709ad85be1d34cb4b4bda8d038b7180858b",
+      "start_line": 35,
+      "end_line": 37,
+      "quote": "\nthe Evaluation **must** reject a Claim Value Set **if** it identifies **`!=1`** Property, has **`=0`** values, repeats a value, uses one noncanonical value, has nonfinite **or** ordered semantics, **contains** one value **not** allowed by its Property, permits one value **to** be accepted, replaced, **or** retired independently, **or** parses `:` as Subject Expression syntax.\n",
+      "text_sha256": "9adbeb50c4d4cc25b16ebb9c86c08f428d1798188afedf8d8ef16acf3a44e527"
+    },
+    "CA-R-1033-28": {
+      "evidence_ref": "CA-R-1033-28",
+      "atom_id": "CA-R-1033",
+      "atom_revision": 15,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+      "carrier_sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+      "start_line": 28,
+      "end_line": 30,
+      "quote": "\n`compatible` **means** the child remains valid against the parent Revision required by the gate **and** traversal stops on that branch **without** a child update. **if** the gate requires the revised parent, **then** compatibility **must** be established against that new Revision; permission **to** consume a pinned earlier Revision **must not** establish compatibility for a gate that requires the new Revision.\n",
+      "text_sha256": "0c833b7732f7634e9db6e81da923397131693eceabddfb63dd99fb67616ffac7"
+    },
+    "CA-R-1270-27": {
+      "evidence_ref": "CA-R-1270-27",
+      "atom_id": "CA-R-1270",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-CORE-REQUIREMENT--permit-one-composite-claim-as-one-authority-unit.md",
+      "carrier_sha256": "45357611aae38085ff1382bff1ba7910512ceb9bac2514a6362858a60d9604f2",
+      "start_line": 27,
+      "end_line": 29,
+      "quote": "\n**if** **every** component of a logically composite Claim **must** be accepted, replaced, **and** retired together, **then** the composite Claim **must** remain one Claim.\n",
+      "text_sha256": "a3229a1bad9f55109268df887302c21f9ecb5edb910a664a5c5556b5f6310523"
+    },
+    "CA-E-246-67": {
+      "evidence_ref": "CA-E-246-67",
+      "atom_id": "CA-E-246",
+      "atom_revision": 25,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md",
+      "carrier_sha256": "6d5e65915b857be8e399aee9b32364dde2caa56ec6757bd8e69282b4ffee0098",
+      "start_line": 67,
+      "end_line": 69,
+      "quote": "\n**every** valid Atom has **`=1`** GOVERNS Entity matching its Claim **and** DEPENDS_ON for **every** other Entity independently mentioned **in** its complete Markdown Main Content; an Atom citation label is **not** an Entity mention **or** Subject target, **and** the distinct target set **`=`** that mention inventory **without** an intermediate Subject object.\n",
+      "text_sha256": "e05322aac78781eaf4ea2fb15fd3e5b99ed0c31f10162d858fd69e02e316643e"
+    },
+    "CA-R-1022-28": {
+      "evidence_ref": "CA-R-1022-28",
+      "atom_id": "CA-R-1022",
+      "atom_revision": 15,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+      "carrier_sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+      "start_line": 28,
+      "end_line": 30,
+      "quote": "\n`concern_about` **must** be registered as a direct relation owned by a Concern Atom **and** directed **to** one Observation **or** other directly affected governed entity.\n",
+      "text_sha256": "7dc832e326ce0b5fedb7fd955a6f63ce1014e119c9bd55cee0fd924a76bf565a"
+    },
+    "CA-R-1549@4:33-33:131b44fa6486254964fcf2b1f77d1ed8427667b4fedd0841c9de8e86df01d6df": {
+      "evidence_ref": "CA-R-1549@4:33-33:131b44fa6486254964fcf2b1f77d1ed8427667b4fedd0841c9de8e86df01d6df",
+      "atom_id": "CA-R-1549",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1549-CORE_META_MODEL-CORE-REQUIREMENT--define-change-content-roles.md",
+      "carrier_sha256": "621e0721ff32f85f65cedd7f213cb3ee6e81268159b53d6496630b2815f426cd",
+      "start_line": 33,
+      "end_line": 33,
+      "quote": "Change Content Roles (CAPO) **means** the set (Concern, Analysis, Plan, Operations) used **to** identify, investigate, organize, **and** perform governed Project work, including changes **to** specification **and** Implementation.",
+      "text_sha256": "131b44fa6486254964fcf2b1f77d1ed8427667b4fedd0841c9de8e86df01d6df"
+    },
+    "CA-O-087@5:56-95:aa6de8aede337069c67a04956ed7e43b30cf9c07c0bf291ccec8db2a84b3bcb9": {
+      "evidence_ref": "CA-O-087@5:56-95:aa6de8aede337069c67a04956ed7e43b30cf9c07c0bf291ccec8db2a84b3bcb9",
+      "atom_id": "CA-O-087",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+      "carrier_sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d",
+      "start_line": 56,
+      "end_line": 95,
+      "quote": "Check Atoms **means** the Programmatic Action that checks a selected Atom set against applicable machine-checkable authority **and** returns findings **without** changing the Atoms.\n\n### Inputs and selection\n\n- inputs: a bounded source inventory, a selector, applicable methodology context, reference-resolution context, admitted read boundaries, **and** selected execution limits.\n- select by a Scope Unit's Owned Atoms, optionally including its descendant Scope Units; by Global Tier values; by Local Tier values; **or** by an explicit Atom list. **>=1** selection criterion is required.\n- values within a list are alternatives; supplied selection criteria intersect. Scope Unit selection uses the Atom's carried current Scope Unit; descendants use declared Project Structure parentage, **not** directory nesting. tier filters use internally carried values, **not** filename tokens.\n- an explicit list identifies exact intended source Atoms **or** Revisions; a Carrier locator **may** identify an unassigned Draft **or** a malformed candidate **without** supplying its missing Properties. ambiguous references are unresolved, **not** silently resolved **to** whichever file is found first.\n- enumerate the bounded inventory **and** read **only** the candidate content needed **to** determine selection, subject **to** permissions, protected-file exclusions, **and** execution limits. a candidate later excluded is selection evidence, **not** a validated target; do **not** inspect its unrelated content.\n- unreadable, malformed, **or** missing selection data remains an unresolved candidate with its reason. retain independently decidable selections; unresolved membership **must not** become a successful exclusion. do **not** expand target coverage through reference resolution.\n\n### Check and return\n\n- resolve admitted Properties, sections, Content Roles, Types, Statuses, cardinalities, Subjects, **and** Relation rules from applicable authority; bind executable checks **to** their exact governing Atom Revisions. unknown **or** unsupported authority is a coverage gap, **not** permission **to** invent a rule.\n- safely parse frontmatter **and** structured body sections. check duplicate keys, value types, unknown fields, required/optional/inapplicable Properties, Draft exceptions, missing **or** ambiguous sections, **and** frontmatter/body conflicts. fenced headings remain content.\n- extract Properties **only** from their canonical internal locations. check outward filename/placement representations **after** extraction; never use them **to** fill a missing value. check authored Atom Relations **in** their owning direction **and** under their actual target/Status rules; do **not** require stored inverse **or** transitive copies.\n- check projected Applicable Methodology Carriers against their original source bindings **and** authored bytes under CA-D-305 **and** CA-E-379. projected copies do **not** become independent source Atoms.\n- record passed, failed, not-applicable, **and** not-checked outcomes with target locator, declared identity/Revision **when** available, Property/section, governing rule, reason, **and** bounded evidence. continue independent checks **after** a malformed candidate.\n- bind the assessment **to** its selected input set **and** content fingerprints; recheck membership **and** relevant source, authority, configuration, **and** reference fingerprints **before** returning. changed inputs yield incomplete currentness, **not** mixed-Revision success.\n- return `valid` for a nonempty, fully checked, unchanged set with no failures; `invalid` for complete unchanged coverage with failures; `incomplete` for unresolved selection, empty selection, missing authority, unsupported checks, **or** changed inputs; `error` for execution failure. retain known findings **and** coverage even **when** the result is incomplete **or** error.\n\n### Boundary\n\n- permission **to** read is a precondition; this Action grants no permission. do **not** read secrets **or** outside admitted roots, fetch remote resources, execute supplied content, **or** write sources, Settings, caches, generated copies, **or** Journal files.\n- preparation, checking, **and** report assembly are internal work of this **=1** Action, **not** separate Action **or** Step definitions. a Workflow **may** invoke it through a Step; the Action does **not** select **or** start a repair Workflow.\n- the report assesses mechanical conformance, **not** Claim atomicity, semantic consistency, **or** complete natural-language CCE conformance. the caller/executor owns any admitted persistence of returned execution evidence.\n\n### Candidate, Status, and Revision selection\n\n- enumerate Markdown files inside admitted inventory roots **and** explicit candidate locators, respecting declared exclusions, read permissions, protected-file rules, **and** limits. non-Atom artifacts **may** be excluded **only** from an applicable declared Carrier classification **or** explicit exclusion, **not** because malformed Atom metadata made them inconvenient. record exclusion reasons.\n- directory/filename information **may** locate candidates **and** check their representation; it **must not** fill Atom identity, ownership, Status, tier, **or** other missing Properties.\n- Scope Unit/tier queries default **to** Active Revisions. permit `all` **or** an explicit nonempty Status list instead. resolve Status values **and** Active classification from applicable models, including future values; `all` also admits historical candidates for checking **without** rewriting history.\n- explicit Atom/Revision lists have no implicit Active filter; apply a Status filter **only** **when** supplied. supplied criteria still intersect. a selector by ID alone that leaves multiple authoritative Revisions is unresolved; require a Version **or** unambiguous locator rather than guessing latest.\n- resolve identity ambiguity across the bounded inventory before accepting a unique result. faithful projected copies are representations of their source Revision; differing Versions alone are history, **not** a duplicate-source defect. **every** selected Carrier still receives its own checks.\n- inspect historical Carriers against the explicitly selected methodology **and** report that binding; a conformance finding is **not** permission **to** update historical evidence.\n\n### Execution budgets\n\n- resolve each selected limit from request override, instance setting, **or** Default Settings, retaining its source. invalid **or** missing effective limits stop execution before candidate validation.\n- budget inventory enumeration, candidate/authority/reference reads, currentness rechecks, elapsed monotonic time, **and** result accumulation. stop before the next operation would exceed its bound; return incomplete with retained findings **and** explicit unassessed work. permissions **and** host ceilings remain independent gates.",
+      "text_sha256": "aa6de8aede337069c67a04956ed7e43b30cf9c07c0bf291ccec8db2a84b3bcb9"
+    },
+    "CA-O-088@3:30-33:ac1e1918892791dd8615c7c36218f85a0d30b6be8291849d664174746815d3cb": {
+      "evidence_ref": "CA-O-088@3:30-33:ac1e1918892791dd8615c7c36218f85a0d30b6be8291849d664174746815d3cb",
+      "atom_id": "CA-O-088",
+      "atom_revision": 3,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-088-CORE_META_MODEL-STEP--check-selected-atoms.md",
+      "carrier_sha256": "d8701707d07be609e8cff2177322fcb66b6b54fb190b29d1bbd73b8c12b8754f",
+      "start_line": 30,
+      "end_line": 33,
+      "quote": "Check Atoms Step **means** the Workflow node that invokes **=1** Action, CA-O-087, with the admitted Workflow Run's source inventory, selector, applicable methodology, reference context, read boundaries, **and** execution limits.\n\n- pass these inputs **without** independent reselection **or** inference from the Step's location.\n- expose the Action's unchanged result tag **and** report payload **to** the Workflow.",
+      "text_sha256": "ac1e1918892791dd8615c7c36218f85a0d30b6be8291849d664174746815d3cb"
+    },
+    "CA-R-960@14:30-30:84189dcf5683ceb46e40b942321bdc375da3bee06c073d57fa0250e685c90a17": {
+      "evidence_ref": "CA-R-960@14:30-30:84189dcf5683ceb46e40b942321bdc375da3bee06c073d57fa0250e685c90a17",
+      "atom_id": "CA-R-960",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+      "carrier_sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "Child Composition **means** the classification of one Scope Unit's direct children as **none**, LAYERS, FEATURES, **or** MIXED.",
+      "text_sha256": "84189dcf5683ceb46e40b942321bdc375da3bee06c073d57fa0250e685c90a17"
+    },
+    "CA-R-1359@9:32-32:371752b8fc04696bf9b3c524ce1cb9099dc4bf9798de6a05d1e7c99f9a4ab2e2": {
+      "evidence_ref": "CA-R-1359@9:32-32:371752b8fc04696bf9b3c524ce1cb9099dc4bf9798de6a05d1e7c99f9a4ab2e2",
+      "atom_id": "CA-R-1359",
+      "atom_revision": 9,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1359-CORE_META_MODEL--define-claim-value-set.md",
+      "carrier_sha256": "26bc473af5b1108bfa751991a56c236437fedc84a0a0cb7e588db0b4eadc0c7c",
+      "start_line": 32,
+      "end_line": 32,
+      "quote": "a Claim Value Set **means** one Claim expression **in** the form `X: (A, B, C)`, **where** X identifies **`=1`** Property **and** `(A, B, C)` identifies one finite unordered set of **`>=1`** unique canonical values allowed by X; the value order carries no authority, **and** the complete set **must** have one authority unit **and** lifecycle by accepting, replacing, **and** retiring **all** values together as one Claim.",
+      "text_sha256": "371752b8fc04696bf9b3c524ce1cb9099dc4bf9798de6a05d1e7c99f9a4ab2e2"
+    },
+    "CA-M-237@10:35-41:d85e892c62530d148469e66b34efafe7c14ed5cbeff49d5638718e5e08c91799": {
+      "evidence_ref": "CA-M-237@10:35-41:d85e892c62530d148469e66b34efafe7c14ed5cbeff49d5638718e5e08c91799",
+      "atom_id": "CA-M-237",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL--author-claim-value-sets.md",
+      "carrier_sha256": "f9293974e41c66ef9e209c37203fa8135d012b1a62acdc28c31d116a34891b92",
+      "start_line": 35,
+      "end_line": 41,
+      "quote": "**to** author one Claim Value Set, the Author **must**:\n\n1. identify **`=1`** Property X within **`=1`** Claim;\n2. write its finite allowed-value set as `X: (A, B, C)`;\n3. include **`>=1`** unique canonical values **and** treat their order as non-authoritative;\n4. retain the complete set as **`=1`** Claim **only** **if** **all** values **must** be accepted, replaced, **and** retired together;\n5. interpret `:` as Claim Value-Set syntax inside that Claim **and** as **`=1`** IS_ALLOWED_VALUE_OF relation **only** inside a Subject Expression.",
+      "text_sha256": "d85e892c62530d148469e66b34efafe7c14ed5cbeff49d5638718e5e08c91799"
+    },
+    "CA-E-403@12:37-37:6fe34605ba104f54239a182fe29c071077568ccc95dece8fcbefb19a3183e562": {
+      "evidence_ref": "CA-E-403@12:37-37:6fe34605ba104f54239a182fe29c071077568ccc95dece8fcbefb19a3183e562",
+      "atom_id": "CA-E-403",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--report-exact-claim-value-set-consolidation-candidates.md",
+      "carrier_sha256": "3aa9a341876eee5a153e923a4a7d4fadc400d69b2925ff11a7c25c278fa444c9",
+      "start_line": 37,
+      "end_line": 37,
+      "quote": "the Evaluation **must** report **`=1`** Claim Value Set consolidation candidate **only** **if** **every** contributing active Atom has the same Atom Scope, Atom Governed Subject, Claim Target Scope Unit, textual Claim Scope, Property, **and** exact qualifiers, has **`=1`** mechanically parseable single-value Claim, **and** differs **only** by **`=1`** unique value proven through IS_ALLOWED_VALUE_OF for that Property; it **must not** mutate, merge, archive, replace, compile, **or** change a Source Atom by another operation, use semantic **or** LLM inference, **or** cause Applicable Methodology compilation **to** fail.",
+      "text_sha256": "6fe34605ba104f54239a182fe29c071077568ccc95dece8fcbefb19a3183e562"
+    },
+    "CA-E-402@10:36-36:4e4063ce276d711130d72c253edc8b4e5679b2be16ddcb681260da2516e1e26d": {
+      "evidence_ref": "CA-E-402@10:36-36:4e4063ce276d711130d72c253edc8b4e5679b2be16ddcb681260da2516e1e26d",
+      "atom_id": "CA-E-402",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-402-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-claim-value-sets.md",
+      "carrier_sha256": "cffc334a0cfc39cca910ac8893452709ad85be1d34cb4b4bda8d038b7180858b",
+      "start_line": 36,
+      "end_line": 36,
+      "quote": "the Evaluation **must** reject a Claim Value Set **if** it identifies **`!=1`** Property, has **`=0`** values, repeats a value, uses one noncanonical value, has nonfinite **or** ordered semantics, **contains** one value **not** allowed by its Property, permits one value **to** be accepted, replaced, **or** retired independently, **or** parses `:` as Subject Expression syntax.",
+      "text_sha256": "4e4063ce276d711130d72c253edc8b4e5679b2be16ddcb681260da2516e1e26d"
+    },
+    "CA-R-1033@15:29-29:70f9d9976c610075f39c8a079039afbe0d1a57a96cfea82b5831bdbf7d38461b": {
+      "evidence_ref": "CA-R-1033@15:29-29:70f9d9976c610075f39c8a079039afbe0d1a57a96cfea82b5831bdbf7d38461b",
+      "atom_id": "CA-R-1033",
+      "atom_revision": 15,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1033-CORE_META_MODEL-GENERAL--define-compatible-lineage-impact-disposition.md",
+      "carrier_sha256": "434d199f97e943b1841e95d441397aa3352433b7ceb6b7ae88c4b1b4fec3a738",
+      "start_line": 29,
+      "end_line": 29,
+      "quote": "`compatible` **means** the child remains valid against the parent Revision required by the gate **and** traversal stops on that branch **without** a child update. **if** the gate requires the revised parent, **then** compatibility **must** be established against that new Revision; permission **to** consume a pinned earlier Revision **must not** establish compatibility for a gate that requires the new Revision.",
+      "text_sha256": "70f9d9976c610075f39c8a079039afbe0d1a57a96cfea82b5831bdbf7d38461b"
+    },
+    "CA-R-1270@11:28-28:f038a2039d08186053c658303b3b56befa59d8607c9fdea48769d4e40f7b802e": {
+      "evidence_ref": "CA-R-1270@11:28-28:f038a2039d08186053c658303b3b56befa59d8607c9fdea48769d4e40f7b802e",
+      "atom_id": "CA-R-1270",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-CORE-REQUIREMENT--permit-one-composite-claim-as-one-authority-unit.md",
+      "carrier_sha256": "45357611aae38085ff1382bff1ba7910512ceb9bac2514a6362858a60d9604f2",
+      "start_line": 28,
+      "end_line": 28,
+      "quote": "**if** **every** component of a logically composite Claim **must** be accepted, replaced, **and** retired together, **then** the composite Claim **must** remain one Claim.",
+      "text_sha256": "f038a2039d08186053c658303b3b56befa59d8607c9fdea48769d4e40f7b802e"
+    },
+    "CA-E-246@25:68-68:b46ceb27e8946eef1cc5d593d8e489a2a9ae5249d99ba090c4f30135f4f64d5d": {
+      "evidence_ref": "CA-E-246@25:68-68:b46ceb27e8946eef1cc5d593d8e489a2a9ae5249d99ba090c4f30135f4f64d5d",
+      "atom_id": "CA-E-246",
+      "atom_revision": 25,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md",
+      "carrier_sha256": "6d5e65915b857be8e399aee9b32364dde2caa56ec6757bd8e69282b4ffee0098",
+      "start_line": 68,
+      "end_line": 68,
+      "quote": "**every** valid Atom has **`=1`** GOVERNS Entity matching its Claim **and** DEPENDS_ON for **every** other Entity independently mentioned **in** its complete Markdown Main Content; an Atom citation label is **not** an Entity mention **or** Subject target, **and** the distinct target set **`=`** that mention inventory **without** an intermediate Subject object.",
+      "text_sha256": "b46ceb27e8946eef1cc5d593d8e489a2a9ae5249d99ba090c4f30135f4f64d5d"
+    },
+    "CA-E-246@25:98-98:7ee9deddf89bb81ac30b2f6ab5123380c24dc25552015bababdbd8090524934b": {
+      "evidence_ref": "CA-E-246@25:98-98:7ee9deddf89bb81ac30b2f6ab5123380c24dc25552015bababdbd8090524934b",
+      "atom_id": "CA-E-246",
+      "atom_revision": 25,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md",
+      "carrier_sha256": "6d5e65915b857be8e399aee9b32364dde2caa56ec6757bd8e69282b4ffee0098",
+      "start_line": 98,
+      "end_line": 98,
+      "quote": "record a Concern naming **every** affected Atom **and** direct Subject reference.",
+      "text_sha256": "7ee9deddf89bb81ac30b2f6ab5123380c24dc25552015bababdbd8090524934b"
+    },
+    "CA-E-444@12:77-77:6437d654fbf0f3c15409c8d24e5c3da252e304a5f526a7a18209576241ce520d": {
+      "evidence_ref": "CA-E-444@12:77-77:6437d654fbf0f3c15409c8d24e5c3da252e304a5f526a7a18209576241ce520d",
+      "atom_id": "CA-E-444",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-QA_CASE--validate-project-specific-term-meaning.md",
+      "carrier_sha256": "33afa32da8e3334db17bbd7fb27ce6d3cafb8f99b12dd7bac8b1e036fb4b0ae5",
+      "start_line": 77,
+      "end_line": 77,
+      "quote": "record a Concern identifying the affected wording, defining Atom, conflicting use, direct Subject reference, **or** Catalog entry, together with its exact source occurrence **and** Revision. distinguish a failed index check from a faithfully reported failed **or** unresolved source condition; do **not** fabricate authority **to** make either pass.",
+      "text_sha256": "6437d654fbf0f3c15409c8d24e5c3da252e304a5f526a7a18209576241ce520d"
+    },
+    "CA-E-510@3:73-73:48baf483d2dfac3aa9614bd91867003827e49e824b7f103248e50d61511c72ad": {
+      "evidence_ref": "CA-E-510@3:73-73:48baf483d2dfac3aa9614bd91867003827e49e824b7f103248e50d61511c72ad",
+      "atom_id": "CA-E-510",
+      "atom_revision": 3,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+      "carrier_sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+      "start_line": 73,
+      "end_line": 73,
+      "quote": "- the check **must not** repair source Atoms, TOML, candidate values, **or** folders. report discrepancies as Concerns **and** request a decision **only** **when** governing authority does **not** settle the required selection.",
+      "text_sha256": "48baf483d2dfac3aa9614bd91867003827e49e824b7f103248e50d61511c72ad"
+    },
+    "CA-E-512@3:77-77:b76684f27dcf7b77f9c9d62ef6f8d50d99be93db9620dee51ec89e524d0ac3da": {
+      "evidence_ref": "CA-E-512@3:77-77:b76684f27dcf7b77f9c9d62ef6f8d50d99be93db9620dee51ec89e524d0ac3da",
+      "atom_id": "CA-E-512",
+      "atom_revision": 3,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-QA_CASE--validate-cce-lexical-case.md",
+      "carrier_sha256": "f4b1f457c746f09e73e68e784f552b45c2157b6587ea319ee8c0ca0f4a37202e",
+      "start_line": 77,
+      "end_line": 77,
+      "quote": "record a Concern naming the affected CCE Claim **and** incorrect token. checking **must not** rewrite the source Claim.",
+      "text_sha256": "b76684f27dcf7b77f9c9d62ef6f8d50d99be93db9620dee51ec89e524d0ac3da"
+    },
+    "CA-R-1022@15:29-29:2e1734a92b1694b07df78eef9164f24b47c5241b8bd7438db22d472df7fd35b2": {
+      "evidence_ref": "CA-R-1022@15:29-29:2e1734a92b1694b07df78eef9164f24b47c5241b8bd7438db22d472df7fd35b2",
+      "atom_id": "CA-R-1022",
+      "atom_revision": 15,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-CORE--register-concern-about-relation.md",
+      "carrier_sha256": "6c2e6e85899db0e6f35f609ff57a7e47977b7d126f29f130b1e123170b0bee5e",
+      "start_line": 29,
+      "end_line": 29,
+      "quote": "`concern_about` **must** be registered as a direct relation owned by a Concern Atom **and** directed **to** one Observation **or** other directly affected governed entity.",
+      "text_sha256": "2e1734a92b1694b07df78eef9164f24b47c5241b8bd7438db22d472df7fd35b2"
+    }
+  },
+  "nodes": [
+    {
+      "identity": "Change Content Roles",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R1549 defines CAPO as Concern, Analysis, Plan and Operations for identifying, investigating, organizing and performing governed work.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "CAPO names a set of four roles, not a second identity for any one member; no same-referent merge is evidenced.",
+          "evidence_refs": [
+            "CA-R-1549@4:33-33:131b44fa6486254964fcf2b1f77d1ed8427667b4fedd0841c9de8e86df01d6df"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "The named work-oriented role set supplies grouping meaning even though its members remain separate; redundancy is not established.",
+          "evidence_refs": [
+            "CA-R-1549@4:33-33:131b44fa6486254964fcf2b1f77d1ed8427667b4fedd0841c9de8e86df01d6df"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1549 defines CAPO as Concern, Analysis, Plan and Operations for identifying, investigating, organizing and performing governed work.",
+          "evidence_refs": [
+            "CA-R-1549@4:33-33:131b44fa6486254964fcf2b1f77d1ed8427667b4fedd0841c9de8e86df01d6df"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "The four-role change grouping is distinct from one Content Role value or an actual change execution.",
+          "evidence_refs": [
+            "CA-R-1549@4:33-33:131b44fa6486254964fcf2b1f77d1ed8427667b4fedd0841c9de8e86df01d6df"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No broader replacement is proposed: removing the set boundary would lose which roles this grouping includes.",
+          "evidence_refs": [
+            "CA-R-1549@4:33-33:131b44fa6486254964fcf2b1f77d1ed8427667b4fedd0841c9de8e86df01d6df"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1549@4:33-33:131b44fa6486254964fcf2b1f77d1ed8427667b4fedd0841c9de8e86df01d6df"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1549"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-D-285",
+        "CA-D-484",
+        "CA-E-498",
+        "CA-E-499",
+        "CA-R-1548",
+        "CA-R-1550",
+        "CA-R-1566",
+        "CA-R-1567",
+        "CA-R-1682",
+        "CA-R-1683"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "The four-role change grouping is distinct from one Content Role value or an actual change execution."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Check Atoms",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "O087 defines a read-only programmatic Action that selects and mechanically checks Atoms, returns validity/coverage findings and never repairs sources.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The checking Action is not its invoking Step, a checked Atom or a returned finding; no equivalence with those identities is stated.",
+          "evidence_refs": [
+            "CA-O-087@5:56-95:aa6de8aede337069c67a04956ed7e43b30cf9c07c0bf291ccec8db2a84b3bcb9"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Selection, unsupported-authority coverage and unchanged-source reporting are operative responsibilities, not an empty restatement.",
+          "evidence_refs": [
+            "CA-O-087@5:56-95:aa6de8aede337069c67a04956ed7e43b30cf9c07c0bf291ccec8db2a84b3bcb9"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "O087 defines a read-only programmatic Action that selects and mechanically checks Atoms, returns validity/coverage findings and never repairs sources.",
+          "evidence_refs": [
+            "CA-O-087@5:56-95:aa6de8aede337069c67a04956ed7e43b30cf9c07c0bf291ccec8db2a84b3bcb9"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Mechanical conformance assessment is explicitly distinct from semantic consistency review and mutation permission.",
+          "evidence_refs": [
+            "CA-O-087@5:56-95:aa6de8aede337069c67a04956ed7e43b30cf9c07c0bf291ccec8db2a84b3bcb9"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "A generic validation replacement would risk losing selection, budget, currentness and incomplete-result boundaries; none is proposed.",
+          "evidence_refs": [
+            "CA-O-087@5:56-95:aa6de8aede337069c67a04956ed7e43b30cf9c07c0bf291ccec8db2a84b3bcb9"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-087@5:56-95:aa6de8aede337069c67a04956ed7e43b30cf9c07c0bf291ccec8db2a84b3bcb9"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-087"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-O-088"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Mechanical conformance assessment is explicitly distinct from semantic consistency review and mutation permission."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Check Atoms Step",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "O088 defines the Workflow node invoking exactly one O087 Action with bound inventory, selector, methodology, reference context and limits.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Invocation of O087 does not make this Step identical to the reusable Action; the source preserves both references.",
+          "evidence_refs": [
+            "CA-O-088@3:30-33:ac1e1918892791dd8615c7c36218f85a0d30b6be8291849d664174746815d3cb"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Passing bound inputs without independent reselection and exposing the unchanged Action result gives this Step a specific orchestration use.",
+          "evidence_refs": [
+            "CA-O-088@3:30-33:ac1e1918892791dd8615c7c36218f85a0d30b6be8291849d664174746815d3cb"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "O088 defines the Workflow node invoking exactly one O087 Action with bound inventory, selector, methodology, reference context and limits.",
+          "evidence_refs": [
+            "CA-O-088@3:30-33:ac1e1918892791dd8615c7c36218f85a0d30b6be8291849d664174746815d3cb"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "The Step is an invocation node, not the Action definition, a Step Run or the check result.",
+          "evidence_refs": [
+            "CA-O-088@3:30-33:ac1e1918892791dd8615c7c36218f85a0d30b6be8291849d664174746815d3cb"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic Step substitution is proposed because it could erase the exact Action and input/result bindings.",
+          "evidence_refs": [
+            "CA-O-088@3:30-33:ac1e1918892791dd8615c7c36218f85a0d30b6be8291849d664174746815d3cb"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-088@3:30-33:ac1e1918892791dd8615c7c36218f85a0d30b6be8291849d664174746815d3cb"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-088"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-O-080"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "The Step is an invocation node, not the Action definition, a Step Run or the check result."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Child Composition",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R960 defines direct-child composition as none, LAYERS, FEATURES or MIXED.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "A direct-child classification is not the unit's own Type or a child identity; no same-referent equivalence is evidenced.",
+          "evidence_refs": [
+            "CA-R-960@14:30-30:84189dcf5683ceb46e40b942321bdc375da3bee06c073d57fa0250e685c90a17"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "The four alternatives preserve information about the direct children that a unit's own label alone does not supply.",
+          "evidence_refs": [
+            "CA-R-960@14:30-30:84189dcf5683ceb46e40b942321bdc375da3bee06c073d57fa0250e685c90a17"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R960 defines direct-child composition as none, LAYERS, FEATURES or MIXED.",
+          "evidence_refs": [
+            "CA-R-960@14:30-30:84189dcf5683ceb46e40b942321bdc375da3bee06c073d57fa0250e685c90a17"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "This classification concerns direct children, not recursive descendants or physical folder contents.",
+          "evidence_refs": [
+            "CA-R-960@14:30-30:84189dcf5683ceb46e40b942321bdc375da3bee06c073d57fa0250e685c90a17"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No broader structural grouping is proposed because it could erase directness and the four-way composition distinction.",
+          "evidence_refs": [
+            "CA-R-960@14:30-30:84189dcf5683ceb46e40b942321bdc375da3bee06c073d57fa0250e685c90a17"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-960@14:30-30:84189dcf5683ceb46e40b942321bdc375da3bee06c073d57fa0250e685c90a17"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-960"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-R-1762"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "This classification concerns direct children, not recursive descendants or physical folder contents."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Claim Value Set",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R1359 defines X: (A, B, C) as one finite unordered allowed-value set for exactly one Property, governed and retired together as one Claim.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "A set Claim is not one member value, its Property or a Subject Expression relation; no equivalence with them is stated.",
+          "evidence_refs": [
+            "CA-R-1359@9:32-32:371752b8fc04696bf9b3c524ce1cb9099dc4bf9798de6a05d1e7c99f9a4ab2e2"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Joint authority and lifecycle of all values are additional constraints, so repeated value labels do not establish redundancy.",
+          "evidence_refs": [
+            "CA-R-1359@9:32-32:371752b8fc04696bf9b3c524ce1cb9099dc4bf9798de6a05d1e7c99f9a4ab2e2"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1359 defines X: (A, B, C) as one finite unordered allowed-value set for exactly one Property, governed and retired together as one Claim.",
+          "evidence_refs": [
+            "CA-R-1359@9:32-32:371752b8fc04696bf9b3c524ce1cb9099dc4bf9798de6a05d1e7c99f9a4ab2e2"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "The whole allowed-value set has one authority/lifecycle and no authoritative value order.",
+          "evidence_refs": [
+            "CA-R-1359@9:32-32:371752b8fc04696bf9b3c524ce1cb9099dc4bf9798de6a05d1e7c99f9a4ab2e2"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "Generalizing to an arbitrary list would lose finiteness, uniqueness, one-Property and joint-lifecycle requirements; none is proposed.",
+          "evidence_refs": [
+            "CA-R-1359@9:32-32:371752b8fc04696bf9b3c524ce1cb9099dc4bf9798de6a05d1e7c99f9a4ab2e2"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1359@9:32-32:371752b8fc04696bf9b3c524ce1cb9099dc4bf9798de6a05d1e7c99f9a4ab2e2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1359"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-E-402",
+        "CA-E-403",
+        "CA-M-237",
+        "CA-R-1358"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "The whole allowed-value set has one authority/lifecycle and no authoritative value order."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Claim Value Set Authoring",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "M237 supplies the authoring procedure for a single-Property finite unordered unique value set with joint lifecycle and context-specific colon interpretation.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The authoring Method is not the resulting Claim Value Set or its validation Evaluation; no same-referent merge is supported.",
+          "evidence_refs": [
+            "CA-M-237@10:35-41:d85e892c62530d148469e66b34efafe7c14ed5cbeff49d5638718e5e08c91799"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Its required authoring decisions and Claim-versus-Subject colon distinction provide an independent procedural use.",
+          "evidence_refs": [
+            "CA-M-237@10:35-41:d85e892c62530d148469e66b34efafe7c14ed5cbeff49d5638718e5e08c91799"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "M237 supplies the authoring procedure for a single-Property finite unordered unique value set with joint lifecycle and context-specific colon interpretation.",
+          "evidence_refs": [
+            "CA-M-237@10:35-41:d85e892c62530d148469e66b34efafe7c14ed5cbeff49d5638718e5e08c91799"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Colon inside a Claim is value-set syntax; only a Subject Expression uses it as IS_ALLOWED_VALUE_OF.",
+          "evidence_refs": [
+            "CA-M-237@10:35-41:d85e892c62530d148469e66b34efafe7c14ed5cbeff49d5638718e5e08c91799"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic list-authoring replacement is proposed because it would lose joint authority/lifecycle and the syntax-context distinction.",
+          "evidence_refs": [
+            "CA-M-237@10:35-41:d85e892c62530d148469e66b34efafe7c14ed5cbeff49d5638718e5e08c91799"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-M-237@10:35-41:d85e892c62530d148469e66b34efafe7c14ed5cbeff49d5638718e5e08c91799"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-237"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Colon inside a Claim is value-set syntax; only a Subject Expression uses it as IS_ALLOWED_VALUE_OF."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Claim Value Set Consolidation Candidate Evaluation",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "E403 limits a mechanical consolidation candidate to exact matching scope, Subject, target, qualifiers and Property, differing only by a proven allowed value.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Reporting a candidate is not consolidation itself, Claim Value Set validation or methodology compilation.",
+          "evidence_refs": [
+            "CA-E-403@12:37-37:6fe34605ba104f54239a182fe29c071077568ccc95dece8fcbefb19a3183e562"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "The cross-Atom equality and single-value gates supply a distinct candidate-screening responsibility.",
+          "evidence_refs": [
+            "CA-E-403@12:37-37:6fe34605ba104f54239a182fe29c071077568ccc95dece8fcbefb19a3183e562"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "E403 limits a mechanical consolidation candidate to exact matching scope, Subject, target, qualifiers and Property, differing only by a proven allowed value.",
+          "evidence_refs": [
+            "CA-E-403@12:37-37:6fe34605ba104f54239a182fe29c071077568ccc95dece8fcbefb19a3183e562"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "The Evaluation cannot mutate, merge or compile authority and cannot use semantic/LLM inference to supply missing equivalence.",
+          "evidence_refs": [
+            "CA-E-403@12:37-37:6fe34605ba104f54239a182fe29c071077568ccc95dece8fcbefb19a3183e562"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic merge Evaluation replacement is proposed because it could discard exact-context equality and no-mutation boundaries.",
+          "evidence_refs": [
+            "CA-E-403@12:37-37:6fe34605ba104f54239a182fe29c071077568ccc95dece8fcbefb19a3183e562"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-E-403@12:37-37:6fe34605ba104f54239a182fe29c071077568ccc95dece8fcbefb19a3183e562"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-403"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "The Evaluation cannot mutate, merge or compile authority and cannot use semantic/LLM inference to supply missing equivalence."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Claim Value Set Validation",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "E402 specifies rejection of invalid Property count, empty/duplicate/noncanonical values, ordered/nonfinite semantics and independent value lifecycle.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Checking one value-set Claim is not authoring it or evaluating a multi-Atom consolidation candidate.",
+          "evidence_refs": [
+            "CA-E-402@10:36-36:4e4063ce276d711130d72c253edc8b4e5679b2be16ddcb681260da2516e1e26d"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "The explicit falsifying conditions provide a testable purpose; no redundancy conclusion follows from the shared Value Set wording.",
+          "evidence_refs": [
+            "CA-E-402@10:36-36:4e4063ce276d711130d72c253edc8b4e5679b2be16ddcb681260da2516e1e26d"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "E402 specifies rejection of invalid Property count, empty/duplicate/noncanonical values, ordered/nonfinite semantics and independent value lifecycle.",
+          "evidence_refs": [
+            "CA-E-402@10:36-36:4e4063ce276d711130d72c253edc8b4e5679b2be16ddcb681260da2516e1e26d"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Validation preserves allowed-by-Property and all-values-together semantics and rejects Subject colon parsing in a Claim.",
+          "evidence_refs": [
+            "CA-E-402@10:36-36:4e4063ce276d711130d72c253edc8b4e5679b2be16ddcb681260da2516e1e26d"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No general validation replacement is proposed because it could erase the exact value-set failure conditions.",
+          "evidence_refs": [
+            "CA-E-402@10:36-36:4e4063ce276d711130d72c253edc8b4e5679b2be16ddcb681260da2516e1e26d"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-E-402@10:36-36:4e4063ce276d711130d72c253edc8b4e5679b2be16ddcb681260da2516e1e26d"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-402"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Validation preserves allowed-by-Property and all-values-together semantics and rejects Subject colon parsing in a Claim."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Compatible Lineage Impact Disposition",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R1033 defines compatible as child validity against the parent Revision required by the gate, stopping traversal without a child update.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Compatibility is not merely permission to consume an earlier pinned parent; the clause expressly distinguishes those states.",
+          "evidence_refs": [
+            "CA-R-1033@15:29-29:70f9d9976c610075f39c8a079039afbe0d1a57a96cfea82b5831bdbf7d38461b"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "The gate-relative validity and stop-traversal decision provide an operative lineage disposition.",
+          "evidence_refs": [
+            "CA-R-1033@15:29-29:70f9d9976c610075f39c8a079039afbe0d1a57a96cfea82b5831bdbf7d38461b"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1033 defines compatible as child validity against the parent Revision required by the gate, stopping traversal without a child update.",
+          "evidence_refs": [
+            "CA-R-1033@15:29-29:70f9d9976c610075f39c8a079039afbe0d1a57a96cfea82b5831bdbf7d38461b"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "When the gate requires a revised parent, compatibility must be proved against that Revision, not an earlier permitted one.",
+          "evidence_refs": [
+            "CA-R-1033@15:29-29:70f9d9976c610075f39c8a079039afbe0d1a57a96cfea82b5831bdbf7d38461b"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic unchanged/valid label replaces this identity because that could lose gate-relative Revision and traversal behavior.",
+          "evidence_refs": [
+            "CA-R-1033@15:29-29:70f9d9976c610075f39c8a079039afbe0d1a57a96cfea82b5831bdbf7d38461b"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1033@15:29-29:70f9d9976c610075f39c8a079039afbe0d1a57a96cfea82b5831bdbf7d38461b"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1033"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "When the gate requires a revised parent, compatibility must be proved against that Revision, not an earlier permitted one."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Composite Claim",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R1270 requires a logically composite Claim to remain one Claim when every component must be accepted, replaced and retired together.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Multiple components do not prove multiple Claim identities; no independent component equivalence or merge is inferred.",
+          "evidence_refs": [
+            "CA-R-1270@11:28-28:f038a2039d08186053c658303b3b56befa59d8607c9fdea48769d4e40f7b802e"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "The indivisible authority/lifecycle condition provides meaning beyond textual sentence or component count.",
+          "evidence_refs": [
+            "CA-R-1270@11:28-28:f038a2039d08186053c658303b3b56befa59d8607c9fdea48769d4e40f7b802e"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1270 requires a logically composite Claim to remain one Claim when every component must be accepted, replaced and retired together.",
+          "evidence_refs": [
+            "CA-R-1270@11:28-28:f038a2039d08186053c658303b3b56befa59d8607c9fdea48769d4e40f7b802e"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Logical composition and independently replaceable authority units are distinct; this clause does not split by prose layout.",
+          "evidence_refs": [
+            "CA-R-1270@11:28-28:f038a2039d08186053c658303b3b56befa59d8607c9fdea48769d4e40f7b802e"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic collection replacement is proposed because it could lose the together-lifecycle criterion.",
+          "evidence_refs": [
+            "CA-R-1270@11:28-28:f038a2039d08186053c658303b3b56befa59d8607c9fdea48769d4e40f7b802e"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1270@11:28-28:f038a2039d08186053c658303b3b56befa59d8607c9fdea48769d4e40f7b802e"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1270"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Logical composition and independently replaceable authority units are distinct; this clause does not split by prose layout."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Concern",
+      "disposition": "question",
+      "confidence_percent": 0,
+      "reason": "The five assigned captured Evaluations were checked. Their failure dispositions require Concerns naming affected facts, but none fixes the generic Concern identity's defining boundary.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Failure-report uses do not establish Concern as the same referent as an Atom, finding or report; duplication remains unproved.",
+          "evidence_refs": [
+            "CA-E-246@25:68-68:b46ceb27e8946eef1cc5d593d8e489a2a9ae5249d99ba090c4f30135f4f64d5d",
+            "CA-E-246@25:98-98:7ee9deddf89bb81ac30b2f6ab5123380c24dc25552015bababdbd8090524934b",
+            "CA-E-444@12:77-77:6437d654fbf0f3c15409c8d24e5c3da252e304a5f526a7a18209576241ce520d",
+            "CA-E-510@3:73-73:48baf483d2dfac3aa9614bd91867003827e49e824b7f103248e50d61511c72ad",
+            "CA-E-512@3:77-77:b76684f27dcf7b77f9c9d62ef6f8d50d99be93db9620dee51ec89e524d0ac3da"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Concern is used to record affected references and discrepancies; lack of a generic definition is not proof that this reporting use is redundant.",
+          "evidence_refs": [
+            "CA-E-246@25:68-68:b46ceb27e8946eef1cc5d593d8e489a2a9ae5249d99ba090c4f30135f4f64d5d",
+            "CA-E-246@25:98-98:7ee9deddf89bb81ac30b2f6ab5123380c24dc25552015bababdbd8090524934b",
+            "CA-E-444@12:77-77:6437d654fbf0f3c15409c8d24e5c3da252e304a5f526a7a18209576241ce520d",
+            "CA-E-510@3:73-73:48baf483d2dfac3aa9614bd91867003827e49e824b7f103248e50d61511c72ad",
+            "CA-E-512@3:77-77:b76684f27dcf7b77f9c9d62ef6f8d50d99be93db9620dee51ec89e524d0ac3da"
+          ]
+        },
+        "empty_definition": {
+          "finding": "reporting_use_evidenced_definition_boundary_unresolved",
+          "reason": "The five assigned captured Evaluations were checked. Their failure dispositions require Concerns naming affected facts, but none fixes the generic Concern identity's defining boundary.",
+          "evidence_refs": [
+            "CA-E-246@25:68-68:b46ceb27e8946eef1cc5d593d8e489a2a9ae5249d99ba090c4f30135f4f64d5d",
+            "CA-E-246@25:98-98:7ee9deddf89bb81ac30b2f6ab5123380c24dc25552015bababdbd8090524934b",
+            "CA-E-444@12:77-77:6437d654fbf0f3c15409c8d24e5c3da252e304a5f526a7a18209576241ce520d",
+            "CA-E-510@3:73-73:48baf483d2dfac3aa9614bd91867003827e49e824b7f103248e50d61511c72ad",
+            "CA-E-512@3:77-77:b76684f27dcf7b77f9c9d62ef6f8d50d99be93db9620dee51ec89e524d0ac3da"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "generic_identity_boundary_unresolved",
+          "reason": "E246's main rule defines Atom Subject coverage, not Concern. Failure-report use is evidenced, but Concern-versus-Concern-Atom/record meaning remains unresolved.",
+          "evidence_refs": [
+            "CA-E-246@25:68-68:b46ceb27e8946eef1cc5d593d8e489a2a9ae5249d99ba090c4f30135f4f64d5d",
+            "CA-E-246@25:98-98:7ee9deddf89bb81ac30b2f6ab5123380c24dc25552015bababdbd8090524934b",
+            "CA-E-444@12:77-77:6437d654fbf0f3c15409c8d24e5c3da252e304a5f526a7a18209576241ce520d",
+            "CA-E-510@3:73-73:48baf483d2dfac3aa9614bd91867003827e49e824b7f103248e50d61511c72ad",
+            "CA-E-512@3:77-77:b76684f27dcf7b77f9c9d62ef6f8d50d99be93db9620dee51ec89e524d0ac3da"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No broader replacement is proposed because neither an identity equivalence nor loss-preserving mapping is established.",
+          "evidence_refs": [
+            "CA-E-246@25:68-68:b46ceb27e8946eef1cc5d593d8e489a2a9ae5249d99ba090c4f30135f4f64d5d",
+            "CA-E-246@25:98-98:7ee9deddf89bb81ac30b2f6ab5123380c24dc25552015bababdbd8090524934b",
+            "CA-E-444@12:77-77:6437d654fbf0f3c15409c8d24e5c3da252e304a5f526a7a18209576241ce520d",
+            "CA-E-510@3:73-73:48baf483d2dfac3aa9614bd91867003827e49e824b7f103248e50d61511c72ad",
+            "CA-E-512@3:77-77:b76684f27dcf7b77f9c9d62ef6f8d50d99be93db9620dee51ec89e524d0ac3da"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-E-246@25:68-68:b46ceb27e8946eef1cc5d593d8e489a2a9ae5249d99ba090c4f30135f4f64d5d",
+        "CA-E-246@25:98-98:7ee9deddf89bb81ac30b2f6ab5123380c24dc25552015bababdbd8090524934b",
+        "CA-E-444@12:77-77:6437d654fbf0f3c15409c8d24e5c3da252e304a5f526a7a18209576241ce520d",
+        "CA-E-510@3:73-73:48baf483d2dfac3aa9614bd91867003827e49e824b7f103248e50d61511c72ad",
+        "CA-E-512@3:77-77:b76684f27dcf7b77f9c9d62ef6f8d50d99be93db9620dee51ec89e524d0ac3da"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-246",
+        "CA-E-443",
+        "CA-E-444",
+        "CA-E-510",
+        "CA-E-512"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": null,
+      "question": "Which captured defining statement fixes whether generic Concern denotes the issue, its governed Atom, or the recorded diagnostic invoked by these failure dispositions? The observed reporting use is preserved meanwhile."
+    },
+    {
+      "identity": "Concern About Relation",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R1022 registers concern_about as a direct relation owned by a Concern Atom and directed to an Observation or directly affected governed entity.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The relation is not its Concern owner or affected target; no same-referent equivalence is stated.",
+          "evidence_refs": [
+            "CA-R-1022@15:29-29:2e1734a92b1694b07df78eef9164f24b47c5241b8bd7438db22d472df7fd35b2"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Its declared owner, direction and target class provide relation-specific meaning beyond a repeated Concern label.",
+          "evidence_refs": [
+            "CA-R-1022@15:29-29:2e1734a92b1694b07df78eef9164f24b47c5241b8bd7438db22d472df7fd35b2"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1022 registers concern_about as a direct relation owned by a Concern Atom and directed to an Observation or directly affected governed entity.",
+          "evidence_refs": [
+            "CA-R-1022@15:29-29:2e1734a92b1694b07df78eef9164f24b47c5241b8bd7438db22d472df7fd35b2"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Ownership by Concern and direction toward the affected entity are preserved; no inverse or native fact is emitted here.",
+          "evidence_refs": [
+            "CA-R-1022@15:29-29:2e1734a92b1694b07df78eef9164f24b47c5241b8bd7438db22d472df7fd35b2"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic dependency replacement is proposed because it could change owning graph/direction and affected-target meaning.",
+          "evidence_refs": [
+            "CA-R-1022@15:29-29:2e1734a92b1694b07df78eef9164f24b47c5241b8bd7438db22d472df7fd35b2"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1022@15:29-29:2e1734a92b1694b07df78eef9164f24b47c5241b8bd7438db22d472df7fd35b2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1022"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Ownership by Concern and direction toward the affected entity are preserved; no inverse or native fact is emitted here."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    }
+  ],
+  "source_context": "captured_snapshot",
+  "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "semantic_review_receipt": {
+    "kind": "individual_meaning_review_not_native_admission",
+    "source_reader": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/support/snapshot_sources.py",
+      "sha256": "0a0078a6b8e25f4c2e52216bd78705a2e67537e5a89963ea478379ed35c932ea"
+    },
+    "producer": {
+      "path": ".caprmedio_tmp/planning/core-entity-review/nodes/repair_meaning_1943_1948.py",
+      "sha256": "aa5e8f1ae30d9cafdb0fe1d8e91c5e142974aa3fea57cc0c0a5ceef4a9c445f3"
+    },
+    "source_context": "captured_snapshot",
+    "current_core_claimed": false,
+    "source_candidates_scope": "original assigned slice source pool; cross-row support is explicit",
+    "scope": "Preserved display identities and bounded meanings; no universal duplicate/redundancy, native Entity/relation admission, source adoption or Subject migration."
+  }
+}

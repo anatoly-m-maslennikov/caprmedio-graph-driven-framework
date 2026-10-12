@@ -1,0 +1,714 @@
+{
+  "source_task": "CA-P-1944",
+  "batch": 3,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "input_file_sha256": "04ebbe8e48f643c88662e73384dc4a69eba155ede76fe7fe575bf1d159ec228b",
+  "partition_sha256": "a6e267810ff577bffdc2142c0c20ac75f31ba0900728d85333ec2e6c57f09806",
+  "non_authoritative": true,
+  "semantic_admission": "not_performed",
+  "source_migration": "not_performed",
+  "source_context": "captured_snapshot",
+  "captured_git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "current_core_claimed": false,
+  "snapshot_verification": {
+    "source_context": "captured_snapshot",
+    "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "source_pins_checked": 951,
+    "verification": "pass",
+    "current_core_claimed": false
+  },
+  "parent_input": {
+    "partition_sha256": "88beafef8f20de3b26f0f0c199ada28138d266688d648f3170b036c5cb8cc913",
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-3.input.json",
+    "sha256": "dd32659d557158390a52c869c87afbc5c28757f7bcb73a0c5f39a2d2d4c4dc3a"
+  },
+  "subset_indexes": [
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79
+  ],
+  "scope_omission_operator_direction": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/scope.omission.decision.md",
+    "sha256": "d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453",
+    "used_as_core_evidence": false,
+    "note": "Recorded as an Operator candidate direction only; it does not supply a Core definition or migration approval."
+  },
+  "evidence_catalogue": {
+    "CA-R-1581-30": {
+      "evidence_ref": "CA-R-1581-30",
+      "atom_id": "CA-R-1581",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1581-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-definition-of-done.md",
+      "carrier_sha256": "ab567f74bd096a53d268c732be9157bf06ba194bbbc0c5c197f6cdec166cd4cf",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "a Plan Definition of Done **means** **=1** falsifying Condition Expression, atomic **or** explicitly composite, that evaluates the Plan Claim within its resolved Claim restrictions **and** target.",
+      "text_sha256": "ce551d5ecab9c2982a8b74c735fa4520af9a11d5abd7fd2aee40516608274c3b"
+    },
+    "CA-R-1427-27": {
+      "evidence_ref": "CA-R-1427-27",
+      "atom_id": "CA-R-1427",
+      "atom_revision": 7,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1427-CORE_META_MODEL-CORE--define-confidence-threshold.md",
+      "carrier_sha256": "347fc5921d406adf14de0dcc680f41861c8bb19f416e4002f272fa6876241e7a",
+      "start_line": 27,
+      "end_line": 27,
+      "quote": "a Confidence Threshold **means** the minimum integer confidence percentage required for a specified decision **or** action **in** its applicable context.",
+      "text_sha256": "3e90dfccc1f98eedb8fd9a73f58d745f4b27794734d037f303f3002b13647b56"
+    },
+    "CA-M-271-33": {
+      "evidence_ref": "CA-M-271-33",
+      "atom_id": "CA-M-271",
+      "atom_revision": 8,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-METHOD--resolve-confidence-thresholds-by-source-precedence.md",
+      "carrier_sha256": "1a8af9646ed7959358cfc6e67c77a3efabc242f989719fa9e8ce8fd81ecda79b",
+      "start_line": 33,
+      "end_line": 33,
+      "quote": "**to** resolve an effective Confidence Threshold, select the first applicable explicit source **in** this precedence:",
+      "text_sha256": "bb744f9ff5d5e4f5ac08d474b4d001ef6174b04a22f6140b293463f058eb2778"
+    },
+    "CA-E-443-37": {
+      "evidence_ref": "CA-E-443-37",
+      "atom_id": "CA-E-443",
+      "atom_revision": 10,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-QA_CASE--validate-confidence-threshold-precedence-and-inheritance.md",
+      "carrier_sha256": "46d0dd92027080aced49be321e800f842bb2f5e4a3d42262910b82399e3ef970",
+      "start_line": 37,
+      "end_line": 37,
+      "quote": "the confidence-threshold Evaluation **must** preserve CA-M-271-CORE_META_MODEL-METHOD--resolve-confidence-thresholds-by-source-precedence precedence **and** CA-R-1591-CORE_META_MODEL-GENERAL-REQUIREMENT--apply-autonomous-confidence-thresholds-to-plan-execution authorization gates.",
+      "text_sha256": "da7eaf9d4e31868130e1d2223b8f6068b14ae671a924ea87f5e020b93f786566"
+    },
+    "CA-R-1428-35": {
+      "evidence_ref": "CA-R-1428-35",
+      "atom_id": "CA-R-1428",
+      "atom_revision": 9,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md",
+      "carrier_sha256": "8bf145b5175d143954ac403bb11247fc8d2a74168881ed607260b1fb66c2c075",
+      "start_line": 35,
+      "end_line": 35,
+      "quote": "a Confidence Threshold **must** take its value from applicable direct Operator input, an explicit Property on the current Plan, the nearest enclosing Hub Plan with an explicit Property, **or** the Framework Instance Settings default; the Hub chain follows `IS_DECOMPOSITION_OF`, **not** Label spelling.",
+      "text_sha256": "6481f25faf5b385c05da884e71712350b8db9dcbc096631341e6ee1e9e48dcd8"
+    },
+    "CA-R-1724-30": {
+      "evidence_ref": "CA-R-1724-30",
+      "atom_id": "CA-R-1724",
+      "atom_revision": 21,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+      "carrier_sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "the Framework Instance Settings Artifact **may** select, combine, parameterize, activate **in** foreground **or** background, **or** disable available Tools **and** Extensions **and** **must** resolve composition precedence explicitly **without** changing **any** selected capability's governed meaning. installation establishes availability, **not** activation: an installed Extension **may** remain disabled, **and** its retained settings do **not** enable it **unless** the Framework Instance Settings Artifact explicitly does so. the Framework Instance Settings Artifact **must** own the current activation selection **and** selected revision of **every** selected Extension.",
+      "text_sha256": "57c868e63d1ad4cd28395980887d74d87593e8ff64b0a3ca06ea7adcaa24b9c5"
+    },
+    "CA-O-134-25": {
+      "evidence_ref": "CA-O-134-25",
+      "atom_id": "CA-O-134",
+      "atom_revision": 3,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md",
+      "carrier_sha256": "8a3dcb7cfdb3369ec268726cc54f3f0e0c1bfbc947841792deb87bb844245414",
+      "start_line": 25,
+      "end_line": 25,
+      "quote": "Construct Entities Graph Projection **means** the Action that constructs **or** confirms the requested derived Entities Graph from its bound current authoritative Entity declarations, Properties **and** admitted source facts. one selected graph construction is the responsibility; source correction, graph-model admission **and** unrelated graph generation are separate responsibilities.",
+      "text_sha256": "97d260ab5f6f18e3faa73f55c84ee26346ff366d581fd90802655d9100448d44"
+    },
+    "CA-O-137-25": {
+      "evidence_ref": "CA-O-137-25",
+      "atom_id": "CA-O-137",
+      "atom_revision": 3,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
+      "carrier_sha256": "8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd",
+      "start_line": 25,
+      "end_line": 25,
+      "quote": "Construct Terms Graph Projection **means** the Action that constructs **or** confirms the requested derived Terms Graph from its bound current Term authority **and** admitted Relation declarations. one selected graph construction is the responsibility; vocabulary admission, source correction **and** unrelated graph generation are separate responsibilities.",
+      "text_sha256": "a60804ad7aa3f6ebb1ea81f79b62df228a5c52eb9297a531d52fd83a7d241447"
+    },
+    "CA-R-951-30": {
+      "evidence_ref": "CA-R-951-30",
+      "atom_id": "CA-R-951",
+      "atom_revision": 17,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+      "carrier_sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "a Consumer Scope Unit **must** own a Demand Atom **only** **when** its accepted Goal authorizes an exact dependency on the demanded Producer result.",
+      "text_sha256": "faa2a37d3d6d0c2914112b4d7e263af8c1da7c2068e28f40d1f88744463d8b5c"
+    }
+  },
+  "nodes": [
+    {
+      "identity": "Condition Expression",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the falsifying condition used to evaluate a Plan Definition of Done; retain without semantic admission, source migration, or a replacement proposal.",
+      "checks": {
+        "duplicates": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Condition Expression a bounded meaning: the falsifying condition used to evaluate a Plan Definition of Done. The checked candidate sources do not establish a same-meaning duplicate or merge target.",
+          "evidence_refs": [
+            "CA-R-1581-30"
+          ]
+        },
+        "redundancy": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Condition Expression a bounded meaning: the falsifying condition used to evaluate a Plan Definition of Done. No supported replacement or removal basis is present in the checked captured evidence.",
+          "evidence_refs": [
+            "CA-R-1581-30"
+          ]
+        },
+        "empty_definition": {
+          "finding": "not-empty",
+          "reason": "Captured defining Main Content gives Condition Expression a bounded meaning: the falsifying condition used to evaluate a Plan Definition of Done.",
+          "evidence_refs": [
+            "CA-R-1581-30"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "supported",
+          "reason": "Captured defining Main Content gives Condition Expression a bounded meaning: the falsifying condition used to evaluate a Plan Definition of Done.",
+          "evidence_refs": [
+            "CA-R-1581-30"
+          ]
+        },
+        "generalization": {
+          "finding": "not-proposed",
+          "reason": "Captured defining Main Content gives Condition Expression a bounded meaning: the falsifying condition used to evaluate a Plan Definition of Done. The review proposes no broader identity, native subtype, or relation from display nesting.",
+          "evidence_refs": [
+            "CA-R-1581-30"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1581-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-312",
+        "CA-R-1581"
+      ],
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null
+    },
+    {
+      "identity": "Confidence Threshold",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the minimum integer confidence percentage for a specified decision or action; retain without semantic admission, source migration, or a replacement proposal.",
+      "checks": {
+        "duplicates": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Confidence Threshold a bounded meaning: the minimum integer confidence percentage for a specified decision or action. The checked candidate sources do not establish a same-meaning duplicate or merge target.",
+          "evidence_refs": [
+            "CA-R-1427-27"
+          ]
+        },
+        "redundancy": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Confidence Threshold a bounded meaning: the minimum integer confidence percentage for a specified decision or action. No supported replacement or removal basis is present in the checked captured evidence.",
+          "evidence_refs": [
+            "CA-R-1427-27"
+          ]
+        },
+        "empty_definition": {
+          "finding": "not-empty",
+          "reason": "Captured defining Main Content gives Confidence Threshold a bounded meaning: the minimum integer confidence percentage for a specified decision or action.",
+          "evidence_refs": [
+            "CA-R-1427-27"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "supported",
+          "reason": "Captured defining Main Content gives Confidence Threshold a bounded meaning: the minimum integer confidence percentage for a specified decision or action.",
+          "evidence_refs": [
+            "CA-R-1427-27"
+          ]
+        },
+        "generalization": {
+          "finding": "not-proposed",
+          "reason": "Captured defining Main Content gives Confidence Threshold a bounded meaning: the minimum integer confidence percentage for a specified decision or action. The review proposes no broader identity, native subtype, or relation from display nesting.",
+          "evidence_refs": [
+            "CA-R-1427-27"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1427-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-368",
+        "CA-D-369",
+        "CA-E-241",
+        "CA-E-443",
+        "CA-E-448",
+        "CA-M-271",
+        "CA-M-276",
+        "CA-O-053",
+        "CA-R-1044",
+        "CA-R-1427",
+        "CA-R-1428",
+        "CA-R-1555",
+        "CA-R-1652",
+        "CA-R-380"
+      ],
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null
+    },
+    {
+      "identity": "Confidence Threshold/resolution",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the ordered selection of an effective Confidence Threshold source; retain without semantic admission, source migration, or a replacement proposal.",
+      "checks": {
+        "duplicates": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Confidence Threshold/resolution a bounded meaning: the ordered selection of an effective Confidence Threshold source. The checked candidate sources do not establish a same-meaning duplicate or merge target.",
+          "evidence_refs": [
+            "CA-M-271-33"
+          ]
+        },
+        "redundancy": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Confidence Threshold/resolution a bounded meaning: the ordered selection of an effective Confidence Threshold source. No supported replacement or removal basis is present in the checked captured evidence.",
+          "evidence_refs": [
+            "CA-M-271-33"
+          ]
+        },
+        "empty_definition": {
+          "finding": "not-empty",
+          "reason": "Captured defining Main Content gives Confidence Threshold/resolution a bounded meaning: the ordered selection of an effective Confidence Threshold source.",
+          "evidence_refs": [
+            "CA-M-271-33"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "supported",
+          "reason": "Captured defining Main Content gives Confidence Threshold/resolution a bounded meaning: the ordered selection of an effective Confidence Threshold source.",
+          "evidence_refs": [
+            "CA-M-271-33"
+          ]
+        },
+        "generalization": {
+          "finding": "not-proposed",
+          "reason": "Captured defining Main Content gives Confidence Threshold/resolution a bounded meaning: the ordered selection of an effective Confidence Threshold source. The review proposes no broader identity, native subtype, or relation from display nesting.",
+          "evidence_refs": [
+            "CA-M-271-33"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-M-271-33"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-271"
+      ],
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null
+    },
+    {
+      "identity": "Confidence Threshold/resolution validation",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports evaluation of threshold-source precedence together with authorization gates; retain without semantic admission, source migration, or a replacement proposal.",
+      "checks": {
+        "duplicates": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Confidence Threshold/resolution validation a bounded meaning: evaluation of threshold-source precedence together with authorization gates. The checked candidate sources do not establish a same-meaning duplicate or merge target.",
+          "evidence_refs": [
+            "CA-E-443-37"
+          ]
+        },
+        "redundancy": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Confidence Threshold/resolution validation a bounded meaning: evaluation of threshold-source precedence together with authorization gates. No supported replacement or removal basis is present in the checked captured evidence.",
+          "evidence_refs": [
+            "CA-E-443-37"
+          ]
+        },
+        "empty_definition": {
+          "finding": "not-empty",
+          "reason": "Captured defining Main Content gives Confidence Threshold/resolution validation a bounded meaning: evaluation of threshold-source precedence together with authorization gates.",
+          "evidence_refs": [
+            "CA-E-443-37"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "supported",
+          "reason": "Captured defining Main Content gives Confidence Threshold/resolution validation a bounded meaning: evaluation of threshold-source precedence together with authorization gates.",
+          "evidence_refs": [
+            "CA-E-443-37"
+          ]
+        },
+        "generalization": {
+          "finding": "not-proposed",
+          "reason": "Captured defining Main Content gives Confidence Threshold/resolution validation a bounded meaning: evaluation of threshold-source precedence together with authorization gates. The review proposes no broader identity, native subtype, or relation from display nesting.",
+          "evidence_refs": [
+            "CA-E-443-37"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-E-443-37"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-443"
+      ],
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null
+    },
+    {
+      "identity": "Confidence Threshold/source",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the admissible source chain for a Confidence Threshold value; retain without semantic admission, source migration, or a replacement proposal.",
+      "checks": {
+        "duplicates": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Confidence Threshold/source a bounded meaning: the admissible source chain for a Confidence Threshold value. The checked candidate sources do not establish a same-meaning duplicate or merge target.",
+          "evidence_refs": [
+            "CA-R-1428-35"
+          ]
+        },
+        "redundancy": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Confidence Threshold/source a bounded meaning: the admissible source chain for a Confidence Threshold value. No supported replacement or removal basis is present in the checked captured evidence.",
+          "evidence_refs": [
+            "CA-R-1428-35"
+          ]
+        },
+        "empty_definition": {
+          "finding": "not-empty",
+          "reason": "Captured defining Main Content gives Confidence Threshold/source a bounded meaning: the admissible source chain for a Confidence Threshold value.",
+          "evidence_refs": [
+            "CA-R-1428-35"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "supported",
+          "reason": "Captured defining Main Content gives Confidence Threshold/source a bounded meaning: the admissible source chain for a Confidence Threshold value.",
+          "evidence_refs": [
+            "CA-R-1428-35"
+          ]
+        },
+        "generalization": {
+          "finding": "not-proposed",
+          "reason": "Captured defining Main Content gives Confidence Threshold/source a bounded meaning: the admissible source chain for a Confidence Threshold value. The review proposes no broader identity, native subtype, or relation from display nesting.",
+          "evidence_refs": [
+            "CA-R-1428-35"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1428-35"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1428"
+      ],
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null
+    },
+    {
+      "identity": "Configuration Selection and Precedence",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports Framework Instance Settings selection, activation, and explicit composition precedence; retain without semantic admission, source migration, or a replacement proposal.",
+      "checks": {
+        "duplicates": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Configuration Selection and Precedence a bounded meaning: Framework Instance Settings selection, activation, and explicit composition precedence. The checked candidate sources do not establish a same-meaning duplicate or merge target.",
+          "evidence_refs": [
+            "CA-R-1724-30"
+          ]
+        },
+        "redundancy": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Configuration Selection and Precedence a bounded meaning: Framework Instance Settings selection, activation, and explicit composition precedence. No supported replacement or removal basis is present in the checked captured evidence.",
+          "evidence_refs": [
+            "CA-R-1724-30"
+          ]
+        },
+        "empty_definition": {
+          "finding": "not-empty",
+          "reason": "Captured defining Main Content gives Configuration Selection and Precedence a bounded meaning: Framework Instance Settings selection, activation, and explicit composition precedence.",
+          "evidence_refs": [
+            "CA-R-1724-30"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "supported",
+          "reason": "Captured defining Main Content gives Configuration Selection and Precedence a bounded meaning: Framework Instance Settings selection, activation, and explicit composition precedence.",
+          "evidence_refs": [
+            "CA-R-1724-30"
+          ]
+        },
+        "generalization": {
+          "finding": "not-proposed",
+          "reason": "Captured defining Main Content gives Configuration Selection and Precedence a bounded meaning: Framework Instance Settings selection, activation, and explicit composition precedence. The review proposes no broader identity, native subtype, or relation from display nesting.",
+          "evidence_refs": [
+            "CA-R-1724-30"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1724-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1724"
+      ],
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null
+    },
+    {
+      "identity": "Construct Entities Graph Projection",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the bounded Action that constructs or confirms the selected derived Entities Graph; retain without semantic admission, source migration, or a replacement proposal.",
+      "checks": {
+        "duplicates": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Construct Entities Graph Projection a bounded meaning: the bounded Action that constructs or confirms the selected derived Entities Graph. The checked candidate sources do not establish a same-meaning duplicate or merge target.",
+          "evidence_refs": [
+            "CA-O-134-25"
+          ]
+        },
+        "redundancy": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Construct Entities Graph Projection a bounded meaning: the bounded Action that constructs or confirms the selected derived Entities Graph. No supported replacement or removal basis is present in the checked captured evidence.",
+          "evidence_refs": [
+            "CA-O-134-25"
+          ]
+        },
+        "empty_definition": {
+          "finding": "not-empty",
+          "reason": "Captured defining Main Content gives Construct Entities Graph Projection a bounded meaning: the bounded Action that constructs or confirms the selected derived Entities Graph.",
+          "evidence_refs": [
+            "CA-O-134-25"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "supported",
+          "reason": "Captured defining Main Content gives Construct Entities Graph Projection a bounded meaning: the bounded Action that constructs or confirms the selected derived Entities Graph.",
+          "evidence_refs": [
+            "CA-O-134-25"
+          ]
+        },
+        "generalization": {
+          "finding": "not-proposed",
+          "reason": "Captured defining Main Content gives Construct Entities Graph Projection a bounded meaning: the bounded Action that constructs or confirms the selected derived Entities Graph. The review proposes no broader identity, native subtype, or relation from display nesting.",
+          "evidence_refs": [
+            "CA-O-134-25"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-134-25"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-134"
+      ],
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null
+    },
+    {
+      "identity": "Construct Terms Graph Projection",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the bounded Action that constructs or confirms the selected derived Terms Graph; retain without semantic admission, source migration, or a replacement proposal.",
+      "checks": {
+        "duplicates": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Construct Terms Graph Projection a bounded meaning: the bounded Action that constructs or confirms the selected derived Terms Graph. The checked candidate sources do not establish a same-meaning duplicate or merge target.",
+          "evidence_refs": [
+            "CA-O-137-25"
+          ]
+        },
+        "redundancy": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Construct Terms Graph Projection a bounded meaning: the bounded Action that constructs or confirms the selected derived Terms Graph. No supported replacement or removal basis is present in the checked captured evidence.",
+          "evidence_refs": [
+            "CA-O-137-25"
+          ]
+        },
+        "empty_definition": {
+          "finding": "not-empty",
+          "reason": "Captured defining Main Content gives Construct Terms Graph Projection a bounded meaning: the bounded Action that constructs or confirms the selected derived Terms Graph.",
+          "evidence_refs": [
+            "CA-O-137-25"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "supported",
+          "reason": "Captured defining Main Content gives Construct Terms Graph Projection a bounded meaning: the bounded Action that constructs or confirms the selected derived Terms Graph.",
+          "evidence_refs": [
+            "CA-O-137-25"
+          ]
+        },
+        "generalization": {
+          "finding": "not-proposed",
+          "reason": "Captured defining Main Content gives Construct Terms Graph Projection a bounded meaning: the bounded Action that constructs or confirms the selected derived Terms Graph. The review proposes no broader identity, native subtype, or relation from display nesting.",
+          "evidence_refs": [
+            "CA-O-137-25"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-137-25"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-137"
+      ],
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null
+    },
+    {
+      "identity": "Consumer",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the consumer-side owner of a Demand Atom, bounded by an accepted Goal and exact Producer-result dependency; retain without semantic admission, source migration, or a replacement proposal.",
+      "checks": {
+        "duplicates": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Consumer a bounded meaning: the consumer-side owner of a Demand Atom, bounded by an accepted Goal and exact Producer-result dependency. The checked candidate sources do not establish a same-meaning duplicate or merge target.",
+          "evidence_refs": [
+            "CA-R-951-30"
+          ]
+        },
+        "redundancy": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Consumer a bounded meaning: the consumer-side owner of a Demand Atom, bounded by an accepted Goal and exact Producer-result dependency. No supported replacement or removal basis is present in the checked captured evidence.",
+          "evidence_refs": [
+            "CA-R-951-30"
+          ]
+        },
+        "empty_definition": {
+          "finding": "not-empty",
+          "reason": "Captured defining Main Content gives Consumer a bounded meaning: the consumer-side owner of a Demand Atom, bounded by an accepted Goal and exact Producer-result dependency.",
+          "evidence_refs": [
+            "CA-R-951-30"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "supported",
+          "reason": "Captured defining Main Content gives Consumer a bounded meaning: the consumer-side owner of a Demand Atom, bounded by an accepted Goal and exact Producer-result dependency.",
+          "evidence_refs": [
+            "CA-R-951-30"
+          ]
+        },
+        "generalization": {
+          "finding": "not-proposed",
+          "reason": "Captured defining Main Content gives Consumer a bounded meaning: the consumer-side owner of a Demand Atom, bounded by an accepted Goal and exact Producer-result dependency. The review proposes no broader identity, native subtype, or relation from display nesting.",
+          "evidence_refs": [
+            "CA-R-951-30"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-951-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-932",
+        "CA-R-933",
+        "CA-R-945",
+        "CA-R-951"
+      ],
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null
+    },
+    {
+      "identity": "Consumer/Goal",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the accepted Consumer Goal that authorizes an exact demanded Producer-result dependency; retain without semantic admission, source migration, or a replacement proposal.",
+      "checks": {
+        "duplicates": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Consumer/Goal a bounded meaning: the accepted Consumer Goal that authorizes an exact demanded Producer-result dependency. The checked candidate sources do not establish a same-meaning duplicate or merge target.",
+          "evidence_refs": [
+            "CA-R-951-30"
+          ]
+        },
+        "redundancy": {
+          "finding": "not-established",
+          "reason": "Captured defining Main Content gives Consumer/Goal a bounded meaning: the accepted Consumer Goal that authorizes an exact demanded Producer-result dependency. No supported replacement or removal basis is present in the checked captured evidence.",
+          "evidence_refs": [
+            "CA-R-951-30"
+          ]
+        },
+        "empty_definition": {
+          "finding": "not-empty",
+          "reason": "Captured defining Main Content gives Consumer/Goal a bounded meaning: the accepted Consumer Goal that authorizes an exact demanded Producer-result dependency.",
+          "evidence_refs": [
+            "CA-R-951-30"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "supported",
+          "reason": "Captured defining Main Content gives Consumer/Goal a bounded meaning: the accepted Consumer Goal that authorizes an exact demanded Producer-result dependency.",
+          "evidence_refs": [
+            "CA-R-951-30"
+          ]
+        },
+        "generalization": {
+          "finding": "not-proposed",
+          "reason": "Captured defining Main Content gives Consumer/Goal a bounded meaning: the accepted Consumer Goal that authorizes an exact demanded Producer-result dependency. The review proposes no broader identity, native subtype, or relation from display nesting.",
+          "evidence_refs": [
+            "CA-R-951-30"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-951-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-933",
+        "CA-R-951"
+      ],
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null
+    }
+  ]
+}

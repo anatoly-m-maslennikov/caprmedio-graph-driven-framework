@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2120",
+  "recorded_at": "2026-10-11 09:32:19 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded rebuild and check the current subject ledger; not migration approval",
+  "verification": {
+    "task": "CA-P-2120",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2",
+      "size_bytes": 19739830
+    },
+    "other_outputs": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+        "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+        "size_bytes": 3642901
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+        "sha256": "e08e5f1cc8311cd0bea25f0cb0fd7767028baaf04523aebaba384edb170ac819",
+        "size_bytes": 3197267
+      }
+    ],
+    "checkpoint": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/checkpoint-subject-families-2112-2117.json",
+      "sha256": "3b42865f1346fed6c0609a0d5077fd2bf8c32fce6edc0145f08c33db56e5a5c4"
+    },
+    "result": "PASS: controlled create-only regeneration, exact preview hashes, independent persisted frontier/layer gate and all tests",
+    "prior_hash_and_git_recoverability": "PASS: three exact prior drafts recover from research registration 9a584ff18f338aef87ac8c1d45116e430abf41b5",
+    "counts": {
+      "excluded_sources": 11203,
+      "occurrences": 4534,
+      "outcome": "PASS",
+      "proposed": 1735,
+      "quarantined_sources": 8,
+      "sources": 907,
+      "unchanged": 1540,
+      "unresolved": 1259
+    },
+    "quarantined_occurrences": 35,
+    "accepted_layers": 33,
+    "focused_tests": 23,
+    "native_tests": 296,
+    "total_tests": 319,
+    "complete_ledger_wrong_controls": 10,
+    "report_wrong_controls": 66,
+    "producer_negative_probes": "PASS",
+    "original_core_diff": "EMPTY since 441bc48e1",
+    "independent_review": {
+      "reviewer": "Independent verifier implementation plus independently accepted research",
+      "final_report_sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2",
+      "result": "PASS: all current sources/origins, exact accepted final reports/receipts/reviews and proof fields independently checked; no source migration or native admission"
+    }
+  },
+  "independent_review": {
+    "reviewer": "Independent verifier implementation plus independently accepted research",
+    "final_report_sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2",
+    "result": "PASS: all current sources/origins, exact accepted final reports/receipts/reviews and proof fields independently checked; no source migration or native admission"
+  },
+  "completion_scope": "The three owned derived drafts were regenerated after exact prior-hash and Git-recovery checks. Persisted outputs exactly match the accepted preview and pass the independent current-source/layer gate: 907 sources, 4534 occurrences, 1735 proposed, 1540 unchanged and 1259 unresolved; eight quarantines remain. All 319 relevant tests, ten complete-ledger controls and 66 report controls pass. Original Core, frozen evidence and deferred ordinary content remain unchanged.",
+  "registration_commit": "8c960cc46a9f45141320e2cd97a909cb81af03fb",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

@@ -16,19 +16,19 @@ import tomllib
 from pathlib import Path
 from typing import Iterable
 
-from release_contract import IMAGE_DOCKERFILE, REQUIRED_ENGINE_SOURCE_PREFIXES
+from release_contract import IMAGE_DOCKERFILE, REQUIRED_ENGINE_SOURCE_PREFIXES, VERSION_TOML_RELATIVE
 from release_inventory import _is_ephemeral_file, ReleaseInventoryError, persistent_regular_files, refuse_secret_path
 from release_handoff import (
-    CANONICAL_SOURCE_RELATIVE,
     COMPILER_ENTRYPOINT_RELATIVE,
     CURRENT_SELECTOR_RELATIVE,
-    DERIVED_SOURCE_COPY_RELATIVE,
-    FRAMEWORK_SETTINGS_RELATIVE,
-    MATERIALIZED_RELATIVE,
     PackageRow,
     SealedCandidateCompilation,
+    read_framework_version_toml,
+    reopen_native_installed_n,
+    selected_n_selector_relative,
     tree_sha256,
 )
+from methodology_layout import resolve_methodology_layout
 
 
 RUNTIME_ROOT = Path(".caprmedio_runtime/framework")
@@ -168,7 +168,7 @@ def _require_runtime_parents(root: Path, *, create: bool) -> Path:
     return cursor
 
 
-def _destination_for(row: PackageRow, candidate: str) -> None:
+def _destination_for(row: PackageRow, source_root: str, materialization_root: str) -> None:
     source = Path(row.source_path)
     destination = Path(row.destination_path)
     if row.resource == "FRAMEWORK_ENGINE":
@@ -186,8 +186,8 @@ def _destination_for(row: PackageRow, candidate: str) -> None:
         if destination != Path("SKILLS/ca") / suffix:
             raise ReleasePackagingError("package-destination-invalid", "Skill destination does not preserve source suffix")
     elif row.resource == "METHODOLOGY":
-        canonical = Path(CANONICAL_SOURCE_RELATIVE)
-        materialized = Path(MATERIALIZED_RELATIVE) / candidate
+        canonical = Path(source_root)
+        materialized = Path(materialization_root)
         if source.is_relative_to(canonical):
             if destination != Path("METHODOLOGY/sources") / source.relative_to(canonical):
                 raise ReleasePackagingError("package-destination-invalid", "Methodology source destination is invalid")
@@ -196,6 +196,9 @@ def _destination_for(row: PackageRow, candidate: str) -> None:
                 raise ReleasePackagingError("package-destination-invalid", "compiled Methodology destination is invalid")
         else:
             raise ReleasePackagingError("package-source-invalid", "Methodology source is outside sealed source or materialization roots")
+    elif row.resource == "PACKAGE_CONTROL":
+        if source != Path(VERSION_TOML_RELATIVE) or destination != Path(VERSION_TOML_RELATIVE):
+            raise ReleasePackagingError("package-destination-invalid", "package control row must retain root version.toml exactly")
     else:
         raise ReleasePackagingError("package-resource-invalid", "package row has an unknown resource")
 
@@ -220,23 +223,41 @@ def _complete_rows(root: Path, compilation: SealedCandidateCompilation) -> tuple
     authority = compilation.authority
     if candidate != authority.expected_candidate_snapshot_manifest_sha256:
         raise ReleasePackagingError("candidate-manifest-unsealed", "typed handoff is not bound to its canonical candidate identity")
-    if compilation.source_copy_root != DERIVED_SOURCE_COPY_RELATIVE:
+    if (
+        compilation.framework_version != authority.framework_version
+        or compilation.version_toml_sha256 != authority.version_toml_sha256
+    ):
+        raise ReleasePackagingError("release-version-unsealed", "typed handoff version binding differs from sealed authority")
+    try:
+        framework_version, version_toml_sha256 = read_framework_version_toml(root)
+    except Exception as error:
+        raise ReleasePackagingError("release-version-invalid", "root version.toml cannot be reopened") from error
+    if (
+        framework_version != compilation.framework_version
+        or version_toml_sha256 != compilation.version_toml_sha256
+        or framework_version != authority.candidate_release
+    ):
+        raise ReleasePackagingError("release-currentness-stale", "root version.toml changed after candidate sealing")
+    layout = resolve_methodology_layout(root)
+    if compilation.source_copy_root != layout.source_copy_root:
         raise ReleasePackagingError("release-copy-root-invalid", "handoff source copy root is not the D561 delivery root")
-    if compilation.child_materialization_root != f"{MATERIALIZED_RELATIVE}/{candidate}":
-        raise ReleasePackagingError("release-materialization-root-invalid", "handoff output is outside its candidate child root")
     if compilation.expected_derived_source_copy_sha256 != compilation.actual_derived_source_copy_sha256:
         raise ReleasePackagingError("release-copy-digest-mismatch", "handoff does not bind an actual accepted source copy")
     if compilation.expected_compiled_output_sha256 != compilation.actual_compiled_output_sha256:
         raise ReleasePackagingError("release-compiler-output-mismatch", "handoff does not bind accepted compiler output")
 
-    selected, selector_before = _current_release(root)
-    if selected != authority.executing_release:
-        raise ReleasePackagingError("release-currentness-stale", "current selector differs from the sealed executing release")
-    canonical_digest = _tree_digest(root, CANONICAL_SOURCE_RELATIVE)
+    if compilation.native_installed_n is not None:
+        reopen_native_installed_n(root, compilation.native_installed_n)
+        selector_before = _regular_file(root, selected_n_selector_relative(compilation)).read_bytes()
+    else:
+        selected, selector_before = _current_release(root)
+        if selected != authority.executing_release:
+            raise ReleasePackagingError("release-currentness-stale", "current selector differs from the sealed executing release")
+    canonical_digest = _tree_digest(root, layout.source_root)
     if canonical_digest != authority.canonical_source_snapshot_digest or canonical_digest != authority.nested_source_recursive_sha256_before:
         raise ReleasePackagingError("release-currentness-stale", "canonical Methodology frontier changed after sealing")
-    structure = _regular_file(root, ".caprmedio_caprmedio/project_structure.toml")
-    settings = _regular_file(root, FRAMEWORK_SETTINGS_RELATIVE)
+    structure = _regular_file(root, f"{layout.control_root}/project_structure.toml")
+    settings = _regular_file(root, f"{layout.installed_root}/caprmedio_framework_settings.toml")
     if _sha256(structure.read_bytes()) != authority.project_structure_digest or _sha256(settings.read_bytes()) != authority.framework_settings_digest:
         raise ReleasePackagingError("release-currentness-stale", "Project Structure or Framework Settings changed after sealing")
     if _tree_digest(root, compilation.source_copy_root) != compilation.actual_derived_source_copy_sha256:
@@ -259,41 +280,81 @@ def _complete_rows(root: Path, compilation: SealedCandidateCompilation) -> tuple
     if len(destinations) != len(set(destinations)):
         raise ReleasePackagingError("package-destination-duplicate", "typed package rows contain duplicate destinations")
     for row in rows:
-        _destination_for(row, candidate)
+        _destination_for(row, layout.source_root, compilation.child_materialization_root)
         _read_row(root, row)
 
     source_rows = {row.source_path for row in rows if row.resource == "METHODOLOGY" and row.destination_path.startswith("METHODOLOGY/sources/")}
     compiled_rows = {row.source_path for row in rows if row.resource == "METHODOLOGY" and row.destination_path.startswith("METHODOLOGY/compiled/")}
     engine_rows = {row.source_path for row in rows if row.resource == "FRAMEWORK_ENGINE"}
     skill_rows = {row.source_path for row in rows if row.resource == "SKILL"}
+    control_rows = [row for row in rows if row.resource == "PACKAGE_CONTROL"]
     engine_actual = _regular_files(root, "102_FRAMEWORK_ENGINE")
     engine_actual.discard(IMAGE_DOCKERFILE)
     engine_actual = {path for path in engine_actual if not Path(path).is_relative_to(SKILL_ROOT)}
     if engine_rows != engine_actual or any(not any(path.startswith(prefix) for path in engine_rows) for prefix in REQUIRED_ENGINE_SOURCE_PREFIXES):
         raise ReleasePackagingError("package-incomplete", "typed handoff does not cover the complete Framework Engine")
-    if source_rows != _regular_files(root, CANONICAL_SOURCE_RELATIVE):
+    if source_rows != _regular_files(root, layout.source_root):
         raise ReleasePackagingError("package-incomplete", "typed handoff does not cover the complete Methodology source delivery")
     if compiled_rows != _regular_files(root, compilation.child_materialization_root):
         raise ReleasePackagingError("package-incomplete", "typed handoff does not cover the complete compiler materialization")
     if skill_rows != _regular_files(root, SKILL_ROOT) or not REQUIRED_SKILL_FILES.issubset(destinations):
         raise ReleasePackagingError("package-incomplete", "typed handoff does not cover the complete ca Skill payload")
+    if len(control_rows) != 1 or (
+        control_rows[0].source_path != VERSION_TOML_RELATIVE
+        or control_rows[0].destination_path != VERSION_TOML_RELATIVE
+        or control_rows[0].sha256 != compilation.version_toml_sha256
+    ):
+        raise ReleasePackagingError("package-incomplete", "typed handoff does not cover the exact root version.toml")
     return candidate, rows, selector_before
 
 
-def _render_manifest(candidate: str, rows: Iterable[PackageRow]) -> str:
-    lines = ["schema_version = 2", f"candidate_snapshot_manifest_sha256 = {_quoted(candidate)}", "package = \"caprmedio-framework\"", ""]
+def _render_manifest(
+    candidate: str,
+    rows: Iterable[PackageRow],
+    *,
+    framework_version: str | None = None,
+    version_toml_sha256: str | None = None,
+) -> str:
+    """Render a v2 package manifest, retaining legacy bootstrap form when omitted."""
+
+    if (framework_version is None) != (version_toml_sha256 is None):
+        raise ReleasePackagingError("release-version-unsealed", "package manifest version fields must be supplied together")
+    lines = ["schema_version = 2", f"candidate_snapshot_manifest_sha256 = {_quoted(candidate)}", "package = \"caprmedio-framework\""]
+    if framework_version is not None and version_toml_sha256 is not None:
+        lines.extend([
+            f"framework_version = {_quoted(framework_version)}",
+            f"version_toml_sha256 = {_quoted(version_toml_sha256)}",
+        ])
+    lines.append("")
     for row in rows:
         lines.extend(["[[files]]", f"resource = {_quoted(row.resource)}", f"source_path = {_quoted(row.source_path)}", f"destination = {_quoted(row.destination_path)}", f"sha256 = {_quoted(row.sha256)}", f"mode = {row.mode}", ""])
     return "\n".join(lines)
 
 
-def _verify_release(release_root: Path, manifest: str, rows: Iterable[PackageRow]) -> None:
+def _verify_release(
+    release_root: Path,
+    manifest: str,
+    rows: Iterable[PackageRow],
+    *,
+    framework_version: str | None = None,
+    version_toml_sha256: str | None = None,
+) -> None:
     expected_rows = list(rows)
     manifest_path = release_root / MANIFEST_NAME
     if release_root.is_symlink() or not release_root.is_dir() or manifest_path.is_symlink() or not manifest_path.is_file():
         raise ReleasePackagingError("release-collision", f"existing release is invalid: {release_root.name}")
     if manifest_path.read_text(encoding="utf-8") != manifest:
         raise ReleasePackagingError("release-collision", f"existing release manifest differs: {release_root.name}")
+    if framework_version is not None and version_toml_sha256 is not None:
+        try:
+            parsed = tomllib.loads(manifest)
+        except tomllib.TOMLDecodeError as error:
+            raise ReleasePackagingError("release-collision", "existing release manifest is invalid TOML") from error
+        if (
+            parsed.get("framework_version") != framework_version
+            or parsed.get("version_toml_sha256") != version_toml_sha256
+        ):
+            raise ReleasePackagingError("release-collision", "existing release manifest version binding differs")
     expected_paths = {MANIFEST_NAME, *(row.destination_path for row in expected_rows)}
     actual_paths: set[str] = set()
     for carrier in release_root.rglob("*"):
@@ -319,7 +380,15 @@ def _verify_release(release_root: Path, manifest: str, rows: Iterable[PackageRow
             raise ReleasePackagingError("release-collision", f"existing release file differs: {row.destination_path}")
 
 
-def _copy_release(root: Path, staging: Path, rows: Iterable[PackageRow], manifest: str) -> None:
+def _copy_release(
+    root: Path,
+    staging: Path,
+    rows: Iterable[PackageRow],
+    manifest: str,
+    *,
+    framework_version: str,
+    version_toml_sha256: str,
+) -> None:
     for row in rows:
         source = _read_row(root, row)  # D567: reread bytes and observed mode immediately before copy.
         target = staging / row.destination_path
@@ -327,7 +396,72 @@ def _copy_release(root: Path, staging: Path, rows: Iterable[PackageRow], manifes
         shutil.copyfile(source, target)
         target.chmod(row.mode)
     (staging / MANIFEST_NAME).write_text(manifest, encoding="utf-8", newline="\n")
-    _verify_release(staging, manifest, rows)
+    _verify_release(
+        staging, manifest, rows,
+        framework_version=framework_version, version_toml_sha256=version_toml_sha256,
+    )
+
+
+def _publish_staged_release(
+    staging: Path,
+    release_root: Path,
+    manifest: str,
+    rows: Iterable[PackageRow],
+    *,
+    framework_version: str,
+    version_toml_sha256: str,
+) -> bool:
+    """Publish the verified package without requiring a directory rename.
+
+    Some sandboxed macOS filesystems reject the otherwise atomic rename of a
+    newly-created nested directory.  In that case create only the exact
+    sealed members, publish ``manifest.toml`` last, and verify the resulting
+    package before it can be returned as consumable.  A partial fallback tree
+    has no manifest and therefore cannot be a valid retained package.
+    """
+
+    rows = tuple(rows)
+    try:
+        os.replace(staging, release_root)
+        return True
+    except FileExistsError:
+        return False
+    except PermissionError:
+        # A target which appeared while the host denied the directory rename
+        # is an idempotent/racing publication, never ours to overwrite.
+        if os.path.lexists(release_root):
+            return False
+
+    try:
+        release_root.mkdir()
+    except FileExistsError:
+        return False
+
+    # Re-observe the private staging carrier after the failed host primitive.
+    _verify_release(
+        staging, manifest, rows,
+        framework_version=framework_version, version_toml_sha256=version_toml_sha256,
+    )
+    for row in rows:
+        source = staging / row.destination_path
+        target = release_root / row.destination_path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        temporary = target.with_name(f".{target.name}.next")
+        shutil.copyfile(source, temporary)
+        temporary.chmod(row.mode)
+        os.replace(temporary, target)
+
+    # The manifest is the sealed package's completion marker, so publish it
+    # last.  A failed fallback remains an incomplete, non-consumable tree.
+    manifest_target = release_root / MANIFEST_NAME
+    manifest_next = manifest_target.with_name(f".{manifest_target.name}.next")
+    manifest_next.write_text(manifest, encoding="utf-8", newline="\n")
+    os.replace(manifest_next, manifest_target)
+    _verify_release(
+        release_root, manifest, rows,
+        framework_version=framework_version, version_toml_sha256=version_toml_sha256,
+    )
+    return True
 
 
 def stage_framework_package(project_root: Path | str, sealed_compilation: SealedCandidateCompilation) -> dict[str, object]:
@@ -346,28 +480,52 @@ def stage_framework_package(project_root: Path | str, sealed_compilation: Sealed
     if not releases_root.is_dir():
         raise ReleasePackagingError("runtime-parent-invalid", "release directory is not a directory")
     release_root = releases_root / candidate
-    manifest = _render_manifest(candidate, rows)
+    manifest = _render_manifest(
+        candidate, rows,
+        framework_version=sealed_compilation.framework_version,
+        version_toml_sha256=sealed_compilation.version_toml_sha256,
+    )
 
     if release_root.exists() or release_root.is_symlink():
-        _verify_release(release_root, manifest, rows)
-        if _current_release(root)[1] != selector_before:
+        _verify_release(
+            release_root, manifest, rows,
+            framework_version=sealed_compilation.framework_version,
+            version_toml_sha256=sealed_compilation.version_toml_sha256,
+        )
+        if _regular_file(root, selected_n_selector_relative(sealed_compilation)).read_bytes() != selector_before:
             raise ReleasePackagingError("release-selection-changed", "N changed while retained package was being verified")
-        return {"staged": False, "verified": True, "candidate_snapshot_manifest_sha256": candidate, "release_root": release_root.relative_to(root).as_posix(), "file_count": len(rows)}
+        if sealed_compilation.native_installed_n is not None:
+            reopen_native_installed_n(root, sealed_compilation.native_installed_n)
+        return {"staged": False, "verified": True, "candidate_snapshot_manifest_sha256": candidate, "framework_version": sealed_compilation.framework_version, "version_toml_sha256": sealed_compilation.version_toml_sha256, "release_root": release_root.relative_to(root).as_posix(), "file_count": len(rows)}
 
     staging = Path(tempfile.mkdtemp(prefix=f".staging-{candidate[:12]}-", dir=releases_root))
     try:
-        _copy_release(root, staging, rows, manifest)
-        try:
-            os.replace(staging, release_root)
-        except FileExistsError:
-            _verify_release(release_root, manifest, rows)
-            staged = False
-        else:
-            staged = True
-        _verify_release(release_root, manifest, rows)
-        if _current_release(root)[1] != selector_before:
+        _copy_release(
+            root, staging, rows, manifest,
+            framework_version=sealed_compilation.framework_version,
+            version_toml_sha256=sealed_compilation.version_toml_sha256,
+        )
+        staged = _publish_staged_release(
+            staging, release_root, manifest, rows,
+            framework_version=sealed_compilation.framework_version,
+            version_toml_sha256=sealed_compilation.version_toml_sha256,
+        )
+        if not staged:
+            _verify_release(
+                release_root, manifest, rows,
+                framework_version=sealed_compilation.framework_version,
+                version_toml_sha256=sealed_compilation.version_toml_sha256,
+            )
+        _verify_release(
+            release_root, manifest, rows,
+            framework_version=sealed_compilation.framework_version,
+            version_toml_sha256=sealed_compilation.version_toml_sha256,
+        )
+        if _regular_file(root, selected_n_selector_relative(sealed_compilation)).read_bytes() != selector_before:
             raise ReleasePackagingError("release-selection-changed", "N changed while retained package was being staged")
-        return {"staged": staged, "verified": True, "candidate_snapshot_manifest_sha256": candidate, "release_root": release_root.relative_to(root).as_posix(), "file_count": len(rows)}
+        if sealed_compilation.native_installed_n is not None:
+            reopen_native_installed_n(root, sealed_compilation.native_installed_n)
+        return {"staged": staged, "verified": True, "candidate_snapshot_manifest_sha256": candidate, "framework_version": sealed_compilation.framework_version, "version_toml_sha256": sealed_compilation.version_toml_sha256, "release_root": release_root.relative_to(root).as_posix(), "file_count": len(rows)}
     finally:
         if staging.exists():
             shutil.rmtree(staging, ignore_errors=True)

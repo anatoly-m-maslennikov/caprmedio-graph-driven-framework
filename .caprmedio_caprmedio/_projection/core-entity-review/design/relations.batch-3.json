@@ -1,0 +1,2116 @@
+{
+  "source_task": "CA-P-1915",
+  "batch_number": 3,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "source_binding": {
+    "selection_sha256": "f72964ad096a671d0c36cc0cf6649cf2cf131110edb57446fb523dc5feedb840",
+    "source_collection_sha256": "5ebcf48d24841b65ba46ffdd113e964fe10a53da80a40db32cefedc484ae7d3d",
+    "source_frontier_sha256": "7792e842cfe6c66320745660e69cd0df5525ec18bb22b5c060a6ddfff5fc97f7"
+  },
+  "partition_sha256": "b65be0619c2bbc38940cfa1ad87e54cc10026c1b3acbda3bfb2fc3c845f4c084",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "semantic_admission": "not_performed",
+  "cases": [
+    {
+      "case_id": "slash:ac0d9dc6ce2a81d69db6a96dda6e19ba0585f9bae6983b1d9f949a2eedada5e9",
+      "old_parent": "Atom",
+      "old_child": "Atom/Relation Owner",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The legacy slash path and candidate list do not prove a native relation, and no pin-matched authored span names both endpoints for even a display qualification in this bounded pass.",
+      "question": "Atom direct-relation ownership family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "reviewed_candidate_atom_ids": [
+        "CA-E-520",
+        "CA-O-128",
+        "CA-R-154",
+        "CA-R-1598",
+        "CA-R-655",
+        "CA-R-771"
+      ]
+    },
+    {
+      "case_id": "slash:acb17e64a0ca7f4e48d64a1cfda3761108cb6bde340b06704f862626dfd6a8ea",
+      "old_parent": "Atom/Content Role: Method",
+      "old_child": "Atom/Content Role: Method/Status",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Method",
+        "qualified_child": "Atom/Content Role: Method/Status",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1306",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
+          "carrier_sha256": "b19222de4098ccbdd6ec907980f0ab4ae6546794fe40a20f762a24031d6b09ff",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "a Status **means** the Artifact Revision Property whose allowed values resolve from the complete qualified path of its Artifact Type **or** Atom Content Role **and** Type.",
+          "text_sha256": "75a7a1aae036833a67c08cefa87d716bbb4312dc6a0cc5e3f83430962fafc050"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1309",
+        "CA-R-1311",
+        "CA-R-1312",
+        "CA-R-1313",
+        "CA-R-1340",
+        "CA-R-1397",
+        "CA-R-1398",
+        "CA-R-1399",
+        "CA-R-1412",
+        "CA-R-1539",
+        "CA-R-1608",
+        "CA-R-1610",
+        "CA-R-1767",
+        "CA-R-1768",
+        "CA-R-1874",
+        "CA-R-1875"
+      ]
+    },
+    {
+      "case_id": "slash:b26af9e317a5779d14a4b0849914a44ebc4000d0aa6a72264d5709ae83de7b53",
+      "old_parent": "Entity",
+      "old_child": "Entity/Identity",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Entity",
+        "qualified_child": "Entity/Identity",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1406",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL-CORE--keep-entity-identity-independent-of-graph-materialization.md",
+          "carrier_sha256": "9f02a3b4585c3c9debced436702c083bf7b4d626d1c28705783d63cb303b8898",
+          "start_line": 32,
+          "end_line": 32,
+          "quote": "materializing, refreshing, **or** deleting a Graph Projection **must not** establish, change, **or** remove Entity identity.",
+          "text_sha256": "937701ddb6420fa7a63bb1abf740c82cdd3a307e0b93d4daff919ab0cc54c032"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1248",
+        "CA-R-1259",
+        "CA-R-1406",
+        "CA-R-1534"
+      ]
+    },
+    {
+      "case_id": "slash:b4abac7354da80ab8a8967f0efe0f1297afde8f386543b653be8307f54065db9",
+      "old_parent": "Scope Unit",
+      "old_child": "Scope Unit/Navigational Order Number",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Scope Unit",
+        "qualified_child": "Scope Unit/Navigational Order Number",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-380",
+          "atom_revision": 6,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-380-CORE_META_MODEL--serialize-navigational-order-numbers.md",
+          "carrier_sha256": "11aec9e9581f3bd43033b8ca506edd9613eeaf2cce7f7d7d7d4ea85deb423005",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "**every** Carrier rendering of a Navigational Order Number **must** use decimal digits. the default directory-name rendering of a non-Project Scope Unit **must** use **`>=2`** digits; a typed TOML integer stores the numeric value **without** leading-zero padding.",
+          "text_sha256": "658f56f0cd5de1df93d8a2090e9c43bf9ded2dc5aa866e5356b85480e91a7379"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-380",
+        "CA-D-445",
+        "CA-R-1257",
+        "CA-R-1264",
+        "CA-R-1292",
+        "CA-R-1484",
+        "CA-R-1730",
+        "CA-R-1748",
+        "CA-R-1757",
+        "CA-R-1762",
+        "CA-R-862",
+        "CA-R-927",
+        "CA-R-978",
+        "CA-R-981",
+        "CA-R-983"
+      ]
+    },
+    {
+      "case_id": "slash:b5dc6de72571dd7294ed34a10aa4ddaacf58eb41e246fe5c86df6fd886a555c2",
+      "old_parent": "Atom/Content Role: Operations",
+      "old_child": "Atom/Content Role: Operations/Status",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Operations",
+        "qualified_child": "Atom/Content Role: Operations/Status",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1874",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1874-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-operations-status-values.md",
+          "carrier_sha256": "916f75193f373563730f84d8374a1ffd3d74a243fd0daa8c610b72c48935060a",
+          "start_line": 32,
+          "end_line": 32,
+          "quote": "the Core allowed values of Operations Status **must** be exactly (Draft, Active, Archived); that one Content Role Status model applies to Operations Atoms with Type Workflow, Step, Action, or Actor unless an admitted Extension or Project Configuration establishes a more-specific Status domain under that exact Content Role and Type path.",
+          "text_sha256": "fee2442c20a6b96a7fd98d8fefaef56a877e4018c5beb31d1fe74a8a1d050e2b"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1309",
+        "CA-R-1311",
+        "CA-R-1312",
+        "CA-R-1313",
+        "CA-R-1397",
+        "CA-R-1398",
+        "CA-R-1399",
+        "CA-R-1412",
+        "CA-R-1530",
+        "CA-R-1539",
+        "CA-R-1608",
+        "CA-R-1610",
+        "CA-R-1874",
+        "CA-R-1875"
+      ]
+    },
+    {
+      "case_id": "slash:b703c119cf18e05b81a72d39471df6a528ac80cd21276938b100e7b6c7a1640b",
+      "old_parent": "Atom",
+      "old_child": "Atom/Details",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom",
+        "qualified_child": "Atom/Details",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1624",
+          "atom_revision": 2,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1624-CORE_META_MODEL-CORE-REQUIREMENT--keep-details-within-the-primary-contribution.md",
+          "carrier_sha256": "d985c624f5c0b92010a3f1a670e2e12ef0d018aa221ce1052faab293060966cf",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "an Atom's Details **means** supporting information that expands its primary contribution **without** changing its intent, applicability, **or** required outcome. Details **must not** contradict that contribution **or** introduce another independently replaceable Claim. for RMED, the primary contribution is the Claim read within its Scope; Details **must not** introduce an additional obligation **or** alter those applicability restrictions.",
+          "text_sha256": "5ce490849e07580c8b809ece134a39ec467a987483fa8319ba2591432c5520e8"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-520",
+        "CA-O-128",
+        "CA-R-154",
+        "CA-R-1586",
+        "CA-R-1598",
+        "CA-R-1624",
+        "CA-R-655",
+        "CA-R-771"
+      ]
+    },
+    {
+      "case_id": "slash:ba8cda5ae83c37174ce56db0b357c95f03f4756e08c71460ce7f897970cbfb1b",
+      "old_parent": "Atom/Property",
+      "old_child": "Atom/Property/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Property",
+        "qualified_child": "Atom/Property/Carrier",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-505",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+          "carrier_sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+          "start_line": 34,
+          "end_line": 34,
+          "quote": "the Carrier Property of an Entity **means** its binding **to** the Carrier that stores **or** represents it.",
+          "text_sha256": "f4471d195fb186c5074ea0bf377ee6f245696be91170f61293623e437307ba0b"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-253",
+        "CA-D-308",
+        "CA-D-309",
+        "CA-D-312",
+        "CA-D-368",
+        "CA-D-369",
+        "CA-D-375",
+        "CA-D-376",
+        "CA-D-386",
+        "CA-D-394",
+        "CA-D-407",
+        "CA-D-414",
+        "CA-D-434",
+        "CA-D-447",
+        "CA-D-467",
+        "CA-D-471",
+        "CA-D-472",
+        "CA-D-473",
+        "CA-D-475",
+        "CA-D-478",
+        "CA-D-481",
+        "CA-D-482",
+        "CA-D-483",
+        "CA-D-494",
+        "CA-D-495",
+        "CA-D-505",
+        "CA-D-506",
+        "CA-D-507",
+        "CA-D-559",
+        "CA-E-500",
+        "CA-E-502",
+        "CA-E-522",
+        "CA-E-523"
+      ]
+    },
+    {
+      "case_id": "slash:beaf0591a5ebb62e0de41c9dc2082eda0cf2c5468a84dc243e6b76453c15b22a",
+      "old_parent": "Atom",
+      "old_child": "Atom/Governed Subject",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom",
+        "qualified_child": "Atom/Governed Subject",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1363",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1363-CORE_META_MODEL-CORE--define-atom-governed-subject.md",
+          "carrier_sha256": "f897ce81ed4e0d630006ed7f0f382a082204b82bde93664e394d7e31abbf0b12",
+          "start_line": 38,
+          "end_line": 38,
+          "quote": "an Atom Governed Subject **means** the Atom's **`=1`** Subject Relation whose Relation Kind is GOVERNS. its target is the canonical Entity governed by the Atom's Claim; the Relation **and** its target are distinct.",
+          "text_sha256": "7ead611ec5c35e9904115016b1b401220cf75103727d5aece62c14e24de90bdb"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-520",
+        "CA-O-128",
+        "CA-R-1363",
+        "CA-R-154",
+        "CA-R-1598",
+        "CA-R-655",
+        "CA-R-771"
+      ]
+    },
+    {
+      "case_id": "slash:bec49d0182f06b935a1011a4d403aab4ae12811dae595b99aaf5046019d71655",
+      "old_parent": "Atom/Claim/Canonical Signature",
+      "old_child": "Atom/Claim/Canonical Signature/Projection",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Claim/Canonical Signature",
+        "qualified_child": "Atom/Claim/Canonical Signature/Projection",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-346",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "carrier_sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 34,
+          "end_line": 34,
+          "quote": "**every** Canonical Signature Projection **must** be delivered as **`=1`** non-authoritative report under its Project's `.caprmedio_<project_name>/_projection/` Directory Carrier with the selected source frontier digest, **every** source Atom Identity **and** Revision, **every** source expression occurrence, **every** Canonical Signature, **and** **every** exclusion diagnostic; the Projection **must not** become an Atom Carrier, modify a selected source Carrier, **or** establish Claim equivalence.",
+          "text_sha256": "a085557a19b40a2fc19e591e578b46bda39bfb3b393b6a411a297081cd52dadd"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-346",
+        "CA-D-347",
+        "CA-R-1360",
+        "CA-R-1460",
+        "CA-R-1463",
+        "CA-R-1493",
+        "CA-R-1494",
+        "CA-R-1507",
+        "CA-R-1568",
+        "CA-R-1609",
+        "CA-R-1746"
+      ]
+    },
+    {
+      "case_id": "slash:bf6094f83f6542deb63c5cc73594a595e83fc5ff77da141f2816e97b40e4109f",
+      "old_parent": "Atom",
+      "old_child": "Atom/Identifier",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom",
+        "qualified_child": "Atom/Identifier",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-378",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL--serialize-assigned-atom-identities.md",
+          "carrier_sha256": "9435f3abb5a56f46c37c43c3e758afa1e288a0af259f39a34237495d8fcf255f",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "**every** assigned Atom ID **must** begin with the registered uppercase Project identity prefix. the Project-owned Atom ID encoding **must** match `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-<GLOBAL_NUMBER_WITHIN_CONTENT_ROLE>`. the Atom Content Role Identity Letter **must** be **in** (Concern: C, Analysis: A, Plan: P, Requirement: R, Method: M, Evaluation: E, Delivery: D, Implementation: I, Operations: O). a `<PROJECT_PREFIX>-P` Identifier **must** identify a Plan Atom, including one labeled Epic, **and** **must not** identify a separate non-Atom collection.",
+          "text_sha256": "cb87adcc414c1baf8d4c7e5622722fb805115c15d482ebdd3559e67c429df89e"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-358",
+        "CA-D-362",
+        "CA-D-378",
+        "CA-D-446",
+        "CA-D-508",
+        "CA-E-520",
+        "CA-O-128",
+        "CA-R-154",
+        "CA-R-1598",
+        "CA-R-655",
+        "CA-R-771"
+      ]
+    },
+    {
+      "case_id": "slash:c125334bda9bbf50a4f282deb5c07ef9ddb8c0745d8706b764d6b3658bb455f5",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan/Blocking",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Blocking/Carrier",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The legacy slash path and candidate list do not prove a native relation, and no pin-matched authored span names both endpoints for even a display qualification in this bounded pass.",
+      "question": "plan substructure and Carrier binding family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "reviewed_candidate_atom_ids": [
+        "CA-D-253",
+        "CA-D-308",
+        "CA-D-309",
+        "CA-D-312",
+        "CA-D-368",
+        "CA-D-369",
+        "CA-D-375",
+        "CA-D-376",
+        "CA-D-386",
+        "CA-D-394",
+        "CA-D-407",
+        "CA-D-414",
+        "CA-D-434",
+        "CA-D-447",
+        "CA-D-467",
+        "CA-D-471",
+        "CA-D-472",
+        "CA-D-473",
+        "CA-D-475",
+        "CA-D-478",
+        "CA-D-481",
+        "CA-D-482",
+        "CA-D-483",
+        "CA-D-494",
+        "CA-D-495",
+        "CA-D-505",
+        "CA-D-506",
+        "CA-D-507",
+        "CA-D-559",
+        "CA-E-500",
+        "CA-E-502",
+        "CA-E-504",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-R-1580",
+        "CA-R-1592"
+      ]
+    },
+    {
+      "case_id": "slash:c1ae905e021da94c34e308cbe658a1ee486f297c1e0b00d7da9d305e64daf303",
+      "old_parent": "Artifact/Revision",
+      "old_child": "Artifact/Revision/Status",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Artifact/Revision",
+        "qualified_child": "Artifact/Revision/Status",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1306",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
+          "carrier_sha256": "b19222de4098ccbdd6ec907980f0ab4ae6546794fe40a20f762a24031d6b09ff",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "a Status **means** the Artifact Revision Property whose allowed values resolve from the complete qualified path of its Artifact Type **or** Atom Content Role **and** Type.",
+          "text_sha256": "75a7a1aae036833a67c08cefa87d716bbb4312dc6a0cc5e3f83430962fafc050"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1309",
+        "CA-R-1311",
+        "CA-R-1312",
+        "CA-R-1313",
+        "CA-R-1371",
+        "CA-R-1397",
+        "CA-R-1398",
+        "CA-R-1399",
+        "CA-R-1412",
+        "CA-R-1539",
+        "CA-R-1608",
+        "CA-R-1610",
+        "CA-R-1874",
+        "CA-R-1875"
+      ]
+    },
+    {
+      "case_id": "slash:c2d3ba5247b4ddd040dd1f26bc61019d2607b7cce1bd000fd8aaa69c3902a157",
+      "old_parent": "Atom",
+      "old_child": "Atom/Claim",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom",
+        "qualified_child": "Atom/Claim",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-E-384",
+          "atom_revision": 19,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-384-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-composite-claims-and-derived-summaries.md",
+          "carrier_sha256": "d8895427fc5d003df3bf3f3be2463b55e5df157f6ccf4549673385c8a281d230",
+          "start_line": 43,
+          "end_line": 43,
+          "quote": "- the Atom has **`!=1`** Claims, **`!=1`** resolved Claim Target Scope Units, an independently replaceable component inside **`=1`** Claim, ambiguous composite grouping, **or** a non-deterministic Scope Expression.",
+          "text_sha256": "5c9eb962921bb71b15df839a9da039a55d876975591204e96cd672f9f3594ed2"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-384",
+        "CA-E-461",
+        "CA-E-520",
+        "CA-M-301",
+        "CA-O-128",
+        "CA-R-1203",
+        "CA-R-1269",
+        "CA-R-1271",
+        "CA-R-1358",
+        "CA-R-154",
+        "CA-R-1598",
+        "CA-R-643",
+        "CA-R-655",
+        "CA-R-771",
+        "CA-R-918"
+      ]
+    },
+    {
+      "case_id": "slash:c60b40b75cfa0a07dee04d9885ab0b50478db74223a351779f8ecb6594c6ae48",
+      "old_parent": "Atom/Revision/Status: Draft",
+      "old_child": "Atom/Revision/Status: Draft/Revision Lineage",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The legacy slash path and candidate list do not prove a native relation, and no pin-matched authored span names both endpoints for even a display qualification in this bounded pass.",
+      "question": "revision lineage/history family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "reviewed_candidate_atom_ids": [
+        "CA-D-570"
+      ]
+    },
+    {
+      "case_id": "slash:c8b81ac2652a55890204d5ff6c4edaa1e8ca14e2fac0392f1cd423f068adcb97",
+      "old_parent": "Atom/Claim",
+      "old_child": "Atom/Claim/Canonical Signature",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Claim",
+        "qualified_child": "Atom/Claim/Canonical Signature",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1360",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1360-CORE_META_MODEL--define-restricted-cce-canonical-signature.md",
+          "carrier_sha256": "3baad57dd68218df5bc969b97bbca90296d177f0669f277a32c1d8c1c537b5fc",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "a Canonical Signature **means** **`=1`** derived non-authoritative comparison value for **`=1`** parenthesized restricted Boolean expression occurrence **in** one Atom Claim, **where** the following constraints apply:",
+          "text_sha256": "930cc75b4b1bc14074ada292c7da2cc9c3845f22a09e45ed97acf6041e1b9587"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-384",
+        "CA-E-461",
+        "CA-M-301",
+        "CA-R-1203",
+        "CA-R-1271",
+        "CA-R-1358",
+        "CA-R-1360",
+        "CA-R-918"
+      ]
+    },
+    {
+      "case_id": "slash:cbd3a779caefd72b4eb3a9a404326d35376e32c9651c4090575163abe60ba0e4",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Decomposition",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Plan/Type: Plan",
+        "qualified_child": "Atom/Content Role: Plan/Type: Plan/Decomposition",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1579",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1579-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-decomposition-relations.md",
+          "carrier_sha256": "54093503dbb876222ad8ee1429ebe30e5c8546a23cd52f70fa59a4886b8e43b5",
+          "start_line": 38,
+          "end_line": 38,
+          "quote": "- decomposition concerns planned work, **not** Claim containment, Scope Unit parentage, **or** Type inheritance.",
+          "text_sha256": "20a201d8503bff38c96c2a027277f09fcae1490c360cc0bfdee841f88080b585"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-501",
+        "CA-E-507",
+        "CA-M-306",
+        "CA-O-122",
+        "CA-R-1536",
+        "CA-R-1538",
+        "CA-R-1574",
+        "CA-R-1575",
+        "CA-R-1579",
+        "CA-R-1589",
+        "CA-R-1590"
+      ]
+    },
+    {
+      "case_id": "slash:cddecc1322ee2e026e1ca57c6c2fba476628c305d1bca2855d4f0ebda024ecba",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Recursive Decomposition",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The legacy slash path and candidate list do not prove a native relation, and no pin-matched authored span names both endpoints for even a display qualification in this bounded pass.",
+      "question": "plan substructure and Carrier binding family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "reviewed_candidate_atom_ids": [
+        "CA-E-501",
+        "CA-M-306",
+        "CA-O-122",
+        "CA-R-1537",
+        "CA-R-1574",
+        "CA-R-1575",
+        "CA-R-1589",
+        "CA-R-1590"
+      ]
+    },
+    {
+      "case_id": "slash:d021685fba7a88ebb44a72971d4836560c6b224d63ba8ca4e2e1e63d7579c12f",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Backlog",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Plan/Type: Plan",
+        "qualified_child": "Atom/Content Role: Plan/Type: Plan/Backlog",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1542",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1542-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-backlog.md",
+          "carrier_sha256": "acd39db26bf3e686049b315c540c16efcba49cd0e43ca243a9dde8d9402ad06f",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "the Plan Backlog **means** Plan Atoms retained for future work outside the current Plan Scope, including standalone Plans **and** Plans with decomposition; a Version Label does **not** establish another Status.",
+          "text_sha256": "a7ef7cdbc73f674eccc83126b3e866474d9171b09ccb8d6346ee29c02644af8a"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-501",
+        "CA-M-306",
+        "CA-O-122",
+        "CA-R-1542",
+        "CA-R-1574",
+        "CA-R-1575",
+        "CA-R-1589",
+        "CA-R-1590"
+      ]
+    },
+    {
+      "case_id": "slash:d384b75ed2ff62152eaa7ef81eba794ebafb32ee744e8435df50aa775f62368f",
+      "old_parent": "Atom/Revision",
+      "old_child": "Atom/Revision/History",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Revision",
+        "qualified_child": "Atom/Revision/History",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-568",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+          "carrier_sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d",
+          "start_line": 42,
+          "end_line": 42,
+          "quote": "an operation that identifies a Draft Atom **must** read and validate **`=1`** `revision_lineage.history_entry_ref` from the actual target Draft Carrier under CA-D-570 before assigning an Atom ID. That pre-addressable reference resolves only through the exclusive admitted lifecycle writer's append-only retained Atom-history entry; the entry must bind this exact current Draft locator and digest, origin, direct parent lineage, and any identified direct predecessor. It must also be the unique live Draft-head leaf for that canonical Draft locator: every declared parent resolves, no later child or branch names it, and no competing entry binds that locator/digest. Caller parameters may report the resulting reference but **must not** provide, select, alter, or override the identity basis.",
+          "text_sha256": "1cb1704589e5e42914e54226a88019c526b6fdc773bb6b7000c7ce1793481d27"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-568",
+        "CA-D-570"
+      ]
+    },
+    {
+      "case_id": "slash:d3a0f488e4eb1cd43f55bf6c596dbe308a4abb5ad093e7198d7bc978bbb3bb13",
+      "old_parent": "Atom/Content Role: Delivery",
+      "old_child": "Atom/Content Role: Delivery/Status",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Delivery",
+        "qualified_child": "Atom/Content Role: Delivery/Status",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1306",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
+          "carrier_sha256": "b19222de4098ccbdd6ec907980f0ab4ae6546794fe40a20f762a24031d6b09ff",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "a Status **means** the Artifact Revision Property whose allowed values resolve from the complete qualified path of its Artifact Type **or** Atom Content Role **and** Type.",
+          "text_sha256": "75a7a1aae036833a67c08cefa87d716bbb4312dc6a0cc5e3f83430962fafc050"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1309",
+        "CA-R-1311",
+        "CA-R-1312",
+        "CA-R-1313",
+        "CA-R-1342",
+        "CA-R-1397",
+        "CA-R-1398",
+        "CA-R-1399",
+        "CA-R-1412",
+        "CA-R-1539",
+        "CA-R-1608",
+        "CA-R-1610",
+        "CA-R-1874",
+        "CA-R-1875"
+      ]
+    },
+    {
+      "case_id": "slash:d4d970aae4c58ca464d011441608e6cd4138f39c49e69cf4080d54e07bdbec64",
+      "old_parent": "Scope Unit",
+      "old_child": "Scope Unit/Label",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Scope Unit",
+        "qualified_child": "Scope Unit/Label",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1382",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md",
+          "carrier_sha256": "c3e84e0a0b438d149ebefc0a645e0ac92f0d5dea5c764d39748b4c01af16500a",
+          "start_line": 28,
+          "end_line": 28,
+          "quote": "**every** Ordered Scope Unit **must** use Layer as its default Label.",
+          "text_sha256": "aa555399d09addab2b4b95c8479f0f78e3279d7fe63316873079dbee551a636d"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-445",
+        "CA-E-505",
+        "CA-R-1257",
+        "CA-R-1264",
+        "CA-R-1292",
+        "CA-R-1382",
+        "CA-R-1484",
+        "CA-R-1576",
+        "CA-R-1594",
+        "CA-R-1730",
+        "CA-R-1748",
+        "CA-R-1757",
+        "CA-R-1762",
+        "CA-R-862",
+        "CA-R-927",
+        "CA-R-972",
+        "CA-R-980",
+        "CA-R-982"
+      ]
+    },
+    {
+      "case_id": "slash:d6f55432b22c2de4ff2fe73e8c2e188a69deeea8237795a27ed61c2129492242",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Definition of Done",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Plan/Type: Plan",
+        "qualified_child": "Atom/Content Role: Plan/Type: Plan/Definition of Done",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1581",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1581-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-definition-of-done.md",
+          "carrier_sha256": "ab567f74bd096a53d268c732be9157bf06ba194bbbc0c5c197f6cdec166cd4cf",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "a Plan Definition of Done **means** **=1** falsifying Condition Expression, atomic **or** explicitly composite, that evaluates the Plan Claim within its resolved Claim restrictions **and** target.",
+          "text_sha256": "ce551d5ecab9c2982a8b74c735fa4520af9a11d5abd7fd2aee40516608274c3b"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-501",
+        "CA-M-306",
+        "CA-O-122",
+        "CA-R-1574",
+        "CA-R-1575",
+        "CA-R-1581",
+        "CA-R-1589",
+        "CA-R-1590",
+        "CA-R-1599"
+      ]
+    },
+    {
+      "case_id": "slash:d71c97a2ccfa2c633d10411a6cade5ee780952cdae3d4c4edfaf12d255df0a5a",
+      "old_parent": "Atom/Content Role: Evaluation",
+      "old_child": "Atom/Content Role: Evaluation/grouping",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The legacy slash path and candidate list do not prove a native relation, and no pin-matched authored span names both endpoints for even a display qualification in this bounded pass.",
+      "question": "evaluation grouping family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "reviewed_candidate_atom_ids": [
+        "CA-M-265",
+        "CA-R-1341",
+        "CA-R-1503",
+        "CA-R-1505"
+      ]
+    },
+    {
+      "case_id": "slash:d7a96a63de38a1fd1784a406eeddfb0f19096cf8c0dffcb542dbd7c6233aa335",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Subtype",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Plan/Type: Plan",
+        "qualified_child": "Atom/Content Role: Plan/Type: Plan/Subtype",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1577",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1577-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-authoring-subtypes.md",
+          "carrier_sha256": "a1fec619711b7a8cc90b04e5b6882a2ed593afd1b95b8cf66269e1787386da38",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "a Plan Subtype **means** an explicitly governed specialization of Plan authoring rules; a Label **must not** imply that specialization **without** its own applicable authority.",
+          "text_sha256": "2873fec902aeb0ed919f56ca2aa9503c4b2d91f40cda33a0d558e29324e99366"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-501",
+        "CA-M-306",
+        "CA-O-122",
+        "CA-R-1574",
+        "CA-R-1575",
+        "CA-R-1577",
+        "CA-R-1589",
+        "CA-R-1590"
+      ]
+    },
+    {
+      "case_id": "slash:d80ecebe3cea41c260b364bd35115e3e2880a5f8db773f93082519ded077ecf3",
+      "old_parent": "Atom/Content Role: Plan",
+      "old_child": "Atom/Content Role: Plan/Backlog",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Plan",
+        "qualified_child": "Atom/Content Role: Plan/Backlog",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1542",
+          "atom_revision": 5,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1542-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-backlog.md",
+          "carrier_sha256": "acd39db26bf3e686049b315c540c16efcba49cd0e43ca243a9dde8d9402ad06f",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "the Plan Backlog **means** Plan Atoms retained for future work outside the current Plan Scope, including standalone Plans **and** Plans with decomposition; a Version Label does **not** establish another Status.",
+          "text_sha256": "a7ef7cdbc73f674eccc83126b3e866474d9171b09ccb8d6346ee29c02644af8a"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1338",
+        "CA-R-1542"
+      ]
+    },
+    {
+      "case_id": "slash:d97e117519f3c3297ac0f6cdf42e3542adec16796d810ae5b4cebe499d91b1ee",
+      "old_parent": "Atom/Content Role: Requirement",
+      "old_child": "Atom/Content Role: Requirement/Type",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Requirement",
+        "qualified_child": "Atom/Content Role: Requirement/Type",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-393",
+          "atom_revision": 8,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-393-CORE_META_MODEL--derive-default-external-type-names.md",
+          "carrier_sha256": "bba58abb3dc839f56d98f64bf521a06afb48a512f848916fa0b44f5ce6088201",
+          "start_line": 33,
+          "end_line": 33,
+          "quote": "**when** an external Type name is derived from an internal Type, the derivation uses `external_<internal_type_name>`. **when** the internal Type is the Content Role's default, the derived name uses that registered default Type. a separately registered explicit external Type name is non-default **and** does **not** modify this derivation rule.",
+          "text_sha256": "d15a5f7e643a5a78dfbcdafab1748ca616af9fd97f5cce6b28dc16359e9f2606"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-389",
+        "CA-D-393",
+        "CA-E-387",
+        "CA-R-1231",
+        "CA-R-1232",
+        "CA-R-1284",
+        "CA-R-1285",
+        "CA-R-1286",
+        "CA-R-1339",
+        "CA-R-1348",
+        "CA-R-1349",
+        "CA-R-1350",
+        "CA-R-1352",
+        "CA-R-1405",
+        "CA-R-1506",
+        "CA-R-1546",
+        "CA-R-1565",
+        "CA-R-1634",
+        "CA-R-1643",
+        "CA-R-1694",
+        "CA-R-1708",
+        "CA-R-1758",
+        "CA-R-1765",
+        "CA-R-979"
+      ]
+    },
+    {
+      "case_id": "slash:dadb0cbfc128b0d74cce08a6176389fdf561651279351fe12c59fc26280d87cf",
+      "old_parent": "Atom",
+      "old_child": "Atom/Direct Relation",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The legacy slash path and candidate list do not prove a native relation, and no pin-matched authored span names both endpoints for even a display qualification in this bounded pass.",
+      "question": "Atom direct-relation ownership family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "reviewed_candidate_atom_ids": [
+        "CA-E-520",
+        "CA-O-128",
+        "CA-R-154",
+        "CA-R-1598",
+        "CA-R-655",
+        "CA-R-771"
+      ]
+    },
+    {
+      "case_id": "slash:db09e537e85b37b65c2678c45f5bae1c338655dd472033cbb84447a6b1fb7a02",
+      "old_parent": "Artifact",
+      "old_child": "Artifact/Property",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The legacy slash path and candidate list do not prove a native relation, and no pin-matched authored span names both endpoints for even a display qualification in this bounded pass.",
+      "question": "artifact property family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1193",
+        "CA-R-1249",
+        "CA-R-1251",
+        "CA-R-1262",
+        "CA-R-1268",
+        "CA-R-1502"
+      ]
+    },
+    {
+      "case_id": "slash:db23d2f189c2adb86dd0679e02be811f92f5902d492dbdd0e314f79caf42be5f",
+      "old_parent": "Atom/Content Role: Analysis",
+      "old_child": "Atom/Content Role: Analysis/Status",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Analysis",
+        "qualified_child": "Atom/Content Role: Analysis/Status",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1875",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+          "carrier_sha256": "4e9729d9a86cfde040939429e31efea27f72cc7fe0bf9645d1b993181072905b",
+          "start_line": 32,
+          "end_line": 32,
+          "quote": "the Core allowed values of Analysis Status **must** be exactly (Draft, Done, Archived); that one Content Role Status model applies to Analysis Atoms with Type Analysis Report or Rationale unless an admitted Extension or Project Configuration establishes a more-specific Status domain under that exact Content Role and Type path.",
+          "text_sha256": "b5ccbd0dc62ba47a3d60e043aaea2b662391d4c029e06689cec2a0c6df8e5141"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1309",
+        "CA-R-1311",
+        "CA-R-1312",
+        "CA-R-1313",
+        "CA-R-1337",
+        "CA-R-1397",
+        "CA-R-1398",
+        "CA-R-1399",
+        "CA-R-1412",
+        "CA-R-1539",
+        "CA-R-1608",
+        "CA-R-1610",
+        "CA-R-1874",
+        "CA-R-1875"
+      ]
+    },
+    {
+      "case_id": "slash:dce50c7e17364a6d5ab608da1ee332605f9bd8b7288fc93862d9c01866717a95",
+      "old_parent": "Atom/Revision",
+      "old_child": "Atom/Revision/Identifier",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Revision",
+        "qualified_child": "Atom/Revision/Identifier",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-446",
+          "atom_revision": 7,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md",
+          "carrier_sha256": "3391dbfa646ef362dd1c54cd8c9dab590ee7650f2215d51aec5b7f9ef49d4829",
+          "start_line": 33,
+          "end_line": 33,
+          "quote": "**every** non-Draft Atom Revision **must** have **`=1`** Identifier composed from its Atom Identity **and** Version.",
+          "text_sha256": "a4af5b08398ddce0f7e9fdad4f560ac1e6758b26fceec75e4aab4720fef45bdd"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-358",
+        "CA-D-362",
+        "CA-D-378",
+        "CA-D-446",
+        "CA-D-508"
+      ]
+    },
+    {
+      "case_id": "slash:de6a916d55a966aa389bb745088f5675704c12ca89d9dfcd9cab80d976febfcd",
+      "old_parent": "Atom/Revision/Status: Draft",
+      "old_child": "Atom/Revision/Status: Draft/Filename",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Revision/Status: Draft",
+        "qualified_child": "Atom/Revision/Status: Draft/Filename",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-288",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-288-CORE_META_MODEL-DELIVERY--serialize-draft-atom-filenames-with-an-empty-number.md",
+          "carrier_sha256": "20e84e78dd39241773a5434693dd8fe4a308d1dffd043cd656eec8e6f9306551",
+          "start_line": 26,
+          "end_line": 26,
+          "quote": "**every** Project-owned Draft Atom filename **must** use `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>--` **before** its mutable components **and** **must not** carry an assigned Atom ID.",
+          "text_sha256": "7a01199603650798d0d426ead0353254d134206c6abab222401f13816d404ce5"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-283",
+        "CA-D-288",
+        "CA-D-292",
+        "CA-D-363",
+        "CA-D-469"
+      ]
+    },
+    {
+      "case_id": "slash:e038b0d4ff5d142161711a4d2a2e801507fe8e3d44e0ad7ee3b3a0e70694c026",
+      "old_parent": "Artifact/Revision",
+      "old_child": "Artifact/Revision/Version",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Artifact/Revision",
+        "qualified_child": "Artifact/Revision/Version",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1415",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md",
+          "carrier_sha256": "2c5e7af78d81a3e71def13ef7e24669fa0cf33a8a153b3410b8963934a396cb9",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "**every** Atom Revision **must** have **`=1`** positive integer Version that increases monotonically across successive Revisions of the same Atom.",
+          "text_sha256": "02422dc67b3e68200bfb555b4a6891ac1ab9b957266747860a83c125102d325c"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1371",
+        "CA-R-1415",
+        "CA-R-1433"
+      ]
+    },
+    {
+      "case_id": "slash:e0ffa55a30cb4eab0fdd060eebdf910d5ca8c8a79e0b84154202953700c3b3b5",
+      "old_parent": "Atom/Content Role: Evaluation",
+      "old_child": "Atom/Content Role: Evaluation/Local Tier",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Evaluation",
+        "qualified_child": "Atom/Content Role: Evaluation/Local Tier",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1287",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "carrier_sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "start_line": 32,
+          "end_line": 32,
+          "quote": "the Atom Property Local Tier **means** the semantic abstraction coordinate of **`=1`** complete independently replaceable Atom Claim within its governing authority context, distinct from the breadth of its Claim Scope, its Content Role **and** Type, **and** the ownership of its Methodology Source; admitted combinations of Content Role **and** Local Tier remain subject **to** the applicable role-tier rules, including CA-R-1566-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-change-and-implementation-content-at-standard.",
+          "text_sha256": "1a7bee0335ab8d625f8e5d7329c1fdb599f0974debb74b933c7978ef1c66c8db"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-484",
+        "CA-E-499",
+        "CA-R-1287",
+        "CA-R-1341",
+        "CA-R-1393",
+        "CA-R-1442",
+        "CA-R-1503",
+        "CA-R-1505",
+        "CA-R-155",
+        "CA-R-1566",
+        "CA-R-1567",
+        "CA-R-1571",
+        "CA-R-680",
+        "CA-R-794"
+      ]
+    },
+    {
+      "case_id": "slash:e17de2256686328de8c8d442d1920ac6f9484134db621e94cc9b60d3e6f212ae",
+      "old_parent": "Atom/Identity",
+      "old_child": "Atom/Identity/collision repair",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The legacy slash path and candidate list do not prove a native relation, and no pin-matched authored span names both endpoints for even a display qualification in this bounded pass.",
+      "question": "identity collision repair family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "reviewed_candidate_atom_ids": [
+        "CA-E-448",
+        "CA-M-276"
+      ]
+    },
+    {
+      "case_id": "slash:e1986b3e5c6d4879b5cb02b4c0401dc77fe5e28aa60b01a4243466f82454f045",
+      "old_parent": "Entity",
+      "old_child": "Entity/Type",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Entity",
+        "qualified_child": "Entity/Type",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-E-387",
+          "atom_revision": 13,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-387-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--reject-invalid-type-assignments.md",
+          "carrier_sha256": "0fdebfd3a98131382e9c7e5a3be4f536e8e2a43481b081fc08fbce10f5eee93a",
+          "start_line": 33,
+          "end_line": 33,
+          "quote": "- an Entity occurrence that bears Type has **`!=1`** direct Type values.",
+          "text_sha256": "91ea8055842053646e1449bdd463095eb1c1eaee57a6262e49ac1c4910f87a6f"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-389",
+        "CA-D-393",
+        "CA-E-387",
+        "CA-R-1231",
+        "CA-R-1232",
+        "CA-R-1248",
+        "CA-R-1259",
+        "CA-R-1284",
+        "CA-R-1285",
+        "CA-R-1286",
+        "CA-R-1348",
+        "CA-R-1349",
+        "CA-R-1350",
+        "CA-R-1352",
+        "CA-R-1405",
+        "CA-R-1506",
+        "CA-R-1546",
+        "CA-R-1565",
+        "CA-R-1634",
+        "CA-R-1643",
+        "CA-R-1708",
+        "CA-R-1758",
+        "CA-R-1765",
+        "CA-R-979"
+      ]
+    },
+    {
+      "case_id": "slash:e21f48f113392430ed4d1859c44c50f2e997fc1cec5def7097cbb5fd9540d2e8",
+      "old_parent": "Atom/Content Role: Requirement/Type: Goal",
+      "old_child": "Atom/Content Role: Requirement/Type: Goal/Reference",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Requirement/Type: Goal",
+        "qualified_child": "Atom/Content Role: Requirement/Type: Goal/Reference",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-342",
+          "atom_revision": 15,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-342-CORE_META_MODEL--serialize-external-project-goal-references.md",
+          "carrier_sha256": "14977326cdfeba0850c577925433355d7a50d457527b5d30e9bc24cd6ccbfbe4",
+          "start_line": 28,
+          "end_line": 28,
+          "quote": "**every** Reference **to** an external Project Goal Atom **without** an Atom ID **must** use its complete current Carrier filename stem.",
+          "text_sha256": "75d45d8086fef446a6e4260db398d9885625f7804e77456c2e1ea03bd4f1d303"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-342",
+        "CA-R-1392",
+        "CA-R-1775",
+        "CA-R-366",
+        "CA-R-925",
+        "CA-R-926"
+      ]
+    },
+    {
+      "case_id": "slash:e2a2bfd9d3840404eda1a360f6a26abd49c8361dea14ca5aa77a7e1cc14add63",
+      "old_parent": "Atom/Content Role: Requirement/Type: Demand",
+      "old_child": "Atom/Content Role: Requirement/Type: Demand/Direction",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Requirement/Type: Demand",
+        "qualified_child": "Atom/Content Role: Requirement/Type: Demand/Direction",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-E-243",
+          "atom_revision": 22,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-243-CORE_META_MODEL-QA_CASE--validate-a-demand-atom.md",
+          "carrier_sha256": "061272c1f7f825ff18df3354b97b6f1d69d3d968a91605a2ce426c74203fd98d",
+          "start_line": 41,
+          "end_line": 41,
+          "quote": "create valid Demand Atoms with Consumer **and** Producer Scope Unit references **in** permitted branches **and** with a later ordered sibling as Consumer **and** an earlier ordered sibling as Producer. **then** remove the Goal-authorized need for the Producer result, change ownership, target an ancestor, direct child, deeper descendant, **or** later ordered sibling, use equal Producer **and** Consumer Local Order, target two results, constrain Producer authority outside the selected result, fully define Producer Scope, **and** add a separate Demand-direction relation Kind.",
+          "text_sha256": "3680102d01c9edc0cb3bca1b9455cc36482e72b498f5f01204abc934f829e204"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-243",
+        "CA-R-1293",
+        "CA-R-1294",
+        "CA-R-932",
+        "CA-R-944"
+      ]
+    },
+    {
+      "case_id": "slash:e47a45c9def53a33d2a0fab1102cf2844b3da9276e59a522835665018e974b64",
+      "old_parent": "Entity/Type",
+      "old_child": "Entity/Type/Status",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Entity/Type",
+        "qualified_child": "Entity/Type/Status",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1306",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
+          "carrier_sha256": "b19222de4098ccbdd6ec907980f0ab4ae6546794fe40a20f762a24031d6b09ff",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "a Status **means** the Artifact Revision Property whose allowed values resolve from the complete qualified path of its Artifact Type **or** Atom Content Role **and** Type.",
+          "text_sha256": "75a7a1aae036833a67c08cefa87d716bbb4312dc6a0cc5e3f83430962fafc050"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-387",
+        "CA-R-1285",
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1309",
+        "CA-R-1311",
+        "CA-R-1312",
+        "CA-R-1313",
+        "CA-R-1349",
+        "CA-R-1350",
+        "CA-R-1397",
+        "CA-R-1398",
+        "CA-R-1399",
+        "CA-R-1412",
+        "CA-R-1539",
+        "CA-R-1608",
+        "CA-R-1610",
+        "CA-R-1874",
+        "CA-R-1875"
+      ]
+    },
+    {
+      "case_id": "slash:e8b149195253a1cef90f503601570b0c00cb69522eeafcac797c4a3ebdabd3c5",
+      "old_parent": "Atom/Content Role: Concern",
+      "old_child": "Atom/Content Role: Concern/Type",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Concern",
+        "qualified_child": "Atom/Content Role: Concern/Type",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1231",
+          "atom_revision": 14,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1231-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-type-values-for-concern-atoms.md",
+          "carrier_sha256": "bb665befe48a357fab79f17c9d1a604d6e46345ea929a06feeb6a8e825f5930f",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "the Core contribution **to** allowed values of `Atom/Content Role: Concern/Type` **must** be exactly (Question, Conflict, Problem).",
+          "text_sha256": "562a7691fc0886f7e3a483c97454cba07fbbf10983e5763eb470d9363f89d583"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-389",
+        "CA-D-393",
+        "CA-E-387",
+        "CA-R-1231",
+        "CA-R-1232",
+        "CA-R-1284",
+        "CA-R-1285",
+        "CA-R-1286",
+        "CA-R-1336",
+        "CA-R-1348",
+        "CA-R-1349",
+        "CA-R-1350",
+        "CA-R-1352",
+        "CA-R-1405",
+        "CA-R-1506",
+        "CA-R-1546",
+        "CA-R-1565",
+        "CA-R-1634",
+        "CA-R-1643",
+        "CA-R-1708",
+        "CA-R-1758",
+        "CA-R-1765",
+        "CA-R-979"
+      ]
+    },
+    {
+      "case_id": "slash:e8b43496d9f1368a27d510cc629139dce99d145b4345b2de174badcb4a1b1409",
+      "old_parent": "Atom/Revision/Status",
+      "old_child": "Atom/Revision/Status/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Revision/Status",
+        "qualified_child": "Atom/Revision/Status/Carrier",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-475",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-475-CORE_META_MODEL-STANDARD--serialize-the-plan-backlog-directory.md",
+          "carrier_sha256": "ca52f96efabd9dada8b13bb3e7a7ef52f21be88988d95d1b216069854122417e",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "the Plan Backlog Directory **must** be `03_plan/001_backlog`; it is a Status container, **not** a Plan Atom. a Version-labeled Plan uses the ordinary Plan Carrier grammar under CA-D-469-CORE_META_MODEL-DELIVERY--serialize-plan-carrier-stems rather than an independently identified Version Plan Collection **or** special `version-<VERSION>` container.",
+          "text_sha256": "0eb021f0c5e56c463b3ac54c20e0f0c23c30f4405872250baefc7419c84093ab"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-253",
+        "CA-D-308",
+        "CA-D-309",
+        "CA-D-312",
+        "CA-D-368",
+        "CA-D-369",
+        "CA-D-375",
+        "CA-D-376",
+        "CA-D-386",
+        "CA-D-394",
+        "CA-D-407",
+        "CA-D-414",
+        "CA-D-434",
+        "CA-D-447",
+        "CA-D-467",
+        "CA-D-471",
+        "CA-D-472",
+        "CA-D-473",
+        "CA-D-475",
+        "CA-D-478",
+        "CA-D-481",
+        "CA-D-482",
+        "CA-D-483",
+        "CA-D-494",
+        "CA-D-495",
+        "CA-D-505",
+        "CA-D-506",
+        "CA-D-507",
+        "CA-D-559",
+        "CA-E-500",
+        "CA-E-502",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-R-1412",
+        "CA-R-1610"
+      ]
+    },
+    {
+      "case_id": "slash:ea356c89831a6e762725f29733f1b755689a4cb77e91eda3b8a3773f69b3603e",
+      "old_parent": "Artifact/Property",
+      "old_child": "Artifact/Property/Default",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Artifact/Property",
+        "qualified_child": "Artifact/Property/Default",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-485",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+          "carrier_sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718",
+          "start_line": 32,
+          "end_line": 32,
+          "quote": "a writer **must** preserve the distinction between a defaulted Atom Property **and** an inherited external setting:",
+          "text_sha256": "d3ddfd8999353be728abfdcf9dc8e7a9d61e1ff621532652395f362569ef533c"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-485"
+      ]
+    },
+    {
+      "case_id": "slash:eb295873edf3e8d418c467e543585131bfd2feea4585152dabe5fcdd0cb4f16a",
+      "old_parent": "Atom/Content Role: Plan",
+      "old_child": "Atom/Content Role: Plan/Status",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Plan",
+        "qualified_child": "Atom/Content Role: Plan/Status",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1306",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
+          "carrier_sha256": "b19222de4098ccbdd6ec907980f0ab4ae6546794fe40a20f762a24031d6b09ff",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "a Status **means** the Artifact Revision Property whose allowed values resolve from the complete qualified path of its Artifact Type **or** Atom Content Role **and** Type.",
+          "text_sha256": "75a7a1aae036833a67c08cefa87d716bbb4312dc6a0cc5e3f83430962fafc050"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1309",
+        "CA-R-1311",
+        "CA-R-1312",
+        "CA-R-1313",
+        "CA-R-1338",
+        "CA-R-1397",
+        "CA-R-1398",
+        "CA-R-1399",
+        "CA-R-1412",
+        "CA-R-1539",
+        "CA-R-1608",
+        "CA-R-1610",
+        "CA-R-1874",
+        "CA-R-1875"
+      ]
+    },
+    {
+      "case_id": "slash:ee6539350d2f56428e430c6754f97e39b3d84fd18d3d48da5b03688ed9c78f64",
+      "old_parent": "Atom",
+      "old_child": "Atom/Author",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom",
+        "qualified_child": "Atom/Author",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1078",
+          "atom_revision": 15,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1078-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-author.md",
+          "carrier_sha256": "8d39e244c674e496625f8c816533de343f88e7fc62bcd4ad441b0270ceec4cff",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "**every** Atom Revision **must** have **`=1`** Author.",
+          "text_sha256": "6f989e07ff90f33e40dfdfe0d65118c4803107a25ba7610258601e3b2ed3681a"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-E-520",
+        "CA-O-128",
+        "CA-R-1078",
+        "CA-R-1080",
+        "CA-R-154",
+        "CA-R-1598",
+        "CA-R-655",
+        "CA-R-771"
+      ]
+    },
+    {
+      "case_id": "slash:ef68a2b346617e62694854a8a5e72e07b5702e1fb2174df78ec6e95e03672b97",
+      "old_parent": "Atom/Content Role: Plan",
+      "old_child": "Atom/Content Role: Plan/Authoritative Carrier Bundle",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The legacy slash path and candidate list do not prove a native relation, and no pin-matched authored span names both endpoints for even a display qualification in this bounded pass.",
+      "question": "plan substructure and Carrier binding family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "reviewed_candidate_atom_ids": [
+        "CA-D-460",
+        "CA-D-463",
+        "CA-R-1338"
+      ]
+    },
+    {
+      "case_id": "slash:eff68200686c0ab86d9639f37de509d366b3882cc505530638362a19157c2ee8",
+      "old_parent": "Atom/Content Role: Requirement",
+      "old_child": "Atom/Content Role: Requirement/Status",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Requirement",
+        "qualified_child": "Atom/Content Role: Requirement/Status",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1306",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
+          "carrier_sha256": "b19222de4098ccbdd6ec907980f0ab4ae6546794fe40a20f762a24031d6b09ff",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "a Status **means** the Artifact Revision Property whose allowed values resolve from the complete qualified path of its Artifact Type **or** Atom Content Role **and** Type.",
+          "text_sha256": "75a7a1aae036833a67c08cefa87d716bbb4312dc6a0cc5e3f83430962fafc050"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1306",
+        "CA-R-1308",
+        "CA-R-1309",
+        "CA-R-1311",
+        "CA-R-1312",
+        "CA-R-1313",
+        "CA-R-1339",
+        "CA-R-1397",
+        "CA-R-1398",
+        "CA-R-1399",
+        "CA-R-1412",
+        "CA-R-1539",
+        "CA-R-1608",
+        "CA-R-1610",
+        "CA-R-1694",
+        "CA-R-1874",
+        "CA-R-1875"
+      ]
+    },
+    {
+      "case_id": "slash:f503d9ed6b66effd71a2932eb2055eb64ff9d914acbc6c34d2d84516138e6ae4",
+      "old_parent": "Atom/Content Role: Plan/Type: Plan/Decomposition",
+      "old_child": "Atom/Content Role: Plan/Type: Plan/Decomposition/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom/Content Role: Plan/Type: Plan/Decomposition",
+        "qualified_child": "Atom/Content Role: Plan/Type: Plan/Decomposition/Carrier",
+        "semantic_intent": "contextual qualification only; not native admission"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-481",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-481-CORE_META_MODEL-DELIVERY--store-plan-decomposition-on-the-decomposing-plan.md",
+          "carrier_sha256": "f9a0d601d76895e245c78765004c60cb4c4ffbb01bb578afc0ce6279c2cf2ccb",
+          "start_line": 36,
+          "end_line": 36,
+          "quote": "- directory nesting **may** represent the declared Relation but **must not** create, delete, **or** retarget it. **if** a Plan is placed inside another Plan's Directory Carrier, the declared immediate decomposition target **must** match that Plan, skipping reserved Status directories.",
+          "text_sha256": "aac0f742c2862dece576c796e6d19c805c4d76de6e6371b4352da23451c40bd6"
+        }
+      ],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The pin-matched authored span supports the legacy qualified display context, but does not declare native same-referent/narrower or bearer/dependent kind coverage.",
+      "question": null,
+      "reviewed_candidate_atom_ids": [
+        "CA-D-253",
+        "CA-D-308",
+        "CA-D-309",
+        "CA-D-312",
+        "CA-D-368",
+        "CA-D-369",
+        "CA-D-375",
+        "CA-D-376",
+        "CA-D-386",
+        "CA-D-394",
+        "CA-D-407",
+        "CA-D-414",
+        "CA-D-434",
+        "CA-D-447",
+        "CA-D-467",
+        "CA-D-471",
+        "CA-D-472",
+        "CA-D-473",
+        "CA-D-475",
+        "CA-D-478",
+        "CA-D-481",
+        "CA-D-482",
+        "CA-D-483",
+        "CA-D-494",
+        "CA-D-495",
+        "CA-D-505",
+        "CA-D-506",
+        "CA-D-507",
+        "CA-D-559",
+        "CA-E-500",
+        "CA-E-502",
+        "CA-E-507",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-R-1536",
+        "CA-R-1538",
+        "CA-R-1579"
+      ]
+    },
+    {
+      "case_id": "slash:f7aecaaabc60fe77141c54e697546af766789d47d053cb514c57e1319b91e5a1",
+      "old_parent": "Atom/Carrier",
+      "old_child": "Atom/Carrier/Reconciliation",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "display_candidate": null,
+      "evidence": [],
+      "checks_performed": [
+        "verified each listed current candidate source pin against carrier bytes",
+        "read only authored Claim/Procedure/Condition Main Content; ignored Summary, frontmatter, Subjects/source incidence",
+        "did not infer native same-referent/narrower or bearer/dependent coverage from contextual wording",
+        "preserved the legacy qualified references without rebasing or semantic admission"
+      ],
+      "reason": "The legacy slash path and candidate list do not prove a native relation, and no pin-matched authored span names both endpoints for even a display qualification in this bounded pass.",
+      "question": "Carrier reconciliation family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "reviewed_candidate_atom_ids": [
+        "CA-D-386",
+        "CA-O-077"
+      ]
+    }
+  ]
+}

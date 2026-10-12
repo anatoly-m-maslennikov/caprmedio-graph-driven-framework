@@ -1,0 +1,967 @@
+{
+  "source_task": "CA-P-1940",
+  "batch": 3,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "input_file_sha256": "511c94b0038a7646f891dd9911ef41cd3d93e6e5ee2a1bb8095b93f60e04a3f7",
+  "partition_sha256": "bf1c43c54922cfb2dcdfa8d212b09c1e568de5df4f7f3de7a227a785a5d77e54",
+  "non_authoritative": true,
+  "semantic_admission": "not_performed",
+  "source_migration": "not_performed",
+  "source_context": "captured_snapshot",
+  "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "operator_decision": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/operator.decisions.md",
+    "sha256": "53eeb7a3fdaa002cd05170fe185cfb5baeea72814a1f32567d8eea6f56ac65cb"
+  },
+  "scope_omission_decision": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/scope.omission.decision.md",
+    "sha256": "d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453",
+    "applied_to_batch": false
+  },
+  "parent_input": {
+    "partition_sha256": "88beafef8f20de3b26f0f0c199ada28138d266688d648f3170b036c5cb8cc913",
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-3.input.json",
+    "sha256": "dd32659d557158390a52c869c87afbc5c28757f7bcb73a0c5f39a2d2d4c4dc3a"
+  },
+  "parent_source_task": "CA-P-1931",
+  "subset_indexes": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "subset_input": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/slices/CA-P-1940.input.json",
+    "sha256": "511c94b0038a7646f891dd9911ef41cd3d93e6e5ee2a1bb8095b93f60e04a3f7",
+    "partition_sha256": "bf1c43c54922cfb2dcdfa8d212b09c1e568de5df4f7f3de7a227a785a5d77e54"
+  },
+  "evidence_catalogue": [
+    {
+      "evidence_ref": "CA-P-1940-e001",
+      "atom_id": "CA-R-1243",
+      "atom_revision": 11,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1243-CORE_META_MODEL-CORE-REQUIREMENT--derive-bears-as-the-inverse-of-is-borne-by.md",
+      "carrier_sha256": "1ec0984a964162ea6fed2fec8f2428942c508c702a7879cd82c185a2632e2255",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "BEARS **must** be the derived inverse view of IS_BORNE_BY **in** the Entities Graph **and** **must not** be another primitive Relation Kind of that graph.",
+      "text_sha256": "6d18031adbdf0f1b2ee8463e4c5464b2d39a675bdf24eb2fe5c84e5146f1327d"
+    },
+    {
+      "evidence_ref": "CA-P-1940-e002",
+      "atom_id": "CA-O-133",
+      "atom_revision": 2,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-133-CORE_META_MODEL-WORKFLOW--build-entities-graph.md",
+      "carrier_sha256": "17a2d268d16603d53bc963fdbfdac860eaa978bb78ea0d1096a4b29ebf12f780",
+      "start_line": 25,
+      "end_line": 25,
+      "quote": "Build Entities Graph **means** the reusable Workflow whose entry **and** only node is CA-O-135, the Entities Graph Construction Step. that Step owns its Action reference **and** invocation bindings; the Action owns construction behavior. the graph uses current Workflow execution authority under CA-R-1519 **and** exact definition Revisions under CA-R-1525.",
+      "text_sha256": "1d761c66f9e1f0607137facf48f43f5aec297d210beb9ef85c8276fc9d949fad"
+    },
+    {
+      "evidence_ref": "CA-P-1940-e003",
+      "atom_id": "CA-O-136",
+      "atom_revision": 2,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-136-CORE_META_MODEL-WORKFLOW--build-terms-graph.md",
+      "carrier_sha256": "60a2d8abbed65e00b376608c39ed01ae8d1960566f49a60ef498c694f508d3ff",
+      "start_line": 25,
+      "end_line": 25,
+      "quote": "Build Terms Graph **means** the reusable Workflow whose entry **and** only node is CA-O-138, the Terms Graph Construction Step. that Step owns its Action reference **and** invocation bindings; the Action owns construction behavior. the graph uses current Workflow execution authority under CA-R-1519 **and** exact definition Revisions under CA-R-1525.",
+      "text_sha256": "2214b585c9b87136b9b9ce8ba36566aee46c4b3dba514d273ac71f5ea9d5ad5f"
+    },
+    {
+      "evidence_ref": "CA-P-1940-e004",
+      "atom_id": "CA-R-1736",
+      "atom_revision": 19,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+      "carrier_sha256": "14a338784dc5d1dd3903a435c7ee6df81ff55c8e440b09d77920d49e22edf2cf",
+      "start_line": 31,
+      "end_line": 31,
+      "quote": "CAPRMEDIO expands **to** Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, **and** Operations **in** that canonical order.",
+      "text_sha256": "ba5e86669c2defb6394d0bc31df7a6b9dfabde27dee1b75c41fc5c953fb99e61"
+    },
+    {
+      "evidence_ref": "CA-P-1940-e005",
+      "atom_id": "CA-R-1778",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1778-CORE_META_MODEL-REQUIREMENT--name-the-framework-caprmedio.md",
+      "carrier_sha256": "14510696fa4c9f9ceb509ec4e7f6db44ae794cbcb074c5a59aef75fb5c0f7a0c",
+      "start_line": 29,
+      "end_line": 29,
+      "quote": "the Framework name **must** be `CAPRMEDIO`.",
+      "text_sha256": "ff515d839059df05ffd950e90246fd54d30c37ef2d6180e9041d8ea2982716e4"
+    },
+    {
+      "evidence_ref": "CA-P-1940-e006",
+      "atom_id": "CA-R-850",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-850-CORE_META_MODEL-CORE-REQUIREMENT--exclude-caprmedio-instance-from-actor-role.md",
+      "carrier_sha256": "0d5cffdb03482b9ed3b16d4fe277216e92fd3b8044227694fd653d3417df66be",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "the CAPRMEDIO Framework Instance **must not** be classified as an Actor.",
+      "text_sha256": "79912eddb41730e6b5bf952f7db3ef1d25cd81867b6c621c02ebe3da06f1cc59"
+    },
+    {
+      "evidence_ref": "CA-P-1940-e007",
+      "atom_id": "CA-D-317",
+      "atom_revision": 12,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL--place-each-project-framework-instance-inside-its-project.md",
+      "carrier_sha256": "c93ede85518a750816c36cff62d6f7e1ec3a66377f31ae221d17296cac30c8ef",
+      "start_line": 27,
+      "end_line": 27,
+      "quote": "the Methodology **and** Tool governance of the CAPRMEDIO Framework Instance serving a Project **must** reside under that Project's `.caprmedio_<project_name>/000_CAPRMEDIO_framework/` Directory Carrier. this Carrier **must** contain that Project's Methodology Sources **and** Framework Instance Settings. another Project's Framework Instance **or** a repository-shared framework directory **must not** substitute for this Project's instance.",
+      "text_sha256": "918a4c0dd409db6c73b69634a28a324206b5330fa488dc4fb5eb12bb59289f88"
+    },
+    {
+      "evidence_ref": "CA-P-1940-e008",
+      "atom_id": "CA-E-466",
+      "atom_revision": 7,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-466-CORE_META_MODEL-QA_CASE--validate-single-source-of-truth-in-secondary-graphs.md",
+      "carrier_sha256": "fbd793ad409812ff54bfa84a596493181b9444abda65a2cd9641be63f678c06b",
+      "start_line": 38,
+      "end_line": 38,
+      "quote": "the Evaluation **must** distinguish authoritative source facts from their secondary graph representations **and** reject a Projection that acquires independent authority for a represented fact.",
+      "text_sha256": "29f6c40a976d4da374e3dce3de1d5fb8aa2b660cf7c44796fa6ad6a892e8356d"
+    },
+    {
+      "evidence_ref": "CA-P-1940-e009",
+      "atom_id": "CA-R-1471",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1471-CORE_META_MODEL-CORE--keep-secondary-graphs-derived-from-source-authority.md",
+      "carrier_sha256": "643f22a173144fe9d0e53639954f4ae020bc9461a5bf7dbb33e0996227a7f79d",
+      "start_line": 34,
+      "end_line": 34,
+      "quote": "secondary CAPRMEDIO Graphs **must** be Projections derived from their selected authoritative sources **or** source-traceable upstream Projections. their nodes **and** Relations **must** preserve source identities **and** traceability **to** the governing derivation authority **and** source facts.",
+      "text_sha256": "644cc36a8fd56d2c07ae156915070d724a06156e7eeca2f06b72db8c52881b8b"
+    },
+    {
+      "evidence_ref": "CA-P-1940-e010",
+      "atom_id": "CA-R-1410",
+      "atom_revision": 7,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md",
+      "carrier_sha256": "4cba155ea2ec0fdc6d5425e85e6590c2d63cc6c8653c325975a4ff74123ec1b9",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "**every** CAPRMEDIO Graph **must** connect **to** the General Artifact Graph through **`>=1`** shared **or** referenced source Artifact **or** Structural Entity. the connection preserves the existing source identity **without** creating a duplicate source **or** requiring an artificial Artifact for a structural-only source.",
+      "text_sha256": "f5701eabeae04d8e4e0974031e702b33ec2aadfc57bdc9abd83ebd0984f78adf"
+    },
+    {
+      "evidence_ref": "CA-P-1940-e011",
+      "atom_id": "CA-R-1472",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1472-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections.md",
+      "carrier_sha256": "c4ae524cad97b270246272ec9604e243318a8eba5cdd32bae80e4c8e13cacd5e",
+      "start_line": 35,
+      "end_line": 35,
+      "quote": "a secondary CAPRMEDIO Graph **may** represent typed Relations between its own nodes, **to** another secondary graph **or** its nodes, **and** **to** source Atoms **or** other admitted authoritative sources.",
+      "text_sha256": "1085c050e560f39f8b5d030ecdf289c260a6bc154f6295faa863fdc3a59ca6c8"
+    },
+    {
+      "evidence_ref": "CA-P-1940-e012",
+      "atom_id": "CA-R-917",
+      "atom_revision": 17,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-917-CORE_META_MODEL-CORE-REQUIREMENT--apply-the-same-scope-unit-governance-recursively.md",
+      "carrier_sha256": "07fd52c63b8cf47016fe78c322013592a8e42e8867f862513f8737241ef98c4a",
+      "start_line": 29,
+      "end_line": 29,
+      "quote": "the CAPRMEDIO Metamodel **must** be fractal by applying the same Scope Unit governance pattern recursively at **every** Structural level.",
+      "text_sha256": "3c1c0d597c892dd93b7a4c2cb2b56cc929f1a0c298086b88b66e692887b88d0e"
+    },
+    {
+      "evidence_ref": "CA-P-1940-e013",
+      "atom_id": "CA-D-256",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-256-CORE_META_MODEL-CORE-DELIVERY--define-carries.md",
+      "carrier_sha256": "1cc8ccf565aaa36b83d71d8d89514cc85a94ace691281daca38f269342e6b9bd",
+      "start_line": 32,
+      "end_line": 32,
+      "quote": "CARRIES **means** the directed Relation from a Carrier **to** the non-ephemeral Entity that it stores **or** represents.",
+      "text_sha256": "ec1a43def26edb24447d262d08df7782e76461eac831ae37581ada272f43b596"
+    }
+  ],
+  "nodes": [
+    {
+      "identity": "BEARS",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Retain BEARS: captured CA-R-1243 defines BEARS as the derived inverse view of IS_BORNE_BY in the Entities Graph and forbids another primitive relation kind. No replacement, reduction, or native admission is proposed.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "captured CA-R-1243 defines BEARS as the derived inverse view of IS_BORNE_BY in the Entities Graph and forbids another primitive relation kind; no same-meaning duplicate is evidenced by the captured claims.",
+          "evidence_refs": [
+            "CA-P-1940-e001"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "BEARS: preserve the derived inverse direction and Entities Graph ownership separately from the primitive IS_BORNE_BY relation; removing it would not be justified by repeated labels or related occurrences.",
+          "evidence_refs": [
+            "CA-P-1940-e001"
+          ]
+        },
+        "empty_definition": {
+          "finding": "definition_evidenced",
+          "reason": "captured CA-R-1243 defines BEARS as the derived inverse view of IS_BORNE_BY in the Entities Graph and forbids another primitive relation kind; the captured Main Content is substantive, so no empty/drop conclusion is made.",
+          "evidence_refs": [
+            "CA-P-1940-e001"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "current_meaning_evidenced",
+          "reason": "BEARS: preserve the derived inverse direction and Entities Graph ownership separately from the primitive IS_BORNE_BY relation.",
+          "evidence_refs": [
+            "CA-P-1940-e001"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "BEARS: no broader replacement is proposed because it could erase the captured distinction and change relation, history, or query semantics.",
+          "evidence_refs": [
+            "CA-P-1940-e001"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-P-1940-e001"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-449",
+        "CA-R-1243",
+        "CA-R-1456"
+      ],
+      "proposal": {
+        "kind": "retain_preserved_baseline_identity_only",
+        "replacement_identity": null,
+        "native_admission": "not_performed",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "constraints_impact": "captured constraints remain required; no constraint change proposed",
+        "historical_references_impact": "preserved at the captured baseline identity BEARS",
+        "queries_impact": "identity-based queries preserve the captured baseline identity",
+        "preserved_distinctions": [
+          "preserve the derived inverse direction and Entities Graph ownership separately from the primitive IS_BORNE_BY relation"
+        ],
+        "lost_distinctions": []
+      },
+      "question": null
+    },
+    {
+      "identity": "Build Entities Graph",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Retain Build Entities Graph: captured CA-O-133 defines Build Entities Graph as a reusable one-node Workflow with explicit terminal outcomes and recording conditions. No replacement, reduction, or native admission is proposed.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "captured CA-O-133 defines Build Entities Graph as a reusable one-node Workflow with explicit terminal outcomes and recording conditions; no same-meaning duplicate is evidenced by the captured claims.",
+          "evidence_refs": [
+            "CA-P-1940-e002"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Build Entities Graph: preserve the reusable Workflow identity separately from its Action, Step, particular Run, Projection result, and Journal record; removing it would not be justified by repeated labels or related occurrences.",
+          "evidence_refs": [
+            "CA-P-1940-e002"
+          ]
+        },
+        "empty_definition": {
+          "finding": "definition_evidenced",
+          "reason": "captured CA-O-133 defines Build Entities Graph as a reusable one-node Workflow with explicit terminal outcomes and recording conditions; the captured Main Content is substantive, so no empty/drop conclusion is made.",
+          "evidence_refs": [
+            "CA-P-1940-e002"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "current_meaning_evidenced",
+          "reason": "Build Entities Graph: preserve the reusable Workflow identity separately from its Action, Step, particular Run, Projection result, and Journal record.",
+          "evidence_refs": [
+            "CA-P-1940-e002"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "Build Entities Graph: no broader replacement is proposed because it could erase the captured distinction and change relation, history, or query semantics.",
+          "evidence_refs": [
+            "CA-P-1940-e002"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-P-1940-e002"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-133"
+      ],
+      "proposal": {
+        "kind": "retain_preserved_baseline_identity_only",
+        "replacement_identity": null,
+        "native_admission": "not_performed",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "constraints_impact": "captured constraints remain required; no constraint change proposed",
+        "historical_references_impact": "preserved at the captured baseline identity Build Entities Graph",
+        "queries_impact": "identity-based queries preserve the captured baseline identity",
+        "preserved_distinctions": [
+          "preserve the reusable Workflow identity separately from its Action, Step, particular Run, Projection result, and Journal record"
+        ],
+        "lost_distinctions": []
+      },
+      "question": null
+    },
+    {
+      "identity": "Build Terms Graph",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Retain Build Terms Graph: captured CA-O-136 defines Build Terms Graph as a reusable one-node Workflow with explicit terminal outcomes and recording conditions. No replacement, reduction, or native admission is proposed.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "captured CA-O-136 defines Build Terms Graph as a reusable one-node Workflow with explicit terminal outcomes and recording conditions; no same-meaning duplicate is evidenced by the captured claims.",
+          "evidence_refs": [
+            "CA-P-1940-e003"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "Build Terms Graph: preserve the Terms Workflow separately from its Action, Step, particular Run, Projection result, and Journal record; removing it would not be justified by repeated labels or related occurrences.",
+          "evidence_refs": [
+            "CA-P-1940-e003"
+          ]
+        },
+        "empty_definition": {
+          "finding": "definition_evidenced",
+          "reason": "captured CA-O-136 defines Build Terms Graph as a reusable one-node Workflow with explicit terminal outcomes and recording conditions; the captured Main Content is substantive, so no empty/drop conclusion is made.",
+          "evidence_refs": [
+            "CA-P-1940-e003"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "current_meaning_evidenced",
+          "reason": "Build Terms Graph: preserve the Terms Workflow separately from its Action, Step, particular Run, Projection result, and Journal record.",
+          "evidence_refs": [
+            "CA-P-1940-e003"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "Build Terms Graph: no broader replacement is proposed because it could erase the captured distinction and change relation, history, or query semantics.",
+          "evidence_refs": [
+            "CA-P-1940-e003"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-P-1940-e003"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-136"
+      ],
+      "proposal": {
+        "kind": "retain_preserved_baseline_identity_only",
+        "replacement_identity": null,
+        "native_admission": "not_performed",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "constraints_impact": "captured constraints remain required; no constraint change proposed",
+        "historical_references_impact": "preserved at the captured baseline identity Build Terms Graph",
+        "queries_impact": "identity-based queries preserve the captured baseline identity",
+        "preserved_distinctions": [
+          "preserve the Terms Workflow separately from its Action, Step, particular Run, Projection result, and Journal record"
+        ],
+        "lost_distinctions": []
+      },
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Expansion",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Expansion: captured CA-R-1736 defines the canonical CAPRMEDIO expansion and its ordered Concern-through-Operations role set. No replacement, reduction, or native admission is proposed.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "captured CA-R-1736 defines the canonical CAPRMEDIO expansion and its ordered Concern-through-Operations role set; no same-meaning duplicate is evidenced by the captured claims.",
+          "evidence_refs": [
+            "CA-P-1940-e004"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "CAPRMEDIO Expansion: preserve the canonical role expansion and order separately from an individual role Atom or a newly inferred subtype; removing it would not be justified by repeated labels or related occurrences.",
+          "evidence_refs": [
+            "CA-P-1940-e004"
+          ]
+        },
+        "empty_definition": {
+          "finding": "definition_evidenced",
+          "reason": "captured CA-R-1736 defines the canonical CAPRMEDIO expansion and its ordered Concern-through-Operations role set; the captured Main Content is substantive, so no empty/drop conclusion is made.",
+          "evidence_refs": [
+            "CA-P-1940-e004"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "current_meaning_evidenced",
+          "reason": "CAPRMEDIO Expansion: preserve the canonical role expansion and order separately from an individual role Atom or a newly inferred subtype.",
+          "evidence_refs": [
+            "CA-P-1940-e004"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "CAPRMEDIO Expansion: no broader replacement is proposed because it could erase the captured distinction and change relation, history, or query semantics.",
+          "evidence_refs": [
+            "CA-P-1940-e004"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-P-1940-e004"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1736"
+      ],
+      "proposal": {
+        "kind": "retain_preserved_baseline_identity_only",
+        "replacement_identity": null,
+        "native_admission": "not_performed",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "constraints_impact": "captured constraints remain required; no constraint change proposed",
+        "historical_references_impact": "preserved at the captured baseline identity CAPRMEDIO Expansion",
+        "queries_impact": "identity-based queries preserve the captured baseline identity",
+        "preserved_distinctions": [
+          "preserve the canonical role expansion and order separately from an individual role Atom or a newly inferred subtype"
+        ],
+        "lost_distinctions": []
+      },
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Framework Identity",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Framework Identity: captured CA-R-1778 requires the Framework name to be CAPRMEDIO. No replacement, reduction, or native admission is proposed.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "captured CA-R-1778 requires the Framework name to be CAPRMEDIO; no same-meaning duplicate is evidenced by the captured claims.",
+          "evidence_refs": [
+            "CA-P-1940-e005"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "CAPRMEDIO Framework Identity: preserve the Framework naming identity separately from a Project Framework Instance, carrier path, or editable configuration field; removing it would not be justified by repeated labels or related occurrences.",
+          "evidence_refs": [
+            "CA-P-1940-e005"
+          ]
+        },
+        "empty_definition": {
+          "finding": "definition_evidenced",
+          "reason": "captured CA-R-1778 requires the Framework name to be CAPRMEDIO; the captured Main Content is substantive, so no empty/drop conclusion is made.",
+          "evidence_refs": [
+            "CA-P-1940-e005"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "current_meaning_evidenced",
+          "reason": "CAPRMEDIO Framework Identity: preserve the Framework naming identity separately from a Project Framework Instance, carrier path, or editable configuration field.",
+          "evidence_refs": [
+            "CA-P-1940-e005"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "CAPRMEDIO Framework Identity: no broader replacement is proposed because it could erase the captured distinction and change relation, history, or query semantics.",
+          "evidence_refs": [
+            "CA-P-1940-e005"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-P-1940-e005"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1778"
+      ],
+      "proposal": {
+        "kind": "retain_preserved_baseline_identity_only",
+        "replacement_identity": null,
+        "native_admission": "not_performed",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "constraints_impact": "captured constraints remain required; no constraint change proposed",
+        "historical_references_impact": "preserved at the captured baseline identity CAPRMEDIO Framework Identity",
+        "queries_impact": "identity-based queries preserve the captured baseline identity",
+        "preserved_distinctions": [
+          "preserve the Framework naming identity separately from a Project Framework Instance, carrier path, or editable configuration field"
+        ],
+        "lost_distinctions": []
+      },
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Framework Instance",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Framework Instance: captured CA-R-850 gives the CAPRMEDIO Framework Instance a specific non-Actor boundary. No replacement, reduction, or native admission is proposed.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "captured CA-R-850 gives the CAPRMEDIO Framework Instance a specific non-Actor boundary; no same-meaning duplicate is evidenced by the captured claims.",
+          "evidence_refs": [
+            "CA-P-1940-e006"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "CAPRMEDIO Framework Instance: preserve the Framework Instance boundary separately from Actor participation and from the Project carrier that houses it; removing it would not be justified by repeated labels or related occurrences.",
+          "evidence_refs": [
+            "CA-P-1940-e006"
+          ]
+        },
+        "empty_definition": {
+          "finding": "definition_evidenced",
+          "reason": "captured CA-R-850 gives the CAPRMEDIO Framework Instance a specific non-Actor boundary; the captured Main Content is substantive, so no empty/drop conclusion is made.",
+          "evidence_refs": [
+            "CA-P-1940-e006"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "current_meaning_evidenced",
+          "reason": "CAPRMEDIO Framework Instance: preserve the Framework Instance boundary separately from Actor participation and from the Project carrier that houses it.",
+          "evidence_refs": [
+            "CA-P-1940-e006"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "CAPRMEDIO Framework Instance: no broader replacement is proposed because it could erase the captured distinction and change relation, history, or query semantics.",
+          "evidence_refs": [
+            "CA-P-1940-e006"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-P-1940-e006"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-317",
+        "CA-E-207",
+        "CA-E-520",
+        "CA-O-022",
+        "CA-R-1422",
+        "CA-R-1487",
+        "CA-R-1772",
+        "CA-R-1773",
+        "CA-R-1776",
+        "CA-R-1777",
+        "CA-R-850"
+      ],
+      "proposal": {
+        "kind": "retain_preserved_baseline_identity_only",
+        "replacement_identity": null,
+        "native_admission": "not_performed",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "constraints_impact": "captured constraints remain required; no constraint change proposed",
+        "historical_references_impact": "preserved at the captured baseline identity CAPRMEDIO Framework Instance",
+        "queries_impact": "identity-based queries preserve the captured baseline identity",
+        "preserved_distinctions": [
+          "preserve the Framework Instance boundary separately from Actor participation and from the Project carrier that houses it"
+        ],
+        "lost_distinctions": []
+      },
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Framework Instance/Carrier Root",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Framework Instance/Carrier Root: captured CA-D-317 requires each Project-serving Framework Instance to reside under that Project's framework Carrier root. No replacement, reduction, or native admission is proposed.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "captured CA-D-317 requires each Project-serving Framework Instance to reside under that Project's framework Carrier root; no same-meaning duplicate is evidenced by the captured claims.",
+          "evidence_refs": [
+            "CA-P-1940-e007"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "CAPRMEDIO Framework Instance/Carrier Root: preserve the Carrier-root placement constraint separately from the Framework Instance identity and its governed Methodology/Tool content; removing it would not be justified by repeated labels or related occurrences.",
+          "evidence_refs": [
+            "CA-P-1940-e007"
+          ]
+        },
+        "empty_definition": {
+          "finding": "definition_evidenced",
+          "reason": "captured CA-D-317 requires each Project-serving Framework Instance to reside under that Project's framework Carrier root; the captured Main Content is substantive, so no empty/drop conclusion is made.",
+          "evidence_refs": [
+            "CA-P-1940-e007"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "current_meaning_evidenced",
+          "reason": "CAPRMEDIO Framework Instance/Carrier Root: preserve the Carrier-root placement constraint separately from the Framework Instance identity and its governed Methodology/Tool content.",
+          "evidence_refs": [
+            "CA-P-1940-e007"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "CAPRMEDIO Framework Instance/Carrier Root: no broader replacement is proposed because it could erase the captured distinction and change relation, history, or query semantics.",
+          "evidence_refs": [
+            "CA-P-1940-e007"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-P-1940-e007"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-317"
+      ],
+      "proposal": {
+        "kind": "retain_preserved_baseline_identity_only",
+        "replacement_identity": null,
+        "native_admission": "not_performed",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "constraints_impact": "captured constraints remain required; no constraint change proposed",
+        "historical_references_impact": "preserved at the captured baseline identity CAPRMEDIO Framework Instance/Carrier Root",
+        "queries_impact": "identity-based queries preserve the captured baseline identity",
+        "preserved_distinctions": [
+          "preserve the Carrier-root placement constraint separately from the Framework Instance identity and its governed Methodology/Tool content"
+        ],
+        "lost_distinctions": []
+      },
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Graph",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Graph: captured CA-R-1471 and CA-E-466 define secondary CAPRMEDIO Graphs as traceable derived Projections that retain source authority. No replacement, reduction, or native admission is proposed.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "captured CA-R-1471 and CA-E-466 define secondary CAPRMEDIO Graphs as traceable derived Projections that retain source authority; no same-meaning duplicate is evidenced by the captured claims.",
+          "evidence_refs": [
+            "CA-P-1940-e008",
+            "CA-P-1940-e009"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "CAPRMEDIO Graph: preserve the derived graph Projection boundary separately from authoritative source facts and independent graph authority; removing it would not be justified by repeated labels or related occurrences.",
+          "evidence_refs": [
+            "CA-P-1940-e008",
+            "CA-P-1940-e009"
+          ]
+        },
+        "empty_definition": {
+          "finding": "definition_evidenced",
+          "reason": "captured CA-R-1471 and CA-E-466 define secondary CAPRMEDIO Graphs as traceable derived Projections that retain source authority; the captured Main Content is substantive, so no empty/drop conclusion is made.",
+          "evidence_refs": [
+            "CA-P-1940-e008",
+            "CA-P-1940-e009"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "current_meaning_evidenced",
+          "reason": "CAPRMEDIO Graph: preserve the derived graph Projection boundary separately from authoritative source facts and independent graph authority.",
+          "evidence_refs": [
+            "CA-P-1940-e008",
+            "CA-P-1940-e009"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "CAPRMEDIO Graph: no broader replacement is proposed because it could erase the captured distinction and change relation, history, or query semantics.",
+          "evidence_refs": [
+            "CA-P-1940-e008",
+            "CA-P-1940-e009"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-P-1940-e008",
+        "CA-P-1940-e009"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-382",
+        "CA-E-466",
+        "CA-M-120",
+        "CA-R-1246",
+        "CA-R-1248",
+        "CA-R-1281",
+        "CA-R-1335",
+        "CA-R-1406",
+        "CA-R-1408",
+        "CA-R-1409",
+        "CA-R-1410",
+        "CA-R-1437",
+        "CA-R-1438",
+        "CA-R-1471",
+        "CA-R-1472",
+        "CA-R-806",
+        "CAPRMEDIO-GOV-EVAL-005"
+      ],
+      "proposal": {
+        "kind": "retain_preserved_baseline_identity_only",
+        "replacement_identity": null,
+        "native_admission": "not_performed",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "constraints_impact": "captured constraints remain required; no constraint change proposed",
+        "historical_references_impact": "preserved at the captured baseline identity CAPRMEDIO Graph",
+        "queries_impact": "identity-based queries preserve the captured baseline identity",
+        "preserved_distinctions": [
+          "preserve the derived graph Projection boundary separately from authoritative source facts and independent graph authority"
+        ],
+        "lost_distinctions": []
+      },
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Graph/Connectivity",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Graph/Connectivity: captured CA-R-1410 and CA-R-1472 define graph connectivity through shared or referenced sources with graph-qualified endpoint and direction rules. No replacement, reduction, or native admission is proposed.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "captured CA-R-1410 and CA-R-1472 define graph connectivity through shared or referenced sources with graph-qualified endpoint and direction rules; no same-meaning duplicate is evidenced by the captured claims.",
+          "evidence_refs": [
+            "CA-P-1940-e010",
+            "CA-P-1940-e011"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "CAPRMEDIO Graph/Connectivity: preserve graph connectivity endpoints, direction, and source identity separately from a copied native node or foreign relation kind; removing it would not be justified by repeated labels or related occurrences.",
+          "evidence_refs": [
+            "CA-P-1940-e010",
+            "CA-P-1940-e011"
+          ]
+        },
+        "empty_definition": {
+          "finding": "definition_evidenced",
+          "reason": "captured CA-R-1410 and CA-R-1472 define graph connectivity through shared or referenced sources with graph-qualified endpoint and direction rules; the captured Main Content is substantive, so no empty/drop conclusion is made.",
+          "evidence_refs": [
+            "CA-P-1940-e010",
+            "CA-P-1940-e011"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "current_meaning_evidenced",
+          "reason": "CAPRMEDIO Graph/Connectivity: preserve graph connectivity endpoints, direction, and source identity separately from a copied native node or foreign relation kind.",
+          "evidence_refs": [
+            "CA-P-1940-e010",
+            "CA-P-1940-e011"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "CAPRMEDIO Graph/Connectivity: no broader replacement is proposed because it could erase the captured distinction and change relation, history, or query semantics.",
+          "evidence_refs": [
+            "CA-P-1940-e010",
+            "CA-P-1940-e011"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-P-1940-e010",
+        "CA-P-1940-e011"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1410",
+        "CA-R-1472"
+      ],
+      "proposal": {
+        "kind": "retain_preserved_baseline_identity_only",
+        "replacement_identity": null,
+        "native_admission": "not_performed",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "constraints_impact": "captured constraints remain required; no constraint change proposed",
+        "historical_references_impact": "preserved at the captured baseline identity CAPRMEDIO Graph/Connectivity",
+        "queries_impact": "identity-based queries preserve the captured baseline identity",
+        "preserved_distinctions": [
+          "preserve graph connectivity endpoints, direction, and source identity separately from a copied native node or foreign relation kind"
+        ],
+        "lost_distinctions": []
+      },
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Metamodel",
+      "disposition": "question",
+      "confidence_percent": 82,
+      "reason": "Questioned against the captured snapshot: Which captured Core Main Content defines `CAPRMEDIO Metamodel` itself as a distinct preserved identity? The checked CA-R-917 Claim defines recursive fractality of the Metamodel, but the supplied occurrence is not a dedicated parent definition; the child meaning must not be promoted to the parent.",
+      "checks": {
+        "duplicates": {
+          "finding": "unresolved",
+          "reason": "CAPRMEDIO Metamodel: captured source candidates do not establish a dedicated definition for this exact parent identity. No same-meaning duplicate is concluded from the child occurrence.",
+          "evidence_refs": []
+        },
+        "redundancy": {
+          "finding": "unresolved",
+          "reason": "CAPRMEDIO Metamodel: captured source candidates do not establish a dedicated definition for this exact parent identity. No replacement or redundancy is inferred from the qualified child.",
+          "evidence_refs": []
+        },
+        "empty_definition": {
+          "finding": "unresolved_absence_not_empty",
+          "reason": "CAPRMEDIO Metamodel: captured source candidates do not establish a dedicated definition for this exact parent identity. Missing dedicated definition is not permission to drop the parent.",
+          "evidence_refs": []
+        },
+        "distinct_meaning": {
+          "finding": "unresolved",
+          "reason": "CAPRMEDIO Metamodel: captured source candidates do not establish a dedicated definition for this exact parent identity. Child fractality meaning is not promoted to the parent.",
+          "evidence_refs": []
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "CAPRMEDIO Metamodel: no generalization is proposed while its exact parent meaning remains unresolved.",
+          "evidence_refs": []
+        }
+      },
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-917"
+      ],
+      "proposal": null,
+      "question": "Which captured Core Main Content defines `CAPRMEDIO Metamodel` itself as a distinct preserved identity? The checked CA-R-917 Claim defines recursive fractality of the Metamodel, but the supplied occurrence is not a dedicated parent definition; the child meaning must not be promoted to the parent."
+    },
+    {
+      "identity": "CAPRMEDIO Metamodel/Fractality",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Metamodel/Fractality: captured CA-R-917 requires the CAPRMEDIO Metamodel to apply the same Scope Unit governance recursively at every Structural level. No replacement, reduction, or native admission is proposed.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "captured CA-R-917 requires the CAPRMEDIO Metamodel to apply the same Scope Unit governance recursively at every Structural level; no same-meaning duplicate is evidenced by the captured claims.",
+          "evidence_refs": [
+            "CA-P-1940-e012"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "CAPRMEDIO Metamodel/Fractality: preserve recursive fractality separately from one concrete Scope Unit, graph instance, or structural-level carrier; removing it would not be justified by repeated labels or related occurrences.",
+          "evidence_refs": [
+            "CA-P-1940-e012"
+          ]
+        },
+        "empty_definition": {
+          "finding": "definition_evidenced",
+          "reason": "captured CA-R-917 requires the CAPRMEDIO Metamodel to apply the same Scope Unit governance recursively at every Structural level; the captured Main Content is substantive, so no empty/drop conclusion is made.",
+          "evidence_refs": [
+            "CA-P-1940-e012"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "current_meaning_evidenced",
+          "reason": "CAPRMEDIO Metamodel/Fractality: preserve recursive fractality separately from one concrete Scope Unit, graph instance, or structural-level carrier.",
+          "evidence_refs": [
+            "CA-P-1940-e012"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "CAPRMEDIO Metamodel/Fractality: no broader replacement is proposed because it could erase the captured distinction and change relation, history, or query semantics.",
+          "evidence_refs": [
+            "CA-P-1940-e012"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-P-1940-e012"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-917"
+      ],
+      "proposal": {
+        "kind": "retain_preserved_baseline_identity_only",
+        "replacement_identity": null,
+        "native_admission": "not_performed",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "constraints_impact": "captured constraints remain required; no constraint change proposed",
+        "historical_references_impact": "preserved at the captured baseline identity CAPRMEDIO Metamodel/Fractality",
+        "queries_impact": "identity-based queries preserve the captured baseline identity",
+        "preserved_distinctions": [
+          "preserve recursive fractality separately from one concrete Scope Unit, graph instance, or structural-level carrier"
+        ],
+        "lost_distinctions": []
+      },
+      "question": null
+    },
+    {
+      "identity": "CARRIES",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Retain CARRIES: captured CA-D-256 defines CARRIES as the directed Carrier-to-non-ephemeral-Entity binding and identifies an exact carried Revision when applicable. No replacement, reduction, or native admission is proposed.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_proven_duplicate",
+          "reason": "captured CA-D-256 defines CARRIES as the directed Carrier-to-non-ephemeral-Entity binding and identifies an exact carried Revision when applicable; no same-meaning duplicate is evidenced by the captured claims.",
+          "evidence_refs": [
+            "CA-P-1940-e013"
+          ]
+        },
+        "redundancy": {
+          "finding": "not_proven_redundant",
+          "reason": "CARRIES: preserve the Carrier-to-Entity direction and exact carried-Revision binding separately from the Carrier, Entity, and binding metadata; removing it would not be justified by repeated labels or related occurrences.",
+          "evidence_refs": [
+            "CA-P-1940-e013"
+          ]
+        },
+        "empty_definition": {
+          "finding": "definition_evidenced",
+          "reason": "captured CA-D-256 defines CARRIES as the directed Carrier-to-non-ephemeral-Entity binding and identifies an exact carried Revision when applicable; the captured Main Content is substantive, so no empty/drop conclusion is made.",
+          "evidence_refs": [
+            "CA-P-1940-e013"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "current_meaning_evidenced",
+          "reason": "CARRIES: preserve the Carrier-to-Entity direction and exact carried-Revision binding separately from the Carrier, Entity, and binding metadata.",
+          "evidence_refs": [
+            "CA-P-1940-e013"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "CARRIES: no broader replacement is proposed because it could erase the captured distinction and change relation, history, or query semantics.",
+          "evidence_refs": [
+            "CA-P-1940-e013"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-P-1940-e013"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-256",
+        "CA-D-257"
+      ],
+      "proposal": {
+        "kind": "retain_preserved_baseline_identity_only",
+        "replacement_identity": null,
+        "native_admission": "not_performed",
+        "relations_impact": "no relation creation, removal, or rewrite proposed",
+        "constraints_impact": "captured constraints remain required; no constraint change proposed",
+        "historical_references_impact": "preserved at the captured baseline identity CARRIES",
+        "queries_impact": "identity-based queries preserve the captured baseline identity",
+        "preserved_distinctions": [
+          "preserve the Carrier-to-Entity direction and exact carried-Revision binding separately from the Carrier, Entity, and binding metadata"
+        ],
+        "lost_distinctions": []
+      },
+      "question": null
+    }
+  ]
+}

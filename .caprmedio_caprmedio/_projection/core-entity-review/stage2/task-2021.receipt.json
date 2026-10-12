@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2021",
+  "recorded_at": "2026-10-11 02:36:31 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-030.review.json",
+    "sha256": "6f449962379ad2aa0e7e6a4ba31e1e268d7e1fc1c79a424166a71e591eb55307"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-030.json",
+    "sha256": "ef54b303cf496bea0cead9a8f693c6f95a240b56859a6fb0104b0d17a2d89d20"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 17,
+    "occurrences": 115,
+    "proposed": 39,
+    "unchanged": 5,
+    "unresolved": 71,
+    "meaning_review": "Independent meaning review checked all proposed and high-risk unchanged rows in batches 028–031. Two occurrences lacking proof of the whole Subjects field were corrected to unresolved. This is not a blanket rejection of the separately defined Atom Subjects Property.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "71 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}

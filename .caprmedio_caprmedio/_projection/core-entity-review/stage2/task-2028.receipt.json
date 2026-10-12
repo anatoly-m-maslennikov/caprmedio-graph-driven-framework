@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2028",
+  "recorded_at": "2026-10-11 02:36:38 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-037.review.json",
+    "sha256": "8bc0cd237904ed1bc40ac8cc95d4e13043949bccf1ac38d5e29b2d6226dc3fe8"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-037.json",
+    "sha256": "921625abb4f7e707e502f13a53df37dc7c1f546c2d6cfee0e86387c588b23c70"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 20,
+    "occurrences": 66,
+    "proposed": 19,
+    "unchanged": 32,
+    "unresolved": 15,
+    "meaning_review": "Independent meaning review checked proposals and unchanged values. Two unproved Atom Scope fields became unresolved. Ordered and Unordered Scope Unit Type domains gained generic dependent-field rules plus explicit source facts; no exact printed display string is required.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "15 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}

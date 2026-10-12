@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2087",
+  "recorded_at": "2026-10-11 06:55:40 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded recheck current grammar subject origins; not migration approval",
+  "verification": {
+    "task": "CA-P-2087",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/current-grammar-subjects.review.json",
+      "sha256": "22b5c03a7a927728fed6324e458bd27eed2b5c3b27a51ae83a10f357ee619bfd"
+    },
+    "rows": 33,
+    "current_sources": 5,
+    "counts": {
+      "proposed": 15,
+      "unresolved": 18
+    },
+    "root_mechanical_checks": "PASS: independent strict frontier, exact current origin fields, source/span pins, candidate pointers and confidence",
+    "negative_checks_rejected": [
+      "missing",
+      "duplicate",
+      "bad_span",
+      "selector",
+      "executable"
+    ],
+    "independent_review": {
+      "reviewer": "subject_review_004",
+      "reviewed_output_sha256": "22b5c03a7a927728fed6324e458bd27eed2b5c3b27a51ae83a10f357ee619bfd",
+      "accepted_proposals": 15,
+      "rejected_proposals": 0,
+      "correct_unresolved": 18,
+      "result": "PASS: generic Entity does not invent an eighth root; Scope Unit.Name preserves authoritative naming; syntax/Terms/exact Subject-Relation nulls are correct"
+    },
+    "result": "PASS: mechanical and independent semantic acceptance",
+    "historical_plan_context": "Task v1 remains exact registration context at 5e4356db9950d00bb2eaa1e081e1fcc8e218ee97; closure v2 is not that input. Core evidence requires live bytes."
+  },
+  "independent_review": {
+    "reviewer": "subject_review_004",
+    "reviewed_output_sha256": "22b5c03a7a927728fed6324e458bd27eed2b5c3b27a51ae83a10f357ee619bfd",
+    "accepted_proposals": 15,
+    "rejected_proposals": 0,
+    "correct_unresolved": 18,
+    "result": "PASS: generic Entity does not invent an eighth root; Scope Unit.Name preserves authoritative naming; syntax/Terms/exact Subject-Relation nulls are correct"
+  },
+  "completion_scope": "All 33 current Subject origins in the five grammar authorities were rechecked. Fifteen supported candidates are non-executable proposals; 18 syntax, Term and exact Subject-Relation cases remain null. Four over-conservative nulls were corrected using current Entity/Scope Unit Name definitions. This closes bounded research, not the source migration.",
+  "registration_commit": "5e4356db9950d00bb2eaa1e081e1fcc8e218ee97",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

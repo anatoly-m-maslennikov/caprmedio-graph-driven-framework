@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2152",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "input_pins": {
+    "manifest": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92",
+    "ledger": "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de",
+    "frontier": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4"
+  },
+  "counts": {
+    "selected_occurrences": 204,
+    "selected_owners": 145,
+    "baseline_qualified_excluded": 242,
+    "quarantined_sources": 8,
+    "quarantined_occurrences": 35
+  },
+  "lane_counts": [
+    {
+      "task_id": "CA-P-2144",
+      "occurrences": 19,
+      "owners": 19,
+      "digest": "8484e7182cbcec052beef17ea63680f2c72ca6167014a0ca84f2f40157d9b89c"
+    },
+    {
+      "task_id": "CA-P-2145",
+      "occurrences": 22,
+      "owners": 19,
+      "digest": "7d3419a156fa40422e194982e756a80a00bc00cbdefdf0e3c78db51d783f473c"
+    },
+    {
+      "task_id": "CA-P-2146",
+      "occurrences": 24,
+      "owners": 19,
+      "digest": "c54ca5ec703fde6485a38ff70c85b259adc900857d2b8f96d3b37e7858c2797f"
+    },
+    {
+      "task_id": "CA-P-2147",
+      "occurrences": 25,
+      "owners": 19,
+      "digest": "88a1cc7f97825c35176014dabd5a45767b646d16f4759dc90c0a7cc22031538e"
+    },
+    {
+      "task_id": "CA-P-2148",
+      "occurrences": 23,
+      "owners": 19,
+      "digest": "f7c8436e2e6132c6d9c08d87bb258485e3df8d7ff3f748ad6e5ee9ebecdbdf94"
+    },
+    {
+      "task_id": "CA-P-2149",
+      "occurrences": 37,
+      "owners": 19,
+      "digest": "2299dbcd684af1cb025d8f41d75ebc01df8316716774df84d9a690214ecc8448"
+    },
+    {
+      "task_id": "CA-P-2150",
+      "occurrences": 33,
+      "owners": 19,
+      "digest": "1368123fe08afe240d9cddb93f289284e351452ae16fa73c92a5025ec1287f59"
+    },
+    {
+      "task_id": "CA-P-2151",
+      "occurrences": 21,
+      "owners": 12,
+      "digest": "ba7ef8f445d0a2685ed63afb30202dae44ad517021cb3d03687b1b14967db878"
+    }
+  ],
+  "checks": {
+    "validator_errors": [],
+    "negative_control_errors": {
+      "omitted": [
+        "exact selected occurrence set/uniqueness",
+        "CA-P-2144 lane limits/count",
+        "CA-P-2144 digest"
+      ],
+      "duplicated": [
+        "exact selected occurrence set/uniqueness",
+        "CA-P-2144 digest"
+      ],
+      "changed_origin": [
+        "origin field source_sha256",
+        "owner source sha"
+      ],
+      "qualified_replacement": [
+        "exact selected occurrence set/uniqueness",
+        "unexpected or nonqual origin",
+        "CA-P-2144 digest"
+      ]
+    },
+    "frontier_counts": {
+      "sources": 907,
+      "occurrences": 4534
+    },
+    "core_authority_exists": true
+  },
+  "result": "PASS"
+}

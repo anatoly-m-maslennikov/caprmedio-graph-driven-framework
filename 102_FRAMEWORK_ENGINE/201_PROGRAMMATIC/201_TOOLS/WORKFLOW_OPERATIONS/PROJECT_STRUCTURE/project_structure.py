@@ -26,7 +26,7 @@ from atom_operations import frontmatter_scalar
 CONTROL_ROOT = ".caprmedio_caprmedio"
 STRUCTURE_RELATIVE_PATH = f"{CONTROL_ROOT}/project_structure.toml"
 SETTINGS_CANDIDATES = (
-    f"{CONTROL_ROOT}/caprmedio_framework_settings.toml",
+    f"{CONTROL_ROOT}/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml",
     f"{CONTROL_ROOT}/caprmedio_project_settings.toml",
 )
 OPERATIONS = {"Create", "Rename", "Move", "Remove"}

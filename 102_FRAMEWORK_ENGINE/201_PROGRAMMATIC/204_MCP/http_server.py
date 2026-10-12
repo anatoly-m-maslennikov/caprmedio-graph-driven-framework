@@ -1,10 +1,8 @@
-"""Authenticated localhost-only Streamable HTTP transport for the MCP gateway."""
+"""Loopback-only Streamable HTTP transport for the MCP gateway."""
 import argparse
 import asyncio
 from contextlib import asynccontextmanager
-import hashlib
-import hmac
-import os
+from contextlib import nullcontext
 from pathlib import Path
 import re
 
@@ -12,12 +10,14 @@ from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 from starlette.routing import Route
 
-from hot_reload import Gateway
+from hot_reload import Gateway, startup_selection, bind_selection
 from mcp.server.transport_security import TransportSecuritySettings
 
 PATH = "/mcp"
 PORT = 8092
-TOKEN_ENV = "CAPRMEDIO_MCP_HTTP_SECRET_TOKEN"
+# A sealed Release carries its complete source inventory in the request.  Keep
+# a finite transport bound while allowing that inventory and its authorization.
+MAX_REQUEST_BODY_SIZE = 16 * 1024 * 1024
 SECURITY = TransportSecuritySettings(
     enable_dns_rebinding_protection=True,
     allowed_hosts=["127.0.0.1:*", "localhost:*", "[::1]:*"],
@@ -25,35 +25,21 @@ SECURITY = TransportSecuritySettings(
 )
 
 
-def _require_token(token):
-    if not isinstance(token, str) or not token:
-        raise ValueError("HTTP MCP token is not configured")
-    return token
-
-
-def token_from_environment():
-    return _require_token(os.environ.get(TOKEN_ENV))
-
-
-class BearerGuard:
-    """Apply transport authentication before the MCP ASGI application."""
-    def __init__(self, app, token):
+class LoopbackGuard:
+    """Apply loopback Host and Origin admission before the MCP ASGI application."""
+    def __init__(self, app, selection=None):
         self.app = app
-        self.token_digest = hashlib.sha256(_require_token(token).encode()).digest()
+        self.selection = selection
 
     async def __call__(self, scope, receive, send):
+        with bind_selection(self.selection) if self.selection is not None else nullcontext():
+            await self._call(scope, receive, send)
+
+    async def _call(self, scope, receive, send):
         if scope["type"] != "http":
             await self.app(scope, receive, send)
             return
         request = Request(scope, receive)
-        authorization = request.headers.get("authorization", "")
-        prefix = "Bearer "
-        supplied = authorization[len(prefix):] if authorization.startswith(prefix) else ""
-        supplied_digest = hashlib.sha256(supplied.encode()).digest()
-        authenticated = hmac.compare_digest(supplied_digest, self.token_digest)
-        if not authenticated:
-            await Response(status_code=401, headers={"WWW-Authenticate": "Bearer"})(scope, receive, send)
-            return
         host = request.headers.get("host", "")
         origin = request.headers.get("origin")
         valid_host = re.fullmatch(r"(?:127\.0\.0\.1|localhost|\[::1\])(?::\d+)?", host)
@@ -75,10 +61,8 @@ async def health(request, gateway):
     return JSONResponse({"ready": True})
 
 
-def create_app(root, token=None, implementation=None):
-    token = token if token is not None else token_from_environment()
-    token = _require_token(token)
-    gateway = Gateway(root, implementation=implementation)
+def create_app(root, implementation=None, *, selection=None):
+    gateway = Gateway(root, implementation=implementation, selection=selection)
     server = gateway.build_server()
     async def readiness(request):
         return await health(request, gateway)
@@ -86,6 +70,7 @@ def create_app(root, token=None, implementation=None):
     app = server.streamable_http_app(
         streamable_http_path=PATH,
         transport_security=SECURITY,
+        max_request_body_size=MAX_REQUEST_BODY_SIZE,
         host="127.0.0.1",
         custom_starlette_routes=[Route("/health", readiness)],
     )
@@ -101,7 +86,7 @@ def create_app(root, token=None, implementation=None):
                 await gateway.close()
 
     app.router.lifespan_context = lifespan
-    guarded = BearerGuard(app, token)
+    guarded = LoopbackGuard(app, selection)
     guarded.gateway = gateway
     guarded.starlette_app = app
     return guarded
@@ -110,13 +95,17 @@ def create_app(root, token=None, implementation=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-root", required=True, type=Path)
+    parser.add_argument("--control-root")
+    parser.add_argument("--instance-id")
+    parser.add_argument("--host-project-root")
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--port", default=PORT, type=int)
     args = parser.parse_args()
     if args.host != "0.0.0.0" or args.port != PORT:
         raise ValueError("HTTP MCP requires the container bind 0.0.0.0:8092")
     import uvicorn
-    uvicorn.run(create_app(args.project_root), host=args.host, port=args.port, log_level="warning")
+    selection = startup_selection(args.project_root, args.control_root, args.instance_id, args.host_project_root)
+    uvicorn.run(create_app(args.project_root, selection=selection), host=args.host, port=args.port, log_level="warning")
 
 
 if __name__ == "__main__":

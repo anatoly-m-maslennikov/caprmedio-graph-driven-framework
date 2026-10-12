@@ -13,6 +13,7 @@ import base64
 import hashlib
 import json
 import math
+import tomllib
 from dataclasses import asdict, fields
 from pathlib import Path
 from types import MappingProxyType
@@ -21,12 +22,17 @@ from typing import Any, Mapping, TypeVar
 from release_actions import (
     PHASES,
     AdmittedImageExecutor,
+    LocalReleaseHelperBinding,
     ReleaseActionRun,
     ReleasePhaseResult,
     SelectedReleaseActionContext,
     _fingerprint,
 )
-from release_compilation import ReleaseCompilationPreflight
+from release_compilation import (
+    ReleaseCompilationPreflight,
+    SealedPrivateMethodologyCompilation,
+    read_sealed_private_methodology_compilation,
+)
 from release_contract import (
     CandidateBuildRequest,
     CandidateSnapshotManifest,
@@ -39,16 +45,38 @@ from release_contract import (
 from release_handoff import (
     CompilerEntrypoint,
     SealedCandidateCompilation,
+    SealedMethodologyExport,
     SealedSourceCopy,
+    bind_sealed_methodology_export,
 )
-from release_e2e_gate import CandidateE2EGateEvidence, HarnessReceipt
-from release_image import ImageBuildEvidence, ImageRetirementEvidence, ImageVerificationEvidence
-from release_promotion import PromotionEvidence
-from release_suite import SuiteGateEvidence
+from release_e2e_gate import CandidateE2EGateEvidence, PortableCandidateE2EGateEvidence, HarnessReceipt
+from release_image import (
+    ImageBuildEvidence,
+    ImageRetirementEvidence,
+    ImageVerificationEvidence,
+    PortableImageBuildEvidence,
+    PortableImageVerificationEvidence,
+)
+from release_portable_contract import (
+    PortableBindingAtom,
+    PortablePackageRow,
+    SealedPortableCandidateCompilation,
+    SealedPortableSourceSnapshot,
+    collect_portable_source_snapshot,
+    revalidate_sealed_portable_compilation,
+)
+from release_portable_package import (
+    PreparedPortableReleasePackage,
+    reopen_portable_release_package,
+)
+from release_promotion import PromotionEvidence, NativePromotionEvidence
+from release_suite import PortableSuiteGateEvidence, SuiteGateEvidence
 from release_version import ReleaseVersionRequest
 
 
 RELEASE_ACTION_CHECKPOINT_SCHEMA = "caprmedio.release_version.action_run_checkpoint.v1"
+LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA = "caprmedio.release_version.action_run_checkpoint.v2-portable"
+NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA = "caprmedio.release_version.action_run_checkpoint.v3-portable"
 _TAGGED_TYPES = {
     "candidate": ValidatedCandidate,
     "preflight": ReleaseCompilationPreflight,
@@ -79,6 +107,30 @@ _PHASE_STATE = {
     "aggregate_full_gate": "full_gate",
     "promote": "promotion",
     "retire": "retirement",
+}
+_NATIVE_STATE_NAMES = (
+    "candidate", "preflight", "methodology_export", "private_compilation",
+    "portable_source_snapshot", "portable_compilation", "portable_suite",
+    "prepared_portable_package", "build", "verification", "e2e", "full_gate",
+    "promotion", "retirement",
+)
+_NATIVE_PHASE_STATE = {
+    "freeze": "candidate",
+    "validate": "candidate",
+    "deliver_sources": "methodology_export",
+    "compile": "portable_compilation",
+    "closed_unit_gate": "portable_suite",
+    "stage_candidate": "prepared_portable_package",
+    "candidate_image_build": "build",
+    "candidate_image_canary": "verification",
+    "host_candidate_e2e": "e2e",
+    "aggregate_full_gate": "full_gate",
+    "promote": "promotion",
+    "retire": "retirement",
+}
+_NATIVE_CHECKPOINT_FIELDS = {
+    "schema", "kind", "sha256", "project_root", "workflow_run_id", "frozen_parameters_sha256", "request",
+    "next_phase", "stopped", "in_progress", "contexts", "results", "shared_recordings", "pending_recordings", "state",
 }
 _SHA256_HEX = frozenset("0123456789abcdef")
 _PENDING_EVENT_OUTCOMES = frozenset({"completed", "no_op", "failed", "cancelled", "partial", "interrupted_pending"})
@@ -137,6 +189,39 @@ def _sha256(value: Any, label: str) -> str:
     if len(value) != 64 or any(character not in _SHA256_HEX for character in value):
         raise _error("release-checkpoint-invalid", f"{label} must be one lowercase SHA-256 digest")
     return value
+
+
+def _local_helper_binding_value(value: LocalReleaseHelperBinding | None) -> dict[str, str]:
+    """Encode the two Project-local helper digests for the current Run only."""
+
+    if type(value) is not LocalReleaseHelperBinding:
+        raise _error("release-checkpoint-binding-mismatch", "current native checkpoint lacks its frozen local helper binding")
+    return {
+        "native_hooks_sha256": _sha256(value.native_hooks_sha256, "local_helper_binding.native_hooks_sha256"),
+        "local_release_sha256": _sha256(value.local_release_sha256, "local_helper_binding.local_release_sha256"),
+    }
+
+
+def _load_local_helper_binding(value: Any) -> LocalReleaseHelperBinding:
+    payload = _mapping(value, {"native_hooks_sha256", "local_release_sha256"}, "local_helper_binding")
+    return LocalReleaseHelperBinding(
+        native_hooks_sha256=_sha256(payload["native_hooks_sha256"], "local_helper_binding.native_hooks_sha256"),
+        local_release_sha256=_sha256(payload["local_release_sha256"], "local_helper_binding.local_release_sha256"),
+    )
+
+
+def _native_checkpoint_envelope(value: Any, label: str) -> tuple[dict[str, Any], LocalReleaseHelperBinding | None]:
+    """Read v3 helper-bound checkpoints and retain v2 as documentary-only."""
+
+    if not isinstance(value, dict):
+        raise _error("release-checkpoint-invalid", f"{label} must be an object")
+    schema = value.get("schema")
+    if schema == NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA:
+        source = _mapping(value, _NATIVE_CHECKPOINT_FIELDS | {"local_helper_binding"}, label)
+        return source, _load_local_helper_binding(source["local_helper_binding"])
+    if schema == LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA:
+        return _mapping(value, _NATIVE_CHECKPOINT_FIELDS, label), None
+    raise _error("release-checkpoint-schema-unsupported", "native checkpoint schema or kind is not supported")
 
 
 def _index(value: Any, label: str) -> int:
@@ -224,16 +309,24 @@ def _load_dataclass(value: Any, cls: type[_T], label: str, *, tuple_fields: froz
 def _candidate_value(candidate: ValidatedCandidate) -> dict[str, Any]:
     if type(candidate) is not ValidatedCandidate:
         raise _error("release-checkpoint-invalid", "candidate is not locally validated typed state")
-    return {
+    payload = {
         "project_root": candidate.project_root,
         "manifest": _dump_model(candidate.manifest, CandidateSnapshotManifest, "candidate.manifest"),
         "authority": _dump_model(candidate.authority, SealedAuthority, "candidate.authority"),
         "intent": _dump_model(candidate.intent, CandidateBuildRequest, "candidate.intent"),
     }
+    if candidate.native_installed_n is not None:
+        if candidate.native_installed_n.selected.framework_version != candidate.manifest.executing_release:
+            raise _error("release-checkpoint-binding-mismatch", "native N differs from the frozen executing release")
+        payload["native_installed_n"] = _native_n_value(candidate.native_installed_n, candidate.project_root)
+    return payload
 
 
-def _load_candidate(value: Any, root: str) -> ValidatedCandidate:
-    payload = _mapping(value, {"project_root", "manifest", "authority", "intent"}, "candidate")
+def _load_candidate(value: Any, root: str, *, historical_native_n: bool = False) -> ValidatedCandidate:
+    required = {"project_root", "manifest", "authority", "intent"}
+    if isinstance(value, dict) and "native_installed_n" in value:
+        required.add("native_installed_n")
+    payload = _mapping(value, required, "candidate")
     if payload["project_root"] != root:
         raise _error("release-checkpoint-binding-mismatch", "candidate root differs from the checkpoint root")
     manifest = _load_model(payload["manifest"], CandidateSnapshotManifest, "candidate.manifest")
@@ -255,7 +348,534 @@ def _load_candidate(value: Any, root: str) -> ValidatedCandidate:
         or intent.candidate_image_reference != manifest.candidate_image.candidate_image_reference
     ):
         raise _error("release-checkpoint-binding-mismatch", "candidate authority or intent is not exactly manifest-bound")
-    return ValidatedCandidate(root, manifest, authority, intent)
+    native_n = _load_native_n(payload["native_installed_n"], root, historical=historical_native_n) if "native_installed_n" in payload else None
+    if native_n is not None and native_n.selected.framework_version != manifest.executing_release:
+        raise _error("release-checkpoint-binding-mismatch", "native N differs from the frozen executing release")
+    return ValidatedCandidate(root, manifest, authority, intent, native_n)
+
+
+def _native_documentary_types() -> dict[str, type[Any]]:
+    from framework_package import PackageBindingAtom, PackageInventoryRow, VerifiedFrameworkPackage
+    from installation_context import PackageSourcePin, TargetProjectContext, VerifiedPackageEvidence
+    from installed_mcp_binding import InstalledMcpBinding, PackageCaSkillMember, TargetProjectContext as InstalledMcpTargetProjectContext
+    from native_selected_installation import NativeSelectedInstallation
+
+    classes = {cls.__name__: cls for cls in (
+        PackageBindingAtom, PortableBindingAtom, PackageInventoryRow, VerifiedFrameworkPackage, PackageSourcePin, TargetProjectContext,
+        VerifiedPackageEvidence, InstalledMcpBinding, PackageCaSkillMember, NativeSelectedInstallation,
+    )}
+    classes["InstalledMcpTargetProjectContext"] = InstalledMcpTargetProjectContext
+    return classes
+
+
+def _native_document_value(value: Any, root: str) -> Any:
+    """Closed documentary facts only; no import path or executable is encoded."""
+
+    if value is None or type(value) in {str, int, bool}:
+        return value
+    if isinstance(value, Path):
+        if value == Path(root):
+            return {"type": "project_root", "value": None}
+        try:
+            relative = value.relative_to(root).as_posix()
+        except ValueError as error:
+            raise _error("release-checkpoint-binding-mismatch", "native documentary path escapes Project root") from error
+        return {"type": "path", "value": _safe_path(relative, "native documentary path")}
+    if type(value) is tuple:
+        return {"type": "tuple", "value": [_native_document_value(item, root) for item in value]}
+    classes = _native_documentary_types()
+    name = next((label for label, cls in classes.items() if type(value) is cls), None)
+    if name is None:
+        raise _error("release-checkpoint-invalid", "native documentary fact has an unsupported type")
+    return {"type": name, "value": {item.name: _native_document_value(getattr(value, item.name), root) for item in fields(value)}}
+
+
+def _load_native_document(value: Any, root: str) -> Any:
+    if value is None or type(value) in {str, int, bool}:
+        return value
+    tagged = _mapping(value, {"type", "value"}, "native documentary fact")
+    name = _text(tagged["type"], "native documentary type")
+    if name == "project_root":
+        if tagged["value"] is not None:
+            raise _error("release-checkpoint-invalid", "native Project root tag has an unexpected value")
+        return Path(root)
+    if name == "path":
+        return Path(root) / _safe_path(tagged["value"], "native documentary path")
+    if name == "tuple":
+        if not isinstance(tagged["value"], list):
+            raise _error("release-checkpoint-invalid", "native documentary tuple is not a list")
+        return tuple(_load_native_document(item, root) for item in tagged["value"])
+    cls = _native_documentary_types().get(name)
+    if cls is None:
+        raise _error("release-checkpoint-invalid", "native documentary fact names an unsupported type")
+    payload = _mapping(tagged["value"], {item.name for item in fields(cls)}, "native documentary members")
+    return cls(**{key: _load_native_document(item, root) for key, item in payload.items()})
+
+
+def _native_packet_value(packet: Any, root: str) -> dict[str, Any]:
+    from retained_full_gate_packet import RetainedNativeFullGatePacket
+    from release_full_gate import NativeFullGateEvidence
+
+    if type(packet) is not RetainedNativeFullGatePacket:
+        raise _error("release-checkpoint-invalid", "native N requires the original typed Full Gate packet")
+    retained = packet.retained_candidate
+    return {
+        "artifact_root": _native_document_value(packet.artifact_root, root),
+        "descriptor_path": _native_document_value(retained.descriptor_path, root),
+        "descriptor_sha256": _sha256(retained.descriptor_sha256, "native packet descriptor digest"),
+        "package_root": _native_document_value(retained.package_evidence.view.package_root, root),
+        "sidecar_path": _native_document_value(retained.package_evidence.receipt_path, root),
+        "sidecar_sha256": _sha256(retained.package_evidence.receipt_sha256, "native packet sidecar digest"),
+        "suite": _dump_dataclass(packet.suite, PortableSuiteGateEvidence, "native N Unit"),
+        "build": _dump_dataclass(packet.build, PortableImageBuildEvidence, "native N build"),
+        "verification": _dump_dataclass(packet.verification, PortableImageVerificationEvidence, "native N image"),
+        "e2e": _dump_dataclass(packet.e2e, PortableCandidateE2EGateEvidence, "native N E2E"),
+        "evidence": _dump_dataclass(packet.evidence, NativeFullGateEvidence, "native N Full Gate"),
+    }
+
+
+def _load_native_packet(value: Any, root: str) -> Any:
+    from retained_full_gate_packet import RetainedNativeFullGatePacket
+    from release_retained_candidate import read_retained_candidate_identity
+    from release_full_gate import NativeFullGateEvidence, verify_detached_native_full_gate_evidence
+
+    payload = _mapping(value, {"artifact_root", "descriptor_path", "descriptor_sha256", "package_root", "sidecar_path", "sidecar_sha256",
+                              "suite", "build", "verification", "e2e", "evidence"}, "native N packet")
+    retained = read_retained_candidate_identity(
+        _load_native_document(payload["descriptor_path"], root),
+        expected_sha256=_sha256(payload["descriptor_sha256"], "native N descriptor digest"),
+        package_root=_load_native_document(payload["package_root"], root),
+        sidecar_path=_load_native_document(payload["sidecar_path"], root),
+        expected_sidecar_sha256=_sha256(payload["sidecar_sha256"], "native N sidecar digest"),
+    )
+    packet = RetainedNativeFullGatePacket(
+        _load_native_document(payload["artifact_root"], root), retained,
+        _load_dataclass(payload["suite"], PortableSuiteGateEvidence, "native N Unit", tuple_fields=frozenset({"command", "coverage"})),
+        _load_dataclass(payload["build"], PortableImageBuildEvidence, "native N build"),
+        _load_dataclass(payload["verification"], PortableImageVerificationEvidence, "native N image"),
+        _load_e2e(payload["e2e"], native=True),
+        _load_dataclass(payload["evidence"], NativeFullGateEvidence, "native N Full Gate"),
+    )
+    verify_detached_native_full_gate_evidence(packet.artifact_root, packet.retained_candidate, packet.suite,
+                                            packet.build, packet.verification, packet.e2e, packet.evidence)
+    return packet
+
+
+def read_direct_native_result_effects(raw: bytes, *, command: Any, action_run_id: str,
+                                     state_generation: int) -> dict[str, dict[str, str]]:
+    """Read D604's closed actual result; no result becomes execution authority."""
+
+    from framework_installation_command import FrameworkInstallationCommandReceipt
+
+    if type(command) is not FrameworkInstallationCommandReceipt or type(raw) is not bytes:
+        raise _error("release-native-n-direct-result-invalid", "direct result requires the actual closed O200 command")
+    payload = _canonical_input(raw)
+    source = _mapping(payload, {"schema_version", "action_id", "action_run_id", "installation_command_sha256",
+                               "package_manifest_sha256", "target_project_context_sha256", "state_generation",
+                               "effect_outcome", "reason", "effects"}, "direct installation result")
+    if (type(source["schema_version"]) is not int or source["schema_version"] != 1
+            or source["action_id"] != "CA-O-200" or source["action_run_id"] != action_run_id
+            or source["installation_command_sha256"] != command.sha256
+            or source["package_manifest_sha256"] != command.package_manifest_sha256
+            or source["target_project_context_sha256"] != command.target_project_context_sha256
+            or type(source["state_generation"]) is not int or source["state_generation"] != state_generation
+            or type(state_generation) is not int or state_generation < 1):
+        raise _error("release-native-n-direct-result-invalid", "direct result differs from actual command or current generation")
+    if source["effect_outcome"] != "completed":
+        raise _error("release-native-n-direct-publication-unavailable", "subsequent installed-N discovery requires observed completed direct publication")
+    if source["reason"] is not None and (not isinstance(source["reason"], str)
+            or any(character in source["reason"] for character in ("\x00", "\n", "\r"))):
+        raise _error("release-native-n-direct-result-invalid", "direct result reason is not governed")
+    if not isinstance(source["effects"], list):
+        raise _error("release-native-n-direct-result-invalid", "direct effects must be a closed list")
+    kinds = {"package_selector", "runtime_selector", "release_proof", "package_manifest",
+             "full_gate_receipt", "retained_candidate_descriptor", "retained_package_sidecar",
+             "unit_gate_receipt", "build_receipt", "verification_receipt", "e2e_gate_receipt"}
+    effects = {}
+    references = set()
+    for row in source["effects"]:
+        effect = _mapping(row, {"kind", "reference", "sha256"}, "direct effect")
+        kind = _text(effect["kind"], "direct effect kind")
+        reference = _safe_path(effect["reference"], "direct effect reference")
+        if kind not in kinds or kind in effects or reference in references:
+            raise _error("release-native-n-direct-result-invalid", "direct effects contain an unknown or ambiguous association")
+        effects[kind] = {"kind": kind, "reference": reference, "sha256": _sha256(effect["sha256"], "direct effect digest")}
+        references.add(reference)
+    expected = {
+        "package_selector": ".caprmedio_install/current.toml",
+        "runtime_selector": ".caprmedio_runtime/installation/current.toml",
+        "release_proof": f".caprmedio_runtime/installation/generations/{state_generation}/release-proof.toml",
+        "package_manifest": f".caprmedio_install/releases/{command.package_manifest_sha256}/manifest.toml",
+    }
+    if any(kind not in effects or effects[kind]["reference"] != reference for kind, reference in expected.items()):
+        raise _error("release-native-n-direct-result-invalid", "direct publication effects do not address the exact current carriers")
+    if "full_gate_receipt" in effects and effects["full_gate_receipt"]["sha256"] != command.full_gate_receipt_sha256:
+        raise _error("release-native-n-direct-result-invalid", "direct result Full Gate differs from its actual command")
+    return effects
+
+
+def read_direct_native_result_packet(raw: bytes, *, project_root: str, command: Any,
+                                    action_run_id: str, state_generation: int):
+    """Reconstruct the original packet only from seven exact result effects."""
+
+    from dataclasses import replace
+    import json
+    from native_selected_installation import _read
+    from release_handoff import _file
+    from release_retained_candidate import DESCRIPTOR_NAME, read_retained_candidate_identity
+    from release_full_gate import NativeFullGateEvidence, verify_detached_native_full_gate_evidence
+    from retained_full_gate_packet import RetainedNativeFullGatePacket
+
+    root = Path(project_root)
+    effects = read_direct_native_result_effects(raw, command=command, action_run_id=action_run_id, state_generation=state_generation)
+    required = {"full_gate_receipt", "retained_candidate_descriptor", "retained_package_sidecar",
+                "unit_gate_receipt", "build_receipt", "verification_receipt", "e2e_gate_receipt"}
+    if not required <= effects.keys():
+        raise _error("release-native-n-direct-packet-association-unavailable", "historical direct result lacks its exact original retained Full Gate associations")
+    contents = {}
+    for kind, effect in effects.items():
+        payload = _read(_file(root, effect["reference"]), code="release-native-n-direct-carrier-invalid", mode=None)
+        if hashlib.sha256(payload).hexdigest() != effect["sha256"]:
+            raise _error("release-native-n-direct-carrier-invalid", "direct result effect carrier changed")
+        contents[kind] = payload
+
+    def receipt(kind, cls):
+        document = json.loads(contents[kind])
+        if cls is PortableCandidateE2EGateEvidence:
+            observed = _load_e2e(document, native=True)
+        else:
+            tuples = frozenset({"command", "coverage"}) if cls is PortableSuiteGateEvidence else frozenset()
+            observed = _load_dataclass(document, cls, kind, tuple_fields=tuples)
+        if observed.receipt_sha256 is not None or canonical_json(asdict(observed)) != contents[kind]:
+            raise _error("release-native-n-direct-carrier-invalid", "original constituent receipt is not closed canonical producer bytes")
+        return replace(observed, receipt_sha256=effects[kind]["sha256"])
+
+    gate = receipt("full_gate_receipt", NativeFullGateEvidence)
+    suffix = Path(_safe_path(gate.evidence_root, "original aggregate evidence root")) / "receipt.json"
+    gate_path = Path(effects["full_gate_receipt"]["reference"])
+    if len(gate_path.parts) < len(suffix.parts) or gate_path.parts[-len(suffix.parts):] != suffix.parts:
+        raise _error("release-native-n-direct-carrier-invalid", "aggregate association does not address its original evidence root")
+    prefix = gate_path.parts[:-len(suffix.parts)]
+    artifact_root = root.joinpath(*prefix)
+    sidecar = root / effects["retained_package_sidecar"]["reference"]
+    descriptor = root / effects["retained_candidate_descriptor"]["reference"]
+    if (descriptor != sidecar.parent.parent / DESCRIPTOR_NAME
+            or sidecar != artifact_root / _safe_path(gate.package_evidence_relpath, "original sidecar reference")
+            or effects["retained_package_sidecar"]["sha256"] != gate.package_evidence_sha256
+            or gate.package_manifest_sha256 != command.package_manifest_sha256):
+        raise _error("release-native-n-direct-carrier-invalid", "original descriptor, sidecar and package relations differ")
+    package_root = descriptor.parent / "package" / gate.package_manifest_sha256
+    retained = read_retained_candidate_identity(descriptor,
+        expected_sha256=effects["retained_candidate_descriptor"]["sha256"], package_root=package_root,
+        sidecar_path=sidecar, expected_sidecar_sha256=gate.package_evidence_sha256)
+    suite = receipt("unit_gate_receipt", PortableSuiteGateEvidence)
+    build = receipt("build_receipt", PortableImageBuildEvidence)
+    verification = receipt("verification_receipt", PortableImageVerificationEvidence)
+    e2e = receipt("e2e_gate_receipt", PortableCandidateE2EGateEvidence)
+    for kind, evidence in (("unit_gate_receipt", suite), ("build_receipt", build),
+                           ("verification_receipt", verification), ("e2e_gate_receipt", e2e)):
+        if root / effects[kind]["reference"] != artifact_root / _safe_path(evidence.evidence_root, "original constituent root") / "receipt.json":
+            raise _error("release-native-n-direct-carrier-invalid", "constituent association differs from its exact retained root")
+    packet = RetainedNativeFullGatePacket(artifact_root, retained, suite, build, verification, e2e, gate)
+    verify_detached_native_full_gate_evidence(artifact_root, retained, suite, build, verification, e2e, gate)
+    return packet
+
+
+def _reopen_selected_native_promotion_completion(
+    source: Mapping[str, Any], *, root: str, workflow_run_id: str, fingerprint: str,
+    candidate: ValidatedCandidate, publication: NativePromotionEvidence,
+) -> None:
+    """Require the original selected O169 result and terminal Journal fact.
+
+    This is deliberately limited to the completed promotion Action.  Native
+    N discovery must not infer a future retirement terminal receipt merely to
+    reopen an already-published predecessor.
+    """
+
+    import work_journal
+    from release_handoff import _file
+    from FIND_AND_FETCH_JOURNAL_EVENTS.find_and_fetch_journal_events import JournalQueryError, capture_snapshot, query
+
+    # O164@9 had twelve phases, with O178/O169 promotion at index ten.
+    # This documentary reader must not bind retained records to today's graph.
+    promote_index = 10
+
+    def historical_index(value: Any, label: str) -> int:
+        if type(value) is not int or not 0 <= value < 12:
+            raise _error("release-checkpoint-invalid", f"{label} is outside the retained O164@9 phase graph")
+        return value
+    context_rows = source.get("contexts")
+    result_rows = source.get("results")
+    recording_rows = source.get("shared_recordings")
+    pending_rows = source.get("pending_recordings")
+    if not all(isinstance(rows, list) for rows in (context_rows, result_rows, recording_rows, pending_rows)):
+        raise _error("release-checkpoint-phase-mismatch", "historical native publication lacks selected Action records")
+
+    def row_at(rows: list[Any], *, label: str, fields: set[str]) -> Mapping[str, Any]:
+        matches = []
+        for raw in rows:
+            row = _mapping(raw, {"index", *fields}, f"historical native {label} record")
+            if historical_index(row["index"], f"historical native {label} index") == promote_index:
+                matches.append(row)
+        if len(matches) != 1:
+            raise _error("release-checkpoint-phase-mismatch", f"historical native publication lacks one promote {label}")
+        return matches[0]
+
+    context = _load_dataclass(
+        row_at(context_rows, label="context", fields={"context"})["context"],
+        SelectedReleaseActionContext, "historical native promotion context",
+    )
+    if (
+        context.project_root != root or context.workflow_run_id != workflow_run_id
+        or context.parent_workflow_run_id != workflow_run_id
+        or context.parent_step_run_id != context.step_run_id
+        or context.frozen_parameters_sha256 != fingerprint
+        or context.workflow_atom_id != "CA-O-164"
+        or type(context.workflow_version) is not int or context.workflow_version != 9
+    ):
+        raise _error("release-checkpoint-binding-mismatch", "historical native publication is not its frozen O164@9 Run")
+    for name in ("step_run_id", "action_run_id"):
+        _text(getattr(context, name), f"historical native context.{name}")
+    if (context.step_atom_id, context.action_atom_id) != ("CA-O-178", "CA-O-169"):
+        raise _error("release-checkpoint-phase-mismatch", "historical native publication is outside retained O178/O169 promotion")
+    if context.action_run_id != publication.action_run_id:
+        raise _error("release-checkpoint-binding-mismatch", "historical native publication names another selected O169 Action")
+    result_payload = _mapping(
+        row_at(result_rows, label="result", fields={"result"})["result"],
+        {item.name for item in fields(ReleasePhaseResult)}, "historical native promotion result",
+    )
+    if result_payload["output"] != "promotion" or result_payload["shared_action_recording"] is not None:
+        raise _error("release-checkpoint-phase-mismatch", "historical native promotion has another observation type")
+    result = _load_dataclass(
+        {**result_payload, "output": publication}, ReleasePhaseResult, "historical native promotion result",
+        tuple_fields=frozenset({"attempted_effects", "effect_evidence_refs", "declared_run_receipt_refs"}),
+    )
+    if (
+        result.workflow_run_id != context.workflow_run_id or result.step_run_id != context.step_run_id
+        or result.action_run_id != context.action_run_id or result.step_atom_id != "CA-O-178"
+        or result.action_atom_id != "CA-O-169" or result.phase != "promote"
+        or result.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+        or result.recording_state != "shared_session_provider_pending"
+        or result.outcome != "completed" or result.output != publication
+    ):
+        raise _error("release-checkpoint-phase-mismatch", "historical native publication lacks its completed O169 observation")
+    recording = row_at(recording_rows, label="shared recording", fields={"terminal_outcome", "receipt_refs"})
+    if recording["terminal_outcome"] != "completed":
+        raise _error("release-checkpoint-phase-mismatch", "historical native publication has no completed shared Action receipt")
+    refs = recording.get("receipt_refs")
+    if not isinstance(refs, list) or len(refs) != 1:
+        raise _error("release-checkpoint-phase-mismatch", "historical native publication has an ambiguous shared Action receipt")
+    terminal_event_id = _text(refs[0], "historical native promotion terminal receipt")
+    for raw in pending_rows:
+        pending = _mapping(raw, {"index", "event_id", "event_outcome"}, "historical native pending recording")
+        if historical_index(pending["index"], "historical native pending index") == promote_index:
+            raise _error("release-checkpoint-phase-mismatch", "historical native publication has pending terminal evidence")
+
+    expected_requested_action = f"{workflow_run_id}:step:{promote_index + 1}:action:1"
+    expected_result_ref = (
+        f".caprmedio_install/workflow_orchestrator/runs/{workflow_run_id}/{expected_requested_action}.json"
+    )
+    project = Path(root)
+    try:
+        progress_raw = _file(project, expected_result_ref).read_bytes()
+        progress = json.loads(progress_raw)
+    except (OSError, ValueError, ReleaseContractError) as error:
+        raise _error("release-checkpoint-binding-mismatch", "historical native publication result carrier is unavailable") from error
+    if (
+        not isinstance(progress, dict)
+        or progress_raw != canonical_json(progress)
+        or set(progress) != {"result", "action_run_id", "effect_refs", "native_result", "compiler_publication_recording"}
+        or not isinstance(progress["result"], str) or not progress["result"]
+        or progress["action_run_id"] != context.action_run_id
+        or progress["effect_refs"] != list(result.effect_evidence_refs)
+        or progress["native_result"] != json.loads(canonical_json(asdict(result)))
+    ):
+        raise _error("release-checkpoint-binding-mismatch", "historical native publication result differs from the retained O169 observation")
+
+    try:
+        snapshot = capture_snapshot(project)
+        if snapshot.get("source_root") != work_journal.configured_journal_root(project).as_posix():
+            raise _error("release-checkpoint-binding-mismatch", "historical native publication has another canonical Journal root")
+        observed = query(snapshot, {
+            "mode": "full_events",
+            "filter": '"event:/run/run_id" = ' + json.dumps(context.action_run_id),
+            "limit": 3,
+        })
+    except JournalQueryError as error:
+        raise _error("release-checkpoint-binding-mismatch", "historical native publication Journal coverage is unavailable") from error
+    if (observed.get("status") != "complete" or observed.get("coverage", {}).get("complete") is not True
+            or len(observed.get("results", [])) != 2):
+        raise _error("release-checkpoint-binding-mismatch", "historical native publication Journal pair is absent or ambiguous")
+    events: dict[str, dict[str, Any]] = {}
+    for row in observed["results"]:
+        event = work_journal.validate_sealed_event(row["event"])
+        event_id = event.get("event_id")
+        if not isinstance(event_id, str) or event_id in events:
+            raise _error("release-checkpoint-binding-mismatch", "historical native publication Journal pair is ambiguous")
+        events[event_id] = event
+    if set(events) != {publication.action_start_event_id, terminal_event_id}:
+        raise _error("release-checkpoint-binding-mismatch", "historical native publication has another Action start or terminal receipt")
+    started, terminal = events[publication.action_start_event_id], events[terminal_event_id]
+    run = started.get("run")
+    definition = run.get("definition") if isinstance(run, Mapping) else None
+    if (
+        started.get("event") != "started" or started.get("outcome") is not None
+        or started.get("action_id") != "CA-O-169" or not isinstance(run, Mapping)
+        or run.get("run_id") != context.action_run_id or run.get("kind") != "action"
+        or run.get("parent_run_id") != context.step_run_id or not isinstance(definition, Mapping)
+        or definition.get("atom_id") != "CA-O-169" or definition.get("version") != 5
+        or {"kind": "action", **definition} not in started.get("definition_bindings", [])
+    ):
+        raise _error("release-checkpoint-binding-mismatch", "historical native publication start differs from selected O169")
+    preserved = (
+        "schema_version", "kind", "action_id", "author", "llm_session", "structural_scope", "initiative",
+        "run", "definition_bindings", "input_ref", "redaction",
+    )
+    if (
+        any(terminal.get(key) != started.get(key) for key in preserved)
+        or terminal.get("event") != "completed" or terminal.get("outcome") != "completed"
+        or terminal.get("result_ref") != expected_result_ref
+        or terminal.get("effect_refs") != list(result.effect_evidence_refs)
+        or terminal.get("report_ref") is not None
+    ):
+        raise _error("release-checkpoint-binding-mismatch", "historical native publication terminal differs from its selected O169 result")
+
+
+def read_native_checkpoint_packet(payload: Mapping[str, Any], *, project_root: str,
+                                  expected_request: Any, expected_workflow_run_id: str):
+    """Read historical packet transport without reviving execution authority.
+
+    A subsequent Release may have changed checkout sources.  Installed N is
+    therefore attested by the original retained descriptor, package and gate,
+    not by rebuilding its source frontier or selecting a recent checkpoint.
+    The caller must separately reopen the current native selected generation.
+    """
+
+    from dataclasses import replace
+    from release_handoff import _file
+    from release_full_gate import NativeFullGateEvidence
+    from release_retained_candidate import encode_retained_candidate_descriptor, read_retained_candidate_identity
+    from retained_full_gate_packet import RetainedNativeFullGatePacket
+
+    source, _helper_binding = _native_checkpoint_envelope(dict(payload), "native historical checkpoint")
+    request = _load_model(source["request"], ReleaseVersionRequest, "native historical request")
+    expected = ReleaseVersionRequest.model_validate(expected_request)
+    if (source["schema"] not in {NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA} or source["kind"] != "release_action_run"
+            or source["sha256"] != release_action_checkpoint_sha256(source)
+            or source["project_root"] != project_root or request.project_root != project_root
+            or source["workflow_run_id"] != expected_workflow_run_id
+            or request != expected or source["frozen_parameters_sha256"] != _fingerprint(request)):
+        raise _error("release-checkpoint-binding-mismatch", "historical native packet belongs to another sealed Run")
+    state = _mapping(source["state"], set(_NATIVE_STATE_NAMES), "native historical state")
+    candidate_payload = state["candidate"]
+    required = {"project_root", "manifest", "authority", "intent"}
+    if isinstance(candidate_payload, dict) and "native_installed_n" in candidate_payload:
+        required.add("native_installed_n")
+    candidate_payload = _mapping(candidate_payload, required, "native historical candidate")
+    manifest = _load_model(candidate_payload["manifest"], CandidateSnapshotManifest, "native historical manifest")
+    authority = _load_model(candidate_payload["authority"], SealedAuthority, "native historical authority")
+    intent = _load_model(candidate_payload["intent"], CandidateBuildRequest, "native historical intent")
+    if (candidate_payload["project_root"] != project_root or manifest != request.candidate_snapshot_manifest
+            or authority.expected_candidate_snapshot_manifest_sha256 != manifest.sha256
+            or authority.executing_release != manifest.executing_release
+            or authority.candidate_release != manifest.candidate_release
+            or intent.candidate_release != manifest.candidate_release):
+        raise _error("release-checkpoint-binding-mismatch", "historical packet differs from its frozen candidate")
+    candidate = ValidatedCandidate(project_root, manifest, authority, intent)
+    package_payload = _mapping(state["prepared_portable_package"], {
+        "candidate_run_id", "candidate_snapshot_manifest_sha256", "input_manifest_sha256", "package_manifest_sha256",
+    }, "native historical package")
+    full = _load_dataclass(state["full_gate"], NativeFullGateEvidence, "native historical Full Gate")
+    publication = _load_dataclass(state["promotion"], NativePromotionEvidence, "native historical publication",
+                                  tuple_fields=frozenset({"effect_refs"}))
+    if (publication.outcome != "promoted" or publication.receipt_sha256 is None
+            or full.candidate_snapshot_manifest_sha256 != manifest.sha256
+            or publication.candidate_snapshot_manifest_sha256 != manifest.sha256
+            or publication.full_gate_receipt_sha256 != full.receipt_sha256
+            or publication.package_manifest_sha256 != full.package_manifest_sha256
+            or package_payload["candidate_snapshot_manifest_sha256"] != manifest.sha256
+            or package_payload["package_manifest_sha256"] != full.package_manifest_sha256
+            or package_payload["candidate_run_id"] != full.candidate_run_id
+            or package_payload["input_manifest_sha256"] != full.input_manifest_sha256):
+        raise _error("release-checkpoint-binding-mismatch", "historical packet lacks exact observed publication")
+    _reopen_selected_native_promotion_completion(
+        source, root=project_root, workflow_run_id=expected_workflow_run_id,
+        fingerprint=_fingerprint(request), candidate=candidate, publication=publication,
+    )
+    package = reopen_portable_release_package(project_root, full.candidate_run_id, full.package_manifest_sha256)
+    sidecar = _file(Path(project_root), full.package_evidence_relpath)
+    retained = read_retained_candidate_identity(
+        sidecar.parent.parent / "candidate-snapshot.json",
+        expected_sha256=hashlib.sha256(encode_retained_candidate_descriptor(manifest)).hexdigest(),
+        package_root=package.root, sidecar_path=sidecar,
+        expected_sidecar_sha256=full.package_evidence_sha256,
+    )
+    packet = RetainedNativeFullGatePacket(
+        Path(project_root), retained,
+        _load_dataclass(state["portable_suite"], PortableSuiteGateEvidence, "native historical Unit", tuple_fields=frozenset({"command", "coverage"})),
+        _load_dataclass(state["build"], PortableImageBuildEvidence, "native historical build"),
+        _load_dataclass(state["verification"], PortableImageVerificationEvidence, "native historical image"),
+        _load_e2e(state["e2e"], native=True), full,
+    )
+    packet = _load_native_packet(_native_packet_value(packet, project_root), project_root)
+    prefix = f".caprmedio_runtime/release_promotion/{manifest.sha256}/observations/attempt-"
+    if not publication.evidence_root.startswith(prefix) or "/" in publication.evidence_root.removeprefix(prefix):
+        raise _error("release-checkpoint-binding-mismatch", "historical publication observation path is not canonical")
+    raw = _file(Path(project_root), f"{publication.evidence_root}/receipt.json").read_bytes()
+    if (hashlib.sha256(raw).hexdigest() != publication.receipt_sha256
+            or raw != canonical_json(asdict(replace(publication, receipt_sha256=None)))):
+        raise _error("release-checkpoint-binding-mismatch", "historical publication observation changed")
+    return packet, publication
+
+
+def _native_n_value(binding: Any, root: str) -> dict[str, Any]:
+    from release_handoff import NativeInstalledNBinding
+
+    if type(binding) is not NativeInstalledNBinding:
+        raise _error("release-checkpoint-invalid", "native N binding must be concrete typed facts")
+    return {"package": _native_document_value(binding.verified_package, root),
+            "packet": _native_packet_value(binding.full_gate_packet, root),
+            "selected": _native_document_value(binding.selected, root)}
+
+
+def _load_native_n(value: Any, root: str, *, historical: bool = False) -> Any:
+    from release_handoff import NativeInstalledNBinding, reopen_native_installed_n
+    from framework_package import VerifiedFrameworkPackage, verify_framework_package
+    from native_selected_installation import NativeSelectedInstallation
+    from installed_mcp_binding import InstalledMcpBinding
+
+    payload = _mapping(value, {"package", "packet", "selected"}, "native N binding")
+    binding = NativeInstalledNBinding(_load_native_document(payload["package"], root),
+                                     _load_native_packet(payload["packet"], root),
+                                     _load_native_document(payload["selected"], root))
+    if not historical:
+        return reopen_native_installed_n(root, binding)
+    # Historical data is documentary only.  Post-cut-over state verifies it
+    # against retained N+1 publication below; it never calls it current N.
+    retained = binding.full_gate_packet.retained_candidate.package_evidence.view
+    package = binding.verified_package
+    actual_package = verify_framework_package(retained.package_root)
+    selected = binding.selected
+    if (type(package) is not VerifiedFrameworkPackage or type(selected) is not NativeSelectedInstallation
+            or type(selected.binding) is not InstalledMcpBinding
+            or package.manifest_digest != retained.actual_package_manifest_sha256
+            or package.inventory != actual_package.inventory
+            or package.binding_atoms != actual_package.binding_atoms
+            or package.framework_version != retained.framework_version
+            or package.version_toml_sha256 != retained.version_toml_sha256
+            or package.source_catalog_sha256 != retained.source_catalog_sha256
+            or package.root != Path(root) / ".caprmedio_install/releases" / package.manifest_digest
+            or selected.package_manifest_sha256 != package.manifest_digest
+            or selected.framework_version != package.framework_version
+            or selected.version_toml_sha256 != package.version_toml_sha256
+            or selected.source_catalog_sha256 != package.source_catalog_sha256
+            or selected.full_gate_receipt_sha256 != binding.full_gate_packet.evidence.receipt_sha256
+            or "sha256:" + selected.image_digest != binding.full_gate_packet.evidence.candidate_image_digest
+            or selected.binding.package_root != package.root
+            or selected.binding.package_manifest_sha256 != package.manifest_digest
+            or selected.binding.runtime_selector_sha256 != selected.selector_sha256):
+        raise _error("release-checkpoint-binding-mismatch", "documentary native N differs from its original retained package")
+    return binding
 
 
 def _preflight_value(value: ReleaseCompilationPreflight) -> dict[str, Any]:
@@ -265,6 +885,8 @@ def _preflight_value(value: ReleaseCompilationPreflight) -> dict[str, Any]:
         raise _error("release-checkpoint-invalid", "preflight output files are not typed bytes")
     return {
         "candidate_release": value.candidate_release,
+        "framework_version": value.framework_version,
+        "version_toml_sha256": value.version_toml_sha256,
         "expected_derived_source_copy_sha256": value.expected_derived_source_copy_sha256,
         "expected_compiled_output_sha256": value.expected_compiled_output_sha256,
         "compiler_entrypoint": _dump_model(value.compiler_entrypoint, CompilerEntrypoint, "preflight.compiler_entrypoint"),
@@ -281,7 +903,8 @@ def _preflight_value(value: ReleaseCompilationPreflight) -> dict[str, Any]:
 
 def _load_preflight(value: Any, candidate: ValidatedCandidate) -> ReleaseCompilationPreflight:
     payload = _mapping(value, {
-        "candidate_release", "expected_derived_source_copy_sha256", "expected_compiled_output_sha256",
+        "candidate_release", "framework_version", "version_toml_sha256",
+        "expected_derived_source_copy_sha256", "expected_compiled_output_sha256",
         "compiler_entrypoint", "canonical_source_snapshot_digest", "compiler_frontier_digest",
         "nested_source_recursive_sha256_before", "output_files", "child_manifest_bytes",
     }, "preflight")
@@ -299,6 +922,8 @@ def _load_preflight(value: Any, candidate: ValidatedCandidate) -> ReleaseCompila
     try:
         preflight = ReleaseCompilationPreflight(
             candidate_release=_text(payload["candidate_release"], "preflight.candidate_release"),
+            framework_version=_text(payload["framework_version"], "preflight.framework_version"),
+            version_toml_sha256=_sha256(payload["version_toml_sha256"], "preflight.version_toml_sha256"),
             expected_derived_source_copy_sha256=_sha256(payload["expected_derived_source_copy_sha256"], "preflight.expected_derived_source_copy_sha256"),
             expected_compiled_output_sha256=_sha256(payload["expected_compiled_output_sha256"], "preflight.expected_compiled_output_sha256"),
             compiler_entrypoint=_load_model(payload["compiler_entrypoint"], CompilerEntrypoint, "preflight.compiler_entrypoint"),
@@ -313,6 +938,8 @@ def _load_preflight(value: Any, candidate: ValidatedCandidate) -> ReleaseCompila
     manifest = candidate.manifest
     if (
         preflight.candidate_release != manifest.candidate_release
+        or preflight.framework_version != manifest.framework_version
+        or preflight.version_toml_sha256 != manifest.version_toml_sha256
         or preflight.expected_derived_source_copy_sha256 != manifest.expected_derived_source_copy_sha256
         or preflight.expected_compiled_output_sha256 != manifest.expected_compiled_output_sha256
         or preflight.canonical_source_snapshot_digest != manifest.canonical_source_snapshot_digest
@@ -363,10 +990,11 @@ def _package_value(value: Any) -> dict[str, Any]:
     }
 
 
-def _load_e2e(value: Any) -> CandidateE2EGateEvidence:
+def _load_e2e(value: Any, *, native: bool = False) -> CandidateE2EGateEvidence:
     """Restore nested host-E2E receipts as their closed dataclass types."""
 
-    required = {item.name for item in fields(CandidateE2EGateEvidence)}
+    cls = PortableCandidateE2EGateEvidence if native else CandidateE2EGateEvidence
+    required = {item.name for item in fields(cls)}
     payload = _mapping(value, required, "e2e")
     rows = payload["harness_receipts"]
     if not isinstance(rows, list):
@@ -378,7 +1006,7 @@ def _load_e2e(value: Any) -> CandidateE2EGateEvidence:
     restored = dict(payload)
     restored["harness_receipts"] = restored_rows
     try:
-        return CandidateE2EGateEvidence(**restored)
+        return cls(**restored)
     except (TypeError, ValueError) as error:
         raise _error("release-checkpoint-invalid", "e2e cannot construct typed state") from error
 
@@ -407,7 +1035,10 @@ def _load_tag(value: Any, candidate: ValidatedCandidate | None, root: str) -> tu
         return name, source_copy
     if name == "compilation":
         restored = _load_model(tagged["value"], SealedCandidateCompilation, "compilation")
-        if restored.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256 or restored.authority != candidate.authority:
+        if (restored.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+                or restored.authority != candidate.authority
+                or restored.framework_version != candidate.manifest.framework_version
+                or restored.version_toml_sha256 != candidate.manifest.version_toml_sha256):
             raise _error("release-checkpoint-binding-mismatch", "compilation is not exactly candidate-bound")
         return name, restored
     if name == "package":
@@ -436,9 +1067,9 @@ def _context_value(context: SelectedReleaseActionContext) -> dict[str, Any]:
 
 
 # Checkpoints preserve the selected Workflow definition recorded when the Run
-# began.  Retain the immediately preceding O164 revision for status/recovery,
-# but reject an unknown revision rather than silently rebinding it.
-_SUPPORTED_RELEASE_WORKFLOW_VERSIONS = frozenset({5, 6})
+# began.  The selected provider separately proves that positive revision
+# against the exact frozen, source-admitted graph; the codec must not invent a
+# copied current-revision pin.
 
 
 def _load_context(value: Any, index: int, *, root: str, workflow_run_id: str, fingerprint: str) -> SelectedReleaseActionContext:
@@ -451,7 +1082,7 @@ def _load_context(value: Any, index: int, *, root: str, workflow_run_id: str, fi
         or context.frozen_parameters_sha256 != fingerprint
         or context.workflow_atom_id != "CA-O-164"
         or type(context.workflow_version) is not int
-        or context.workflow_version not in _SUPPORTED_RELEASE_WORKFLOW_VERSIONS
+        or context.workflow_version < 1
     ):
         raise _error("release-checkpoint-binding-mismatch", "context does not belong to the frozen selected Run")
     for name, identity in (("step_run_id", context.step_run_id), ("action_run_id", context.action_run_id)):
@@ -820,6 +1451,858 @@ def _load_pending_recordings(
     return restored
 
 
+def _native_portable_run(run: ReleaseActionRun) -> bool:
+    """Identify one helper-bound, source-admitted portable frontier."""
+
+    contexts = [*run.contexts.values()]
+    if run.in_progress is not None:
+        contexts.append(run.in_progress)
+    versions = {context.workflow_version for context in contexts}
+    if not versions:
+        return False
+    if len(versions) == 1 and all(type(version) is int and version > 0 for version in versions):
+        # The freeze phase captures these Project-local helper bytes before
+        # the first checkpoint.  Their presence distinguishes the current
+        # portable frontier from retained legacy checkpoints without copying
+        # an O164 revision into this codec.
+        if run.local_helper_binding is not None:
+            return True
+        if versions <= {5, 6, 9, 11}:
+            return False
+        raise _error("release-checkpoint-binding-mismatch", "current portable Run lacks its frozen local helper binding")
+    if versions <= {5, 6}:
+        return False
+    raise _error("release-checkpoint-binding-mismatch", "checkpoint mixes selected workflow revisions")
+
+
+def _native_rows(rows: tuple[PortablePackageRow, ...], label: str) -> list[dict[str, Any]]:
+    if not isinstance(rows, tuple) or any(type(row) is not PortablePackageRow for row in rows):
+        raise _error("release-checkpoint-invalid", f"{label} is not exact portable row state")
+    return [_json_value(row.record(), label) for row in rows]
+
+
+def _load_native_rows(value: Any, label: str) -> tuple[PortablePackageRow, ...]:
+    if not isinstance(value, list):
+        raise _error("release-checkpoint-invalid", f"{label} must be a canonical row list")
+    rows: list[PortablePackageRow] = []
+    for item in value:
+        payload = _mapping(item, {"resource", "source_path", "destination_path", "sha256", "mode"}, label)
+        resource = _text(payload["resource"], f"{label}.resource")
+        source_path = _safe_path(payload["source_path"], f"{label}.source_path")
+        destination_path = _safe_path(payload["destination_path"], f"{label}.destination_path")
+        digest = _sha256(payload["sha256"], f"{label}.sha256")
+        mode = payload["mode"]
+        if type(mode) is not int or not 0 <= mode <= 0o777:
+            raise _error("release-checkpoint-invalid", f"{label}.mode is invalid")
+        rows.append(PortablePackageRow(resource, source_path, destination_path, digest, mode))
+    return tuple(rows)
+
+
+def _native_export_value(value: Any) -> dict[str, Any]:
+    if type(value) is not SealedMethodologyExport:
+        raise _error("release-checkpoint-invalid", "methodology_export is not typed portable state")
+    return {
+        "release_candidate_root": _safe_path(value.release_candidate_root, "methodology_export.release_candidate_root"),
+        "source_export_root": _safe_path(value.source_export_root, "methodology_export.source_export_root"),
+        "frozen_manifest_sha256": _sha256(value.frozen_manifest_sha256, "methodology_export.frozen_manifest_sha256"),
+        "export_inventory_sha256": _sha256(value.export_inventory_sha256, "methodology_export.export_inventory_sha256"),
+        "export_seal_sha256": _sha256(value.export_seal_sha256, "methodology_export.export_seal_sha256"),
+    }
+
+
+def _load_native_export(value: Any, candidate: ValidatedCandidate, root: str, *, historical: bool = False) -> SealedMethodologyExport:
+    payload = _mapping(value, {
+        "release_candidate_root", "source_export_root", "frozen_manifest_sha256",
+        "export_inventory_sha256", "export_seal_sha256",
+    }, "methodology_export")
+    release_root = _safe_path(payload["release_candidate_root"], "methodology_export.release_candidate_root")
+    expected = {
+        "release_candidate_root": release_root,
+        "source_export_root": _safe_path(payload["source_export_root"], "methodology_export.source_export_root"),
+        "frozen_manifest_sha256": _sha256(payload["frozen_manifest_sha256"], "methodology_export.frozen_manifest_sha256"),
+        "export_inventory_sha256": _sha256(payload["export_inventory_sha256"], "methodology_export.export_inventory_sha256"),
+        "export_seal_sha256": _sha256(payload["export_seal_sha256"], "methodology_export.export_seal_sha256"),
+    }
+    if historical:
+        from release_handoff import _exporter_module, _assert_export_inventory_bound, _export_seal_sha256
+
+        exporter = _exporter_module()
+        export = exporter.read_sealed_export(release_candidate_root=Path(root) / release_root)
+        _assert_export_inventory_bound(candidate, export, exporter)
+        observed = SealedMethodologyExport(
+            candidate, release_root, export.output_root.relative_to(root).as_posix(),
+            export.frozen_manifest_sha256, export.inventory_digest,
+            _export_seal_sha256(Path(root) / release_root, exporter),
+        )
+    else:
+        observed = bind_sealed_methodology_export(candidate, Path(root) / release_root)
+    if _native_export_value(observed) != expected:
+        raise _error("release-checkpoint-binding-mismatch", "private Methodology export changed after checkpoint")
+    return observed
+
+
+def _native_private_value(value: Any) -> dict[str, Any]:
+    if type(value) is not SealedPrivateMethodologyCompilation:
+        raise _error("release-checkpoint-invalid", "private_compilation is not typed portable state")
+    return {
+        "compiled_root": _safe_path(value.compiled_root, "private_compilation.compiled_root"),
+        "compiled_manifest_sha256": _sha256(value.compiled_manifest_sha256, "private_compilation.compiled_manifest_sha256"),
+        "compiled_output_sha256": _sha256(value.compiled_output_sha256, "private_compilation.compiled_output_sha256"),
+    }
+
+
+def _load_native_private(value: Any, export: SealedMethodologyExport, *, historical: bool = False) -> SealedPrivateMethodologyCompilation:
+    payload = _mapping(value, {"compiled_root", "compiled_manifest_sha256", "compiled_output_sha256"}, "private_compilation")
+    expected = {
+        "compiled_root": _safe_path(payload["compiled_root"], "private_compilation.compiled_root"),
+        "compiled_manifest_sha256": _sha256(payload["compiled_manifest_sha256"], "private_compilation.compiled_manifest_sha256"),
+        "compiled_output_sha256": _sha256(payload["compiled_output_sha256"], "private_compilation.compiled_output_sha256"),
+    }
+    if historical:
+        from release_compilation import PRIVATE_COMPILED_MANIFEST_NAME, PRIVATE_COMPILED_SCHEMA, _child_tree_digest
+        from release_handoff import _file
+        from release_inventory import persistent_regular_files
+
+        root = Path(export.candidate.project_root)
+        compiled_root = root / expected["compiled_root"]
+        raw = _file(root, f"{expected['compiled_root']}/{PRIVATE_COMPILED_MANIFEST_NAME}").read_bytes()
+        manifest = json.loads(raw)
+        unsigned = dict(manifest)
+        checksum = unsigned.pop("sha256", None)
+        if (raw != canonical_json(manifest) or checksum != hashlib.sha256(canonical_json(unsigned)).hexdigest()
+                or manifest.get("schema") != PRIVATE_COMPILED_SCHEMA
+                or manifest.get("candidate_snapshot_manifest_sha256") != export.candidate.manifest.sha256
+                or manifest.get("frozen_manifest_sha256") != export.frozen_manifest_sha256
+                or manifest.get("export_inventory_sha256") != export.export_inventory_sha256
+                or manifest.get("export_seal_sha256") != export.export_seal_sha256
+                or manifest.get("source_export_root") != export.source_export_root):
+            raise _error("release-checkpoint-binding-mismatch", "retained private compilation differs from its sealed export")
+        observed_files = {path.relative_to(compiled_root).as_posix(): path.read_bytes()
+                          for path in persistent_regular_files(root, compiled_root)}
+        output_rows = [{"path": path, "sha256": hashlib.sha256(payload).hexdigest()}
+                       for path, payload in sorted(observed_files.items()) if path != PRIVATE_COMPILED_MANIFEST_NAME]
+        if manifest.get("output_rows") != output_rows:
+            raise _error("release-checkpoint-binding-mismatch", "retained private compiled inventory changed")
+        observed = SealedPrivateMethodologyCompilation(export, expected["compiled_root"], checksum, _child_tree_digest(observed_files))
+    else:
+        observed = read_sealed_private_methodology_compilation(export)
+    if _native_private_value(observed) != expected:
+        raise _error("release-checkpoint-binding-mismatch", "private Methodology compilation changed after checkpoint")
+    return observed
+
+
+def _native_binding_atoms_value(value: Any, label: str) -> list[dict[str, Any]]:
+    """Encode the closed frozen binding frontier without executable meaning."""
+
+    if not isinstance(value, tuple) or any(type(atom) is not PortableBindingAtom for atom in value):
+        raise _error("release-checkpoint-invalid", f"{label} is not an exact frozen binding frontier")
+    records = [
+        {
+            "atom_id": _text(atom.atom_id, f"{label}.atom_id"),
+            "source_path": _safe_path(atom.source_path, f"{label}.source_path"),
+            "sha256": _sha256(atom.sha256, f"{label}.sha256"),
+            "version": atom.version,
+        }
+        for atom in value
+    ]
+    if (
+        any(type(record["version"]) is not int or record["version"] < 1 for record in records)
+        or records != sorted(records, key=lambda record: str(record["source_path"]))
+        or len({str(record["source_path"]) for record in records}) != len(records)
+        or len({(str(record["atom_id"]), int(record["version"])) for record in records}) != len(records)
+    ):
+        raise _error("release-checkpoint-invalid", f"{label} is not canonical")
+    return records
+
+
+def _load_native_binding_atoms(value: Any, label: str) -> tuple[PortableBindingAtom, ...]:
+    """Decode one exact, source-path ordered frozen binding frontier."""
+
+    if not isinstance(value, list):
+        raise _error("release-checkpoint-invalid", f"{label} must be a canonical binding list")
+    atoms: list[PortableBindingAtom] = []
+    for index, raw in enumerate(value):
+        payload = _mapping(raw, {"atom_id", "source_path", "sha256", "version"}, f"{label}[{index}]")
+        atom_id = _text(payload["atom_id"], f"{label}[{index}].atom_id")
+        source_path = _safe_path(payload["source_path"], f"{label}[{index}].source_path")
+        sha256 = _sha256(payload["sha256"], f"{label}[{index}].sha256")
+        version = payload["version"]
+        if type(version) is not int or version < 1:
+            raise _error("release-checkpoint-invalid", f"{label}[{index}].version is invalid")
+        atoms.append(PortableBindingAtom(atom_id, version, source_path, sha256))
+    ordered = tuple(sorted(atoms, key=lambda atom: atom.source_path))
+    if (
+        tuple(atoms) != ordered
+        or len({atom.source_path for atom in ordered}) != len(ordered)
+        or len({(atom.atom_id, atom.version) for atom in ordered}) != len(ordered)
+    ):
+        raise _error("release-checkpoint-invalid", f"{label} is not canonical")
+    return ordered
+
+
+def _native_binding_frontier_payload(
+    value: Any,
+    required: set[str],
+    label: str,
+) -> tuple[dict[str, Any], tuple[PortableBindingAtom, ...]]:
+    """Read current frontier data or a provably binding-free legacy payload."""
+
+    if not isinstance(value, dict):
+        raise _error("release-checkpoint-invalid", f"{label} has unknown, missing, or non-object members")
+    keys = set(value)
+    if keys == required:
+        return value, ()
+    if keys != required | {"binding_atoms"}:
+        raise _error("release-checkpoint-invalid", f"{label} has unknown, missing, or non-object members")
+    return value, _load_native_binding_atoms(value["binding_atoms"], f"{label}.binding_atoms")
+
+
+def _validate_native_binding_frontier(
+    rows: tuple[PortablePackageRow, ...],
+    atoms: tuple[PortableBindingAtom, ...],
+    label: str,
+) -> None:
+    """Keep projected package rows inseparable from their frozen raw pins."""
+
+    bindings = tuple(row for row in rows if row.resource == "BINDING_PROJECTION")
+    if not atoms:
+        if bindings:
+            raise _error("release-checkpoint-binding-mismatch", f"{label} has binding projections without a frozen frontier")
+        return
+    expected_destinations = {
+        (Path("methodology/bindings") / atom.source_path).as_posix()
+        for atom in atoms
+    }
+    if (
+        len(bindings) != len(atoms)
+        or {row.destination_path for row in bindings} != expected_destinations
+        or len({row.destination_path for row in bindings}) != len(bindings)
+    ):
+        raise _error("release-checkpoint-binding-mismatch", f"{label} binding projections differ from the frozen frontier")
+
+
+def _native_snapshot_value(value: Any) -> dict[str, Any]:
+    if type(value) is not SealedPortableSourceSnapshot:
+        raise _error("release-checkpoint-invalid", "portable_source_snapshot is not typed state")
+    return {
+        "candidate_run_id": _text(value.candidate_run_id, "portable_source_snapshot.candidate_run_id"),
+        "rows": _native_rows(value.portable_package_rows, "portable_source_snapshot.rows"),
+        "binding_atoms": _native_binding_atoms_value(value.binding_atoms, "portable_source_snapshot.binding_atoms"),
+    }
+
+
+def _load_native_snapshot(value: Any, candidate: ValidatedCandidate, private: SealedPrivateMethodologyCompilation, *, historical: bool = False) -> SealedPortableSourceSnapshot:
+    payload, expected_atoms = _native_binding_frontier_payload(
+        value, {"candidate_run_id", "rows"}, "portable_source_snapshot",
+    )
+    run_id = _text(payload["candidate_run_id"], "portable_source_snapshot.candidate_run_id")
+    expected_rows = _load_native_rows(payload["rows"], "portable_source_snapshot.rows")
+    _validate_native_binding_frontier(expected_rows, expected_atoms, "portable_source_snapshot")
+    if historical:
+        from release_handoff import _file
+        from release_portable_contract import _private_rows
+
+        for row in expected_rows:
+            path = _file(Path(candidate.project_root), row.source_path)
+            if hashlib.sha256(path.read_bytes()).hexdigest() != row.sha256 or path.stat().st_mode & 0o777 != row.mode:
+                raise _error("release-checkpoint-binding-mismatch", "retained portable source bytes changed")
+        private_rows, observed_atoms = _private_rows(Path(candidate.project_root), private)
+        if observed_atoms != expected_atoms:
+            raise _error("release-checkpoint-binding-mismatch", "retained portable binding frontier changed")
+        if (
+            tuple(row for row in private_rows if row.resource == "BINDING_PROJECTION")
+            != tuple(row for row in expected_rows if row.resource == "BINDING_PROJECTION")
+        ):
+            raise _error("release-checkpoint-binding-mismatch", "retained portable binding projections changed")
+        observed = SealedPortableSourceSnapshot(run_id, candidate, private, expected_rows, expected_atoms)
+    else:
+        observed = collect_portable_source_snapshot(candidate, private, candidate_run_id=run_id)
+    if observed.portable_package_rows != expected_rows or observed.binding_atoms != expected_atoms:
+        raise _error("release-checkpoint-binding-mismatch", "portable pre-catalog source snapshot changed after checkpoint")
+    return observed
+
+
+def _native_compilation_value(value: Any) -> dict[str, Any]:
+    if type(value) is not SealedPortableCandidateCompilation:
+        raise _error("release-checkpoint-invalid", "portable_compilation is not typed state")
+    return {
+        "candidate_run_id": _text(value.candidate_run_id, "portable_compilation.candidate_run_id"),
+        "source_catalog_sha256": _sha256(value.source_catalog_sha256, "portable_compilation.source_catalog_sha256"),
+        "input_manifest_sha256": _sha256(value.input_manifest_sha256, "portable_compilation.input_manifest_sha256"),
+        "rows": _native_rows(value.portable_package_rows, "portable_compilation.rows"),
+        "binding_atoms": _native_binding_atoms_value(value.binding_atoms, "portable_compilation.binding_atoms"),
+    }
+
+
+def _load_native_compilation(value: Any, snapshot: SealedPortableSourceSnapshot, *, historical: bool = False) -> SealedPortableCandidateCompilation:
+    payload, expected_atoms = _native_binding_frontier_payload(
+        value,
+        {"candidate_run_id", "source_catalog_sha256", "input_manifest_sha256", "rows"},
+        "portable_compilation",
+    )
+    expected_rows = _load_native_rows(payload["rows"], "portable_compilation.rows")
+    expected = {
+        "candidate_run_id": _text(payload["candidate_run_id"], "portable_compilation.candidate_run_id"),
+        "source_catalog_sha256": _sha256(payload["source_catalog_sha256"], "portable_compilation.source_catalog_sha256"),
+        "input_manifest_sha256": _sha256(payload["input_manifest_sha256"], "portable_compilation.input_manifest_sha256"),
+        "rows": _native_rows(expected_rows, "portable_compilation.rows"),
+        "binding_atoms": _native_binding_atoms_value(expected_atoms, "portable_compilation.binding_atoms"),
+    }
+    _validate_native_binding_frontier(expected_rows, expected_atoms, "portable_compilation")
+    if expected_atoms != snapshot.binding_atoms:
+        raise _error("release-checkpoint-binding-mismatch", "portable compilation binding frontier differs from its source snapshot")
+    if historical:
+        from release_portable_contract import _manifest_sha256
+        from release_handoff import _file
+
+        for row in expected_rows:
+            path = _file(Path(snapshot.candidate.project_root), row.source_path)
+            if hashlib.sha256(path.read_bytes()).hexdigest() != row.sha256 or path.stat().st_mode & 0o777 != row.mode:
+                raise _error("release-checkpoint-binding-mismatch", "retained portable compilation bytes changed")
+        observed = SealedPortableCandidateCompilation(
+            expected["candidate_run_id"], snapshot.candidate, snapshot.private_compilation, expected_rows,
+            expected["source_catalog_sha256"], _manifest_sha256(
+                expected["candidate_run_id"], snapshot.candidate, snapshot.private_compilation,
+                expected["source_catalog_sha256"], expected_rows, expected_atoms,
+            ),
+            expected_atoms,
+        )
+    else:
+        observed = revalidate_sealed_portable_compilation(SealedPortableCandidateCompilation(
+            expected["candidate_run_id"], snapshot.candidate, snapshot.private_compilation, expected_rows,
+            expected["source_catalog_sha256"], expected["input_manifest_sha256"], expected_atoms,
+        ))
+    if _native_compilation_value(observed) != expected:
+        raise _error("release-checkpoint-binding-mismatch", "portable catalog/admission compilation changed after checkpoint")
+    return observed
+
+
+def _native_package_value(value: Any) -> dict[str, Any]:
+    if type(value) is not PreparedPortableReleasePackage:
+        raise _error("release-checkpoint-invalid", "prepared_portable_package is not typed state")
+    return {
+        "candidate_run_id": _text(value.candidate_run_id, "prepared_portable_package.candidate_run_id"),
+        "candidate_snapshot_manifest_sha256": _sha256(value.candidate_snapshot_manifest_sha256, "prepared_portable_package.candidate_snapshot_manifest_sha256"),
+        "input_manifest_sha256": _sha256(value.input_manifest_sha256, "prepared_portable_package.input_manifest_sha256"),
+        "package_manifest_sha256": _sha256(value.package_manifest_sha256, "prepared_portable_package.package_manifest_sha256"),
+    }
+
+
+def _load_native_package(value: Any, root: str, portable: SealedPortableCandidateCompilation) -> PreparedPortableReleasePackage:
+    payload = _mapping(value, {
+        "candidate_run_id", "candidate_snapshot_manifest_sha256", "input_manifest_sha256", "package_manifest_sha256",
+    }, "prepared_portable_package")
+    candidate_run_id = _text(payload["candidate_run_id"], "prepared_portable_package.candidate_run_id")
+    candidate_sha = _sha256(payload["candidate_snapshot_manifest_sha256"], "prepared_portable_package.candidate_snapshot_manifest_sha256")
+    manifest_sha = _sha256(payload["package_manifest_sha256"], "prepared_portable_package.package_manifest_sha256")
+    input_sha = _sha256(payload["input_manifest_sha256"], "prepared_portable_package.input_manifest_sha256")
+    if (candidate_run_id != portable.candidate_run_id or candidate_sha != portable.candidate_snapshot_manifest_sha256
+            or input_sha != portable.input_manifest_sha256):
+        raise _error("release-checkpoint-binding-mismatch", "private portable package differs from sealed portable compilation")
+    package = reopen_portable_release_package(root, candidate_run_id, manifest_sha)
+    return PreparedPortableReleasePackage(candidate_run_id, candidate_sha, input_sha, package)
+
+
+def _native_dataclass_value(value: Any, cls: type[Any], label: str) -> dict[str, Any]:
+    return _dump_dataclass(value, cls, label)
+
+
+def _native_state_value(run: ReleaseActionRun, name: str) -> Any:
+    value = getattr(run, name)
+    if value is None:
+        return None
+    if name == "candidate":
+        return _candidate_value(value)
+    if name == "preflight":
+        return _preflight_value(value)
+    if name == "methodology_export":
+        return _native_export_value(value)
+    if name == "private_compilation":
+        return _native_private_value(value)
+    if name == "portable_source_snapshot":
+        return _native_snapshot_value(value)
+    if name == "portable_compilation":
+        return _native_compilation_value(value)
+    if name == "portable_suite":
+        return _native_dataclass_value(value, PortableSuiteGateEvidence, name)
+    if name == "prepared_portable_package":
+        return _native_package_value(value)
+    if name == "build":
+        return _native_dataclass_value(value, PortableImageBuildEvidence, name)
+    if name == "verification":
+        return _native_dataclass_value(value, PortableImageVerificationEvidence, name)
+    if name == "e2e":
+        return _dump_dataclass(value, PortableCandidateE2EGateEvidence, name)
+    if name == "full_gate":
+        from release_full_gate import NativeFullGateEvidence
+        return _native_dataclass_value(value, NativeFullGateEvidence, name)
+    if name == "promotion":
+        return _native_dataclass_value(value, NativePromotionEvidence, name)
+    if name == "retirement":
+        return _native_dataclass_value(value, ImageRetirementEvidence, name)
+    raise _error("release-checkpoint-invalid", "native checkpoint has an unsupported state field")
+
+
+def _load_native_state(value: Mapping[str, Any], root: str, *, documentary_publication_frontier: bool = False) -> dict[str, Any]:
+    state_payload = _mapping(dict(value), set(_NATIVE_STATE_NAMES), "native state")
+    state: dict[str, Any] = {name: None for name in _NATIVE_STATE_NAMES}
+    historical = state_payload["promotion"] is not None or documentary_publication_frontier
+    if state_payload["candidate"] is not None:
+        state["candidate"] = _load_candidate(state_payload["candidate"], root, historical_native_n=historical)
+    candidate = state["candidate"]
+    if candidate is None:
+        if any(state_payload[name] is not None for name in _NATIVE_STATE_NAMES[1:]):
+            raise _error("release-checkpoint-phase-mismatch", "native post-freeze state lacks candidate")
+        return state
+    if state_payload["preflight"] is None:
+        raise _error("release-checkpoint-phase-mismatch", "native candidate lacks compiler preflight")
+    state["preflight"] = _load_preflight(state_payload["preflight"], candidate)
+    if state_payload["methodology_export"] is not None:
+        state["methodology_export"] = _load_native_export(state_payload["methodology_export"], candidate, root, historical=historical)
+    if state_payload["private_compilation"] is not None:
+        if state["methodology_export"] is None:
+            raise _error("release-checkpoint-phase-mismatch", "native private compilation lacks export")
+        state["private_compilation"] = _load_native_private(state_payload["private_compilation"], state["methodology_export"], historical=historical)
+    if state_payload["portable_source_snapshot"] is not None:
+        if state["private_compilation"] is None:
+            raise _error("release-checkpoint-phase-mismatch", "native source snapshot lacks private compilation")
+        state["portable_source_snapshot"] = _load_native_snapshot(
+            state_payload["portable_source_snapshot"], candidate, state["private_compilation"],
+            historical=historical,
+        )
+    if state_payload["portable_compilation"] is not None:
+        if state["portable_source_snapshot"] is None:
+            raise _error("release-checkpoint-phase-mismatch", "native portable compilation lacks source snapshot")
+        state["portable_compilation"] = _load_native_compilation(
+            state_payload["portable_compilation"], state["portable_source_snapshot"],
+            historical=historical,
+        )
+    portable = state["portable_compilation"]
+    if state_payload["portable_suite"] is not None:
+        state["portable_suite"] = _load_dataclass(
+            state_payload["portable_suite"], PortableSuiteGateEvidence, "portable_suite",
+            tuple_fields=frozenset({"command", "coverage"}),
+        )
+    if state_payload["prepared_portable_package"] is not None:
+        if portable is None:
+            raise _error("release-checkpoint-phase-mismatch", "native package lacks portable compilation")
+        state["prepared_portable_package"] = _load_native_package(
+            state_payload["prepared_portable_package"], root, portable,
+        )
+    if state_payload["build"] is not None:
+        state["build"] = _load_dataclass(state_payload["build"], PortableImageBuildEvidence, "build")
+    if state_payload["verification"] is not None:
+        state["verification"] = _load_dataclass(state_payload["verification"], PortableImageVerificationEvidence, "verification")
+    if state_payload["e2e"] is not None:
+        state["e2e"] = _load_e2e(state_payload["e2e"], native=True)
+    if state_payload["full_gate"] is not None:
+        from release_full_gate import NativeFullGateEvidence
+        state["full_gate"] = _load_dataclass(state_payload["full_gate"], NativeFullGateEvidence, "full_gate")
+    if state_payload["promotion"] is not None:
+        state["promotion"] = _load_dataclass(
+            state_payload["promotion"], NativePromotionEvidence, "promotion",
+            tuple_fields=frozenset({"effect_refs"}),
+        )
+    if state_payload["retirement"] is not None:
+        nullable_tuples = frozenset({"retaining_container_refs", "observed_rollback_refs", "required_rollback_refs"})
+        state["retirement"] = _load_dataclass(
+            state_payload["retirement"], ImageRetirementEvidence, "retirement",
+            tuple_fields=frozenset(name for name in nullable_tuples if state_payload["retirement"].get(name) is not None),
+        )
+    if portable is None and any(state[name] is not None for name in _NATIVE_STATE_NAMES[6:]):
+        raise _error("release-checkpoint-phase-mismatch", "native later evidence lacks portable compilation")
+    if state["portable_suite"] is None and any(state[name] is not None for name in _NATIVE_STATE_NAMES[8:]):
+        raise _error("release-checkpoint-phase-mismatch", "native image evidence lacks Unit evidence")
+    if state["prepared_portable_package"] is None and any(state[name] is not None for name in _NATIVE_STATE_NAMES[8:]):
+        raise _error("release-checkpoint-phase-mismatch", "native image evidence lacks private prepared package")
+    if state["promotion"] is not None and state["full_gate"] is None:
+        raise _error("release-checkpoint-phase-mismatch", "native publication lacks retained Full Gate")
+    if state["retirement"] is not None and state["promotion"] is None:
+        raise _error("release-checkpoint-phase-mismatch", "native retirement lacks publication evidence")
+    _validate_native_evidence_bindings(state)
+    if state["promotion"] is not None:
+        _verify_native_publication_documentary_state(state, root)
+    return state
+
+
+def _verify_native_publication_documentary_state(state: Mapping[str, Any], root: str) -> None:
+    """Prove post-effect documentary restoration without reselecting removed N."""
+
+    from dataclasses import replace
+    from release_handoff import _file
+    from release_promotion import PROMOTION_ROOT, _reopen_historical_native_promotion_packet, verify_native_promotion_evidence
+    from selected_installation_command import read_selected_installation_command_receipt, reopen_selected_installation_command_start
+
+    publication = state["promotion"]
+    candidate = state["candidate"]
+    packet = _reopen_historical_native_promotion_packet(
+        candidate, state["portable_suite"], state["build"],
+        state["verification"], state["e2e"], state["full_gate"], state["prepared_portable_package"],
+    )
+    prefix = f"{PROMOTION_ROOT}/{candidate.manifest.sha256}/observations/attempt-"
+    if (publication.outcome not in {"promoted", "pending", "effect_uncertain", "recording_uncertain"}
+            or publication.full_gate_receipt_sha256 != packet.evidence.receipt_sha256
+            or not publication.evidence_root.startswith(prefix) or "/" in publication.evidence_root.removeprefix(prefix)
+            or publication.retained_prior_selector_ref != f"{PROMOTION_ROOT}/{candidate.manifest.sha256}/prior-selector.toml"):
+        raise _error("release-checkpoint-binding-mismatch", "native documentary publication differs from the original retained frontier")
+    if publication.receipt_sha256 is None:
+        # A failed receipt write cannot establish a trusted post-effect codec
+        # frontier.  The provider retains its pre-effect checkpoint and uses
+        # existing unknown-effect recovery rather than inventing this record.
+        raise _error("release-checkpoint-binding-mismatch", "native documentary publication lacks its actual observation receipt")
+    raw = _file(Path(root), f"{publication.evidence_root}/receipt.json").read_bytes()
+    if (hashlib.sha256(raw).hexdigest() != publication.receipt_sha256
+            or raw != canonical_json(asdict(replace(publication, receipt_sha256=None)))):
+        raise _error("release-checkpoint-binding-mismatch", "native documentary publication receipt changed")
+    command = read_selected_installation_command_receipt(
+        _file(Path(root), f".caprmedio_runtime/installation/commands/{publication.installation_command_sha256}.json").read_bytes(),
+        expected_sha256=publication.installation_command_sha256,
+    )
+    event = reopen_selected_installation_command_start(Path(root), command)
+    prior = _file(Path(root), publication.retained_prior_selector_ref).read_bytes()
+    if (command.command_id != publication.action_run_id or event["event_id"] != publication.action_start_event_id
+            or command.prior_runtime_selector_sha256 != hashlib.sha256(prior).hexdigest()
+            or command.target_project_context_sha256 != publication.target_project_context_sha256
+            or command.package_manifest_sha256 != publication.package_manifest_sha256
+            or command.full_gate_receipt_sha256 != publication.full_gate_receipt_sha256):
+        raise _error("release-checkpoint-binding-mismatch", "native documentary publication differs from its actual selected command")
+    binding = candidate.native_installed_n
+    if binding is not None:
+        selected = binding.selected
+        prior_document = tomllib.loads(prior.decode("utf-8"))
+        if (hashlib.sha256(prior).hexdigest() != selected.selector_sha256
+                or prior_document.get("package_manifest_sha256") != selected.package_manifest_sha256
+                or prior_document.get("target_project_context_sha256") != selected.target_project_context_sha256
+                or prior_document.get("state_generation") != selected.state_generation
+                or prior_document.get("image_digest") != selected.image_digest):
+            raise _error("release-checkpoint-binding-mismatch", "documentary prior native N differs from the actual retained selector")
+        prior_proof = _file(Path(root), f".caprmedio_runtime/installation/generations/{selected.state_generation}/release-proof.toml").read_bytes()
+        context = selected.binding.target_context
+        from installed_mcp_binding import _context as reopen_mcp_target_context
+
+        prior_context = _file(Path(root), f".caprmedio_runtime/installation/contexts/{context.sha256}.toml").read_bytes()
+        if (hashlib.sha256(prior_proof).hexdigest() != selected.release_proof_sha256
+                or context.path != Path(root) / f".caprmedio_runtime/installation/contexts/{context.sha256}.toml"
+                or reopen_mcp_target_context(Path(root), context.sha256) != context):
+            raise _error("release-checkpoint-binding-mismatch", "documentary native N generation/context evidence changed")
+    if publication.outcome == "promoted":
+        verify_native_promotion_evidence(
+            candidate, state["portable_compilation"], state["portable_suite"], state["build"], state["verification"], publication,
+            e2e=state["e2e"], full_gate=state["full_gate"], prepared_package=state["prepared_portable_package"],
+        )
+
+
+def _validate_native_evidence_bindings(state: Mapping[str, Any]) -> None:
+    """Keep the documentary native frontier on one exact candidate/package.
+
+    This verifies retained identity relationships, never a gate pass or effect
+    authority.  Publication consumers still reopen original physical receipts.
+    """
+
+    candidate, portable = state["candidate"], state["portable_compilation"]
+    if candidate is None or portable is None:
+        return
+    expected = {
+        "candidate_snapshot_manifest_sha256": candidate.manifest.sha256,
+        "candidate_run_id": portable.candidate_run_id,
+        "input_manifest_sha256": portable.input_manifest_sha256,
+        "source_catalog_sha256": portable.source_catalog_sha256,
+        "framework_version": portable.framework_version,
+        "version_toml_sha256": portable.version_toml_sha256,
+    }
+    package = state["prepared_portable_package"]
+    if package is not None:
+        expected["package_manifest_sha256"] = package.package_manifest_sha256
+    for name in ("portable_suite", "build", "verification", "e2e", "full_gate", "promotion", "retirement"):
+        observed = state[name]
+        if observed is not None and any(
+            getattr(observed, field) != identity
+            for field, identity in expected.items() if hasattr(observed, field)
+        ):
+            raise _error("release-checkpoint-binding-mismatch", f"native {name} belongs to another frozen frontier")
+    full_gate = state["full_gate"]
+    if full_gate is not None:
+        for field, predecessor in (
+            ("suite_receipt_sha256", "portable_suite"),
+            ("build_receipt_sha256", "build"),
+            ("image_receipt_sha256", "verification"),
+            ("e2e_receipt_sha256", "e2e"),
+        ):
+            if state[predecessor] is None or getattr(full_gate, field) != state[predecessor].receipt_sha256:
+                raise _error("release-checkpoint-binding-mismatch", "native aggregate differs from retained predecessor receipts")
+    image = state["verification"]
+    if image is not None:
+        for name in ("e2e", "full_gate"):
+            if state[name] is not None and state[name].candidate_image_digest != image.candidate_image_digest:
+                raise _error("release-checkpoint-binding-mismatch", "native gate differs from the retained immutable image")
+    promotion = state["promotion"]
+    if promotion is not None and (full_gate is None or promotion.full_gate_receipt_sha256 != full_gate.receipt_sha256):
+        raise _error("release-checkpoint-binding-mismatch", "native publication differs from its original Full Gate receipt")
+    retirement = state["retirement"]
+    if retirement is not None and (
+        promotion is None or retirement.promotion_receipt_sha256 != promotion.receipt_sha256
+        or retirement.prior_image_digest != promotion.prior_image_digest
+        or retirement.candidate_image_digest != promotion.candidate_image_digest
+    ):
+        raise _error("release-checkpoint-binding-mismatch", "native disposition differs from its observed publication")
+
+
+def _native_result_value(result: ReleasePhaseResult, index: int) -> dict[str, Any]:
+    if type(result) is not ReleasePhaseResult:
+        raise _error("release-checkpoint-invalid", "native phase result is not typed state")
+    payload = {
+        item.name: _json_value(getattr(result, item.name), f"native result.{item.name}")
+        for item in fields(ReleasePhaseResult)
+        if item.name != "output"
+    }
+    output = result.output
+    if output is None:
+        payload["output"] = None
+    else:
+        phase = PHASES[index][2]
+        expected = _NATIVE_PHASE_STATE.get(phase)
+        if expected is None:
+            raise _error("release-checkpoint-invalid", "native phase cannot retain an unknown publication output")
+        payload["output"] = expected
+    return payload
+
+
+def _load_native_result(
+    value: Any, index: int, context: SelectedReleaseActionContext,
+    candidate: ValidatedCandidate, state: Mapping[str, Any],
+) -> ReleasePhaseResult:
+    required = {item.name for item in fields(ReleasePhaseResult)}
+    payload = _mapping(value, required, "native result")
+    output_name = payload["output"]
+    expected = _NATIVE_PHASE_STATE.get(PHASES[index][2])
+    if output_name is not None:
+        if output_name != expected or expected is None:
+            raise _error("release-checkpoint-phase-mismatch", "native result output has an invalid observation type")
+        output = state[expected]
+        if output is None:
+            raise _error("release-checkpoint-phase-mismatch", "native result output has no retained observation")
+    else:
+        output = None
+    copied = dict(payload)
+    copied["output"] = output
+    copied["shared_action_recording"] = _shared_recording(
+        copied.get("shared_action_recording"), "native result.shared_action_recording",
+    )
+    result = _load_dataclass(
+        copied, ReleasePhaseResult, "native result",
+        tuple_fields=frozenset({"attempted_effects", "effect_evidence_refs", "declared_run_receipt_refs"}),
+    )
+    step, action, phase = PHASES[index]
+    if (
+        result.workflow_run_id != context.workflow_run_id or result.step_run_id != context.step_run_id
+        or result.action_run_id != context.action_run_id or result.step_atom_id != step
+        or result.action_atom_id != action or result.phase != phase
+        or result.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+        or result.recording_state != "shared_session_provider_pending"
+        or result.outcome not in {"prepared", "completed", "blocked", "failed", "pending", "effect_uncertain"}
+    ):
+        raise _error("release-checkpoint-phase-mismatch", "native result does not match its selected phase context")
+    if result.shared_action_recording is not None:
+        packet = result.shared_action_recording
+        if (phase != "retire" or result.outcome != "pending" or result.effect_outcome != "retired"
+                or packet["on_recorded_result"] != "complete exact prior N-image disposition"
+                or type(output) is not ImageRetirementEvidence or output.outcome != "retired"
+                or packet["candidate_snapshot_manifest_sha256"] != candidate.manifest.sha256
+                or packet["prior_image_digest"] != output.prior_image_digest
+                or packet["retirement_receipt_sha256"] != output.receipt_sha256
+                or packet["retirement_receipt_ref"] != f"{output.evidence_root}/receipt.json"
+                or result.effect_evidence_refs != (packet["retirement_receipt_ref"],)):
+            raise _error("release-checkpoint-phase-mismatch", "native retirement shared recording differs from its retained exact effect")
+    return result
+
+
+def _validate_native_result_outputs(results: Mapping[int, ReleasePhaseResult], state: Mapping[str, Any]) -> None:
+    for index, result in results.items():
+        expected_name = _NATIVE_PHASE_STATE.get(PHASES[index][2])
+        expected = None if expected_name is None else state[expected_name]
+        if result.output is not None and result.output != expected:
+            raise _error("release-checkpoint-phase-mismatch", "native phase result differs from retained native observation")
+        if result.outcome == "completed" and result.output is None:
+            raise _error("release-checkpoint-phase-mismatch", "completed native phase lacks typed observation")
+
+
+def _native_partial_publication_hint(source: Mapping[str, Any]) -> bool:
+    """Documentary decoding hint only; complete validation still follows."""
+
+    if source.get("in_progress") is not None and type(source.get("next_phase")) is int and source["next_phase"] in {10, 11} and source.get("stopped") is False:
+        return True
+    if source.get("stopped") is True and isinstance(source.get("results"), list):
+        return any(isinstance(row, dict) and type(row.get("index")) is int and row["index"] in {10, 11} and isinstance(row.get("result"), dict)
+                   and isinstance(row["result"].get("outcome"), str) and row["result"]["outcome"] in {"effect_uncertain", "pending"} for row in source["results"])
+    return False
+
+
+def _reopen_native_partial_frontier_start(root: str, context: SelectedReleaseActionContext,
+                                         pending: Mapping[str, str] | None = None) -> None:
+    """Read bounded canonical start/pending records, without an executor grant."""
+
+    import json
+    import work_journal
+    from operator_registry import parse_operators_registry
+    from selected_installation_command import _registered_journal_author
+    from release_handoff import _file
+    from native_selected_installation import _read as raw_physical_native_carrier
+    from FIND_AND_FETCH_JOURNAL_EVENTS.find_and_fetch_journal_events import capture_snapshot, query
+
+    def read_physical_native_carrier(path, *, code, mode=None):
+        try:
+            return raw_physical_native_carrier(path, code=code, mode=mode)
+        except (ValueError, OSError) as error:
+            raise _error(code, "partial documentary carrier is absent, aliased or changed") from error
+
+    project = Path(root)
+    if context.workflow_version != 9 or context.step_atom_id not in {"CA-O-178", "CA-O-179"} or context.action_atom_id != "CA-O-169":
+        raise _error("release-checkpoint-phase-mismatch", "documentary partial frontier is not selected native publication")
+    identities = (context.action_run_id, context.step_run_id, context.workflow_run_id)
+    if len(set(identities)) != 3:
+        raise _error("release-checkpoint-binding-mismatch", "partial publication Run identities are ambiguous")
+    snapshot = capture_snapshot(project)
+    if snapshot.get("source_root") != work_journal.configured_journal_root(project).as_posix():
+        raise _error("release-checkpoint-binding-mismatch", "partial frontier reader has another canonical Journal root")
+    result = query(snapshot, {"mode": "full_events", "filter": '"event:/event" = "started" AND "event:/run/run_id" IN ('
+                             + ", ".join(json.dumps(identity) for identity in identities) + ")", "limit": 4})
+    if result.get("status") != "complete" or result.get("coverage", {}).get("complete") is not True or len(result.get("results", [])) != 3:
+        raise _error("release-checkpoint-binding-mismatch", "partial frontier canonical starts are absent, ambiguous or incompletely covered")
+    events = {}
+    for match in result["results"]:
+        event = work_journal.validate_sealed_event(match["event"])
+        run = event.get("run", {})
+        identity = run.get("run_id")
+        if identity not in identities or identity in events or event.get("schema_version") != 5 or event.get("kind") != "workflow_execution":
+            raise _error("release-checkpoint-binding-mismatch", "partial frontier has conflicting canonical Run starts")
+        events[identity] = event
+    action, step, workflow = (events[identity] for identity in identities)
+    for event, kind, atom_id, version in ((action, "action", "CA-O-169", 5), (step, "step", context.step_atom_id, None), (workflow, "workflow", "CA-O-164", 9)):
+        record = event["run"]
+        source = record.get("definition", {})
+        if (event.get("event") != "started" or record.get("kind") != kind or source.get("atom_id") != atom_id
+                or (version is not None and source.get("version") != version)
+                or event.get("author") != action.get("author") or event.get("action_id") != action.get("action_id")
+                or event.get("llm_session") != action.get("llm_session")
+                or hashlib.sha256(read_physical_native_carrier(
+                    _file(project, _safe_path(source.get("path"), "canonical start source")),
+                    code="release-checkpoint-binding-mismatch", mode=None)).hexdigest() != source.get("digest")
+                or {"kind": kind, **source} not in event.get("definition_bindings", [])):
+            raise _error("release-checkpoint-binding-mismatch", "partial frontier canonical source or attribution changed")
+    if (action["run"].get("parent_run_id") != context.step_run_id or step["run"].get("parent_run_id") != context.workflow_run_id
+            or "parent_run_id" in workflow["run"] or {"kind": "action", **action["run"]["definition"]} not in workflow.get("definition_bindings", [])):
+        raise _error("release-checkpoint-binding-mismatch", "partial frontier canonical parent chain changed")
+    settings = work_journal.resolve_settings_path(project)
+    registry = read_physical_native_carrier(_file(project, (settings.parent / "operators_registry.toml").relative_to(project).as_posix()),
+                                           code="release-checkpoint-binding-mismatch", mode=None)
+    if sum(_registered_journal_author(record) == action.get("author") for record in parse_operators_registry(registry)) != 1:
+        raise _error("release-checkpoint-binding-mismatch", "partial frontier canonical author is not an actual registered account")
+    if pending is not None:
+        event_id = _safe_path(pending["event_id"], "pending canonical event id")
+        if "/" in event_id:
+            raise _error("release-checkpoint-binding-mismatch", "pending canonical event id is not one identity")
+        carrier = project / work_journal.configured_runtime_root(project) / "state/work_journal/pending" / f"{event_id}.json"
+        pending_bytes = read_physical_native_carrier(_file(project, carrier.relative_to(project).as_posix()),
+                                                    code="release-checkpoint-binding-mismatch", mode=None)
+        _payload, event, _append_context, observed = work_journal._read_pending_event(project, event_id)
+        if (json.loads(pending_bytes) != _payload or read_physical_native_carrier(carrier, code="release-checkpoint-binding-mismatch", mode=None) != pending_bytes
+                or observed != carrier or event.get("run") != action["run"] or event.get("event") == "started"
+                or event.get("outcome") != pending["event_outcome"] or event.get("author") != action["author"]
+                or event.get("action_id") != action["action_id"] or event.get("llm_session") != action["llm_session"]
+                or event.get("definition_bindings") != action.get("definition_bindings")):
+            raise _error("release-checkpoint-binding-mismatch", "pending canonical recording differs from the exact partial publication occurrence")
+        recorded = query(snapshot, {"mode": "full_events", "filter": '"event:/event_id" = ' + json.dumps(event_id), "limit": 2})
+        if (recorded.get("status") != "complete" or recorded.get("coverage", {}).get("complete") is not True
+                or len(recorded.get("results", [])) > 1
+                or any(work_journal.validate_sealed_event(row["event"]) != event for row in recorded.get("results", []))):
+            raise _error("release-checkpoint-binding-mismatch", "pending recording has ambiguous or changed canonical Journal evidence")
+
+
+def _validate_native_partial_frontier(root: str, *, state: Mapping[str, Any],
+                                      in_progress: SelectedReleaseActionContext | None,
+                                      contexts: Mapping[int, SelectedReleaseActionContext],
+                                      results: Mapping[int, ReleasePhaseResult],
+                                      pending: Mapping[int, Mapping[str, str]]) -> None:
+    from release_promotion import retained_native_promotion_packet
+
+    index = 11 if 11 in results and results[11].outcome in {"effect_uncertain", "pending"} else 10
+    context = in_progress if in_progress is not None else contexts.get(index)
+    if context is None or (in_progress is None and (index not in results or results[index].outcome not in {"effect_uncertain", "pending"})):
+        raise _error("release-checkpoint-phase-mismatch", "partial native publication hint lacks its validated stopped or in-progress occurrence")
+    retained_native_promotion_packet(state["candidate"], state["portable_compilation"], state["portable_suite"],
+                                    state["build"], state["verification"], state["e2e"], state["full_gate"], state["prepared_portable_package"])
+    _reopen_native_partial_frontier_start(root, context, pending.get(11 if context.step_atom_id == "CA-O-179" else 10))
+
+
+def _encode_native_release_action_checkpoint(
+    run: ReleaseActionRun, *, shared_recordings: Mapping[int, Mapping[str, Any]] | None,
+    pending_recordings: Mapping[int, Mapping[str, Any]] | None,
+) -> bytes:
+    root = str(Path(run.project_root).resolve(strict=True))
+    request = _load_model(run.request.model_dump(mode="json", by_alias=True), ReleaseVersionRequest, "request")
+    if request.project_root != root or _fingerprint(request) != _sha256(run.frozen_parameters_sha256, "frozen_parameters_sha256"):
+        raise _error("release-checkpoint-binding-mismatch", "native run request, root, or fingerprint is not frozen")
+    contexts = []
+    for index, context in sorted(run.contexts.items()):
+        if type(context.workflow_version) is not int or context.workflow_version < 1:
+            raise _error("release-checkpoint-binding-mismatch", "native checkpoint context has no positive frozen O164 revision")
+        _load_context(_context_value(context), _index(index, "contexts.index"), root=root,
+                      workflow_run_id=run.workflow_run_id, fingerprint=run.frozen_parameters_sha256)
+        contexts.append({"index": index, "context": _context_value(context)})
+    state = {name: _native_state_value(run, name) for name in _NATIVE_STATE_NAMES}
+    partial_hint = _native_partial_publication_hint({
+        "in_progress": run.in_progress, "next_phase": run.next_phase, "stopped": run.stopped,
+        "results": [{"index": index, "result": {"outcome": result.outcome}} for index, result in run.results.items()],
+    })
+    restored_state = _load_native_state(state, root, documentary_publication_frontier=partial_hint)
+    candidate = restored_state["candidate"]
+    results = []
+    for index, result in sorted(run.results.items()):
+        if candidate is None or index not in run.contexts:
+            raise _error("release-checkpoint-phase-mismatch", "native result has no frozen candidate or context")
+        encoded = _native_result_value(result, index)
+        _load_native_result(encoded, index, run.contexts[index], candidate, restored_state)
+        results.append({"index": index, "result": encoded})
+    if run.in_progress is not None:
+        if type(run.in_progress.workflow_version) is not int or run.in_progress.workflow_version < 1:
+            raise _error("release-checkpoint-binding-mismatch", "native in-progress context has no positive frozen O164 revision")
+        _load_context(_context_value(run.in_progress), run.next_phase, root=root,
+                      workflow_run_id=run.workflow_run_id, fingerprint=run.frozen_parameters_sha256)
+    _validate_phase_continuity(next_phase=run.next_phase, stopped=run.stopped, in_progress=run.in_progress,
+                               contexts=run.contexts, results=run.results)
+    _validate_native_result_outputs(run.results, restored_state)
+    recording_payload = _shared_recordings_value(shared_recordings, run.results)
+    pending_payload = _pending_recordings_value(
+        pending_recordings, run.results, {record["index"]: record for record in recording_payload},
+    )
+    if partial_hint:
+        _validate_native_partial_frontier(root, state=restored_state, in_progress=run.in_progress,
+                                          contexts=run.contexts, results=run.results,
+                                          pending={row["index"]: {"event_id": row["event_id"], "event_outcome": row["event_outcome"]} for row in pending_payload})
+    payload = {
+        "schema": NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA,
+        "kind": "release_action_run",
+        "sha256": "0" * 64,
+        "project_root": root,
+        "workflow_run_id": _text(run.workflow_run_id, "workflow_run_id"),
+        "frozen_parameters_sha256": _sha256(run.frozen_parameters_sha256, "frozen_parameters_sha256"),
+        "request": _dump_model(request, ReleaseVersionRequest, "request"),
+        "next_phase": run.next_phase,
+        "stopped": run.stopped,
+        "in_progress": None if run.in_progress is None else _context_value(run.in_progress),
+        "contexts": contexts,
+        "results": results,
+        "shared_recordings": recording_payload,
+        "pending_recordings": pending_payload,
+        "state": state,
+        "local_helper_binding": _local_helper_binding_value(run.local_helper_binding),
+    }
+    if type(run.stopped) is not bool:
+        raise _error("release-checkpoint-invalid", "native stopped must be a boolean")
+    payload["sha256"] = release_action_checkpoint_sha256(payload)
+    return canonical_json(payload)
+
+
 def encode_release_action_checkpoint(
     run: ReleaseActionRun, *, shared_recordings: Mapping[int, Mapping[str, Any]] | None = None,
     pending_recordings: Mapping[int, Mapping[str, Any]] | None = None,
@@ -828,6 +2311,10 @@ def encode_release_action_checkpoint(
 
     if type(run) is not ReleaseActionRun:
         raise _error("release-checkpoint-invalid", "checkpoint requires one private ReleaseActionRun")
+    if _native_portable_run(run):
+        return _encode_native_release_action_checkpoint(
+            run, shared_recordings=shared_recordings, pending_recordings=pending_recordings,
+        )
     root = str(Path(run.project_root).resolve(strict=True))
     if root != run.project_root:
         raise _error("release-checkpoint-binding-mismatch", "run root is not canonical")
@@ -965,12 +2452,102 @@ def derive_unknown_effect_terminal_checkpoint(payload: Mapping[str, Any]) -> dic
     return dump_release_checkpoint(run, shared_recordings=shared_recordings, pending_recordings={})
 
 
+def _restore_native_release_action_checkpoint(
+    payload: Mapping[str, Any], *, image_executor: AdmittedImageExecutor | None = None,
+) -> tuple[ReleaseActionRun, dict[int, dict[str, Any]], dict[int, dict[str, str]]]:
+    """Restore a closed, single-revision portable frontier without coercion."""
+
+    source, helper_binding = _native_checkpoint_envelope(dict(payload), "native checkpoint")
+    if source["schema"] not in {NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA} or source["kind"] != "release_action_run":
+        raise _error("release-checkpoint-schema-unsupported", "native checkpoint schema or kind is not supported")
+    if _sha256(source["sha256"], "sha256") != release_action_checkpoint_sha256(source):
+        raise _error("release-checkpoint-digest-mismatch", "native checkpoint content digest does not match its canonical bytes")
+    root = str(Path(_text(source["project_root"], "project_root")).resolve(strict=True))
+    if source["project_root"] != root:
+        raise _error("release-checkpoint-binding-mismatch", "native checkpoint root is not canonical")
+    workflow_run_id = _text(source["workflow_run_id"], "workflow_run_id")
+    fingerprint = _sha256(source["frozen_parameters_sha256"], "frozen_parameters_sha256")
+    request = _load_model(source["request"], ReleaseVersionRequest, "request")
+    if request.project_root != root or _fingerprint(request) != fingerprint:
+        raise _error("release-checkpoint-binding-mismatch", "native checkpoint request root or fingerprint does not match")
+    if type(source["next_phase"]) is not int or not 0 <= source["next_phase"] <= len(PHASES) or type(source["stopped"]) is not bool:
+        raise _error("release-checkpoint-phase-mismatch", "native checkpoint next phase or stopped value is invalid")
+    if image_executor is not None and (
+        type(image_executor) is not AdmittedImageExecutor or image_executor.project_root != root
+        or image_executor.workflow_run_id != workflow_run_id or not callable(getattr(image_executor.executor, "run", None))
+    ):
+        raise _error("release-checkpoint-executor-unadmitted", "restored native Run executor is not externally re-admitted")
+    partial_hint = _native_partial_publication_hint(source)
+    state = _load_native_state(source["state"], root, documentary_publication_frontier=partial_hint)
+    candidate = state["candidate"]
+    contexts: dict[int, SelectedReleaseActionContext] = {}
+    native_revision: int | None = None
+    if not isinstance(source["contexts"], list):
+        raise _error("release-checkpoint-invalid", "native contexts must be a canonical list")
+    for entry in source["contexts"]:
+        record = _mapping(entry, {"index", "context"}, "native context record")
+        index = _index(record["index"], "native contexts.index")
+        if index in contexts:
+            raise _error("release-checkpoint-invalid", "native contexts repeat a selected phase")
+        context = _load_context(record["context"], index, root=root, workflow_run_id=workflow_run_id, fingerprint=fingerprint)
+        if native_revision is None:
+            native_revision = context.workflow_version
+        elif context.workflow_version != native_revision:
+            raise _error("release-checkpoint-binding-mismatch", "native checkpoint mixes frozen O164 revisions")
+        contexts[index] = context
+    if not isinstance(source["results"], list) or candidate is None:
+        if source["results"] or candidate is not None:
+            raise _error("release-checkpoint-invalid", "native results require one frozen candidate")
+        results: dict[int, ReleasePhaseResult] = {}
+    else:
+        results = {}
+        for entry in source["results"]:
+            record = _mapping(entry, {"index", "result"}, "native result record")
+            index = _index(record["index"], "native results.index")
+            if index in results or index not in contexts:
+                raise _error("release-checkpoint-invalid", "native result repeats or lacks selected context")
+            results[index] = _load_native_result(record["result"], index, contexts[index], candidate, state)
+    in_progress = None
+    if source["in_progress"] is not None:
+        in_progress = _load_context(source["in_progress"], source["next_phase"], root=root,
+                                    workflow_run_id=workflow_run_id, fingerprint=fingerprint)
+        if native_revision is None:
+            native_revision = in_progress.workflow_version
+        elif in_progress.workflow_version != native_revision:
+            raise _error("release-checkpoint-binding-mismatch", "native checkpoint mixes frozen O164 revisions")
+    _validate_phase_continuity(next_phase=source["next_phase"], stopped=source["stopped"], in_progress=in_progress,
+                               contexts=contexts, results=results)
+    _validate_native_result_outputs(results, state)
+    shared_recordings = _load_shared_recordings(source["shared_recordings"], results)
+    pending_recordings = _load_pending_recordings(source["pending_recordings"], results, shared_recordings)
+    if partial_hint:
+        _validate_native_partial_frontier(root, state=state, in_progress=in_progress,
+                                          contexts=contexts, results=results, pending=pending_recordings)
+    return ReleaseActionRun(
+        project_root=root,
+        workflow_run_id=workflow_run_id,
+        frozen_parameters_sha256=fingerprint,
+        request=request,
+        image_executor=image_executor,
+        next_phase=source["next_phase"],
+        stopped=source["stopped"],
+        in_progress=in_progress,
+        contexts=contexts,
+        results=results,
+        local_helper_binding=helper_binding,
+        **state,
+    ), shared_recordings, pending_recordings
+
+
 def _restore_release_action_checkpoint(
     checkpoint: bytes | str, *, image_executor: AdmittedImageExecutor | None = None,
 ) -> tuple[ReleaseActionRun, dict[int, dict[str, Any]], dict[int, dict[str, str]]]:
     """Restore exact private state; an executor is deliberately reinjected externally."""
 
-    payload = _mapping(_canonical_input(checkpoint), {
+    decoded = _canonical_input(checkpoint)
+    if decoded.get("schema") in {NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA, LEGACY_NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA}:
+        return _restore_native_release_action_checkpoint(decoded, image_executor=image_executor)
+    payload = _mapping(decoded, {
         "schema", "kind", "sha256", "project_root", "workflow_run_id", "frozen_parameters_sha256", "request",
         "next_phase", "stopped", "in_progress", "contexts", "results", "shared_recordings", "pending_recordings", "state",
     }, "checkpoint")
@@ -1101,6 +2678,7 @@ def extract_pending_recordings(payload: Mapping[str, Any]) -> Mapping[int, Mappi
 
 __all__ = [
     "RELEASE_ACTION_CHECKPOINT_SCHEMA",
+    "NATIVE_PORTABLE_RELEASE_ACTION_CHECKPOINT_SCHEMA",
     "derive_unknown_effect_terminal_checkpoint",
     "release_action_checkpoint_sha256",
     "dump_release_checkpoint",

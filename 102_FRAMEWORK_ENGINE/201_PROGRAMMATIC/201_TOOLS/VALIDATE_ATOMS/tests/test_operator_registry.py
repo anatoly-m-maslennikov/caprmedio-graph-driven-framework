@@ -39,6 +39,18 @@ def assess(
 
 
 class OperatorRegistryTests(unittest.TestCase):
+    def test_journal_author_mapping_is_validated_but_never_an_author_alias(self) -> None:
+        raw = REGISTRY + 'journal_author = "test-operator"\n'
+        for author, expected in [("Test Operator", "passed"), ("test-operator", "failed")]:
+            with self.subTest(author=author), isolated_directory() as directory:
+                outcome, findings, gaps = assess(Path(directory), {"author": author}, raw)
+                self.assertEqual(outcome["outcome"], expected)
+                self.assertEqual(gaps, [])
+                self.assertEqual(
+                    [finding["code"] for finding in findings],
+                    [] if expected == "passed" else ["AUTHOR_UNREGISTERED"],
+                )
+
     def test_exact_membership_not_role_case_alias_or_whitespace(self) -> None:
         for author, expected in [
             ("Test Operator", "passed"),

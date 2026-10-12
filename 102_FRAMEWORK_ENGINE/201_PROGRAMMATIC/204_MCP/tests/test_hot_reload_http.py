@@ -14,7 +14,7 @@ from starlette.testclient import TestClient
 
 APP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(APP))
-from http_server import BearerGuard, TOKEN_ENV, create_app, token_from_environment  # noqa: E402
+from http_server import create_app  # noqa: E402
 
 
 class HTTPGatewayTests(unittest.TestCase):
@@ -29,36 +29,26 @@ class HTTPGatewayTests(unittest.TestCase):
             'from mcp.server import MCPServer\nserver=MCPServer("mock")\n'
             '@server.tool()\ndef echo() -> dict: return {"value":"ok"}\n'
             'server.run(transport="stdio")\n')
-        self.client = TestClient(create_app(self.root, token='token', implementation=self.source))
+        self.client = TestClient(create_app(self.root, implementation=self.source),
+                                 base_url='http://127.0.0.1:8092')
         self.client.__enter__()
         self.addCleanup(self.client.__exit__, None, None, None)
 
-    def headers(self, token='token', **extra):
-        return {'authorization': f'Bearer {token}', 'host': '127.0.0.1:8092', **extra}
+    def headers(self, **extra):
+        return {'host': '127.0.0.1:8092', **extra}
 
-    def test_rejects_missing_or_invalid_bearer_before_mcp(self):
-        for headers in ({}, self.headers('wrong')):
+    def test_anonymous_loopback_health_is_ready_without_a_secret(self):
+        for headers in ({}, self.headers(), {**self.headers(), 'authorization': 'Bearer ignored'}):
             response = self.client.get('/health', headers=headers)
-            self.assertEqual(401, response.status_code)
+            self.assertEqual(200, response.status_code)
         self.assertEqual(200, self.client.get('/health', headers=self.headers()).status_code)
         self.client.app.gateway.active = None
         self.assertEqual(503, self.client.get('/health', headers=self.headers()).status_code)
 
-    def test_empty_missing_and_nonstring_tokens_fail_closed_before_gateway_construction(self):
-        for token in ("", None, 7):
-            with self.subTest(token_type=type(token).__name__):
-                with self.assertRaises(ValueError):
-                    BearerGuard(object(), token)
-        with patch.dict(os.environ, {TOKEN_ENV: ""}, clear=False):
-            with self.assertRaises(ValueError):
-                token_from_environment()
+    def test_gateway_construction_requires_no_token_environment_or_password_prompt(self):
         with patch.dict(os.environ, {}, clear=True):
-            with self.assertRaises(ValueError):
-                token_from_environment()
-        with patch("http_server.Gateway") as gateway:
-            with self.assertRaises(ValueError):
-                create_app(self.root, token="", implementation=self.source)
-        gateway.assert_not_called()
+            app = create_app(self.root, implementation=self.source)
+        self.assertIsNotNone(app.gateway)
 
     def test_hostile_host_is_rejected_before_initialize(self):
         response = self.client.post('/mcp', headers=self.headers(host='attacker.invalid'), json={})
@@ -87,7 +77,7 @@ class HTTPProtocolTests(unittest.IsolatedAsyncioTestCase):
         self.root = Path(self.temp.name)
         self.source = self.root / 'mock.py'
         self.write('A', 'echo')
-        self.app = create_app(self.root, token='token', implementation=self.source)
+        self.app = create_app(self.root, implementation=self.source)
 
     def write(self, version, name):
         self.source.write_text(
@@ -110,7 +100,7 @@ class HTTPProtocolTests(unittest.IsolatedAsyncioTestCase):
         client = httpx2.AsyncClient(
             transport=httpx2.ASGITransport(app=self.app),
             base_url='http://127.0.0.1:8092',
-            headers={'Authorization': 'Bearer token'},
+            headers={},
         )
         transport = streamable_http_client('http://127.0.0.1:8092/mcp', http_client=client)
         streams = await transport.__aenter__()
@@ -143,14 +133,11 @@ class HTTPProtocolTests(unittest.IsolatedAsyncioTestCase):
                 await self.close_session(client, transport, session)
         self.assertTrue(all(generation.task.done() for generation in self.app.gateway.generations))
 
-    async def test_authenticated_session_continuation_and_rotation(self):
+    async def test_anonymous_session_continues_without_authorization(self):
         async with self.app.starlette_app.router.lifespan_context(self.app.starlette_app):
             client, transport, session = await self.session()
             try:
                 self.assertEqual('A', (await session.call_tool('echo')).structured_content['version'])
-                bad = await client.post('/mcp', headers={'Authorization': 'Bearer changed',
-                    'accept': 'application/json, text/event-stream', 'content-type': 'application/json'}, json={})
-                self.assertEqual(401, bad.status_code)
             finally:
                 await self.close_session(client, transport, session)
 

@@ -27,7 +27,7 @@ for path in (RELEASE_ROOT, MCP_ROOT, TEST_ROOT):
         sys.path.insert(0, str(path))
 
 import release_source_admission  # noqa: E402
-from release_source_admission import AUTHORITY_REF, derive_release_private_carriers, derive_release_source_admission  # noqa: E402
+from release_source_admission import AUTHORITY_REF, derive_release_execution_source_snapshot  # noqa: E402
 import release_suite_reference_context as reference_context  # noqa: E402
 import selected_routes  # noqa: E402
 from release_suite_reference_context import (  # noqa: E402
@@ -41,7 +41,11 @@ from release_suite_reference_context import (  # noqa: E402
     validate_schema2_context,
 )
 from release_suite_limits import MAX_UNIT_TIMEOUT_SECONDS, resolve_unit_deadline  # noqa: E402
-from selected_routes import PROJECT_SETTINGS_REF, canonical_json, load_selected_manifest, selected_manifest_ref  # noqa: E402
+from selected_routes import (  # noqa: E402
+    PROJECT_SETTINGS_REF, canonical_json, load_release_execution_manifest,
+    release_execution_manifest_ref,
+)
+import full_suite_golden.control_fixture as control_fixture  # noqa: E402
 from full_suite_golden.control_fixture import copy_control_closure  # noqa: E402
 
 
@@ -49,10 +53,12 @@ _UNIT_DEADLINE_SETTINGS = frozenset({
     ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
     "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
     "caprmedio_framework_default_settings.toml",
-    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/"
-    "caprmedio_framework_settings.toml",
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml",
 })
+
+
+def _current_admission(root: Path) -> dict:
+    return derive_release_execution_source_snapshot(root)[1]
 
 
 def _source_paths(value: object) -> set[str]:
@@ -137,21 +143,131 @@ class PromptBindingFrontierTests(unittest.TestCase):
             reference_context._prompt_binding_frontier(d580, captured)
 
     def test_selected_source_refresh_frontier_requires_exact_active_rows(self) -> None:
-        d580_path = REPOSITORY / reference_context._D580_REFERENCE
-        d580 = d580_path.read_bytes()
+        # Historical table parser coverage uses synthetic closed inputs. The
+        # current Release context does not consult these unrelated authorities.
+        captured = {}
+        rows = []
+        for index, atom_id in enumerate(reference_context._SELECTED_SOURCE_REFRESH_IDS, 1):
+            path = f".caprmedio_caprmedio/fixture/{index:02d}-{atom_id}.md"
+            raw = _prompt_source(atom_id, 1)
+            captured[path] = (raw, 0o644)
+            rows.append(f"| `{atom_id}` | 1 | `{path}` | `{hashlib.sha256(raw).hexdigest()}` | `0644` |\n")
+        d580 = (
+            "### Selected-source refresh authority frontier\n\n"
+            "Synthetic historic fixture.\n\n"
+            "| Atom ID | Version | Source path | SHA-256 | Mode |\n"
+            "| --- | --- | --- | --- | --- |\n" + "".join(rows)
+        ).encode()
         paths = reference_context._selected_source_refresh_frontier(d580, {})
         self.assertEqual(5, len(paths))
         self.assertEqual(paths, tuple(sorted(paths)))
-        captured = {
-            path: ((REPOSITORY / path).read_bytes(), (REPOSITORY / path).stat().st_mode & 0o777)
-            for path in paths
-        }
         self.assertEqual(paths, reference_context._selected_source_refresh_frontier(d580, captured))
         tampered = dict(captured)
         target = paths[-1]
         tampered[target] = (captured[target][0] + b"\nchanged\n", captured[target][1])
         with self.assertRaises(ReleaseSuiteReferenceContextError):
             reference_context._selected_source_refresh_frontier(d580, tampered)
+
+
+class RetainedGoldenControlSourceTests(unittest.TestCase):
+    """Historic Prompt pins are fixture evidence, not current source authority."""
+
+    def test_closed_fixture_rows_reopen_only_their_exact_historic_pins(self) -> None:
+        document = json.loads(control_fixture._RETAINED_CONTROL_SOURCES_MANIFEST.read_bytes())
+        self.assertEqual({
+            "package_manifest_ref": control_fixture._RETAINED_PACKAGE_MANIFEST_REF,
+            "package_manifest_sha256": control_fixture._RETAINED_PACKAGE_MANIFEST_SHA256,
+        }, document["provenance"])
+        self.assertEqual(2, len(document["sources"]))
+        for row in document["sources"]:
+            with self.subTest(source_path=row["source_path"]):
+                source = control_fixture._retained_source(REPOSITORY, row["source_path"], row["sha256"])
+                self.assertEqual(
+                    control_fixture._RETAINED_CONTROL_SOURCES_ROOT / row["fixture_path"],
+                    source,
+                )
+                self.assertTrue(source.is_file())
+                self.assertFalse(source.is_symlink())
+                self.assertEqual(row["sha256"], hashlib.sha256(source.read_bytes()).hexdigest())
+                self.assertEqual(row["mode"], source.stat().st_mode & 0o777)
+                self.assertIsNone(control_fixture._retained_fixture_source(row["source_path"], "0" * 64))
+
+    def test_retained_fixture_symlink_refuses_instead_of_sourcing_a_package(self) -> None:
+        # Managed macOS refuses recursive cleanup of directories containing a
+        # symlink.  This disposable root is intentionally retained.
+        temporary = Path(tempfile.mkdtemp(prefix="release-suite-retained-fixture-"))
+        fixture_root = temporary / "retained"
+        fixture_root.mkdir()
+        target = temporary / "target.md"
+        target.write_bytes(b"retained bytes\n")
+        (fixture_root / "carrier.md").symlink_to(target)
+        source_path = ".caprmedio_caprmedio/historic.md"
+        digest = hashlib.sha256(target.read_bytes()).hexdigest()
+        manifest = {
+            "schema_version": 1,
+            "provenance": {
+                "package_manifest_ref": control_fixture._RETAINED_PACKAGE_MANIFEST_REF,
+                "package_manifest_sha256": control_fixture._RETAINED_PACKAGE_MANIFEST_SHA256,
+            },
+            "sources": [{
+                "source_path": source_path,
+                "fixture_path": "carrier.md",
+                "sha256": digest,
+                "mode": 0o644,
+            }],
+        }
+        manifest_path = fixture_root / "manifest.json"
+        manifest_path.write_bytes(json.dumps(manifest).encode("utf-8"))
+        with patch.object(control_fixture, "_RETAINED_CONTROL_SOURCES_ROOT", fixture_root), \
+                patch.object(control_fixture, "_RETAINED_CONTROL_SOURCES_MANIFEST", manifest_path), \
+                self.assertRaisesRegex(RuntimeError, "retained fixture"):
+            control_fixture._retained_source(temporary / "empty-project", source_path, digest)
+
+    def test_retained_source_refuses_unsafe_prompt_paths_before_project_join(self) -> None:
+        class NoProjectJoin:
+            def __truediv__(self, _relative: object) -> Path:
+                raise AssertionError("unsafe Prompt path reached Project filesystem join")
+
+        for source_path in (
+            "/102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW/source_bindings.json",
+            "../102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW/source_bindings.json",
+        ):
+            with self.subTest(source_path=source_path), \
+                    self.assertRaises(ReleaseSuiteReferenceContextError):
+                control_fixture._retained_source(NoProjectJoin(), source_path, "0" * 64)
+
+    def test_retained_fixture_refuses_unsafe_manifest_source_paths(self) -> None:
+        temporary = Path(tempfile.mkdtemp(prefix="release-suite-retained-manifest-"))
+        requested_path = (
+            "102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/"
+            "RMED_ATOM_REVIEW/missing-historic.md"
+        )
+        for index, source_path in enumerate((
+            "/102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW/source_bindings.json",
+            "../102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW/source_bindings.json",
+        )):
+            with self.subTest(source_path=source_path):
+                fixture_root = temporary / str(index)
+                fixture_root.mkdir()
+                manifest = {
+                    "schema_version": 1,
+                    "provenance": {
+                        "package_manifest_ref": control_fixture._RETAINED_PACKAGE_MANIFEST_REF,
+                        "package_manifest_sha256": control_fixture._RETAINED_PACKAGE_MANIFEST_SHA256,
+                    },
+                    "sources": [{
+                        "source_path": source_path,
+                        "fixture_path": "must-not-be-accessed.md",
+                        "sha256": "0" * 64,
+                        "mode": 0o644,
+                    }],
+                }
+                manifest_path = fixture_root / "manifest.json"
+                manifest_path.write_bytes(json.dumps(manifest).encode("utf-8"))
+                with patch.object(control_fixture, "_RETAINED_CONTROL_SOURCES_ROOT", fixture_root), \
+                        patch.object(control_fixture, "_RETAINED_CONTROL_SOURCES_MANIFEST", manifest_path), \
+                        self.assertRaisesRegex(RuntimeError, "retained fixture"):
+                    control_fixture._retained_fixture_source(requested_path, "0" * 64)
 
 
 class UnitDeadlineTests(unittest.TestCase):
@@ -217,32 +333,13 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
         # outcome.
         self.root = Path(tempfile.mkdtemp(prefix="release-suite-reference-", dir=temporary_root))
         copy_control_closure(REPOSITORY, self.root)
-        self.copy_prompt_binding_frontier()
-        self.manifest_ref = selected_manifest_ref(REPOSITORY)
+        self.manifest_ref = release_execution_manifest_ref(self.root)
         self.bindings = {
             "candidate_snapshot_manifest_sha256": "a" * 64,
             "compiled_candidate_root": ".caprmedio_caprmedio/_release_materialized/a",
             "selected_n_identity": "selected-N-fixture",
             "selected_n_image_context": "sha256:" + "b" * 64,
         }
-
-    def copy_prompt_binding_frontier(self) -> None:
-        """Fixture only: copy D580's already-authorized exact binding leaves."""
-        for relative in (
-            "102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/IMPLEMENTATION_WORKFLOW/source_bindings.json",
-            "102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW/source_bindings.json",
-        ):
-            source = REPOSITORY / relative
-            target = self.root / relative
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(source, target)
-            target.chmod(source.stat().st_mode & 0o777)
-            for pin in json.loads(source.read_text(encoding="utf-8"))["sources"]:
-                source_atom = REPOSITORY / pin["path"]
-                target_atom = self.root / pin["path"]
-                target_atom.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(source_atom, target_atom)
-                target_atom.chmod(source_atom.stat().st_mode & 0o777)
 
     def capture(self) -> ReleaseSuiteReferenceContext:
         return capture_context(self.root, self.bindings)
@@ -254,25 +351,23 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
 
     def admitted_control_roots(self) -> dict[str, str]:
         """The D580/E587 roots plus one actually admitted transitive pin."""
-        manifest = load_selected_manifest(self.root)
+        manifest = load_release_execution_manifest(self.root)
         project_structure_ref = self.project_structure_ref()
         roots = {
-            "selected_manifest": self.manifest_ref,
             "operators_registry": ".caprmedio_caprmedio/operators_registry.toml",
             "project_settings": PROJECT_SETTINGS_REF.as_posix(),
             "project_structure": project_structure_ref,
             "source_registry": manifest["source_freshness"]["selected_source_registry_ref"],
             "d572_carrier": AUTHORITY_REF,
+            "d580_carrier": reference_context._D580_REFERENCE,
         }
         excluded = set(roots.values())
         transitive = next(
-            path for path in sorted(_source_paths(derive_release_source_admission(self.root)))
+            path for path in sorted(_source_paths(_current_admission(self.root)))
             if path not in excluded
         )
-        prompt_binding = "102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/IMPLEMENTATION_WORKFLOW/source_bindings.json"
-        prompt_source = json.loads((self.root / prompt_binding).read_text(encoding="utf-8"))["sources"][0]["path"]
-        return {**roots, "transitive_pin": transitive, "prompt_binding": prompt_binding,
-                "prompt_source": prompt_source}
+        return {**roots, "transitive_pin": transitive,
+                "native_tool": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_version.py"}
 
     def assert_mutation_blocks_rederivation(self, *, phase: str, copy_before_mutation: bool) -> None:
         context = self.capture()
@@ -314,21 +409,22 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
             self.project_structure_ref(),
             AUTHORITY_REF,
         }.issubset(paths))
-        self.assertTrue(_source_paths(derive_release_source_admission(self.root)).issubset(paths))
-        self.assertTrue(_source_paths(derive_release_private_carriers(self.root)).issubset(paths))
+        self.assertTrue(_source_paths(_current_admission(self.root)).issubset(paths))
         self.assertTrue(_UNIT_DEADLINE_SETTINGS.issubset(paths))
-        refresh_authorities = reference_context._selected_source_refresh_frontier(
-            (self.root / reference_context._D580_REFERENCE).read_bytes(), {},
-        )
-        self.assertTrue(set(refresh_authorities).issubset(paths))
+        self.assertFalse((self.root / self.manifest_ref).exists())
+        self.assertFalse(any("selected_workflow_bindings.json" in path for path in paths))
+        self.assertFalse(any(path.startswith("102_FRAMEWORK_ENGINE/") for path in paths))
         for relative in (
             "102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/IMPLEMENTATION_WORKFLOW/source_bindings.json",
             "102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW/source_bindings.json",
         ):
-            binding = json.loads((self.root / relative).read_text(encoding="utf-8"))
-            self.assertIn(relative, paths)
-            self.assertTrue({pin["path"] for pin in binding["sources"]}.issubset(paths))
+            self.assertNotIn(relative, paths)
         for row in context.reference_rows:
+            if row.source_path == self.manifest_ref:
+                payload = canonical_json(load_release_execution_manifest(self.root)).encode()
+                self.assertEqual(hashlib.sha256(payload).hexdigest(), row.sha256)
+                self.assertEqual(0o644, row.mode)
+                continue
             source = self.root / row.source_path
             self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), row.sha256)
             self.assertEqual(source.stat().st_mode & 0o777, row.mode)
@@ -342,69 +438,44 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(canonical_json(payload).encode("utf-8")).hexdigest(),
                          context.control_context_digest)
 
-    def test_resolver_authority_exact_pins_are_captured_with_authenticated_bytes_and_modes(self) -> None:
-        pins = release_source_admission.derive_unknown_effect_resolver_authority(self.root)
-        self.assertEqual([pin['atom_id'] for pin in pins],
-                         ['CA-R-1895', 'CA-M-351', 'CA-E-594', 'CA-D-589'])
-        context = self.capture()
-        rows = {row.source_path: row for row in context.reference_rows}
-        for pin in pins:
-            row = rows[pin['source_path']]
-            self.assertEqual(pin['digest'], row.sha256)
-            self.assertEqual((self.root / pin['source_path']).stat().st_mode & 0o777, row.mode)
-        destination = self.root / 'resolver-reference-copy'
-        destination.mkdir()
-        copy_verified_bytes(context, destination)
-        for pin in pins:
-            self.assertEqual((self.root / pin['source_path']).read_bytes(),
-                             (destination / pin['source_path']).read_bytes())
+    def test_reader_snapshot_materializes_registered_empty_rmed_namespaces(self) -> None:
+        """Current D572 lookup must work from immutable bytes and empty roots."""
+        structure = (self.root / self.project_structure_ref()).read_bytes()
+        expected = reference_context._admission_namespace_dirs(structure)
+        self.assertEqual(8, len(expected))
+        with reference_context._reader_snapshot(self.root) as (snapshot, _captured):
+            for relative in expected:
+                with self.subTest(relative=relative):
+                    target = snapshot / relative
+                    self.assertTrue(target.is_dir())
+                    self.assertFalse(target.is_symlink())
+            self.assertTrue(reference_context._closure_paths(snapshot))
 
-    def test_resolver_authority_missing_stale_or_changed_mode_fails_closed(self) -> None:
-        pin = release_source_admission.derive_unknown_effect_resolver_authority(self.root)[1]
-        path = self.root / pin['source_path']
-        original = path.read_bytes()
-        mode = path.stat().st_mode & 0o777
-        path.unlink()
-        with self.assertRaises(ReleaseSuiteReferenceContextError):
-            self.capture()
-        path.write_bytes(original + b'\nchanged resolver authority\n')
-        path.chmod(mode)
-        with self.assertRaisesRegex(ReleaseSuiteReferenceContextError, 'stale'):
-            self.capture()
-        path.write_bytes(original)
-        context = self.capture()
-        path.chmod(mode ^ 0o100)
-        with self.assertRaises(ReleaseSuiteReferenceContextError):
-            revalidate_context(self.root, context, self.bindings)
+    def test_current_d572_needs_no_retired_private_or_resolver_blocks(self) -> None:
+        authority = (self.root / AUTHORITY_REF).read_text(encoding="utf-8")
+        self.assertNotIn("## Private implementation carriers", authority)
+        self.assertNotIn("## Unknown-effect resolver authority", authority)
+        self.assertIn(reference_context._D580_REFERENCE,
+                      [row.source_path for row in self.capture().reference_rows])
 
-    def test_resolver_declaration_rejects_arbitrary_extra_or_reordered_pins(self) -> None:
-        pins = release_source_admission.derive_unknown_effect_resolver_authority(self.root)
-        for invalid in (pins + [pins[0]], list(reversed(pins)),
-                        [{**pins[0], 'source_path': '.env'}, *pins[1:]]):
-            text = '## Unknown-effect resolver authority\n\n```json\n' + json.dumps(invalid) + '\n```'
-            with self.assertRaises(ReleaseSuiteReferenceContextError):
-                reference_context._resolver_authority_pins(text)
-
-    def test_control_fixture_copies_selected_source_refresh_authority_frontier(self) -> None:
-        d580 = (REPOSITORY / reference_context._D580_REFERENCE).read_bytes()
-        paths = reference_context._selected_source_refresh_frontier(d580, {})
-        captured = {
-            path: ((self.root / path).read_bytes(), (self.root / path).stat().st_mode & 0o777)
-            for path in paths
-        }
-        self.assertEqual(paths, reference_context._selected_source_refresh_frontier(
-            (self.root / reference_context._D580_REFERENCE).read_bytes(), captured,
-        ))
-        for path in paths:
-            self.assertEqual((REPOSITORY / path).read_bytes(), (self.root / path).read_bytes())
+    def test_control_fixture_uses_current_release_without_historical_portfolio(self) -> None:
+        manifest = load_release_execution_manifest(self.root)
+        self.assertEqual(["release_version"], [row["route"] for row in manifest["routes"]])
+        self.assertEqual((REPOSITORY / AUTHORITY_REF).read_bytes(), (self.root / AUTHORITY_REF).read_bytes())
+        portfolio = self.root / selected_routes.selected_manifest_ref(self.root)
+        self.assertFalse(portfolio.exists())
+        portfolio.parent.mkdir(parents=True, exist_ok=True)
+        portfolio.write_bytes(b'{"unrelated_stale_binding":"fixture"}')
+        self.assertEqual(manifest, load_release_execution_manifest(self.root))
 
     def test_copy_preserves_only_captured_bytes_at_identical_relative_paths(self) -> None:
         context = self.capture()
         workspace = Path(tempfile.mkdtemp(prefix="release-suite-workspace-"))
         copy_verified_bytes(context, workspace)
         self.assertFalse((workspace / "arbitrary-caller-file").exists())
+        payloads = dict(context._verified_bytes)
         for row in context.reference_rows:
-            self.assertEqual((workspace / row.source_path).read_bytes(), (self.root / row.source_path).read_bytes())
+            self.assertEqual((workspace / row.source_path).read_bytes(), payloads[row.source_path])
             self.assertEqual((workspace / row.source_path).stat().st_mode & 0o777, row.mode)
         structure = self.project_structure_ref()
         self.assertEqual((workspace / structure).read_bytes(), (self.root / structure).read_bytes())
@@ -427,7 +498,7 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
 
     def test_revalidation_refuses_mutated_transitive_pin_before_or_after_execution(self) -> None:
         context = self.capture()
-        transitive = next(path for path in _source_paths(derive_release_source_admission(self.root))
+        transitive = next(path for path in _source_paths(_current_admission(self.root))
                           if path != AUTHORITY_REF)
         source = self.root / transitive
         original = source.read_bytes()
@@ -436,7 +507,8 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
             revalidate_context(self.root, context, self.bindings)
         source.write_bytes(original)
         self.assertEqual(context, revalidate_context(self.root, context, self.bindings))
-        (self.root / self.manifest_ref).write_bytes((self.root / self.manifest_ref).read_bytes() + b"\n")
+        implementation = self.root / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_version.py"
+        implementation.write_bytes(implementation.read_bytes() + b"\n# changed native implementation\n")
         with self.assertRaises(Exception):
             revalidate_context(self.root, context, self.bindings)
 
@@ -521,7 +593,7 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
 
     def test_reader_race_uses_preflight_snapshot_and_never_reads_injected_secret_path(self) -> None:
         """A root-backed reread after preflight must not gain a new source path."""
-        manifest_path = self.root / self.manifest_ref
+        settings_path = self.root / PROJECT_SETTINGS_REF
         original_preflight = reference_context._preflight_reader_paths
         original_read_regular = reference_context._read_regular
         raced = False
@@ -529,14 +601,14 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
         def preflight_then_mutate(root: Path) -> object:
             nonlocal raced
             result = original_preflight(root)
-            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            self.assertTrue(_replace_first_source_path(manifest))
-            manifest_path.write_text(json.dumps(manifest, sort_keys=True, separators=(",", ":")), encoding="utf-8")
+            # After capture, a changed live root cannot redirect the immutable
+            # reader snapshot to a secret-shaped source namespace.
+            settings_path.write_bytes(b'[paths]\ncontrol_root = ".env"\n')
             raced = True
             return result
 
         def guard_secret_read(root: Path, relative: str) -> tuple[bytes, int]:
-            if relative == ".env":
+            if ".env" in Path(relative).parts:
                 raise AssertionError("reader attempted forbidden secret-shaped path")
             return original_read_regular(root, relative)
 
@@ -545,6 +617,8 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
             context = self.capture()
         self.assertTrue(raced)
         self.assertIn(self.manifest_ref, [row.source_path for row in context.reference_rows])
+        with self.assertRaises(ReleaseSuiteReferenceContextError):
+            revalidate_context(self.root, context, self.bindings)
 
     def test_capture_keeps_other_control_reader_path_bindings_unchanged(self) -> None:
         """Snapshot isolation is local; it must not patch shared reader modules."""
@@ -557,7 +631,8 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
             nonlocal observed
             self.assertIs(selected_routes.Path, selected_path_type)
             self.assertIs(release_source_admission.Path, admission_path_type)
-            self.assertEqual(self.manifest_ref, selected_routes.selected_manifest_ref(root))
+            self.assertEqual(self.manifest_ref, selected_routes.release_execution_manifest_ref(root))
+            self.assertTrue(selected_routes.selected_manifest_ref(root).endswith("selected_workflow_bindings.json"))
             observed = True
             return original_preflight(root)
 
@@ -569,8 +644,28 @@ class ReleaseSuiteReferenceContextTests(unittest.TestCase):
 
 
 class ReaderSnapshotCleanupTests(unittest.TestCase):
+    _CONTROL_REF = ".caprmedio_caprmedio/control.json"
+    _SETTINGS = b'[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
+    _STRUCTURE = (
+        b'[[scope_units]]\n'
+        b'scope_unit_name = "PROJECT_TOOLS"\n'
+        b'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/'
+        b'201_FEATURE_PROGRAMMATIC/205_FEATURE_PROJECT_TOOLS"\n\n'
+        b'[[scope_units]]\n'
+        b'scope_unit_name = "TOOLS"\n'
+        b'authority_path = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/'
+        b'201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS"\n'
+    )
+
+    def _captured(self, payload: bytes, mode: int) -> dict[str, tuple[bytes, int]]:
+        return {
+            PROJECT_SETTINGS_REF.as_posix(): (self._SETTINGS, 0o644),
+            ".caprmedio_caprmedio/project_structure.toml": (self._STRUCTURE, 0o644),
+            self._CONTROL_REF: (payload, mode),
+        }
+
     def test_disposable_snapshot_cleanup_targets_only_exact_reader_snapshot(self) -> None:
-        captured = {'.caprmedio_caprmedio/control.json': (b'captured evidence', 0o600)}
+        captured = self._captured(b'captured evidence', 0o600)
         removed = []
         def successful_cleanup(path):
             removed.append(path)
@@ -585,10 +680,12 @@ class ReaderSnapshotCleanupTests(unittest.TestCase):
         self.assertEqual(verified, captured)
 
     def test_disposable_snapshot_removed_after_reader_with_readonly_file(self) -> None:
-        captured = {'.caprmedio_caprmedio/control.json': (b'captured evidence', 0o444)}
+        captured = self._captured(b'captured evidence', 0o444)
         remover = shutil.rmtree
         denied = []
+        cleanup_targets = []
         def observe_cleanup(path):
+            cleanup_targets.append(path)
             try:
                 return remover(path)
             except PermissionError as error:
@@ -600,16 +697,19 @@ class ReaderSnapshotCleanupTests(unittest.TestCase):
                 patch.object(reference_context.shutil, 'rmtree', observe_cleanup):
             with reference_context._reader_snapshot(REPOSITORY) as (snapshot, verified):
                 self.assertEqual(snapshot.stat().st_mode & 0o777, 0o700)
-                self.assertEqual((snapshot / next(iter(captured))).stat().st_mode & 0o777, 0o444)
+                self.assertEqual((snapshot / self._CONTROL_REF).stat().st_mode & 0o777, 0o444)
+                self.assertEqual((snapshot / self._CONTROL_REF).read_bytes(), captured[self._CONTROL_REF][0])
                 self.assertEqual(verified, captured)
+        self.assertEqual(cleanup_targets, [snapshot])
         if snapshot.exists():
             self.assertTrue(denied, 'snapshot retained without observed permission denial')
-            self.skipTest('host profile denied deletion of the read-only snapshot; retained without retry')
-        self.assertFalse(snapshot.exists())
+            self.assertEqual(1, len(denied))
+        else:
+            self.assertFalse(denied)
         self.assertEqual(verified, captured)
 
     def test_permission_denied_cleanup_retains_exact_snapshot_and_captured_evidence(self) -> None:
-        captured = {'.caprmedio_caprmedio/control.json': (b'captured evidence', 0o444)}
+        captured = self._captured(b'captured evidence', 0o444)
         def denied(path):
             raise PermissionError('profile denied fixture cleanup')
         denied.avoids_symlink_attacks = True
@@ -619,7 +719,7 @@ class ReaderSnapshotCleanupTests(unittest.TestCase):
             with reference_context._reader_snapshot(REPOSITORY) as (snapshot, verified):
                 pass
         self.assertTrue(snapshot.is_dir())
-        self.assertEqual((snapshot / next(iter(captured))).read_bytes(), b'captured evidence')
+        self.assertEqual((snapshot / self._CONTROL_REF).read_bytes(), b'captured evidence')
         self.assertEqual(verified, captured)
         # Leave the denied snapshot as requested; no cleanup retry.
 

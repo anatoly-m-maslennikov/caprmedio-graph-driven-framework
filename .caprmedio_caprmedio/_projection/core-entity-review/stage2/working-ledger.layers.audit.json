@@ -1,0 +1,497 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2089",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "audit_scope": "Accepted-layer provenance only. This audit does not re-review meanings, admit native relations, or authorize a source write.",
+  "canonical_occurrence_id_set_sha256_recipe": "Extract the selected occurrence_id strings with jq -r; discard empty strings; sort under LC_ALL=C; hash the UTF-8 stream with one LF after each sorted ID, including the final ID, using SHA-256. No JSON wrapper, path normalization, or semantic transformation is applied.",
+  "pinned_inputs": {
+    "working_ledger_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+      "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+    },
+    "frozen_baseline": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39",
+      "occurrence_rows": 4534,
+      "occurrence_id_set_sha256": "335b68ae5ea86441303c08d3c6ca81b20703edb0786e31c93ef74c2b7aea7ea7"
+    },
+    "verified_grammar_drift": {
+      "drift_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-grammar-source-drift.json",
+        "sha256": "26c7bf2e6eb86c0ac5a2ed049c7f6252e674eba810958bd8c9235d1ed7274fb0"
+      },
+      "receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2077.receipt.json",
+        "sha256": "8ba1fb561751eb53709d57f762540611626b70ec057e64510cc1af6be38bcd4c"
+      },
+      "changed_or_replaced_source_count": 5,
+      "stale_raw_reference_file_pin_count": 3
+    },
+    "followup_selection_manifests": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2078-2080.inputs.json",
+        "sha256": "5182fc07308a38092acf3ca624dd7edf8b71c83eb6fa87b06304ebb2d6b72142"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2082-2085.inputs.json",
+        "sha256": "aa24c92ac9ea5658019bac4c6702a4e678836b0c2ff0e6cefc4972dc5481e371"
+      }
+    ]
+  },
+  "admissible_selected_rows": [
+    {
+      "layer": 2,
+      "task_id": "CA-P-2048",
+      "kind": "accepted_exact_bare_claim_supplement",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/substance.review.json",
+        "sha256": "09c1c1aec6e138ff507711254dd5d1cc426e80f967d7aee18ae6e873b74efcad"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2048.receipt.json",
+        "sha256": "f196f2fe8d2c0ca9435b7a97deb7f4ff38a49365c2ae4a5b11bd0d0398336718"
+      },
+      "selected_rows": {
+        "count": 143,
+        "occurrence_id_set_sha256": "593952fd5ee4758a02bc0385a258aeaa4edc1c82904b1eed8c34b762c1ddd201",
+        "decision_counts": {
+          "proposed": 143
+        }
+      },
+      "admission": "Accepted by its receipt; exact bare Atom/Claim only."
+    },
+    {
+      "layer": 3,
+      "task_id": "CA-P-2072",
+      "kind": "independent_semantic_review",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+        "sha256": "867e784ea0c58fef0c59f00048817fa47c90978ff54ca7ebb2c30b14d394b299"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2072.receipt.json",
+        "sha256": "c965d277b56ec52e8468a64c05d7aa0f323323f9730fd344adfb529a409403e9"
+      },
+      "selected_rows": {
+        "count": 57,
+        "occurrence_id_set_sha256": "6e02a84726332d423b7d42158e96d5c05d906d5550dd297a9af515528fdb4cdc",
+        "disposition_counts": {
+          "accepted": 55,
+          "unresolved": 2
+        }
+      }
+    },
+    {
+      "layer": 3,
+      "task_id": "CA-P-2073",
+      "kind": "independent_semantic_review",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2073.review.json",
+        "sha256": "ce551767db4ae135371bc12455da301a8722fab65f9050b1820cbd24d3e483ac"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2073.receipt.json",
+        "sha256": "d14077e9bf70c8ac882f9f75392caa620d6d1aa5a8d5f9f7bd6cde313450dad5"
+      },
+      "selected_rows": {
+        "count": 265,
+        "occurrence_id_set_sha256": "8870a39a9f8eaa41eeebb3da294d87045b78b916a78df24880d089a26eb7d43e",
+        "disposition_counts": {
+          "accepted": 199,
+          "unresolved": 66
+        }
+      }
+    },
+    {
+      "layer": 3,
+      "task_id": "CA-P-2074",
+      "kind": "independent_semantic_review",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2074.review.json",
+        "sha256": "03b3ff9a2797035667af76f9b768f8e833bc36af490a2a66a88620214b0f2c84"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2074.receipt.json",
+        "sha256": "087a4bbb6f9c02efe86bc452e90db311cfe50994f98019e11c704786e7133b8f"
+      },
+      "selected_rows": {
+        "count": 90,
+        "occurrence_id_set_sha256": "06f341652c8f250e14a6c309e57e7ef17754d74dc3167fece572913bc9bdda78",
+        "disposition_counts": {
+          "accepted": 20,
+          "rejected": 62,
+          "unresolved": 8
+        }
+      }
+    },
+    {
+      "layer": 3,
+      "task_id": "CA-P-2075",
+      "kind": "independent_semantic_review",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2075.review.json",
+        "sha256": "ed0fbb4bf986526e2a1f4851f47c1c078f557be0b93237196a186f0fc0279f9a"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2075.receipt.json",
+        "sha256": "e7ca6122fa0e241407d287cbd1316f2d6ff5b8a1a208958bf7b33f7b79085d75"
+      },
+      "selected_rows": {
+        "count": 23,
+        "occurrence_id_set_sha256": "bb86c4da3e966825876e33352dd3d5172137b9563256e258a4ceea9d0ecad058",
+        "disposition_counts": {
+          "accepted": 23
+        }
+      }
+    },
+    {
+      "layer": 3,
+      "task_id": "CA-P-2076",
+      "kind": "independent_semantic_review",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2076.review.json",
+        "sha256": "142b092991c78078e2440ade1685670b5048bfb5d12dd664d722794ad5f10a11"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2076.receipt.json",
+        "sha256": "342fcfaac278a755bceece537a43442d47568ef487428ba1e6d8b530870c9fb9"
+      },
+      "selected_rows": {
+        "count": 138,
+        "occurrence_id_set_sha256": "4752f0cf8573d2bc2995d5c3a8f5263bd679b1bdeb79a993559a8e6c77826483",
+        "disposition_counts": {
+          "accepted": 136,
+          "unresolved": 2
+        }
+      }
+    },
+    {
+      "layer": 4,
+      "task_id": "CA-P-2078",
+      "kind": "accepted_followup",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2078.research.json",
+        "sha256": "4d0f41b76a669756f4ac854895998c0e66ca2e15f32a1cf60ac8c3e2225cd122"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2078.receipt.json",
+        "sha256": "4d59deeb0e094518df61514a801f67d42ec001087e23a4224fd288452ff140d6"
+      },
+      "selected_rows": {
+        "count": 21,
+        "occurrence_id_set_sha256": "b22bcd887353e9dad4d0de37daa48ca492c49168c96bcb55b5d725383cfbc88f",
+        "decision_counts": {
+          "proposed": 10,
+          "unresolved": 11
+        }
+      }
+    },
+    {
+      "layer": 4,
+      "task_id": "CA-P-2079",
+      "kind": "accepted_followup",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2079.research.json",
+        "sha256": "a7cb8e01d34a0b6654b43499b7382c459072373ed34a8c47bc1713ae57bf99b0"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2079.receipt.json",
+        "sha256": "1bf24bb3120bc1041aaef0e013feb67d85cf8e6a8cae71c0a64d8042c3e90f79"
+      },
+      "selected_rows": {
+        "count": 27,
+        "occurrence_id_set_sha256": "d1ab2531012f10ac8faedc379cdf8dd12d1065442027bddc1ed2f944e6e85c7e",
+        "decision_counts": {
+          "unresolved": 27
+        }
+      }
+    },
+    {
+      "layer": 4,
+      "task_id": "CA-P-2080",
+      "kind": "accepted_followup",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2080.research.json",
+        "sha256": "9efd2a39b5163e6771ce6e8663162a43ac0f7d8d3f023fb307cbbb597ded3c94"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2080.receipt.json",
+        "sha256": "9fd3e8212973ffb9f7ae463db135812a4673f9e6e461b84e146e63f91eb14d62"
+      },
+      "selected_rows": {
+        "count": 4,
+        "occurrence_id_set_sha256": "7bc921384d91a16407d0530da7e3f9529a3c64f972bf4ae5ddeda31edb190ec8",
+        "decision_counts": {
+          "proposed": 2,
+          "unresolved": 2
+        }
+      }
+    },
+    {
+      "layer": 4,
+      "task_id": "CA-P-2082",
+      "kind": "accepted_followup",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2082.research.json",
+        "sha256": "84c7f8169f6af81b256cd44b09103694aa8588c6d645f4f469f990dd4ac0df6a"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2082.receipt.json",
+        "sha256": "f1e0660ea24752f604dc84de8b9ea7e27a20457fbb132a34a984f369de8d8794"
+      },
+      "selected_rows": {
+        "count": 59,
+        "occurrence_id_set_sha256": "d7107764699be055d1abd0577ce0b0702d620dbfcf417ec7366a74483638d9bc",
+        "decision_counts": {
+          "proposed": 31,
+          "unresolved": 28
+        }
+      },
+      "format_normalization": {
+        "reviewed_output_sha256": "1a2097331b8d43a44d162d9216f3a17d3bfab11e0373c2188e06f6a2998f72d9",
+        "final_output_sha256": "84c7f8169f6af81b256cd44b09103694aa8588c6d645f4f469f990dd4ac0df6a",
+        "receipt_attests": "Removed exactly one trailing empty line; all other bytes unchanged; reverse hash and JSON-value equality PASS.",
+        "independent_reconstruction": "Appending exactly one newline byte to the final file reproduces the reviewed-output hash; canonical jq JSON value digest is 75ffca90ac14883c186fff3e202ca14cd4549c8712d7bc2e80b3b3ec28abf3d6."
+      }
+    },
+    {
+      "layer": 4,
+      "task_id": "CA-P-2083",
+      "kind": "accepted_followup",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2083.research.json",
+        "sha256": "b7be809a7f1e79d2b507f67dc1f8506c31846a1aa2ad06fee8cc61ba2215e81b"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2083.receipt.json",
+        "sha256": "b5ebd35bf2f64134e2e8aadb0cf16789fd21067111caf7935524a832753a551a"
+      },
+      "selected_rows": {
+        "count": 19,
+        "occurrence_id_set_sha256": "8aebcdfb0d4a2602d26ef5ac77bad8df8074fa97c25048bf1a6e8c94d188f210",
+        "decision_counts": {
+          "proposed": 14,
+          "unresolved": 5
+        }
+      }
+    },
+    {
+      "layer": 4,
+      "task_id": "CA-P-2084",
+      "kind": "accepted_followup",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2084.research.json",
+        "sha256": "8bda725d7f18573d57eee00d9cdf3fb3a78415e1da1f8979a2a25cb1109ac888"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2084.receipt.json",
+        "sha256": "468cf1691c251ca33a6426a0039e158cbf656c10b50b305fffba95e6b4b580aa"
+      },
+      "selected_rows": {
+        "count": 8,
+        "occurrence_id_set_sha256": "fdf39202f5c6fe2861f0124490969a1f900b916505bdc61d6c5f425107e2c118",
+        "decision_counts": {
+          "proposed": 7,
+          "unresolved": 1
+        }
+      },
+      "registered_plan_context": {
+        "registration_commit": "1fa56f189ef20e4f6a8d9d1eb4af400c1f00cf07",
+        "historic_task_plan_path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/70-CA-P-2084-TASK--resolve-scope-unit-field-mappings.md",
+        "historic_task_plan_sha256": "730887666082dc201896cbe848d7b913006db71dbf1754c844214f55a5c5edf8",
+        "archival_commit": "2d220ed6232bfb582880554e41edda66d96d091a",
+        "current_done_plan_path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/done/70-CA-P-2084-TASK--resolve-scope-unit-field-mappings.md",
+        "current_done_plan_sha256": "b1b063ead974b8a2aa18faef22dee541b14a7c930cfb39c87af58f018959d8d0",
+        "historic_parent_plan_path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins.md",
+        "historic_parent_plan_sha256_at_registration": "f9090f82af5bb9c4785e3b01be0c2284000afa2f92bf79c281e2b5db45248cae",
+        "current_parent_plan_sha256": "bc5ea98a2d3a1a6a64d5b71ef5c6d4dda795e5e9735c94e1ce6abc232a36b476",
+        "git_byte_proof": "git show 1fa56f189ef20e4f6a8d9d1eb4af400c1f00cf07:<historic path> hashes to both historic task-plan 730887... and historic parent-plan f9090f... pins.",
+        "note": "Task-plan and parent-plan pins are exact registration/lifecycle context only. Neither substitutes for current Core source/span meaning evidence or permits a current-Core fallback."
+      }
+    },
+    {
+      "layer": 4,
+      "task_id": "CA-P-2085",
+      "kind": "accepted_followup",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2085.research.json",
+        "sha256": "ebfce47eb8ccd518c692021e1d413bed9b0e6f34e2cc30081964586bce32443d"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2085.receipt.json",
+        "sha256": "9a64d8b358bc16297cc5141cc7faabbf8fb9f2423102521044609f89772dcc19"
+      },
+      "selected_rows": {
+        "count": 7,
+        "occurrence_id_set_sha256": "6dbd9749d4c33ff5debc51c38d269cfbbddd5df02a28507104f7d8a06bbfd084",
+        "decision_counts": {
+          "proposed": 7
+        }
+      }
+    },
+    {
+      "layer": 5,
+      "task_id": "CA-P-2058",
+      "kind": "accepted_actor_coverage_and_canonical_target_check_not_a_semantic_layer",
+      "report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2058.accepted-subset.json",
+        "sha256": "6e7ac7011df6df68b65d9f162d7f38d58d3d30435c41bb62bf4df471c13d4d8d"
+      },
+      "completed_receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2058.receipt.json",
+        "sha256": "e7d14f62908d1f038c3c40e79cc16f25c03339338bbad5c51887fc57e5058f19"
+      },
+      "selected_rows": {
+        "count": 43,
+        "occurrence_id_set_sha256": "b82b2ff3c39511926cb35ea380735f75051e5d05433bfaa3ce21143307e48f8c",
+        "source_review_coverage": {
+          "CA-P-2072": 36,
+          "CA-P-2085": 7
+        },
+        "canonical_target_counts": {
+          "Actor.Type: Operator": 33,
+          "Actor.Type: AI Agent": 10
+        }
+      },
+      "admission": "Coverage/canonical-target check only; it must not be applied as a duplicate source effect."
+    }
+  ],
+  "disposition_summary": {
+    "baseline_inventory_only": {
+      "proposed": 862,
+      "unchanged": 1575,
+      "unresolved": 2097
+    },
+    "layer_2_accepted_proposals": 143,
+    "layer_3_selected": {
+      "accepted": 433,
+      "rejected": 62,
+      "unresolved": 78
+    },
+    "layer_4_selected": {
+      "proposed": 71,
+      "unresolved": 74
+    },
+    "admissible_decided_proposals": 647,
+    "explicit_null_findings": 214,
+    "actor_coverage_check_rows": 43
+  },
+  "receipt_acceptance_checks": {
+    "required_mapping_layer_completed_receipts": 14,
+    "mapping_layer_completed_receipts_present_with_PASS_result": 14,
+    "receipt_to_final_report_pin_mismatches": 0,
+    "semantic_acceptance_evidence": {
+      "CA-P-2048": "Receipt records independent semantic review PASS and supplement checker PASS.",
+      "CA-P-2072_through_CA-P-2076": "Each receipt records PASS for bounded independent semantic review with exact evidence/span checks.",
+      "CA-P-2078_through_CA-P-2085": "Each receipt records PASS for bounded research/semantic acceptance and pins its final report output.",
+      "CA-P-2058": "Receipt records independent baseline selection and exactly 36 CA-P-2072 plus 7 CA-P-2085 accepted rows."
+    },
+    "numeric_range_exception": {
+      "task_id": "CA-P-2081",
+      "receipt": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2081.receipt.json",
+        "sha256": "7230d484a6874e0303f4231e410e1dd8b52090e5fbb86fff4c070b358079fc84"
+      },
+      "receipt_result": "PASS: closed Core authority path repair",
+      "classification": "The task repairs the closed relation-registry path and tests; it has no mapping/research output, no selected Subject occurrence IDs, and no mapping-layer precedence effect. It is therefore audited as excluded rather than silently omitted."
+    },
+    "result": "PASS: every required accepted mapping layer has its final report and completed acceptance receipt; all receipt report pins match the live final files. CA-P-2081 is an explicit non-mapping exception within the numeric range."
+  },
+  "precedence_and_overlap_checks": {
+    "declared_priority": [
+      "frozen_baseline_inventory",
+      "CA-P-2048_substance_supplement",
+      "CA-P-2072_through_CA-P-2076_selected_semantic_rows",
+      "CA-P-2078_through_CA-P-2085_accepted_followup_rows",
+      "CA-P-2058_coverage_check_only"
+    ],
+    "internal_duplicate_occurrence_id_groups": 0,
+    "substance_overlap_with_semantic_rows": 0,
+    "substance_overlap_with_followup_rows": 0,
+    "explicit_cross_layer_overrides": [
+      {
+        "followup": "CA-P-2078",
+        "earlier_review": "CA-P-2074",
+        "overlap_rows": 21,
+        "earlier_disposition": "rejected",
+        "followup_dispositions": {
+          "proposed": 10,
+          "unresolved": 11
+        }
+      },
+      {
+        "followup": "CA-P-2079",
+        "earlier_review": "CA-P-2073",
+        "overlap_rows": 27,
+        "earlier_disposition": "unresolved",
+        "followup_dispositions": {
+          "unresolved": 27
+        }
+      },
+      {
+        "followup": "CA-P-2080",
+        "earlier_reviews": {
+          "CA-P-2072": 2,
+          "CA-P-2076": 2
+        },
+        "overlap_rows": 4,
+        "earlier_disposition": "unresolved",
+        "followup_dispositions": {
+          "proposed": 2,
+          "unresolved": 2
+        }
+      }
+    ],
+    "other_followup_to_semantic_overlap_rows": 0,
+    "result": "PASS: all observed cross-layer intersections are contract-described precedence cases; no unintended overlap was found."
+  },
+  "current_evidence_verification": {
+    "decided_rows_checked": 647,
+    "evidence_entries_checked": 771,
+    "unique_current_source_paths_checked": 374,
+    "unique_current_source_spans_checked": 381,
+    "current_source_sha256_mismatches": 0,
+    "current_span_sha256_mismatches": 0,
+    "actor_coverage_sources_checked": 34,
+    "actor_coverage_source_sha256_mismatches": 0,
+    "result": "PASS: every selected decided row has matching live Core source and span bytes; the CA-P-2058 coverage sources also match live bytes."
+  },
+  "grammar_drift_boundary": {
+    "changed_or_replaced_source_atoms": [
+      "CA-R-1204",
+      "CA-R-1321",
+      "CA-R-1324",
+      "CA-M-228",
+      "CA-E-383"
+    ],
+    "selected_decided_rows_from_these_sources": 0,
+    "stale_raw_reference_file_pins": 3,
+    "finding": "PASS for accepted selected rows: retained stale raw references are unselected and do not poison verified selected rows. CA-P-2087 remains unaccepted, so consolidation must still reset every current occurrence of these five sources to unresolved/current-source-semantic-recheck-required as the contract directs."
+  },
+  "actual_gaps": [
+    {
+      "id": "CA-P-2087_current_grammar_evidence_not_accepted",
+      "status": "open",
+      "impact": "Do not use captured candidates for the five changed/replaced sources in the working ledger; reset their current occurrences until fresh evidence is independently accepted.",
+      "audit_effect": "No selected decided row in this audit comes from those five sources."
+    },
+    {
+      "id": "explicit_unresolved_or_rejected_findings_remain",
+      "status": "open",
+      "impact": "214 selected semantic/followup findings remain explicit nulls, and the frozen baseline retains 2097 unresolved rows. The working ledger is therefore not a complete semantic mapping."
+    }
+  ],
+  "readiness": {
+    "accepted_layer_provenance": "ready_for_working_ledger_construction",
+    "complete_semantic_mapping": "not_ready",
+    "source_write_or_native_admission": "not_authorized",
+    "note": "CA-P-2087 is deliberately excluded from this initial audit and must be audited only after Root records its independent acceptance."
+  },
+  "limits": [
+    "Only final accepted reports and completed receipts named by the working-ledger contract were admitted.",
+    "Raw reports, frozen baseline states, stale unselected references, Plan history and receipts were not relabeled as live Core meaning evidence.",
+    "No selector or @ syntax is inferred; every admitted proposal remains non-executable."
+  ]
+}

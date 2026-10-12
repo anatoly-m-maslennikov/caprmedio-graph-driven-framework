@@ -1,0 +1,1116 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2107",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2103-2108.inputs.json",
+      "sha256": "7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "50ab0114669787dba6331b58f8054cd8fb33b5abbed33df6fbf5b52df53923fa"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2103-2108.contract.md",
+        "sha256": "d136e6577b09f6ea0d72be85d13ab547c2193e6e9c045072141d1fc2ca511e6d"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/83-CA-P-2107-TASK--review-journal-and-actor-targets.md",
+      "sha256": "297b48d181c659ee5a42d650498715d5efcc7ce998c78032a9631d2519fe26eb"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-QA_CASE--validate-common-plan-authoring.md",
+        "sha256": "0715e8a52b36dccb8510e3e2dc0d43f395384413521b9071191d749ebccf7df5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-519-CORE_META_MODEL-QA_CASE--check-delegated-test-first-implementation-and-method-learning.md",
+        "sha256": "86cc0beb50d1b06fc7fa58eff2ce90525cb299cd33cfaa125a7b70b5a5665c53"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md",
+        "sha256": "3d311421cf753721b84da36b1cb5f67c70bcaa766baa5636bc95453cdf005d62"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md",
+        "sha256": "afa851cac9bc169ee46e90e98fe0deb5646a210881bb50a712fa8cc656d7d931"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+        "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+        "sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.md",
+        "sha256": "6b39f117ff6b90a81b3553bbf97b183587fda4f8be55a5701c7c62fbe6785475"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-STANDARD--serialize-explicit-plan-confidence-overrides.md",
+        "sha256": "ccda5b5fdacef80965b8eaaee28e6a5a44ff6f10c89111bb8748a2d4bba2be90"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+        "sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-006-CORE_META_MODEL-ACTION--propose-source-corrections.md",
+        "sha256": "c4481d4af8744e326568a4fc3c84ce91d0974605851d7dc589dee8ed31eda677"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md",
+        "sha256": "19bb9cbe0e7fdeb7ecd60dca272d3d23a6908c0b0c56f2454024ed7125898e58"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+        "sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-053-CORE_META_MODEL-ACTION--migrate-atoms-to-a-current-cce-version.md",
+        "sha256": "0a6fb268305299de993722f2f3984e8edae990938e3c76c02f29baf29bb1fc82"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-089-CORE_META_MODEL-ACTION--diagnose-implementation-test-failures.md",
+        "sha256": "793f388c9972f222cb468c7fc01811391ba9e2c36003b59c6450e03c6d067486"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-090-CORE_META_MODEL-ACTION--activate-corrective-methods-after-verified-fixes.md",
+        "sha256": "2597f1ee55db765569b57cde7c88d6a28abc462c0f3353b37b296a71d5a4ebdc"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-100-CORE_META_MODEL-ACTION--draft-methods-from-verified-implementation-issues.md",
+        "sha256": "c2a7222371548d683f3dec7776694baa6a24b2571190336048d234a5dd72b88b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.md",
+        "sha256": "44f09c0cc44ff08b03200c21e88d8e7f36ab0d3b10b037b17d0b22a20badea79"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-105-CORE_META_MODEL-ACTION--select-a-bounded-rmed-review-batch.md",
+        "sha256": "d2b70d597eea1c6a143f84bf78dd415472f52a9f3f39eb22b701015511357b4f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-111-CORE_META_MODEL-ACTION--fix-confirmed-local-rmed-atom-issues.md",
+        "sha256": "4408a09c5a8a4ce316a34d072a2a3ca3dd5d057f48f7853de390efb3615f4103"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-108-CORE_META_MODEL-STEP--select-the-rmed-review-batch.md",
+        "sha256": "741aa7ecef3eb1c00d0e70e2d72d77f42416e7062b29b7fe31e4ebdbc55bbee6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-109-CORE_META_MODEL-STEP--evaluate-the-selected-rmed-review-batch.md",
+        "sha256": "d6c0a6493598c54aa9aca3407301c85a91d0d6cd2129d13a51e1b32f12ec01b8"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-110-CORE_META_MODEL-STEP--repair-the-evaluated-rmed-review-batch.md",
+        "sha256": "b988a4b68f6f34b78c17bc6a66cf9646c2c3b21c4ce45910e65d67f80f506ae5"
+      }
+    ],
+    "global_definitions": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+        "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38"
+      }
+    ]
+  },
+  "counts": {
+    "assigned": 26,
+    "covered": 26,
+    "proposed": 4,
+    "unresolved": 22,
+    "current_sources": 22,
+    "current_evidence_spans": 26,
+    "additional_current_definition_evidence_spans": 4
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-QA_CASE--validate-common-plan-authoring.md#subjects.depends_on[12]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-QA_CASE--validate-common-plan-authoring.md",
+      "source_atom_id": "CA-E-501",
+      "source_version": 7,
+      "source_sha256": "0715e8a52b36dccb8510e3e2dc0d43f395384413521b9071191d749ebccf7df5",
+      "field": "depends_on",
+      "index": 12,
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-QA_CASE--validate-common-plan-authoring.md",
+          "sha256": "0715e8a52b36dccb8510e3e2dc0d43f395384413521b9071191d749ebccf7df5",
+          "start_line": 31,
+          "end_line": 57,
+          "span_sha256": "35381aa3b26394a6ccb710d06dba6bfe1069c7a80932d5a4d29adf27b8996f3e",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-519-CORE_META_MODEL-QA_CASE--check-delegated-test-first-implementation-and-method-learning.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-519-CORE_META_MODEL-QA_CASE--check-delegated-test-first-implementation-and-method-learning.md",
+      "source_atom_id": "CA-E-519",
+      "source_version": 6,
+      "source_sha256": "86cc0beb50d1b06fc7fa58eff2ce90525cb299cd33cfaa125a7b70b5a5665c53",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Implementation Retry Limit",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-519-CORE_META_MODEL-QA_CASE--check-delegated-test-first-implementation-and-method-learning.md",
+          "sha256": "86cc0beb50d1b06fc7fa58eff2ce90525cb299cd33cfaa125a7b70b5a5665c53",
+          "start_line": 56,
+          "end_line": 79,
+          "span_sha256": "9958fc7539a6292e219ae4009d0f5187ae9a33983bb90789f0fec0de82879313",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-519-CORE_META_MODEL-QA_CASE--check-delegated-test-first-implementation-and-method-learning.md#subjects.depends_on[11]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-519-CORE_META_MODEL-QA_CASE--check-delegated-test-first-implementation-and-method-learning.md",
+      "source_atom_id": "CA-E-519",
+      "source_version": 6,
+      "source_sha256": "86cc0beb50d1b06fc7fa58eff2ce90525cb299cd33cfaa125a7b70b5a5665c53",
+      "field": "depends_on",
+      "index": 11,
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-519-CORE_META_MODEL-QA_CASE--check-delegated-test-first-implementation-and-method-learning.md",
+          "sha256": "86cc0beb50d1b06fc7fa58eff2ce90525cb299cd33cfaa125a7b70b5a5665c53",
+          "start_line": 56,
+          "end_line": 79,
+          "span_sha256": "9958fc7539a6292e219ae4009d0f5187ae9a33983bb90789f0fec0de82879313",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md",
+      "source_atom_id": "CA-E-522",
+      "source_version": 1,
+      "source_sha256": "3d311421cf753721b84da36b1cb5f67c70bcaa766baa5636bc95453cdf005d62",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Work Journal/Event",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.48,
+      "reason": "The current body uses an actual Work Journal Event and, where relevant, its allowed Type values. The candidate distinguishes a Journal Record from the Event itself and does not establish a lossless Event or Event-Type dependent target; mapping it to Journal.Record would change the meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-522-CORE_META_MODEL-QA_CASE--storage-boundary-classification-interpretability.md",
+          "sha256": "3d311421cf753721b84da36b1cb5f67c70bcaa766baa5636bc95453cdf005d62",
+          "start_line": 29,
+          "end_line": 65,
+          "span_sha256": "2a320f47132ed5ea73b92ad7ada46e7583415f9f377e72c3226da34fa86a6943",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "An actual Event remains distinct from a Journal Record and its Carrier representation.",
+        "Allowed event Type values are not converted into a Record field without an admitted identity.",
+        "No Journal root, selector, or native relation is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md",
+      "source_atom_id": "CA-E-523",
+      "source_version": 1,
+      "source_sha256": "afa851cac9bc169ee46e90e98fe0deb5646a210881bb50a712fa8cc656d7d931",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Work Journal/Event",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.48,
+      "reason": "The current body uses an actual Work Journal Event and, where relevant, its allowed Type values. The candidate distinguishes a Journal Record from the Event itself and does not establish a lossless Event or Event-Type dependent target; mapping it to Journal.Record would change the meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-523-CORE_META_MODEL-QA_CASE--journal-view-integrity.md",
+          "sha256": "afa851cac9bc169ee46e90e98fe0deb5646a210881bb50a712fa8cc656d7d931",
+          "start_line": 29,
+          "end_line": 65,
+          "span_sha256": "ae4a728e0ea0fca0152cbbca4c7bced15514a0090dd4708741bef65e5f670246",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "An actual Event remains distinct from a Journal Record and its Carrier representation.",
+        "Allowed event Type values are not converted into a Record field without an admitted identity.",
+        "No Journal root, selector, or native relation is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+      "source_atom_id": "CA-D-340",
+      "source_version": 11,
+      "source_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Work Journal/Event/Type",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.48,
+      "reason": "The current body uses an actual Work Journal Event and, where relevant, its allowed Type values. The candidate distinguishes a Journal Record from the Event itself and does not establish a lossless Event or Event-Type dependent target; mapping it to Journal.Record would change the meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "An actual Event remains distinct from a Journal Record and its Carrier representation.",
+        "Allowed event Type values are not converted into a Record field without an admitted identity.",
+        "No Journal root, selector, or native relation is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+      "source_atom_id": "CA-D-368",
+      "source_version": 9,
+      "source_sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+          "sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "81ef23b761b82e934caa4a548952806e2bc9f6cf184dc7bb90ca77def35076d7",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.md",
+      "source_atom_id": "CA-D-447",
+      "source_version": 8,
+      "source_sha256": "6b39f117ff6b90a81b3553bbf97b183587fda4f8be55a5701c7c62fbe6785475",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Implementation Retry Limit",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.md",
+          "sha256": "6b39f117ff6b90a81b3553bbf97b183587fda4f8be55a5701c7c62fbe6785475",
+          "start_line": 22,
+          "end_line": 45,
+          "span_sha256": "699cacdcd5f186a5ba21fcab8d8e78762b21a2ede0820b0c4cdbedaaf4d80dbe",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-STANDARD--serialize-explicit-plan-confidence-overrides.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-STANDARD--serialize-explicit-plan-confidence-overrides.md",
+      "source_atom_id": "CA-D-472",
+      "source_version": 5,
+      "source_sha256": "ccda5b5fdacef80965b8eaaee28e6a5a44ff6f10c89111bb8748a2d4bba2be90",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-STANDARD--serialize-explicit-plan-confidence-overrides.md",
+          "sha256": "ccda5b5fdacef80965b8eaaee28e6a5a44ff6f10c89111bb8748a2d4bba2be90",
+          "start_line": 22,
+          "end_line": 39,
+          "span_sha256": "dce380112ab2618c97a712f2d69fecc2115c5344e48f3e24acbfa4b95b3d2214",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+      "source_atom_id": "CA-D-485",
+      "source_version": 4,
+      "source_sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+          "sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718",
+          "start_line": 22,
+          "end_line": 38,
+          "span_sha256": "c5bd6d1192eda02f3331db1c94f92d4030a62d31546117d431f106a215e07a41",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+      "source_atom_id": "CA-D-485",
+      "source_version": 4,
+      "source_sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Implementation Retry Limit",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+          "sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718",
+          "start_line": 22,
+          "end_line": 38,
+          "span_sha256": "c5bd6d1192eda02f3331db1c94f92d4030a62d31546117d431f106a215e07a41",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-006-CORE_META_MODEL-ACTION--propose-source-corrections.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-006-CORE_META_MODEL-ACTION--propose-source-corrections.md",
+      "source_atom_id": "CA-O-006",
+      "source_version": 6,
+      "source_sha256": "c4481d4af8744e326568a4fc3c84ce91d0974605851d7dc589dee8ed31eda677",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-006-CORE_META_MODEL-ACTION--propose-source-corrections.md",
+          "sha256": "c4481d4af8744e326568a4fc3c84ce91d0974605851d7dc589dee8ed31eda677",
+          "start_line": 29,
+          "end_line": 46,
+          "span_sha256": "861f7a5e25024fcb7709e094f68e0155e392e980dbab3fa2469b4ffd5d8d4538",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md",
+      "source_atom_id": "CA-O-024",
+      "source_version": 11,
+      "source_sha256": "19bb9cbe0e7fdeb7ecd60dca272d3d23a6908c0b0c56f2454024ed7125898e58",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Implementation Retry Limit",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md",
+          "sha256": "19bb9cbe0e7fdeb7ecd60dca272d3d23a6908c0b0c56f2454024ed7125898e58",
+          "start_line": 32,
+          "end_line": 54,
+          "span_sha256": "93a777fb7ef3f849f14b23ca2960b4c4ca21dc67c2d8567b55fc1bb18e7750de",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md",
+      "source_atom_id": "CA-O-024",
+      "source_version": 11,
+      "source_sha256": "19bb9cbe0e7fdeb7ecd60dca272d3d23a6908c0b0c56f2454024ed7125898e58",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-024-CORE_META_MODEL-ACTION--control-implementation-retries.md",
+          "sha256": "19bb9cbe0e7fdeb7ecd60dca272d3d23a6908c0b0c56f2454024ed7125898e58",
+          "start_line": 32,
+          "end_line": 54,
+          "span_sha256": "93a777fb7ef3f849f14b23ca2960b4c4ca21dc67c2d8567b55fc1bb18e7750de",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md#subjects.depends_on[19]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+      "source_atom_id": "CA-O-028",
+      "source_version": 8,
+      "source_sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+      "field": "depends_on",
+      "index": 19,
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+          "sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+          "start_line": 39,
+          "end_line": 86,
+          "span_sha256": "5bf3670811b1f81d538a7afe8ebe076e63269327b1aafa8c6e326bfb73cc9033",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-053-CORE_META_MODEL-ACTION--migrate-atoms-to-a-current-cce-version.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-053-CORE_META_MODEL-ACTION--migrate-atoms-to-a-current-cce-version.md",
+      "source_atom_id": "CA-O-053",
+      "source_version": 5,
+      "source_sha256": "0a6fb268305299de993722f2f3984e8edae990938e3c76c02f29baf29bb1fc82",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-053-CORE_META_MODEL-ACTION--migrate-atoms-to-a-current-cce-version.md",
+          "sha256": "0a6fb268305299de993722f2f3984e8edae990938e3c76c02f29baf29bb1fc82",
+          "start_line": 31,
+          "end_line": 46,
+          "span_sha256": "2d711c4734eeefbe958dc76bcfcda423ba32d60ece3d7f4c62f3e3d31115b9e1",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-089-CORE_META_MODEL-ACTION--diagnose-implementation-test-failures.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-089-CORE_META_MODEL-ACTION--diagnose-implementation-test-failures.md",
+      "source_atom_id": "CA-O-089",
+      "source_version": 3,
+      "source_sha256": "793f388c9972f222cb468c7fc01811391ba9e2c36003b59c6450e03c6d067486",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Operator",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.94,
+      "reason": "The current Operation uses Operator as the collective human authority that supplies approval, permission, or a bounded decision. CA-R-1422 explicitly defines Operator as a collective Actor, and the confirmed candidate defines Actor identity as Type plus optional Name with Operator as a Type example. Actor.Type: Operator preserves a generic Actor type without inventing a named individual.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-089-CORE_META_MODEL-ACTION--diagnose-implementation-test-failures.md",
+          "sha256": "793f388c9972f222cb468c7fc01811391ba9e2c36003b59c6450e03c6d067486",
+          "start_line": 32,
+          "end_line": 47,
+          "span_sha256": "92db0f138b32ca4402f9aa82cb9a8f5d54e963943c1ea6d02515be9750f64fb7",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "reason": "Current global definition establishes Operator as the collective human Actor for a Project and Framework Instance."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "The confirmed candidate identifies Actor as the Entity that performs work."
+        },
+        {
+          "pointer": "/entity_identity_model/actor",
+          "reason": "The confirmed Actor identity is Type plus optional Name and explicitly lists Operator as a Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains the collective human authority, not an invented named individual.",
+        "Approval, permission, and confidence conditions remain separate policy gates.",
+        "No Actor instance Name, selector, or source mutation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-090-CORE_META_MODEL-ACTION--activate-corrective-methods-after-verified-fixes.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-090-CORE_META_MODEL-ACTION--activate-corrective-methods-after-verified-fixes.md",
+      "source_atom_id": "CA-O-090",
+      "source_version": 4,
+      "source_sha256": "2597f1ee55db765569b57cde7c88d6a28abc462c0f3353b37b296a71d5a4ebdc",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-090-CORE_META_MODEL-ACTION--activate-corrective-methods-after-verified-fixes.md",
+          "sha256": "2597f1ee55db765569b57cde7c88d6a28abc462c0f3353b37b296a71d5a4ebdc",
+          "start_line": 37,
+          "end_line": 53,
+          "span_sha256": "5994f88ec8355baa4c4774f3ad5ddfbc75102e995601b2bdcf9d981cd800e69d",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-100-CORE_META_MODEL-ACTION--draft-methods-from-verified-implementation-issues.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-100-CORE_META_MODEL-ACTION--draft-methods-from-verified-implementation-issues.md",
+      "source_atom_id": "CA-O-100",
+      "source_version": 3,
+      "source_sha256": "c2a7222371548d683f3dec7776694baa6a24b2571190336048d234a5dd72b88b",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Operator",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.94,
+      "reason": "The current Operation uses Operator as the collective human authority that supplies approval, permission, or a bounded decision. CA-R-1422 explicitly defines Operator as a collective Actor, and the confirmed candidate defines Actor identity as Type plus optional Name with Operator as a Type example. Actor.Type: Operator preserves a generic Actor type without inventing a named individual.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-100-CORE_META_MODEL-ACTION--draft-methods-from-verified-implementation-issues.md",
+          "sha256": "c2a7222371548d683f3dec7776694baa6a24b2571190336048d234a5dd72b88b",
+          "start_line": 30,
+          "end_line": 44,
+          "span_sha256": "ea85f5ece431a2cd26d3800916c35f7808a67921698a7c45bc0c1ab60b2f472f",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "reason": "Current global definition establishes Operator as the collective human Actor for a Project and Framework Instance."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "The confirmed candidate identifies Actor as the Entity that performs work."
+        },
+        {
+          "pointer": "/entity_identity_model/actor",
+          "reason": "The confirmed Actor identity is Type plus optional Name and explicitly lists Operator as a Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains the collective human authority, not an invented named individual.",
+        "Approval, permission, and confidence conditions remain separate policy gates.",
+        "No Actor instance Name, selector, or source mutation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.md#subjects.depends_on[8]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.md",
+      "source_atom_id": "CA-O-104",
+      "source_version": 9,
+      "source_sha256": "44f09c0cc44ff08b03200c21e88d8e7f36ab0d3b10b037b17d0b22a20badea79",
+      "field": "depends_on",
+      "index": 8,
+      "old_value": "Evaluation/Report",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The current Operation uses a report as retained check evidence and a handoff/output boundary. The candidate does not establish an Evaluation-root property or Artifact identity that preserves the source's report, evidence, Run, and authority qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-104-CORE_META_MODEL-WORKFLOW--review-and-repair-a-bounded-rmed-atom-batch.md",
+          "sha256": "44f09c0cc44ff08b03200c21e88d8e7f36ab0d3b10b037b17d0b22a20badea79",
+          "start_line": 27,
+          "end_line": 84,
+          "span_sha256": "cd57e94705683a27991b76d111337eae04c20c30808cd304d923cc463ed0f197",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "A check report remains distinct from an Evaluation conclusion, a Projection, and a Run.",
+        "No Evaluation root, report Artifact, or carrier is inferred solely from the label."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-105-CORE_META_MODEL-ACTION--select-a-bounded-rmed-review-batch.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-105-CORE_META_MODEL-ACTION--select-a-bounded-rmed-review-batch.md",
+      "source_atom_id": "CA-O-105",
+      "source_version": 5,
+      "source_sha256": "d2b70d597eea1c6a143f84bf78dd415472f52a9f3f39eb22b701015511357b4f",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Operator",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.94,
+      "reason": "The current Operation uses Operator as the collective human authority that supplies approval, permission, or a bounded decision. CA-R-1422 explicitly defines Operator as a collective Actor, and the confirmed candidate defines Actor identity as Type plus optional Name with Operator as a Type example. Actor.Type: Operator preserves a generic Actor type without inventing a named individual.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-105-CORE_META_MODEL-ACTION--select-a-bounded-rmed-review-batch.md",
+          "sha256": "d2b70d597eea1c6a143f84bf78dd415472f52a9f3f39eb22b701015511357b4f",
+          "start_line": 25,
+          "end_line": 40,
+          "span_sha256": "087549a45a0ce6f6c6dbec085761bfd113fd0ce6ccea02ea60353496c95fc6f8",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "reason": "Current global definition establishes Operator as the collective human Actor for a Project and Framework Instance."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "The confirmed candidate identifies Actor as the Entity that performs work."
+        },
+        {
+          "pointer": "/entity_identity_model/actor",
+          "reason": "The confirmed Actor identity is Type plus optional Name and explicitly lists Operator as a Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains the collective human authority, not an invented named individual.",
+        "Approval, permission, and confidence conditions remain separate policy gates.",
+        "No Actor instance Name, selector, or source mutation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-111-CORE_META_MODEL-ACTION--fix-confirmed-local-rmed-atom-issues.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-111-CORE_META_MODEL-ACTION--fix-confirmed-local-rmed-atom-issues.md",
+      "source_atom_id": "CA-O-111",
+      "source_version": 5,
+      "source_sha256": "4408a09c5a8a4ce316a34d072a2a3ca3dd5d057f48f7853de390efb3615f4103",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Operator",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.94,
+      "reason": "The current Operation uses Operator as the collective human authority that supplies approval, permission, or a bounded decision. CA-R-1422 explicitly defines Operator as a collective Actor, and the confirmed candidate defines Actor identity as Type plus optional Name with Operator as a Type example. Actor.Type: Operator preserves a generic Actor type without inventing a named individual.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-111-CORE_META_MODEL-ACTION--fix-confirmed-local-rmed-atom-issues.md",
+          "sha256": "4408a09c5a8a4ce316a34d072a2a3ca3dd5d057f48f7853de390efb3615f4103",
+          "start_line": 25,
+          "end_line": 46,
+          "span_sha256": "3a33c0317539cb34e33fa7c7bf521f2aa35b6fa782dbf35288bb093f2f1b2498",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "reason": "Current global definition establishes Operator as the collective human Actor for a Project and Framework Instance."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "The confirmed candidate identifies Actor as the Entity that performs work."
+        },
+        {
+          "pointer": "/entity_identity_model/actor",
+          "reason": "The confirmed Actor identity is Type plus optional Name and explicitly lists Operator as a Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains the collective human authority, not an invented named individual.",
+        "Approval, permission, and confidence conditions remain separate policy gates.",
+        "No Actor instance Name, selector, or source mutation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-111-CORE_META_MODEL-ACTION--fix-confirmed-local-rmed-atom-issues.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-111-CORE_META_MODEL-ACTION--fix-confirmed-local-rmed-atom-issues.md",
+      "source_atom_id": "CA-O-111",
+      "source_version": 5,
+      "source_sha256": "4408a09c5a8a4ce316a34d072a2a3ca3dd5d057f48f7853de390efb3615f4103",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The current body treats this as a context- and source-resolved policy setting, with distinct Framework Instance, Default Settings, and Plan-local forms where applicable. No confirmed candidate identity preserves those source-precedence and ownership qualifications, so it cannot be recast as an Actor Property or a generic setting target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-111-CORE_META_MODEL-ACTION--fix-confirmed-local-rmed-atom-issues.md",
+          "sha256": "4408a09c5a8a4ce316a34d072a2a3ca3dd5d057f48f7853de390efb3615f4103",
+          "start_line": 25,
+          "end_line": 46,
+          "span_sha256": "3a33c0317539cb34e33fa7c7bf521f2aa35b6fa782dbf35288bb093f2f1b2498",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Policy threshold or retry semantics remain distinct from Actor identity and type.",
+        "Framework Instance, Default Settings, and Plan-local ownership are not collapsed.",
+        "No setting Property, selector, or carrier registry is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-108-CORE_META_MODEL-STEP--select-the-rmed-review-batch.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-108-CORE_META_MODEL-STEP--select-the-rmed-review-batch.md",
+      "source_atom_id": "CA-O-108",
+      "source_version": 6,
+      "source_sha256": "741aa7ecef3eb1c00d0e70e2d72d77f42416e7062b29b7fe31e4ebdbc55bbee6",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Evaluation/Report",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The current Operation uses a report as retained check evidence and a handoff/output boundary. The candidate does not establish an Evaluation-root property or Artifact identity that preserves the source's report, evidence, Run, and authority qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-108-CORE_META_MODEL-STEP--select-the-rmed-review-batch.md",
+          "sha256": "741aa7ecef3eb1c00d0e70e2d72d77f42416e7062b29b7fe31e4ebdbc55bbee6",
+          "start_line": 25,
+          "end_line": 40,
+          "span_sha256": "246c93d3bd59d85eabbc3eb3a739df8d84dfe5ee6f8f785df461b685e44184b6",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "A check report remains distinct from an Evaluation conclusion, a Projection, and a Run.",
+        "No Evaluation root, report Artifact, or carrier is inferred solely from the label."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-109-CORE_META_MODEL-STEP--evaluate-the-selected-rmed-review-batch.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-109-CORE_META_MODEL-STEP--evaluate-the-selected-rmed-review-batch.md",
+      "source_atom_id": "CA-O-109",
+      "source_version": 6,
+      "source_sha256": "d6c0a6493598c54aa9aca3407301c85a91d0d6cd2129d13a51e1b32f12ec01b8",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Evaluation/Report",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The current Operation uses a report as retained check evidence and a handoff/output boundary. The candidate does not establish an Evaluation-root property or Artifact identity that preserves the source's report, evidence, Run, and authority qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-109-CORE_META_MODEL-STEP--evaluate-the-selected-rmed-review-batch.md",
+          "sha256": "d6c0a6493598c54aa9aca3407301c85a91d0d6cd2129d13a51e1b32f12ec01b8",
+          "start_line": 25,
+          "end_line": 42,
+          "span_sha256": "45b756c65068d12ff9c5e20cf236a8bb4f04da86f7047210cceab555287c96a7",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "A check report remains distinct from an Evaluation conclusion, a Projection, and a Run.",
+        "No Evaluation root, report Artifact, or carrier is inferred solely from the label."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-110-CORE_META_MODEL-STEP--repair-the-evaluated-rmed-review-batch.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-110-CORE_META_MODEL-STEP--repair-the-evaluated-rmed-review-batch.md",
+      "source_atom_id": "CA-O-110",
+      "source_version": 6,
+      "source_sha256": "b988a4b68f6f34b78c17bc6a66cf9646c2c3b21c4ce45910e65d67f80f506ae5",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Evaluation/Report",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "The current Operation uses a report as retained check evidence and a handoff/output boundary. The candidate does not establish an Evaluation-root property or Artifact identity that preserves the source's report, evidence, Run, and authority qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-110-CORE_META_MODEL-STEP--repair-the-evaluated-rmed-review-batch.md",
+          "sha256": "b988a4b68f6f34b78c17bc6a66cf9646c2c3b21c4ce45910e65d67f80f506ae5",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "86c8512aaa9298605ea81efa9924903f4ec8d40e27688f953d93df3a29bbcf86",
+          "reason": "Complete current owning Main Content was read and this exact body span was freshly hash-verified for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "A check report remains distinct from an Evaluation conclusion, a Projection, and a Run.",
+        "No Evaluation root, report Artifact, or carrier is inferred solely from the label."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "limits": [
+    "Research only; every proposal needs independent semantic acceptance before working-ledger use.",
+    "No source migration, native admission, selector, @ operator, new root, singleton narrower kind, Artifact.Revision, Carrier registry, or runtime action is authorized.",
+    "Journal Records are not Events; thresholds, delegation, authorization, and retry policy are not Actor fields merely because an Actor participates.",
+    "Every unresolved value remains null with current owning-source evidence; it is not a completed mapping decision."
+  ]
+}

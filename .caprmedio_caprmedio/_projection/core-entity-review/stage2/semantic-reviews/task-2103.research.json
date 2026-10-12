@@ -1,0 +1,1624 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2103",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2103-2108.inputs.json",
+      "sha256": "7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "50ab0114669787dba6331b58f8054cd8fb33b5abbed33df6fbf5b52df53923fa"
+    },
+    "baseline_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2103-2108.contract.md",
+        "sha256": "d136e6577b09f6ea0d72be85d13ab547c2193e6e9c045072141d1fc2ca511e6d"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/79-CA-P-2103-TASK--review-remaining-snapshot-fields.md",
+      "sha256": "c7503a19a83a0200cce23393eecd1e9a52cd937fe4471dd10c6f85abb0dedbb6"
+    },
+    "selection_occurrence_id_set_sha256": "5c371da85259973ab2e19dbf82f9a30d913f8548ccd620df0e940b181d2c50ad"
+  },
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md",
+      "sha256": "3c4a8960bac48476767cb4deda9a7771ea48b8fb303a1c6b85da2dc9a0f19e31"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+      "sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL--author-claim-value-sets.md",
+      "sha256": "f9293974e41c66ef9e209c37203fa8135d012b1a62acdc28c31d116a34891b92"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md",
+      "sha256": "287f47cd2fcf0ed1b4090a376b3924a6aa3e45838d837fbcea306b8e46a81ad6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md",
+      "sha256": "03b8fab73bd3a910adeac50371d62fea8a5833836671fb9e3d502ff0062e654c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-273-CORE_META_MODEL--derive-ownership-and-claim-target-atom-sets.md",
+      "sha256": "2f2a40037201679c18e7b0722f1d1fa26796758b7f797b575df0574c0a4e26ef"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-303-CORE_META_MODEL--declare-update-routing-in-the-calling-workflow.md",
+      "sha256": "2f4c60f6dfc4a019614c0e04a185fc53cf06b88a3a6ddbd580497ff4bb7cf7db"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+      "sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-386-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-type-qualified-status-and-artifact-activity.md",
+      "sha256": "716b8601f26158d51281729d18c7b19c76bb2d5c6430d8b1f887b333c92de113"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-405-CORE_META_MODEL-EVALUATION_APPROACH--validate-restricted-cce-canonical-signature-boundary.md",
+      "sha256": "1e237a88f00238545747d71e7a1022445c404accb5dcc8235ca08bc941880a5d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-governing-atom-change-approval.md",
+      "sha256": "04cf2c957d5cba0f777d0d9c4ecab39e816bed26bce872a9a5eae74224e10a4a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md",
+      "sha256": "3dd9aba19d920554a63cbc500d9ffaa4019a0a47b84d0a8ecefec11d49fdc079"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md",
+      "sha256": "5393c69f1cbb00a0d5c4366c5ca848a334d782ae251c7c98096ce5adcff9b232"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md",
+      "sha256": "687b3d30d85e0ca910a82f6688bc0f14dc3424f25f48ba8ac444d644f226ddc6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md",
+      "sha256": "0aed2ded8b6ea6704021d6cb0dd464d2dda3af84ab0c5f76875fb81916b03709"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+      "sha256": "7d1a04cabf809fd37379b0367ad0d4732c130e13257a1fb427f3a5d5053197bd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md",
+      "sha256": "70f17039419cd20eee9a38c3d106b9d75b7bf4b563b732b3632b9c5115f601a0"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-DELIVERY--derive-address-facts-without-duplicated-frontmatter.md",
+      "sha256": "533c87f928032d8a8049ee4acdc0a34822aa8731a37a5f79964e66e7183b74c6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-276-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter.md",
+      "sha256": "ea6013f935f9b465d4a6ea5afd80a20a44dbc4ab50db2d031f325510f4881b06"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DELIVERY--serialize-project-owned-markdown-atom-filenames.md",
+      "sha256": "b4fcef9aac710426b5e27af779df4f6ab459fba9746c6a720abb3deb5ec1faf9"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+      "sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+      "sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md",
+      "sha256": "3391dbfa646ef362dd1c54cd8c9dab590ee7650f2215d51aec5b7f9ef49d4829"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+      "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1436-CORE_META_MODEL-CORE--define-is-allowed-value-of.md",
+      "sha256": "a33bdc582beb140647e6012022730abf531f6311923edf80ed7d1fe1614dabad"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md",
+      "sha256": "db4a0f0b1952dfd28ddabce2cfb3db1f3c53618fbc1d1b33ddfc5259a32d7d54"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter.md",
+      "sha256": "8322273a6938108a8889c01b74c7bfc600b01ba39bfaa0bd0c0c01cc7352a6a3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md",
+      "sha256": "8a83fb3e21c84bc0b657fa61ada0b6d28c4dcef3ebdba070570009e538204de8"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1360-CORE_META_MODEL--define-restricted-cce-canonical-signature.md",
+      "sha256": "3baad57dd68218df5bc969b97bbca90296d177f0669f277a32c1d8c1c537b5fc"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1371-CORE_META_MODEL-CORE--define-artifact-revision.md",
+      "sha256": "5d784abf1c82906ad8cb8d84e216f956fabf295523f15113ca9706032130c992"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+      "sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+      "sha256": "74b7e6a47a421dd660cc905dd19bdb874b23ef2c2030473b5c3c694f5b9fa487"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f"
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "source_atom_id": "CA-M-115",
+      "source_version": 23,
+      "source_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Author",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Actor",
+      "confidence": 0.91,
+      "reason": "The current Method assigns work to an Author who must perform authoring steps. That is an Actor in the candidate's explicit generic sense of who performs work; the source does not establish Author as a narrower Actor kind or an Atom field. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+          "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "6b33d45b1d7594433981b0d76a5b2e4cb81bb9a5e56a3dc6ba3ae4b3ed0b2abb",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "The frozen candidate defines Actor as who performs work; it does not make the procedural Author label a narrower Actor kind or a field name."
+        }
+      ],
+      "preserved_distinctions": [
+        "The procedural Author role remains in the body; no Actor.Type value, individual Actor, or Atom.Author storage field is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md",
+      "source_atom_id": "CA-M-125",
+      "source_version": 25,
+      "source_sha256": "3c4a8960bac48476767cb4deda9a7771ea48b8fb303a1c6b85da2dc9a0f19e31",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Author",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Actor",
+      "confidence": 0.91,
+      "reason": "The current Method requires an Author to inspect and assign Subjects. Its meaning is a performer of work, which supports generic Actor only; it does not establish a named Actor, type, or carried Author field. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-125-CORE_META_MODEL--assign-subjects-from-the-claim.md",
+          "sha256": "3c4a8960bac48476767cb4deda9a7771ea48b8fb303a1c6b85da2dc9a0f19e31",
+          "start_line": 28,
+          "end_line": 53,
+          "span_sha256": "f13fe49a774719c8d73d9f12075cc9674a0efb8a742ba96a82fb1663e9dcd678",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "The frozen candidate defines Actor as who performs work; it does not make the procedural Author label a narrower Actor kind or a field name."
+        }
+      ],
+      "preserved_distinctions": [
+        "Author stays a procedural role in the Method; no Actor.Type:Author or Atom.Author property is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+      "source_atom_id": "CA-M-229",
+      "source_version": 12,
+      "source_sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Author",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Actor",
+      "confidence": 0.91,
+      "reason": "The current Method directs an Author to apply lexical rules. This is an Actor performing work, not a type value or a frontmatter field. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-229-CORE_META_MODEL--render-governed-terms-and-cce-operators-distinctly.md",
+          "sha256": "5c2a07ec7999cffffc142edcb4569622e74eda19f2b2f01ac1121a20c9891c84",
+          "start_line": 26,
+          "end_line": 44,
+          "span_sha256": "4823d1af01f0b5255e202d54697e9a8b8b5aba34b588922642db9d34cbd29eea",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "The frozen candidate defines Actor as who performs work; it does not make the procedural Author label a narrower Actor kind or a field name."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Author role is preserved in body prose without creating a narrower Actor kind or a storage binding."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL--author-claim-value-sets.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL--author-claim-value-sets.md",
+      "source_atom_id": "CA-M-237",
+      "source_version": 10,
+      "source_sha256": "f9293974e41c66ef9e209c37203fa8135d012b1a62acdc28c31d116a34891b92",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Author",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Actor",
+      "confidence": 0.91,
+      "reason": "The current Method assigns Claim-value-set authoring work to an Author. The explicit candidate Actor meaning supports the generic performer, while the role label is not promoted to a type or property. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL--author-claim-value-sets.md",
+          "sha256": "f9293974e41c66ef9e209c37203fa8135d012b1a62acdc28c31d116a34891b92",
+          "start_line": 25,
+          "end_line": 43,
+          "span_sha256": "5d390d8b45efaf4dcd3122ea48b98d6a90f217c20f391c5937e0ecd11a4e7024",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "The frozen candidate defines Actor as who performs work; it does not make the procedural Author label a narrower Actor kind or a field name."
+        }
+      ],
+      "preserved_distinctions": [
+        "The role is generic and procedural; Claim remains role-specific body language rather than a separate Entity or an Actor subtype."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md",
+      "source_atom_id": "CA-M-239",
+      "source_version": 11,
+      "source_sha256": "287f47cd2fcf0ed1b4090a376b3924a6aa3e45838d837fbcea306b8e46a81ad6",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.94,
+      "reason": "The current Method constructs dependency edges directly between dependent and prerequisite Artifacts. It does not describe immutable recorded states, so generic Artifact preserves the actual endpoints and removes only the unsupported Revision containment qualifier. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-239-CORE_META_MODEL--derive-dependency-order-from-explicit-edges.md",
+          "sha256": "287f47cd2fcf0ed1b4090a376b3924a6aa3e45838d837fbcea306b8e46a81ad6",
+          "start_line": 25,
+          "end_line": 46,
+          "span_sha256": "0b79e0adc3386b1d620e134d5caa509b120e534d05eb68dc5b46487092fe8a2a",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The frozen candidate defines Artifact as the governed lifecycle unit; this supports the source's direct Artifact endpoints without retaining an unsupported Revision containment path."
+        }
+      ],
+      "preserved_distinctions": [
+        "Direct dependency edges and derived inverse view remain Artifact relations; this does not map an Artifact to historical Revision."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md",
+      "source_atom_id": "CA-M-240",
+      "source_version": 9,
+      "source_sha256": "03b8fab73bd3a910adeac50371d62fea8a5833836671fb9e3d502ff0062e654c",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom/Claim/Canonical Signature",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Canonical Signature",
+      "confidence": 0.92,
+      "reason": "The current Method derives a Canonical Signature from an Atom's selected Claim expression without a source rewrite. CA-R-1360 defines that value as one derived non-authoritative comparison value in an Atom Claim; the confirmed decision makes Claim a role label of the shared Atom Substance, not a separate Claim Entity. The Atom-owned dependent field preserves the derivation and restriction boundary. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-240-CORE_META_MODEL-METHOD--derive-restricted-cce-canonical-signatures-without-source-rewrite.md",
+          "sha256": "03b8fab73bd3a910adeac50371d62fea8a5833836671fb9e3d502ff0062e654c",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "6a0ce0cce68623a54e9fddb981e0688333ddee915cb0f0bce5791ddec3f88275",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1360-CORE_META_MODEL--define-restricted-cce-canonical-signature.md",
+          "sha256": "3baad57dd68218df5bc969b97bbca90296d177f0669f277a32c1d8c1c537b5fc",
+          "start_line": 22,
+          "end_line": 48,
+          "span_sha256": "a6f66a8d5eeab3bbf7719e44f7aa95b74200965f9d59f9eadf91f219b42fd700",
+          "reason": "Current explicit signature definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+          "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "start_line": 1,
+          "end_line": 48,
+          "span_sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "reason": "The current actual Operator decision keeps Claim as a role label of shared Atom Substance, not a separate dependent Entity."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "Canonical Signature remains derived and non-authoritative; Claim is not reintroduced as a bearer Entity or a field-name rewrite."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-273-CORE_META_MODEL--derive-ownership-and-claim-target-atom-sets.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-273-CORE_META_MODEL--derive-ownership-and-claim-target-atom-sets.md",
+      "source_atom_id": "CA-M-273",
+      "source_version": 13,
+      "source_sha256": "2f2a40037201679c18e7b0722f1d1fa26796758b7f797b575df0574c0a4e26ef",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Revision/Author",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Author",
+      "confidence": 0.94,
+      "reason": "The current Method expressly preserves the carried external-Atom Author fallback. CA-D-274 defines resolved Author as the top-level Atom `author` Property and forbids an additional Actor identity lookup, supporting the Atom-owned current field. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-273-CORE_META_MODEL--derive-ownership-and-claim-target-atom-sets.md",
+          "sha256": "2f2a40037201679c18e7b0722f1d1fa26796758b7f797b575df0574c0a4e26ef",
+          "start_line": 29,
+          "end_line": 48,
+          "span_sha256": "0bde600e4072965683f3d260eb1da408199fef0e8e785fb623252c39f1527774",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md",
+          "sha256": "db4a0f0b1952dfd28ddabce2cfb3db1f3c53618fbc1d1b33ddfc5259a32d7d54",
+          "start_line": 19,
+          "end_line": 34,
+          "span_sha256": "fc82bf98baf806ed9bd64a5e6a3012972d68209e596d6cd86a363c8fc41b9307",
+          "reason": "Current explicit author definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "The external fallback remains a resolved Atom Property, not Scope Unit ownership or an Actor owner."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-303-CORE_META_MODEL--declare-update-routing-in-the-calling-workflow.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-303-CORE_META_MODEL--declare-update-routing-in-the-calling-workflow.md",
+      "source_atom_id": "CA-M-303",
+      "source_version": 4,
+      "source_sha256": "2f4c60f6dfc4a019614c0e04a185fc53cf06b88a3a6ddbd580497ff4bb7cf7db",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Author",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Actor",
+      "confidence": 0.91,
+      "reason": "The current Method limits how an Author expresses a caller's Workflow graph. It is a procedural performer role, so the candidate's generic Actor applies without asserting an individual, Actor Type, or Atom Author field. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-303-CORE_META_MODEL--declare-update-routing-in-the-calling-workflow.md",
+          "sha256": "2f4c60f6dfc4a019614c0e04a185fc53cf06b88a3a6ddbd580497ff4bb7cf7db",
+          "start_line": 25,
+          "end_line": 45,
+          "span_sha256": "89c71e92e11adf9fc6c6b015645546e605794056b52ff96044a39d94717b1056",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "The frozen candidate defines Actor as who performs work; it does not make the procedural Author label a narrower Actor kind or a field name."
+        }
+      ],
+      "preserved_distinctions": [
+        "Workflow, Step, Action, and Run distinctions remain unchanged; no Author storage Property is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+      "source_atom_id": "CA-E-240",
+      "source_version": 30,
+      "source_sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Revision/Author",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Author",
+      "confidence": 0.93,
+      "reason": "The current fixture refers to an external Project Goal with its Author's registered Operator name. CA-D-274 identifies the carried resolved Author as the Atom `author` Property and keeps registry membership separate from an Actor identity lookup. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+          "sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498",
+          "start_line": 27,
+          "end_line": 55,
+          "span_sha256": "6c485958ad1e1b0ceeced90154318fc5176c3fa0536fd9d7ae54721e878253f1",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md",
+          "sha256": "db4a0f0b1952dfd28ddabce2cfb3db1f3c53618fbc1d1b33ddfc5259a32d7d54",
+          "start_line": 19,
+          "end_line": 34,
+          "span_sha256": "fc82bf98baf806ed9bd64a5e6a3012972d68209e596d6cd86a363c8fc41b9307",
+          "reason": "Current explicit author definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "The explicit Project target and Scope Unit ownership remain independent; no Actor.Type or target transfer is introduced."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-386-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-type-qualified-status-and-artifact-activity.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-386-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-type-qualified-status-and-artifact-activity.md",
+      "source_atom_id": "CA-E-386",
+      "source_version": 19,
+      "source_sha256": "716b8601f26158d51281729d18c7b19c76bb2d5c6430d8b1f887b333c92de113",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Artifact/Activity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact.Activity",
+      "confidence": 0.96,
+      "reason": "The current Evaluation tests each Artifact's applicable Activity and distinguishes absent Activity from Inactive. CA-R-1394 defines Activity as the derived Artifact Property from current Revision Status, which supports Artifact.Activity without an Artifact.Revision path. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-386-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-type-qualified-status-and-artifact-activity.md",
+          "sha256": "716b8601f26158d51281729d18c7b19c76bb2d5c6430d8b1f887b333c92de113",
+          "start_line": 23,
+          "end_line": 40,
+          "span_sha256": "6ba446754a5a39f9c16515308ab93906733130899eaa9165ad1cdc1f6e4eb618",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+          "sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "e3010724525db570c72cd869a117999fbfd4a22575cbd7b7425a8c7e23c2c98b",
+          "reason": "Current explicit activity definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The frozen candidate defines Artifact as the governed lifecycle unit; this supports the source's direct Artifact endpoints without retaining an unsupported Revision containment path."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Activity remains conditional on the applicable qualified Status model; absent Activity is not mapped to Inactive."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-405-CORE_META_MODEL-EVALUATION_APPROACH--validate-restricted-cce-canonical-signature-boundary.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-405-CORE_META_MODEL-EVALUATION_APPROACH--validate-restricted-cce-canonical-signature-boundary.md",
+      "source_atom_id": "CA-E-405",
+      "source_version": 10,
+      "source_sha256": "1e237a88f00238545747d71e7a1022445c404accb5dcc8235ca08bc941880a5d",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom/Claim/Canonical Signature",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Canonical Signature",
+      "confidence": 0.92,
+      "reason": "The current Evaluation checks Canonical Signature derivations and their non-authoritative boundary. CA-R-1360 defines the value in one Atom Claim, and the confirmed shared-Substance decision prevents Claim from becoming a separate Entity; Atom.Canonical Signature keeps the value Atom-owned. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-405-CORE_META_MODEL-EVALUATION_APPROACH--validate-restricted-cce-canonical-signature-boundary.md",
+          "sha256": "1e237a88f00238545747d71e7a1022445c404accb5dcc8235ca08bc941880a5d",
+          "start_line": 24,
+          "end_line": 44,
+          "span_sha256": "e4393bfac0b35151888743c2c6045ab581a134786a16a97773f1aab42e8030c7",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1360-CORE_META_MODEL--define-restricted-cce-canonical-signature.md",
+          "sha256": "3baad57dd68218df5bc969b97bbca90296d177f0669f277a32c1d8c1c537b5fc",
+          "start_line": 22,
+          "end_line": 48,
+          "span_sha256": "a6f66a8d5eeab3bbf7719e44f7aa95b74200965f9d59f9eadf91f219b42fd700",
+          "reason": "Current explicit signature definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+          "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "start_line": 1,
+          "end_line": 48,
+          "span_sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "reason": "The current actual Operator decision keeps Claim as a role label of shared Atom Substance, not a separate dependent Entity."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "The restricted Boolean and non-authoritative projection boundaries remain; no Claim Entity or source rewrite is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-governing-atom-change-approval.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-governing-atom-change-approval.md",
+      "source_atom_id": "CA-E-440",
+      "source_version": 14,
+      "source_sha256": "04cf2c957d5cba0f777d0d9c4ecab39e816bed26bce872a9a5eae74224e10a4a",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Revision/Author",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Author",
+      "confidence": 0.93,
+      "reason": "The current Evaluation fails when an Atom's Author is changed, omitted, or presumed to imply AI authorship. This is the carried current Author fact; CA-D-274 defines it as the Atom `author` Property and keeps registry membership distinct from an inferred Actor identity. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-governing-atom-change-approval.md",
+          "sha256": "04cf2c957d5cba0f777d0d9c4ecab39e816bed26bce872a9a5eae74224e10a4a",
+          "start_line": 31,
+          "end_line": 43,
+          "span_sha256": "6a538e0955fb0951b747dda18d16be64bd08746da6d943c34c305eb29197d036",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md",
+          "sha256": "db4a0f0b1952dfd28ddabce2cfb3db1f3c53618fbc1d1b33ddfc5259a32d7d54",
+          "start_line": 19,
+          "end_line": 34,
+          "span_sha256": "fc82bf98baf806ed9bd64a5e6a3012972d68209e596d6cd86a363c8fc41b9307",
+          "reason": "Current explicit author definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator and AI Agent approval conditions remain source-specific; the target does not turn Author into an Actor subtype or infer missing authorship."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md",
+      "source_atom_id": "CA-E-459",
+      "source_version": 16,
+      "source_sha256": "3dd9aba19d920554a63cbc500d9ffaa4019a0a47b84d0a8ecefec11d49fdc079",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Atom/Identifier/Project Prefix",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact.Project Atom Prefix",
+      "confidence": 0.94,
+      "reason": "The current Evaluation validates the authoritative Project Settings Artifact. CA-R-1738 explicitly states that Project Settings is that Artifact and contains the Project Atom prefix, so the field remains Artifact-owned rather than a display-only prefix or an Atom identity alias. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-459-CORE_META_MODEL-EVALUATION_APPROACH--validate-authoritative-project-settings-artifact.md",
+          "sha256": "3dd9aba19d920554a63cbc500d9ffaa4019a0a47b84d0a8ecefec11d49fdc079",
+          "start_line": 37,
+          "end_line": 62,
+          "span_sha256": "4e8925d61eee713a23213e278abe29cbbdb53b208410bff28b5c625f2882d23a",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Current explicit settings definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The frozen candidate defines Artifact as the governed lifecycle unit; this supports the source's direct Artifact endpoints without retaining an unsupported Revision containment path."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Settings remains an authoritative initialization Artifact, not a Projection or Project Structure declaration."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md",
+      "source_atom_id": "CA-E-477",
+      "source_version": 5,
+      "source_sha256": "5393c69f1cbb00a0d5c4366c5ca848a334d782ae251c7c98096ce5adcff9b232",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Atom/Revision/Updated At",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Updated At",
+      "confidence": 0.94,
+      "reason": "The current Evaluation checks exact source Revisions before and after correction. CA-D-270 defines the Project-time `updated_at` field carried by each Markdown Atom Revision; the candidate explicitly lists Atom.Updated At as a dependent field, retaining a current snapshot timestamp rather than creating an Artifact.Revision path. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md",
+          "sha256": "5393c69f1cbb00a0d5c4366c5ca848a334d782ae251c7c98096ce5adcff9b232",
+          "start_line": 33,
+          "end_line": 60,
+          "span_sha256": "665af578a7597a96dfdc0c0a8fd8a5e3bb5ffcb953b6fe83f42b61979c872715",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter.md",
+          "sha256": "8322273a6938108a8889c01b74c7bfc600b01ba39bfaa0bd0c0c01cc7352a6a3",
+          "start_line": 19,
+          "end_line": 35,
+          "span_sha256": "6644188aa7b504e30eea0beab3f4650b456dd5c44f88b4ecebe47888e82e3c1a",
+          "reason": "Current explicit metadata definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "Updated At is a current metadata field distinct from semantic Revision identity and from a carrier-only timestamp registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md",
+      "source_atom_id": "CA-E-491",
+      "source_version": 5,
+      "source_sha256": "687b3d30d85e0ca910a82f6688bc0f14dc3424f25f48ba8ac444d644f226ddc6",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Atom Change Classification",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Change Classification",
+      "confidence": 0.95,
+      "reason": "The current Evaluation routes CA-O-067 assessment outcomes for an Atom update. CA-R-1432 explicitly defines one change class before a change with refinement, semantic_revision, replacement, and carrier_only boundaries, supporting the Atom-owned classification field. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md",
+          "sha256": "687b3d30d85e0ca910a82f6688bc0f14dc3424f25f48ba8ac444d644f226ddc6",
+          "start_line": 27,
+          "end_line": 49,
+          "span_sha256": "ab73898e0884f4a6b3f6252b9c52957b24db4f770ccfeafc7c997b61bd36919d",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "sha256": "74b7e6a47a421dd660cc905dd19bdb874b23ef2c2030473b5c3c694f5b9fa487",
+          "start_line": 24,
+          "end_line": 47,
+          "span_sha256": "c9a31aec77cd484049b5fbcf2c667461d1247b91c662cfa6f3506e32b239cc86",
+          "reason": "Current explicit classification definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "The result remains an assessed class with its review boundary; it is not an Operation/Execution result or a new Carrier entity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md",
+      "source_atom_id": "CA-E-506",
+      "source_version": 7,
+      "source_sha256": "0aed2ded8b6ea6704021d6cb0dd464d2dda3af84ab0c5f76875fb81916b03709",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Revision/Author",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Author",
+      "confidence": 0.93,
+      "reason": "The current self-sufficiency fixture retains an external Project Goal with its Author fallback. CA-D-274 supplies the resolved carried Atom `author` Property and explicitly rejects an extra Actor identity lookup. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md",
+          "sha256": "0aed2ded8b6ea6704021d6cb0dd464d2dda3af84ab0c5f76875fb81916b03709",
+          "start_line": 26,
+          "end_line": 56,
+          "span_sha256": "e6c6facf04c6a5edc6064579f2d5076e0e86f8b86f1019cc7f6c93021e6f3bad",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md",
+          "sha256": "db4a0f0b1952dfd28ddabce2cfb3db1f3c53618fbc1d1b33ddfc5259a32d7d54",
+          "start_line": 19,
+          "end_line": 34,
+          "span_sha256": "fc82bf98baf806ed9bd64a5e6a3012972d68209e596d6cd86a363c8fc41b9307",
+          "reason": "Current explicit author definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "The fallback does not create Scope Unit ownership, an Actor owner, or a duplicate representation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md",
+      "source_atom_id": "CA-E-506",
+      "source_version": 7,
+      "source_sha256": "0aed2ded8b6ea6704021d6cb0dd464d2dda3af84ab0c5f76875fb81916b03709",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Atom/Revision/Status",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Status",
+      "confidence": 0.93,
+      "reason": "The current fixture checks required and applicable internal Atom Properties in the Markdown Carrier. CA-D-483 defines the explicit `status` carried by each Atom Revision, and the candidate explicitly presents Atom.Status as a dependent field of the selected snapshot. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-506-CORE_META_MODEL-QA_CASE--validate-self-sufficient-atom-carriers.md",
+          "sha256": "0aed2ded8b6ea6704021d6cb0dd464d2dda3af84ab0c5f76875fb81916b03709",
+          "start_line": 26,
+          "end_line": 56,
+          "span_sha256": "e6c6facf04c6a5edc6064579f2d5076e0e86f8b86f1019cc7f6c93021e6f3bad",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md",
+          "sha256": "8a83fb3e21c84bc0b657fa61ada0b6d28c4dcef3ebdba070570009e538204de8",
+          "start_line": 21,
+          "end_line": 39,
+          "span_sha256": "4d1658c0284f2e39fac610ecabba03c3066bf4e7372ca04cb0cf4c4acf617200",
+          "reason": "Current explicit status definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "The applicable Status domain and exactly-one carried value remain; no separate Revision containment or per-field Carrier relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+      "source_atom_id": "CA-E-511",
+      "source_version": 5,
+      "source_sha256": "7d1a04cabf809fd37379b0367ad0d4732c130e13257a1fb427f3a5d5053197bd",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Revision/Author",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Author",
+      "confidence": 0.93,
+      "reason": "The current target-scope fixture uses an external Project Goal with its Author's registered Operator name. CA-D-274 defines the resolved carried Author as the Atom `author` Property while rejecting a separate Actor identity lookup. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+          "sha256": "7d1a04cabf809fd37379b0367ad0d4732c130e13257a1fb427f3a5d5053197bd",
+          "start_line": 36,
+          "end_line": 62,
+          "span_sha256": "89215b28156776c5c690dc33bac31cf4a64fa8bfe824935cc6c8b948265e13c7",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md",
+          "sha256": "db4a0f0b1952dfd28ddabce2cfb3db1f3c53618fbc1d1b33ddfc5259a32d7d54",
+          "start_line": 19,
+          "end_line": 34,
+          "span_sha256": "fc82bf98baf806ed9bd64a5e6a3012972d68209e596d6cd86a363c8fc41b9307",
+          "reason": "Current explicit author definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "The target, ownership, and textual-applicability distinctions remain independent from the Atom.Author field."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md",
+      "source_atom_id": "CA-E-521",
+      "source_version": 1,
+      "source_sha256": "70f17039419cd20eee9a38c3d106b9d75b7bf4b563b732b3632b9c5115f601a0",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Atom/Revision/Status",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Status",
+      "confidence": 0.93,
+      "reason": "The current Evaluation verifies `status: Archived` on the archived predecessor and requires the affected carrier metadata to remain coherent. CA-D-483 defines the explicit current `status` carried by an Atom Revision; the candidate's Atom.Status notation expresses the selected snapshot field without forming Atom.Revision containment. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md",
+          "sha256": "70f17039419cd20eee9a38c3d106b9d75b7bf4b563b732b3632b9c5115f601a0",
+          "start_line": 32,
+          "end_line": 58,
+          "span_sha256": "9eed858245e2fd7fe6cb4b6ffc38461c6cc2bb21fccd67628dd508069627fe69",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md",
+          "sha256": "8a83fb3e21c84bc0b657fa61ada0b6d28c4dcef3ebdba070570009e538204de8",
+          "start_line": 21,
+          "end_line": 39,
+          "span_sha256": "4d1658c0284f2e39fac610ecabba03c3066bf4e7372ca04cb0cf4c4acf617200",
+          "reason": "Current explicit status definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "Archived predecessor history and current versioning remain distinct; this does not make Status a separate historical Revision."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-DELIVERY--derive-address-facts-without-duplicated-frontmatter.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-DELIVERY--derive-address-facts-without-duplicated-frontmatter.md",
+      "source_atom_id": "CA-D-267",
+      "source_version": 12,
+      "source_sha256": "533c87f928032d8a8049ee4acdc0a34822aa8731a37a5f79964e66e7183b74c6",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom/Frontmatter",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.52,
+      "reason": "The current source requires a canonical Carrier address not to duplicate embedded metadata and sends Atom Properties to other Delivery rules. It does not define frontmatter as a semantic Entity or identify an owner-qualified frontmatter Property. The candidate expressly distinguishes syntax/representation from Entities, so no lossless target is supported.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-DELIVERY--derive-address-facts-without-duplicated-frontmatter.md",
+          "sha256": "533c87f928032d8a8049ee4acdc0a34822aa8731a37a5f79964e66e7183b74c6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "b5d72b128557ddb95a3964ccd1f96d734ab124eff81a14618811bd695880172a",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_vs_syntax_rules/0",
+          "reason": "The frozen candidate distinguishes syntax and compact notation from Entities, so a Carrier/frontmatter representation term cannot be promoted to a field merely from its spelling."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier address encoding and Atom Property authority remain separate; no Atom.Frontmatter Entity or carrier binding is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-276-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-276-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter.md",
+      "source_atom_id": "CA-D-276",
+      "source_version": 15,
+      "source_sha256": "ea6013f935f9b465d4a6ea5afd80a20a44dbc4ab50db2d031f325510f4881b06",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Revision/Author",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Author",
+      "confidence": 0.96,
+      "reason": "The current Delivery table names Author as the top-level `author` Atom field and specifies the external-Atom fallback. CA-D-274 supplies the exact resolved Author property and registry boundary, supporting Atom.Author. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-276-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter.md",
+          "sha256": "ea6013f935f9b465d4a6ea5afd80a20a44dbc4ab50db2d031f325510f4881b06",
+          "start_line": 21,
+          "end_line": 64,
+          "span_sha256": "c77f22de28cb6c8a0296cd7ba3d0057d3c55eb8dd032e002aef0bdea32c5bdb8",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-274-CORE_META_MODEL-DELIVERY--serialize-explicit-atom-revision-author.md",
+          "sha256": "db4a0f0b1952dfd28ddabce2cfb3db1f3c53618fbc1d1b33ddfc5259a32d7d54",
+          "start_line": 19,
+          "end_line": 34,
+          "span_sha256": "fc82bf98baf806ed9bd64a5e6a3012972d68209e596d6cd86a363c8fc41b9307",
+          "reason": "Current explicit author definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "Author is not a Scope Unit, Actor owner, or copied Actor role; the carrier field convention remains governed by Delivery policy."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DELIVERY--serialize-project-owned-markdown-atom-filenames.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DELIVERY--serialize-project-owned-markdown-atom-filenames.md",
+      "source_atom_id": "CA-D-283",
+      "source_version": 13,
+      "source_sha256": "b4fcef9aac710426b5e27af779df4f6ab459fba9746c6a720abb3deb5ec1faf9",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom/Revision",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.66,
+      "reason": "The current filename policy covers every identified Project-owned Atom and every same-identity Atom Revision, including the current Atom representation as well as predecessor history. The frozen candidate's separate Revision root is limited to a historical Artifact snapshot, while this source does not restrict the occurrence to history. Mapping to Revision would therefore lose the current filename-identity case; no narrower lossless target is supported.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DELIVERY--serialize-project-owned-markdown-atom-filenames.md",
+          "sha256": "b4fcef9aac710426b5e27af779df4f6ab459fba9746c6a720abb3deb5ec1faf9",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "f98ac3cd5c9b5393cc11e61aa1834a275b0c02c2a4c6e7086d5d97aeacb392b3",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "The frozen candidate establishes Revision as the separate historical root and explicitly excludes Artifact.Revision and Atom.Revision containment."
+        },
+        {
+          "pointer": "/snapshot_and_history_rules/8",
+          "reason": "The frozen candidate retains Atom ID plus Version Number as the historical-reference boundary."
+        }
+      ],
+      "preserved_distinctions": [
+        "Current filename identity and Summary-slug serialization remain Delivery constraints, distinct from the candidate's actual historical Atom ID plus Version Number reference boundary."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+      "source_atom_id": "CA-D-304",
+      "source_version": 12,
+      "source_sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Carrier-Only Recoding",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Change Classification:carrier_only",
+      "confidence": 0.95,
+      "reason": "The current Delivery rule is specifically about Carrier-only recoding without semantic change. CA-R-1432 defines `carrier_only` as one allowed change class, so the colon preserves the Property-to-allowed-value meaning instead of treating the label as generic Carrier. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+          "sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "dca8da3a01a40580e0890ffbbe45768fbf5e47a11b6314fc797e1c28ec2189ff",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1432-CORE_META_MODEL-GENERAL--classify-admitted-atom-changes-by-semantic-effect.md",
+          "sha256": "74b7e6a47a421dd660cc905dd19bdb874b23ef2c2030473b5c3c694f5b9fa487",
+          "start_line": 24,
+          "end_line": 47,
+          "span_sha256": "c9a31aec77cd484049b5fbcf2c667461d1247b91c662cfa6f3506e32b239cc86",
+          "reason": "Current explicit classification definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1436-CORE_META_MODEL-CORE--define-is-allowed-value-of.md",
+          "sha256": "a33bdc582beb140647e6012022730abf531f6311923edf80ed7d1fe1614dabad",
+          "start_line": 20,
+          "end_line": 36,
+          "span_sha256": "9b32b753e9f2c14983afdc4907dcd01f237abb7851b5fe5c620759fc93867b89",
+          "reason": "Current explicit allowed definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "carrier_only remains an allowed Atom.Change Classification value; no Carrier root, per-property Carrier relation, or storage rewrite is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-346",
+      "source_version": 12,
+      "source_sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Claim/Canonical Signature",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Canonical Signature",
+      "confidence": 0.92,
+      "reason": "The current Delivery rule includes each Canonical Signature in a non-authoritative Projection and forbids authority or source modification. CA-R-1360 defines the value on one Atom Claim; the confirmed shared-Substance decision leaves it Atom-owned without a Claim Entity. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 26,
+          "end_line": 36,
+          "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1360-CORE_META_MODEL--define-restricted-cce-canonical-signature.md",
+          "sha256": "3baad57dd68218df5bc969b97bbca90296d177f0669f277a32c1d8c1c537b5fc",
+          "start_line": 22,
+          "end_line": 48,
+          "span_sha256": "a6f66a8d5eeab3bbf7719e44f7aa95b74200965f9d59f9eadf91f219b42fd700",
+          "reason": "Current explicit signature definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+          "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "start_line": 1,
+          "end_line": 48,
+          "span_sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc",
+          "reason": "The current actual Operator decision keeps Claim as a role label of shared Atom Substance, not a separate dependent Entity."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed dependent-entity identity model permits the explicit current field even when its display spelling is not separately enumerated."
+        }
+      ],
+      "preserved_distinctions": [
+        "Projection, source identity, Revision evidence, and non-authoritative status remain distinct from the Atom-owned derived field."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-366",
+      "source_version": 8,
+      "source_sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom/Identifier/Project Prefix",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact.Project Atom Prefix",
+      "confidence": 0.93,
+      "reason": "The current Delivery rule serializes the Project Settings TOML Carrier for Project initialization inputs. CA-R-1738 defines Project Settings as the authoritative Artifact containing the Project Atom prefix, supporting the Artifact-owned field without deriving it from the display prefix. This is non-authoritative candidate notation only; no source migration, native admission, selector, carrier binding, or grammar adoption is performed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+          "sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "ac204ba75340b5cfda43dacbfcb5fb9faba22c65cf39f3e2a68c79dcc72f4987",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current explicit property definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Current explicit settings definition supplies the owner, current-snapshot, historical, or allowed-value boundary used by this proposal."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The frozen candidate defines Artifact as the governed lifecycle unit; this supports the source's direct Artifact endpoints without retaining an unsupported Revision containment path."
+        },
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as a governed Artifact made of named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate treats an owner-qualified Property as a dependent Entity rather than another root or an inferred relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "The prefix remains an initialization input in Project Settings, not a Project Structure value, filename alias, or generic Atom identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md",
+      "source_atom_id": "CA-D-446",
+      "source_version": 7,
+      "source_sha256": "3391dbfa646ef362dd1c54cd8c9dab590ee7650f2215d51aec5b7f9ef49d4829",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Revision/Identifier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.68,
+      "reason": "The current source defines a compound Revision Identifier from Atom Identity plus Version and expressly forbids another identifier field. The candidate confirms separate Revision and Atom ID plus Version Number historical reference, but contains no supported Revision.Identifier dependent field. Mapping to bare Revision would lose the identifier-composition distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md",
+          "sha256": "3391dbfa646ef362dd1c54cd8c9dab590ee7650f2215d51aec5b7f9ef49d4829",
+          "start_line": 23,
+          "end_line": 40,
+          "span_sha256": "32d3aac8a5ae6f6d62c3c23e43099a42fac1d97fa4476bdad6cdee9152f9f006",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4",
+          "reason": "The frozen candidate establishes Revision as the separate historical root and explicitly excludes Artifact.Revision and Atom.Revision containment."
+        },
+        {
+          "pointer": "/snapshot_and_history_rules/8",
+          "reason": "The frozen candidate retains Atom ID plus Version Number as the historical-reference boundary."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Atom ID plus Version composition and Draft boundary remain explicit; no Revision.Identifier property or Artifact.Revision containment is invented."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned_occurrences": 26,
+    "owning_sources": 25,
+    "proposed": 23,
+    "unresolved": 3,
+    "owning_current_evidence_spans": 26,
+    "additional_current_definition_evidence_spans": 38
+  },
+  "limits": [
+    "This is non-authoritative, non-executable candidate research only; it performs no source migration or native admission.",
+    "Candidate compact notation is proposed only where the current source and explicit current definition preserve the performer, owner, current-snapshot, historical, or allowed-value distinction.",
+    "No selector, singleton kind, @ operator, Artifact.Revision containment, carrier registry, source/body change, or display-only Artifact prefix is inferred.",
+    "The two unresolved rows remain explicit semantic gaps rather than invented Operator questions."
+  ]
+}

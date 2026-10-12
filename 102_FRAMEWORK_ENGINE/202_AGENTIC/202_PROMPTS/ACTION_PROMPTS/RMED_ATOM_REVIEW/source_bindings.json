@@ -47,9 +47,9 @@
     },
     {
       "atom_id": "CA-R-1436",
-      "version": 7,
+      "version": 8,
       "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1436-CORE_META_MODEL-CORE--define-is-allowed-value-of.md",
-      "sha256": "f14386a0191e847b6b0ef95d647ff8670b8fd37ad0944f004e5f41fde1d646ae"
+      "sha256": "a33bdc582beb140647e6012022730abf531f6311923edf80ed7d1fe1614dabad"
     },
     {
       "atom_id": "CA-R-1662",
@@ -155,9 +155,9 @@
     },
     {
       "atom_id": "CA-D-494",
-      "version": 2,
+      "version": 3,
       "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-494-CORE_META_MODEL-DELIVERY--store-operator-registry-in-project-root.md",
-      "sha256": "9da2650279e0efee42812c499286dc8b0f63fe8922c3aaa41e14ae441b6004d6"
+      "sha256": "98f80305941f3f19636e2807a2e8b5bcf5b240f5e065182e3a4f8174035424f8"
     },
     {
       "atom_id": "CA-D-495",

@@ -1,0 +1,47 @@
+{
+  "task": "CA-P-1963",
+  "recorded_at": "2026-10-11 00:37:29 +0400",
+  "result": "PASS: bounded local Subject Tool acceptance; wider graph baseline has one recorded failure",
+  "implementation": [
+    {"path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py", "sha256": "eed6074a7a93b5fdbe8987160fe73968882635ea62357bf5edcaa9f8d66cbaa6"},
+    {"path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_SEARCH/tests/test_subject_lookup.py", "sha256": "1d595cf259838a05ff011444d31dad6b5c1f2d086d9b00341e81f917ca819253"},
+    {"path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_patch.py", "sha256": "783d838fdb035921ae7219e8a7a8dcd31e27efc34b988e64b6d0989d7091cc04"},
+    {"path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py", "sha256": "cb5cdaa90188d6bcb96ed590cd8a0369f515f2d2715e2411a4f851d07ac12647"},
+    {"path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/ATOM_UPDATE/tests/test_subject_tools_acceptance.py", "sha256": "c9a7a0fc4482b5b0debeec9de3fc09aa61f13880f5e19df1a7d980224b210219"}
+  ],
+  "required_checks": {
+    "atom_operations_and_lookup": {"passed": 35, "failed": 0},
+    "preview_and_independent_acceptance": {"passed": 20, "failed": 0, "independent_acceptance_count": 10},
+    "existing_subject_graph_tests": {"passed": 42, "failed": 0},
+    "existing_subject_migration_planner": {"passed": 7, "failed": 0},
+    "wrong_occurrence_rejected_by_independent_ledger": true,
+    "whole_preview_bytes_equal_independent_literal_replacements": true,
+    "configured_utc_timestamp_uses_real_helper_not_mock": true,
+    "backlog_is_not_active_without_special_folder": true,
+    "validator_mock_boundary_invocation_and_refusal_verified": true,
+    "real_original_and_proposed_validation": "task-1962.receipt.json",
+    "no_source_write_and_apply_guard_proof": "task-1962.receipt.json",
+    "accepted_twelve_tool_authority_pins_current": true,
+    "frozen_candidate_sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+    "grammar_decision_packet_sha256": "4e3636cc01e40801c8f6b8beec9632e80fee3187524bf052656cec9a4e6035ab"
+  },
+  "additional_wider_graph_check": {
+    "passed": 211,
+    "failed": 1,
+    "test": "test_core_relation_registry.CoreRelationRegistryTests.test_actual_current_registered_core_frontier_compiles_three_closed_records",
+    "diagnostic": "registry-core-authority-path-unsupported",
+    "cause": "Closed registry requires retired Core path while project_structure registers current authoring Core path",
+    "classification": "Demonstrably pre-existing and outside this local Subject Tool acceptance; not repaired or counted as a pass",
+    "baseline_commits_compared": ["83dc6b866", "c9ea61148", "700f840b6"],
+    "identical_blobs_in_those_commits_and_worktree": {
+      "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/core_relation_registry.py": "9b5302d9c22eac90b6b187770f0218d30c2f24e5",
+      "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_core_relation_registry.py": "8c52ed0641a38983635e19760671de8ba99b1c7d",
+      ".caprmedio_caprmedio/project_structure.toml": "92687c2f94a93b89c652ec321f8becb37544e8dc"
+    }
+  },
+  "limits": [
+    "Fixture validator seam is mocked for isolated structural assertions; real validation is separately recorded",
+    "No whole-repository or whole-graph pass claimed",
+    "No grammar approval, native fact admission, live migration, final graph gate, MCP binding or runtime activation"
+  ]
+}

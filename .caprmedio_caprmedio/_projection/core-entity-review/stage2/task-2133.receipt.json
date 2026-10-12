@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2133",
+  "recorded_at": "2026-10-11 10:51:13 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review governance and expansion topic subjects; not migration approval",
+  "verification": {
+    "task": "CA-P-2133",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2133.research.json",
+      "sha256": "90b13cf54d48ec1f60c21bf778e27ff9f0a794599a37e769612d9ef3cff46445"
+    },
+    "rows": 20,
+    "counts": {
+      "unresolved": 11,
+      "proposed": 9
+    },
+    "exact_evidence_spans": 24,
+    "exact_supporting_definition_spans": 11,
+    "exact_input_pins": 31,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/subject_review_003",
+      "final_report_sha256": "90b13cf54d48ec1f60c21bf778e27ff9f0a794599a37e769612d9ef3cff46445",
+      "result": "PASS: all nine supported proposals and eleven justified nulls after precise corrections",
+      "meaning_checks": [
+        "CA-R-1658 retains Structural Parent Relation.Type rather than overly broad Relation, supported by live CA-R-1660 and actual relation_type_model.",
+        "CA-R-1669 Atom.Local Tier is supported by current CA-R-1667 Method Atom Type and CA-R-1287 field definition.",
+        "CA-R-1715 Artifact target is supported by current CA-R-1714 persisted Plan Artifact definition.",
+        "Other seventeen rows retain six supported proposals and eleven justified multi-owner/cross-boundary nulls.",
+        "Final stable bytes, actual candidate pointers and complete current supporting spans verified."
+      ],
+      "rejected_interim_reports": [
+        {
+          "sha256": "756358aebe3ecd6a22679a4057d0f5bd972aab198f596cc0a747a7a96a9045ed",
+          "reviewer": "/root/subject_review_003",
+          "result": "FAIL: one overly broad relation target and two missing current definition proofs",
+          "issues": [
+            "CA-R-1658 depends_on[0] -> Relation.Type:Structural Parent",
+            "CA-R-1669 add CA-R-1667 and CA-R-1287 evidence",
+            "CA-R-1715 add CA-R-1714 evidence"
+          ],
+          "format_normalization": {
+            "original_sha256": "aef9fa218f6e3b3c887fc0a8879632ac69eed482b6361fe770698f5733f1ce88",
+            "normalized_sha256": "756358aebe3ecd6a22679a4057d0f5bd972aab198f596cc0a747a7a96a9045ed",
+            "independent_byte_check": "normalized bytes plus two LF bytes reproduce original SHA; semantics unchanged"
+          }
+        }
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/subject_review_003",
+    "final_report_sha256": "90b13cf54d48ec1f60c21bf778e27ff9f0a794599a37e769612d9ef3cff46445",
+    "result": "PASS: all nine supported proposals and eleven justified nulls after precise corrections",
+    "meaning_checks": [
+      "CA-R-1658 retains Structural Parent Relation.Type rather than overly broad Relation, supported by live CA-R-1660 and actual relation_type_model.",
+      "CA-R-1669 Atom.Local Tier is supported by current CA-R-1667 Method Atom Type and CA-R-1287 field definition.",
+      "CA-R-1715 Artifact target is supported by current CA-R-1714 persisted Plan Artifact definition.",
+      "Other seventeen rows retain six supported proposals and eleven justified multi-owner/cross-boundary nulls.",
+      "Final stable bytes, actual candidate pointers and complete current supporting spans verified."
+    ],
+    "rejected_interim_reports": [
+      {
+        "sha256": "756358aebe3ecd6a22679a4057d0f5bd972aab198f596cc0a747a7a96a9045ed",
+        "reviewer": "/root/subject_review_003",
+        "result": "FAIL: one overly broad relation target and two missing current definition proofs",
+        "issues": [
+          "CA-R-1658 depends_on[0] -> Relation.Type:Structural Parent",
+          "CA-R-1669 add CA-R-1667 and CA-R-1287 evidence",
+          "CA-R-1715 add CA-R-1714 evidence"
+        ],
+        "format_normalization": {
+          "original_sha256": "aef9fa218f6e3b3c887fc0a8879632ac69eed482b6361fe770698f5733f1ce88",
+          "normalized_sha256": "756358aebe3ecd6a22679a4057d0f5bd972aab198f596cc0a747a7a96a9045ed",
+          "independent_byte_check": "normalized bytes plus two LF bytes reproduce original SHA; semantics unchanged"
+        }
+      }
+    ]
+  },
+  "completion_scope": "All20 selected origins passed exact live pin/span/coverage controls and independent semantic acceptance: nine supported proposals and eleven explicit nulls. One overly broad relation target and missing definition proofs were corrected before acceptance; original Core is unchanged.",
+  "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

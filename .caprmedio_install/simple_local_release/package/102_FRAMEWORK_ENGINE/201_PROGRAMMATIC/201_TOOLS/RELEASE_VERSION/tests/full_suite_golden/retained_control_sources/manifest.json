@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "provenance": {
+    "package_manifest_ref": ".caprmedio_runtime/framework/releases/6f2e3a615a4f4d6da0f16831800f9e4b7ff84f89b89faeefc359f51711d28c57/manifest.toml",
+    "package_manifest_sha256": "6f2e3a615a4f4d6da0f16831800f9e4b7ff84f89b89faeefc359f51711d28c57"
+  },
+  "sources": [
+    {
+      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1436-CORE_META_MODEL-CORE--define-is-allowed-value-of.md",
+      "fixture_path": "CA-R-1436-v7.md",
+      "sha256": "f14386a0191e847b6b0ef95d647ff8670b8fd37ad0944f004e5f41fde1d646ae",
+      "mode": 420
+    },
+    {
+      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-494-CORE_META_MODEL-DELIVERY--store-operator-registry-in-project-root.md",
+      "fixture_path": "CA-D-494-v2.md",
+      "sha256": "9da2650279e0efee42812c499286dc8b0f63fe8922c3aaa41e14ae441b6004d6",
+      "mode": 420
+    }
+  ]
+}

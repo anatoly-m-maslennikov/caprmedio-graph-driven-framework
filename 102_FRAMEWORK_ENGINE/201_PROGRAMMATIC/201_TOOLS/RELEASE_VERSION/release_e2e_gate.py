@@ -29,10 +29,20 @@ from typing import Any, Literal
 
 from release_contract import ReleaseContractError, ValidatedCandidate, canonical_json
 from release_e2e_context import CANDIDATE_IMAGE_ENVIRONMENT_VARIABLE, CONTEXT_ENVIRONMENT_VARIABLE
-from release_handoff import CANONICAL_SOURCE_RELATIVE, FRAMEWORK_SETTINGS_RELATIVE, PackageRow, SealedCandidateCompilation, tree_sha256
-from release_image import ImageBuildEvidence, ImageVerificationEvidence, read_image_execution_artifacts, verify_bound_image_evidence
+from release_handoff import FRAMEWORK_SETTINGS_RELATIVE, PackageRow, SealedCandidateCompilation, tree_sha256
+from methodology_layout import resolve_methodology_layout
+from release_image import (ImageBuildEvidence, ImageVerificationEvidence,
+                           PortableImageBuildEvidence, PortableImageVerificationEvidence,
+                           read_image_execution_artifacts, verify_bound_image_evidence)
+from release_package_evidence import PackageEvidenceView, bind_package_evidence
 from release_packaging import RUNTIME_ROOT, ReleasePackagingError, _verify_release
-from release_suite import SuiteGateEvidence, _active_n_state, _active_skill_records, _safe_path, _validate_bound_inputs, verify_bound_suite_evidence
+from release_portable_contract import SealedPortableCandidateCompilation
+from release_portable_package import PreparedPortableReleasePackage
+from release_retained_candidate import RetainedCandidateIdentity, reopen_retained_candidate_identity
+from release_retained_package import RetainedNativePackageEvidence, read_retained_native_package_evidence
+from release_suite import (PortableSuiteGateEvidence, SuiteGateEvidence, _active_n_state,
+                           _active_skill_records, _safe_path, _validate_bound_inputs,
+                           verify_bound_suite_evidence)
 from release_test_phases import derive_test_phase_map
 
 
@@ -54,9 +64,7 @@ _DOCKER_CANDIDATES = (
     "/usr/bin/docker",
     "/Applications/Docker.app/Contents/Resources/bin/docker",
 )
-DEFAULT_FRAMEWORK_SETTINGS_RELATIVE = (
-    f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
-)
+DEFAULT_FRAMEWORK_SETTINGS_SUFFIX = "001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
 _LIMIT_KEYS = (
     "inspect_timeout_seconds",
     "harness_timeout_seconds",
@@ -66,6 +74,9 @@ _LIMIT_KEYS = (
     "max_junit_bytes",
 )
 _SETTINGS_SNAPSHOT_FILENAME = "release-e2e-limits.json"
+_RETAINED_GRAMMAR_FILENAME = "release-e2e-grammar.json"
+_RETAINED_DEFAULT_SETTINGS_FILENAME = "release-e2e-default-settings.toml"
+_RETAINED_INSTANCE_SETTINGS_FILENAME = "release-e2e-instance-settings.toml"
 
 
 @dataclass(frozen=True)
@@ -90,6 +101,8 @@ class FrozenReleaseE2ELimits:
     limits: ReleaseE2ELimits
     snapshot: bytes
     sha256: str
+    default_settings: bytes
+    instance_settings: bytes
 
 
 @dataclass(frozen=True)
@@ -335,6 +348,27 @@ class CandidateE2EGateEvidence:
         return self.outcome == "passed" and self.execution_kind == "host-subprocess" and self.receipt_sha256 is not None
 
 
+@dataclass(frozen=True, kw_only=True)
+class PortableCandidateE2EGateEvidence(CandidateE2EGateEvidence):
+    """Portable-package E2E receipt with its closed D597/D596 bindings.
+
+    Schema-2 receipts intentionally continue to use ``CandidateE2EGateEvidence``
+    and therefore retain their original canonical receipt bytes.  Portable
+    receipts must carry every package identity needed by a later Full Gate;
+    none of these values is inferred from a legacy carrier.
+    """
+
+    package_schema: Literal["portable-1"]
+    package_manifest_sha256: str
+    package_evidence_sha256: str
+    package_evidence_relpath: str
+    source_catalog_sha256: str
+    candidate_run_id: str
+    input_manifest_sha256: str
+    framework_version: str
+    version_toml_sha256: str
+
+
 def _digest(payload: bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
 
@@ -363,9 +397,7 @@ def _regular(root: Path, relative: str, *, label: str) -> Path:
     return target
 
 
-def _load_grammar(root: Path) -> tuple[dict[str, Any], bytes, str, str]:
-    path = _regular(root, GRAMMAR_RELATIVE, label="E2E grammar")
-    raw = path.read_bytes()
+def _parse_grammar(raw: bytes) -> dict[str, Any]:
     if len(raw) > _MAX_CONTEXT_BYTES:
         raise ReleaseContractError("release-e2e-grammar-invalid", "E2E grammar exceeds its fixed size")
     try:
@@ -408,7 +440,13 @@ def _load_grammar(root: Path) -> tuple[dict[str, Any], bytes, str, str]:
         raise ReleaseContractError("release-e2e-grammar-invalid", "E2E grammar harness set changed")
     # The E2E phase-map is independently sealed from the candidate inventory;
     # it is never re-derived from this mutable grammar carrier.
-    return grammar, raw, _digest(raw), ""
+    return grammar
+
+
+def _load_grammar(root: Path) -> tuple[dict[str, Any], bytes, str, str]:
+    path = _regular(root, GRAMMAR_RELATIVE, label="E2E grammar")
+    raw = path.read_bytes()
+    return _parse_grammar(raw), raw, _digest(raw), ""
 
 
 def _executor_kind(executor: object) -> Literal["host-subprocess", "test-double"]:
@@ -419,29 +457,232 @@ def _executor_kind(executor: object) -> Literal["host-subprocess", "test-double"
     raise ReleaseContractError("release-e2e-executor-untrusted", "E2E requires HostE2EExecutor or an explicitly marked test double")
 
 
-def _reopen_predecessors(candidate: ValidatedCandidate, compilation: SealedCandidateCompilation,
-                         unit_suite: SuiteGateEvidence, image_build: ImageBuildEvidence,
-                         image: ImageVerificationEvidence) -> Path:
+def _portable_package_view(
+    candidate: ValidatedCandidate,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+    unit_suite: object,
+    image_build: object,
+    image: object,
+    *,
+    prepared_package: PreparedPortableReleasePackage | None,
+) -> PackageEvidenceView | None:
+    """Reopen the physical portable package and bind native predecessors.
+
+    Package evidence owns the package re-open.  E2E only compares closed
+    predecessor receipts to that fresh result; it neither reconstructs a
+    schema-2 compilation nor creates a package identity.
+    """
+
+    if isinstance(compilation, SealedCandidateCompilation):
+        if prepared_package is not None:
+            raise ReleaseContractError(
+                "release-e2e-package-schema-mismatch",
+                "schema-2 candidate E2E does not accept a portable package receipt",
+            )
+        return None
+    if not isinstance(compilation, SealedPortableCandidateCompilation):
+        raise ReleaseContractError(
+            "release-e2e-handoff-untrusted",
+            "candidate E2E requires a sealed legacy or portable compilation",
+        )
+    if not isinstance(prepared_package, PreparedPortableReleasePackage):
+        raise ReleaseContractError(
+            "release-e2e-portable-package-required",
+            "portable candidate E2E requires the typed prepared package receipt",
+        )
+    try:
+        package = bind_package_evidence(candidate, compilation, prepared_package=prepared_package)
+    except Exception as error:
+        code = getattr(error, "code", "release-e2e-portable-package-invalid")
+        raise ReleaseContractError(str(code), "portable package evidence could not be physically reopened") from error
+    if (
+        package.package_schema != "portable-1"
+        or package.source_catalog_sha256 is None
+        or package.candidate_run_id is None
+        or package.input_manifest_sha256 is None
+        or package.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+        or package.framework_version != candidate.manifest.framework_version
+        or package.version_toml_sha256 != candidate.manifest.version_toml_sha256
+    ):
+        raise ReleaseContractError(
+            "release-e2e-portable-package-mismatch",
+            "reopened portable package does not bind the sealed candidate/version/catalog",
+        )
+    shared = {
+        "source_catalog_sha256": package.source_catalog_sha256,
+        "candidate_run_id": package.candidate_run_id,
+        "input_manifest_sha256": package.input_manifest_sha256,
+        "framework_version": package.framework_version,
+        "version_toml_sha256": package.version_toml_sha256,
+    }
+    image_expected = {
+        "package_schema": package.package_schema,
+        **shared,
+    }
+    for label, evidence, expected in (
+        ("portable Unit", unit_suite, {**shared, "input_schema": "portable-1", "phase_map_sha256": package.phase_map.sha256}),
+        ("portable image build", image_build, {**image_expected, "package_manifest_sha256": package.actual_package_manifest_sha256}),
+        ("portable image verification", image, {**image_expected, "package_manifest_sha256": package.actual_package_manifest_sha256}),
+    ):
+        for field, value in expected.items():
+            if getattr(evidence, field, None) != value:
+                raise ReleaseContractError(
+                    "release-e2e-portable-predecessor-mismatch",
+                    f"{label} does not bind the reopened portable package: {field}",
+                )
+    _portable_sidecar_binding(image_build, image)
+    return package
+
+
+def _portable_sidecar_binding(image_build: object, image: object) -> tuple[str, str]:
+    """Require both native Image receipts to bind one retained package view.
+
+    At execution time E2E must reject a missing, malformed, or disagreeing
+    Image binding before it can execute any host harness. The retained-artifact
+    reader reopens the sidecar later; its carrier remains Project-relative and
+    is intentionally not converted into a schema-2 receipt field.
+    """
+
+    bindings: list[tuple[str, str]] = []
+    for label, evidence in (("portable image build", image_build), ("portable image verification", image)):
+        digest = getattr(evidence, "package_evidence_sha256", None)
+        relative = getattr(evidence, "package_evidence_relpath", None)
+        if not isinstance(digest, str) or _SHA256.fullmatch(digest) is None:
+            raise ReleaseContractError(
+                "release-e2e-portable-predecessor-mismatch",
+                f"{label} lacks a retained package-evidence digest",
+            )
+        if not isinstance(relative, str):
+            raise ReleaseContractError(
+                "release-e2e-portable-predecessor-mismatch",
+                f"{label} lacks a retained package-evidence carrier",
+            )
+        path = PurePosixPath(relative)
+        if (
+            not relative
+            or path.is_absolute()
+            or path.as_posix() != relative
+            or any(part in {"", ".", ".."} for part in path.parts)
+            or path.parent.name != "package_evidence"
+            or path.name != f"{digest}.json"
+        ):
+            raise ReleaseContractError(
+                "release-e2e-portable-predecessor-mismatch",
+                f"{label} package-evidence carrier is not canonical",
+            )
+        bindings.append((digest, relative))
+    if bindings[0] != bindings[1]:
+        raise ReleaseContractError(
+            "release-e2e-portable-predecessor-mismatch",
+            "portable Image receipts bind different retained package evidence",
+        )
+    return bindings[0]
+
+
+def _read_retained_portable_image_package(
+    root: Path,
+    image_build: object,
+    image: object,
+) -> PackageEvidenceView:
+    """Reopen the native package named by Image receipts through its sidecar.
+
+    This is the retained-artifact counterpart to ``_portable_package_view``.
+    It deliberately accepts no prepared receipt and does not call the live
+    package-evidence binder: original E2E proof must remain readable after
+    selection or checkout changes.
+    """
+
+    if not isinstance(image_build, PortableImageBuildEvidence) or not isinstance(image, PortableImageVerificationEvidence):
+        raise ReleaseContractError(
+            "release-e2e-retained-package-untrusted",
+            "portable retained E2E artifacts require native Image receipts",
+        )
+    digest, relative = _portable_sidecar_binding(image_build, image)
+    # Retention preserves a content-addressed package beside the sidecar. The
+    # Docker context names its copy ``PACKAGE`` and therefore cannot satisfy
+    # the package verifier's content-addressed-root invariant.
+    sidecar = _regular(root, relative, label="retained portable package evidence")
+    candidate_root = sidecar.parent.parent
+    package_root = candidate_root / "package" / image_build.package_manifest_sha256
+    if package_root.is_symlink() or not package_root.is_dir():
+        raise ReleaseContractError(
+            "release-e2e-retained-package-untrusted",
+            "portable sidecar lacks its retained content-addressed package",
+        )
+    try:
+        retained = read_retained_native_package_evidence(
+            package_root,
+            sidecar,
+            expected_sha256=digest,
+        )
+    except ReleaseContractError as error:
+        raise ReleaseContractError(
+            "release-e2e-retained-package-untrusted",
+            "portable image package evidence cannot be reopened",
+        ) from error
+    view = retained.view
+    expected = {
+        "package_schema": "portable-1",
+        "package_manifest_sha256": view.actual_package_manifest_sha256,
+        "source_catalog_sha256": view.source_catalog_sha256,
+        "candidate_run_id": view.candidate_run_id,
+        "input_manifest_sha256": view.input_manifest_sha256,
+        "framework_version": view.framework_version,
+        "version_toml_sha256": view.version_toml_sha256,
+        "package_evidence_sha256": retained.receipt_sha256,
+        "package_evidence_relpath": relative,
+    }
+    for label, evidence in (("portable image build", image_build), ("portable image verification", image)):
+        if any(getattr(evidence, field, None) != value for field, value in expected.items()):
+            raise ReleaseContractError(
+                "release-e2e-retained-package-untrusted",
+                f"{label} does not bind the reopened retained package",
+            )
+    return view
+
+
+def _reopen_predecessors(
+    candidate: ValidatedCandidate,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+    unit_suite: SuiteGateEvidence,
+    image_build: ImageBuildEvidence,
+    image: ImageVerificationEvidence,
+    *,
+    prepared_package: PreparedPortableReleasePackage | None = None,
+) -> tuple[Path, PackageEvidenceView | None]:
     """Reopen predecessor bytes, rather than trusting fields a caller supplies."""
 
-    root = _validate_bound_inputs(candidate, compilation)
-    suite_root = verify_bound_suite_evidence(candidate, compilation, unit_suite)
-    image_attempt = verify_bound_image_evidence(candidate, compilation, unit_suite, image_build, image)
+    package = _portable_package_view(
+        candidate, compilation, unit_suite, image_build, image, prepared_package=prepared_package,
+    )
+    if package is None:
+        root = _validate_bound_inputs(candidate, compilation)
+        suite_root = verify_bound_suite_evidence(candidate, compilation, unit_suite)
+        image_attempt = verify_bound_image_evidence(candidate, compilation, unit_suite, image_build, image)
+    else:
+        suite_root = verify_bound_suite_evidence(candidate, compilation, unit_suite)
+        image_attempt = verify_bound_image_evidence(
+            candidate, compilation, unit_suite, image_build, image, prepared_package=prepared_package,
+        )
+        root = Path(candidate.project_root).resolve()
     expected_image_attempt = _safe_path(root, image.evidence_root)
     if suite_root != root or image_attempt != expected_image_attempt:
         raise ReleaseContractError("release-e2e-predecessor-root-mismatch", "predecessor evidence reopened outside its bound candidate carrier")
     if _IMAGE_ID.fullmatch(image.candidate_image_digest) is None:
         raise ReleaseContractError("release-e2e-image-untrusted", "reopened image evidence lacks an immutable candidate ID")
-    return root
+    return root, package
 
 
-def _bound_phase_map(candidate: ValidatedCandidate, grammar: dict[str, Any]):
+def _bound_phase_map(candidate: ValidatedCandidate, grammar: dict[str, Any],
+                     package: PackageEvidenceView | None = None):
     """Bind grammar phases to the independently sealed candidate test map."""
 
     phase_map = derive_test_phase_map(candidate)
     grammar_paths = tuple(sorted(row["source_path"] for row in grammar["harnesses"]))
     if grammar_paths != phase_map.candidate_e2e_paths:
         raise ReleaseContractError("release-e2e-phase-map-mismatch", "E2E grammar paths differ from the sealed candidate phase map")
+    if package is not None and package.phase_map != phase_map:
+        raise ReleaseContractError("release-e2e-phase-map-mismatch", "portable package phase map differs from the sealed candidate phase map")
     return phase_map
 
 
@@ -463,16 +704,40 @@ def _parse_utc_timestamp(value: object) -> datetime:
     return parsed
 
 
+def _sealed_source_rows(
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+) -> tuple[object, ...]:
+    """Return source-bearing rows without coercing portable input to schema-2."""
+
+    if isinstance(compilation, SealedCandidateCompilation):
+        return tuple(compilation.package_rows)
+    if isinstance(compilation, SealedPortableCandidateCompilation):
+        return tuple(compilation.portable_package_rows)
+    raise ReleaseContractError("release-e2e-handoff-untrusted", "candidate E2E compilation is not typed")
+
+
 def _source_control_fingerprint(root: Path, candidate: ValidatedCandidate,
-                                compilation: SealedCandidateCompilation, grammar: bytes) -> str:
+                                compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+                                grammar: bytes) -> str:
     """Fingerprint every sealed source carrier the host driver may observe."""
 
     rows: dict[str, tuple[str, int]] = {}
     for row in candidate.manifest.source_inventory_rows:
         rows[row.source_path] = (row.source_sha256, row.source_mode)
-    for row in compilation.package_rows:
-        prior = rows.setdefault(row.source_path, (row.sha256, row.mode))
-        if prior != (row.sha256, row.mode):
+    for row in _sealed_source_rows(compilation):
+        source_path = getattr(row, "source_path", None)
+        digest = getattr(row, "sha256", None)
+        mode = getattr(row, "mode", None)
+        if (
+            not isinstance(source_path, str)
+            or not isinstance(digest, str)
+            or _SHA256.fullmatch(digest) is None
+            or type(mode) is not int
+            or not 0 <= mode <= 0o777
+        ):
+            raise ReleaseContractError("release-e2e-handoff-untrusted", "sealed candidate source row is invalid")
+        prior = rows.setdefault(source_path, (digest, mode))
+        if prior != (digest, mode):
             raise ReleaseContractError("release-e2e-binding-mismatch", "candidate and compilation seal conflicting source bytes")
     records: list[dict[str, object]] = []
     for relative, (expected_sha, expected_mode) in sorted(rows.items()):
@@ -497,19 +762,11 @@ def _write_new(path: Path, payload: bytes) -> None:
         os.fsync(stream.fileno())
 
 
-def _release_e2e_settings(root: Path, candidate: ValidatedCandidate) -> FrozenReleaseE2ELimits:
-    """Resolve the six D582 caps from default TOML plus the Framework Instance.
+def _freeze_release_e2e_settings(default_raw: bytes, instance_raw: bytes, *,
+                                 default_settings_relative: str,
+                                 instance_settings_relative: str) -> FrozenReleaseE2ELimits:
+    """Resolve the closed E2E limit set from physically supplied TOML bytes."""
 
-    The snapshot carries both source-byte digests and the resolved values.  It
-    is retained with an attempt and reopened before a later admission, rather
-    than treating a caller-provided limit or a live TOML read as authoritative.
-    """
-
-    default_path = _regular(root, DEFAULT_FRAMEWORK_SETTINGS_RELATIVE, label="default E2E settings")
-    instance_path = _regular(root, FRAMEWORK_SETTINGS_RELATIVE, label="Framework Instance settings")
-    default_raw, instance_raw = default_path.read_bytes(), instance_path.read_bytes()
-    if _digest(instance_raw) != candidate.manifest.framework_settings_digest:
-        raise ReleaseContractError("release-currentness-stale", "Framework Instance settings no longer match the candidate seal")
     try:
         default_document = tomllib.loads(default_raw.decode("utf-8"))
         instance_document = tomllib.loads(instance_raw.decode("utf-8"))
@@ -538,16 +795,40 @@ def _release_e2e_settings(root: Path, candidate: ValidatedCandidate) -> FrozenRe
     snapshot = canonical_json({
         "schema_version": 1,
         "default_settings": {
-            "path": DEFAULT_FRAMEWORK_SETTINGS_RELATIVE,
+            "path": default_settings_relative,
             "sha256": _digest(default_raw),
         },
         "instance_settings": {
-            "path": FRAMEWORK_SETTINGS_RELATIVE,
+            "path": instance_settings_relative,
             "sha256": _digest(instance_raw),
         },
         "limits": asdict(limits),
     })
-    return FrozenReleaseE2ELimits(limits, snapshot, _digest(snapshot))
+    return FrozenReleaseE2ELimits(limits, snapshot, _digest(snapshot), default_raw, instance_raw)
+
+
+def _release_e2e_settings(root: Path, candidate: ValidatedCandidate) -> FrozenReleaseE2ELimits:
+    """Resolve the six D582 caps from default TOML plus the Framework Instance.
+
+    The snapshot carries both source-byte digests and the resolved values. It
+    is retained with an attempt and reopened before a later admission, rather
+    than treating a caller-provided limit or a live TOML read as authoritative.
+    """
+
+    layout = resolve_methodology_layout(root)
+    default_relative = f"{candidate.manifest.canonical_source_snapshot_ref}/{DEFAULT_FRAMEWORK_SETTINGS_SUFFIX}"
+    instance_relative = f"{layout.installed_root}/caprmedio_framework_settings.toml"
+    if (candidate.manifest.canonical_source_snapshot_ref != layout.source_root
+            or candidate.manifest.project_structure_digest != layout.structure_sha256):
+        raise ReleaseContractError("release-currentness-stale", "Methodology registry no longer matches the candidate seal")
+    default_path = _regular(root, default_relative, label="default E2E settings")
+    instance_path = _regular(root, instance_relative, label="Framework Instance settings")
+    default_raw, instance_raw = default_path.read_bytes(), instance_path.read_bytes()
+    if _digest(instance_raw) != candidate.manifest.framework_settings_digest:
+        raise ReleaseContractError("release-currentness-stale", "Framework Instance settings no longer match the candidate seal")
+    return _freeze_release_e2e_settings(default_raw, instance_raw,
+                                      default_settings_relative=default_relative,
+                                      instance_settings_relative=instance_relative)
 
 
 def _reopen_release_e2e_settings(root: Path, candidate: ValidatedCandidate,
@@ -565,6 +846,62 @@ def _reopen_release_e2e_settings(root: Path, candidate: ValidatedCandidate,
     if _digest(snapshot) != evidence.settings_snapshot_sha256 or snapshot != frozen.snapshot:
         raise ReleaseContractError("release-e2e-settings-untrusted", "candidate E2E settings changed or snapshot is not bound")
     return frozen.limits
+
+
+def _reopen_retained_release_e2e_settings(root: Path, evidence: CandidateE2EGateEvidence) -> ReleaseE2ELimits:
+    """Reopen the settings bytes recorded with an original E2E attempt.
+
+    Unlike fresh admission, this must not consult mutable Framework settings:
+    the snapshot, both TOML carriers, and their resolved limits form one
+    original-proof packet beneath the immutable attempt root.
+    """
+
+    if (not isinstance(evidence.settings_snapshot_path, str)
+            or not isinstance(evidence.settings_snapshot_sha256, str)
+            or _SHA256.fullmatch(evidence.settings_snapshot_sha256) is None
+            or evidence.settings_snapshot_path != f"{evidence.evidence_root}/{_SETTINGS_SNAPSHOT_FILENAME}"):
+        raise ReleaseContractError("release-e2e-settings-untrusted", "candidate E2E evidence lacks a bound settings snapshot")
+    snapshot = _regular(root, evidence.settings_snapshot_path, label="candidate E2E settings snapshot").read_bytes()
+    default_raw = _regular(
+        root,
+        f"{evidence.evidence_root}/{_RETAINED_DEFAULT_SETTINGS_FILENAME}",
+        label="retained default E2E settings",
+    ).read_bytes()
+    instance_raw = _regular(
+        root,
+        f"{evidence.evidence_root}/{_RETAINED_INSTANCE_SETTINGS_FILENAME}",
+        label="retained Framework Instance E2E settings",
+    ).read_bytes()
+    try:
+        document = json.loads(snapshot)
+        default_relative = document["default_settings"]["path"]
+        instance_relative = document["instance_settings"]["path"]
+        for relative in (default_relative, instance_relative):
+            if (not isinstance(relative, str) or not relative or "\\" in relative
+                    or PurePosixPath(relative).is_absolute()
+                    or any(part in {".", "..", ""} for part in relative.split("/"))):
+                raise ValueError("unsafe settings reference")
+    except (ValueError, TypeError, KeyError) as error:
+        raise ReleaseContractError("release-e2e-settings-untrusted", "retained E2E settings references are invalid") from error
+    frozen = _freeze_release_e2e_settings(default_raw, instance_raw,
+                                      default_settings_relative=default_relative,
+                                      instance_settings_relative=instance_relative)
+    if _digest(snapshot) != evidence.settings_snapshot_sha256 or snapshot != frozen.snapshot:
+        raise ReleaseContractError("release-e2e-settings-untrusted", "retained E2E settings packet is incomplete or changed")
+    return frozen.limits
+
+
+def _reopen_retained_grammar(root: Path, evidence: CandidateE2EGateEvidence) -> tuple[dict[str, Any], bytes]:
+    """Reopen the exact fixed-three-harness grammar recorded by the attempt."""
+
+    raw = _regular(
+        root,
+        f"{evidence.evidence_root}/{_RETAINED_GRAMMAR_FILENAME}",
+        label="retained candidate E2E grammar",
+    ).read_bytes()
+    if _digest(raw) != evidence.grammar_sha256:
+        raise ReleaseContractError("release-e2e-evidence-untrusted", "retained E2E grammar bytes changed or are unbound")
+    return _parse_grammar(raw), raw
 
 
 def _cap_test_double_result(result: E2EExecutionResult, limits: ReleaseE2ELimits) -> E2EExecutionResult:
@@ -648,9 +985,18 @@ def _read_bounded_artifact(root: Path, relative: str, *, limit: int, label: str)
     return payload
 
 
-def _context_bytes(root: Path, scratch: Path, reports: Path, candidate: ValidatedCandidate,
-                   image: ImageVerificationEvidence, grammar_sha256: str, phase_map_sha256: str,
-                   grammar: dict[str, Any]) -> tuple[bytes, tuple[dict[str, Any], ...]]:
+def _context_bytes_for_binding(root: Path, scratch: Path, reports: Path,
+                               candidate_snapshot_manifest_sha256: str,
+                               candidate_image_digest: str, grammar_sha256: str,
+                               phase_map_sha256: str,
+                               grammar: dict[str, Any]) -> tuple[bytes, tuple[dict[str, Any], ...]]:
+    """Render the immutable attempt context from already sealed identities.
+
+    This deliberately needs only the candidate/image identities, not a live
+    ``ValidatedCandidate``.  Detached retained readers use the same grammar
+    and path binding without turning a descriptor back into a live candidate.
+    """
+
     harnesses: list[dict[str, Any]] = []
     for row in grammar["harnesses"]:
         pattern = Path(row["source_path"]).name
@@ -667,8 +1013,8 @@ def _context_bytes(root: Path, scratch: Path, reports: Path, candidate: Validate
         "source_root": str(root.resolve()),
         "scratch_root": str(scratch.resolve()),
         "report_root": str(reports.resolve()),
-        "candidate_snapshot_manifest_sha256": candidate.manifest.sha256,
-        "candidate_image_digest": image.candidate_image_digest,
+        "candidate_snapshot_manifest_sha256": candidate_snapshot_manifest_sha256,
+        "candidate_image_digest": candidate_image_digest,
         "grammar_sha256": grammar_sha256,
         "phase_map_sha256": phase_map_sha256,
         "fixed_harnesses": harnesses,
@@ -678,6 +1024,101 @@ def _context_bytes(root: Path, scratch: Path, reports: Path, candidate: Validate
     if len(encoded) > _MAX_CONTEXT_BYTES:
         raise ReleaseContractError("release-e2e-context-invalid", "sealed E2E context exceeds its fixed size")
     return encoded, tuple(harnesses)
+
+
+def _context_bytes(root: Path, scratch: Path, reports: Path, candidate: ValidatedCandidate,
+                   image: ImageVerificationEvidence, grammar_sha256: str, phase_map_sha256: str,
+                   grammar: dict[str, Any]) -> tuple[bytes, tuple[dict[str, Any], ...]]:
+    """Render a live-candidate context through the shared sealed binding."""
+
+    return _context_bytes_for_binding(
+        root, scratch, reports, candidate.manifest.sha256, image.candidate_image_digest,
+        grammar_sha256, phase_map_sha256, grammar,
+    )
+
+
+@dataclass(frozen=True)
+class _CapturedE2EContext:
+    """Original execution paths carried as immutable identities, never read."""
+
+    source_root: Path
+    scratch_root: Path
+    reports_root: Path
+
+
+def _captured_absolute_path(value: object, *, label: str) -> Path:
+    """Accept one canonical absolute POSIX identity without touching its target."""
+
+    if not isinstance(value, str) or not value:
+        raise ReleaseContractError("release-e2e-evidence-untrusted", f"captured {label} path is invalid")
+    path = PurePosixPath(value)
+    if (
+        not path.is_absolute()
+        or path.as_posix() != value
+        or any(part in {"", ".", ".."} for part in path.parts)
+    ):
+        raise ReleaseContractError("release-e2e-evidence-untrusted", f"captured {label} path is unsafe")
+    return Path(value)
+
+
+def _reopen_relocated_e2e_context(root: Path, evidence: CandidateE2EGateEvidence,
+                                  candidate_snapshot_manifest_sha256: str,
+                                  image: ImageVerificationEvidence, grammar_sha256: str,
+                                  phase_map_sha256: str,
+                                  grammar: dict[str, Any]) -> _CapturedE2EContext:
+    """Validate an unchanged original context copied below ``root``.
+
+    The context's absolute paths identify where execution happened originally.
+    They are deliberately parsed but never reopened: all evidence bytes remain
+    read through ``root``.  This is the detached equivalent of Image's
+    relocated command-shape validation.
+    """
+
+    context = _read_bounded_artifact(
+        root, f"{evidence.evidence_root}/scratch/context.json",
+        limit=_MAX_CONTEXT_BYTES, label="candidate E2E context",
+    )
+    try:
+        document = json.loads(context.decode("utf-8"), object_pairs_hook=_reject_duplicates)
+    except (UnicodeDecodeError, json.JSONDecodeError, ReleaseContractError) as error:
+        raise ReleaseContractError("release-e2e-evidence-untrusted", "captured candidate E2E context is invalid") from error
+    required = {
+        "schema_version", "source_root", "scratch_root", "report_root",
+        "candidate_snapshot_manifest_sha256", "candidate_image_digest",
+        "grammar_sha256", "phase_map_sha256", "fixed_harnesses", "phase_bindings",
+    }
+    if not isinstance(document, dict) or set(document) != required or canonical_json(document) != context:
+        raise ReleaseContractError("release-e2e-evidence-untrusted", "captured candidate E2E context is not canonical")
+    source_root = _captured_absolute_path(document["source_root"], label="source root")
+    scratch_root = _captured_absolute_path(document["scratch_root"], label="scratch root")
+    reports_root = _captured_absolute_path(document["report_root"], label="report root")
+    evidence_relative = PurePosixPath(evidence.evidence_root)
+    expected_scratch = source_root.joinpath(*evidence_relative.parts, "scratch")
+    expected_reports = expected_scratch / "reports"
+    if scratch_root != expected_scratch or reports_root != expected_reports:
+        raise ReleaseContractError("release-e2e-evidence-untrusted", "captured E2E work paths do not form the fixed attempt layout")
+    expected_harnesses = []
+    for row in grammar["harnesses"]:
+        pattern = Path(row["source_path"]).name
+        expected_harnesses.append({
+            "source_path": row["source_path"],
+            "start_directory": row["argv"][3],
+            "pattern": pattern,
+            "junit_path": str(reports_root / f"{pattern}.xml"),
+            "context_optins": row["context_optins"],
+        })
+    if (
+        type(document["schema_version"]) is not int
+        or document["schema_version"] != 1
+        or document["candidate_snapshot_manifest_sha256"] != candidate_snapshot_manifest_sha256
+        or document["candidate_image_digest"] != image.candidate_image_digest
+        or document["grammar_sha256"] != grammar_sha256
+        or document["phase_map_sha256"] != phase_map_sha256
+        or document["fixed_harnesses"] != expected_harnesses
+        or document["phase_bindings"] != ["image-inspect", *(item["pattern"] for item in expected_harnesses)]
+    ):
+        raise ReleaseContractError("release-e2e-evidence-untrusted", "captured E2E context does not match its sealed grammar and identities")
+    return _CapturedE2EContext(source_root, scratch_root, reports_root)
 
 
 def _receipt_path(root: Path, evidence_root: str) -> Path:
@@ -751,12 +1192,13 @@ def _reopen_host_capability(root: Path, evidence: CandidateE2EGateEvidence) -> F
 
 def verify_bound_candidate_e2e_evidence(
     candidate: ValidatedCandidate,
-    compilation: SealedCandidateCompilation,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
     unit_suite: SuiteGateEvidence,
     image: ImageVerificationEvidence,
     evidence: CandidateE2EGateEvidence,
     *,
     image_build: ImageBuildEvidence,
+    prepared_package: PreparedPortableReleasePackage | None = None,
 ) -> Path:
     """Reopen actual candidate-E2E artifacts; this never promotes a candidate.
 
@@ -766,16 +1208,24 @@ def verify_bound_candidate_e2e_evidence(
     consumer instead of leaving an unauthenticated side file beside a receipt.
     """
 
-    root = _reopen_predecessors(candidate, compilation, unit_suite, image_build, image)
-    capability = _read_candidate_e2e_artifacts(root, candidate, compilation, image, evidence)
+    root, package = _reopen_predecessors(
+        candidate, compilation, unit_suite, image_build, image, prepared_package=prepared_package,
+    )
+    capability = _read_candidate_e2e_artifacts(root, candidate, compilation, image, evidence, package=package)
     HostE2EExecutor.revalidate_capability(root, candidate, capability)
     return root
 
 
-def _verify_retained_host_capability(root: Path, candidate: ValidatedCandidate,
-                                     unit_suite: SuiteGateEvidence,
-                                     capability: FrozenHostE2ECapability) -> None:
-    """Prove original N and executable bytes without requiring N to remain selected."""
+def _verify_retained_host_capability_for_release(root: Path, executing_release: str,
+                                                 unit_suite: object,
+                                                 capability: FrozenHostE2ECapability,
+                                                 *, captured_source_root: Path | None = None) -> None:
+    """Prove original N and executable bytes without consulting current selection.
+
+    ``executing_release`` is sealed in both a live candidate manifest and a
+    retained descriptor.  Keeping it explicit lets the detached path reopen
+    the original host packet without reconstructing a ``ValidatedCandidate``.
+    """
 
     expected_state = (
         unit_suite.executing_selector_sha256, unit_suite.executing_release_package_sha256,
@@ -787,7 +1237,9 @@ def _verify_retained_host_capability(root: Path, candidate: ValidatedCandidate,
     )
     if actual_state != expected_state:
         raise ReleaseContractError("release-e2e-capability-untrusted", "host capability differs from the original Suite N identity")
-    package_relative = f"{RUNTIME_ROOT}/releases/{candidate.authority.executing_release}"
+    if not isinstance(executing_release, str) or not executing_release:
+        raise ReleaseContractError("release-e2e-capability-untrusted", "retained host capability has no sealed executing release")
+    package_relative = f"{RUNTIME_ROOT}/releases/{executing_release}"
     package = _safe_path(root, package_relative)
     manifest_bytes = _regular(root, f"{package_relative}/manifest.toml", label="retained N manifest").read_bytes()
     try:
@@ -807,6 +1259,21 @@ def _verify_retained_host_capability(root: Path, candidate: ValidatedCandidate,
     if skill_sha != capability.executing_skill_sha256:
         raise ReleaseContractError("release-e2e-capability-untrusted", "original N Skill no longer matches the frozen host capability")
     controller = _regular(root, f"{package_relative}/{_N_DRIVER_RELATIVE}", label="retained N host controller")
+    if captured_source_root is not None:
+        # Detached packets preserve original absolute executable paths.  Tie
+        # those immutable path identities to the captured source root while
+        # reopening the actual controller only from the archive root.
+        expected_captured_controller = captured_source_root / package_relative / _N_DRIVER_RELATIVE
+        if (
+            capability.n_host_controller.path != str(expected_captured_controller)
+            or capability.driver.path != str(expected_captured_controller)
+            or _digest(controller.read_bytes()) != capability.n_host_controller.sha256
+            or capability.driver.sha256 != capability.n_host_controller.sha256
+        ):
+            raise ReleaseContractError("release-e2e-capability-untrusted", "retained host controller differs from its captured execution identity")
+        for identity in (capability.python, capability.docker):
+            _captured_absolute_path(identity.path, label=f"{identity.role} executable")
+        return
     if capability.n_host_controller.path != str(controller) or capability.driver.path != str(controller):
         raise ReleaseContractError("release-e2e-capability-untrusted", "retained host controller is outside the exact original N package")
     for identity in (capability.n_host_controller, capability.python, capability.driver, capability.docker):
@@ -821,14 +1288,77 @@ def _verify_retained_host_capability(root: Path, candidate: ValidatedCandidate,
             raise ReleaseContractError("release-e2e-capability-untrusted", f"retained {identity.role} executable changed") from error
 
 
+def _verify_detached_host_capability_identity(
+    executing_release: str,
+    unit_suite: object,
+    capability: FrozenHostE2ECapability,
+    *,
+    captured_source_root: Path,
+) -> None:
+    """Bind a historical host packet without reopening its removed N package.
+
+    The detached reader consumes immutable receipt bytes after a successful
+    cut-over.  Its host identities are already reopened from the E2E receipt
+    and bound to the retained Unit receipt, aggregate receipt, and canonical
+    captured context.  Reopening the original N package here would make a
+    correctly removed predecessor a requirement for historical verification.
+    Fresh readers continue to use ``_verify_retained_host_capability_for_release``
+    and therefore still revalidate the live N bytes before effects.
+    """
+
+    expected_state = (
+        getattr(unit_suite, "executing_selector_sha256", None),
+        getattr(unit_suite, "executing_release_package_sha256", None),
+        getattr(unit_suite, "executing_skill_sha256", None),
+    )
+    actual_state = (
+        capability.executing_selector_sha256,
+        capability.executing_release_package_sha256,
+        capability.executing_skill_sha256,
+    )
+    if actual_state != expected_state:
+        raise ReleaseContractError("release-e2e-capability-untrusted", "host capability differs from the original Suite N identity")
+    if (
+        not isinstance(executing_release, str)
+        or not executing_release
+        or PurePosixPath(executing_release).as_posix() != executing_release
+        or PurePosixPath(executing_release).is_absolute()
+        or any(part in {"", ".", ".."} for part in PurePosixPath(executing_release).parts)
+    ):
+        raise ReleaseContractError("release-e2e-capability-untrusted", "retained host capability has no sealed executing release")
+    package_relative = RUNTIME_ROOT / "releases" / executing_release
+    expected_controller = captured_source_root / package_relative / _N_DRIVER_RELATIVE
+    if (
+        capability.n_host_controller.path != str(expected_controller)
+        or capability.driver.path != str(expected_controller)
+        or capability.driver.sha256 != capability.n_host_controller.sha256
+    ):
+        raise ReleaseContractError("release-e2e-capability-untrusted", "retained host controller differs from its captured execution identity")
+    for identity in (capability.python, capability.docker):
+        _captured_absolute_path(identity.path, label=f"{identity.role} executable")
+    if capability.closed_path != str(Path(capability.docker.path).parent):
+        raise ReleaseContractError("release-e2e-capability-untrusted", "retained host executable path is not closed")
+
+
+def _verify_retained_host_capability(root: Path, candidate: ValidatedCandidate,
+                                     unit_suite: SuiteGateEvidence,
+                                     capability: FrozenHostE2ECapability) -> None:
+    """Live-reader compatibility wrapper for the shared retained check."""
+
+    _verify_retained_host_capability_for_release(
+        root, candidate.authority.executing_release, unit_suite, capability,
+    )
+
+
 def read_candidate_e2e_execution_artifacts(
     candidate: ValidatedCandidate,
-    compilation: SealedCandidateCompilation,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
     unit_suite: SuiteGateEvidence,
     image: ImageVerificationEvidence,
     evidence: CandidateE2EGateEvidence,
     *,
     image_build: ImageBuildEvidence,
+    prepared_package: PreparedPortableReleasePackage | None = None,
 ) -> Path:
     """Read exact original E2E proof after selection, without admitting any effect.
 
@@ -838,32 +1368,309 @@ def read_candidate_e2e_execution_artifacts(
     ``verify_bound_candidate_e2e_evidence`` and its active-N guard.
     """
 
-    image_attempt = read_image_execution_artifacts(candidate, compilation, unit_suite, image_build, image)
-    root = Path(candidate.project_root).resolve()
+    if isinstance(compilation, SealedPortableCandidateCompilation):
+        # Original-artifact consumption is intentionally independent of a
+        # current checkout/package rebind. The Image reader and the helper
+        # below reopen only retained private artifacts and the sidecar.
+        image_attempt = read_image_execution_artifacts(
+            candidate, compilation, unit_suite, image_build, image, prepared_package=prepared_package,
+        )
+        root = Path(candidate.project_root).resolve()
+        package = _read_retained_portable_image_package(root, image_build, image)
+        retained_inputs = True
+    else:
+        package = _portable_package_view(
+            candidate, compilation, unit_suite, image_build, image, prepared_package=prepared_package,
+        )
+        if package is not None:  # pragma: no cover - only a typed portable compilation returns one
+            raise ReleaseContractError("release-e2e-handoff-untrusted", "legacy artifact reader received portable package evidence")
+        image_attempt = read_image_execution_artifacts(candidate, compilation, unit_suite, image_build, image)
+        root = Path(candidate.project_root).resolve()
+        retained_inputs = False
     if image_attempt != _safe_path(root, image.evidence_root):
         raise ReleaseContractError("release-e2e-predecessor-root-mismatch", "image artifacts reopened outside their bound candidate carrier")
-    capability = _read_candidate_e2e_artifacts(root, candidate, compilation, image, evidence)
+    capability = _read_candidate_e2e_artifacts(
+        root, candidate, compilation, image, evidence, package=package, retained=retained_inputs,
+    )
     _verify_retained_host_capability(root, candidate, unit_suite, capability)
     return root
 
 
+def _detached_artifact_root(value: Path) -> Path:
+    """Open one explicit retained-artifact root without checkout authority."""
+
+    if not isinstance(value, Path) or not value.is_absolute() or any(part == ".." for part in value.parts):
+        raise ReleaseContractError("release-e2e-artifact-root-invalid", "detached candidate E2E requires an absolute artifact root")
+    try:
+        observed = value.lstat()
+        root = value.resolve(strict=True)
+    except OSError as error:
+        raise ReleaseContractError("release-e2e-artifact-root-invalid", "detached artifact root is unavailable") from error
+    if value.is_symlink() or not root.is_dir() or not os.path.samestat(observed, root.stat()):
+        raise ReleaseContractError("release-e2e-artifact-root-invalid", "detached artifact root is unsafe")
+    return root
+
+
+def _reopen_detached_candidate_at_root(root: Path,
+                                       retained_candidate: RetainedCandidateIdentity) -> RetainedCandidateIdentity:
+    """Reopen a D597 identity and require every retained reference below ``root``."""
+
+    if not isinstance(retained_candidate, RetainedCandidateIdentity):
+        raise ReleaseContractError(
+            "release-e2e-retained-candidate-root-mismatch",
+            "detached E2E requires a typed retained candidate identity",
+        )
+    package = retained_candidate.package_evidence
+    if not isinstance(package, RetainedNativePackageEvidence):
+        raise ReleaseContractError(
+            "release-e2e-retained-candidate-root-mismatch",
+            "detached E2E requires typed retained package evidence",
+        )
+    view = package.view
+    run_id = getattr(view, "candidate_run_id", None)
+    package_sha256 = getattr(view, "actual_package_manifest_sha256", None)
+    sidecar_sha256 = package.receipt_sha256
+    if (
+        not isinstance(run_id, str) or not run_id or Path(run_id).name != run_id or run_id in {".", ".."}
+        or not isinstance(package_sha256, str) or _SHA256.fullmatch(package_sha256) is None
+        or not isinstance(sidecar_sha256, str) or _SHA256.fullmatch(sidecar_sha256) is None
+    ):
+        raise ReleaseContractError(
+            "release-e2e-retained-candidate-root-mismatch",
+            "retained candidate package identity is not safe for the artifact root",
+        )
+    candidate_root = root / ".caprmedio_tmp" / "release_candidates" / run_id
+    expected_descriptor = candidate_root / "candidate-snapshot.json"
+    expected_sidecar = candidate_root / "package_evidence" / f"{sidecar_sha256}.json"
+    expected_package = candidate_root / "package" / package_sha256
+    raw_paths = (
+        retained_candidate.descriptor_path,
+        package.receipt_path,
+        view.package_root,
+    )
+    if any(
+        not isinstance(path, Path) or not path.is_absolute() or any(part == ".." for part in path.parts)
+        for path in raw_paths
+    ):
+        raise ReleaseContractError(
+            "release-e2e-retained-candidate-root-mismatch",
+            "retained candidate has an unsafe path before detached reopening",
+        )
+    if (
+        retained_candidate.descriptor_path != expected_descriptor
+        or package.receipt_path != expected_sidecar
+        or view.package_root != expected_package
+    ):
+        raise ReleaseContractError(
+            "release-e2e-retained-candidate-root-mismatch",
+            "retained candidate descriptor or package is outside the explicit artifact root",
+        )
+    retained = reopen_retained_candidate_identity(retained_candidate)
+    if retained != retained_candidate:
+        raise ReleaseContractError(
+            "release-e2e-retained-candidate-root-mismatch",
+            "reopened retained candidate differs from its transport identity",
+        )
+    return retained
+
+
+def _validate_detached_native_predecessors(root: Path, retained: RetainedCandidateIdentity,
+                                           suite: object, image_build: object,
+                                           verification: object,
+                                           evidence: object) -> None:
+    """Bind native E2E predecessors to the reopened retained package sidecar."""
+
+    from release_image import PortableImageBuildEvidence, PortableImageVerificationEvidence
+
+    if not isinstance(suite, PortableSuiteGateEvidence):
+        raise ReleaseContractError("release-e2e-native-predecessor-untrusted", "detached E2E requires typed portable Unit evidence")
+    if not isinstance(image_build, PortableImageBuildEvidence):
+        raise ReleaseContractError("release-e2e-native-predecessor-untrusted", "detached E2E requires typed portable image-build evidence")
+    if not isinstance(verification, PortableImageVerificationEvidence):
+        raise ReleaseContractError("release-e2e-native-predecessor-untrusted", "detached E2E requires typed portable image verification evidence")
+    if not isinstance(evidence, PortableCandidateE2EGateEvidence):
+        raise ReleaseContractError("release-e2e-native-predecessor-untrusted", "detached E2E requires typed portable E2E evidence")
+    if not suite.passed or not isinstance(suite.receipt_sha256, str) or _SHA256.fullmatch(suite.receipt_sha256) is None:
+        raise ReleaseContractError("release-e2e-native-predecessor-untrusted", "detached E2E requires passed portable Unit evidence")
+    try:
+        sidecar_relpath = retained.package_evidence.receipt_path.relative_to(root).as_posix()
+    except ValueError as error:  # guarded above; keep the public refusal stable
+        raise ReleaseContractError("release-e2e-retained-candidate-root-mismatch", "retained package sidecar is outside the artifact root") from error
+    view = retained.package_evidence.view
+    shared = {
+        "candidate_snapshot_manifest_sha256": retained.candidate_snapshot_manifest_sha256,
+        "source_catalog_sha256": view.source_catalog_sha256,
+        "candidate_run_id": view.candidate_run_id,
+        "input_manifest_sha256": view.input_manifest_sha256,
+        "framework_version": retained.framework_version,
+        "version_toml_sha256": retained.version_toml_sha256,
+    }
+    expected = (
+        ("portable Unit", suite, {**shared, "input_schema": "portable-1", "phase_map_sha256": view.phase_map.sha256}),
+        ("portable image build", image_build, {
+            **shared,
+            "package_schema": "portable-1",
+            "package_manifest_sha256": view.actual_package_manifest_sha256,
+            "package_evidence_sha256": retained.package_evidence.receipt_sha256,
+            "package_evidence_relpath": sidecar_relpath,
+        }),
+        ("portable image verification", verification, {
+            **shared,
+            "package_schema": "portable-1",
+            "package_manifest_sha256": view.actual_package_manifest_sha256,
+            "package_evidence_sha256": retained.package_evidence.receipt_sha256,
+            "package_evidence_relpath": sidecar_relpath,
+        }),
+        ("portable candidate E2E", evidence, {
+            **shared,
+            "package_schema": "portable-1",
+            "package_manifest_sha256": view.actual_package_manifest_sha256,
+            "package_evidence_sha256": retained.package_evidence.receipt_sha256,
+            "package_evidence_relpath": sidecar_relpath,
+        }),
+    )
+    for label, receipt, fields in expected:
+        if any(getattr(receipt, field, None) != value for field, value in fields.items()):
+            raise ReleaseContractError(
+                "release-e2e-native-predecessor-mismatch",
+                f"{label} does not bind the reopened retained package",
+            )
+    if (
+        verification.build_receipt_sha256 != image_build.receipt_sha256
+        or verification.candidate_image_digest != image_build.candidate_image_digest
+        or evidence.candidate_image_digest != verification.candidate_image_digest
+    ):
+        raise ReleaseContractError("release-e2e-native-predecessor-mismatch", "native predecessors do not share one immutable image")
+
+
+def read_detached_candidate_e2e_execution_artifacts(
+    artifact_root: Path,
+    retained_candidate: RetainedCandidateIdentity,
+    suite: PortableSuiteGateEvidence,
+    verification: PortableImageVerificationEvidence,
+    e2e: PortableCandidateE2EGateEvidence,
+    *,
+    image_build: PortableImageBuildEvidence,
+) -> Path:
+    """Reopen one retained native E2E packet without a live candidate or checkout.
+
+    ``artifact_root`` is deliberately authoritative for every reopened packet
+    reference.  A retained descriptor is only an immutable identity carrier;
+    it is never expanded into a live candidate, compilation, admission, or
+    second gate execution.
+    """
+
+    root = _detached_artifact_root(artifact_root)
+    retained = _reopen_detached_candidate_at_root(root, retained_candidate)
+    _validate_detached_native_predecessors(root, retained, suite, image_build, verification, e2e)
+
+    # The Image reader owns the Docker proof.  It consumes the same retained
+    # descriptor/package and performs no current source or selector rebind.
+    from release_image import read_detached_image_execution_artifacts
+
+    image_attempt = read_detached_image_execution_artifacts(
+        root, retained, suite, image_build, verification,
+    )
+    if image_attempt != _safe_path(root, verification.evidence_root):
+        raise ReleaseContractError("release-e2e-predecessor-root-mismatch", "image artifacts reopened outside the retained artifact root")
+
+    grammar, _grammar_bytes = _reopen_retained_grammar(root, e2e)
+    phase_map = retained.package_evidence.view.phase_map
+    grammar_paths = tuple(sorted(row["source_path"] for row in grammar["harnesses"]))
+    if grammar_paths != phase_map.candidate_e2e_paths:
+        raise ReleaseContractError("release-e2e-phase-map-mismatch", "retained E2E grammar differs from the retained package phase map")
+    _validate_e2e_evidence_envelope(
+        retained.candidate_snapshot_manifest_sha256, verification, e2e,
+        package=retained.package_evidence.view,
+    )
+    captured_context = _reopen_relocated_e2e_context(
+        root, e2e, retained.candidate_snapshot_manifest_sha256, verification,
+        e2e.grammar_sha256, phase_map.sha256, grammar,
+    )
+    capability = _read_e2e_artifact_packet(
+        root, retained.candidate_snapshot_manifest_sha256, verification, e2e,
+        package=retained.package_evidence.view, grammar=grammar,
+        grammar_sha256=e2e.grammar_sha256, phase_map=phase_map, retained=True,
+        captured_context=captured_context,
+    )
+    _verify_detached_host_capability_identity(
+        retained.descriptor.executing_release, suite, capability,
+        captured_source_root=captured_context.source_root,
+    )
+    return root
+
+
 def _read_candidate_e2e_artifacts(root: Path, candidate: ValidatedCandidate,
-                                  compilation: SealedCandidateCompilation,
+                                  compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
                                   image: ImageVerificationEvidence,
-                                  evidence: CandidateE2EGateEvidence) -> FrozenHostE2ECapability:
-    """Shared receipt, context, source and observed JUnit validation."""
+                                  evidence: CandidateE2EGateEvidence,
+                                  *, package: PackageEvidenceView | None = None,
+                                  retained: bool = False) -> FrozenHostE2ECapability:
+    """Validate E2E proof as fresh admission or as retained original evidence."""
+
+    _validate_e2e_evidence_envelope(candidate.manifest.sha256, image, evidence, package=package)
+    if retained:
+        grammar, grammar_bytes = _reopen_retained_grammar(root, evidence)
+        grammar_sha256 = evidence.grammar_sha256
+    else:
+        grammar, grammar_bytes, grammar_sha256, _ignored = _load_grammar(root)
+    phase_map = _bound_phase_map(candidate, grammar, package)
+    capability = _read_e2e_artifact_packet(
+        root, candidate.manifest.sha256, image, evidence, package=package,
+        grammar=grammar, grammar_sha256=grammar_sha256, phase_map=phase_map,
+        retained=retained, candidate=candidate,
+    )
+    if not retained:
+        _source_control_fingerprint(root, candidate, compilation, grammar_bytes)
+    return capability
+
+
+def _validate_e2e_evidence_envelope(candidate_snapshot_manifest_sha256: str,
+                                    image: ImageVerificationEvidence,
+                                    evidence: CandidateE2EGateEvidence,
+                                    *, package: PackageEvidenceView | None) -> None:
+    """Validate the typed receipt envelope before reopening its packet bytes."""
 
     if not isinstance(evidence, CandidateE2EGateEvidence) or not evidence.passed:
         raise ReleaseContractError("release-e2e-evidence-untrusted", "later admission requires passed actual host E2E evidence")
-    if (evidence.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+    if (evidence.candidate_snapshot_manifest_sha256 != candidate_snapshot_manifest_sha256
             or evidence.candidate_image_digest != image.candidate_image_digest
             or evidence.execution_kind != "host-subprocess"
             or not isinstance(evidence.receipt_sha256, str) or _SHA256.fullmatch(evidence.receipt_sha256) is None):
         raise ReleaseContractError("release-e2e-evidence-mismatch", "candidate E2E evidence belongs to another candidate or image")
-    grammar, grammar_bytes, grammar_sha256, _ignored = _load_grammar(root)
-    phase_map = _bound_phase_map(candidate, grammar)
+    if package is None:
+        if type(evidence) is not CandidateE2EGateEvidence:
+            raise ReleaseContractError("release-e2e-evidence-mismatch", "schema-2 candidate E2E evidence has an unsupported receipt schema")
+    else:
+        if not isinstance(evidence, PortableCandidateE2EGateEvidence):
+            raise ReleaseContractError("release-e2e-evidence-mismatch", "portable candidate E2E evidence lacks its package bindings")
+        portable_values = {
+            "package_schema": package.package_schema,
+            "package_manifest_sha256": package.actual_package_manifest_sha256,
+            "package_evidence_sha256": getattr(image, "package_evidence_sha256", None),
+            "package_evidence_relpath": getattr(image, "package_evidence_relpath", None),
+            "source_catalog_sha256": package.source_catalog_sha256,
+            "candidate_run_id": package.candidate_run_id,
+            "input_manifest_sha256": package.input_manifest_sha256,
+            "framework_version": package.framework_version,
+            "version_toml_sha256": package.version_toml_sha256,
+        }
+        if any(getattr(evidence, field, None) != value for field, value in portable_values.items()):
+            raise ReleaseContractError("release-e2e-evidence-mismatch", "portable candidate E2E receipt binds another package")
+
+
+def _read_e2e_artifact_packet(root: Path, candidate_snapshot_manifest_sha256: str,
+                              image: ImageVerificationEvidence,
+                              evidence: CandidateE2EGateEvidence,
+                              *, package: PackageEvidenceView | None,
+                              grammar: dict[str, Any], grammar_sha256: str,
+                              phase_map, retained: bool,
+                              candidate: ValidatedCandidate | None = None,
+                              captured_context: _CapturedE2EContext | None = None) -> FrozenHostE2ECapability:
+    """Reopen an already typed E2E packet from sealed receipt identities only."""
+
     phase_map_sha256 = phase_map.sha256
-    prefix = f"{EVIDENCE_ROOT}/{candidate.manifest.sha256}/"
+    prefix = f"{EVIDENCE_ROOT}/{candidate_snapshot_manifest_sha256}/"
     if (evidence.grammar_sha256 != grammar_sha256 or evidence.phase_map_sha256 != phase_map_sha256
             or not evidence.evidence_root.startswith(prefix)
             or not evidence.evidence_root.removeprefix(prefix).startswith("attempt-")
@@ -874,16 +1681,26 @@ def _read_candidate_e2e_artifacts(root: Path, candidate: ValidatedCandidate,
     if (_digest(receipt) != evidence.receipt_sha256
             or receipt != canonical_json(asdict(replace(evidence, receipt_sha256=None)))):
         raise ReleaseContractError("release-e2e-evidence-untrusted", "candidate E2E receipt changed or is caller-forged")
-    limits = _reopen_release_e2e_settings(root, candidate, evidence)
+    if retained:
+        limits = _reopen_retained_release_e2e_settings(root, evidence)
+    else:
+        if candidate is None:  # pragma: no cover - live wrapper always supplies its typed candidate
+            raise ReleaseContractError("release-e2e-handoff-untrusted", "live E2E settings require a typed candidate")
+        limits = _reopen_release_e2e_settings(root, candidate, evidence)
     capability = _reopen_host_capability(root, evidence)
-    context_path = f"{evidence.evidence_root}/scratch/context.json"
-    context = _read_bounded_artifact(root, context_path, limit=_MAX_CONTEXT_BYTES, label="candidate E2E context")
-    expected_context, _harnesses = _context_bytes(
-        root, attempt / "scratch", attempt / "scratch/reports", candidate, image,
-        grammar_sha256, phase_map_sha256, grammar,
-    )
-    if context != expected_context:
-        raise ReleaseContractError("release-e2e-evidence-untrusted", "candidate E2E context differs from its exact bound attempt")
+    if captured_context is None:
+        context_path = f"{evidence.evidence_root}/scratch/context.json"
+        context = _read_bounded_artifact(root, context_path, limit=_MAX_CONTEXT_BYTES, label="candidate E2E context")
+        expected_context, _harnesses = _context_bytes_for_binding(
+            root, attempt / "scratch", attempt / "scratch/reports",
+            candidate_snapshot_manifest_sha256, image.candidate_image_digest,
+            grammar_sha256, phase_map_sha256, grammar,
+        )
+        if context != expected_context:
+            raise ReleaseContractError("release-e2e-evidence-untrusted", "candidate E2E context differs from its exact bound attempt")
+        recorded_reports = attempt / "scratch" / "reports"
+    else:
+        recorded_reports = captured_context.reports_root
     expected_sources = tuple(row["source_path"] for row in grammar["harnesses"])
     source_sha256s = {
         source_path: source_sha256
@@ -910,7 +1727,7 @@ def _read_candidate_e2e_artifacts(root: Path, candidate: ValidatedCandidate,
         expected_argv = (
             capability.python.path, capability.n_host_controller.path,
             *grammar_row["argv"][2:7],
-            str((attempt / "scratch" / "reports" / f"{pattern}.xml").resolve()),
+            str(recorded_reports / f"{pattern}.xml"),
         )
         if (receipt_row.source_sha256 != source_sha256s.get(receipt_row.source_path)
                 or receipt_row.argv != expected_argv
@@ -941,19 +1758,27 @@ def _read_candidate_e2e_artifacts(root: Path, candidate: ValidatedCandidate,
                 or receipt_row.executed_tests != tests or junit_reason
                 or not isinstance(receipt_row.reason, str) or receipt_row.reason):
             raise ReleaseContractError("release-e2e-evidence-untrusted", "candidate E2E harness receipt is missing or changed")
-    _source_control_fingerprint(root, candidate, compilation, grammar_bytes)
     return capability
 
 
-def run_candidate_e2e_gate(candidate: ValidatedCandidate, compilation: SealedCandidateCompilation,
-                           unit_suite: SuiteGateEvidence, image: ImageVerificationEvidence, *,
-                           image_build: ImageBuildEvidence, executor) -> CandidateE2EGateEvidence:
+def run_candidate_e2e_gate(
+    candidate: ValidatedCandidate,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+    unit_suite: SuiteGateEvidence,
+    image: ImageVerificationEvidence,
+    *,
+    image_build: ImageBuildEvidence,
+    executor,
+    prepared_package: PreparedPortableReleasePackage | None = None,
+) -> CandidateE2EGateEvidence:
     """Execute the immutable image inspection plus all three exact host harnesses once."""
 
-    root = _reopen_predecessors(candidate, compilation, unit_suite, image_build, image)
+    root, package = _reopen_predecessors(
+        candidate, compilation, unit_suite, image_build, image, prepared_package=prepared_package,
+    )
     execution_kind = _executor_kind(executor)
     grammar, grammar_bytes, grammar_sha256, _ignored_phase_map = _load_grammar(root)
-    phase_map = _bound_phase_map(candidate, grammar)
+    phase_map = _bound_phase_map(candidate, grammar, package)
     phase_map_sha256 = phase_map.sha256
     source_sha256s = {
         source_path: source_sha256
@@ -982,6 +1807,9 @@ def run_candidate_e2e_gate(candidate: ValidatedCandidate, compilation: SealedCan
     reason = "candidate E2E evidence is incomplete"
     try:
         _write_new(attempt / _SETTINGS_SNAPSHOT_FILENAME, frozen_limits.snapshot)
+        _write_new(attempt / _RETAINED_GRAMMAR_FILENAME, grammar_bytes)
+        _write_new(attempt / _RETAINED_DEFAULT_SETTINGS_FILENAME, frozen_limits.default_settings)
+        _write_new(attempt / _RETAINED_INSTANCE_SETTINGS_FILENAME, frozen_limits.instance_settings)
         context_bytes, harnesses = _context_bytes(root, scratch, reports, candidate, image, grammar_sha256, phase_map_sha256, grammar)
         context_path = scratch / "context.json"
         _write_new(context_path, context_bytes)
@@ -1064,7 +1892,9 @@ def run_candidate_e2e_gate(candidate: ValidatedCandidate, compilation: SealedCan
                 ))
                 if outcome != "passed":
                     break
-        _reopen_predecessors(candidate, compilation, unit_suite, image_build, image)
+        _reopen_predecessors(
+            candidate, compilation, unit_suite, image_build, image, prepared_package=prepared_package,
+        )
         if _source_control_fingerprint(root, candidate, compilation, grammar_bytes) != before:
             raise ReleaseContractError("release-currentness-stale", "candidate source control changed during host E2E execution")
         if _release_e2e_settings(root, candidate) != frozen_limits:
@@ -1080,12 +1910,38 @@ def run_candidate_e2e_gate(candidate: ValidatedCandidate, compilation: SealedCan
             outcome, reason = "incomplete", str(error)
     except (OSError, TypeError, ValueError) as error:
         outcome, reason = "recording_uncertain", f"candidate E2E evidence could not be recorded: {type(error).__name__}"
-    evidence = CandidateE2EGateEvidence(
-        candidate.manifest.sha256, image.candidate_image_digest, phase_map_sha256, grammar_sha256,
-        outcome, reason, tuple(receipts), evidence_root, None,
-        settings_snapshot_path, settings_snapshot_sha256,
-        host_capability_path, host_capability_sha256, execution_kind,
-    )
+    evidence_kwargs = {
+        "candidate_snapshot_manifest_sha256": candidate.manifest.sha256,
+        "candidate_image_digest": image.candidate_image_digest,
+        "phase_map_sha256": phase_map_sha256,
+        "grammar_sha256": grammar_sha256,
+        "outcome": outcome,
+        "reason": reason,
+        "harness_receipts": tuple(receipts),
+        "evidence_root": evidence_root,
+        "receipt_sha256": None,
+        "settings_snapshot_path": settings_snapshot_path,
+        "settings_snapshot_sha256": settings_snapshot_sha256,
+        "host_capability_path": host_capability_path,
+        "host_capability_sha256": host_capability_sha256,
+        "execution_kind": execution_kind,
+    }
+    if package is None:
+        evidence: CandidateE2EGateEvidence = CandidateE2EGateEvidence(**evidence_kwargs)
+    else:
+        package_evidence_sha256, package_evidence_relpath = _portable_sidecar_binding(image_build, image)
+        evidence = PortableCandidateE2EGateEvidence(
+            **evidence_kwargs,
+            package_schema="portable-1",
+            package_manifest_sha256=package.actual_package_manifest_sha256,
+            package_evidence_sha256=package_evidence_sha256,
+            package_evidence_relpath=package_evidence_relpath,
+            source_catalog_sha256=package.source_catalog_sha256,
+            candidate_run_id=package.candidate_run_id,
+            input_manifest_sha256=package.input_manifest_sha256,
+            framework_version=package.framework_version,
+            version_toml_sha256=package.version_toml_sha256,
+        )
     try:
         receipt = canonical_json(asdict(evidence))
         _write_new(_receipt_path(root, evidence_root), receipt)
@@ -1107,8 +1963,10 @@ __all__ = [
     "FrozenHostE2ECapability",
     "HarnessReceipt",
     "HostE2EExecutor",
+    "PortableCandidateE2EGateEvidence",
     "ReleaseE2ELimits",
     "read_candidate_e2e_execution_artifacts",
+    "read_detached_candidate_e2e_execution_artifacts",
     "run_candidate_e2e_gate",
     "verify_bound_candidate_e2e_evidence",
 ]

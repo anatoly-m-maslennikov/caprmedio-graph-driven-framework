@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2091",
+  "recorded_at": "2026-10-11 06:56:50 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded reject omitted mapping layers in independent verification; not migration approval",
+  "verification": {
+    "outputs": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+        "sha256": "473402116168ce462e15dee8f042da8d461c970d366e33e37e44b7adf223582d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_working_mapping_ledger.py",
+        "sha256": "03ddbeceee68dec80395aa3fedd086105a5422f46825a619f3eceb27b301ffb1"
+      }
+    ],
+    "root_code_review": "PASS: complete required layer sequence and exact frozen counterpart; only five declared before/after changes",
+    "focused_tests": {
+      "passed": 10,
+      "failed": 0
+    },
+    "live_intermediate_gate": {
+      "outcome": "PASS",
+      "sources": 907,
+      "occurrences": 4534,
+      "proposed": 1453,
+      "unchanged": 1540,
+      "unresolved": 1541,
+      "quarantined_sources": 8,
+      "excluded_sources": 11203
+    },
+    "negative_checks": [
+      "omitted accepted layer",
+      "valid wrong target",
+      "wrong baseline outcome",
+      "wrong Actor target",
+      "missing grammar reset",
+      "missing historical origin",
+      "substituted baseline counterpart",
+      "stale source/span pin",
+      "missing lineage",
+      "inferred selector or executable row"
+    ],
+    "final_group_limit": "CA-P-2093 must independently consume accepted CA-P-2087"
+  },
+  "independent_review": null,
+  "completion_scope": "The independent verifier reconstructs frozen/current counterpart lineage, every required review layer and final target/confidence, receipt acceptance and all 43 Actor targets. Ten adversarial tests and the intermediate no-grammar-receipt live ledger pass. The now-accepted grammar layer remains assigned to CA-P-2093 before group completion.",
+  "registration_commit": "9c3573512d3d18d01de0d06f16f72ea73f16a1d6",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

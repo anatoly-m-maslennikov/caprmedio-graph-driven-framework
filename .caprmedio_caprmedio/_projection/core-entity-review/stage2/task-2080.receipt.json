@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2080",
+  "recorded_at": "2026-10-11 05:37:15 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: exact bounded mapping research; not live migration approval",
+  "verification": {
+    "task": "CA-P-2080",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2080.research.json",
+      "sha256": "9efd2a39b5163e6771ce6e8663162a43ac0f7d8d3f023fb307cbbb597ded3c94"
+    },
+    "rows": 4,
+    "counts": {
+      "unresolved": 2,
+      "proposed": 2
+    },
+    "source_files": 6,
+    "exact_evidence_spans": 8,
+    "exact_input_pins": 8,
+    "result": "PASS: exact coverage, pins, spans, syntax and non-executable proposals"
+  },
+  "independent_review": {
+    "reviewer": "subject_review_003",
+    "reviewed_output_sha256": "9efd2a39b5163e6771ce6e8663162a43ac0f7d8d3f023fb307cbbb597ded3c94",
+    "rows_checked": 4,
+    "accepted_proposals": 2,
+    "unresolved_checked": 2,
+    "all_exact_spans": 8,
+    "result": "PASS: semantic support, selected coverage, current pins/spans and non-executable boundary"
+  },
+  "registration_commit": "82f720f29718f5af60152db8338e79db1d7a1020",
+  "completion_scope": "Two Applicable Methodology targets are supported as Projection/Applicable Methodology; manual realization is a process applied to that artifact, not a separate target object. Two historical Status targets remain unresolved; no historical Property or qualifier-dropping replacement is invented.",
+  "limits": [
+    "Original sources, frozen inventory/ledger/candidate and previous reports remain unchanged.",
+    "Research proposals and independent candidate review are not native graph or source write admission.",
+    "Unresolved rows and the unanswered conditional-owner choice remain open."
+  ]
+}

@@ -1,0 +1,1574 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2117",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+      "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2112-2117.contract.md",
+        "sha256": "5310bccde97faba8b2e96fecc8de705178b4677fab07af2e897bae4e65ea04bd"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/90-CA-P-2117-TASK--review-scope-and-project-tail-origins.md",
+      "sha256": "ed8d968686bc560ea137b1cdad70abdc02c582709996367906a97c502cca8406"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-DELIVERY--derive-direct-containment-from-the-nearest-directory-carrier.md",
+        "sha256": "0f19e5fd28ed760867d261ad14aa29e0bed6b95d7482ad8a0bd196483f144f36"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+        "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+        "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+        "sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-394-CORE_META_MODEL-DELIVERY--bind-convenience-symlink-carriers-to-one-native-source.md",
+        "sha256": "b7f017a14c13671e7b29e90c0bde56c1c542dcacdf11434f61227481bb4d4885"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-395-CORE_META_MODEL--serialize-ambient-project-scope-paths.md",
+        "sha256": "5cf5520dd77ab46b3375ce89b0965f3b0748ebc5b2913966522374c65bb04481"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-414-CORE_META_MODEL-CORE--classify-carrier-as-a-primary-entity.md",
+        "sha256": "f0d1d76efc3191ec5dd067f692f8fdaed1f66e242951ee4f6f1c15be80346015"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-441-CORE_META_MODEL-GENERAL--encode-the-project-structure-document-schema.md",
+        "sha256": "30042a747a31e13c2618a7111a884c5af1ed2175c687645f9eaae9f6d5d10e81"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-451-CORE_META_MODEL-STANDARD--classify-folders-by-their-carrier-responsibility.md",
+        "sha256": "b213375c53de3490d767e8cdfde2f84cd5bea8392d5f4f515afda50610a87e67"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-452-CORE_META_MODEL-STANDARD--place-local-environment-injection-carriers.md",
+        "sha256": "d41df8b908601938efc6a08fdd661e6d51422950ce0c83070340592720a0980e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-464-CORE_META_MODEL-CORE--represent-one-governed-object-with-each-directory-carrier.md",
+        "sha256": "bcfbd39ca730c0c59a5360afa48f714e947ec6fcd0146d636642ddf808c7310a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-465-CORE_META_MODEL-STANDARD--carry-each-materialized-structural-entity-with-a-directory-carrier.md",
+        "sha256": "69ee7f016ac01c95d30f117331ff7fb6d88a72251eccb13d7f5bdfdd58ed8b94"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+        "sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-508-CORE_META_MODEL-STANDARD--number-project-owned-atoms-within-every-content-role.md",
+        "sha256": "c1c23ce537934173519f02c4bf5cdab91820a1e4b3fad7a28c3897341b92f5b2"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-549-CORE_META_MODEL--centralize-project-journal-carriers.md",
+        "sha256": "27fc7b533f6ad42b288d5d39d7c19ccef96591b32098ec50188dbb6d8e0a3ea4"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+        "sha256": "01d0405599edffe5e7db9a3be01844cd78f814e149662b2d315c4e49d394dc1d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+        "sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+        "sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+        "sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-065-CORE_META_MODEL-ACTION--screen-short-names-for-unintended-readings.md",
+        "sha256": "3629a7a79d844cca473130fcf02d15b8597d2ef3c5f4c1eb503d381ea109f084"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md",
+        "sha256": "8a3dcb7cfdb3369ec268726cc54f3f0e0c1bfbc947841792deb87bb844245414"
+      }
+    ],
+    "global_definitions": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+        "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+        "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+        "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+        "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+        "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+        "sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-DELIVERY--derive-direct-containment-from-the-nearest-directory-carrier.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-DELIVERY--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "source_atom_id": "CA-D-264",
+      "source_version": 14,
+      "source_sha256": "0f19e5fd28ed760867d261ad14aa29e0bed6b95d7482ad8a0bd196483f144f36",
+      "field": "governs",
+      "index": null,
+      "old_value": "Structural Entity/Direct Containment",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.91,
+      "reason": "The owning Claim explicitly requires a direct CONTAINS and IS_CONTAINED_BY relation pair derived from nearest Directory Carrier nesting. Relation preserves the typed connection without inventing a singleton Direct Containment kind or turning it into a Scope Unit.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-DELIVERY--derive-direct-containment-from-the-nearest-directory-carrier.md",
+          "sha256": "0f19e5fd28ed760867d261ad14aa29e0bed6b95d7482ad8a0bd196483f144f36",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "11a68463a5de6d3848b329b0bd315f0e0f9bf6d36ccf822ae18c4e65afa76131",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3/meaning",
+          "reason": "The confirmed candidate defines Relation as typed connections between Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Both directed containment endpoints and the nearest-Directory-Carrier condition remain governed by the source.",
+        "No native Relation Kind or endpoint admission is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+      "source_atom_id": "CA-D-333",
+      "source_version": 12,
+      "source_sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.96,
+      "reason": "The owning body refers to the authoritative Project Structure declaration source. Current CA-R-1483 explicitly defines it as a non-Atom Artifact, so Artifact is supported without adding a display-only Artifact/Project Structure path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+          "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "6fff9ec3087bd6115c183767a57c66fbea43bb0ed1cf11a25ea2d483cab8a788",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The confirmed candidate defines Artifact as a governed lifecycle unit with dependent entities; the current definition explicitly classifies Project Structure as a non-Atom Artifact."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Structure remains authoritative and non-Atom.",
+        "Its declaration facts are not collapsed into a Projection, Goal Atom, or filesystem observation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+      "source_atom_id": "CA-D-340",
+      "source_version": 11,
+      "source_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The owning body uses Project as the root ownership, authority, or scope context. CA-R-1757 defines the Scope Unit ownership boundary and CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit. Scope Unit preserves that root context without inventing a narrower Project subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current CA-R-1757 defines Scope Unit as the Structural Entity ownership boundary for Atoms and child Scope Units."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/meaning",
+          "reason": "The confirmed candidate defines Scope Unit as the ownership and organizing boundary outside individual Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the parentless root Scope Unit, not an invented candidate subtype.",
+        "Project-local authority, settings, payload, or stage qualifications remain in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-366",
+      "source_version": 8,
+      "source_sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The owning body uses Project as the root ownership, authority, or scope context. CA-R-1757 defines the Scope Unit ownership boundary and CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit. Scope Unit preserves that root context without inventing a narrower Project subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+          "sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "ac204ba75340b5cfda43dacbfcb5fb9faba22c65cf39f3e2a68c79dcc72f4987",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current CA-R-1757 defines Scope Unit as the Structural Entity ownership boundary for Atoms and child Scope Units."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/meaning",
+          "reason": "The confirmed candidate defines Scope Unit as the ownership and organizing boundary outside individual Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the parentless root Scope Unit, not an invented candidate subtype.",
+        "Project-local authority, settings, payload, or stage qualifications remain in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-394-CORE_META_MODEL-DELIVERY--bind-convenience-symlink-carriers-to-one-native-source.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-394-CORE_META_MODEL-DELIVERY--bind-convenience-symlink-carriers-to-one-native-source.md",
+      "source_atom_id": "CA-D-394",
+      "source_version": 7,
+      "source_sha256": "b7f017a14c13671e7b29e90c0bde56c1c542dcacdf11434f61227481bb4d4885",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The owning body uses Project as the root ownership, authority, or scope context. CA-R-1757 defines the Scope Unit ownership boundary and CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit. Scope Unit preserves that root context without inventing a narrower Project subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-394-CORE_META_MODEL-DELIVERY--bind-convenience-symlink-carriers-to-one-native-source.md",
+          "sha256": "b7f017a14c13671e7b29e90c0bde56c1c542dcacdf11434f61227481bb4d4885",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "5152dc804ca27dfbf77678c292cde6b31f821c75ea87cf88a2c21c1767113cc1",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current CA-R-1757 defines Scope Unit as the Structural Entity ownership boundary for Atoms and child Scope Units."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/meaning",
+          "reason": "The confirmed candidate defines Scope Unit as the ownership and organizing boundary outside individual Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the parentless root Scope Unit, not an invented candidate subtype.",
+        "Project-local authority, settings, payload, or stage qualifications remain in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-395-CORE_META_MODEL--serialize-ambient-project-scope-paths.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-395-CORE_META_MODEL--serialize-ambient-project-scope-paths.md",
+      "source_atom_id": "CA-D-395",
+      "source_version": 7,
+      "source_sha256": "5cf5520dd77ab46b3375ce89b0965f3b0748ebc5b2913966522374c65bb04481",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The owning body uses Project as the root ownership, authority, or scope context. CA-R-1757 defines the Scope Unit ownership boundary and CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit. Scope Unit preserves that root context without inventing a narrower Project subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-395-CORE_META_MODEL--serialize-ambient-project-scope-paths.md",
+          "sha256": "5cf5520dd77ab46b3375ce89b0965f3b0748ebc5b2913966522374c65bb04481",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "75d90dedc52c4534cb3f50ce32ddcc4263efd4c9ad281213f8c47e3cf506d019",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current CA-R-1757 defines Scope Unit as the Structural Entity ownership boundary for Atoms and child Scope Units."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/meaning",
+          "reason": "The confirmed candidate defines Scope Unit as the ownership and organizing boundary outside individual Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the parentless root Scope Unit, not an invented candidate subtype.",
+        "Project-local authority, settings, payload, or stage qualifications remain in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-414-CORE_META_MODEL-CORE--classify-carrier-as-a-primary-entity.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-414-CORE_META_MODEL-CORE--classify-carrier-as-a-primary-entity.md",
+      "source_atom_id": "CA-D-414",
+      "source_version": 14,
+      "source_sha256": "f0d1d76efc3191ec5dd067f692f8fdaed1f66e242951ee4f6f1c15be80346015",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.9,
+      "reason": "The owning body uses Primary Entity as the non-bearer-qualified form of Entity. CA-R-1191 explicitly defines that qualification and CA-R-1248 defines Entity, supporting the generic Entity target while retaining the no-bearer condition in the source meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-414-CORE_META_MODEL-CORE--classify-carrier-as-a-primary-entity.md",
+          "sha256": "f0d1d76efc3191ec5dd067f692f8fdaed1f66e242951ee4f6f1c15be80346015",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7365b815c38462b802b060115bb0d24faecd5621a8658f648f8b6bb0b7f84879",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+          "sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a9020ce3a68d82888dc3fcd715f699af15f0328ca22fdc3ce4256d579ea6ba36",
+          "reason": "Current CA-R-1191 defines Primary Entity as an Entity without another Entity bearer."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "Current CA-R-1248 defines the generic Entity node admitted by authoritative source."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "The candidate's graph model confirms Entity as the node identity; current definitions supply the primary-versus-dependent qualification."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Primary Entity no-bearer qualification is retained; no separate candidate subtype is invented.",
+        "A referenced Carrier remains a separate root Entity rather than a Property."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-441-CORE_META_MODEL-GENERAL--encode-the-project-structure-document-schema.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-441-CORE_META_MODEL-GENERAL--encode-the-project-structure-document-schema.md",
+      "source_atom_id": "CA-D-441",
+      "source_version": 5,
+      "source_sha256": "30042a747a31e13c2618a7111a884c5af1ed2175c687645f9eaae9f6d5d10e81",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The owning body uses Project as the root ownership, authority, or scope context. CA-R-1757 defines the Scope Unit ownership boundary and CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit. Scope Unit preserves that root context without inventing a narrower Project subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-441-CORE_META_MODEL-GENERAL--encode-the-project-structure-document-schema.md",
+          "sha256": "30042a747a31e13c2618a7111a884c5af1ed2175c687645f9eaae9f6d5d10e81",
+          "start_line": 23,
+          "end_line": 33,
+          "span_sha256": "8cf7dd32dbbca47f7a1ce80b7b3591fdd3ddca4d6151bbecffc84f9c767464bb",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current CA-R-1757 defines Scope Unit as the Structural Entity ownership boundary for Atoms and child Scope Units."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/meaning",
+          "reason": "The confirmed candidate defines Scope Unit as the ownership and organizing boundary outside individual Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the parentless root Scope Unit, not an invented candidate subtype.",
+        "Project-local authority, settings, payload, or stage qualifications remain in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-451-CORE_META_MODEL-STANDARD--classify-folders-by-their-carrier-responsibility.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-451-CORE_META_MODEL-STANDARD--classify-folders-by-their-carrier-responsibility.md",
+      "source_atom_id": "CA-D-451",
+      "source_version": 4,
+      "source_sha256": "b213375c53de3490d767e8cdfde2f84cd5bea8392d5f4f515afda50610a87e67",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.92,
+      "reason": "The owning body concerns a Structural Entity. Current CA-R-1376 defines it as a Primary Entity organizing Entities, and CA-R-1248 establishes the generic Entity identity. Entity preserves the admitted broad identity without falsely making every Structural Entity a Scope Unit.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-451-CORE_META_MODEL-STANDARD--classify-folders-by-their-carrier-responsibility.md",
+          "sha256": "b213375c53de3490d767e8cdfde2f84cd5bea8392d5f4f515afda50610a87e67",
+          "start_line": 20,
+          "end_line": 35,
+          "span_sha256": "b10364714d2b3069a7145ab11db58a33d33f69fb7ff1858d71e2b1d3ae712473",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "Current CA-R-1376 defines Structural Entity as a Primary Entity organizing Entities through direct containment."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "Current CA-R-1248 defines the generic Entity node admitted by authoritative source."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "The confirmed candidate keeps Entities as graph nodes while current definitions supply the narrower Structural Entity meaning absent from the display list."
+        }
+      ],
+      "preserved_distinctions": [
+        "Structural containment remains a governed role, not an inferred Scope Unit subclass.",
+        "Materialization, Carrier, Revision, and direct-containment qualifications remain explicit in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-452-CORE_META_MODEL-STANDARD--place-local-environment-injection-carriers.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-452-CORE_META_MODEL-STANDARD--place-local-environment-injection-carriers.md",
+      "source_atom_id": "CA-D-452",
+      "source_version": 4,
+      "source_sha256": "d41df8b908601938efc6a08fdd661e6d51422950ce0c83070340592720a0980e",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The owning body uses Project as the root ownership, authority, or scope context. CA-R-1757 defines the Scope Unit ownership boundary and CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit. Scope Unit preserves that root context without inventing a narrower Project subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-452-CORE_META_MODEL-STANDARD--place-local-environment-injection-carriers.md",
+          "sha256": "d41df8b908601938efc6a08fdd661e6d51422950ce0c83070340592720a0980e",
+          "start_line": 19,
+          "end_line": 44,
+          "span_sha256": "e0dbc5a8ffd1fe141c1c5e26b458e0cd81e25e759016824f477403484e57c879",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current CA-R-1757 defines Scope Unit as the Structural Entity ownership boundary for Atoms and child Scope Units."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/meaning",
+          "reason": "The confirmed candidate defines Scope Unit as the ownership and organizing boundary outside individual Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the parentless root Scope Unit, not an invented candidate subtype.",
+        "Project-local authority, settings, payload, or stage qualifications remain in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-464-CORE_META_MODEL-CORE--represent-one-governed-object-with-each-directory-carrier.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-464-CORE_META_MODEL-CORE--represent-one-governed-object-with-each-directory-carrier.md",
+      "source_atom_id": "CA-D-464",
+      "source_version": 4,
+      "source_sha256": "bcfbd39ca730c0c59a5360afa48f714e947ec6fcd0146d636642ddf808c7310a",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.92,
+      "reason": "The owning body concerns a Structural Entity. Current CA-R-1376 defines it as a Primary Entity organizing Entities, and CA-R-1248 establishes the generic Entity identity. Entity preserves the admitted broad identity without falsely making every Structural Entity a Scope Unit.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-464-CORE_META_MODEL-CORE--represent-one-governed-object-with-each-directory-carrier.md",
+          "sha256": "bcfbd39ca730c0c59a5360afa48f714e947ec6fcd0146d636642ddf808c7310a",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "920e4442863bf7e0a680e98e1c8e621edc08558bd4089ce405b6a0f1a4f9f5e6",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "Current CA-R-1376 defines Structural Entity as a Primary Entity organizing Entities through direct containment."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "Current CA-R-1248 defines the generic Entity node admitted by authoritative source."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "The confirmed candidate keeps Entities as graph nodes while current definitions supply the narrower Structural Entity meaning absent from the display list."
+        }
+      ],
+      "preserved_distinctions": [
+        "Structural containment remains a governed role, not an inferred Scope Unit subclass.",
+        "Materialization, Carrier, Revision, and direct-containment qualifications remain explicit in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-465-CORE_META_MODEL-STANDARD--carry-each-materialized-structural-entity-with-a-directory-carrier.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-465-CORE_META_MODEL-STANDARD--carry-each-materialized-structural-entity-with-a-directory-carrier.md",
+      "source_atom_id": "CA-D-465",
+      "source_version": 4,
+      "source_sha256": "69ee7f016ac01c95d30f117331ff7fb6d88a72251eccb13d7f5bdfdd58ed8b94",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.92,
+      "reason": "The owning body concerns a Structural Entity. Current CA-R-1376 defines it as a Primary Entity organizing Entities, and CA-R-1248 establishes the generic Entity identity. Entity preserves the admitted broad identity without falsely making every Structural Entity a Scope Unit.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-465-CORE_META_MODEL-STANDARD--carry-each-materialized-structural-entity-with-a-directory-carrier.md",
+          "sha256": "69ee7f016ac01c95d30f117331ff7fb6d88a72251eccb13d7f5bdfdd58ed8b94",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "1a82be533b888d21b7b6c9017904d667ca10f6d8923cd29516f2745e5e768788",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "Current CA-R-1376 defines Structural Entity as a Primary Entity organizing Entities through direct containment."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "Current CA-R-1248 defines the generic Entity node admitted by authoritative source."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "The confirmed candidate keeps Entities as graph nodes while current definitions supply the narrower Structural Entity meaning absent from the display list."
+        }
+      ],
+      "preserved_distinctions": [
+        "Structural containment remains a governed role, not an inferred Scope Unit subclass.",
+        "Materialization, Carrier, Revision, and direct-containment qualifications remain explicit in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-465-CORE_META_MODEL-STANDARD--carry-each-materialized-structural-entity-with-a-directory-carrier.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-465-CORE_META_MODEL-STANDARD--carry-each-materialized-structural-entity-with-a-directory-carrier.md",
+      "source_atom_id": "CA-D-465",
+      "source_version": 4,
+      "source_sha256": "69ee7f016ac01c95d30f117331ff7fb6d88a72251eccb13d7f5bdfdd58ed8b94",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.96,
+      "reason": "The owning body refers to the authoritative Project Structure declaration source. Current CA-R-1483 explicitly defines it as a non-Atom Artifact, so Artifact is supported without adding a display-only Artifact/Project Structure path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-465-CORE_META_MODEL-STANDARD--carry-each-materialized-structural-entity-with-a-directory-carrier.md",
+          "sha256": "69ee7f016ac01c95d30f117331ff7fb6d88a72251eccb13d7f5bdfdd58ed8b94",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "1a82be533b888d21b7b6c9017904d667ca10f6d8923cd29516f2745e5e768788",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The confirmed candidate defines Artifact as a governed lifecycle unit with dependent entities; the current definition explicitly classifies Project Structure as a non-Atom Artifact."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Structure remains authoritative and non-Atom.",
+        "Its declaration facts are not collapsed into a Projection, Goal Atom, or filesystem observation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+      "source_atom_id": "CA-D-505",
+      "source_version": 1,
+      "source_sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.9,
+      "reason": "The owning body uses Primary Entity as the non-bearer-qualified form of Entity. CA-R-1191 explicitly defines that qualification and CA-R-1248 defines Entity, supporting the generic Entity target while retaining the no-bearer condition in the source meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+          "sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+          "start_line": 24,
+          "end_line": 40,
+          "span_sha256": "bc28eb163874f0a9519793627af8bbd78ec1f60e518383e820dcdbbdb47eda82",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+          "sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a9020ce3a68d82888dc3fcd715f699af15f0328ca22fdc3ce4256d579ea6ba36",
+          "reason": "Current CA-R-1191 defines Primary Entity as an Entity without another Entity bearer."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "Current CA-R-1248 defines the generic Entity node admitted by authoritative source."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "The candidate's graph model confirms Entity as the node identity; current definitions supply the primary-versus-dependent qualification."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Primary Entity no-bearer qualification is retained; no separate candidate subtype is invented.",
+        "A referenced Carrier remains a separate root Entity rather than a Property."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-508-CORE_META_MODEL-STANDARD--number-project-owned-atoms-within-every-content-role.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-508-CORE_META_MODEL-STANDARD--number-project-owned-atoms-within-every-content-role.md",
+      "source_atom_id": "CA-D-508",
+      "source_version": 1,
+      "source_sha256": "c1c23ce537934173519f02c4bf5cdab91820a1e4b3fad7a28c3897341b92f5b2",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The owning body uses Project as the root ownership, authority, or scope context. CA-R-1757 defines the Scope Unit ownership boundary and CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit. Scope Unit preserves that root context without inventing a narrower Project subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-508-CORE_META_MODEL-STANDARD--number-project-owned-atoms-within-every-content-role.md",
+          "sha256": "c1c23ce537934173519f02c4bf5cdab91820a1e4b3fad7a28c3897341b92f5b2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "804ac25b8e203864698d4c1229a359a23fd7ad9e246dc689852a6159cb8846ed",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current CA-R-1757 defines Scope Unit as the Structural Entity ownership boundary for Atoms and child Scope Units."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/meaning",
+          "reason": "The confirmed candidate defines Scope Unit as the ownership and organizing boundary outside individual Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the parentless root Scope Unit, not an invented candidate subtype.",
+        "Project-local authority, settings, payload, or stage qualifications remain in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-549-CORE_META_MODEL--centralize-project-journal-carriers.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-549-CORE_META_MODEL--centralize-project-journal-carriers.md",
+      "source_atom_id": "CA-D-549",
+      "source_version": 2,
+      "source_sha256": "27fc7b533f6ad42b288d5d39d7c19ccef96591b32098ec50188dbb6d8e0a3ea4",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The owning body uses Project as the root ownership, authority, or scope context. CA-R-1757 defines the Scope Unit ownership boundary and CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit. Scope Unit preserves that root context without inventing a narrower Project subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-549-CORE_META_MODEL--centralize-project-journal-carriers.md",
+          "sha256": "27fc7b533f6ad42b288d5d39d7c19ccef96591b32098ec50188dbb6d8e0a3ea4",
+          "start_line": 16,
+          "end_line": 34,
+          "span_sha256": "fe89c5b45dfeb24e9c04b2bb502c937038bdb34fcb6707adea3d693500c1c02a",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current CA-R-1757 defines Scope Unit as the Structural Entity ownership boundary for Atoms and child Scope Units."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/meaning",
+          "reason": "The confirmed candidate defines Scope Unit as the ownership and organizing boundary outside individual Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the parentless root Scope Unit, not an invented candidate subtype.",
+        "Project-local authority, settings, payload, or stage qualifications remain in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+      "source_atom_id": "CA-D-550",
+      "source_version": 3,
+      "source_sha256": "01d0405599edffe5e7db9a3be01844cd78f814e149662b2d315c4e49d394dc1d",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The owning body uses Project as the root ownership, authority, or scope context. CA-R-1757 defines the Scope Unit ownership boundary and CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit. Scope Unit preserves that root context without inventing a narrower Project subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+          "sha256": "01d0405599edffe5e7db9a3be01844cd78f814e149662b2d315c4e49d394dc1d",
+          "start_line": 16,
+          "end_line": 34,
+          "span_sha256": "537ffac0d4bd74b295ed28490707110f9e2d5ec9fbaa70d43e90012449447b07",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current CA-R-1757 defines Scope Unit as the Structural Entity ownership boundary for Atoms and child Scope Units."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/meaning",
+          "reason": "The confirmed candidate defines Scope Unit as the ownership and organizing boundary outside individual Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the parentless root Scope Unit, not an invented candidate subtype.",
+        "Project-local authority, settings, payload, or stage qualifications remain in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md#subjects.depends_on[8]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+      "source_atom_id": "CA-D-550",
+      "source_version": 3,
+      "source_sha256": "01d0405599edffe5e7db9a3be01844cd78f814e149662b2d315c4e49d394dc1d",
+      "field": "depends_on",
+      "index": 8,
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.96,
+      "reason": "The owning body refers to the authoritative Project Structure declaration source. Current CA-R-1483 explicitly defines it as a non-Atom Artifact, so Artifact is supported without adding a display-only Artifact/Project Structure path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+          "sha256": "01d0405599edffe5e7db9a3be01844cd78f814e149662b2d315c4e49d394dc1d",
+          "start_line": 16,
+          "end_line": 34,
+          "span_sha256": "537ffac0d4bd74b295ed28490707110f9e2d5ec9fbaa70d43e90012449447b07",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The confirmed candidate defines Artifact as a governed lifecycle unit with dependent entities; the current definition explicitly classifies Project Structure as a non-Atom Artifact."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Structure remains authoritative and non-Atom.",
+        "Its declaration facts are not collapsed into a Projection, Goal Atom, or filesystem observation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+      "source_atom_id": "CA-O-087",
+      "source_version": 5,
+      "source_sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.96,
+      "reason": "The owning body refers to the authoritative Project Structure declaration source. Current CA-R-1483 explicitly defines it as a non-Atom Artifact, so Artifact is supported without adding a display-only Artifact/Project Structure path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+          "sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d",
+          "start_line": 50,
+          "end_line": 97,
+          "span_sha256": "f16cbd6a7d7a21a791d24bfc2c8f3af59bfd3c3fb8d3fbff540872a1b1b18389",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The confirmed candidate defines Artifact as a governed lifecycle unit with dependent entities; the current definition explicitly classifies Project Structure as a non-Atom Artifact."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Structure remains authoritative and non-Atom.",
+        "Its declaration facts are not collapsed into a Projection, Goal Atom, or filesystem observation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+      "source_atom_id": "CA-O-087",
+      "source_version": 5,
+      "source_sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Owned Atoms",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Operation uses a Scope Unit's Owned Atoms as a selection set. The current body does not establish that collection as one Entity identity, and mapping it to Scope Unit would erase the distinct selection-set meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+          "sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d",
+          "start_line": 50,
+          "end_line": 97,
+          "span_sha256": "f16cbd6a7d7a21a791d24bfc2c8f3af59bfd3c3fb8d3fbff540872a1b1b18389",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Owned-Atom selection remains distinct from the owning Scope Unit.",
+        "No collection Entity, selector, or native membership relation is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md#subjects.depends_on[8]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+      "source_atom_id": "CA-O-087",
+      "source_version": 5,
+      "source_sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d",
+      "field": "depends_on",
+      "index": 8,
+      "old_value": "Subtree-owned Atoms",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning Operation defines a descendant-inclusive selection set under declared Project Structure parentage. It is not itself a Scope Unit or an admitted standalone Entity identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/ATOM_CARRIER_VALIDATION/CA-O-087-CORE_META_MODEL-ACTION--check-atoms.md",
+          "sha256": "1bdd5fcbaf5d179f73ec050921251c06206d5f525c75b95cfaadb451c8b0462d",
+          "start_line": 50,
+          "end_line": 97,
+          "span_sha256": "f16cbd6a7d7a21a791d24bfc2c8f3af59bfd3c3fb8d3fbff540872a1b1b18389",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Descendant traversal remains distinct from direct ownership.",
+        "Declared parentage is not replaced by directory nesting or an invented collection Entity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+      "source_atom_id": "CA-O-022",
+      "source_version": 6,
+      "source_sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The owning body uses Project as the root ownership, authority, or scope context. CA-R-1757 defines the Scope Unit ownership boundary and CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit. Scope Unit preserves that root context without inventing a narrower Project subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+          "sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c",
+          "start_line": 26,
+          "end_line": 43,
+          "span_sha256": "ee64cde2dd6739e1d8f807095d394d73f8228a9da9c62655cd21634feb23542f",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current CA-R-1757 defines Scope Unit as the Structural Entity ownership boundary for Atoms and child Scope Units."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/meaning",
+          "reason": "The confirmed candidate defines Scope Unit as the ownership and organizing boundary outside individual Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the parentless root Scope Unit, not an invented candidate subtype.",
+        "Project-local authority, settings, payload, or stage qualifications remain in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+      "source_atom_id": "CA-O-052",
+      "source_version": 4,
+      "source_sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The owning body uses Project as the root ownership, authority, or scope context. CA-R-1757 defines the Scope Unit ownership boundary and CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit. Scope Unit preserves that root context without inventing a narrower Project subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+          "sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+          "start_line": 30,
+          "end_line": 44,
+          "span_sha256": "b32490be3e76a16ef6d5d62fe8b9891b05dd396b96868ee84dc6fd500bda5ada",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current CA-R-1757 defines Scope Unit as the Structural Entity ownership boundary for Atoms and child Scope Units."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/meaning",
+          "reason": "The confirmed candidate defines Scope Unit as the ownership and organizing boundary outside individual Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the parentless root Scope Unit, not an invented candidate subtype.",
+        "Project-local authority, settings, payload, or stage qualifications remain in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+      "source_atom_id": "CA-O-052",
+      "source_version": 4,
+      "source_sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.96,
+      "reason": "The owning body refers to the authoritative Project Structure declaration source. Current CA-R-1483 explicitly defines it as a non-Atom Artifact, so Artifact is supported without adding a display-only Artifact/Project Structure path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+          "sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+          "start_line": 30,
+          "end_line": 44,
+          "span_sha256": "b32490be3e76a16ef6d5d62fe8b9891b05dd396b96868ee84dc6fd500bda5ada",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The confirmed candidate defines Artifact as a governed lifecycle unit with dependent entities; the current definition explicitly classifies Project Structure as a non-Atom Artifact."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Structure remains authoritative and non-Atom.",
+        "Its declaration facts are not collapsed into a Projection, Goal Atom, or filesystem observation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-065-CORE_META_MODEL-ACTION--screen-short-names-for-unintended-readings.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-065-CORE_META_MODEL-ACTION--screen-short-names-for-unintended-readings.md",
+      "source_atom_id": "CA-O-065",
+      "source_version": 5,
+      "source_sha256": "3629a7a79d844cca473130fcf02d15b8597d2ef3c5f4c1eb503d381ea109f084",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The owning body uses Project as the root ownership, authority, or scope context. CA-R-1757 defines the Scope Unit ownership boundary and CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit. Scope Unit preserves that root context without inventing a narrower Project subtype.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-065-CORE_META_MODEL-ACTION--screen-short-names-for-unintended-readings.md",
+          "sha256": "3629a7a79d844cca473130fcf02d15b8597d2ef3c5f4c1eb503d381ea109f084",
+          "start_line": 21,
+          "end_line": 35,
+          "span_sha256": "2f2fe8d4696eed643ab0915fdafaf921f603adcc8ab31df05440695a32646ec8",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current CA-R-1757 defines Scope Unit as the Structural Entity ownership boundary for Atoms and child Scope Units."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current CA-R-1759 explicitly establishes Project as the parentless Unordered Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1/meaning",
+          "reason": "The confirmed candidate defines Scope Unit as the ownership and organizing boundary outside individual Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the parentless root Scope Unit, not an invented candidate subtype.",
+        "Project-local authority, settings, payload, or stage qualifications remain in the owning body."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md",
+      "source_atom_id": "CA-O-134",
+      "source_version": 3,
+      "source_sha256": "8a3dcb7cfdb3369ec268726cc54f3f0e0c1bfbc947841792deb87bb844245414",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.96,
+      "reason": "The owning body refers to the authoritative Project Structure declaration source. Current CA-R-1483 explicitly defines it as a non-Atom Artifact, so Artifact is supported without adding a display-only Artifact/Project Structure path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md",
+          "sha256": "8a3dcb7cfdb3369ec268726cc54f3f0e0c1bfbc947841792deb87bb844245414",
+          "start_line": 19,
+          "end_line": 53,
+          "span_sha256": "57bc37aabc4d072b32f70c2d8d2742c05c5f0400abd2720c28ade79a58d52a21",
+          "reason": "Complete current owning Main Content, including Scope, Claim or Operation, and Details, was read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current CA-R-1483 defines Project Structure as the authoritative non-Atom Artifact for accepted Scope Unit declarations."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The confirmed candidate defines Artifact as a governed lifecycle unit with dependent entities; the current definition explicitly classifies Project Structure as a non-Atom Artifact."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Structure remains authoritative and non-Atom.",
+        "Its declaration facts are not collapsed into a Projection, Goal Atom, or filesystem observation."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "sources": 21,
+    "occurrences": 26,
+    "proposed": 24,
+    "unresolved": 2
+  },
+  "limits": [
+    "Candidate mapping research only; original Core Subjects and content remain unchanged.",
+    "No selector grammar, native admission, graph acceptance, source migration, or runtime action is authorized.",
+    "Project Structure remains an authoritative non-Atom Artifact; Structural Entity is not reversed into Scope Unit."
+  ]
+}

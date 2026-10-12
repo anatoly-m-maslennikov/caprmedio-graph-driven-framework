@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2058",
+  "recorded_at": "2026-10-11 06:18:53 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: all 43 baseline Actor Type correction candidates accounted for",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2058.accepted-subset.json",
+    "sha256": "6e7ac7011df6df68b65d9f162d7f38d58d3d30435c41bb62bf4df471c13d4d8d"
+  },
+  "inputs": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+      "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "sha256": "867e784ea0c58fef0c59f00048817fa47c90978ff54ca7ebb2c30b14d394b299"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2085.research.json",
+      "sha256": "ebfce47eb8ccd518c692021e1d413bed9b0e6f34e2cc30081964586bce32443d"
+    }
+  ],
+  "checks": {
+    "exact_disjoint_coverage": "36 accepted CA-P-2072 rows plus 7 independently accepted CA-P-2085 rows = exact 43 baseline selection",
+    "current_source_sha256": "43 of 43 match",
+    "canonical_targets": "33 Actor.Type: Operator; 10 Actor.Type: AI Agent",
+    "confidence": "all at least 0.90",
+    "unresolved": 0,
+    "executable_flags": "all false",
+    "independent_baseline_selection": "PASS: reconstructed exactly 43 from the untouched baseline ledger",
+    "negative_checks_rejected": ["missing row", "duplicate row", "wrong Actor subtype target"]
+  },
+  "independent_acceptance": [
+    {
+      "report": "CA-P-2072",
+      "reviewer": "subject_review_003",
+      "selected_accepted": 36
+    },
+    {
+      "report": "CA-P-2085",
+      "reviewer": "subject_review_004",
+      "selected_accepted": 7,
+      "receipt_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2085.receipt.json"
+    }
+  ],
+  "limits": [
+    "This is a derived accepted subset, not replacement of the baseline ledger or original source Subjects.",
+    "The initial raw Actor supplement remains frozen with its original 36 proposed and 7 unresolved rows; the subset records the later accepted corrections.",
+    "No named Actor, selector, narrower Actor kind, native admission, MCP/FPF, runtime or live source effect."
+  ]
+}

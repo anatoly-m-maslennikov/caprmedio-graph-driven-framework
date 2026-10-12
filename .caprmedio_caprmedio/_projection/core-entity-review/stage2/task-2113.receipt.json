@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2113",
+  "recorded_at": "2026-10-11 09:11:46 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining scope and project origins; not migration approval",
+  "verification": {
+    "task": "CA-P-2113",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2113.research.json",
+      "sha256": "97dae252cfe7cdfce21864bb38bf3bb12fc0c2a2ef489edd668387faa4415a6c"
+    },
+    "rows": 27,
+    "counts": {
+      "proposed": 24,
+      "unresolved": 3
+    },
+    "exact_evidence_spans": 50,
+    "exact_input_pins": 11,
+    "historical_plan_context_pins": [
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/86-CA-P-2113-TASK--review-remaining-scope-and-project-origins.md",
+        "sha256": "9e5ad00944f97c2c950642d3a66555562d839bfc4fd4dc6308ae39d8082f05f7",
+        "git_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+        "role": "Plan context only"
+      }
+    ],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+      "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+    },
+    "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/grammar_graph",
+      "final_report_sha256": "97dae252cfe7cdfce21864bb38bf3bb12fc0c2a2ef489edd668387faa4415a6c",
+      "result": "PASS: all twenty-seven final meanings independently checked; twenty-four supported proposals and three justified nulls",
+      "meaning_checks": [
+        "Structural Entity maps to the broader Entity, not the narrower Scope Unit.",
+        "Project remains parentless Scope Unit; Project Structure remains non-Atom Artifact.",
+        "Topology and local-order constraints remain explicit in bodies/evidence.",
+        "Derived nearest-peer and owned-Atom collection contexts remain null without invented identities."
+      ],
+      "normalization_confirmation": "PASS: reviewer independently confirmed only one redundant EOF blank line was removed; JSON values unchanged."
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/grammar_graph",
+    "final_report_sha256": "97dae252cfe7cdfce21864bb38bf3bb12fc0c2a2ef489edd668387faa4415a6c",
+    "result": "PASS: all twenty-seven final meanings independently checked; twenty-four supported proposals and three justified nulls",
+    "meaning_checks": [
+      "Structural Entity maps to the broader Entity, not the narrower Scope Unit.",
+      "Project remains parentless Scope Unit; Project Structure remains non-Atom Artifact.",
+      "Topology and local-order constraints remain explicit in bodies/evidence.",
+      "Derived nearest-peer and owned-Atom collection contexts remain null without invented identities."
+    ],
+    "normalization_confirmation": "PASS: reviewer independently confirmed only one redundant EOF blank line was removed; JSON values unchanged."
+  },
+  "completion_scope": "All 27 assigned current origins passed independent meaning review and exact pin/span/coverage checks: twenty-four supported proposals and three explicit nulls. Structural taxonomy, Project identity, non-Atom structure, topology and contextual collections remain distinct; no original Atom changed.",
+  "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ],
+  "formatting_normalization": {
+    "semantically_reviewed_output_sha256": "e7a9052e9d6b9c7ebe64ec7f2e46695dcca9a65e96b91b00f276e3c466ea1053",
+    "final_output_sha256": "97dae252cfe7cdfce21864bb38bf3bb12fc0c2a2ef489edd668387faa4415a6c",
+    "exact_reverse_hash_and_json_value_equality": "PASS",
+    "independent_confirmation": "/root/grammar_graph"
+  }
+}

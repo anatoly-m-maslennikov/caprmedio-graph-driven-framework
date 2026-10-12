@@ -47,7 +47,7 @@ class CommitTriggerTests(unittest.TestCase):
         (self.repository / ".caprmedio_caprmedio/caprmedio_project_settings.toml").write_text(
             "[artifact_timestamps]\ntimezone = \"Asia/Tbilisi\"\n\n"
             "[paths]\ncontrol_root = \".caprmedio_caprmedio\"\n"
-            "framework_root = \".caprmedio_framework\"\n"
+            "framework_root = \".caprmedio_caprmedio/000_CAPRMEDIO_framework\"\n"
             "journal_root = \".caprmedio_caprmedio/_journal\"\n"
             "runtime_root = \".caprmedio_runtime\"\n"
             "temporary_root = \".caprmedio_tmp\"\n"
@@ -81,6 +81,17 @@ class CommitTriggerTests(unittest.TestCase):
             text=True,
         )
         return completed.stdout
+
+    def test_preselector_hook_rejects_package_outside_managed_release_surface(self) -> None:
+        outside = self.repository / "ordinary-package"
+        outside.mkdir()
+
+        with self.assertRaisesRegex(commit_trigger.ToolError, "outside the managed release surface"):
+            commit_trigger._managed_git_hook_script(
+                self.repository,
+                "pre-commit",
+                verified_package_root=outside,
+            )
 
     def _observation(self, **overrides: object) -> dict[str, object]:
         observation: dict[str, object] = {
@@ -412,13 +423,14 @@ class CommitTriggerTests(unittest.TestCase):
             ".caprmedio_tmp/cache.json",
             ".github/workflows/test.yml",
             ".f4f/config.toml",
+            ".caprmedio_framework/04_requirement/CA-R-001-REQUIREMENT--framework.md",
         ):
             self.assertFalse(commit_trigger._hook_eligible(self.repository, {"before_path": path, "after_path": path}), path)
         for path in (
             "README.md",
             "src/application.py",
             ".gitignore",
-            ".caprmedio_framework/04_requirement/CA-R-001-REQUIREMENT--framework.md",
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/04_requirement/CA-R-001-REQUIREMENT--framework.md",
             ".caprmedio_caprmedio/stg_requirements_subjects.md",
             ".caprmedio_caprmedio/04_requirement/archive/CA-R-001-REQUIREMENT--subject.md",
         ):

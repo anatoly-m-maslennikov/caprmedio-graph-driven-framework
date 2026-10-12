@@ -7,10 +7,12 @@ from __future__ import annotations
 import base64
 import hashlib
 import hmac
+import importlib.util
 import json
 import os
 import re
 import secrets
+import sys
 import time
 import tomllib
 from dataclasses import dataclass
@@ -18,12 +20,51 @@ from datetime import date, datetime, time as datetime_time
 from pathlib import Path
 from typing import Any, Iterable
 
+from pydantic import BaseModel, ConfigDict, Field, JsonValue, model_validator
 import yaml
+
+
+def _canonical_sibling(path: Path, stem: str) -> Any:
+    """Load one known sibling by its installed file, not ambient import state."""
+
+    try:
+        resolved = path.resolve(strict=True)
+        parent = path.parent.resolve(strict=True)
+    except OSError as error:
+        raise ImportError(f"canonical {stem} sibling is unavailable") from error
+    if path.is_symlink() or resolved.parent != parent or not resolved.is_file():
+        raise ImportError(f"canonical {stem} sibling is unavailable")
+    module_name = f"_caprmedio_{stem}_{hashlib.sha256(str(resolved).encode('utf-8')).hexdigest()}"
+    cached = sys.modules.get(module_name)
+    if cached is not None:
+        return cached
+    specification = importlib.util.spec_from_file_location(module_name, resolved)
+    if specification is None or specification.loader is None:
+        raise ImportError(f"canonical {stem} sibling is unavailable")
+    module = importlib.util.module_from_spec(specification)
+    sys.modules[module_name] = module
+    try:
+        specification.loader.exec_module(module)
+    except Exception:
+        sys.modules.pop(module_name, None)
+        raise
+    return module
+
+
+_TOOL_ROOT = Path(__file__).resolve().parent
+_TOOLS_ROOT = _TOOL_ROOT.parent
+_description = _canonical_sibling(_TOOLS_ROOT / "tool_description.py", "tool_description")
+binding_matches = _description.binding_matches
+make_tool_description = _description.make_tool_description
 
 try:  # package import for adapters
     from .query_filter import MISSING, QueryFilterError, evaluate_filter, parse_filter
 except ImportError:  # direct tool-path import for standalone execution
-    from query_filter import MISSING, QueryFilterError, evaluate_filter, parse_filter
+    _query_filter = _canonical_sibling(_TOOL_ROOT / "query_filter.py", "artifact_query_filter")
+    MISSING = _query_filter.MISSING
+    QueryFilterError = _query_filter.QueryFilterError
+    evaluate_filter = _query_filter.evaluate_filter
+    parse_filter = _query_filter.parse_filter
 
 
 _QUERY_KEYS = frozenset({
@@ -42,6 +83,83 @@ _SNAPSHOT_SIGNING_KEY = secrets.token_bytes(32)
 
 class ArtifactQueryError(ValueError):
     """A rejected query has no accepted partial result."""
+
+
+class _ClosedModel(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+
+class ArtifactQueryLimits(_ClosedModel):
+    """Optional bounded overrides accepted by the native Artifact query core."""
+
+    max_request_bytes: int | None = Field(default=None, ge=1)
+    max_grammar_depth: int | None = Field(default=None, ge=1)
+    max_filter_tokens: int | None = Field(default=None, ge=1)
+    max_in_members: int | None = Field(default=None, ge=1)
+    max_selected_fields: int | None = Field(default=None, ge=1)
+    max_page_size: int | None = Field(default=None, ge=1)
+    max_snapshot_members: int | None = Field(default=None, ge=1)
+    max_file_bytes: int | None = Field(default=None, ge=1)
+    max_total_read_bytes: int | None = Field(default=None, ge=1)
+    timeout_seconds: int | None = Field(default=None, ge=1)
+    max_findings: int | None = Field(default=None, ge=1)
+
+
+class ArtifactQuerySnapshot(_ClosedModel):
+    """The opaque retained-snapshot capability returned by this Tool."""
+
+    reference: str = Field(min_length=1)
+    token: str = Field(min_length=1)
+    digest: str = Field(min_length=1)
+
+
+class ArtifactQueryRequest(_ClosedModel):
+    """Canonical request accepted by the root-bound Artifact query Tool."""
+
+    filter: str | None = None
+    select: list[str] = Field(default_factory=list)
+    limit: int | None = Field(default=None, ge=1)
+    cursor: str | None = None
+    snapshot: ArtifactQuerySnapshot | None = None
+    settings: ArtifactQueryLimits | None = None
+
+    @model_validator(mode="after")
+    def _require_snapshot_cursor_pair(self) -> "ArtifactQueryRequest":
+        if (self.snapshot is None) != (self.cursor is None):
+            raise ValueError("continuation requires retained snapshot and cursor")
+        return self
+
+    def native_request(self) -> dict[str, Any]:
+        return self.model_dump(mode="python", exclude_none=True)
+
+
+class ArtifactQueryCoverage(_ClosedModel):
+    examined_count: int = Field(ge=0)
+    matched_count: int = Field(ge=0)
+    returned_count: int = Field(ge=0)
+    complete: bool
+    incomplete: bool
+
+
+class ArtifactQueryDiagnostics(_ClosedModel):
+    complete: bool
+    incomplete: bool
+    findings: list[str]
+
+
+class ArtifactQueryResult(_ClosedModel):
+    """Canonical structured result emitted by ``query_artifacts``."""
+
+    snapshot: ArtifactQuerySnapshot
+    snapshot_reference: str = Field(min_length=1)
+    examined_count: int = Field(ge=0)
+    matched_count: int = Field(ge=0)
+    returned_count: int = Field(ge=0)
+    coverage: ArtifactQueryCoverage
+    has_more: bool
+    next_cursor: str | None = None
+    results: list[dict[str, JsonValue]]
+    diagnostics: ArtifactQueryDiagnostics
 
 
 class UniqueSafeLoader(yaml.SafeLoader):
@@ -531,3 +649,83 @@ def query_artifacts(root: str | Path, request: dict[str, Any], *, settings: dict
         "results": rows,
         "diagnostics": {"complete": True, "incomplete": False, "findings": []},
     }
+
+
+TOOL_NAME = "FIND_AND_FETCH_ARTIFACTS"
+MCP_NAME = "find_and_fetch_artifacts"
+ACTION_ID = "CA-O-159"
+DELIVERY_ID = "CA-D-551"
+ENTRYPOINT = (
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/"
+    "FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py"
+)
+
+
+class _DescriptorAdapter:
+    """The direct, root-bound invoker; it has no MCP transport envelope."""
+
+    def __init__(self, root: str | Path) -> None:
+        self._root = _resolve_root(root)
+
+    def invoke(self, request: ArtifactQueryRequest | dict[str, Any]) -> ArtifactQueryResult:
+        try:
+            parsed = request if isinstance(request, ArtifactQueryRequest) else ArtifactQueryRequest.model_validate(request)
+        except Exception as error:
+            raise ArtifactQueryError("invalid query request") from error
+        return ArtifactQueryResult.model_validate(query_artifacts(self._root, parsed.native_request()))
+
+
+def create_adapter(root: str | Path) -> _DescriptorAdapter:
+    """Create the sole root-bound canonical Artifact query invoker."""
+
+    return _DescriptorAdapter(root)
+
+
+def describe_tool() -> dict[str, Any]:
+    """Describe this read-only Tool without opening a Project or invoking it."""
+
+    return make_tool_description(
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=[ACTION_ID],
+        input_symbol="ArtifactQueryRequest",
+        output_symbol="ArtifactQueryResult",
+        title="Find and fetch artifacts",
+        description="Query a root-bound snapshot of Markdown artifacts without creating a Run or Journal record.",
+        purpose="Read admitted Artifact data through the native frozen-snapshot query boundary.",
+        read_only=True,
+        idempotent=True,
+    )
+
+
+def binding_is_admitted(binding: Any) -> bool:
+    """Accept only CA-D-551's exact declared native Tool binding."""
+
+    return binding_matches(
+        binding,
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=[ACTION_ID],
+    )
+
+
+__all__ = [
+    "ACTION_ID",
+    "ArtifactQueryCoverage",
+    "ArtifactQueryDiagnostics",
+    "ArtifactQueryError",
+    "ArtifactQueryLimits",
+    "ArtifactQueryRequest",
+    "ArtifactQueryResult",
+    "ArtifactQuerySnapshot",
+    "DELIVERY_ID",
+    "ENTRYPOINT",
+    "MCP_NAME",
+    "TOOL_NAME",
+    "binding_is_admitted",
+    "create_adapter",
+    "describe_tool",
+    "query_artifacts",
+]

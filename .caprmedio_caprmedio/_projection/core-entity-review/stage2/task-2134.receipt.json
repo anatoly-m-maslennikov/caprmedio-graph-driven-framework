@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2134",
+  "recorded_at": "2026-10-11 10:55:57 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining role and implementation subjects; not migration approval",
+  "verification": {
+    "task": "CA-P-2134",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2134.research.json",
+      "sha256": "12805a8750a8b3840870416c0a742ceaf74e312c1bd71444f076a6b558b50303"
+    },
+    "rows": 25,
+    "counts": {
+      "unresolved": 14,
+      "proposed": 11
+    },
+    "exact_evidence_spans": 103,
+    "exact_supporting_definition_spans": 0,
+    "exact_input_pins": 31,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/domain_semantic_acceptance",
+      "final_report_sha256": "12805a8750a8b3840870416c0a742ceaf74e312c1bd71444f076a6b558b50303",
+      "result": "PASS: eleven supported proposals and fourteen justified nulls after collective-role correction",
+      "meaning_checks": [
+        "Four CA-E-498/499 collective Spec/Change Subjects remain null, preserving R1548/R1549 four-role membership sets.",
+        "Current R1283 allowed Content Role values exclude Spec and Change; no singleton or set grammar is invented.",
+        "Prior eleven valid proposals preserve actual Content Role values and Work Sequence Number owners.",
+        "Ten original nulls preserve Tool/execution, Journal, implementation/projection, Runtime and lexical-topic distinctions.",
+        "All twenty-five current source hashes match final report pins; prior twenty-one decisions remain unchanged and sound."
+      ],
+      "rejected_interim_reports": [
+        {
+          "sha256": "de21f0c279a1f6d017d6878317d09b94ecf337cf6433ad5e2b994cb9d987a3f3",
+          "reviewer": "/root/domain_semantic_acceptance",
+          "result": "FAIL: four unsupported singleton Content Role values",
+          "issues": [
+            "CA-E-498 depends_on[0,1] and CA-E-499 depends_on[0,1] Spec/Change collective sets cannot become Atom.Content Role:Spec or :Change; R1283 excludes values, R1548/R1549 define four-member sets. Restore null preserving set membership."
+          ]
+        }
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/domain_semantic_acceptance",
+    "final_report_sha256": "12805a8750a8b3840870416c0a742ceaf74e312c1bd71444f076a6b558b50303",
+    "result": "PASS: eleven supported proposals and fourteen justified nulls after collective-role correction",
+    "meaning_checks": [
+      "Four CA-E-498/499 collective Spec/Change Subjects remain null, preserving R1548/R1549 four-role membership sets.",
+      "Current R1283 allowed Content Role values exclude Spec and Change; no singleton or set grammar is invented.",
+      "Prior eleven valid proposals preserve actual Content Role values and Work Sequence Number owners.",
+      "Ten original nulls preserve Tool/execution, Journal, implementation/projection, Runtime and lexical-topic distinctions.",
+      "All twenty-five current source hashes match final report pins; prior twenty-one decisions remain unchanged and sound."
+    ],
+    "rejected_interim_reports": [
+      {
+        "sha256": "de21f0c279a1f6d017d6878317d09b94ecf337cf6433ad5e2b994cb9d987a3f3",
+        "reviewer": "/root/domain_semantic_acceptance",
+        "result": "FAIL: four unsupported singleton Content Role values",
+        "issues": [
+          "CA-E-498 depends_on[0,1] and CA-E-499 depends_on[0,1] Spec/Change collective sets cannot become Atom.Content Role:Spec or :Change; R1283 excludes values, R1548/R1549 define four-member sets. Restore null preserving set membership."
+        ]
+      }
+    ]
+  },
+  "completion_scope": "All25 selected origins passed exact live pin/span/coverage controls and independent semantic acceptance: eleven supported proposals and fourteen explicit nulls. Four invalid Spec/Change singleton values were rejected; collective sets remain distinct from member roles. Original Core is unchanged.",
+  "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

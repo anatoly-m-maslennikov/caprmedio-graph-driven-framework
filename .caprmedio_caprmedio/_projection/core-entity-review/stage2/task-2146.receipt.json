@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2146",
+  "recorded_at": "2026-10-11 11:53:38 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining unqualified subjects 003; not migration approval",
+  "verification": {
+    "task": "CA-P-2146",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2146.research.json",
+      "sha256": "567f21ba21eabe86155300820c305ea33594e3cd6d4bac06d6290d09a49fa556"
+    },
+    "rows": 24,
+    "counts": {
+      "unresolved": 16,
+      "proposed": 8
+    },
+    "exact_evidence_spans": 32,
+    "exact_supporting_definition_spans": 6,
+    "exact_input_pins": 31,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision",
+      "foreign_meaning_evidence",
+      "wrong_registration",
+      "partial_owner_body"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2144-2151.inputs.json",
+      "sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+    },
+    "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/domain_semantic_acceptance",
+      "final_report_sha256": "567f21ba21eabe86155300820c305ea33594e3cd6d4bac06d6290d09a49fa556",
+      "result": "PASS: eight supported proposals and sixteen justified nulls",
+      "meaning_checks": [
+        "R1281 and M232 define the Atom Subjects Graph Projection Type as derived, not source authority.",
+        "E447/R1287 support the shared Atom Local Tier Property, not ownership or Content Role.",
+        "E458/E459 and R1402/R1738 require separate Carrier and historical Revision bindings; neither restores Artifact.Revision containment.",
+        "E464/R1467/R1468 support distinct Artifact Change Log and Process Log Projection Types.",
+        "Named procedures, qualified Status/Revision conditions and multi-input validation remain unresolved rather than generic roots."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/domain_semantic_acceptance",
+    "final_report_sha256": "567f21ba21eabe86155300820c305ea33594e3cd6d4bac06d6290d09a49fa556",
+    "result": "PASS: eight supported proposals and sixteen justified nulls",
+    "meaning_checks": [
+      "R1281 and M232 define the Atom Subjects Graph Projection Type as derived, not source authority.",
+      "E447/R1287 support the shared Atom Local Tier Property, not ownership or Content Role.",
+      "E458/E459 and R1402/R1738 require separate Carrier and historical Revision bindings; neither restores Artifact.Revision containment.",
+      "E464/R1467/R1468 support distinct Artifact Change Log and Process Log Projection Types.",
+      "Named procedures, qualified Status/Revision conditions and multi-input validation remain unresolved rather than generic roots."
+    ]
+  },
+  "completion_scope": "All 24 selected origins across 19 owners passed complete current-body/pin/span/coverage controls, fourteen wrong-data controls and independent semantic acceptance: eight supported proposals and sixteen explicit nulls. Carrier, historical Revision, Local Tier and named Projection Types retain their actual boundaries; original Core is unchanged.",
+  "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

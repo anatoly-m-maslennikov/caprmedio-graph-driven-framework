@@ -1,0 +1,2243 @@
+{
+  "schema_version": 1,
+  "source_task": "CA-P-1933",
+  "batch": 5,
+  "kind": "Captured nodes against Operator candidate",
+  "non_authoritative": true,
+  "native_admission": "not_performed",
+  "source_migration": "not_performed",
+  "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "candidate_sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+  "input_sha256": "b8a78fc221a8954036da22c4a82a3eda461c4d9badda807b9da399b6f13c6e54",
+  "baseline_sha256": "bc5d99e91fb7dd4dcb42e59ff33cc24cff1d0901c5904764394c769aaa0a9430",
+  "prior_review_sha256": "1b9d751f95aa71486908b53b3d7f3f9825defae137be3d8792d45177587c48f8",
+  "review_method": "Compared each captured batch-5 identity with the latest Operator-authored candidate using the accepted prior meanings and global evidence keys from nodes.dispositions.json. Quoted Main Content was rechecked through snapshot_sources.py against the captured Git snapshot; this is not a fresh exhaustive audit of all 951 source pins or all source candidates. Display paths are proposals only: no Core admission, source migration, pin refresh, or native relation rewrite was performed.",
+  "nodes": [
+    {
+      "identity": "General Artifact Graph",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "General Artifact Graph: Keep this graph description as a derived display view; it does not create a new root or native edge. The accepted captured-snapshot review checked CA-R-1409 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "projection_member_model",
+        "entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1409@8:37-37:4bbd44885e80617844317ef575764de0d4d5317e754b840f2e17650c8ea6e4c7"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1409"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'General Artifact Graph'; no same-referent replacement was proved.",
+        "Keep this graph description as a derived display view; it does not create a new root or native edge."
+      ],
+      "question": null
+    },
+    {
+      "identity": "General Term",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "General Term: Terms and their rendering remain a separate terminology/syntax context, not an eighth Entity root or an admitted cross-graph relation. The accepted captured-snapshot review checked CA-R-1320 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "entity_vs_syntax_rules",
+        "terms_graph_boundary"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1320@10:28-28:a6eda07dfd426baa99a131801cc0055a6d410c2775251dc51627db52ce089457"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1320"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'General Term'; no same-referent replacement was proved.",
+        "Terms and their rendering remain a separate terminology/syntax context, not an eighth Entity root or an admitted cross-graph relation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Generated-Only Provenance Validation",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "E",
+      "confidence_percent": 92,
+      "reason": "Generated-Only Provenance Validation: Retain the bounded provenance-validation identity in the Evaluation view; its owner/root remains unspecified and a generated projection is not an authority. The accepted captured-snapshot review checked CAPRMEDIO-GOV-EVAL-010 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CAPRMEDIO-GOV-EVAL-010@17:34-34:da9597e20d152f368ba8fb490a98cabef2dfbbc7f1eee114fb7ac6bd94d857eb"
+      ],
+      "checked_source_atom_ids": [
+        "CAPRMEDIO-GOV-EVAL-010"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Generated-Only Provenance Validation'; no same-referent replacement was proved.",
+        "Retain the bounded provenance-validation identity in the Evaluation view; its owner/root remains unspecified and a generated projection is not an authority."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Generator",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "M",
+      "confidence_percent": 95,
+      "reason": "Generator: Keep the Generator as a reusable construction definition in the M view; it is not an Actor root and not an actual Execution. The accepted captured-snapshot review checked CA-M-114 and retained its prior bounded meaning: Generator: retained from captured-snapshot Main Content because it requires the Generator to derive each Governed Term's name and Project-specific meaning from its active Definition Atom. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-04-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-114"
+      ],
+      "preserved_distinctions": [
+        "requires the Generator to derive each Governed Term's name and Project-specific meaning from its active Definition Atom",
+        "a terminology-list derivation role, not an independent vocabulary authority",
+        "Keep the Generator as a reusable construction definition in the M view; it is not an Actor root and not an actual Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Global Tier",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Global Tier",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Global Tier: Preserve the qualified field/value meaning and owner-specific use as a dependent field; no independent lifecycle or blanket inheritance is implied. The accepted captured-snapshot review checked CA-O-087 and retained its prior bounded meaning: Global Tier: retained from captured-snapshot Main Content because it makes Global Tier values a named Atom-selection criterion and requires internally carried tier values rather than filename tokens. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-05-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-087"
+      ],
+      "preserved_distinctions": [
+        "makes Global Tier values a named Atom-selection criterion and requires internally carried tier values rather than filename tokens",
+        "a selection dimension, not a directory or filename classification",
+        "Preserve the qualified field/value meaning and owner-specific use as a dependent field; no independent lifecycle or blanket inheritance is implied."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Goal",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "E",
+      "confidence_percent": 89,
+      "reason": "Goal: The sole exact evidence observes Active Goal visibility alongside an undeclared candidate; observation is not declaration, so no candidate owner or path is assigned. Do not conflate this captured identity with Requirement Type Goal (the RMED Claim reviewed in batch 2); no Substance Objective mapping is established, and ':' remains allowed-value notation rather than a role label. The accepted captured-snapshot review checked CA-E-446 and retained its prior bounded meaning: Goal: retained from captured-snapshot Main Content because it keeps missing Carrier and Active Goal findings visible while distinguishing a declared unit from an undeclared candidate. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "entity_identity_model.dependent_entity",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-06-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-446"
+      ],
+      "preserved_distinctions": [
+        "keeps missing Carrier and Active Goal findings visible while distinguishing a declared unit from an undeclared candidate",
+        "an explicit active-Goal finding, not a declaration inferred from observed structure",
+        "The sole exact evidence observes Active Goal visibility alongside an undeclared candidate; observation is not declaration, so no candidate owner or path is assigned. Do not conflate this captured identity with Requirement Type Goal (the RMED Claim reviewed in batch 2); no Substance Objective mapping is established, and ':' remains allowed-value notation rather than a role label."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Governance Origin",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "Governance Origin: Preserve each captured governance/selection meaning without assigning an unproved owner/root; a display grouping does not authorize a new subtype. The accepted captured-snapshot review checked CA-R-1709 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1709@24:30-30:8b9927727e3f31613b26621bf408e735d76d793b85e3d8f747ac4f9886143fe2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1709"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Governance Origin'; no same-referent replacement was proved.",
+        "Preserve each captured governance/selection meaning without assigning an unproved owner/root; a display grouping does not authorize a new subtype."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Governed Entity",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Governed Entity: Preserve each captured governance/selection meaning without assigning an unproved owner/root; a display grouping does not authorize a new subtype. The accepted captured-snapshot review checked CA-R-999 and retained its prior bounded meaning: Governed Entity: retained from captured-snapshot Main Content because it defines a Scope Expression as a deterministic expression that identifies Governed Entities through atomic references, explicit IDs, operators, and field predicates. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-08-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-999"
+      ],
+      "preserved_distinctions": [
+        "defines a Scope Expression as a deterministic expression that identifies Governed Entities through atomic references, explicit IDs, operators, and field predicates",
+        "the identified-target role within a deterministic Scope Expression, not an independent Scope Expression definition",
+        "Preserve each captured governance/selection meaning without assigning an unproved owner/root; a display grouping does not authorize a new subtype."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Governed Term",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "Governed Term: Terms and their rendering remain a separate terminology/syntax context, not an eighth Entity root or an admitted cross-graph relation. The accepted captured-snapshot review checked CA-R-126, CA-R-1319 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "entity_vs_syntax_rules",
+        "terms_graph_boundary"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-126@17:29-29:ccf1848fc0b5eb312f7b7114c9eeb65afc07004d17f2562b4ba5e60925529cf1",
+        "CA-P-1933/batch-5/CA-R-1319@10:30-30:90a704dc93c5e45a0a63adc39e38a48b5549e7b9b149e59036d347ba8f6a660f"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-126",
+        "CA-R-1319"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Governed Term'; no same-referent replacement was proved.",
+        "Terms and their rendering remain a separate terminology/syntax context, not an eighth Entity root or an admitted cross-graph relation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Governed Term Rendering",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "Governed Term Rendering: Terms and their rendering remain a separate terminology/syntax context, not an eighth Entity root or an admitted cross-graph relation. The accepted captured-snapshot review checked CA-E-512, CA-M-229 and retained its prior bounded meaning: Governed Term Rendering: retained from captured-snapshot Main Content because it requires governed-term lexical case and canonical CCE-operator spelling when CAPRMEDIO content is rendered. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "entity_vs_syntax_rules",
+        "terms_graph_boundary"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-10-1",
+        "CA-P-1933/batch-5/r1955-10-2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-512",
+        "CA-M-229"
+      ],
+      "preserved_distinctions": [
+        "requires governed-term lexical case and canonical CCE-operator spelling when CAPRMEDIO content is rendered",
+        "rendering and validation of governed terms, not creation of new term authority",
+        "Terms and their rendering remain a separate terminology/syntax context, not an eighth Entity root or an admitted cross-graph relation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Graph of Graphs",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "Graph of Graphs: Keep this graph description as a derived display view; it does not create a new root or native edge. The accepted captured-snapshot review checked CA-R-1408 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "projection_member_model",
+        "entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1408@7:32-32:6f5dc4e855f209f4f6fc7c8a355907073e39ce38f2dfbe6440392d191bf07d17"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1408"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Graph of Graphs'; no same-referent replacement was proved.",
+        "Keep this graph description as a derived display view; it does not create a new root or native edge."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Hub",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Hub: Keep the Hub or Hub Atom as navigation/projection context; headings, aliases, and derived descriptions do not create an independent Entity. The accepted captured-snapshot review checked CA-D-331 and retained its prior bounded meaning: Hub: retained from captured-snapshot Main Content because it permits a durable Hub to list stable child folders and Hubs while prohibiting individual Atom Carrier and Runtime State enumeration. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "projection_member_model",
+        "entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-12-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-331"
+      ],
+      "preserved_distinctions": [
+        "permits a durable Hub to list stable child folders and Hubs while prohibiting individual Atom Carrier and Runtime State enumeration",
+        "durable folder-level navigation, not an Atom-Carrier index",
+        "Keep the Hub or Hub Atom as navigation/projection context; headings, aliases, and derived descriptions do not create an independent Entity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Hub Atom",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "Hub Atom: Keep the Hub or Hub Atom as navigation/projection context; headings, aliases, and derived descriptions do not create an independent Entity. The accepted captured-snapshot review checked CA-R-1578 and retained its prior bounded meaning: Candidate retain only: Captured CA-R-1578 defines Hub Atom as a derived description only and expressly excludes a new Type, Subtype, stored classification, identity, or authority tier. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "projection_member_model",
+        "entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1578@4:33-33:c0cf5d7a145ab46083224cb59e63fcece71e592092ca11e679d886ee9be95a5d"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1578"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Hub Atom'; no same-referent replacement was proved.",
+        "Keep the Hub or Hub Atom as navigation/projection context; headings, aliases, and derived descriptions do not create an independent Entity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Hub/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Hub",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Hub/Carrier: Preserve durable Hub navigation as a general Carrier policy and its stable-folder boundary; do not enumerate Atom Carriers or Runtime State as new entities. The accepted captured-snapshot review checked CA-D-331 and retained its prior bounded meaning: Hub/Carrier: retained from captured-snapshot Main Content because it constrains a durable Hub Carrier to stable folder and Hub navigation. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-14-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-331"
+      ],
+      "preserved_distinctions": [
+        "constrains a durable Hub Carrier to stable folder and Hub navigation",
+        "a Hub Carrier navigation boundary, not a generic file listing",
+        "Preserve durable Hub navigation as a general Carrier policy and its stable-folder boundary; do not enumerate Atom Carriers or Runtime State as new entities."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Hub/Carrier/Navigation Entry",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Hub.Navigation Entry",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Hub/Carrier/Navigation Entry: Preserve durable Hub navigation as a general Carrier policy and its stable-folder boundary; do not enumerate Atom Carriers or Runtime State as new entities. The accepted captured-snapshot review checked CA-D-331 and retained its prior bounded meaning: Hub/Carrier/Navigation Entry: retained from captured-snapshot Main Content because it limits durable Hub Carrier navigation entries to stable child folders and Hubs and excludes individual Atom Carriers and Runtime State descendants. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-15-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-331"
+      ],
+      "preserved_distinctions": [
+        "limits durable Hub Carrier navigation entries to stable child folders and Hubs and excludes individual Atom Carriers and Runtime State descendants",
+        "a permitted durable navigation entry, not an arbitrary descendant listing",
+        "Preserve durable Hub navigation as a general Carrier policy and its stable-folder boundary; do not enumerate Atom Carriers or Runtime State as new entities."
+      ],
+      "question": null
+    },
+    {
+      "identity": "IS_ALLOWED_VALUE_OF",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/IS_ALLOWED_VALUE_OF",
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "IS_ALLOWED_VALUE_OF: Retain the directed allowed-value relation and each qualified value domain; repeated labels do not collapse distinct owner/value meanings. The accepted captured-snapshot review checked CA-R-1346, CA-R-1436 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "graph_model",
+        "relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1436@8:30-30:8ebe57b862a16a5c9ac3e1288855839f512aaa30c2ca9af76a09372c420633e1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1346",
+        "CA-R-1436"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'IS_ALLOWED_VALUE_OF'; no same-referent replacement was proved.",
+        "Retain the directed allowed-value relation and each qualified value domain; repeated labels do not collapse distinct owner/value meanings."
+      ],
+      "question": null
+    },
+    {
+      "identity": "IS_BORNE_BY",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/IS_BORNE_BY",
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "IS_BORNE_BY: Retain the directed bearer-to-Carrier relation as a typed relation; its derived inverse presentation is not a new primitive or root. The accepted captured-snapshot review checked CA-R-1260, CA-R-1351 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "graph_model",
+        "relation_type_model",
+        "carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1260@13:31-31:0bfd698710d7b0df61914f3182c8066af5de7528944652469621d2c71062d9df"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1260",
+        "CA-R-1351"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'IS_BORNE_BY'; no same-referent replacement was proved.",
+        "Retain the directed bearer-to-Carrier relation as a typed relation; its derived inverse presentation is not a new primitive or root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "IS_CARRIED_BY",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/IS_CARRIED_BY",
+      "content_view": "D",
+      "confidence_percent": 92,
+      "reason": "IS_CARRIED_BY: Retain the generic carried-by meaning and endpoint constraints, while using general D policies instead of per-Property Carrier relation instances. The accepted captured-snapshot review checked CA-D-257 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "graph_model",
+        "relation_type_model",
+        "carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-D-257@13:31-31:0473feca1db238db2df1a84f50f4ed171bd29640b1232d30a947324d7902a9f6"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-257"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'IS_CARRIED_BY'; no same-referent replacement was proved.",
+        "Retain the generic carried-by meaning and endpoint constraints, while using general D policies instead of per-Property Carrier relation instances."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Implementation: Preserve observed Implementation facts separately from refactoring decisions in the M/O view; this is not an Execution root. The accepted captured-snapshot review checked CA-R-1611 and retained its prior bounded meaning: Implementation: retained from captured-snapshot Main Content because it separates observed Implementation facts from proposed refactoring decisions and bars treating observed behavior as a Requirement. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-19-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1611"
+      ],
+      "preserved_distinctions": [
+        "separates observed Implementation facts from proposed refactoring decisions and bars treating observed behavior as a Requirement",
+        "observed implementation evidence, not a promoted requirement",
+        "Preserve observed Implementation facts separately from refactoring decisions in the M/O view; this is not an Execution root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Binding",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/Implementation Binding",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Implementation Binding: Retain the owner-specific evaluation-to-realization binding and its revision/Journaling constraints without inventing endpoint or lifecycle changes. The accepted captured-snapshot review checked CA-R-1504, CA-R-1695 and retained its prior bounded meaning: Implementation Binding: retained from captured-snapshot Main Content because it requires attributable Evaluation-to-realization coverage and stable Journal-recorded bindings from exact RMED revisions to native targets. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "graph_model",
+        "relation_type_model",
+        "history_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-20-1",
+        "CA-P-1933/batch-5/r1955-20-2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1504",
+        "CA-R-1695"
+      ],
+      "preserved_distinctions": [
+        "requires attributable Evaluation-to-realization coverage and stable Journal-recorded bindings from exact RMED revisions to native targets",
+        "a declared traceability binding, not proof that an implementation is correct or operating",
+        "Retain the owner-specific evaluation-to-realization binding and its revision/Journaling constraints without inventing endpoint or lifecycle changes."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Evaluation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Implementation Evaluation: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-020 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-020@5:34-34:6c80deefd2115b3ee01a881bcefddc3eac8f283c932c6db5025e859e73630801"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-020"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Evaluation'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Evaluation Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Implementation Evaluation Step: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-094 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-094@4:35-35:cc917d2200ac52fb6d0e1c860bab0e13d3d36b1ebc7fb863a248bce2c0bd257a"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-094"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Evaluation Step'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Failure Diagnosis",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Implementation Failure Diagnosis: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-089 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-089@3:38-38:d35e9a5b9b04ed45a31b1f122efc64104bebe93f010afa9107110d5297b3f1b5"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-089"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Failure Diagnosis'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Failure Diagnosis Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Implementation Failure Diagnosis Step: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-095 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-095@3:35-35:2225819c2b9fcebbd4d495b958441ee913e5bcbd924c3028ccea03d5818fca9f"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-095"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Failure Diagnosis Step'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Folder",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Implementation Folder",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Implementation Folder: Treat the folder binding as a general delivery/storage policy that selects a layout; it is not a new folder-derived Entity root. The accepted captured-snapshot review checked CA-D-445 and retained its prior bounded meaning: Implementation Folder: retained from captured-snapshot Main Content because it allows an explicit Scope Unit authority or Implementation Folder binding to select an unambiguous native directory layout. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-25-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-445"
+      ],
+      "preserved_distinctions": [
+        "allows an explicit Scope Unit authority or Implementation Folder binding to select an unambiguous native directory layout",
+        "a declared implementation-folder binding, not structural parentage inferred from a path",
+        "Treat the folder binding as a general delivery/storage policy that selects a layout; it is not a new folder-derived Entity root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Of Relation",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/Implementation Of Relation",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Implementation Of Relation: Retain the captured typed relation/pair meaning and declared direction; an inverse-derived pair does not become a second primitive relation kind. The accepted captured-snapshot review checked CA-R-1020 and retained its prior bounded meaning: Implementation Of Relation: retained from captured-snapshot Main Content because it registers implementation_of as a direct relation owned by a governed Implementation carrier and directed to one specification Atom. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "graph_model",
+        "relation_type_model",
+        "history_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-26-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1020"
+      ],
+      "preserved_distinctions": [
+        "registers implementation_of as a direct relation owned by a governed Implementation carrier and directed to one specification Atom",
+        "a directed realization relation with stated owner and target, not a display nesting",
+        "Retain the captured typed relation/pair meaning and declared direction; an inverse-derived pair does not become a second primitive relation kind."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Preparation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Implementation Preparation: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-017 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-017@6:48-48:0c1864695487de73fb4f132d545b1df21a52ba8e9add82ae2cc549b58633f9f6"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-017"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Preparation'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Preparation Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Implementation Preparation Step: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-091 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-091@4:35-35:d8c516620c3adab2e727e8285bb0f9d70c399111199222f5c77055cbfdd966b7"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-091"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Preparation Step'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Relation",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/Implementation Relation",
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "Implementation Relation: Retain the captured typed relation/pair meaning and declared direction; an inverse-derived pair does not become a second primitive relation kind. The accepted captured-snapshot review checked CAPRMEDIO-GOV-EVAL-010 and retained its prior bounded meaning: Implementation Relation: retained from captured-snapshot Main Content because it forbids generated-only provenance from contributing an Implementation Relation or treating a generated Projection as its own semantic input. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "graph_model",
+        "relation_type_model",
+        "history_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-29-1"
+      ],
+      "checked_source_atom_ids": [
+        "CAPRMEDIO-GOV-EVAL-010"
+      ],
+      "preserved_distinctions": [
+        "forbids generated-only provenance from contributing an Implementation Relation or treating a generated Projection as its own semantic input",
+        "a semantic implementation-relation boundary, not generated-projection provenance",
+        "Retain the captured typed relation/pair meaning and declared direction; an inverse-derived pair does not become a second primitive relation kind."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Relation Pair",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/Implementation Relation Pair",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Implementation Relation Pair: Retain the captured typed relation/pair meaning and declared direction; an inverse-derived pair does not become a second primitive relation kind. The accepted captured-snapshot review checked CA-R-1027 and retained its prior bounded meaning: Implementation Relation Pair: retained from captured-snapshot Main Content because it sets implementation_of as the declared upstream relation and implemented_by as its inverse-derived downstream relation in the realization ordering domain. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "graph_model",
+        "relation_type_model",
+        "history_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-30-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1027"
+      ],
+      "preserved_distinctions": [
+        "sets implementation_of as the declared upstream relation and implemented_by as its inverse-derived downstream relation in the realization ordering domain",
+        "a directed inverse-derived relation pair, not two independent relation kinds",
+        "Retain the captured typed relation/pair meaning and declared direction; an inverse-derived pair does not become a second primitive relation kind."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Repair",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Implementation Repair: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-021 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-021@9:41-41:778dbced31006b7ec03d429842e489f1107d0ccce604432aa7b767f353429b02"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-021"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Repair'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Repair Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Implementation Repair Step: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-099 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-099@2:35-35:20c7d2fa7108950855f5fd1870e9fbc5367ed456c2e95919c81be15a0ce87f85"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-099"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Repair Step'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Retry Control",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 92,
+      "reason": "Implementation Retry Control: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-E-441, CA-O-024 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-024@11:38-38:7e8c20ee6df4ae06e1dd87f40ac904701ec6854a0de5bee3602e5bbdf84e68b1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-441",
+        "CA-O-024"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Retry Control'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Retry Control Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Implementation Retry Control Step: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-096 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-096@3:35-35:f3ddf5a8d427dbf4281703b3e0340e8df84377aeef265b2581deb97325775268"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-096"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Retry Control Step'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Retry Limit",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 92,
+      "reason": "Implementation Retry Limit: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-E-473, CA-R-1488 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1488@6:31-31:078471041ac64ed3a50f39e583a28d2131275110c96919ca0353397a45e74539"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-473",
+        "CA-R-1488"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Retry Limit'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Retry Limit/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Implementation Retry Limit.Carrier",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Implementation Retry Limit/Carrier: Keep the selected retry-limit storage binding as a general D policy on its owning Carrier; the field is not a separate Carrier identity. The accepted captured-snapshot review checked CA-D-447 and retained its prior bounded meaning: Implementation Retry Limit/Carrier: retained from captured-snapshot Main Content because it assigns an explicitly selected Implementation Retry Limit to concrete fields on its owning Settings or Plan Carrier. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-36-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-447"
+      ],
+      "preserved_distinctions": [
+        "assigns an explicitly selected Implementation Retry Limit to concrete fields on its owning Settings or Plan Carrier",
+        "a Carrier-specific field placement, not an unbounded retry setting",
+        "Keep the selected retry-limit storage binding as a general D policy on its owning Carrier; the field is not a separate Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Retry Limit/resolution",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "M",
+      "confidence_percent": 92,
+      "reason": "Implementation Retry Limit/resolution: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-M-295 and retained its prior bounded meaning: Candidate retain only: Captured CA-M-295 specifies the effective Implementation Retry Limit resolution precedence and its bounded inheritance, ambiguity, and retry-count constraints. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-M-295@9:39-54:5bf13e441ff72ef0c6caef325bac602a616fca8030b9549901b70e0a55ff3165"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-295"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Retry Limit/resolution'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Retry Limit/source",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Implementation Retry Limit/source: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-R-1489 and retained its prior bounded meaning: Implementation Retry Limit/source: retained from captured-snapshot Main Content because it allows an effective Implementation Retry Limit from direct Operator input, a current Plan Property, a nearest enclosing Hub Plan Property, or Framework Instance Settings; omitted overrides inherit and a retry requires exactly one valid effective limit. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-38-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1489"
+      ],
+      "preserved_distinctions": [
+        "allows an effective Implementation Retry Limit from direct Operator input, a current Plan Property, a nearest enclosing Hub Plan Property, or Framework Instance Settings; omitted overrides inherit and a retry requires exactly one valid effective limit",
+        "allowed effective-limit sources, inheritance, and validity, not an explicit priority-order rule",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation Workflow",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 92,
+      "reason": "Implementation Workflow: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-E-519, CA-O-016 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-016@11:44-44:99b693f5abb46e6b67a1a81da889275e6f537b030d73172a3534bc1c440c4a7c"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-519",
+        "CA-O-016"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Implementation Workflow'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Implementation/Derivation and Actual-State Authority",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Implementation/Derivation and Actual-State Authority: Preserve the boundary between derived Implementation views and native actual-state truth; the display is non-authoritative and does not replace the source identity. The accepted captured-snapshot review checked CA-R-1873 and retained its prior bounded meaning: Implementation/Derivation and Actual-State Authority: retained from captured-snapshot Main Content because it requires governed Operations to derive Implementation from current RMED while retaining native Implementation as actual-content truth and later views as non-authoritative Projections. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "projection_member_model",
+        "entity_vs_syntax_rules",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-40-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1873"
+      ],
+      "preserved_distinctions": [
+        "requires governed Operations to derive Implementation from current RMED while retaining native Implementation as actual-content truth and later views as non-authoritative Projections",
+        "derivation and actual-state authority boundaries, not a new ontology or projection authority",
+        "Preserve the boundary between derived Implementation views and native actual-state truth; the display is non-authoritative and does not replace the source identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Journal",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 92,
+      "reason": "Journal: Retain Journal as a history/decision record without inventing an owner/root; records register changes and outcomes while Git preserves Atom contents and versions. The accepted captured-snapshot review checked CA-E-464, CA-E-476, CA-R-1491, CA-R-1720, CA-R-1745 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "history_model",
+        "applicable_methodology.decision_journal"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1491@6:37-37:a1532b7ecbd43292bb45af58c66097352b18c6e92d778e6c6c5a278ba10029c8",
+        "CA-P-1933/batch-5/CA-R-1745@17:30-30:df0b5dfefb3e1a37eacd5192b77805b3861331e578d7430cb919e5beb5adcbb5"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-464",
+        "CA-E-476",
+        "CA-R-1491",
+        "CA-R-1720",
+        "CA-R-1745"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Journal'; no same-referent replacement was proved.",
+        "Retain Journal as a history/decision record without inventing an owner/root; records register changes and outcomes while Git preserves Atom contents and versions."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Journal Event query",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Journal Event query: Treat the query as an operation definition over Journal records, not as the event itself or a new Execution instance. The accepted captured-snapshot review checked CA-O-162 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities",
+        "history_model.journal_role"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-162@2:25-25:abfe137ecc4ebf3cbd5c6cf5ac02e2c4f347ca0f49301bce07185bb6050a0709"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-162"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Journal Event query'; no same-referent replacement was proved.",
+        "Treat the query as an operation definition over Journal records, not as the event itself or a new Execution instance."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Journal/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Journal.Carrier",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Journal/Carrier: Preserve append-only Journal storage and its project-root placement as general D policies; a Carrier path is storage location, not Carrier identity. The accepted captured-snapshot review checked CA-D-308 and retained its prior bounded meaning: Journal/Carrier: retained from captured-snapshot Main Content because it requires every Journal Carrier to serialize ordered Records append-only in its registered format and never rewrite an admitted Record. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "history_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-43-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-308"
+      ],
+      "preserved_distinctions": [
+        "requires every Journal Carrier to serialize ordered Records append-only in its registered format and never rewrite an admitted Record",
+        "an append-only Journal Carrier, not mutable record storage",
+        "Preserve append-only Journal storage and its project-root placement as general D policies; a Carrier path is storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Journal/Carrier Root",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Journal.Root",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Journal/Carrier Root: Preserve append-only Journal storage and its project-root placement as general D policies; a Carrier path is storage location, not Carrier identity. The accepted captured-snapshot review checked CA-D-549 and retained its prior bounded meaning: Journal/Carrier Root: retained from captured-snapshot Main Content because it places all persistent project-control Journal File Carriers under one Project Directory Carrier at the registered journal root. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "history_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-44-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-549"
+      ],
+      "preserved_distinctions": [
+        "places all persistent project-control Journal File Carriers under one Project Directory Carrier at the registered journal root",
+        "the single persistent Journal Carrier root, not an arbitrary project folder",
+        "Preserve append-only Journal storage and its project-root placement as general D policies; a Carrier path is storage location, not Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Journal/Record",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "Journal/Record: Keep the ordered Journal Record distinct from the event or Execution it may record; append-only and historical references remain qualified. The accepted captured-snapshot review checked CA-E-462, CA-R-1644, CA-D-308 and retained its prior bounded meaning: Journal/Record: retained from captured-snapshot Main Content because it requires a Journal Carrier's ordered Records to be append-only and forbids rewriting an admitted Record. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "history_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-45-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-462",
+        "CA-R-1644",
+        "CA-D-308"
+      ],
+      "preserved_distinctions": [
+        "requires a Journal Carrier's ordered Records to be append-only and forbids rewriting an admitted Record",
+        "an admitted ordered Journal Record, not an editable Carrier fragment",
+        "Keep the ordered Journal Record distinct from the event or Execution it may record; append-only and historical references remain qualified."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Label",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Label",
+      "content_view": "mixed",
+      "confidence_percent": 92,
+      "reason": "Label: Preserve the qualified field/value meaning and owner-specific use as a dependent field; no independent lifecycle or blanket inheritance is implied. The accepted captured-snapshot review checked CA-E-505, CA-R-1594 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-E-505@4:37-37:770a6910fb33cced2a377e5fc9ded68775b62f5a701b6fb152c646789f366c44",
+        "CA-P-1933/batch-5/CA-R-1594@4:32-32:0dea9ce294b298937c61c6f5bcf73efd7835fc18f9002788413d9cee1410a221"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-505",
+        "CA-R-1594"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Label'; no same-referent replacement was proved.",
+        "Preserve the qualified field/value meaning and owner-specific use as a dependent field; no independent lifecycle or blanket inheritance is implied."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Legacy Evidence and Provisional RMED Preparation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Legacy Evidence and Provisional RMED Preparation: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-124 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-124@1:25-25:1e6676fa0e67ebf00ed113f19dba4321f24e2f2268d87c71ab21a0659c15fd86"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-124"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Legacy Evidence and Provisional RMED Preparation'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Lineage Impact Analysis",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance:Question",
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "Lineage Impact Analysis: Map the analysis to the candidate Substance Question role while retaining revision change, provenance, impact radius and fixed-point distinctions. The accepted captured-snapshot review checked CA-R-1497, CA-R-1633 and retained its prior bounded meaning: Candidate retain only: Captured CA-R-1497 keeps Lineage Impact Analysis separate from factual execution evidence, and captured CA-R-1633 requires one Analysis Atom with the exact changed Revision's impact state. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "content_direction",
+        "snapshot_and_history_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1497@5:30-30:c831d0e6121a91ddb44e01eba38e0bff1abcf6b705930f67b590433d8686f897",
+        "CA-P-1933/batch-5/CA-R-1633@20:35-35:4e5a7a11f0ef12445a6f689dfad988e146282602447aeebd8fca0ea2938f4ae1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1497",
+        "CA-R-1633"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Lineage Impact Analysis'; no same-referent replacement was proved.",
+        "Map the analysis to the candidate Substance Question role while retaining revision change, provenance, impact radius and fixed-point distinctions."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Lineage Impact Analysis Content",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance:Question.Content",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Lineage Impact Analysis Content: Preserve the required analysis content fields and their exact Revision references as dependent content, not as a new root. The accepted captured-snapshot review checked CA-R-1037 and retained its prior bounded meaning: Lineage Impact Analysis Content: retained from captured-snapshot Main Content because it requires a Lineage Impact Analysis Atom to identify revision change, provenance, impact radius, examined children, resulting dispositions, and a fixed-point conclusion. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-49-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1037"
+      ],
+      "preserved_distinctions": [
+        "requires a Lineage Impact Analysis Atom to identify revision change, provenance, impact radius, examined children, resulting dispositions, and a fixed-point conclusion",
+        "required analysis content, not an unconstrained commentary field",
+        "Preserve the required analysis content fields and their exact Revision references as dependent content, not as a new root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Local Order",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Local Order",
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "Local Order: Preserve the qualified field/value meaning and owner-specific use as a dependent field; no independent lifecycle or blanket inheritance is implied. The accepted captured-snapshot review checked CA-R-1763 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1763@18:31-31:2ffed7ae4fa1d61cfcf980b687db024bf3de6dd3bd386a4cbd9d8fd5780ddded"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1763"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Local Order'; no same-referent replacement was proved.",
+        "Preserve the qualified field/value meaning and owner-specific use as a dependent field; no independent lifecycle or blanket inheritance is implied."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Local Tier",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Local Tier",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Local Tier: Preserve the qualified field/value meaning and owner-specific use as a dependent field; no independent lifecycle or blanket inheritance is implied. The accepted captured-snapshot review checked CA-O-021, CA-O-087 and retained its prior bounded meaning: Local Tier: retained from captured-snapshot Main Content because it makes Local Tier values a named Atom-selection criterion and requires tier filters to use internally carried values. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-51-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-021",
+        "CA-O-087"
+      ],
+      "preserved_distinctions": [
+        "makes Local Tier values a named Atom-selection criterion and requires tier filters to use internally carried values",
+        "a carried selection dimension, not a filename token",
+        "Preserve the qualified field/value meaning and owner-specific use as a dependent field; no independent lifecycle or blanket inheritance is implied."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Markdown",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Markdown",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Markdown: Retain Markdown as a file-carrier delivery policy covering validity, legibility and navigation; it does not create per-field Carrier edges. The accepted captured-snapshot review checked CA-D-330 and retained its prior bounded meaning: Markdown: retained from captured-snapshot Main Content because it requires CAPRMEDIO-owned Markdown, TOML, and YAML File Carriers to remain valid, legible, and navigable in GitHub preview. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-52-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-330"
+      ],
+      "preserved_distinctions": [
+        "requires CAPRMEDIO-owned Markdown, TOML, and YAML File Carriers to remain valid, legible, and navigable in GitHub preview",
+        "a repository-preview constraint on Markdown File Carriers, not editor-specific required syntax",
+        "Retain Markdown as a file-carrier delivery policy covering validity, legibility and navigation; it does not create per-field Carrier edges."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Markdown Atom Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Markdown Atom Carrier",
+      "content_view": "D",
+      "confidence_percent": 92,
+      "reason": "Markdown Atom Carrier: Map the Markdown Atom Carrier to the Carrier root and preserve its one-representation boundary, without treating its path as identity. The accepted captured-snapshot review checked CA-D-416 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-D-416@11:28-28:91e00505e3449ccfbdccbbff5f405a83760a452df24a587cecf2df872d18a247"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-416"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Markdown Atom Carrier'; no same-referent replacement was proved.",
+        "Map the Markdown Atom Carrier to the Carrier root and preserve its one-representation boundary, without treating its path as identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Markdown Atom Carrier Validation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "Markdown Atom Carrier Validation: Keep validation as an Evaluation/check definition; actual checks are Executions and the authoritative Carrier requirements remain qualified. The accepted captured-snapshot review checked CA-E-457 and retained its prior bounded meaning: Markdown Atom Carrier Validation: retained from captured-snapshot Main Content because it requires Evaluation rejection unless an Atom Revision has exactly one authoritative Markdown Atom Carrier with YAML Frontmatter and Content-Role-specific Main Content. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities",
+        "carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-54-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-457"
+      ],
+      "preserved_distinctions": [
+        "requires Evaluation rejection unless an Atom Revision has exactly one authoritative Markdown Atom Carrier with YAML Frontmatter and Content-Role-specific Main Content",
+        "authoritative Markdown Carrier validation, not acceptance of projected or database copies",
+        "Keep validation as an Evaluation/check definition; actual checks are Executions and the authoritative Carrier requirements remain qualified."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Markdown Atom Carrier/Main Content",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Markdown Atom Carrier.Main Content",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Markdown Atom Carrier/Main Content: Preserve Main Content as the body carried after frontmatter, including its role-specific property constraints; the slash display is not a native edge. The accepted captured-snapshot review checked CA-D-357, CA-D-479 and retained its prior bounded meaning: Markdown Atom Carrier/Main Content: retained from captured-snapshot Main Content because it defines Markdown Atom Carrier Main Content as content after YAML Frontmatter and requires its body Properties under Content-Role-specific headings. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-55-1",
+        "CA-P-1933/batch-5/r1955-55-2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-357",
+        "CA-D-479"
+      ],
+      "preserved_distinctions": [
+        "defines Markdown Atom Carrier Main Content as content after YAML Frontmatter and requires its body Properties under Content-Role-specific headings",
+        "Main Content and its structured body Properties, not Frontmatter or Summary alone",
+        "Preserve Main Content as the body carried after frontmatter, including its role-specific property constraints; the slash display is not a native edge."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Markdown Atom Carrier/Main Content/CCE Operator",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 92,
+      "reason": "Markdown Atom Carrier/Main Content/CCE Operator: Retain the captured rendering/paragraph rule as syntax context; nested headings and formatting do not create new Entity types. The accepted captured-snapshot review checked CA-D-280 and retained its prior bounded meaning: Candidate retain only: Captured CA-D-280 gives CCE Operator occurrences within Markdown Atom Carrier Main Content an exact spelling and rendering constraint. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "entity_vs_syntax_rules",
+        "terms_graph_boundary"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-D-280@12:28-28:014f6128398945d03ab4b381d8ad9b8e712070541b89292517f7cb10119af7c9"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-280"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Markdown Atom Carrier/Main Content/CCE Operator'; no same-referent replacement was proved.",
+        "Retain the captured rendering/paragraph rule as syntax context; nested headings and formatting do not create new Entity types."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Markdown Atom Carrier/Main Content/Paragraph",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Markdown Atom Carrier/Main Content/Paragraph: Retain the captured rendering/paragraph rule as syntax context; nested headings and formatting do not create new Entity types. The accepted captured-snapshot review checked CA-D-279 and retained its prior bounded meaning: Markdown Atom Carrier/Main Content/Paragraph: retained from captured-snapshot Main Content because it requires every Markdown Atom Carrier Main Content prose paragraph to use one unwrapped source line and a blank line between paragraphs. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "entity_vs_syntax_rules",
+        "terms_graph_boundary"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-57-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-279"
+      ],
+      "preserved_distinctions": [
+        "requires every Markdown Atom Carrier Main Content prose paragraph to use one unwrapped source line and a blank line between paragraphs",
+        "a Main-Content paragraph serialization rule, not arbitrary Markdown wrapping",
+        "Retain the captured rendering/paragraph rule as syntax context; nested headings and formatting do not create new Entity types."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Markdown Atom Carrier/Structure",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Markdown Atom Carrier.Structure",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Markdown Atom Carrier/Structure: Keep structure and frontmatter constraints as general Carrier policies; controlled values, defaults and prose domains remain qualified rather than becoming per-Property Carrier nodes. The accepted captured-snapshot review checked CA-D-356 and retained its prior bounded meaning: Markdown Atom Carrier/Structure: retained from captured-snapshot Main Content because it requires every authoritative Markdown Atom Carrier to contain YAML Frontmatter followed by Main Content. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-58-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-356"
+      ],
+      "preserved_distinctions": [
+        "requires every authoritative Markdown Atom Carrier to contain YAML Frontmatter followed by Main Content",
+        "authoritative Carrier structure, not a generic Markdown-file convention",
+        "Keep structure and frontmatter constraints as general Carrier policies; controlled values, defaults and prose domains remain qualified rather than becoming per-Property Carrier nodes."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Markdown Atom Carrier/YAML Frontmatter",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Markdown Atom Carrier.YAML Frontmatter",
+      "content_view": "D",
+      "confidence_percent": 92,
+      "reason": "Markdown Atom Carrier/YAML Frontmatter: Keep structure and frontmatter constraints as general Carrier policies; controlled values, defaults and prose domains remain qualified rather than becoming per-Property Carrier nodes. The accepted captured-snapshot review checked CA-D-276 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly states the full qualified content, using natural prose rather than the old slash spelling; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-D-276@15:31-31:7f8494d96ce556ff1a3a564a4b7097d4b7b14e267cf59283fd5cada2e32a1015"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-276"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Markdown Atom Carrier/YAML Frontmatter'; no same-referent replacement was proved.",
+        "Keep structure and frontmatter constraints as general Carrier policies; controlled values, defaults and prose domains remain qualified rather than becoming per-Property Carrier nodes."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Markdown Atom Carrier/YAML Frontmatter/Default",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Markdown Atom Carrier.YAML Frontmatter.Default",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Markdown Atom Carrier/YAML Frontmatter/Default: Keep structure and frontmatter constraints as general Carrier policies; controlled values, defaults and prose domains remain qualified rather than becoming per-Property Carrier nodes. The accepted captured-snapshot review checked CA-D-485 and retained its prior bounded meaning: Markdown Atom Carrier/YAML Frontmatter/Default: retained from captured-snapshot Main Content because it preserves the distinction between a defaulted Atom Property at its canonical internal location and an inherited external setting or omitted override. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-60-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-485"
+      ],
+      "preserved_distinctions": [
+        "preserves the distinction between a defaulted Atom Property at its canonical internal location and an inherited external setting or omitted override",
+        "a defaulted Atom value distinction, not copied inherited configuration",
+        "Keep structure and frontmatter constraints as general Carrier policies; controlled values, defaults and prose domains remain qualified rather than becoming per-Property Carrier nodes."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Markdown Atom Carrier/YAML Frontmatter/Scalar",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Markdown Atom Carrier.YAML Frontmatter.Scalar",
+      "content_view": "D",
+      "confidence_percent": 92,
+      "reason": "Markdown Atom Carrier/YAML Frontmatter/Scalar: Keep structure and frontmatter constraints as general Carrier policies; controlled values, defaults and prose domains remain qualified rather than becoming per-Property Carrier nodes. The accepted captured-snapshot review checked CA-D-277 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly states the full qualified content, using natural prose rather than the old slash spelling; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-D-277@12:28-28:01277511f8f43d5d5681753d5cdcb4e62adb384d5b14d9ee970f56203c2f5c7c"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-277"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Markdown Atom Carrier/YAML Frontmatter/Scalar'; no same-referent replacement was proved.",
+        "Keep structure and frontmatter constraints as general Carrier policies; controlled values, defaults and prose domains remain qualified rather than becoming per-Property Carrier nodes."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Materialized Representation",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Materialized Representation",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Materialized Representation: Preserve the materialized representation's canonical-source Revision binding and deterministic regeneration/reconciliation rule as Carrier policy. The accepted captured-snapshot review checked CA-D-309 and retained its prior bounded meaning: Materialized Representation: retained from captured-snapshot Main Content because it requires each admitted materialized representation Carrier to retain a recoverable canonical-source binding and deterministic regeneration or reconciliation rule. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "snapshot_and_history_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-62-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-309"
+      ],
+      "preserved_distinctions": [
+        "requires each admitted materialized representation Carrier to retain a recoverable canonical-source binding and deterministic regeneration or reconciliation rule",
+        "a recoverable materialized representation, not a second source authority",
+        "Preserve the materialized representation's canonical-source Revision binding and deterministic regeneration/reconciliation rule as Carrier policy."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Materialized Representation/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Materialized Representation.Carrier",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Materialized Representation/Carrier: Preserve the materialized representation's canonical-source Revision binding and deterministic regeneration/reconciliation rule as Carrier policy. The accepted captured-snapshot review checked CA-D-309 and retained its prior bounded meaning: Materialized Representation/Carrier: retained from captured-snapshot Main Content because it requires an admitted materialized representation Carrier to bind its exact canonical source Revision and deterministic regeneration or reconciliation rule. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "snapshot_and_history_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-63-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-309"
+      ],
+      "preserved_distinctions": [
+        "requires an admitted materialized representation Carrier to bind its exact canonical source Revision and deterministic regeneration or reconciliation rule",
+        "the Carrier's source-binding rule, not embedded source metadata for every projection",
+        "Preserve the materialized representation's canonical-source Revision binding and deterministic regeneration/reconciliation rule as Carrier policy."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Method For Relation",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/Method For Relation",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Method For Relation: Retain the directed method-for relation and its owner/Requirement endpoint meanings; display nesting does not change its permitted endpoints. The accepted captured-snapshot review checked CA-R-1017 and retained its prior bounded meaning: Method For Relation: retained from captured-snapshot Main Content because it registers method_for as a direct relation owned by a Method Atom and directed to one Requirement Atom it serves. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "graph_model",
+        "relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-64-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1017"
+      ],
+      "preserved_distinctions": [
+        "registers method_for as a direct relation owned by a Method Atom and directed to one Requirement Atom it serves",
+        "a directed Method-to-Requirement relation, not an undirected label",
+        "Retain the directed method-for relation and its owner/Requirement endpoint meanings; display nesting does not change its permitted endpoints."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Method Learning Workflow",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Method Learning Workflow: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-102 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-102@2:34-34:c72f51eb77b8ba0079e5a81b9ee68c4b1961971b52703d527f86664204447232"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-102"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Method Learning Workflow'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Method Lesson Drafting",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Method Lesson Drafting: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-100 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-100@3:36-36:4f607e9af46b162f173f5eb10713b568a647450834b95e9f8bbc701858eaad43"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-100"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Method Lesson Drafting'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Method Lesson Drafting Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Method Lesson Drafting Step: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-101 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-101@2:34-34:61f93b353d6f514a0ac190f892400dd4534bdb52f8462e922d568d947b40b5bd"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-101"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Method Lesson Drafting Step'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Methodology",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Methodology: Keep Methodology as a reusable execution-rule definition; its projected Applicable Methodology view and source collection remain distinct. The accepted captured-snapshot review checked CA-R-1519 and retained its prior bounded meaning: Methodology: retained from captured-snapshot Main Content because it requires a Workflow executor to conform to applicable methodology execution rules and to block rather than invent behavior when a rule is unresolved. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities",
+        "applicable_methodology"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-68-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1519"
+      ],
+      "preserved_distinctions": [
+        "requires a Workflow executor to conform to applicable methodology execution rules and to block rather than invent behavior when a rule is unresolved",
+        "applicable execution methodology, not a selected server, language, storage technology, or implementation workflow",
+        "Keep Methodology as a reusable execution-rule definition; its projected Applicable Methodology view and source collection remain distinct."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Methodology Source",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "Methodology Source: Keep Methodology Source as a source/projection context distinct from the compiled Applicable Methodology and its projected members. The accepted captured-snapshot review checked CA-R-1219 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "projection_member_model",
+        "entity_vs_syntax_rules",
+        "applicable_methodology"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1219@16:29-29:1ec9bfc7edfba970a331546bb72b29808bbd7db748ca25c9a6f376c4442e2a82"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1219"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Methodology Source'; no same-referent replacement was proved.",
+        "Keep Methodology Source as a source/projection context distinct from the compiled Applicable Methodology and its projected members."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Methodology Source/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Methodology Source.Carrier",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Methodology Source/Carrier: Preserve the original source Carrier binding and source-fidelity requirement; a projected copy keeps source ID and Version without a new identity. The accepted captured-snapshot review checked CA-D-305 and retained its prior bounded meaning: Methodology Source/Carrier: retained from captured-snapshot Main Content because it identifies the original Atom Carrier in the selected Methodology Sources as the authoritative source Revision to which a projected Carrier binds and whose authored bytes are preserved for source-fidelity comparison. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "applicable_methodology"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-70-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-305"
+      ],
+      "preserved_distinctions": [
+        "identifies the original Atom Carrier in the selected Methodology Sources as the authoritative source Revision to which a projected Carrier binds and whose authored bytes are preserved for source-fidelity comparison",
+        "an upstream selected source Carrier and fidelity comparator, not the projected Carrier or a second source identity",
+        "Preserve the original source Carrier binding and source-fidelity requirement; a projected copy keeps source ID and Version without a new identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Methodology Source/Expansion Boundary",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Methodology Source/Expansion Boundary: Retain explicit source/target/scope mapping and the no-Core-mutation boundary as projection context, not as a new native relation or subtype. The accepted captured-snapshot review checked CA-R-1375 and retained its prior bounded meaning: Methodology Source/Expansion Boundary: retained from captured-snapshot Main Content because it permits Extension or Project Configuration additions only where active Core authority permits them and forbids mutation of Core authority. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "projection_member_model",
+        "entity_vs_syntax_rules",
+        "applicable_methodology"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-71-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1375"
+      ],
+      "preserved_distinctions": [
+        "permits Extension or Project Configuration additions only where active Core authority permits them and forbids mutation of Core authority",
+        "the permitted expansion boundary, not an activation or source-ownership transfer",
+        "Retain explicit source/target/scope mapping and the no-Core-mutation boundary as projection context, not as a new native relation or subtype."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Methodology Source/expansion mapping",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "Methodology Source/expansion mapping: Retain explicit source/target/scope mapping and the no-Core-mutation boundary as projection context, not as a new native relation or subtype. The accepted captured-snapshot review checked CA-E-249, CA-M-298 and retained its prior bounded meaning: Methodology Source/expansion mapping: retained from captured-snapshot Main Content because it requires an explicit expansion mapping to identify source, canonical target, rule, scope, and Core distinctions, and rejects unproven or authority-mutating mappings. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "projection_member_model",
+        "entity_vs_syntax_rules",
+        "applicable_methodology"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-72-1",
+        "CA-P-1933/batch-5/r1955-72-2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-249",
+        "CA-M-298"
+      ],
+      "preserved_distinctions": [
+        "requires an explicit expansion mapping to identify source, canonical target, rule, scope, and Core distinctions, and rejects unproven or authority-mutating mappings",
+        "a preservation-tested expansion mapping, not permission to activate or rely on an extension",
+        "Retain explicit source/target/scope mapping and the no-Core-mutation boundary as projection context, not as a new native relation or subtype."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Migrate Atom CCE Representation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Migrate Atom CCE Representation: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-O-053 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-O-053@5:37-37:e80acac8a7515e19e7e6130585a29b447a4bf5e8cb79bb46e5692d1924d13420"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-053"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Migrate Atom CCE Representation'; no same-referent replacement was proved.",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "NARROWER_THAN",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/NARROWER_THAN",
+      "content_view": "R",
+      "confidence_percent": 92,
+      "reason": "NARROWER_THAN: Retain the typed narrower-than relation with its own direction and endpoint constraints; compact slash hierarchy is only presentation. The accepted captured-snapshot review checked CA-R-1244, CA-R-1345, CA-R-1435 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "graph_model",
+        "relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-1345@11:28-28:dc7f2ff27a54eaf8154fd06cbd7858bc2f80d327cbb32ff40a92985295bec952",
+        "CA-P-1933/batch-5/CA-R-1435@8:32-32:f9e4d6bafab533a83af3ce6c3796bfd702608cc5f8f197dae68db40c3246d43b"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1244",
+        "CA-R-1345",
+        "CA-R-1435"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'NARROWER_THAN'; no same-referent replacement was proved.",
+        "Retain the typed narrower-than relation with its own direction and endpoint constraints; compact slash hierarchy is only presentation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Navigation Projection Derivation",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "M",
+      "confidence_percent": 95,
+      "reason": "Navigation Projection Derivation: Keep navigation derivation and order as non-authoritative Projection context derived from authoritative complete content; no navigation field becomes a new Entity root. The accepted captured-snapshot review checked CA-M-231 and retained its prior bounded meaning: Navigation Projection Derivation: retained from captured-snapshot Main Content because it derives Atom navigation values from authoritative complete content and applicable restrictions rather than another navigation value or Summary alone. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "projection_member_model",
+        "entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-75-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-231"
+      ],
+      "preserved_distinctions": [
+        "derives Atom navigation values from authoritative complete content and applicable restrictions rather than another navigation value or Summary alone",
+        "derivation from authoritative content, not a same-identity navigation refresh",
+        "Keep navigation derivation and order as non-authoritative Projection context derived from authoritative complete content; no navigation field becomes a new Entity root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Navigational Order Number",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 92,
+      "reason": "Navigational Order Number: Keep navigation derivation and order as non-authoritative Projection context derived from authoritative complete content; no navigation field becomes a new Entity root. The accepted captured-snapshot review checked CA-D-380, CA-R-978, CA-R-981 and retained its prior bounded meaning: Candidate retain only: A captured governing source's primary Main Content explicitly names the full literal identity; this supports preserving the identity only. This does not admit a native Entity type, relation, inheritance, or applicability.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "projection_member_model",
+        "entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/CA-R-978@17:31-31:f3ab3f0accd292cb80522b881a6a0e0f88a599a2091d93f9c85c3f6130ce86ee"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-380",
+        "CA-R-978",
+        "CA-R-981"
+      ],
+      "preserved_distinctions": [
+        "Captured Main Content supports the bounded original identity 'Navigational Order Number'; no same-referent replacement was proved.",
+        "Keep navigation derivation and order as non-authoritative Projection context derived from authoritative complete content; no navigation field becomes a new Entity root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "New Archived Revision Markdown Carrier Binding",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/New Archived Revision Markdown Carrier Binding",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "New Archived Revision Markdown Carrier Binding: Preserve the one-Carrier archived placement rule and its Revision/history distinction; it does not make a Carrier path the Carrier identity. The accepted captured-snapshot review checked CA-D-565 and retained its prior bounded meaning: New Archived Revision Markdown Carrier Binding: retained from captured-snapshot Main Content because it binds a newly Archived Revision's one Markdown Archive Carrier to a registered archived placement when no more-specific Delivery mapping applies. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "snapshot_and_history_rules",
+        "history_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-77-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-565"
+      ],
+      "preserved_distinctions": [
+        "binds a newly Archived Revision's one Markdown Archive Carrier to a registered archived placement when no more-specific Delivery mapping applies",
+        "a conditional archive-Carrier binding, not a universal relocation rule",
+        "Preserve the one-Carrier archived placement rule and its Revision/history distinction; it does not make a Carrier path the Carrier identity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Nonnegative Integer Literal",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "M",
+      "confidence_percent": 95,
+      "reason": "Nonnegative Integer Literal: Retain the qualified numeric literal grammar as syntax context; a literal is not an Entity or an allowed-value domain by repetition alone. The accepted captured-snapshot review checked CA-M-235 and retained its prior bounded meaning: Nonnegative Integer Literal: retained from captured-snapshot Main Content because it requires a Nonnegative Integer Literal immediately after a canonical comparison CCE Operator as the prefix of a numeric Cardinality Constraint. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "entity_vs_syntax_rules",
+        "terms_graph_boundary"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-78-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-235"
+      ],
+      "preserved_distinctions": [
+        "requires a Nonnegative Integer Literal immediately after a canonical comparison CCE Operator as the prefix of a numeric Cardinality Constraint",
+        "a cardinality-literal role, not an unconstrained number",
+        "Retain the qualified numeric literal grammar as syntax context; a literal is not an Entity or an allowed-value domain by repetition alone."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Normative Atom Prose Authoring",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "M",
+      "confidence_percent": 95,
+      "reason": "Normative Atom Prose Authoring: Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added. The accepted captured-snapshot review checked CA-M-233 and retained its prior bounded meaning: Normative Atom Prose Authoring: retained from captured-snapshot Main Content because it requires normative Atom prose to state applicable conditions and required behavior positively unless an explicit prohibition is needed to prevent ambiguity or protect a boundary. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "m_e_root_question",
+        "execution_definition_policy",
+        "dependent_entities"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-79-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-233"
+      ],
+      "preserved_distinctions": [
+        "requires normative Atom prose to state applicable conditions and required behavior positively unless an explicit prohibition is needed to prevent ambiguity or protect a boundary",
+        "a bounded normative-prose authoring rule, not a blanket ban on prohibitions",
+        "Keep this reusable definition, check, preparation, repair, workflow or policy in the shared M/E/O view; actual performances/checks would be separate Executions, and no new M/E root is added."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Normative Authority Relation Pair",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/Normative Authority Relation Pair",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Normative Authority Relation Pair: Retain the declared upstream relation and inverse-derived downstream view as one qualified pair, without adding a second primitive relation kind. The accepted captured-snapshot review checked CA-R-879 and retained its prior bounded meaning: Normative Authority Relation Pair: retained from captured-snapshot Main Content because it registers child_of as the declared upstream relation and parent_of as its inverse-derived downstream relation in the normative-authority ordering domain. This preserves only the bounded identity; no native admission, replacement, or source migration is performed.",
+      "operator_rules": [
+        "authority.operator_confirmed_root_list",
+        "graph_model",
+        "relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1933/batch-5/r1955-80-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-879"
+      ],
+      "preserved_distinctions": [
+        "registers child_of as the declared upstream relation and parent_of as its inverse-derived downstream relation in the normative-authority ordering domain",
+        "a directed normative-authority relation pair, not two independently owned relations",
+        "Retain the declared upstream relation and inverse-derived downstream view as one qualified pair, without adding a second primitive relation kind."
+      ],
+      "question": null
+    }
+  ]
+}

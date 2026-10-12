@@ -1,0 +1,240 @@
+{
+  "task_id": "CA-P-2162",
+  "non_authoritative": true,
+  "effect_status": "applied_pending_independent_verification",
+  "updated_at": "2026-10-11 18:04:47 +0400",
+  "effects": [
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression@13.md",
+      "old_id": "CA-R-1321",
+      "new_id": "CA-R-1321",
+      "old_version": 13,
+      "new_version": 14,
+      "before_sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+      "after_sha256": "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df",
+      "replacement_count": 1
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators@11.md",
+      "old_id": "CA-R-1324",
+      "new_id": "CA-R-1324",
+      "old_version": 11,
+      "new_version": 12,
+      "before_sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7",
+      "after_sha256": "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3",
+      "replacement_count": 1
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/archive/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification@15.md",
+      "old_id": "CA-M-228",
+      "new_id": "CA-M-228",
+      "old_version": 15,
+      "new_version": 16,
+      "before_sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+      "after_sha256": "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d",
+      "replacement_count": 1
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "new_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions@14.md",
+      "old_id": "CA-E-383",
+      "new_id": "CA-E-383",
+      "old_version": 14,
+      "new_version": 15,
+      "before_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "after_sha256": "6baca162365f248e08fc8d8a29b27e350149ff478290553b3cd6ee0441b4a6a6",
+      "replacement_count": 2
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/04_requirement/CA-R-863-ATOM_SEARCH-CORE-REQUIREMENT--search-caprmedio-markdown-atoms.md",
+      "new_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/04_requirement/CA-R-863-ATOM_SEARCH-CORE-REQUIREMENT--search-caprmedio-markdown-atoms.md",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/04_requirement/archive/CA-R-863-ATOM_SEARCH-CORE-REQUIREMENT--search-caprmedio-markdown-atoms@15.md",
+      "old_id": "CA-R-863",
+      "new_id": "CA-R-863",
+      "old_version": 15,
+      "new_version": 16,
+      "before_sha256": "18ea1e4593ffb9741f83c1e736aba6ef6c955022fbc85b07549757c6c7215c0c",
+      "after_sha256": "55dc7d581ad2b04b2c38cbaa47e10ff00ba391165142b193ca89bac79d38d270",
+      "replacement_count": 1
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/05_method/CA-M-370-ATOM_SEARCH-METHOD--match-direct-subject-fields.md",
+      "new_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/05_method/CA-M-370-ATOM_SEARCH-METHOD--match-direct-subject-fields.md",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/05_method/archive/CA-M-370-ATOM_SEARCH-METHOD--match-direct-subject-fields@2.md",
+      "old_id": "CA-M-370",
+      "new_id": "CA-M-370",
+      "old_version": 2,
+      "new_version": 3,
+      "before_sha256": "7588b5e5d774733d8fe9027d24309b62e7c0af72bbd47acadb28eb856af1a6d9",
+      "after_sha256": "ffc3d88ea47320d6956483474603467b2d6bc83c5c2df5360ca2bcb6333c0cbc",
+      "replacement_count": 1
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/06_evaluation/CA-E-301-ATOM_SEARCH-QA_CASE--verify-search-caprmedio-atom-carriers.md",
+      "new_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/06_evaluation/CA-E-301-ATOM_SEARCH-QA_CASE--verify-search-caprmedio-atom-carriers.md",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/06_evaluation/archive/CA-E-301-ATOM_SEARCH-QA_CASE--verify-search-caprmedio-atom-carriers@14.md",
+      "old_id": "CA-E-301",
+      "new_id": "CA-E-301",
+      "old_version": 14,
+      "new_version": 15,
+      "before_sha256": "416be34f445b8515bb6fa5be9a8894f306a0c5ee48b88452b017e254ec3ae97e",
+      "after_sha256": "8a80b33c89bf1696083ca5ab9d15f03e56b074fe58355cbaa4d1c8194e23ffc0",
+      "replacement_count": 1
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/04_requirement/CA-R-866-TOOLS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
+      "new_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/04_requirement/CA-R-866-TOOLS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/04_requirement/archive/CA-R-866-TOOLS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms@14.md",
+      "old_id": "CA-R-866",
+      "new_id": "CA-R-866",
+      "old_version": 14,
+      "new_version": 15,
+      "before_sha256": "6971d51a68934c6c8e2a3889d54542b375445e663e8d2e201f8ec94847231c0d",
+      "after_sha256": "e3d0093b989bb59d0e4e06d8990c9a335389297f612258a9c4a9706292da81d2",
+      "replacement_count": 1
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/05_method/CA-M-371-ATOM_UPDATE-METHOD--preview-exact-subject-patches.md",
+      "new_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/05_method/CA-M-371-ATOM_UPDATE-METHOD--preview-exact-subject-patches.md",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/05_method/archive/CA-M-371-ATOM_UPDATE-METHOD--preview-exact-subject-patches@2.md",
+      "old_id": "CA-M-371",
+      "new_id": "CA-M-371",
+      "old_version": 2,
+      "new_version": 3,
+      "before_sha256": "3c3a5e4d9781f3901f397b2ef87c10f94ad3431fad56beea1bd633c36530e605",
+      "after_sha256": "da2e52656ed79c9b49fd0a4713070be156923bdb4b31964dd010f9cda3857b0e",
+      "replacement_count": 1
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/06_evaluation/CA-E-304-TOOLS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
+      "new_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/06_evaluation/CA-E-304-TOOLS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/06_evaluation/archive/CA-E-304-TOOLS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers@13.md",
+      "old_id": "CA-E-304",
+      "new_id": "CA-E-304",
+      "old_version": 13,
+      "new_version": 14,
+      "before_sha256": "f696e778937f7f1c312e78533657ee436c56208ea4d85282bc3f1c63f8dd653e",
+      "after_sha256": "575e33555be1fc9b637fc7274e60f15b17531042b0619fec100802c2e1b11945",
+      "replacement_count": 1
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/07_delivery/CA-D-424-ATOM_SEARCH-DELIVERY--deliver-atom-search-tool.md",
+      "new_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/07_delivery/CA-D-424-ATOM_SEARCH-DELIVERY--deliver-atom-search-tool.md",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/07_delivery/archive/CA-D-424-ATOM_SEARCH-DELIVERY--deliver-atom-search-tool@9.md",
+      "old_id": "CA-D-424",
+      "new_id": "CA-D-424",
+      "old_version": 9,
+      "new_version": 10,
+      "before_sha256": "c370269e36f7c057ac2eec0fa920e76f797c574cde6bc29734fb2cfce1294686",
+      "after_sha256": "b57a063f60e21da69d3d0b6298ba1b23e6a2f2b8329896061622bdbc5a894dda",
+      "replacement_count": 1
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/09_operations/CA-O-046-ATOM_SEARCH-ACTION--search-caprmedio-atom-carriers.md",
+      "new_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/09_operations/CA-O-046-ATOM_SEARCH-ACTION--search-caprmedio-atom-carriers.md",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/09_operations/archive/CA-O-046-ATOM_SEARCH-ACTION--search-caprmedio-atom-carriers@5.md",
+      "old_id": "CA-O-046",
+      "new_id": "CA-O-046",
+      "old_version": 5,
+      "new_version": 6,
+      "before_sha256": "6198c977e456a9c2c8457dd288a2a188231a37fe5420882d3f1378f57e009271",
+      "after_sha256": "926b3f1a466b594afaa5bcda9aded59c39247e1aa6a896648356386e509beefc",
+      "replacement_count": 1
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/07_delivery/CA-D-425-ATOM_UPDATE-DELIVERY--deliver-atom-update-tool.md",
+      "new_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/07_delivery/CA-D-425-ATOM_UPDATE-DELIVERY--deliver-atom-update-tool.md",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/07_delivery/archive/CA-D-425-ATOM_UPDATE-DELIVERY--deliver-atom-update-tool@9.md",
+      "old_id": "CA-D-425",
+      "new_id": "CA-D-425",
+      "old_version": 9,
+      "new_version": 10,
+      "before_sha256": "f562f1e827e03ab42941cd0ece3d24894f73c7b32ebe29fd689f9a8e4bfe445d",
+      "after_sha256": "727536f593df3b039de3000f7796630c152c060d5015aa130879c55660a3488c",
+      "replacement_count": 1
+    },
+    {
+      "operation": "grammar_revision",
+      "old_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/09_operations/CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers.md",
+      "new_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/09_operations/CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers.md",
+      "archive_path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/09_operations/archive/CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers@7.md",
+      "old_id": "CA-O-030",
+      "new_id": "CA-O-030",
+      "old_version": 7,
+      "new_version": 8,
+      "before_sha256": "c2d70fa275a075d2fbc978cab246158cfd8413cec88716521336736d0bf060cc",
+      "after_sha256": "1881e2e9da85a7bedc2c5ba1e5a0e8766a1611f306bfd5d919fda79dd8d6a70e",
+      "replacement_count": 1
+    }
+  ],
+  "selector_contract": {
+    "profile_boundary": {
+      "legacy": "Selectors remain invalid. Legacy keeps literal dots and its existing slash/colon semantics.",
+      "approved": "Accept the selector only as the initial owner component before normal approved separators. Slash, dot, colon, and @ retain their existing meanings and limits."
+    },
+    "case_significance": {
+      "Atom": "The existing Entity type and ordinary Term component; Atom.Status remains valid.",
+      "atom": "The exact lowercase selector keyword in atom(...); it is neither an alias nor a case-folded spelling of Atom.",
+      "normalization": "No case folding, aliases, or interchange between Atom and atom."
+    },
+    "only_permitted_selector_forms": [
+      "atom(atom_id=\"CA-O-135\")",
+      "atom(content_role=\"Plan\")",
+      "atom(content_role=\"Plan\",type=\"Plan\")"
+    ],
+    "grammar": {
+      "selector": "atom( atom_id=quoted-exact-atom-id | content_role=quoted-exact-content-role [ ,type=quoted-exact-atom-type ] )",
+      "placement": "Only the initial owner component of an approved Subject Expression; a selector cannot follow /, ., or : and cannot nest another selector.",
+      "key_rules": "atom_id is exclusive. content_role is required for the optional type refinement, which follows content_role as shown in the grammar. type alone, duplicate keys, unknown keys, alternative key ordering, and positional arguments are invalid.",
+      "literal_rules": "Values are non-empty double-quoted exact literals; no escaping, evaluation, wildcard, regex, variable expansion, aliasing, or case folding is allowed. The complete accepted selector remains its literal Subject component; permitted presentation whitespace is not a separate Term or a normalization request.",
+      "validation_boundary": "The syntax validator does not enumerate Atom rows or admit Entity endpoints. atom_id is a literal named-Atom selector form; content_role with optional type qualifies the selected Atom bearer pattern. The existing canonical Subject target =1 rule is separate from selector syntax.",
+      "ownership": "In atom(...).Status, Status is the dependent Property of the selected Atom. The content_role value remains that Atom's Content Role allowed value and type qualifies that Atom; neither is Status's bearer or Status's allowed value, and selector syntax creates no Entity kind."
+    },
+    "examples": {
+      "accepted_approved": [
+        "Atom.Status",
+        "atom(content_role=\"Plan\").Status",
+        "atom(content_role=\"Plan\",type=\"Plan\").Status",
+        "atom(atom_id=\"CA-O-135\").Status"
+      ],
+      "rejected": [
+        "Atom(content_role=\"Plan\").Status",
+        "ATOM(atom_id=\"CA-O-135\").Status",
+        "atom().Status",
+        "atom(type=\"Plan\").Status",
+        "atom(atom_id=\"CA-O-135\",content_role=\"Plan\").Status",
+        "Artifact/atom(atom_id=\"CA-O-135\")",
+        "atom(content_role=\"Plan\").Status@current",
+        "atom(content_role=\"Plan*\").Status"
+      ]
+    },
+    "preserved_boundaries": [
+      "No new root, native relation, native admission, selector CLI flag, source mutation path, or migration authorization.",
+      "Approved slash still mints neither IS_BORNE_BY nor NARROWER_THAN; dot and colon retain their existing grammar directions only.",
+      "The Tool's exact repository-relative patch selector remains a source locator and is distinct from lowercase atom(...) inside a Subject value."
+    ]
+  },
+  "source_migration": "grammar_rmedo_only",
+  "subject_migration": "not_performed",
+  "native_admission": "not_performed"
+}

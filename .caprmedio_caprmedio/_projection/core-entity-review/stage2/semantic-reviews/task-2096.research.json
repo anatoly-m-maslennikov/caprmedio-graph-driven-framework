@@ -1,0 +1,2263 @@
+{
+  "counts": {
+    "assigned": 41,
+    "covered": 41,
+    "current_sources": 25,
+    "owning_current_evidence_spans": 41,
+    "proposed": 21,
+    "unresolved": 20
+  },
+  "input_pins": {
+    "baseline_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md",
+        "sha256": "752dc43e7816396c4e6bbc9ac689a5cc32258326e98d04ad9f338307e7b05ca3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+        "sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1373-CORE_META_MODEL-CORE--define-applicable-methodology-conflict.md",
+        "sha256": "8ce47a9afdb2500a239c31cc3fad61794cfaa552d64dadbf2ded546caefe5ebf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+        "sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+        "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+        "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+        "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+        "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md",
+        "sha256": "8bf145b5175d143954ac403bb11247fc8d2a74168881ed607260b1fb66c2c075"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+        "sha256": "ba0e34e5057a5acb5f3c1a875214a373b167a860ed3ac0b6d708a3c657fdd7ed"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+        "sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+        "sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+        "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1466-CORE_META_MODEL-CORE--keep-git-integration-in-an-extension.md",
+        "sha256": "6c2a5bbdab877fc8e87f62ef81ba06c00a8baab497c5e145db0e94b711f6a8a8"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+        "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL-GENERAL--define-extension-identity-and-compatibility.md",
+        "sha256": "9e3140d1a438a4c40df90e14ba21c5bfb74f8a73f142548df493401691e45263"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+        "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+        "sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+        "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+        "sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+        "sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+        "sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+        "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-850-CORE_META_MODEL-CORE-REQUIREMENT--exclude-caprmedio-instance-from-actor-role.md",
+        "sha256": "0d5cffdb03482b9ed3b16d4fe277216e92fd3b8044227694fd653d3417df66be"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+        "sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c"
+      }
+    ],
+    "current_subjects_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    "current_subjects_review_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    },
+    "current_subjects_supplements_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+      "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+    },
+    "followup_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2094-2099.contract.md",
+      "sha256": "cf24b036a6dfaf27281f7b67e5cf2f70cff1c147c9edbabf791bb8fc12bf72ff"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "prior_methodology_report": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/methodology.review.json",
+      "sha256": "4a736167834e49ba7742f488aa57eb5a7f772170b9a50093579d160a525f7480"
+    },
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2094-2099.inputs.json",
+      "sha256": "5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d"
+    },
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/75-CA-P-2096-TASK--review-settings-and-methodology-source-targets.md",
+      "sha256": "10958687c5752959fe0b787e2324a18ac69692e92494a770122636ee2c9db95b"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d"
+    },
+    "working_ledger_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+      "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+    }
+  },
+  "limits": [
+    "Current candidate research only; no source migration, native admission or grammar adoption.",
+    "No inferred root, selector, singleton kind, @ operator, Artifact.Revision path or carrier registry."
+  ],
+  "native_admission": "not_performed",
+  "non_authoritative": true,
+  "rows": [
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 30,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "752dc43e7816396c4e6bbc9ac689a5cc32258326e98d04ad9f338307e7b05ca3",
+          "span_sha256": "69e74304bf08d00cd640994dcbe7a4ee4b360f23fde638c56661bdc9869063cd",
+          "start_line": 18
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md#subjects.depends_on[0]",
+      "old_value": "Core Meta-Model",
+      "preserved_distinctions": [
+        "Retains the framework/authority and structural-scope meaning.",
+        "Does not collapse it into a generic Scope Unit or a display-only prefix."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it keeps the Core Meta-Model Entity-subkind registry open to compatible Extension and Project Configuration subkinds. For 'Core Meta-Model', The candidate establishes no canonical identity retaining its framework/authority and structural-scope meaning; mapping it to a generic Scope Unit would collapse that distinction. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1261",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md",
+      "source_sha256": "752dc43e7816396c4e6bbc9ac689a5cc32258326e98d04ad9f338307e7b05ca3",
+      "source_version": 12
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate explicitly places Atom as a narrower Entity under Artifact."
+        },
+        {
+          "pointer": "/projection_member_model/member_instances",
+          "reason": "The candidate confirms Projection members are derived Atom instances."
+        },
+        {
+          "pointer": "/projection_member_model/source_reference",
+          "reason": "The candidate requires each derived Atom to retain a relative source reference."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+          "span_sha256": "c26c7168557daefca8674df42efe874915ff10e8d05b0b5124724b907eb8a186",
+          "start_line": 19
+        }
+      ],
+      "executable": false,
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md#subjects.governs",
+      "old_value": "Applicable Methodology/Member",
+      "preserved_distinctions": [
+        "The Applicable Methodology derived view remains distinct from its source Atom and from the whole Projection lifecycle.",
+        "The exact-source-Atom-Revision DERIVED_FROM constraint remains a source-body requirement, not a new native admission or Artifact.Revision path.",
+        "Source Atom ID and Version Number preservation remains source-qualified."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Atom",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1314 explicitly concerns Applicable Methodology members and their exact source Atom Revisions. The candidate confirms an Applicable Methodology/Projection member is a derived Atom instance with a retained source reference, supporting Artifact/Atom while leaving the exact revision relation in the body.",
+      "source_atom_id": "CA-R-1314",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+      "source_sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+      "source_version": 13
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        },
+        {
+          "pointer": "/projection_member_model/whole_set",
+          "reason": "The candidate confirms the whole set of derived Atom instances is a Projection managed as a whole."
+        },
+        {
+          "pointer": "/applicable_methodology/requirement",
+          "reason": "The candidate retains conflict resolution for Applicable Methodology instead of combining multiple source Atoms."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The candidate retains named dependent Entities inside an Artifact; the current definition supplies the qualified Conflict meaning."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 30,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1373-CORE_META_MODEL-CORE--define-applicable-methodology-conflict.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "8ce47a9afdb2500a239c31cc3fad61794cfaa552d64dadbf2ded546caefe5ebf",
+          "span_sha256": "ea55fb9bac8805007c49d7e251e203dd0d9bb278ceed4cc8e308968d80ec0c42",
+          "start_line": 18
+        }
+      ],
+      "executable": false,
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1373-CORE_META_MODEL-CORE--define-applicable-methodology-conflict.md#subjects.governs",
+      "old_value": "Applicable Methodology/Conflict",
+      "preserved_distinctions": [
+        "Conflict remains limited to one Applicable Methodology exact source frontier and is not a generic independent Conflict root.",
+        "The compiler-detected candidate-selection qualification remains intact; no selector, singleton, native kind or source write is inferred."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Projection.Conflict",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1373 explicitly defines Applicable Methodology/Conflict as a compiler-detected incompatible candidate selection within one exact source frontier. The candidate's whole-set Projection and Applicable Methodology conflict boundary support Projection.Conflict without creating a new root.",
+      "source_atom_id": "CA-R-1373",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1373-CORE_META_MODEL-CORE--define-applicable-methodology-conflict.md",
+      "source_sha256": "8ce47a9afdb2500a239c31cc3fad61794cfaa552d64dadbf2ded546caefe5ebf",
+      "source_version": 9
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+          "span_sha256": "e30f0cacadbebec68c5fca9f17ff065bbac343808f12b183c0379f2f96132413",
+          "start_line": 22
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md#subjects.depends_on[0]",
+      "old_value": "Core Meta-Model",
+      "preserved_distinctions": [
+        "Retains the framework/authority and structural-scope meaning.",
+        "Does not collapse it into a generic Scope Unit or a display-only prefix."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it limits Extension or Project Configuration additions to active Core permission while preserving Core authority. For 'Core Meta-Model', The candidate establishes no canonical identity retaining its framework/authority and structural-scope meaning; mapping it to a generic Scope Unit would collapse that distinction. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1375",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+      "source_sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+      "source_version": 13
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 32,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1404 confirms the Framework Instance Settings Artifact is not an Atom."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md#subjects.governs",
+      "old_value": "Framework Instance Settings",
+      "preserved_distinctions": [
+        "Framework Instance Settings remains distinct from Project Settings, Default Settings and a Project Structure per-Scope-Unit Authority Mode override.",
+        "Its current Operator-selected behavior, configuration and activation choices remain source-qualified; this does not infer an Artifact.Type field, allowed-value admission, native kind or source write.",
+        "Parameter definition, default value and selected current value remain distinct."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Framework Instance Settings as an authoritative non-Atom Artifact, including its distinct current-selection and authority-mode boundary. The confirmed Artifact/dependent-Entity model supports this named classification even though it is not printed as a candidate display example.",
+      "source_atom_id": "CA-R-1402",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+      "source_sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+      "source_version": 10
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 32,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "start_line": 20
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1402 explicitly defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md#subjects.governs",
+      "old_value": "Framework Instance Settings",
+      "preserved_distinctions": [
+        "Framework Instance Settings remains distinct from Project Settings, Default Settings and a Project Structure per-Scope-Unit Authority Mode override.",
+        "Its current Operator-selected behavior, configuration and activation choices remain source-qualified; this does not infer an Artifact.Type field, allowed-value admission, native kind or source write.",
+        "Parameter definition, default value and selected current value remain distinct."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Framework Instance Settings as an authoritative non-Atom Artifact, including its distinct current-selection and authority-mode boundary. The confirmed Artifact/dependent-Entity model supports this named classification even though it is not printed as a candidate display example.",
+      "source_atom_id": "CA-R-1404",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+      "source_sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+      "source_version": 10
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 35,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+          "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+          "span_sha256": "e348fe4db6df77d4c5b84c7f04b9e44c1c4044ae7b766a5490f087461752ebaa",
+          "start_line": 24,
+          "end_line": 36,
+          "reason": "CA-R-1441 explicitly defines Default Settings as an authoritative Artifact of reusable baseline values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[1]",
+      "old_value": "Default Settings",
+      "preserved_distinctions": [
+        "Reusable Default Settings baseline values remain distinct from Project initialization inputs and explicit current Operator selections.",
+        "This is not an inferred Artifact.Type field, allowed-value admission, native kind or source write."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Default Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Default Settings as an authoritative Artifact of reusable baseline values and as a Core Artifact Type value. The confirmed Artifact/dependent-Entity model supports this named classification without inventing a field or value admission.",
+      "source_atom_id": "CA-R-1405",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+      "source_sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+      "source_version": 11
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 34,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "start_line": 22
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md#subjects.depends_on[2]",
+      "old_value": "CAPRMEDIO Framework Instance",
+      "preserved_distinctions": [
+        "Retains the Project/framework association and the non-Actor boundary.",
+        "Does not infer a Scope Unit, Actor, or display-only prefix identity."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it defines the Operator as the collective Actor for a Project and CAPRMEDIO Framework Instance. For 'CAPRMEDIO Framework Instance', The candidate establishes no canonical identity and owner retaining the Project/framework association; mapping it to Actor or Scope Unit would change the meaning. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1422",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+      "source_sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+      "source_version": 8
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "8bf145b5175d143954ac403bb11247fc8d2a74168881ed607260b1fb66c2c075",
+          "span_sha256": "56a79fb9645f7ec4a31f4153641bd99b3a26b702df06d456b1084944e4e829ee",
+          "start_line": 25
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1402 explicitly defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1404 confirms the Framework Instance Settings Artifact is not an Atom."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md#subjects.depends_on[5]",
+      "old_value": "Framework Instance Settings",
+      "preserved_distinctions": [
+        "Framework Instance Settings remains distinct from Project Settings, Default Settings and a Project Structure per-Scope-Unit Authority Mode override.",
+        "Its current Operator-selected behavior, configuration and activation choices remain source-qualified; this does not infer an Artifact.Type field, allowed-value admission, native kind or source write.",
+        "Parameter definition, default value and selected current value remain distinct."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Framework Instance Settings as an authoritative non-Atom Artifact, including its distinct current-selection and authority-mode boundary. The confirmed Artifact/dependent-Entity model supports this named classification even though it is not printed as a candidate display example.",
+      "source_atom_id": "CA-R-1428",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md",
+      "source_sha256": "8bf145b5175d143954ac403bb11247fc8d2a74168881ed607260b1fb66c2c075",
+      "source_version": 9
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 38,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "ba0e34e5057a5acb5f3c1a875214a373b167a860ed3ac0b6d708a3c657fdd7ed",
+          "span_sha256": "1354b084c2e48df3a116b8608e9fd07a08ceadf522b105603db271888217412c",
+          "start_line": 22
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "start_line": 28,
+          "end_line": 40,
+          "reason": "CA-R-1738 explicitly defines Project Settings as an authoritative Artifact for one Project's initialization inputs."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md#subjects.depends_on[0]",
+      "old_value": "Project Settings",
+      "preserved_distinctions": [
+        "Project initialization inputs, including Project Name and Project Atom prefix, remain distinct from Framework Instance Settings behavior and Default Settings baseline values.",
+        "This is not an inferred Artifact.Type field, allowed-value admission, native kind or source write."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Project Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Project Settings as the authoritative Artifact for one Project's initialization inputs, separate from Framework Instance behavior and defaults. The confirmed Artifact/dependent-Entity model supports this named classification without requiring a candidate display string.",
+      "source_atom_id": "CA-R-1429",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+      "source_sha256": "ba0e34e5057a5acb5f3c1a875214a373b167a860ed3ac0b6d708a3c657fdd7ed",
+      "source_version": 10
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 38,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "ba0e34e5057a5acb5f3c1a875214a373b167a860ed3ac0b6d708a3c657fdd7ed",
+          "span_sha256": "1354b084c2e48df3a116b8608e9fd07a08ceadf522b105603db271888217412c",
+          "start_line": 22
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1402 explicitly defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1404 confirms the Framework Instance Settings Artifact is not an Atom."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md#subjects.depends_on[1]",
+      "old_value": "Framework Instance Settings",
+      "preserved_distinctions": [
+        "Framework Instance Settings remains distinct from Project Settings, Default Settings and a Project Structure per-Scope-Unit Authority Mode override.",
+        "Its current Operator-selected behavior, configuration and activation choices remain source-qualified; this does not infer an Artifact.Type field, allowed-value admission, native kind or source write.",
+        "Parameter definition, default value and selected current value remain distinct."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Framework Instance Settings as an authoritative non-Atom Artifact, including its distinct current-selection and authority-mode boundary. The confirmed Artifact/dependent-Entity model supports this named classification even though it is not printed as a candidate display example.",
+      "source_atom_id": "CA-R-1429",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+      "source_sha256": "ba0e34e5057a5acb5f3c1a875214a373b167a860ed3ac0b6d708a3c657fdd7ed",
+      "source_version": 10
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 38,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "ba0e34e5057a5acb5f3c1a875214a373b167a860ed3ac0b6d708a3c657fdd7ed",
+          "span_sha256": "1354b084c2e48df3a116b8608e9fd07a08ceadf522b105603db271888217412c",
+          "start_line": 22
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+          "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+          "span_sha256": "e348fe4db6df77d4c5b84c7f04b9e44c1c4044ae7b766a5490f087461752ebaa",
+          "start_line": 24,
+          "end_line": 36,
+          "reason": "CA-R-1441 explicitly defines Default Settings as an authoritative Artifact of reusable baseline values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md#subjects.depends_on[2]",
+      "old_value": "Default Settings",
+      "preserved_distinctions": [
+        "Reusable Default Settings baseline values remain distinct from Project initialization inputs and explicit current Operator selections.",
+        "This is not an inferred Artifact.Type field, allowed-value admission, native kind or source write."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Default Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Default Settings as an authoritative Artifact of reusable baseline values and as a Core Artifact Type value. The confirmed Artifact/dependent-Entity model supports this named classification without inventing a field or value admission.",
+      "source_atom_id": "CA-R-1429",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+      "source_sha256": "ba0e34e5057a5acb5f3c1a875214a373b167a860ed3ac0b6d708a3c657fdd7ed",
+      "source_version": 10
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 39,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263",
+          "span_sha256": "b11e18e136e6a834292212df42fc5f17fb928513cccd14c88936ca66f5d4845f",
+          "start_line": 27
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1402 explicitly defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1404 confirms the Framework Instance Settings Artifact is not an Atom."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md#subjects.depends_on[0]",
+      "old_value": "Framework Instance Settings",
+      "preserved_distinctions": [
+        "Framework Instance Settings remains distinct from Project Settings, Default Settings and a Project Structure per-Scope-Unit Authority Mode override.",
+        "Its current Operator-selected behavior, configuration and activation choices remain source-qualified; this does not infer an Artifact.Type field, allowed-value admission, native kind or source write.",
+        "Parameter definition, default value and selected current value remain distinct."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Framework Instance Settings as an authoritative non-Atom Artifact, including its distinct current-selection and authority-mode boundary. The confirmed Artifact/dependent-Entity model supports this named classification even though it is not printed as a candidate display example.",
+      "source_atom_id": "CA-R-1430",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+      "source_sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263",
+      "source_version": 8
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        },
+        {
+          "pointer": "/applicable_methodology/sources",
+          "reason": "The candidate lists Core, Installed Extensions and Project Configuration as Applicable Methodology sources."
+        },
+        {
+          "pointer": "/applicable_methodology/requirement",
+          "reason": "The candidate requires projection of every source Atom and conformance rather than a hard-coded source-name list."
+        },
+        {
+          "pointer": "/projection_member_model/source_reference",
+          "reason": "The candidate requires a retained relative source reference for each derived Atom."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+          "span_sha256": "8ee60ec795427357f6227a2fb398eb5d3e1f4cf9c8624232cbc381e5cecfcf41",
+          "start_line": 24
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md#subjects.depends_on[1]",
+      "old_value": "Applicable Methodology/Sources",
+      "preserved_distinctions": [
+        "Sources remains the exact conforming Core/Extension/Project Configuration source frontier, not a hard-coded list or a generic Source root.",
+        "Compilation, validation and source-set conformance remain source-body requirements; this does not admit a native relation or source write."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Projection.Sources",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1434 explicitly defines reusable Applicable Methodology compilation from conforming Extensions and Project Configuration without hard-coded installed names or contents. The candidate's Applicable Methodology source set and source-reference rule support Projection.Sources.",
+      "source_atom_id": "CA-R-1434",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+      "source_sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+      "source_version": 8
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+          "span_sha256": "8ee60ec795427357f6227a2fb398eb5d3e1f4cf9c8624232cbc381e5cecfcf41",
+          "start_line": 24
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md#subjects.depends_on[2]",
+      "old_value": "Extension",
+      "preserved_distinctions": [
+        "Retains source-category and governed-expansion-boundary meaning.",
+        "Does not promote a source category, package, or permission boundary to a new root or singleton kind.",
+        "Activation/selection remains distinct from availability and source authority."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it requires reusable Core compilation authority across Extensions and Project Configuration within declared expansion boundaries. For 'Extension', Candidate references to sources or installed extensions do not establish this current package/category/permission-boundary identity as a canonical Entity. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1434",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+      "source_sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+      "source_version": 8
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+          "span_sha256": "8ee60ec795427357f6227a2fb398eb5d3e1f4cf9c8624232cbc381e5cecfcf41",
+          "start_line": 24
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md#subjects.depends_on[3]",
+      "old_value": "Project Configuration",
+      "preserved_distinctions": [
+        "Retains source-category and governed-expansion-boundary meaning.",
+        "Does not promote a source category, package, or permission boundary to a new root or singleton kind.",
+        "Activation/selection remains distinct from availability and source authority."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it requires reusable Core compilation authority across Extensions and Project Configuration within declared expansion boundaries. For 'Project Configuration', Candidate references to sources or installed extensions do not establish this current package/category/permission-boundary identity as a canonical Entity. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1434",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+      "source_sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+      "source_version": 8
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+          "span_sha256": "8ee60ec795427357f6227a2fb398eb5d3e1f4cf9c8624232cbc381e5cecfcf41",
+          "start_line": 24
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md#subjects.depends_on[4]",
+      "old_value": "Methodology Source/Expansion Boundary",
+      "preserved_distinctions": [
+        "Retains source-category and governed-expansion-boundary meaning.",
+        "Does not promote a source category, package, or permission boundary to a new root or singleton kind.",
+        "Activation/selection remains distinct from availability and source authority."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it requires reusable Core compilation authority across Extensions and Project Configuration within declared expansion boundaries. For 'Methodology Source/Expansion Boundary', Candidate references to sources or installed extensions do not establish this current package/category/permission-boundary identity as a canonical Entity. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1434",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+      "source_sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+      "source_version": 8
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+          "span_sha256": "8ee60ec795427357f6227a2fb398eb5d3e1f4cf9c8624232cbc381e5cecfcf41",
+          "start_line": 24
+        }
+      ],
+      "executable": false,
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md#subjects.governs",
+      "old_value": "Core Meta-Model",
+      "preserved_distinctions": [
+        "Retains the framework/authority and structural-scope meaning.",
+        "Does not collapse it into a generic Scope Unit or a display-only prefix."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it requires reusable Core compilation authority across Extensions and Project Configuration within declared expansion boundaries. For 'Core Meta-Model', The candidate establishes no canonical identity retaining its framework/authority and structural-scope meaning; mapping it to a generic Scope Unit would collapse that distinction. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1434",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+      "source_sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+      "source_version": 8
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+          "span_sha256": "e348fe4db6df77d4c5b84c7f04b9e44c1c4044ae7b766a5490f087461752ebaa",
+          "start_line": 24
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1402 explicitly defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1404 confirms the Framework Instance Settings Artifact is not an Atom."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md#subjects.depends_on[1]",
+      "old_value": "Framework Instance Settings",
+      "preserved_distinctions": [
+        "Framework Instance Settings remains distinct from Project Settings, Default Settings and a Project Structure per-Scope-Unit Authority Mode override.",
+        "Its current Operator-selected behavior, configuration and activation choices remain source-qualified; this does not infer an Artifact.Type field, allowed-value admission, native kind or source write.",
+        "Parameter definition, default value and selected current value remain distinct."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Framework Instance Settings as an authoritative non-Atom Artifact, including its distinct current-selection and authority-mode boundary. The confirmed Artifact/dependent-Entity model supports this named classification even though it is not printed as a candidate display example.",
+      "source_atom_id": "CA-R-1441",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+      "source_sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+      "source_version": 8
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+          "span_sha256": "e348fe4db6df77d4c5b84c7f04b9e44c1c4044ae7b766a5490f087461752ebaa",
+          "start_line": 24
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md#subjects.governs",
+      "old_value": "Default Settings",
+      "preserved_distinctions": [
+        "Reusable Default Settings baseline values remain distinct from Project initialization inputs and explicit current Operator selections.",
+        "This is not an inferred Artifact.Type field, allowed-value admission, native kind or source write."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Default Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Default Settings as an authoritative Artifact of reusable baseline values and as a Core Artifact Type value. The confirmed Artifact/dependent-Entity model supports this named classification without inventing a field or value admission.",
+      "source_atom_id": "CA-R-1441",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+      "source_sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+      "source_version": 8
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1466-CORE_META_MODEL-CORE--keep-git-integration-in-an-extension.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "6c2a5bbdab877fc8e87f62ef81ba06c00a8baab497c5e145db0e94b711f6a8a8",
+          "span_sha256": "7b618e9bb515ba1eded7ecc59da7f4fc7d849d8c3a3eda883ad15f17a4151733",
+          "start_line": 21
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1466-CORE_META_MODEL-CORE--keep-git-integration-in-an-extension.md#subjects.depends_on[0]",
+      "old_value": "Core Meta-Model",
+      "preserved_distinctions": [
+        "Retains the framework/authority and structural-scope meaning.",
+        "Does not collapse it into a generic Scope Unit or a display-only prefix."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it keeps optional Git integration in Extension authority without replacing Journal or Core authority. For 'Core Meta-Model', The candidate establishes no canonical identity retaining its framework/authority and structural-scope meaning; mapping it to a generic Scope Unit would collapse that distinction. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1466",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1466-CORE_META_MODEL-CORE--keep-git-integration-in-an-extension.md",
+      "source_sha256": "6c2a5bbdab877fc8e87f62ef81ba06c00a8baab497c5e145db0e94b711f6a8a8",
+      "source_version": 5
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+          "span_sha256": "67f4584167b039ff8e745c4e0bf2dfc835cff0238bcbed7e4b2d341aee398087",
+          "start_line": 23
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md#subjects.depends_on[0]",
+      "old_value": "Methodology Source",
+      "preserved_distinctions": [
+        "Retains source-category and governed-expansion-boundary meaning.",
+        "Does not promote a source category, package, or permission boundary to a new root or singleton kind.",
+        "Activation/selection remains distinct from availability and source authority."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it defines Extension as an independently governed optional capability package distinct from Core and Project Configuration authority. For 'Methodology Source', Candidate references to sources or installed extensions do not establish this current package/category/permission-boundary identity as a canonical Entity. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1722",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+      "source_sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+      "source_version": 19
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+          "span_sha256": "67f4584167b039ff8e745c4e0bf2dfc835cff0238bcbed7e4b2d341aee398087",
+          "start_line": 23
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md#subjects.depends_on[1]",
+      "old_value": "Core Meta-Model",
+      "preserved_distinctions": [
+        "Retains the framework/authority and structural-scope meaning.",
+        "Does not collapse it into a generic Scope Unit or a display-only prefix."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it defines Extension as an independently governed optional capability package distinct from Core and Project Configuration authority. For 'Core Meta-Model', The candidate establishes no canonical identity retaining its framework/authority and structural-scope meaning; mapping it to a generic Scope Unit would collapse that distinction. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1722",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+      "source_sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+      "source_version": 19
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+          "span_sha256": "67f4584167b039ff8e745c4e0bf2dfc835cff0238bcbed7e4b2d341aee398087",
+          "start_line": 23
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md#subjects.depends_on[2]",
+      "old_value": "Project Configuration",
+      "preserved_distinctions": [
+        "Retains source-category and governed-expansion-boundary meaning.",
+        "Does not promote a source category, package, or permission boundary to a new root or singleton kind.",
+        "Activation/selection remains distinct from availability and source authority."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it defines Extension as an independently governed optional capability package distinct from Core and Project Configuration authority. For 'Project Configuration', Candidate references to sources or installed extensions do not establish this current package/category/permission-boundary identity as a canonical Entity. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1722",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+      "source_sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+      "source_version": 19
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+          "span_sha256": "67f4584167b039ff8e745c4e0bf2dfc835cff0238bcbed7e4b2d341aee398087",
+          "start_line": 23
+        }
+      ],
+      "executable": false,
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md#subjects.governs",
+      "old_value": "Extension",
+      "preserved_distinctions": [
+        "Retains source-category and governed-expansion-boundary meaning.",
+        "Does not promote a source category, package, or permission boundary to a new root or singleton kind.",
+        "Activation/selection remains distinct from availability and source authority."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it defines Extension as an independently governed optional capability package distinct from Core and Project Configuration authority. For 'Extension', Candidate references to sources or installed extensions do not establish this current package/category/permission-boundary identity as a canonical Entity. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1722",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+      "source_sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+      "source_version": 19
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 29,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL-GENERAL--define-extension-identity-and-compatibility.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "9e3140d1a438a4c40df90e14ba21c5bfb74f8a73f142548df493401691e45263",
+          "span_sha256": "3d4fad33a76ea5537f1bbe479f0bdb47705ad311ba1e210a4e0ca39f0344e970",
+          "start_line": 19
+        }
+      ],
+      "executable": false,
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL-GENERAL--define-extension-identity-and-compatibility.md#subjects.governs",
+      "old_value": "Extension",
+      "preserved_distinctions": [
+        "Retains source-category and governed-expansion-boundary meaning.",
+        "Does not promote a source category, package, or permission boundary to a new root or singleton kind.",
+        "Activation/selection remains distinct from availability and source authority."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it requires an Extension's stable identity, compatibility and canonical capabilities without copying authority. For 'Extension', Candidate references to sources or installed extensions do not establish this current package/category/permission-boundary identity as a canonical Entity. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1723",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1723-CORE_META_MODEL-GENERAL--define-extension-identity-and-compatibility.md",
+      "source_sha256": "9e3140d1a438a4c40df90e14ba21c5bfb74f8a73f142548df493401691e45263",
+      "source_version": 15
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 32,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+          "span_sha256": "7c444811e278c2a554aad6a9eca47f74ced72894770f0fa533bf8e3c880c8290",
+          "start_line": 20
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1402 explicitly defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1404 confirms the Framework Instance Settings Artifact is not an Atom."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md#subjects.depends_on[0]",
+      "old_value": "Framework Instance Settings",
+      "preserved_distinctions": [
+        "Framework Instance Settings remains distinct from Project Settings, Default Settings and a Project Structure per-Scope-Unit Authority Mode override.",
+        "Its current Operator-selected behavior, configuration and activation choices remain source-qualified; this does not infer an Artifact.Type field, allowed-value admission, native kind or source write.",
+        "Parameter definition, default value and selected current value remain distinct."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Framework Instance Settings as an authoritative non-Atom Artifact, including its distinct current-selection and authority-mode boundary. The confirmed Artifact/dependent-Entity model supports this named classification even though it is not printed as a candidate display example.",
+      "source_atom_id": "CA-R-1724",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+      "source_sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+      "source_version": 21
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 32,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+          "span_sha256": "7c444811e278c2a554aad6a9eca47f74ced72894770f0fa533bf8e3c880c8290",
+          "start_line": 20
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md#subjects.depends_on[1]",
+      "old_value": "Extension",
+      "preserved_distinctions": [
+        "Retains source-category and governed-expansion-boundary meaning.",
+        "Does not promote a source category, package, or permission boundary to a new root or singleton kind.",
+        "Activation/selection remains distinct from availability and source authority."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it assigns available Tool/Extension activation, composition precedence and selected revisions to Framework Instance Settings. For 'Extension', Candidate references to sources or installed extensions do not establish this current package/category/permission-boundary identity as a canonical Entity. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1724",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+      "source_sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+      "source_version": 21
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 35,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+          "span_sha256": "07e64aa437f20784d61a689841687ea415df8df519d533677b572d93c36790e4",
+          "start_line": 21
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1402 explicitly defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1404 confirms the Framework Instance Settings Artifact is not an Atom."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md#subjects.depends_on[0]",
+      "old_value": "Framework Instance Settings",
+      "preserved_distinctions": [
+        "Framework Instance Settings remains distinct from Project Settings, Default Settings and a Project Structure per-Scope-Unit Authority Mode override.",
+        "Its current Operator-selected behavior, configuration and activation choices remain source-qualified; this does not infer an Artifact.Type field, allowed-value admission, native kind or source write.",
+        "Parameter definition, default value and selected current value remain distinct."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Framework Instance Settings as an authoritative non-Atom Artifact, including its distinct current-selection and authority-mode boundary. The confirmed Artifact/dependent-Entity model supports this named classification even though it is not printed as a candidate display example.",
+      "source_atom_id": "CA-R-1733",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+      "source_sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+      "source_version": 17
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 40,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "start_line": 28
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md#subjects.governs",
+      "old_value": "Project Settings",
+      "preserved_distinctions": [
+        "Project initialization inputs, including Project Name and Project Atom prefix, remain distinct from Framework Instance Settings behavior and Default Settings baseline values.",
+        "This is not an inferred Artifact.Type field, allowed-value admission, native kind or source write."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Project Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Project Settings as the authoritative Artifact for one Project's initialization inputs, separate from Framework Instance behavior and defaults. The confirmed Artifact/dependent-Entity model supports this named classification without requiring a candidate display string.",
+      "source_atom_id": "CA-R-1738",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "source_sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+      "source_version": 21
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 34,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+          "span_sha256": "17b5363499e8427c52d0024b5f2879baa5ca5fd92c3f6e877a36db3d40fa0635",
+          "start_line": 22
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1402 explicitly defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1404 confirms the Framework Instance Settings Artifact is not an Atom."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md#subjects.depends_on[4]",
+      "old_value": "Framework Instance Settings",
+      "preserved_distinctions": [
+        "Framework Instance Settings remains distinct from Project Settings, Default Settings and a Project Structure per-Scope-Unit Authority Mode override.",
+        "Its current Operator-selected behavior, configuration and activation choices remain source-qualified; this does not infer an Artifact.Type field, allowed-value admission, native kind or source write.",
+        "Parameter definition, default value and selected current value remain distinct."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Framework Instance Settings as an authoritative non-Atom Artifact, including its distinct current-selection and authority-mode boundary. The confirmed Artifact/dependent-Entity model supports this named classification even though it is not printed as a candidate display example.",
+      "source_atom_id": "CA-R-1739",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+      "source_sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+      "source_version": 21
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 38,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+          "span_sha256": "14982aa8fd69687e9dee502227df2ed017f27f4bf22462364ad3d284ff6cf986",
+          "start_line": 26
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1402 explicitly defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1404 confirms the Framework Instance Settings Artifact is not an Atom."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26,
+          "end_line": 38,
+          "reason": "CA-R-1750 preserves the distinct authoritative owners for Project Settings, Framework Instance Settings, Project Structure overrides and Default Settings values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md#subjects.depends_on[2]",
+      "old_value": "Framework Instance Settings",
+      "preserved_distinctions": [
+        "Framework Instance Settings remains distinct from Project Settings, Default Settings and a Project Structure per-Scope-Unit Authority Mode override.",
+        "Its current Operator-selected behavior, configuration and activation choices remain source-qualified; this does not infer an Artifact.Type field, allowed-value admission, native kind or source write.",
+        "Parameter definition, default value and selected current value remain distinct."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Framework Instance Settings as an authoritative non-Atom Artifact, including its distinct current-selection and authority-mode boundary. The confirmed Artifact/dependent-Entity model supports this named classification even though it is not printed as a candidate display example.",
+      "source_atom_id": "CA-R-1740",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "source_sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+      "source_version": 21
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 41,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+          "span_sha256": "6122c4d721e4f4dad030b5a3317f950a3cfcd71ceeb917f6e1ac7ba83c5803d7",
+          "start_line": 25
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md#subjects.depends_on[2]",
+      "old_value": "Methodology Source",
+      "preserved_distinctions": [
+        "Retains source-category and governed-expansion-boundary meaning.",
+        "Does not promote a source category, package, or permission boundary to a new root or singleton kind.",
+        "Activation/selection remains distinct from availability and source authority."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it keeps inherited authority effective unless an explicit, bounded specialization permits otherwise. For 'Methodology Source', Candidate references to sources or installed extensions do not establish this current package/category/permission-boundary identity as a canonical Entity. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1748",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+      "source_sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+      "source_version": 16
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 41,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+          "span_sha256": "6122c4d721e4f4dad030b5a3317f950a3cfcd71ceeb917f6e1ac7ba83c5803d7",
+          "start_line": 25
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md#subjects.depends_on[3]",
+      "old_value": "Core Meta-Model",
+      "preserved_distinctions": [
+        "Retains the framework/authority and structural-scope meaning.",
+        "Does not collapse it into a generic Scope Unit or a display-only prefix."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it keeps inherited authority effective unless an explicit, bounded specialization permits otherwise. For 'Core Meta-Model', The candidate establishes no canonical identity retaining its framework/authority and structural-scope meaning; mapping it to a generic Scope Unit would collapse that distinction. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1748",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+      "source_sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+      "source_version": 16
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 41,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+          "span_sha256": "6122c4d721e4f4dad030b5a3317f950a3cfcd71ceeb917f6e1ac7ba83c5803d7",
+          "start_line": 25
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md#subjects.depends_on[4]",
+      "old_value": "Extension",
+      "preserved_distinctions": [
+        "Retains source-category and governed-expansion-boundary meaning.",
+        "Does not promote a source category, package, or permission boundary to a new root or singleton kind.",
+        "Activation/selection remains distinct from availability and source authority."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it keeps inherited authority effective unless an explicit, bounded specialization permits otherwise. For 'Extension', Candidate references to sources or installed extensions do not establish this current package/category/permission-boundary identity as a canonical Entity. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1748",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+      "source_sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+      "source_version": 16
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 41,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+          "span_sha256": "6122c4d721e4f4dad030b5a3317f950a3cfcd71ceeb917f6e1ac7ba83c5803d7",
+          "start_line": 25
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md#subjects.depends_on[5]",
+      "old_value": "Project Configuration",
+      "preserved_distinctions": [
+        "Retains source-category and governed-expansion-boundary meaning.",
+        "Does not promote a source category, package, or permission boundary to a new root or singleton kind.",
+        "Activation/selection remains distinct from availability and source authority."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it keeps inherited authority effective unless an explicit, bounded specialization permits otherwise. For 'Project Configuration', Candidate references to sources or installed extensions do not establish this current package/category/permission-boundary identity as a canonical Entity. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-1748",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+      "source_sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+      "source_version": 16
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 38,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "start_line": 28,
+          "end_line": 40,
+          "reason": "CA-R-1738 explicitly defines Project Settings as an authoritative Artifact for one Project's initialization inputs."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md#subjects.depends_on[1]",
+      "old_value": "Project Settings",
+      "preserved_distinctions": [
+        "Project initialization inputs, including Project Name and Project Atom prefix, remain distinct from Framework Instance Settings behavior and Default Settings baseline values.",
+        "This is not an inferred Artifact.Type field, allowed-value admission, native kind or source write."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Project Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Project Settings as the authoritative Artifact for one Project's initialization inputs, separate from Framework Instance behavior and defaults. The confirmed Artifact/dependent-Entity model supports this named classification without requiring a candidate display string.",
+      "source_atom_id": "CA-R-1750",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "source_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+      "source_version": 21
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 38,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+          "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+          "span_sha256": "e348fe4db6df77d4c5b84c7f04b9e44c1c4044ae7b766a5490f087461752ebaa",
+          "start_line": 24,
+          "end_line": 36,
+          "reason": "CA-R-1441 explicitly defines Default Settings as an authoritative Artifact of reusable baseline values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md#subjects.depends_on[3]",
+      "old_value": "Default Settings",
+      "preserved_distinctions": [
+        "Reusable Default Settings baseline values remain distinct from Project initialization inputs and explicit current Operator selections.",
+        "This is not an inferred Artifact.Type field, allowed-value admission, native kind or source write."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Default Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Default Settings as an authoritative Artifact of reusable baseline values and as a Core Artifact Type value. The confirmed Artifact/dependent-Entity model supports this named classification without inventing a field or value admission.",
+      "source_atom_id": "CA-R-1750",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "source_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+      "source_version": 21
+    },
+    {
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "The confirmed candidate defines Artifact as one governed lifecycle unit containing named dependent Entities; the cited current definition supplies this named Artifact classification."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The confirmed candidate retains named dependent Entities inside an Artifact; it does not require every current named Artifact classification to be displayed in the candidate examples."
+        }
+      ],
+      "confidence": 0.96,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 38,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "reason": "Complete current Main Content was freshly re-read; it supplies the owning source's exact qualified meaning for this proposed candidate target.",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "start_line": 26
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1402 explicitly defines Framework Instance Settings as an authoritative Artifact for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "CA-R-1404 confirms the Framework Instance Settings Artifact is not an Atom."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "CA-R-1405 explicitly includes Framework Instance Settings, Project Settings and Default Settings among Core Artifact Type values."
+        }
+      ],
+      "executable": false,
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md#subjects.governs",
+      "old_value": "Framework Instance Settings",
+      "preserved_distinctions": [
+        "Framework Instance Settings remains distinct from Project Settings, Default Settings and a Project Structure per-Scope-Unit Authority Mode override.",
+        "Its current Operator-selected behavior, configuration and activation choices remain source-qualified; this does not infer an Artifact.Type field, allowed-value admission, native kind or source write.",
+        "Parameter definition, default value and selected current value remain distinct."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "quarantined": false,
+      "question": null,
+      "reason": "Current definitions explicitly classify Framework Instance Settings as an authoritative non-Atom Artifact, including its distinct current-selection and authority-mode boundary. The confirmed Artifact/dependent-Entity model supports this named classification even though it is not printed as a candidate display example.",
+      "source_atom_id": "CA-R-1750",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "source_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+      "source_version": 21
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 32,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-850-CORE_META_MODEL-CORE-REQUIREMENT--exclude-caprmedio-instance-from-actor-role.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "0d5cffdb03482b9ed3b16d4fe277216e92fd3b8044227694fd653d3417df66be",
+          "span_sha256": "1e1abeeebbedd918e08ec03ef1312b030e849af261d40b17e1560ea6818e5f7c",
+          "start_line": 20
+        }
+      ],
+      "executable": false,
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-850-CORE_META_MODEL-CORE-REQUIREMENT--exclude-caprmedio-instance-from-actor-role.md#subjects.governs",
+      "old_value": "CAPRMEDIO Framework Instance",
+      "preserved_distinctions": [
+        "Retains the Project/framework association and the non-Actor boundary.",
+        "Does not infer a Scope Unit, Actor, or display-only prefix identity."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it excludes the CAPRMEDIO Framework Instance from the Actor role. For 'CAPRMEDIO Framework Instance', The candidate establishes no canonical identity and owner retaining the Project/framework association; mapping it to Actor or Scope Unit would change the meaning. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-R-850",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-850-CORE_META_MODEL-CORE-REQUIREMENT--exclude-caprmedio-instance-from-actor-role.md",
+      "source_sha256": "0d5cffdb03482b9ed3b16d4fe277216e92fd3b8044227694fd653d3417df66be",
+      "source_version": 14
+    },
+    {
+      "candidate_basis": [],
+      "confidence": 0.55,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 55,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+          "reason": "Complete current Main Content was freshly re-read; it preserves the source-specific authority, ownership and qualification boundary that prevents a safe canonical replacement.",
+          "sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+          "span_sha256": "2b5a336859025130d21d96255c5ab2a4d68512641b59e0e02d12c1fedbd8be5f",
+          "start_line": 32
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md#subjects.depends_on[3]",
+      "old_value": "CAPRMEDIO Framework Instance",
+      "preserved_distinctions": [
+        "Retains the Project/framework association and the non-Actor boundary.",
+        "Does not infer a Scope Unit, Actor, or display-only prefix identity."
+      ],
+      "prior_decision": "unresolved",
+      "prior_proposed_value": null,
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-P-2096 freshly re-read the complete current Main Content: it evaluates priority-governed alternative selection without inventing an unresolved model or preference. For 'CAPRMEDIO Framework Instance', The candidate establishes no canonical identity and owner retaining the Project/framework association; mapping it to Actor or Scope Unit would change the meaning. The row remains null rather than inventing a replacement.",
+      "source_atom_id": "CA-E-207",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+      "source_sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+      "source_version": 13
+    }
+  ],
+  "schema_version": 1,
+  "source_migration": "not_performed",
+  "task_id": "CA-P-2096"
+}

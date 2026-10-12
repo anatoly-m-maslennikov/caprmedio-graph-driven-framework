@@ -1,0 +1,38 @@
+{
+  "task": "CA-P-1986",
+  "checks": "PASS: exact IDs, owner/status, Summary preserved, Version+1 and canonical body headings; full packet acceptance remains CA-P-1981",
+  "files": [
+    {
+      "atom_id": "CA-D-038",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/07_delivery/CA-D-038-ATOM_SEARCH-DELIVERY--bind-atom-search-delivery-place.md",
+      "before_version": 10,
+      "after_version": 11,
+      "before_sha256": "4fea37674741c2ec6dc06d66040f12ba1f7f7caf958ed6453d749dab54e407a3",
+      "after_sha256": "300175a169b9cb70689477e4bff3eb09b370c98bd8d12dc21fc2d45b6ca19be6"
+    },
+    {
+      "atom_id": "CA-D-041",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/07_delivery/CA-D-041-ATOM_UPDATE-DELIVERY--bind-atom-update-delivery-place.md",
+      "before_version": 10,
+      "after_version": 11,
+      "before_sha256": "576c0d52fce012f4d52f5335ef713ae592ffd45be62d2f095c1bdf8c8a26dd46",
+      "after_sha256": "b0b0731d7d2ee5f05a179ee29c9e9d4a3d6f50268508ea57e59a74809b36bd52"
+    },
+    {
+      "atom_id": "CA-D-424",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/07_delivery/CA-D-424-ATOM_SEARCH-DELIVERY--deliver-atom-search-tool.md",
+      "before_version": 7,
+      "after_version": 8,
+      "before_sha256": "07c26c858fa858b7ee23d972d6b0a2147e33bc0c84c53de32d1bf9460497f553",
+      "after_sha256": "0c75b89f884a9da6de735f79642bcce9b6025f6dc5b436012cdde9aab698662d"
+    },
+    {
+      "atom_id": "CA-D-425",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/07_delivery/CA-D-425-ATOM_UPDATE-DELIVERY--deliver-atom-update-tool.md",
+      "before_version": 7,
+      "after_version": 8,
+      "before_sha256": "7abca36b81da0e271377776891936b253636d1a605b09ba9a07d798e05b78a04",
+      "after_sha256": "7652c6b65166f8d6a1c616cbda1ee753a2372e7e373189f552f3917039b0f87f"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "task": "CA-P-2081",
+  "recorded_at": "2026-10-11 05:59:28 +0400",
+  "result": "PASS: closed Core authority path repair",
+  "implementation": [
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/core_relation_registry.py",
+      "sha256": "81372452fb564fdd9d843f7b37880d1820241aac2aac65fb07418092143a285d"
+    },
+    {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/tests/test_core_relation_registry.py",
+      "sha256": "e874c3d91ba1a4735780506e1480900983be9d2385b2309d4474957a113493ca"
+    }
+  ],
+  "inputs": {
+    "project_structure": {
+      "path": ".caprmedio_caprmedio/project_structure.toml",
+      "sha256": "0ceb85e781490b89fc539f27eb5bf3a5187d4c982a648f27b40b6057257df92c"
+    },
+    "rmedo_review": [
+      {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/04_requirement/CA-R-1387-GENERATE_ENTITY_GRAPH-CORE-REQUIREMENT--persist-reproducible-non-authoritative-entity-and-term-graph-projections.md",
+        "sha256": "e621c435ec560de410fe3403d27aae6338170efe5e17dc16201e862bfeab2b1c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/05_method/CA-M-259-GENERATE_ENTITY_GRAPH-CORE-METHOD--derive-one-entity-and-term-graph-projection.md",
+        "sha256": "a3bd97be0f83b8fbeb1bcfe69d38c7c20ad24262feb547d3de73ab7a938fc0a9"
+      },
+      {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/06_evaluation/CA-E-432-GENERATE_ENTITY_GRAPH-QA_CASE--validate-complete-reproducible-entity-and-term-graph-output.md",
+        "sha256": "3e1c1f0c767a35123357ac5466057235a036156f3110118bef3adee2d4bebd0e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/06_evaluation/CA-E-433-GENERATE_ENTITY_GRAPH-QA_CASE--persist-one-projection-without-mutating-authority.md",
+        "sha256": "b101b5790d11f884fee82de30ecd4182bdc2560d8326fc0d39452819c3e40305"
+      },
+      {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/07_delivery/CA-D-354-GENERATE_ENTITY_GRAPH-DELIVERY--bind-entity-graph-generator-authority-and-delivery-places.md",
+        "sha256": "ed2b56445455b92182c8545b94d0d14c331012fd1b41dae2f9f6bc130e62d895"
+      }
+    ]
+  },
+  "checks": {
+    "baseline_focused_registry": {
+      "tests": 7,
+      "passed": 6,
+      "failed": 1,
+      "diagnostic": "registry-core-authority-path-unsupported"
+    },
+    "worker_registry": {
+      "passed": 8
+    },
+    "worker_relation_candidate": {
+      "passed": 11
+    },
+    "root_full_graph": {
+      "tests": 219,
+      "passed": 219,
+      "failed": 0,
+      "execution": "uv --no-project --offline; pydantic==2.13.5 and PyYAML==6.0.3; python -B -m unittest discover",
+      "observed_run_seconds": 14.047
+    },
+    "exact_current_structure_path": "PASS",
+    "required_source_pins": {
+      "count": 9,
+      "result": "unchanged; current hashes/revisions match"
+    },
+    "registered_kinds": [
+      "IS_BORNE_BY",
+      "IS_ALLOWED_VALUE_OF",
+      "NARROWER_THAN"
+    ],
+    "retired_foreign_symlink_rejection": "PASS",
+    "original_core_diff_since_task_registration": "empty",
+    "diff_check": "PASS"
+  },
+  "independent_review": {
+    "reviewer": "subject_review_003",
+    "result": "PASS: reviewed exact implementation hashes, no blocking findings",
+    "execution_boundary": "reviewer did not rerun tests; Root independently ran all 219"
+  },
+  "limits": [
+    "Only the closed path constant and registry tests changed; no new accepted roots, kinds, source semantics or fallback.",
+    "Original Core Subjects, ordinary content, candidate and historic receipts unchanged.",
+    "No MCP/FPF, runtime, native graph publication, selector adoption or live migration."
+  ],
+  "registration_commit": "441bc48e14bd86d38bce32eb91b27a5042c29f40"
+}

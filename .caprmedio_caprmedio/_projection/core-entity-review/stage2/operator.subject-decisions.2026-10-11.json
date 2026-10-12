@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "task_id": "CA-P-2047",
+  "recorded_at": "2026-10-11 02:48:20 +0400",
+  "source": {
+    "kind": "actual_operator_reply",
+    "thread_id": "01a0263a-7510-7672-bce4-58830bc4d184",
+    "question_item_id": [
+      "request_user_input_async",
+      "call_c81b0d1a2f0443cb9a546442a66978ab",
+      0
+    ],
+    "question": "For RMED atoms, should Claim be only the role-specific name of the shared Substance field, so an old Atom/Claim Subject becomes Atom.Substance while the owning Atom keeps its RMED Content Role?",
+    "answer": "we can keep atom.substance. claim/question/issue are just labels. we can rename them later"
+  },
+  "base_candidate": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+    "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+    "modified": false
+  },
+  "decisions": {
+    "substance": {
+      "operator_confirmed": true,
+      "shared_field": "Atom.Substance",
+      "role_labels": [
+        "Claim",
+        "Question",
+        "Issue"
+      ],
+      "labels_are_separate_dependent_entities": false,
+      "labels_are_allowed_values_of_substance": false,
+      "preserve_owning_atom_content_role": true,
+      "exact_legacy_field_candidate": {
+        "Atom/Claim": "Atom.Substance"
+      },
+      "body_label_renaming": "Deferred; ordinary content changes remain Step 2",
+      "compound_path_boundary": "This decision does not decide the identity or ownership of Scope, Target Scope Unit, Type, Content Role, Carrier or other compound-path components."
+    }
+  },
+  "limits": [
+    "Original Core Subjects and content unchanged",
+    "Frozen candidate, captured review and batch review reports unchanged by this decision record",
+    "This is a candidate mapping clarification, not Subject grammar adoption, native admission, an accepted graph or exact live migration approval"
+  ],
+  "source_migration": "not_performed",
+  "native_admission": "not_performed"
+}

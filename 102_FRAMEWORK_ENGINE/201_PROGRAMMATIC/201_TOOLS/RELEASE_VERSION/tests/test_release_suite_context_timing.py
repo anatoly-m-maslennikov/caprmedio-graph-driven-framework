@@ -62,6 +62,7 @@ class ReleaseSuiteContextTimingTests(unittest.TestCase):
         self.control.parent.mkdir()
         self.control.write_bytes(b"revision = 1\n")
         self.candidate = SimpleNamespace(
+            native_installed_n=None,
             manifest=SimpleNamespace(
                 sha256="a" * 64,
                 full_suite_environment=SimpleNamespace(
@@ -121,6 +122,7 @@ class ReleaseSuiteContextTimingTests(unittest.TestCase):
             patch.object(release_suite, "_capture_reference_context", return_value=self.context),
             patch.object(release_suite, "_materialize_suite_workspace", side_effect=materialize),
             patch.object(release_suite, "revalidate_context", side_effect=revalidate),
+            patch.object(release_suite, "_suite_process_environment", return_value={}),
         ):
             stack.enter_context(seam)
         return stack

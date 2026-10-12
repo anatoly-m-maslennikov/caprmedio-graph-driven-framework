@@ -1,0 +1,451 @@
+{
+  "source_task": "CA-P-1926",
+  "batch_number": 6,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "source_binding": {
+    "selection_sha256": "f72964ad096a671d0c36cc0cf6649cf2cf131110edb57446fb523dc5feedb840",
+    "source_collection_sha256": "5ebcf48d24841b65ba46ffdd113e964fe10a53da80a40db32cefedc484ae7d3d",
+    "source_frontier_sha256": "7792e842cfe6c66320745660e69cd0df5525ec18bb22b5c060a6ddfff5fc97f7"
+  },
+  "partition_sha256": "fdb8268dadfe724458c9412f02e609637297c32a207a77015f86b379481dbc80",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "semantic_admission": "not_performed",
+  "cases": [
+    {
+      "case_id": "slash:dd1ff0eaffb5362eacc4d9a251eafcb20baf928512fc10cd5ec53217fef6b48b",
+      "old_parent": "Runtime Journal",
+      "old_child": "Runtime Journal/Carrier",
+      "proposal": null,
+      "checks_performed": [
+        "verified every listed occurrence source against its current selected carrier SHA-256",
+        "quoted only current authored Claim, Procedure, Condition, Operation, or Definition Main Content; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required an exact owning native kind, direction, and immediate endpoint identity before any native assertion",
+        "preserved legacy qualified references without rebasing or semantic admission"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-D-559"
+      ],
+      "disposition": "not-native",
+      "confidence_percent": 92,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Runtime Journal",
+        "qualified_child": "Runtime Journal/Carrier",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-559",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL--deliver-runtime-journals-to-configured-sinks.md",
+          "carrier_sha256": "a0efc0dc67bbac626021e6137567d953f20314e8102c926099f8e4f2d71fd7fa",
+          "start_line": 27,
+          "end_line": 27,
+          "quote": "runtime technical **and** business Journals **may** be delivered **to** an explicitly configured local database, remote database, **or** governed logging sink. these Carriers **need not** reside under `.caprmedio_<project_name>/_journal/` **or** `.caprmedio_runtime/`.",
+          "text_sha256": "d1d9d612d53c408cdf1571b96ba468133107b5a3f489bfc6965a436314cf4029"
+        }
+      ],
+      "reason": "CA-D-559 makes configured Carriers delivery destinations for Runtime Journals, which supports display context but does not declare an immediate native carrier binding or endpoint identity.",
+      "question": null
+    },
+    {
+      "case_id": "slash:e3f6dfb82d53b5561cc9c8c36bd47c319c3310996a36415940f3a21ba56b337e",
+      "old_parent": "Work Journal/Event",
+      "old_child": "Work Journal/Event/Carrier Serialization",
+      "proposal": null,
+      "checks_performed": [
+        "verified every listed occurrence source against its current selected carrier SHA-256",
+        "quoted only current authored Claim, Procedure, Condition, Operation, or Definition Main Content; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required an exact owning native kind, direction, and immediate endpoint identity before any native assertion",
+        "preserved legacy qualified references without rebasing or semantic admission"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-D-340"
+      ],
+      "disposition": "not-native",
+      "confidence_percent": 92,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Work Journal/Event",
+        "qualified_child": "Work Journal/Event/Carrier Serialization",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-340",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "carrier_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 33,
+          "end_line": 33,
+          "quote": "**every** Work Journal Event Carrier record **must** serialize its Event identity, Action identity, Type value, action Kind, Author, timezone-qualified Occurred At, session provenance, **and** Structural Scope **in** its registered schema.",
+          "text_sha256": "6ccafe191fb0ceb1adaae4a99973c44e0ab64a4abda8d285f7ee5614e8bf1691"
+        }
+      ],
+      "reason": "CA-D-340 constrains serialization in a Work Journal Event Carrier record; that is a representation context, not a registered native relation for this qualified path.",
+      "question": null
+    },
+    {
+      "case_id": "slash:e5994894c71bdec11e067c6d3423fd8d8d85bc3c3fa05eba631304ad081c39b4",
+      "old_parent": "Project Settings",
+      "old_child": "Project Settings/Authoritative Carrier",
+      "proposal": null,
+      "checks_performed": [
+        "verified every listed occurrence source against its current selected carrier SHA-256",
+        "quoted only current authored Claim, Procedure, Condition, Operation, or Definition Main Content; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required an exact owning native kind, direction, and immediate endpoint identity before any native assertion",
+        "preserved legacy qualified references without rebasing or semantic admission"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-D-363",
+        "CA-D-364",
+        "CA-D-366",
+        "CA-E-459"
+      ],
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Project Settings",
+        "qualified_child": "Project Settings/Authoritative Carrier",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-364",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-364-CORE_META_MODEL-DELIVERY--bind-project-settings-to-its-authoritative-toml-carrier.md",
+          "carrier_sha256": "d3c65961678f87759d0fe6155d1d7ff01c545cd6d93f9593d938241dd4637c1e",
+          "start_line": 30,
+          "end_line": 30,
+          "quote": "the Project Settings Artifact for a Project named `<project_name>` **must** use `.caprmedio_<project_name>/caprmedio_<project_name>_settings.toml` as its **`=1`** authoritative TOML File Carrier.",
+          "text_sha256": "1f63a3e5198ee4db6d5b0efec31e6a1b5b272af9823ec0ebeb31807332320626"
+        }
+      ],
+      "reason": "CA-D-364 requires one authoritative TOML File Carrier for Project Settings, but supplies a configuration/representation binding rather than a declared native relation with independently identified endpoints.",
+      "question": null
+    },
+    {
+      "case_id": "slash:e5cab080a8c0388c366ab1c998addcdd279c36529aaeeee8db737f829426fbfd",
+      "old_parent": "Default Settings/Carrier",
+      "old_child": "Default Settings/Carrier/Content",
+      "proposal": null,
+      "checks_performed": [
+        "verified every listed occurrence source against its current selected carrier SHA-256",
+        "quoted only current authored Claim, Procedure, Condition, Operation, or Definition Main Content; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required an exact owning native kind, direction, and immediate endpoint identity before any native assertion",
+        "preserved legacy qualified references without rebasing or semantic admission"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-D-408"
+      ],
+      "disposition": "not-native",
+      "confidence_percent": 92,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Default Settings/Carrier",
+        "qualified_child": "Default Settings/Carrier/Content",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-408",
+          "atom_revision": 7,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL--reuse-framework-parameter-fields-in-default-settings.md",
+          "carrier_sha256": "293af7f9235fd256869da7c667e94c0a37a26ba836bec3b61ed7758f73379fea",
+          "start_line": 39,
+          "end_line": 39,
+          "quote": "**every** parameter value **in** the Default Settings TOML Carrier **must** use the same registered section, field path, value type, **and** allowed domain as the corresponding explicit Framework Instance Settings parameter, **without** introducing a separate defaults-field schema.",
+          "text_sha256": "ed793cb3706d7c08f7d2bfda75dff84fbee80ccc1c04d103e56b3c69457cccde"
+        }
+      ],
+      "reason": "CA-D-408 constrains parameter values carried in the Default Settings TOML Carrier; it supports the content qualification but declares no native bearer/dependent relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:e795f588dba192021e3be5c24820d7044e8f181721b379ab0754889876a4ce39",
+      "old_parent": "Work Journal",
+      "old_child": "Work Journal/Record",
+      "proposal": null,
+      "checks_performed": [
+        "verified every listed occurrence source against its current selected carrier SHA-256",
+        "quoted only current authored Claim, Procedure, Condition, Operation, or Definition Main Content; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required an exact owning native kind, direction, and immediate endpoint identity before any native assertion",
+        "preserved legacy qualified references without rebasing or semantic admission"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-D-360",
+        "CA-D-365"
+      ],
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "display_candidate": null,
+      "evidence": [],
+      "reason": "CA-D-360 and CA-D-365 bind Settings revisions through a completed governed-change Work Journal receipt, but neither identifies that receipt as a Work Journal Record or declares a Work-Journal-to-Record relation.",
+      "question": "Record/receipt family: does current Core identify a completed governed-change Work Journal receipt as a Work Journal Record, and if so what exact relation kind and direction connects it to the Work Journal?"
+    },
+    {
+      "case_id": "slash:ed76bd8d72c8515f07a6c6fc7027f6d26146bdc42425aae8351bdfa3af1ffa9d",
+      "old_parent": "Applicable Methodology",
+      "old_child": "Applicable Methodology/Member Selection",
+      "proposal": null,
+      "checks_performed": [
+        "verified every listed occurrence source against its current selected carrier SHA-256",
+        "quoted only current authored Claim, Procedure, Condition, Operation, or Definition Main Content; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required an exact owning native kind, direction, and immediate endpoint identity before any native assertion",
+        "preserved legacy qualified references without rebasing or semantic admission"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-R-1315"
+      ],
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Applicable Methodology",
+        "qualified_child": "Applicable Methodology/Member Selection",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1315",
+          "atom_revision": 16,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+          "carrier_sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "the Applicable Methodology membership **must** contain **only** current Atom Revisions whose type-qualified Status **`=`** Active **and** whose Content Role is **in** (Requirement, Method, Evaluation, Delivery, Operations).",
+          "text_sha256": "ecf35f95794fafb777fce1ea5f3c8b102a01974458ae63bc7f5386cf0132f0de"
+        }
+      ],
+      "reason": "CA-R-1315 constrains which current active Atom Revisions Applicable Methodology membership may contain; this is a membership-selection context, not a declared native relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:f0007337019af5376113356803f15dfe5376bef0ced4d5b6d8a049b5ffc64e7c",
+      "old_parent": "Atom Carrier/Filename",
+      "old_child": "Atom Carrier/Filename/Local Tier",
+      "proposal": null,
+      "checks_performed": [
+        "verified every listed occurrence source against its current selected carrier SHA-256",
+        "quoted only current authored Claim, Procedure, Condition, Operation, or Definition Main Content; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required an exact owning native kind, direction, and immediate endpoint identity before any native assertion",
+        "preserved legacy qualified references without rebasing or semantic admission"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-D-484"
+      ],
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Atom Carrier/Filename",
+        "qualified_child": "Atom Carrier/Filename/Local Tier",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-484",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-484-CORE_META_MODEL-DELIVERY--omit-default-tier-tokens-from-change-and-implementation-filenames.md",
+          "carrier_sha256": "b64b3b5f2cb9c0e246fc6b7fd314610d19fb99168fb6bbdb2a7d76e3b086e66f",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "a CAPO **or** I Atom filename **must** omit the default Standard Local Tier token under CA-D-285-CORE_META_MODEL-DELIVERY--serialize-local-tier-filename-tokens while the Atom carries its Local Tier internally under CA-D-478-CORE_META_MODEL-CORE-DELIVERY--store-every-atom-property-in-one-internal-location.",
+          "text_sha256": "07d86f9090c53590d90e4ff5ac5a6a5aba47fabc603767af15753c3866803e74"
+        }
+      ],
+      "reason": "CA-D-484 constrains filename rendering while expressly keeping Local Tier internal to the Atom; it supports a rendering context and not a native dependent identity.",
+      "question": null
+    },
+    {
+      "case_id": "slash:f13b0ab347ff1fc601a771f98320d0605acc59285b3ff6273f3461670f5aac87",
+      "old_parent": "Framework Instance Settings/Confidence/Semantic Resolution Threshold",
+      "old_child": "Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier",
+      "proposal": null,
+      "checks_performed": [
+        "verified every listed occurrence source against its current selected carrier SHA-256",
+        "quoted only current authored Claim, Procedure, Condition, Operation, or Definition Main Content; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required an exact owning native kind, direction, and immediate endpoint identity before any native assertion",
+        "preserved legacy qualified references without rebasing or semantic admission"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-D-369"
+      ],
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Framework Instance Settings/Confidence/Semantic Resolution Threshold",
+        "qualified_child": "Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-369",
+          "atom_revision": 8,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-369-CORE_META_MODEL--serialize-the-semantic-resolution-confidence-default.md",
+          "carrier_sha256": "400ff65877f571b7155d9035e39096c7aeee5690c5dee5f570a2d34d21308d82",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "an explicit semantic-resolution confidence default **in** the Framework Instance Settings TOML Carrier **must** use the integer-percentage field `confidence.semantic_resolution_threshold_percent`.",
+          "text_sha256": "fe3a5feb546f7e00ccc635cf8aed85645d1f97d9afc52b8f1b60978d52b897e0"
+        }
+      ],
+      "reason": "CA-D-369 stores the semantic-resolution confidence default in the Framework Instance Settings TOML Carrier; it does not identify a Carrier of the Threshold itself or declare a native binding.",
+      "question": null
+    },
+    {
+      "case_id": "slash:f5494c8673120e88dd999d71a634067b7c8156d46b742a8a7c60b13d54178f5b",
+      "old_parent": "Framework Instance Settings",
+      "old_child": "Framework Instance Settings/Revision Binding",
+      "proposal": null,
+      "checks_performed": [
+        "verified every listed occurrence source against its current selected carrier SHA-256",
+        "quoted only current authored Claim, Procedure, Condition, Operation, or Definition Main Content; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required an exact owning native kind, direction, and immediate endpoint identity before any native assertion",
+        "preserved legacy qualified references without rebasing or semantic admission"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-D-360",
+        "CA-E-458"
+      ],
+      "disposition": "not-native",
+      "confidence_percent": 92,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Framework Instance Settings",
+        "qualified_child": "Framework Instance Settings/Revision Binding",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-360",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+          "carrier_sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "the current caprmedio_framework_settings Revision **and** SHA-256 Digest **must** bind **to** its authoritative TOML Carrier through the canonical completed governed-change Work Journal receipt; absence, ambiguity, **or** mismatch **must** leave its currentness unknown.",
+          "text_sha256": "7b6ac05c14639b3d1b5b7809a1bedc7ca2f93bb38a85c9682cc83080df9e2eb8"
+        }
+      ],
+      "reason": "CA-D-360 constrains revision-and-digest binding through the authoritative carrier and a Journal receipt; it supports a revision-binding context, not a declared native relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:f782036b8257ecaf0f3199a4e617e090af0125d8bd190b3a2a44941f160701dc",
+      "old_parent": "Applicable Methodology",
+      "old_child": "Applicable Methodology/Member",
+      "proposal": null,
+      "checks_performed": [
+        "verified every listed occurrence source against its current selected carrier SHA-256",
+        "quoted only current authored Claim, Procedure, Condition, Operation, or Definition Main Content; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required an exact owning native kind, direction, and immediate endpoint identity before any native assertion",
+        "preserved legacy qualified references without rebasing or semantic admission"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-D-305",
+        "CA-D-306",
+        "CA-R-1314"
+      ],
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Applicable Methodology",
+        "qualified_child": "Applicable Methodology/Member",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-R-1314",
+          "atom_revision": 13,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+          "carrier_sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+          "start_line": 29,
+          "end_line": 29,
+          "quote": "**every** Applicable Methodology member **must** retain **`=1`** direct DERIVED_FROM relation **to** its exact source Atom Revision.",
+          "text_sha256": "4595f398596597cdb716d02786118f3cfeda3be44d2d902659f49eacbda10b75"
+        }
+      ],
+      "reason": "CA-R-1314 defines a member's direct DERIVED_FROM relation to its source Atom Revision; membership is supported as display context, while that distinct relation is not recast as a native slash edge.",
+      "question": null
+    },
+    {
+      "case_id": "slash:fb12d8e07f8955dab8a1a192ba437787ee24bdeba3945ba7d84feaa742a88ffa",
+      "old_parent": "Scope Expression/Canonical Scope Signature",
+      "old_child": "Scope Expression/Canonical Scope Signature/Projection",
+      "proposal": null,
+      "checks_performed": [
+        "verified every listed occurrence source against its current selected carrier SHA-256",
+        "quoted only current authored Claim, Procedure, Condition, Operation, or Definition Main Content; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required an exact owning native kind, direction, and immediate endpoint identity before any native assertion",
+        "preserved legacy qualified references without rebasing or semantic admission"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-D-347"
+      ],
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "Scope Expression/Canonical Scope Signature",
+        "qualified_child": "Scope Expression/Canonical Scope Signature/Projection",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-347",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+          "carrier_sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+          "start_line": 31,
+          "end_line": 31,
+          "quote": "**every** Canonical Scope Signature Projection **must** be delivered as **`=1`** non-authoritative JSON report under its Project's `.caprmedio_<project_name>/_projection/` Directory Carrier with the selected source frontier digest, **every** source Atom identity **and** revision, source Carrier digest, source Scope Expression occurrence, Canonical Scope Signature, **and** exclusion diagnostic; the Projection **must not** become an Atom Carrier, modify a selected source Carrier, establish Claim equivalence, **or** create a dependency relation.",
+          "text_sha256": "ff39c6e89e281477e6758d2f6af65151123c66a7078c504d850139ba95c8d141"
+        }
+      ],
+      "reason": "CA-D-347 defines delivery of the Canonical Scope Signature Projection as a non-authoritative report; it supports projection context but declares no native bearer/dependent relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:fff1903e3a5b35b6d151447d50a0e130c26e9dd8b081a94be78342b61b6f21fe",
+      "old_parent": "CAPRMEDIO Framework Instance",
+      "old_child": "CAPRMEDIO Framework Instance/Carrier Root",
+      "proposal": null,
+      "checks_performed": [
+        "verified every listed occurrence source against its current selected carrier SHA-256",
+        "quoted only current authored Claim, Procedure, Condition, Operation, or Definition Main Content; ignored Summary, frontmatter, Subjects, and source incidence",
+        "required an exact owning native kind, direction, and immediate endpoint identity before any native assertion",
+        "preserved legacy qualified references without rebasing or semantic admission"
+      ],
+      "reviewed_candidate_atom_ids": [
+        "CA-D-317"
+      ],
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "qualified_parent": "CAPRMEDIO Framework Instance",
+        "qualified_child": "CAPRMEDIO Framework Instance/Carrier Root",
+        "semantic_intent": "authored contextual qualification only; native admission not asserted"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-317",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL--place-each-project-framework-instance-inside-its-project.md",
+          "carrier_sha256": "c93ede85518a750816c36cff62d6f7e1ec3a66377f31ae221d17296cac30c8ef",
+          "start_line": 27,
+          "end_line": 27,
+          "quote": "the Methodology **and** Tool governance of the CAPRMEDIO Framework Instance serving a Project **must** reside under that Project's `.caprmedio_<project_name>/000_CAPRMEDIO_framework/` Directory Carrier. this Carrier **must** contain that Project's Methodology Sources **and** Framework Instance Settings. another Project's Framework Instance **or** a repository-shared framework directory **must not** substitute for this Project's instance.",
+          "text_sha256": "918a4c0dd409db6c73b69634a28a324206b5330fa488dc4fb5eb12bb59289f88"
+        }
+      ],
+      "reason": "CA-D-317 places the serving Framework Instance's governance under a Project Directory Carrier; this is a placement context and does not identify a native Carrier Root relation for the instance.",
+      "question": null
+    }
+  ]
+}

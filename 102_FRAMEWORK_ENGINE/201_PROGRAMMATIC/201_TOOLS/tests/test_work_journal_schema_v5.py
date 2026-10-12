@@ -80,7 +80,10 @@ class WorkJournalSchemaV5Test(unittest.TestCase):
         return work_journal.with_event_digest(event)
 
     def test_configured_root_defaults_to_exact_generic_control_journal(self) -> None:
-        settings = self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
+        (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").unlink()
+        control = self.root / ".caprmedio_example"
+        control.mkdir()
+        settings = control / "caprmedio_project_settings.toml"
         settings.write_text(
             "[paths]\n"
             'control_root = ".caprmedio_example"\n'

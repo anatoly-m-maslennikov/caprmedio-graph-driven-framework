@@ -1,0 +1,164 @@
+{
+  "verification_status": "PASS",
+  "verification_scope": "CA-P-2165 source verification only; no source, code, Git, Journal, or effect writes",
+  "proposal_path": ".caprmedio_tmp/timestamp-offset.proposal.json",
+  "proposal_sha256": "0889ecc9ef0460798c5e29ee9155bb1df70f0ab85f83a0ab04311694d11b9e75",
+  "effect_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/approved-implementation/task-2165.effect.json",
+  "effect_sha256": "db91e71ecd2861464e51bf6ce147f5038c80a5dbc5dd305016ef5fd50be41a8c",
+  "effect_contract": {
+    "task_id": "CA-P-2165",
+    "effect_count": 3,
+    "operations": [
+      "timestamp_policy_revision",
+      "timestamp_metadata_repair",
+      "timestamp_metadata_repair"
+    ],
+    "updated_at": "2026-10-11 18:10:42 +0400",
+    "source_migration": "timestamp_policy_and_two_metadata_repairs_only",
+    "subject_migration": "not_performed",
+    "native_admission": "not_performed"
+  },
+  "effects_verified": [
+    {
+      "atom_id": "CA-D-390",
+      "operation": "timestamp_policy_revision",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL--configure-the-artifact-timestamp-timezone.md",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archive/CA-D-390-CORE_META_MODEL--configure-the-artifact-timestamp-timezone@8.md",
+      "old_version": 8,
+      "new_version": 9,
+      "before_sha256": "3042bb9e7056b85e8b0b248e83869f8145260da9813ca31101963e923bf4c67e",
+      "after_sha256": "a4957851271de8fbecb7b410675f01f113749ce1e002fe2574185457bc83fdfe",
+      "archive_updated_at": "2026-10-02 19:36:21 +0400",
+      "current_updated_at": "2026-10-11 18:10:42 +0400",
+      "subjects_preserved": true,
+      "unrelated_metadata_preserved": true,
+      "body_check": {
+        "section": "Claim",
+        "old_count_in_archive": 1,
+        "new_count_in_current": 1,
+        "old_absent_in_current": true,
+        "current_equals_exactly_one_replacement": true
+      },
+      "checks": {
+        "current_path_exists": true,
+        "archive_path_exists": true,
+        "current_path_is_live_not_retired": true,
+        "archive_path_is_expected_retired": true,
+        "proposal_pin_matches_effect_before_path": true,
+        "current_sha_matches_effect_after": true,
+        "archive_sha_matches_effect_before": true,
+        "archive_matches_proposal_precondition": true,
+        "archive_frontmatter_is_before_revision": true,
+        "current_revision_is_exact_plus_one_and_actual_stamp": true,
+        "current_updated_at_is_quoted": true,
+        "current_updated_at_has_numeric_offset": true,
+        "subjects_preserved": true,
+        "unrelated_metadata_preserved": true,
+        "body_change_is_exact": true
+      }
+    },
+    {
+      "atom_id": "CA-R-1873",
+      "operation": "timestamp_metadata_repair",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source@1.md",
+      "old_version": 1,
+      "new_version": 2,
+      "before_sha256": "cf857c75b7e791c035eb34ee63801010d72cc4ad8bf39852ea76e933b9fe53a6",
+      "after_sha256": "aa41d54591c5e81f69469712297bc60e8d3be85baa971c454d604413d3f95735",
+      "archive_updated_at": "2026-10-04 22:30:05",
+      "current_updated_at": "2026-10-11 18:10:42 +0400",
+      "subjects_preserved": true,
+      "unrelated_metadata_preserved": true,
+      "body_check": {
+        "body_delta": "none",
+        "current_body_equals_archive_body": true
+      },
+      "checks": {
+        "current_path_exists": true,
+        "archive_path_exists": true,
+        "current_path_is_live_not_retired": true,
+        "archive_path_is_expected_retired": true,
+        "proposal_pin_matches_effect_before_path": true,
+        "current_sha_matches_effect_after": true,
+        "archive_sha_matches_effect_before": true,
+        "archive_matches_proposal_precondition": true,
+        "archive_frontmatter_is_before_revision": true,
+        "current_revision_is_exact_plus_one_and_actual_stamp": true,
+        "current_updated_at_is_quoted": true,
+        "current_updated_at_has_numeric_offset": true,
+        "subjects_preserved": true,
+        "unrelated_metadata_preserved": true,
+        "body_change_is_exact": true
+      }
+    },
+    {
+      "atom_id": "CA-D-559",
+      "operation": "timestamp_metadata_repair",
+      "current_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL--deliver-runtime-journals-to-configured-sinks.md",
+      "archive_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/archive/CA-D-559-CORE_META_MODEL--deliver-runtime-journals-to-configured-sinks@1.md",
+      "old_version": 1,
+      "new_version": 2,
+      "before_sha256": "a0efc0dc67bbac626021e6137567d953f20314e8102c926099f8e4f2d71fd7fa",
+      "after_sha256": "05f5fe54a8bf3fbe12389054d202b37f303a96e9fc387e3705bc016c0befc11b",
+      "archive_updated_at": "2026-10-04 22:33:01",
+      "current_updated_at": "2026-10-11 18:10:42 +0400",
+      "subjects_preserved": true,
+      "unrelated_metadata_preserved": true,
+      "body_check": {
+        "body_delta": "none",
+        "current_body_equals_archive_body": true
+      },
+      "checks": {
+        "current_path_exists": true,
+        "archive_path_exists": true,
+        "current_path_is_live_not_retired": true,
+        "archive_path_is_expected_retired": true,
+        "proposal_pin_matches_effect_before_path": true,
+        "current_sha_matches_effect_after": true,
+        "archive_sha_matches_effect_before": true,
+        "archive_matches_proposal_precondition": true,
+        "archive_frontmatter_is_before_revision": true,
+        "current_revision_is_exact_plus_one_and_actual_stamp": true,
+        "current_updated_at_is_quoted": true,
+        "current_updated_at_has_numeric_offset": true,
+        "subjects_preserved": true,
+        "unrelated_metadata_preserved": true,
+        "body_change_is_exact": true
+      }
+    }
+  ],
+  "ca_d270_unchanged": {
+    "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter.md",
+    "sha256": "8322273a6938108a8889c01b74c7bfc600b01ba39bfaa0bd0c0c01cc7352a6a3",
+    "expected_sha256": "8322273a6938108a8889c01b74c7bfc600b01ba39bfaa0bd0c0c01cc7352a6a3",
+    "checks": {
+      "exists": true,
+      "matches_proposal_pin": true,
+      "not_in_effect_rows": true
+    }
+  },
+  "checks": {
+    "proposal_sha_matches_requested": true,
+    "effect_task_id": true,
+    "effect_status_is_pending_independent_verification": true,
+    "effect_has_exactly_three_rows": true,
+    "effect_updated_at_has_explicit_offset": true,
+    "effect_source_migration_scope": true,
+    "effect_subject_migration_not_performed": true,
+    "effect_native_admission_not_performed": true,
+    "effect_row_order_exact": true,
+    "effect_excludes_D270": true,
+    "all_three_current_and_archive_pin_checks": true,
+    "all_three_exact_plus_one_version_checks": true,
+    "all_three_quoted_actual_offset_checks": true,
+    "CA-D-390_single_exact_Claim_replacement": true,
+    "CA-R-1873_body_unchanged": true,
+    "CA-D-559_body_unchanged": true,
+    "all_three_subjects_preserved": true,
+    "all_three_unrelated_metadata_preserved": true,
+    "current_paths_are_not_retired_paths": true,
+    "CA-D-270_unchanged": true
+  },
+  "failures": []
+}

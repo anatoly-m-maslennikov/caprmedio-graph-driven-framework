@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2125",
+  "recorded_at": "2026-10-11 10:10:25 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review scope and value-expression origins; not migration approval",
+  "verification": {
+    "task": "CA-P-2125",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2125.research.json",
+      "sha256": "43bca8f0776c3d7ff25321e4e9c6b3da10b3bd5c3333c0cb0a8dbb9d1af7aeb3"
+    },
+    "rows": 29,
+    "counts": {
+      "proposed": 7,
+      "unresolved": 22
+    },
+    "exact_evidence_spans": 36,
+    "exact_supporting_definition_spans": 0,
+    "exact_input_pins": 31,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2121-2128.inputs.json",
+      "sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+    },
+    "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/subject_review_003",
+      "final_report_sha256": "43bca8f0776c3d7ff25321e4e9c6b3da10b3bd5c3333c0cb0a8dbb9d1af7aeb3",
+      "result": "PASS: twenty-nine final meanings independently reviewed; seven supported Substance proposals and twenty-two justified nulls",
+      "meaning_checks": [
+        "Seven body-supported primary Claim references map to the authorized shared Atom.Substance field.",
+        "All seven final candidate pointers resolve actual Atom.Substance, correcting initially wrong Status example references.",
+        "Applicability/ownership Scope, token/expression syntax, assignment/allowed-value and cardinality/condition distinctions remain explicit nulls."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/subject_review_003",
+    "final_report_sha256": "43bca8f0776c3d7ff25321e4e9c6b3da10b3bd5c3333c0cb0a8dbb9d1af7aeb3",
+    "result": "PASS: twenty-nine final meanings independently reviewed; seven supported Substance proposals and twenty-two justified nulls",
+    "meaning_checks": [
+      "Seven body-supported primary Claim references map to the authorized shared Atom.Substance field.",
+      "All seven final candidate pointers resolve actual Atom.Substance, correcting initially wrong Status example references.",
+      "Applicability/ownership Scope, token/expression syntax, assignment/allowed-value and cardinality/condition distinctions remain explicit nulls."
+    ]
+  },
+  "completion_scope": "All 29 exact current origins passed final independent semantic acceptance and live pin/span/coverage controls: seven supported Atom.Substance proposals and twenty-two explicit nulls. Actual candidate pointers are corrected; Scope, syntax, values and conditions are not conflated. Original Core remains unchanged.",
+  "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

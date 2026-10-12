@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2111",
+  "recorded_at": "2026-10-11 08:51:34 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded rebuild and check the current subject ledger; not migration approval",
+  "verification": {
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+      "size_bytes": 19458773
+    },
+    "outputs": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+        "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+        "size_bytes": 19458773
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/source-frontier.json",
+        "sha256": "479c3ee2374a8f6790e9f672d874a290bd47495e44b9d9a5ecefb3e5412317c4",
+        "size_bytes": 3642901
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/diagnostics.json",
+        "sha256": "751370a4a1ca4550ca6bed7b1dae39ddfeec7ef1dab8d3a8dab07c5755209edd",
+        "size_bytes": 3197267
+      }
+    ],
+    "actual_counts": {
+      "excluded_sources": 11203,
+      "occurrences": 4534,
+      "outcome": "PASS",
+      "proposed": 1648,
+      "quarantined_sources": 8,
+      "sources": 907,
+      "unchanged": 1540,
+      "unresolved": 1346
+    },
+    "independent_live_gate": "PASS",
+    "focused_suite": {
+      "tests": 21,
+      "exit_code": 0
+    },
+    "native_suites": {
+      "reviewer": "/root/mapping_drift_verify",
+      "runtime": "uv offline with cached pydantic2.13.5/PyYAML6.0.3; python -B unittest",
+      "ATOM_SEARCH": {
+        "exit_code": 0,
+        "tests": 44
+      },
+      "ATOM_UPDATE": {
+        "exit_code": 0,
+        "tests": 33
+      },
+      "GENERATE_ENTITY_GRAPH": {
+        "exit_code": 0,
+        "tests": 219
+      },
+      "total": 296,
+      "changed_files": []
+    },
+    "total_tests": 317,
+    "complete_ledger_wrong_data_checks": [
+      {
+        "probe": "missing_layer",
+        "reason": "complete accepted-layer manifest"
+      },
+      {
+        "probe": "omit_all_followups",
+        "reason": "accepted second follow-up extension required"
+      },
+      {
+        "probe": "missing_selected_row",
+        "reason": "exact current occurrence coverage"
+      },
+      {
+        "probe": "stale_source",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] exact current origin/pin"
+      },
+      {
+        "probe": "wrong_target",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] final selected-layer target"
+      },
+      {
+        "probe": "wrong_priority",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] accepted layer priority"
+      },
+      {
+        "probe": "wrong_confidence",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] final selected-layer confidence"
+      },
+      {
+        "probe": "stale_receipt",
+        "reason": "second follow-up accepted pins CA-P-2103"
+      },
+      {
+        "probe": "missing_independent_review",
+        "reason": "second follow-up manifest independent-review hash CA-P-2103"
+      },
+      {
+        "probe": "executable_row",
+        "reason": "ledger occurrence .caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.depends_on[3] non-executable"
+      }
+    ],
+    "report_wrong_data_checks": 66,
+    "source_preservation": {
+      "original_core_diff_since": "441bc48e1",
+      "result": "PASS: no original Core Subjects/content diff",
+      "frozen_candidate_and_baseline": "unchanged",
+      "prior_drafts": {
+        "git_commit": "cb970d651",
+        "ledger_sha256": "50ab0114669787dba6331b58f8054cd8fb33b5abbed33df6fbf5b52df53923fa",
+        "diagnostics_sha256": "3837d4ef67d7515fa5023ff1aa2cb323be2bac348118bb22175e409cf9fe0b77"
+      },
+      "frontier": "byte-identical regeneration; no source frontier changes"
+    },
+    "checkpoint": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/checkpoint-subject-families-2103-2108.json",
+    "source_application": "not_performed",
+    "independent_review": {
+      "reviewer": "/root with separately implemented verifier",
+      "final_report_sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+      "result": "PASS: actual persisted current frontier, all accepted layers/proofs and controlled replacement checked; not final mapping acceptance"
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root with separately implemented verifier",
+    "final_report_sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4",
+    "result": "PASS: actual persisted current frontier, all accepted layers/proofs and controlled replacement checked; not final mapping acceptance"
+  },
+  "completion_scope": "Only the three exact owned derived drafts were replaced after prior hashes and Git recovery were checked. The actual persisted ledger passes independent907/4534 coverage with1648 proposals,1540 unchanged and1346 nulls; all317 tests, ten whole-ledger controls and66 report controls pass. Original Core and frozen/raw evidence remain unchanged; final migration/content gates remain open.",
+  "registration_commit": "b4adc5dcd104a72f3d99dbd8a81c968d8530d789",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

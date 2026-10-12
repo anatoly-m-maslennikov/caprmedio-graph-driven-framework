@@ -11,16 +11,18 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
+import tomllib
 from typing import Any, Mapping
 
 
 AUTHORITY_REF = (
     ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
-    "201_FEATURE_TOOLS/07_delivery/CA-D-572-TOOLS-DELIVERY--serialize-additive-release-route-source-admission.md"
+    "205_FEATURE_PROJECT_TOOLS/07_delivery/"
+    "CA-D-572-PROJECT_TOOLS-DELIVERY--serialize-additive-release-route-source-admission.md"
 )
 AUTHORITY_PIN = {
-    "atom_id": "CA-D-572", "version": 29, "source_path": AUTHORITY_REF,
-    "digest": "871015c692097218f80e100280d7994692cc1ae2543f3f08ee032a2ea46799b5",
+    "atom_id": "CA-D-572", "version": 36, "source_path": AUTHORITY_REF,
+    "digest": "f0f114ed0426b00951c5ea0bfa0d15f1fe08178e17023d97477205a82f729911",
 }
 _PIN_FIELDS = frozenset({"atom_id", "version", "source_path", "digest"})
 _ADMISSION_FIELDS = frozenset({"route", "acceptance_frontier", "workflow", "ordered_steps",
@@ -29,12 +31,34 @@ _ADMISSION_FIELDS = frozenset({"route", "acceptance_frontier", "workflow", "orde
 _ATOM = re.compile(r"CA-[A-Z]+-[0-9]+")
 _DIGEST = re.compile(r"[0-9a-f]{64}")
 _MAX_SOURCE_BYTES = 1024 * 1024
-_RELEASE_STOP_RESULT = "any missing, stale, unauthorized, failed, partial, recording-blocked, unsafe, or unmatched result"
-_RELEASE_STOP_OUTCOME = "stop with its actual evidence; do not promote, retire, retry, or recurse implicitly"
-_GENERIC_STOP_CONTRACT = (
-    "The record serializes no catch-all transition, outcome, or execution policy: "
-    "CA-O-164@6 and the generic executor retain the existing catch-all stop behavior."
+_RELEASE_STOP_RESULT = "missing, stale, unauthorized, failed, partial, or unsafe result"
+_RELEASE_STOP_OUTCOME = "stop with actual evidence; do not clear, copy, retry, or recurse implicitly"
+_CONTROL_ROOT = ".caprmedio_caprmedio"
+_OPERATIONS_ROOT = f"{_CONTROL_ROOT}/09_operations"
+_PROJECT_TOOLS_ROOT = (
+    f"{_CONTROL_ROOT}/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
+    "205_FEATURE_PROJECT_TOOLS"
 )
+_TOOLS_ROOT = (
+    f"{_CONTROL_ROOT}/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
+    "201_FEATURE_TOOLS"
+)
+_RMED_ROOTS = {
+    "requirements": f"{_PROJECT_TOOLS_ROOT}/04_requirement",
+    "methods": f"{_PROJECT_TOOLS_ROOT}/05_method",
+    "evaluations": f"{_PROJECT_TOOLS_ROOT}/06_evaluation",
+    "deliveries": f"{_PROJECT_TOOLS_ROOT}/07_delivery",
+}
+_TOOLS_RMED_ROOTS = {
+    "requirements": f"{_TOOLS_ROOT}/04_requirement",
+    "methods": f"{_TOOLS_ROOT}/05_method",
+    "evaluations": f"{_TOOLS_ROOT}/06_evaluation",
+    "deliveries": f"{_TOOLS_ROOT}/07_delivery",
+}
+_RMED_ROLES = {
+    "requirements": "Requirement", "methods": "Method",
+    "evaluations": "Evaluation", "deliveries": "Delivery",
+}
 
 
 class ReleaseSourceAdmissionError(ValueError):
@@ -126,6 +150,203 @@ def _read_pin(root: Path, value: Any, *, atom_source: bool = True) -> bytes:
     if atom_source and _metadata(raw) != (pin["atom_id"], pin["version"]):
         _reject(f"source identity/version differs: {relative}", code="release-source-identity-invalid")
     return raw
+
+
+def _frontmatter(raw: bytes) -> dict[str, str]:
+    """Read the small closed subset used to identify an active source Atom."""
+    try:
+        lines = raw.decode("utf-8").splitlines()
+        if not lines or lines[0] != "---":
+            raise ValueError("frontmatter is absent")
+        end = lines.index("---", 1)
+        values: dict[str, str] = {}
+        for line in lines[1:end]:
+            if not line or line.startswith((" ", "\t", "#")) or ":" not in line:
+                continue
+            field, value = line.split(":", 1)
+            if field in values:
+                raise ValueError(f"{field} occurs more than once")
+            value = value.strip()
+            if value.startswith('"'):
+                loaded = json.loads(value)
+                if not isinstance(loaded, str):
+                    raise ValueError(f"{field} is not a scalar")
+                value = loaded
+            elif value.startswith("'") and value.endswith("'"):
+                value = value[1:-1]
+            values[field] = value
+        return values
+    except (UnicodeDecodeError, ValueError, TypeError, json.JSONDecodeError) as error:
+        raise ReleaseSourceAdmissionError(
+            "release-source-identity-invalid", "source frontmatter is malformed"
+        ) from error
+
+
+def _checked_source_root(root: Path, source_root: str) -> tuple[Path, PurePosixPath]:
+    if not isinstance(source_root, str) or not source_root:
+        _reject("source root must be a nonempty Project-relative path", code="release-source-path-unsafe")
+    relative = PurePosixPath(source_root)
+    if (relative.is_absolute() or relative.as_posix() != source_root or "\\" in source_root
+            or ":" in source_root or any(part in {".", ".."} for part in relative.parts)):
+        _reject("source root must be a canonical Project-relative path", code="release-source-path-unsafe")
+    allowed = {PurePosixPath(_OPERATIONS_ROOT), *map(PurePosixPath, _RMED_ROOTS.values()),
+               *map(PurePosixPath, _TOOLS_RMED_ROOTS.values())}
+    if relative not in allowed:
+        _reject("source root is outside the declared Project authoring boundary", code="release-source-unregistered")
+    path = root.joinpath(*relative.parts)
+    cursor = root
+    for part in relative.parts:
+        cursor /= part
+        if cursor.is_symlink():
+            _reject("source root contains a symlink", code="release-source-path-unsafe")
+    if not path.is_dir():
+        _reject("source root is unavailable", code="release-source-unavailable")
+    return path, relative
+
+
+def _registered_scope(root: Path, scope_unit: str, authority_path: str) -> None:
+    """Require the current Project structure to register a source authority root."""
+    structure = root / _CONTROL_ROOT / "project_structure.toml"
+    if structure.is_symlink() or not structure.is_file():
+        _reject("Project structure is unavailable", code="release-source-unregistered")
+    try:
+        document = tomllib.loads(structure.read_text(encoding="utf-8"))
+        rows = document.get("scope_units")
+        if not isinstance(rows, list):
+            raise ValueError("scope_units is absent")
+        matches = [row for row in rows if isinstance(row, dict)
+                   and row.get("scope_unit_name") == scope_unit
+                   and row.get("authority_path") == authority_path]
+        if len(matches) != 1:
+            raise ValueError("source scope registration is not unique")
+    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError, ValueError) as error:
+        raise ReleaseSourceAdmissionError(
+            "release-source-unregistered", "source scope registration is invalid"
+        ) from error
+
+
+def _scan_current_source_root(
+    root: Path,
+    source_root: str,
+    expected_scope: str,
+    registered_root: str | None,
+) -> tuple[tuple[Path, bytes, dict[str, str]], ...]:
+    """Capture one checked source-root snapshot for one admission derivation.
+
+    The snapshot has only derivation lifetime.  It avoids repeatedly walking
+    the same declared authoring root while leaving every selected source pin
+    physically reopened by ``_read_pin`` below.
+    """
+    if registered_root is not None:
+        _registered_scope(root, expected_scope, registered_root)
+    base, _relative_base = _checked_source_root(root, source_root)
+    rows: list[tuple[Path, bytes, dict[str, str]]] = []
+    for path in sorted(base.rglob("*.md")):
+        relative = path.relative_to(root)
+        if "archive" in relative.parts:
+            continue
+        cursor = root
+        for part in relative.parts:
+            cursor /= part
+            if cursor.is_symlink():
+                _reject("source Atom path contains a symlink", code="release-source-path-unsafe")
+        if not path.is_file() or path.stat().st_size > _MAX_SOURCE_BYTES:
+            _reject("source Atom is unavailable", code="release-source-unavailable")
+        try:
+            raw = path.read_bytes()
+        except OSError as error:
+            raise ReleaseSourceAdmissionError(
+                "release-source-unavailable", "source Atom is unavailable"
+            ) from error
+        rows.append((path, raw, _frontmatter(raw)))
+    return tuple(rows)
+
+
+class _CurrentSourceIndex:
+    """One non-shareable source snapshot used by a single D572 derivation."""
+
+    def __init__(self, root: Path) -> None:
+        self.root = root
+        self._roots: dict[
+            tuple[str, str, str | None], tuple[tuple[Path, bytes, dict[str, str]], ...]
+        ] = {}
+
+    def rows(
+        self,
+        source_root: str,
+        expected_scope: str,
+        registered_root: str | None,
+    ) -> tuple[tuple[Path, bytes, dict[str, str]], ...]:
+        key = (source_root, expected_scope, registered_root)
+        if key not in self._roots:
+            self._roots[key] = _scan_current_source_root(
+                self.root, source_root, expected_scope, registered_root
+            )
+        return self._roots[key]
+
+
+def resolve_current_source_pin(
+    project_root: str | Path,
+    atom_id: str,
+    *,
+    role: str,
+    operation_type: str | None = None,
+    _source_index: _CurrentSourceIndex | None = None,
+) -> dict[str, Any]:
+    """Return one physically current, registered active Project source pin.
+
+    ``role`` is the source frontmatter ``content_role``.  ``operation_type``
+    is required for Operations atoms and omitted for RMED atoms.  The resolver
+    never accepts installed copies, archive candidates, caller-supplied pins,
+    or an ambiguous current definition.
+    """
+    root = _project_root(project_root)
+    if _source_index is None:
+        _source_index = _CurrentSourceIndex(root)
+    elif _source_index.root != root:
+        _reject("source index belongs to another Project", code="release-source-unavailable")
+    if not isinstance(atom_id, str) or _ATOM.fullmatch(atom_id) is None:
+        _reject("source Atom identity is invalid", code="release-source-identity-invalid")
+    if role == "Operations":
+        if operation_type not in {"Workflow", "Step", "Action"}:
+            _reject("Operations source type is required", code="release-source-identity-invalid")
+    else:
+        if operation_type is not None or role not in set(_RMED_ROLES.values()):
+            _reject("RMED source role/type is invalid", code="release-source-identity-invalid")
+        family = next(key for key, value in _RMED_ROLES.items() if value == role)
+        source_roots = ((_RMED_ROOTS[family], "PROJECT_TOOLS", _PROJECT_TOOLS_ROOT),
+                        (_TOOLS_RMED_ROOTS[family], "TOOLS", _TOOLS_ROOT))
+    if role == "Operations":
+        source_roots = ((_OPERATIONS_ROOT, "caprmedio", None),)
+    candidates: list[tuple[Path, bytes, dict[str, str]]] = []
+    for source_root, expected_scope, registered_root in source_roots:
+        for path, raw, frontmatter in _source_index.rows(source_root, expected_scope, registered_root):
+            if frontmatter.get("atom_id") != atom_id or frontmatter.get("status") != "Active":
+                continue
+            if frontmatter.get("current_scope_unit") != expected_scope:
+                _reject("current source Atom has the wrong registered scope", code="release-source-unregistered")
+            candidates.append((path, raw, frontmatter))
+    if len(candidates) != 1:
+        _reject("current source Atom is missing or ambiguous", code="release-source-unregistered")
+    path, raw, frontmatter = candidates[0]
+    if (frontmatter.get("content_role") != role
+            or (role == "Operations" and frontmatter.get("type") != operation_type)):
+        _reject("current source Atom has the wrong registered role", code="release-source-unregistered")
+    try:
+        version = int(frontmatter["version"])
+    except (KeyError, ValueError) as error:
+        raise ReleaseSourceAdmissionError(
+            "release-source-identity-invalid", "current source Atom version is invalid"
+        ) from error
+    if str(version) != frontmatter["version"] or version < 1:
+        _reject("current source Atom version is invalid", code="release-source-identity-invalid")
+    relative = path.relative_to(root).as_posix()
+    pin = _pin_shape({"atom_id": atom_id, "version": version, "source_path": relative,
+                      "digest": hashlib.sha256(raw).hexdigest()})
+    # The index is a bounded discovery snapshot, never pin evidence.  Reopen
+    # the selected member so every pin reflects bytes available at resolution.
+    _read_pin(root, pin)
+    return pin
 
 
 def _tables(text: str) -> list[list[list[str]]]:
@@ -257,35 +478,100 @@ def derive_unknown_effect_resolver_authority(project_root: str | Path) -> list[d
     return copy.deepcopy(pins)
 
 
-def derive_release_source_admission(project_root: str | Path) -> dict[str, Any]:
-    """Derive the one accepted record from pinned actual D572@13, read-only.
+def _rmed_membership(text: str) -> list[tuple[str, str]]:
+    """Read D572's one ID-only current RMED membership table."""
+    tables = _tables_from_text(text)
+    matches = [table for table in tables if table and table[0] == ["role", "position", "atom_id"]]
+    if len(matches) != 1:
+        _reject("D572 must define exactly one ID-only RMED membership table", code="release-authority-invalid")
+    rows = matches[0][2:]
+    expected_role_order = tuple(_RMED_ROLES)
+    memberships: list[tuple[str, str]] = []
+    positions = {role: 0 for role in expected_role_order}
+    for row in rows:
+        if len(row) != 3 or row[0] not in positions or not re.fullmatch(r"[1-9][0-9]*", row[1]):
+            _reject("D572 RMED membership row is malformed", code="release-authority-invalid")
+        role, position, atom_id = row
+        if int(position) != positions[role] + 1 or _ATOM.fullmatch(atom_id) is None:
+            _reject("D572 RMED membership order or Atom identity is invalid", code="release-authority-invalid")
+        positions[role] += 1
+        memberships.append((role, atom_id))
+    if not memberships or any(positions[role] == 0 for role in expected_role_order):
+        _reject("D572 RMED membership must cover every declared role", code="release-authority-invalid")
+    if len({atom_id for _, atom_id in memberships}) != len(memberships):
+        _reject("D572 RMED membership contains a duplicate Atom", code="release-authority-invalid")
+    return memberships
 
-    This reads the defining authority and its private implementation carriers.
-    The validator separately observes all unique Atom pins on each admission;
-    no source-currentness cache is used. Returned records share no mutable
-    dictionaries with another call.
+
+def _tables_from_text(text: str) -> list[list[list[str]]]:
+    tables, current = [], []
+    for line in text.splitlines():
+        if line.startswith("|"):
+            current.append([cell.strip() for cell in line.strip("|").split("|")])
+        elif current:
+            tables.append(current)
+            current = []
+    if current:
+        tables.append(current)
+    return tables
+
+
+def _workflow_step_pairs(raw: bytes) -> list[tuple[str, str]]:
+    """Open the declared Steps table; no inferred or reordered graph is allowed."""
+    try:
+        text = raw.decode("utf-8")
+        tables = _tables_from_text(text)
+        matches = [table for table in tables if table and table[0] == ["Step", "Action", "Bound phase"]]
+        if len(matches) != 1:
+            raise ValueError("Steps table is absent")
+        rows = matches[0][2:]
+        pairs = [(row[0], row[1]) for row in rows]
+        if (len(rows) != 10 or any(len(row) != 3 for row in rows)
+                or any(_ATOM.fullmatch(step) is None or _ATOM.fullmatch(action) is None
+                       for step, action in pairs)):
+            raise ValueError("Steps table is malformed")
+        return pairs
+    except (UnicodeDecodeError, TypeError, ValueError, IndexError) as error:
+        raise ReleaseSourceAdmissionError(
+            "release-authority-invalid", "accepted O164 Steps table cannot be parsed"
+        ) from error
+
+
+def _derive_release_source_admission(
+    root: Path, source_index: _CurrentSourceIndex, *, authority_pin: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Derive one admission from a single bounded current-source snapshot."""
+    text = _read_pin(root, AUTHORITY_PIN if authority_pin is None else authority_pin).decode("utf-8")
+    memberships = _rmed_membership(text)
+    workflow = resolve_current_source_pin(
+        root, "CA-O-164", role="Operations", operation_type="Workflow", _source_index=source_index
+    )
+    pairs = _workflow_step_pairs(_read_pin(root, workflow))
+    steps = [{
+        "step": resolve_current_source_pin(
+            root, step, role="Operations", operation_type="Step", _source_index=source_index
+        ),
+        "action": resolve_current_source_pin(
+            root, action, role="Operations", operation_type="Action", _source_index=source_index
+        ),
+    } for step, action in pairs]
+    rmed = [resolve_current_source_pin(root, atom_id, role=_RMED_ROLES[role], _source_index=source_index)
+            for role, atom_id in memberships]
+    return {"route": "release_version", "acceptance_frontier": copy.deepcopy(workflow),
+            "workflow": workflow, "ordered_steps": steps,
+            "ordered_actions": [copy.deepcopy(row["action"]) for row in steps],
+            "rmed_frontier": rmed, "mutation_capable": True, "native_action_calls": []}
+
+
+def derive_release_source_admission(project_root: str | Path) -> dict[str, Any]:
+    """Derive the one D572@36 admission record from current registered source.
+
+    D572 records only membership and route shape.  Every pin is reopened from
+    the active Project authoring carrier, so a stale, missing, renamed, or
+    ambiguous source cannot silently reuse an installed or historical pin.
     """
     root = _project_root(project_root)
-    text = _read_pin(root, AUTHORITY_PIN).decode("utf-8")
-    matches = re.findall(r"CA-P-1622@([1-9][0-9]*) at `([^`]+)`, SHA-256 `([0-9a-f]{64})`", text)
-    if len(matches) != 1:
-        _reject("D572 must state exactly one accepted frontier", code="release-authority-invalid")
-    tables = _tables(text)
-    if len(tables[0]) != 3 or len(tables[1]) != 14 or len(tables[2]) < 3:
-        _reject("D572 must define one Workflow, twelve occurrences and a nonempty RMED frontier", code="release-authority-invalid")
-    derive_release_private_carriers(root)
-    steps = []
-    for ordinal, row in enumerate(tables[1][2:], 1):
-        if len(row) != 3 or row[0] != str(ordinal):
-            _reject("D572 Step occurrence order is invalid", code="release-authority-invalid")
-        steps.append({"step": _occurrence_pin(row[1]), "action": _occurrence_pin(row[2])})
-    metadata = _route_serialization_metadata(text)
-    return {"route": "release_version",
-            "acceptance_frontier": _pin_shape({"atom_id": "CA-P-1622", "version": int(matches[0][0]),
-                                               "source_path": matches[0][1], "digest": matches[0][2]}),
-            "workflow": _table_pin(tables[0][2]), "ordered_steps": steps,
-            "ordered_actions": [copy.deepcopy(row["action"]) for row in steps],
-            "rmed_frontier": [_table_pin(row) for row in tables[2][2:]], **metadata}
+    return _derive_release_source_admission(root, _CurrentSourceIndex(root))
 
 
 def _release_workflow_graph(raw: bytes, admission: Mapping[str, Any]) -> dict[str, Any]:
@@ -319,13 +605,13 @@ def _release_workflow_graph(raw: bytes, admission: Mapping[str, Any]) -> dict[st
         if (len(transition_rows) != len(expected_pairs) + 1
                 or transition_rows[-1] != [_RELEASE_STOP_RESULT, _RELEASE_STOP_OUTCOME]):
             raise ValueError("Transitions omit or alter the required unmatched-result stop")
-        transitions = []
-        for event, target in transition_rows[:-1]:
-            if not event.startswith("CA-O-"):
-                raise ValueError("Transitions contain an unrepresentable non-Step edge")
-            source, condition = event.split(" ", 1)
-            transitions.append({"from": source, "condition": condition, "to": target})
         step_ids = [step for step, _ in expected_pairs]
+        transitions = []
+        for source, row in zip(step_ids, transition_rows[:-1], strict=True):
+            event, target = row
+            if not event or not target:
+                raise ValueError("Transitions contain an empty result edge")
+            transitions.append({"from": source, "condition": event, "to": target})
         if (len(transitions) != len(expected_pairs)
                 or [edge["from"] for edge in transitions] != step_ids
                 or any(edge["to"] not in {*step_ids, "complete"} for edge in transitions)):
@@ -340,8 +626,8 @@ def _release_workflow_graph(raw: bytes, admission: Mapping[str, Any]) -> dict[st
 def derive_release_route_graph(project_root: str | Path) -> dict[str, Any]:
     """Derive the exact Release route graph for a future manifest publisher.
 
-    D572 pins O164 and its twelve Step/Action occurrences; this helper reads that
-    pinned Workflow source and returns the remaining route fields which a
+    D572 derives O164 and its ten Step/Action occurrences; this helper reads that
+    current Workflow source and returns the remaining route fields which a
     publisher must serialize unchanged.  It has no manifest or registry side
     effects.
     """
@@ -356,7 +642,7 @@ def derive_release_graph_admission(project_root: str | Path) -> tuple[dict[str, 
     validated here rather than serialized as a non-schema route member.
     """
     root = _project_root(project_root)
-    admission = derive_release_source_admission(root)
+    admission = _derive_release_source_admission(root, _CurrentSourceIndex(root))
     workflow_raw = _read_pin(root, admission["workflow"])
     graph = _release_workflow_graph(workflow_raw, admission)
     route = {"route": "release_version", "workflow": copy.deepcopy(admission["workflow"]),
@@ -367,6 +653,46 @@ def derive_release_graph_admission(project_root: str | Path) -> tuple[dict[str, 
     return route, copy.deepcopy(admission)
 
 
+def derive_release_execution_source_snapshot(
+    project_root: str | Path,
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    """Capture current Release definitions without requiring historical revisions.
+
+    This separate execution path keeps the legacy portfolio loader unchanged.
+    D572 supplies active RMED membership, while O164 supplies the current graph.
+    Definition bytes and revisions are captured now; only the existing native
+    Step-to-Action identity mapping remains fixed.
+    """
+    root = _project_root(project_root)
+    index = _CurrentSourceIndex(root)
+    authority = resolve_current_source_pin(root, "CA-D-572", role="Delivery", _source_index=index)
+    admission = _derive_release_source_admission(root, index, authority_pin=authority)
+    pairs = [(row["step"]["atom_id"], row["action"]["atom_id"]) for row in admission["ordered_steps"]]
+    expected_pairs = [
+        ("CA-O-170", "CA-O-165"), ("CA-O-175", "CA-O-167"),
+        ("CA-O-185", "CA-O-168"), ("CA-O-176", "CA-O-168"),
+        ("CA-O-186", "CA-O-168"), ("CA-O-182", "CA-O-181"),
+        ("CA-O-184", "CA-O-183"), ("CA-O-172", "CA-O-166"),
+        ("CA-O-173", "CA-O-166"), ("CA-O-178", "CA-O-169"),
+    ]
+    if pairs != expected_pairs:
+        _reject("current Release Step/Action mapping differs from the native Tool mapping",
+                code="release-authority-invalid")
+    graph = _release_workflow_graph(_read_pin(root, admission["workflow"]), admission)
+    route = {"route": "release_version", "workflow": copy.deepcopy(admission["workflow"]),
+             "ordered_steps": copy.deepcopy(admission["ordered_steps"]),
+             "ordered_actions": copy.deepcopy(admission["ordered_actions"]), **graph,
+             "mutation_capable": admission["mutation_capable"],
+             "native_action_calls": copy.deepcopy(admission["native_action_calls"])}
+    # Reopen the exact captured members after deriving the graph.  A source
+    # change during capture cannot become a silently mixed snapshot.
+    pins = [authority, admission["workflow"], *admission["rmed_frontier"],
+            *[pin for row in admission["ordered_steps"] for pin in (row["step"], row["action"])]]
+    for pin in {pin["source_path"]: pin for pin in pins}.values():
+        _read_pin(root, pin)
+    return route, copy.deepcopy(admission), authority
+
+
 def _record_shape(record: Any) -> dict[str, Any]:
     if not isinstance(record, Mapping) or set(record) != _ADMISSION_FIELDS or record["route"] != "release_version":
         _reject("Release admission has unknown, absent or unsupported fields")
@@ -374,7 +700,7 @@ def _record_shape(record: Any) -> dict[str, Any]:
     _pin_shape(record["workflow"])
     if type(record["mutation_capable"]) is not bool or record["native_action_calls"] != []:
         _reject("Release admission typed route metadata is invalid")
-    for field, count in (("ordered_steps", 12), ("ordered_actions", 12)):
+    for field, count in (("ordered_steps", 10), ("ordered_actions", 10)):
         if not isinstance(record[field], list) or len(record[field]) != count:
             _reject(f"Release admission {field} must contain exactly {count} ordered entries")
     if not isinstance(record["rmed_frontier"], list) or not record["rmed_frontier"]:
@@ -414,12 +740,12 @@ def validate_release_source_admissions(project_root: str | Path, manifest: Mappi
         _reject("Release route requires exactly one source admission")
     actual = _record_shape(admissions[0])
     root = _project_root(project_root)
-    expected = derive_release_source_admission(root)
+    expected = _derive_release_source_admission(root, _CurrentSourceIndex(root))
     if actual != expected:
         _reject("Release admission differs from the accepted D572 source frontier")
     # Python considers True == 1; route pins must retain the same strict types
     # as admission pins even when this helper is called before the route loader.
-    graph, _ = derive_release_graph_admission(root)
+    graph = _release_workflow_graph(_read_pin(root, expected["workflow"]), expected)
     route_shape = {**expected, **{field: release[0].get(field)
                                   for field in ("workflow", "ordered_steps", "ordered_actions")}}
     _record_shape(route_shape)

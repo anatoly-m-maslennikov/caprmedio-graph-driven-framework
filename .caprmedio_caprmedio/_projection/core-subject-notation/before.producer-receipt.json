@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "receipt_kind": "caprmedio.subject_notation.historical_producer_recovery",
+  "diagnostic_only": true,
+  "historical_producer_status": "recovered_and_profile_verified",
+  "snapshot": {
+    "path": ".caprmedio_caprmedio/_projection/core-subject-notation/before.graph.json",
+    "file_sha256": "19d62aa79d21bd6f44b4ea9cdbf7cb83c0ac8ba0de3094c65053c63dbdee20d6",
+    "snapshot_sha256": "63afea72613a211bb8ecded02b6d8fe5fb9140ee5ced03ee6707f466b00d2f4a",
+    "provider": {
+      "id": "caprmedio.subject-notation-snapshot",
+      "version": "1",
+      "profile_sha256": "33c708b6d9172906e7d1f09c121b75a83be31df54c44d8c04ee9d2aecd336cde"
+    }
+  },
+  "dot": {
+    "path": ".caprmedio_caprmedio/_projection/core-subject-notation/before.graph.dot",
+    "file_sha256": "a7aa6841e2269f546e284c4cfd1b3b17f93e06c19b9605d60d08110e45c85758"
+  },
+  "recovery_evidence": {
+    "basis": "Exact reversal of the sole recorded post-publication producer-module patch in this task's tool history; the resulting historical profile matches the persisted artifact profile SHA-256.",
+    "implementation_path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/subject_notation_snapshot.py",
+    "current_implementation_sha256_at_recovery": "acf881456dae6c560182baee52538e1a74767c420d1ffdce6f7947ccc1ff1fac",
+    "historical_implementation_sha256": "fc8d0ea5dac258520d56a719f1deea6e887aa2e6849d90b9f03571e6f232619b",
+    "recorded_patch_occurrences": 1,
+    "post_publication_bytes_utf8": "            handle = path.open(\"xb\")\n            created.append(path.relative_to(snapshot._repository).as_posix())\n            with handle:\n                handle.write(payload)\n",
+    "historical_bytes_utf8": "            with path.open(\"xb\") as handle:\n                handle.write(payload)\n            created.append(path.relative_to(snapshot._repository).as_posix())\n"
+  },
+  "historical_snapshot_profile_payload": {
+    "implementation_sha256": "fc8d0ea5dac258520d56a719f1deea6e887aa2e6849d90b9f03571e6f232619b",
+    "source_reader": {
+      "id": "caprmedio.subject-model-sources",
+      "version": "1",
+      "profile_sha256": "15eece9e25239f2a479cd3caa88a32adce6f60d6e3f6dd48f5c33d10ac7d1286"
+    },
+    "steps": "legacy-separators-UNCLASSIFIED"
+  },
+  "historical_source_reader_profile_payload": {
+    "implementation_sha256": "138a4a6b065c70cf21d3d27e7633865113ebc59bdaecc0acc8016c5e6ec00916",
+    "parser_implementation_sha256": "ed9f6b5895bad44d077cec031b5d066e6d8abbf0f78f52f7516e88c831894584",
+    "fact_context_implementation_sha256": "fb263671bca3cdad58018983a9cd771a7e3df2fc93703aaae398af24bb0b0427",
+    "reviewed_grammar_pins": [
+      {
+        "atom_id": "CA-D-269",
+        "atom_revision": 12,
+        "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+        "carrier_sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3"
+      },
+      {
+        "atom_id": "CA-R-1194",
+        "atom_revision": 14,
+        "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+        "carrier_sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e"
+      }
+    ],
+    "recognition": "current-flat-scalar-governs-unique-dependency-collection",
+    "grammar_authority_binding": "root_required",
+    "semantic_conformance": "not_performed"
+  },
+  "implementation_paths": {
+    "source_reader": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/subject_model_sources.py",
+    "parser": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/generate_entity_graph.py",
+    "fact_context": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/graph_fact_context.py"
+  },
+  "verified_checks": [
+    "unique_recorded_patch_reversal",
+    "historical_implementation_bytes_sha256",
+    "source_reader_profile_payload_sha256",
+    "historical_snapshot_profile_payload_sha256_matches_artifact",
+    "before_json_file_sha256_unchanged",
+    "before_dot_file_sha256_unchanged"
+  ],
+  "semantic_admission": "not_performed",
+  "run_recording": "not_performed",
+  "graph_action_completion": "not_claimed"
+}

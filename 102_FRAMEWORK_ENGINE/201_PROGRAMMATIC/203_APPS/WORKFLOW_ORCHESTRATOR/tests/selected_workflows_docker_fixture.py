@@ -40,6 +40,31 @@ ROUTE_CASES = (
 )
 MANIFEST_ROUTE_NAMES = tuple(route for _, route in ROUTE_CASES)
 QUERY_SOURCE_ADMISSION_ROUTE_NAMES = MANIFEST_ROUTE_NAMES[-2:]
+_HISTORICAL_METHODOLOGY_SOURCES = Path(
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+    "000_APPLICABLE_MTHD_sources"
+)
+_CURRENT_METHODOLOGY_SOURCES = Path(
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+)
+_CA_O_030_PATH = Path(
+    ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
+    "201_FEATURE_TOOLS/ATOM_UPDATE/09_operations/"
+    "CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers.md"
+)
+_HISTORICAL_CA_O_030_DIGEST = "c2d70fa275a075d2fbc978cab246158cfd8413cec88716521336736d0bf060cc"
+_CA_O_134_PATH = (
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+    "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
+    "CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md"
+)
+_STALE_CA_O_134_DIGEST = "b94eebdd85eab9f7080680e85999c68022e82cdfa7945bf0d840b429ebad037a"
+_CA_O_137_PATH = (
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+    "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
+    "CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md"
+)
+_STALE_CA_O_137_DIGEST = "6c154852b99df16961fe63c8fd869dbf86f8d75ecc950b25b189e41c3c1c5dad"
 JOURNAL_CASES = tuple(f"J{number:02d}" for number in range(1, 9))
 STATUS_DOMAINS = (
     ("Requirement", "R", "04_requirement", "CA-R-1309", ("Draft", "Active", "Archived")),
@@ -153,6 +178,14 @@ class GoldenProject:
         """Render one known fixture path for its mounted execution Project."""
         relative = host_path.resolve(strict=True).relative_to(self.root).as_posix()
         return (f"{self.execution_project_root}/{relative}" if self.execution_project_root else str(host_path))
+
+    def _fixture_source(self, relative: Path) -> Path:
+        """Read relocated originals while retaining the frozen fixture paths."""
+        source = self.source_root / relative
+        current = self.source_root / _CURRENT_METHODOLOGY_SOURCES
+        if current.is_dir() and relative.is_relative_to(_HISTORICAL_METHODOLOGY_SOURCES):
+            source = current / relative.relative_to(_HISTORICAL_METHODOLOGY_SOURCES)
+        return source
 
     def prepare(self) -> dict[str, Any]:
         """Create the only Project a harness may mutate, then freeze its pins."""
@@ -325,7 +358,7 @@ class GoldenProject:
             entry = _entry(atom_id)
             relative = _safe_relative(entry.get("source_path"), name="complete-carrier source")
             expected = entry.get("sha256")
-            source = self.source_root / relative
+            source = self._fixture_source(relative)
             if not isinstance(expected, str) or not source.is_file() or file_digest(source) != expected:
                 raise GoldenCorpusError(f"complete-carrier source pin is unavailable: {atom_id}")
             destination = self.root / relative
@@ -333,14 +366,12 @@ class GoldenProject:
             shutil.copy2(source, destination)
             if file_digest(destination) != expected:
                 raise GoldenCorpusError(f"complete-carrier source pin changed: {atom_id}")
-        status_sources = list(self.source_root.glob(
-            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1309-*.md"
-        ))
+        status_relative = _HISTORICAL_METHODOLOGY_SOURCES / "001_CORE_META_MODEL/04_requirement"
+        status_sources = list(self._fixture_source(status_relative).glob("CA-R-1309-*.md"))
         if len(status_sources) != 1:
             raise GoldenCorpusError("complete-carrier Requirement status authority is ambiguous")
         status_source = status_sources[0]
-        status_destination = self.root / status_source.relative_to(self.source_root)
+        status_destination = self.root / status_relative / status_source.name
         status_destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(status_source, status_destination)
 
@@ -438,7 +469,7 @@ class GoldenProject:
             ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
             "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
         )
-        shutil.copy2(self.source_root / defaults_relative,
+        shutil.copy2(self._fixture_source(Path(defaults_relative)),
                      source / "001_CORE_META_MODEL/caprmedio_framework_default_settings.toml")
         (source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml").write_text(
             '[extensions.example]\nenabled = true\nrevision = "v2"\n', encoding="utf-8"
@@ -447,24 +478,25 @@ class GoldenProject:
         # METHODOLOGY_SOURCES authority, not caller-supplied models.  Keep an
         # exact copy of every current role authority available for the
         # all-role Docker proof; normal W04 still requests Requirement only.
+        original_sources = self._fixture_source(self.compiler_source_dir.relative_to(self.root))
         for _role, _letter, _directory, atom_id, _statuses in STATUS_DOMAINS:
-            matches = [path for path in (self.source_root / self.compiler_source_dir.relative_to(self.root)).rglob(
+            matches = [path for path in original_sources.rglob(
                 f"{atom_id}-*.md") if "archive" not in path.parts]
             if len(matches) != 1:
                 raise GoldenCorpusError(f"current {atom_id} status-model source is unavailable or ambiguous")
             source_model = matches[0]
-            target_model = self.root / source_model.relative_to(self.source_root)
+            target_model = source / source_model.relative_to(original_sources)
             target_model.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source_model, target_model)
             if target_model.read_bytes() != source_model.read_bytes():
                 raise GoldenCorpusError(f"fixture copy changed current {atom_id} status-model source")
         for atom_id in SEMANTIC_ASSESSMENT_AUTHORITIES:
-            matches = [path for path in (self.source_root / self.compiler_source_dir.relative_to(self.root)).rglob(
+            matches = [path for path in original_sources.rglob(
                 f"{atom_id}-*.md") if "archive" not in path.parts]
             if len(matches) != 1:
                 raise GoldenCorpusError(f"current {atom_id} semantic-assessment source is unavailable or ambiguous")
             source_authority = matches[0]
-            target_authority = self.root / source_authority.relative_to(self.source_root)
+            target_authority = source / source_authority.relative_to(original_sources)
             target_authority.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source_authority, target_authority)
             if target_authority.read_bytes() != source_authority.read_bytes():
@@ -512,7 +544,7 @@ class GoldenProject:
         # than borrowing this repository's prompt authority.
         for row in implementation_actions._reviewed_binding_rows():
             relative = _safe_relative(row["path"], name="implementation source binding")
-            source, target = self.source_root / relative, self.root / relative
+            source, target = self._fixture_source(relative), self.root / relative
             if not source.is_file():
                 raise GoldenCorpusError(f"implementation source is unavailable: {relative}")
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -653,7 +685,7 @@ class GoldenProject:
             "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/"
             "CA-O-131-CORE_META_MODEL-ACTION--apply-an-approved-reversal.md"
         )
-        source = self.source_root / definition
+        source = self._fixture_source(Path(definition))
         target = self.root / definition
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
@@ -910,14 +942,32 @@ class GoldenProject:
             raise GoldenCorpusError("selected workflow manifest does not contain a route list")
         actual_routes = tuple(item.get("route") for item in manifest["routes"] if isinstance(item, dict))
         expected_routes = MANIFEST_ROUTE_NAMES
-        if actual_routes == (*expected_routes, "release_version"):
-            # The live projection has admitted its one additive Release row.
+        if actual_routes in {
+            (*expected_routes, "release_version"),
+            (*expected_routes, "release_version", "public.release"),
+        }:
+            # The live projection can admit Release and Public Release rows.
             # Selected-workflow goldens deliberately retain their historical
             # fifteen-route baseline, reconstructed with fresh digests rather
             # than borrowing mutable live carrier bytes.
             manifest = copy.deepcopy(manifest)
-            manifest["routes"] = manifest["routes"][:-1]
+            manifest["routes"] = manifest["routes"][:len(expected_routes)]
             manifest.pop("release_source_admissions", None)
+            manifest.pop("public_release_source_admissions", None)
+            self._refresh_graph_action_fixture_pin(
+                manifest,
+                route_name="build_entities_graph",
+                action_id="CA-O-134",
+                source_path=_CA_O_134_PATH,
+                stale_digest=_STALE_CA_O_134_DIGEST,
+            )
+            self._refresh_graph_action_fixture_pin(
+                manifest,
+                route_name="build_terms_graph",
+                action_id="CA-O-137",
+                source_path=_CA_O_137_PATH,
+                stale_digest=_STALE_CA_O_137_DIGEST,
+            )
             manifest["source_freshness"]["selected_binding_digest"] = digest(manifest["routes"])
             unsigned = {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"}
             manifest["canonical_manifest_sha256"] = digest(unsigned)
@@ -968,10 +1018,68 @@ class GoldenProject:
         self.manifest_path.write_bytes(canonical_json(manifest) + b"\n")
         return manifest
 
+    def _refresh_graph_action_fixture_pin(
+        self,
+        manifest: dict[str, Any],
+        *,
+        route_name: str,
+        action_id: str,
+        source_path: str,
+        stale_digest: str,
+    ) -> None:
+        """Reseal one approved graph-action pair in the historical corpus.
+
+        The disposable fifteen-route corpus deliberately preserves the reviewed
+        manifest shape.  An approved graph Action changed in place after that
+        carrier was sealed, so copying it requires its actual current bytes and
+        frontmatter version rather than accepting the stale production pin.
+        """
+        routes = manifest.get("routes")
+        if not isinstance(routes, list):
+            raise GoldenCorpusError("selected workflow fixture manifest has no route list")
+        entity_routes = [route for route in routes if isinstance(route, dict)
+                         and route.get("route") == route_name]
+        if len(entity_routes) != 1:
+            raise GoldenCorpusError(f"selected workflow fixture has no unique {route_name} route")
+        route = entity_routes[0]
+        try:
+            candidates = [route["ordered_steps"][0]["action"], route["ordered_actions"][0]]
+        except (IndexError, KeyError, TypeError) as error:
+            raise GoldenCorpusError(f"{route_name} no longer has the expected one-step shape") from error
+        if any(not isinstance(pin, dict) for pin in candidates):
+            raise GoldenCorpusError(f"{route_name} action pins are malformed")
+        if any(pin.get("atom_id") != action_id or pin.get("source_path") != source_path
+               for pin in candidates):
+            raise GoldenCorpusError(f"{route_name} action topology changed; fixture pin cannot be refreshed")
+
+        source = self._fixture_source(Path(source_path))
+        if not source.is_file():
+            raise GoldenCorpusError(f"current {action_id} source is unavailable")
+        lines = source.read_text(encoding="utf-8").splitlines()
+        try:
+            actual_version = int(next(line.partition(":")[2].strip() for line in lines
+                                      if line.startswith("version:")))
+        except (StopIteration, ValueError) as error:
+            raise GoldenCorpusError(f"current {action_id} source has no integer version") from error
+        actual_digest = file_digest(source)
+        if all(pin.get("version") == actual_version and pin.get("digest") == actual_digest
+               for pin in candidates):
+            return
+        if any(pin.get("version") != 2 or pin.get("digest") != stale_digest
+               for pin in candidates):
+            raise GoldenCorpusError(f"{route_name} action pin is neither current nor the approved stale corpus pin")
+        for pin in candidates:
+            pin["version"] = actual_version
+            pin["digest"] = actual_digest
+
     def _copy_pinned(self, relative: Path, expected_digest: object) -> None:
         if not isinstance(expected_digest, str) or len(expected_digest) != 64:
             raise GoldenCorpusError(f"{relative.as_posix()} has no SHA-256 pin")
-        source = self.source_root / relative
+        source = self._fixture_source(relative)
+        if relative == _CA_O_030_PATH and expected_digest == _HISTORICAL_CA_O_030_DIGEST:
+            if not source.is_file() or file_digest(source) != expected_digest:
+                # The baseline corpus retains the exact reviewed v7 Action.
+                source = source.parent / "archive" / f"{source.stem}@7.md"
         if not source.is_file() or file_digest(source) != expected_digest:
             raise GoldenCorpusError(f"source pin is unavailable or stale: {relative.as_posix()}")
         target = self.root / relative

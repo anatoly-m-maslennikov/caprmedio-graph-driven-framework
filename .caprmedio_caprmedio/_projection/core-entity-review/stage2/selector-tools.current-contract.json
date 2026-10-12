@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2162",
+  "non_authoritative": true,
+  "selector_contract": {
+    "profile_boundary": {
+      "legacy": "Selectors remain invalid. Legacy keeps literal dots and its existing slash/colon semantics.",
+      "approved": "Accept the selector only as the initial owner component before normal approved separators. Slash, dot, colon, and @ retain their existing meanings and limits."
+    },
+    "case_significance": {
+      "Atom": "The existing Entity type and ordinary Term component; Atom.Status remains valid.",
+      "atom": "The exact lowercase selector keyword in atom(...); it is neither an alias nor a case-folded spelling of Atom.",
+      "normalization": "No case folding, aliases, or interchange between Atom and atom."
+    },
+    "only_permitted_selector_forms": [
+      "atom(atom_id=\"CA-O-135\")",
+      "atom(content_role=\"Plan\")",
+      "atom(content_role=\"Plan\",type=\"Plan\")"
+    ],
+    "grammar": {
+      "selector": "atom( atom_id=quoted-exact-atom-id | content_role=quoted-exact-content-role [ ,type=quoted-exact-atom-type ] )",
+      "placement": "Only the initial owner component of an approved Subject Expression; a selector cannot follow /, ., or : and cannot nest another selector.",
+      "key_rules": "atom_id is exclusive. content_role is required for the optional type refinement, which follows content_role as shown in the grammar. type alone, duplicate keys, unknown keys, alternative key ordering, and positional arguments are invalid.",
+      "literal_rules": "Values are non-empty double-quoted exact literals; no escaping, evaluation, wildcard, regex, variable expansion, aliasing, or case folding is allowed. The complete accepted selector remains its literal Subject component; permitted presentation whitespace is not a separate Term or a normalization request.",
+      "validation_boundary": "The syntax validator does not enumerate Atom rows or admit Entity endpoints. atom_id is a literal named-Atom selector form; content_role with optional type qualifies the selected Atom bearer pattern. The existing canonical Subject target =1 rule is separate from selector syntax.",
+      "ownership": "In atom(...).Status, Status is the dependent Property of the selected Atom. The content_role value remains that Atom's Content Role allowed value and type qualifies that Atom; neither is Status's bearer or Status's allowed value, and selector syntax creates no Entity kind."
+    },
+    "examples": {
+      "accepted_approved": [
+        "Atom.Status",
+        "atom(content_role=\"Plan\").Status",
+        "atom(content_role=\"Plan\",type=\"Plan\").Status",
+        "atom(atom_id=\"CA-O-135\").Status"
+      ],
+      "rejected": [
+        "Atom(content_role=\"Plan\").Status",
+        "ATOM(atom_id=\"CA-O-135\").Status",
+        "atom().Status",
+        "atom(type=\"Plan\").Status",
+        "atom(atom_id=\"CA-O-135\",content_role=\"Plan\").Status",
+        "Artifact/atom(atom_id=\"CA-O-135\")",
+        "atom(content_role=\"Plan\").Status@current",
+        "atom(content_role=\"Plan*\").Status"
+      ]
+    },
+    "preserved_boundaries": [
+      "No new root, native relation, native admission, selector CLI flag, source mutation path, or migration authorization.",
+      "Approved slash still mints neither IS_BORNE_BY nor NARROWER_THAN; dot and colon retain their existing grammar directions only.",
+      "The Tool's exact repository-relative patch selector remains a source locator and is distinct from lowercase atom(...) inside a Subject value."
+    ]
+  },
+  "approved_grammar_pins": [
+    {
+      "atom_id": "CA-R-1931",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8"
+    },
+    {
+      "atom_id": "CA-R-1321",
+      "version": 14,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "sha256": "d883f1bd53ac3ea83aeff2d3d1fdfb5498641a0e5f2db5e8e79d8dfd5c5a84df"
+    },
+    {
+      "atom_id": "CA-R-1324",
+      "version": 12,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "sha256": "33cbfee9844ba4dd895ae6745121fd5db5793a20aab27eb8b8d7b4591e7fb9a3"
+    },
+    {
+      "atom_id": "CA-M-228",
+      "version": 16,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "sha256": "0f398721d7d15aaf8e0b0f69a20b1b541e8d306839073c98eea4b80f9580b40d"
+    },
+    {
+      "atom_id": "CA-E-383",
+      "version": 15,
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "sha256": "6baca162365f248e08fc8d8a29b27e350149ff478290553b3cd6ee0441b4a6a6"
+    }
+  ],
+  "engine_rmedo_pins": [
+    {
+      "atom_id": "CA-R-863",
+      "version": 16,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/04_requirement/CA-R-863-ATOM_SEARCH-CORE-REQUIREMENT--search-caprmedio-markdown-atoms.md",
+      "sha256": "55dc7d581ad2b04b2c38cbaa47e10ff00ba391165142b193ca89bac79d38d270"
+    },
+    {
+      "atom_id": "CA-M-370",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/05_method/CA-M-370-ATOM_SEARCH-METHOD--match-direct-subject-fields.md",
+      "sha256": "ffc3d88ea47320d6956483474603467b2d6bc83c5c2df5360ca2bcb6333c0cbc"
+    },
+    {
+      "atom_id": "CA-E-301",
+      "version": 15,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/06_evaluation/CA-E-301-ATOM_SEARCH-QA_CASE--verify-search-caprmedio-atom-carriers.md",
+      "sha256": "8a80b33c89bf1696083ca5ab9d15f03e56b074fe58355cbaa4d1c8194e23ffc0"
+    },
+    {
+      "atom_id": "CA-R-866",
+      "version": 15,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/04_requirement/CA-R-866-TOOLS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md",
+      "sha256": "e3d0093b989bb59d0e4e06d8990c9a335389297f612258a9c4a9706292da81d2"
+    },
+    {
+      "atom_id": "CA-M-371",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/05_method/CA-M-371-ATOM_UPDATE-METHOD--preview-exact-subject-patches.md",
+      "sha256": "da2e52656ed79c9b49fd0a4713070be156923bdb4b31964dd010f9cda3857b0e"
+    },
+    {
+      "atom_id": "CA-E-304",
+      "version": 14,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/06_evaluation/CA-E-304-TOOLS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
+      "sha256": "575e33555be1fc9b637fc7274e60f15b17531042b0619fec100802c2e1b11945"
+    },
+    {
+      "atom_id": "CA-D-424",
+      "version": 10,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/07_delivery/CA-D-424-ATOM_SEARCH-DELIVERY--deliver-atom-search-tool.md",
+      "sha256": "b57a063f60e21da69d3d0b6298ba1b23e6a2f2b8329896061622bdbc5a894dda"
+    },
+    {
+      "atom_id": "CA-O-046",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/09_operations/CA-O-046-ATOM_SEARCH-ACTION--search-caprmedio-atom-carriers.md",
+      "sha256": "926b3f1a466b594afaa5bcda9aded59c39247e1aa6a896648356386e509beefc"
+    },
+    {
+      "atom_id": "CA-D-425",
+      "version": 10,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/07_delivery/CA-D-425-ATOM_UPDATE-DELIVERY--deliver-atom-update-tool.md",
+      "sha256": "727536f593df3b039de3000f7796630c152c060d5015aa130879c55660a3488c"
+    },
+    {
+      "atom_id": "CA-O-030",
+      "version": 8,
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/09_operations/CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers.md",
+      "sha256": "1881e2e9da85a7bedc2c5ba1e5a0e8766a1611f306bfd5d919fda79dd8d6a70e"
+    }
+  ],
+  "source_migration": "grammar_rmedo_only",
+  "subject_migration": "not_performed",
+  "native_admission": "not_performed"
+}

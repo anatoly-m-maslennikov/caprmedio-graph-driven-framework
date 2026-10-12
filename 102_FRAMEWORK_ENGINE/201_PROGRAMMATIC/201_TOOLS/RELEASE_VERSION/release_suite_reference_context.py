@@ -27,31 +27,24 @@ if not _MCP_ROOT.is_dir():  # pragma: no cover - immutable carrier installation 
 if str(_MCP_ROOT) not in sys.path:
     sys.path.insert(0, str(_MCP_ROOT))
 
-from release_source_admission import (  # noqa: E402
-    AUTHORITY_PIN,
-    ReleaseSourceAdmissionError,
-    _private_carriers,
-    _pin_shape,
-    derive_release_private_carriers,
-    derive_release_source_admission,
-    derive_unknown_effect_resolver_authority,
+from release_source_admission import derive_release_execution_source_snapshot  # noqa: E402
+from selected_routes import (  # noqa: E402
+    PROJECT_SETTINGS_REF, canonical_digest, canonical_json,
+    load_release_execution_manifest,
 )
-from selected_routes import PROJECT_SETTINGS_REF, canonical_json, load_selected_manifest, selected_manifest_ref  # noqa: E402
 
 
 _OPERATORS_REGISTRY = PurePosixPath(".caprmedio_caprmedio/operators_registry.toml")
 _D580_REFERENCE = (
     ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/"
-    "201_FEATURE_TOOLS/07_delivery/"
-    "CA-D-580-TOOLS-DELIVERY--encode-the-private-release-suite-reference-context.md"
+    "205_FEATURE_PROJECT_TOOLS/07_delivery/"
+    "CA-D-580-PROJECT_TOOLS-DELIVERY--encode-the-private-release-suite-reference-context.md"
 )
 _UNIT_DEADLINE_SETTINGS = (
     ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
     "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
     "caprmedio_framework_default_settings.toml",
-    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/"
-    "caprmedio_framework_settings.toml",
+    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml",
 )
 _BINDING_FIELDS = frozenset({
     "candidate_snapshot_manifest_sha256", "compiled_candidate_root",
@@ -63,6 +56,10 @@ _ATOM_ID = re.compile(r"CA-[A-Z]+-[0-9]+")
 _SELECTED_SOURCE_REFRESH_IDS = (
     "CA-R-1041", "CA-R-1894", "CA-M-350", "CA-E-593", "CA-D-588",
 )
+_RMED_ROLE_DIRECTORIES = (
+    "04_requirement", "05_method", "06_evaluation", "07_delivery",
+)
+_ADMISSION_SCOPE_UNITS = ("PROJECT_TOOLS", "TOOLS")
 
 
 class ReleaseSuiteReferenceContextError(ValueError):
@@ -241,6 +238,45 @@ def _project_structure_ref(settings_raw: bytes) -> str:
     return (_control_root_from_settings(settings_raw) / "project_structure.toml").as_posix()
 
 
+def _admission_namespace_dirs(project_structure_raw: bytes) -> tuple[str, ...]:
+    """Derive the fixed empty RMED roots required by the current resolver.
+
+    ``resolve_current_source_pin`` scans both registered Project Tools and
+    reusable Tools role roots for every RMED lookup.  A file-only reader
+    snapshot therefore has to recreate those eight already-registered
+    directories even when one has no selected source member.  This derives
+    only from the descriptor-captured Project Structure carrier; it performs
+    no root-backed discovery and emits no reference row.
+    """
+    try:
+        document = tomllib.loads(project_structure_raw.decode("utf-8"))
+        rows = document.get("scope_units") if isinstance(document, Mapping) else None
+        if not isinstance(rows, list):
+            raise ValueError("scope_units is absent")
+        roots: list[PurePosixPath] = []
+        for scope_unit in _ADMISSION_SCOPE_UNITS:
+            matches = [row for row in rows if isinstance(row, Mapping)
+                       and row.get("scope_unit_name") == scope_unit]
+            if len(matches) != 1:
+                raise ValueError("admission scope registration is not unique")
+            roots.append(_forbid_non_control_path(matches[0].get("authority_path")))
+    except (UnicodeDecodeError, tomllib.TOMLDecodeError, TypeError, ValueError) as error:
+        raise ReleaseSuiteReferenceContextError(
+            "Project Structure has no valid registered RMED admission namespaces"
+        ) from error
+    return tuple(sorted((root / role).as_posix()
+                        for root in roots for role in _RMED_ROLE_DIRECTORIES))
+
+
+def _materialize_admission_namespace_dirs(snapshot: Path, project_structure_raw: bytes) -> None:
+    """Create only the fixed current resolver roots inside a fresh snapshot."""
+    for relative in _admission_namespace_dirs(project_structure_raw):
+        target = snapshot.joinpath(*_safe_relative(relative).parts)
+        target.mkdir(parents=True, exist_ok=True)
+        if target.is_symlink() or not target.is_dir():
+            _fail("reader snapshot admission namespace is unsafe")
+
+
 def _atom_identity(raw: bytes, relative: str) -> tuple[str, int, str]:
     """Read the closed active-Atom identity required by D580 prompt pins."""
     try:
@@ -393,42 +429,30 @@ def _selected_source_refresh_frontier(
     return tuple(paths)
 
 
-def _resolver_authority_pins(authority_text: str) -> list[dict[str, Any]]:
-    """Discover only the closed D572 declaration from captured authority bytes."""
-    blocks = re.findall(
-        r"^## Unknown-effect resolver authority\n+\x60\x60\x60json\n(.*?)\n\x60\x60\x60$",
-        authority_text, re.MULTILINE | re.DOTALL,
-    )
-    if len(blocks) != 1:
-        _fail("D572 unknown-effect resolver declaration is not unique")
-    try:
-        rows = json.loads(blocks[0])
-        if not isinstance(rows, list) or len(rows) != 4:
-            _fail("D572 unknown-effect resolver declaration must contain four pins")
-        pins = [_pin_shape(row) for row in rows]
-    except (json.JSONDecodeError, ReleaseSourceAdmissionError) as error:
-        raise ReleaseSuiteReferenceContextError("D572 unknown-effect resolver pins are invalid") from error
-    if tuple(pin["atom_id"] for pin in pins) != ("CA-R-1895", "CA-M-351", "CA-E-594", "CA-D-589"):
-        _fail("D572 unknown-effect resolver identities or order differ")
-    for pin in pins:
-        _forbid_non_control_path(pin["source_path"])
-    return pins
-
-
 def _preflight_reader_paths(root: Path) -> tuple[dict[str, tuple[bytes, int]], tuple[str, ...]]:
-    """Capture every prospective reader carrier before any delegated parser runs."""
+    """Capture only current Release definitions and explicit control carriers.
+
+    The generated execution snapshot binds the actual Project implementation
+    tree separately. Its bytes are staged only in the private reader snapshot;
+    no stored portfolio or historical Prompt/refresh pin supplies this closure.
+    """
     settings_ref = PROJECT_SETTINGS_REF.as_posix()
     settings_raw, settings_mode = _read_regular(root, settings_ref)
     project_structure_ref = _project_structure_ref(settings_raw)
     project_structure_raw, project_structure_mode = _read_regular(root, project_structure_ref)
-    manifest_ref = (_control_root_from_settings(settings_raw) / "_projection" / "selected_workflow_bindings.json").as_posix()
-    manifest_raw, manifest_mode = _read_regular(root, manifest_ref)
-    authority_ref = str(AUTHORITY_PIN["source_path"])
-    authority_raw, authority_mode = _read_regular(root, authority_ref)
     try:
-        manifest = json.loads(manifest_raw.decode("utf-8"))
-    except (UnicodeDecodeError, json.JSONDecodeError) as error:
-        raise ReleaseSuiteReferenceContextError("selected manifest is unavailable for reference preflight") from error
+        manifest = load_release_execution_manifest(root)
+        authority = manifest["release_execution_snapshot"]["authority"]
+        admission, = manifest["release_source_admissions"]
+        manifest_ref = manifest["manifest_ref"]
+        expected_ref = (_control_root_from_settings(settings_raw) / "_projection"
+                        / "release_execution_snapshot.json").as_posix()
+        if manifest_ref != expected_ref:
+            _fail("Release snapshot differs from the descriptor-captured control root")
+        _assert_unique_rmed_pins(admission)
+    except (KeyError, TypeError, ValueError, RuntimeError, OSError) as error:
+        raise ReleaseSuiteReferenceContextError("current Release snapshot is unavailable for reference preflight") from error
+    authority_ref = str(authority["source_path"])
     candidates: list[str] = [
         manifest_ref,
         _OPERATORS_REGISTRY.as_posix(),
@@ -437,63 +461,31 @@ def _preflight_reader_paths(root: Path) -> tuple[dict[str, tuple[bytes, int]], t
         authority_ref,
         _D580_REFERENCE,
         *_UNIT_DEADLINE_SETTINGS,
+        *_pin_paths(admission),
     ]
-    _paths_from_source_paths(manifest, candidates)
-    freshness = manifest.get("source_freshness") if isinstance(manifest, Mapping) else None
-    if isinstance(freshness, Mapping) and "selected_source_registry_ref" in freshness:
-        candidates.append(freshness["selected_source_registry_ref"])
-    try:
-        authority_text = authority_raw.decode("utf-8")
-    except UnicodeDecodeError as error:
-        raise ReleaseSuiteReferenceContextError("D572 is unavailable for reference preflight") from error
-    if hashlib.sha256(authority_raw).hexdigest() != AUTHORITY_PIN["digest"]:
-        _fail("D572 source pin is stale")
-    # Parse the already descriptor-captured authority bytes before any reader
-    # can reread the mutable Project.  D572 alone admits these implementation
-    # paths; they remain ordinary byte-and-mode ReferenceRows in D580.
-    try:
-        private_carriers = _private_carriers(authority_text)
-    except ReleaseSourceAdmissionError as error:
-        raise ReleaseSuiteReferenceContextError("D572 private carrier declaration is invalid") from error
-    candidates.extend(row["source_path"] for row in private_carriers)
-    resolver_pins = _resolver_authority_pins(authority_text)
-    candidates.extend(pin["source_path"] for pin in resolver_pins)
-    for value in re.findall(r"`([^`]+)`", authority_text):
-        if value.startswith(".caprmedio_"):
-            candidates.append(value)
     for candidate in candidates:
         _forbid_non_control_path(candidate)
     captured = {
         settings_ref: (settings_raw, settings_mode),
         project_structure_ref: (project_structure_raw, project_structure_mode),
-        manifest_ref: (manifest_raw, manifest_mode),
-        authority_ref: (authority_raw, authority_mode),
+        manifest_ref: (canonical_json(manifest).encode("utf-8"), 0o644),
     }
     for candidate in sorted(set(candidates)):
         if candidate not in captured:
             captured[candidate] = _read_regular(root, candidate)
-    for pin in resolver_pins:
-        raw, _mode = captured[pin["source_path"]]
-        identity = _atom_identity(raw, pin["source_path"])
-        if (hashlib.sha256(raw).hexdigest() != pin["digest"]
-                or identity != (pin["atom_id"], pin["version"], "Active")):
-            _fail("D572 unknown-effect resolver source pin is stale")
-    prompt_rows = _prompt_binding_rows(captured[_D580_REFERENCE][0])
-    for candidate, _digest in prompt_rows:
-        if candidate not in captured:
-            captured[candidate] = _read_regular(root, candidate)
-    prompt_bindings = _prompt_binding_frontier(captured[_D580_REFERENCE][0], captured)
-    for candidate in prompt_bindings:
-        if candidate not in captured:
-            captured[candidate] = _read_regular(root, candidate)
-    refresh_authorities = _selected_source_refresh_frontier(captured[_D580_REFERENCE][0], captured)
-    for candidate in refresh_authorities:
-        if candidate not in captured:
-            captured[candidate] = _read_regular(root, candidate)
-    # Recheck only after the entire two-stage frontier has been captured: no
-    # later parser may resolve a new root-backed prompt path.
-    _prompt_binding_frontier(captured[_D580_REFERENCE][0], captured)
-    _selected_source_refresh_frontier(captured[_D580_REFERENCE][0], captured)
+    # Reopen only these bounded carriers after capture; a control/source or
+    # implementation change cannot silently mix two snapshots into one context.
+    for candidate in sorted(set(candidates) - {manifest_ref}):
+        if _read_regular(root, candidate) != captured[candidate]:
+            _fail("Release control reference changed during descriptor capture")
+    try:
+        current_manifest = load_release_execution_manifest(root)
+    except (ValueError, RuntimeError, OSError) as error:
+        raise ReleaseSuiteReferenceContextError(
+            "Release definitions or implementation changed during descriptor capture"
+        ) from error
+    if current_manifest != manifest:
+        _fail("Release definitions or implementation changed during descriptor capture")
     return captured, tuple(sorted(captured))
 
 
@@ -515,6 +507,11 @@ def _reader_snapshot(root: Path):
     identity = snapshot.stat()
     try:
         snapshot.chmod(0o700)
+        settings_raw, _settings_mode = captured[PROJECT_SETTINGS_REF.as_posix()]
+        project_structure_ref = _project_structure_ref(settings_raw)
+        _materialize_admission_namespace_dirs(
+            snapshot, captured[project_structure_ref][0],
+        )
         for relative in paths:
             payload, mode = captured[relative]
             _write_snapshot_file(snapshot, relative, payload, mode)
@@ -538,40 +535,37 @@ def _closure_paths(snapshot_root: Path) -> tuple[str, ...]:
     """Derive only against the immutable reader snapshot, never mutable Project bytes."""
     settings_raw, _settings_mode = _read_regular(snapshot_root, PROJECT_SETTINGS_REF.as_posix())
     project_structure_ref = _project_structure_ref(settings_raw)
-    manifest = load_selected_manifest(snapshot_root)
-    manifest_ref = selected_manifest_ref(snapshot_root)
-    admission = derive_release_source_admission(snapshot_root)
-    private_carriers = derive_release_private_carriers(snapshot_root)
-    resolver_pins = derive_unknown_effect_resolver_authority(snapshot_root)
-    freshness = manifest["source_freshness"]
-    source_registry = freshness["selected_source_registry_ref"]
-    _safe_relative(source_registry)
+    manifest_ref = (_control_root_from_settings(settings_raw) / "_projection"
+                    / "release_execution_snapshot.json").as_posix()
+    manifest_raw, _manifest_mode = _read_regular(snapshot_root, manifest_ref)
+    try:
+        manifest = json.loads(manifest_raw.decode("utf-8"))
+        if not isinstance(manifest, Mapping):
+            _fail("Release reader snapshot must be one manifest object")
+        route, admission, authority = derive_release_execution_source_snapshot(snapshot_root)
+        self_digest = manifest.get("canonical_manifest_sha256")
+        without_self = {key: value for key, value in manifest.items()
+                        if key != "canonical_manifest_sha256"}
+        if (manifest_raw != canonical_json(manifest).encode("utf-8")
+                or self_digest != canonical_digest(without_self)
+                or manifest.get("manifest_ref") != manifest_ref
+                or manifest.get("routes") != [route]
+                or manifest.get("release_source_admissions") != [admission]
+                or manifest["release_execution_snapshot"]["authority"] != authority):
+            _fail("Release reader snapshot differs from its exact captured definitions")
+    except (UnicodeDecodeError, json.JSONDecodeError, KeyError, TypeError, ValueError, RuntimeError) as error:
+        raise ReleaseSuiteReferenceContextError("Release reader snapshot is invalid or stale") from error
     _assert_unique_rmed_pins(admission)
-    snapshot_captured, _snapshot_paths = _preflight_reader_paths(snapshot_root)
-    prompt_paths = _prompt_binding_frontier(
-        snapshot_captured[_D580_REFERENCE][0], snapshot_captured,
-    )
-    refresh_authority_paths = _selected_source_refresh_frontier(
-        snapshot_captured[_D580_REFERENCE][0], snapshot_captured,
-    )
     candidates = [
         manifest_ref,
         _OPERATORS_REGISTRY.as_posix(),
         PROJECT_SETTINGS_REF.as_posix(),
         project_structure_ref,
-        str(source_registry),
-        str(AUTHORITY_PIN["source_path"]),
+        authority["source_path"],
+        _D580_REFERENCE,
         *_pin_paths(admission),
-        *(row["source_path"] for row in private_carriers),
-        *(pin["source_path"] for pin in resolver_pins),
-        *prompt_paths,
-        *refresh_authority_paths,
         *_UNIT_DEADLINE_SETTINGS,
     ]
-    # The selected manifest has already source-validated every route/admission
-    # pin.  Capture their source paths too, while naturally deduplicating a
-    # shared Action occurrence across the manifest and D572 closure.
-    _paths_from_source_paths(manifest, candidates)
     for candidate in candidates:
         _forbid_non_control_path(candidate)
     unique = sorted(set(candidates))
@@ -706,13 +700,7 @@ def copy_verified_bytes(context: ReleaseSuiteReferenceContext, workspace: str | 
         destination.chmod(row.mode)
 
 
-def validate_reference_rows(project_root: str | Path, reference_rows: Sequence[Mapping[str, Any]]) -> tuple[ReferenceRow, ...]:
-    """Independently validate public envelope rows without private N/image data.
-
-    The runner can use this after its read-only workspace copy to establish
-    that the rows neither omit nor widen the current source-derived closure.
-    """
-    root = _root(project_root)
+def _parse_reference_rows(reference_rows: Sequence[Mapping[str, Any]]) -> tuple[ReferenceRow, ...]:
     if not isinstance(reference_rows, Sequence) or isinstance(reference_rows, (str, bytes)):
         _fail("reference rows must be an ordered array")
     rows: list[ReferenceRow] = []
@@ -724,6 +712,33 @@ def validate_reference_rows(project_root: str | Path, reference_rows: Sequence[M
         if not isinstance(digest, str) or _SHA256.fullmatch(digest) is None or type(mode) is not int or not 0 <= mode <= 0o777:
             _fail("reference row has invalid digest or mode")
         rows.append(ReferenceRow(path.as_posix(), digest, mode))
+    paths = tuple(row.source_path for row in rows)
+    if paths != tuple(sorted(set(paths))):
+        _fail("reference rows must be source-path sorted and unique")
+    return tuple(rows)
+
+
+def validate_copied_reference_rows(project_root: str | Path, reference_rows: Sequence[Mapping[str, Any]]) -> tuple[ReferenceRow, ...]:
+    """Validate the immutable envelope's typed rows against copied workspace bytes.
+
+    The Suite Owner alone derives and revalidates the complete live D580
+    closure.  The sealed driver receives a partial read-only workspace, so it
+    checks the envelope's already-bound rows without attempting to rediscover
+    the host authoring frontier.
+    """
+    root = _root(project_root)
+    rows = _parse_reference_rows(reference_rows)
+    for row in rows:
+        payload, mode = _read_regular(root, row.source_path)
+        if hashlib.sha256(payload).hexdigest() != row.sha256 or mode != row.mode:
+            _fail("reference row differs from copied workspace bytes")
+    return rows
+
+
+def validate_reference_rows(project_root: str | Path, reference_rows: Sequence[Mapping[str, Any]]) -> tuple[ReferenceRow, ...]:
+    """Validate a complete live D580 closure against the current Project."""
+    root = _root(project_root)
+    rows = _parse_reference_rows(reference_rows)
     with _reader_snapshot(root) as (snapshot, _captured):
         expected_paths = _closure_paths(snapshot)
         if tuple(row.source_path for row in rows) != expected_paths:
@@ -761,5 +776,5 @@ def context_preimage(context: ReleaseSuiteReferenceContext) -> Mapping[str, obje
 
 __all__ = [
     "ReferenceRow", "ReleaseSuiteReferenceContext", "ReleaseSuiteReferenceContextError",
-    "capture_context", "context_preimage", "control_closure_paths", "copy_verified_bytes", "revalidate_context", "validate_reference_rows", "validate_schema2_context",
+    "capture_context", "context_preimage", "control_closure_paths", "copy_verified_bytes", "revalidate_context", "validate_copied_reference_rows", "validate_reference_rows", "validate_schema2_context",
 ]

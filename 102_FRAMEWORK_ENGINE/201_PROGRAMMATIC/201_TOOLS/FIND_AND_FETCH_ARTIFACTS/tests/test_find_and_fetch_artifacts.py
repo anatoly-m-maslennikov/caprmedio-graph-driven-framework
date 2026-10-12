@@ -20,7 +20,7 @@ class ArtifactQueryGoldenTest(unittest.TestCase):
         return path
 
     def assert_rejected(self, root, request, **kwargs):
-        with self.assertRaises((ArtifactQueryError, QueryFilterError)):
+        with self.assertRaises((ArtifactQueryError, artifact_query.QueryFilterError)):
             query_artifacts(root, request, **kwargs)
 
     def test_default_ids_selected_values_and_canonical_section_bodies(self):

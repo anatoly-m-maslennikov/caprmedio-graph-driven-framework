@@ -4,8 +4,8 @@ cce_form: method
 subjects:
   governs: "framework-engine-mcp"
   depends_on: []
-version: 6
-updated_at: 2026-08-30 16:44:07 +0400
+version: 7
+updated_at: 2026-10-11 01:09:00 +0400
 relations:
   method_for:
     - CA-R-1107
@@ -18,18 +18,18 @@ llm_session_ids:
 
 ## Applicable when
 
-Apply **before** MCP exposes one active Tool.
+Apply **before** MCP exposes one Tool descriptor.
 
 ## Procedure
 
-1. Read the Tool's canonical identity, capability kind, input schema, result envelope, diagnostic **and** failure contract, **and** executable binding.
-2. Validate that each field is present, coherent, **and** bound **to** the same current Tool identity.
-3. Return the validated contract **or** explicit field-level diagnostics **without** repairing **or** reinterpreting it.
+1. Call the Tool's canonical `describe_tool()` implementation and validate it against `CA-D-621-TOOLS-DELIVERY--encode-uniform-tool-self-description`.
+2. Resolve model symbols and the provider adapter only from trusted installed Engine code; derive schemas from the canonical models and validate every descriptor field against the same Tool identity.
+3. Reject a handwritten duplicate schema, missing field, conflicting field, ambiguous binding, or unresolved callable entrypoint; return field-level diagnostics without repairing, reinterpreting, importing untrusted code, or invoking the Tool.
 
 ## Outcome
 
-**only** one complete canonical Tool contract is eligible for MCP projection.
+One complete canonical descriptor is eligible for MCP projection, or that descriptor is quarantined as unavailable.
 
 ## Failure or stop
 
-Stop **when** **any** contract field is missing, conflicting, ambiguous, **or** unresolved.
+Stop exposure of **that** descriptor **when** **any** contract field is missing, conflicting, ambiguous, handwritten as a second schema, or unresolved.

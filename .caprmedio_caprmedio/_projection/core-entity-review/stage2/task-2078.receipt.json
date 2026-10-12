@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2078",
+  "recorded_at": "2026-10-11 05:43:33 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: exact bounded mapping research; not live migration approval",
+  "verification": {
+    "task": "CA-P-2078",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2078.research.json",
+      "sha256": "4d0f41b76a669756f4ac854895998c0e66ca2e15f32a1cf60ac8c3e2225cd122"
+    },
+    "rows": 21,
+    "counts": {
+      "proposed": 10,
+      "unresolved": 11
+    },
+    "source_files": 21,
+    "exact_evidence_spans": 21,
+    "exact_input_pins": 14,
+    "result": "PASS: exact coverage, pins, spans, syntax and non-executable proposals"
+  },
+  "independent_review": {
+    "reviewer": "subject_review_003",
+    "reviewed_output_sha256": "17820491efbf17cb04aa6cc6787a6cd35964cdc09f8f4e016055330d1bf1bbf2",
+    "rows_checked": 21,
+    "accepted_proposals": 10,
+    "unresolved_checked": 11,
+    "input_pins": 14,
+    "exact_spans": 21,
+    "accepted_source_ids": [
+      "CA-R-1361",
+      "CA-R-1598",
+      "CA-R-1788",
+      "CA-M-241",
+      "CA-E-521",
+      "CA-D-346",
+      "CA-D-386",
+      "CA-D-495",
+      "CA-O-051",
+      "CA-O-052"
+    ],
+    "result": "PASS: generic Carrier meaning supported; per-source qualifiers retained in Scope/Substance, no Carrier-binding creation"
+  },
+  "registration_commit": "82f720f29718f5af60152db8338e79db1d7a1020",
+  "formatting_normalization": {
+    "independently_reviewed_output_sha256": "17820491efbf17cb04aa6cc6787a6cd35964cdc09f8f4e016055330d1bf1bbf2",
+    "final_output_sha256": "4d0f41b76a669756f4ac854895998c0e66ca2e15f32a1cf60ac8c3e2225cd122",
+    "edit": "Removed exactly one trailing empty line; all other bytes unchanged.",
+    "exact_reverse_hash_and_json_value_equality": "PASS",
+    "Task_version_1_pin": "Verified from registration commit after the Task moved to Done."
+  },
+  "completion_scope": "Independent review supports ten generic Carrier references whose original restrictions remain explicit in source Scope/Substance. Eleven targets remain null because a necessary Atom/Artifact/record-specific meaning would be lost; no owner qualification or new binding is invented.",
+  "limits": [
+    "Original sources, frozen inventory/ledger/candidate and previous reports remain unchanged.",
+    "Research proposals and independent candidate review are not native graph or source write admission.",
+    "Unresolved rows and the unanswered conditional-owner choice remain open."
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "batches": [
+    {
+      "occurrence_count": 63,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-001.json",
+      "sha256": "84355ad3a75e6f070b2580993580070f4ef7a43d49eb18f2b657a16baa6ee194",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 66,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-002.json",
+      "sha256": "2350ff572fda2a58754607a559ae43c4758a948314a754cfa68c926df8369782",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 79,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-003.json",
+      "sha256": "04b9a9160f4f5b7a21c18013ff32b858df8488c88513f17d5aaa49897245e8ca",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 45,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-004.json",
+      "sha256": "01d011400ce95aa53f6bc1cec17ece873a22c4b9062ac537411d84e74ecd138c",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 85,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-005.json",
+      "sha256": "ea96145b216ab9b01b4ccad07aacdfaa496420d94def0534290e5a697401a20a",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 71,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-006.json",
+      "sha256": "2709fcec356fcd262ffa50263bbc220c59a6a446e5f57ff60899ee857620c4ec",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 68,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-007.json",
+      "sha256": "19e2f3a5e0d8c38cc3550d000928a3fc583f1fba1ac34eb8abc43b55bf21273e",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 63,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-008.json",
+      "sha256": "23e60778ae6e765fe1cf32fb1267cc991af693d80704a3ab41926f0cebdee043",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 88,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-009.json",
+      "sha256": "f23bbf6dd98a3aabf2f8a6d84109acd27da6db782595af02b076dedec1b1cf64",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 112,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-010.json",
+      "sha256": "37d4e8ba46a98fe92036a568b4b26747d4cc79ceef1c2e6e4a04b19f07ee8760",
+      "source_count": 19
+    },
+    {
+      "occurrence_count": 120,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-011.json",
+      "sha256": "86f0ecc2c4444a2749f0f6ee797c049d2a32e485d0a943bbd62207224eb4f93e",
+      "source_count": 16
+    },
+    {
+      "occurrence_count": 96,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-012.json",
+      "sha256": "ce385d07b952f29e94c51ac83361b1ef0a54a3c628ae9b3ad220e8a6316d7acc",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 102,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-013.json",
+      "sha256": "d34347ab66137ca0c8a23cac375801dc91f9b598a4a0e58aa2bd6e63528f2f10",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 119,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-014.json",
+      "sha256": "e343e6482d7d46239921a6d5b3ae9139ccb22f2748f84dffb331646670347715",
+      "source_count": 19
+    },
+    {
+      "occurrence_count": 108,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-015.json",
+      "sha256": "e3425464fe66f6ee40cab9acdac09fcf8d48767e72b0a41b53484238343022f1",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 90,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-016.json",
+      "sha256": "78628cafcd319e3019f8e3821cc17378ac05c09d5c8caacc49303acc80c0d7d8",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 80,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-017.json",
+      "sha256": "44c4e7f67dd1c8df5b13d29a77b58538b05a0e1ebc6dbe377d2ab0b5186721e6",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 45,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-018.json",
+      "sha256": "bbf87eb23c081da1e8b721eacb3b1dec45c6a0a877e5af5cb8ebe1122186c215",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 51,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-019.json",
+      "sha256": "83d6a5b48efc42af3c59fc6ef9564830911ae386715d6e1c5fd59f73f0c8b8fc",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 40,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-020.json",
+      "sha256": "9bc5b92ab6a6a2dcc67e94bc953fe2991f042413a10a632522f21d1fc25e16a0",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 70,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-021.json",
+      "sha256": "cba78ddaed9cfe59d4d531220d1b8679efe5fef74b4016f0b11304694e2b31ae",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 51,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-022.json",
+      "sha256": "3b995b3096bbdaf5c22e9fdf492066b6cfe813c06441f239841c7bc9376250f5",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 117,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-023.json",
+      "sha256": "abc29f2fe49b091e3ccc4270c783ee0e9f7530b43377c1475ec4d8b9a796ec5a",
+      "source_count": 19
+    },
+    {
+      "occurrence_count": 70,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-024.json",
+      "sha256": "691a182c034e1338011c480596218ed13c15d55eb4997c42d7f92ccafd3e96df",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 62,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-025.json",
+      "sha256": "7296b44aff6c22c67e0e8f8b381de70c9ec8b6f977f061135c8758f3a4c3b5f6",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 66,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-026.json",
+      "sha256": "673ac4a753e0719e1d3d2ba90823247b22122f480829374cb424b1ab4f747648",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 85,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-027.json",
+      "sha256": "5225f026f92e9c04cca69dd5b8f5245d26cb2be64ef3aa4fe85ce7d1bb59e989",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 94,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-028.json",
+      "sha256": "198c9679187fbb80040ebfad37b62203c9948fe80f2574f402714712038cf763",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 118,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-029.json",
+      "sha256": "90c320bee23143fd96297caa3597154ecc11e711ea3f54b04df83f1805e32ae5",
+      "source_count": 17
+    },
+    {
+      "occurrence_count": 115,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-030.json",
+      "sha256": "ef54b303cf496bea0cead9a8f693c6f95a240b56859a6fb0104b0d17a2d89d20",
+      "source_count": 17
+    },
+    {
+      "occurrence_count": 118,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-031.json",
+      "sha256": "4efea5f184479a1cf6ab5fb08351cf645d35dd0859033cf630f8ed8453ac8cf7",
+      "source_count": 14
+    },
+    {
+      "occurrence_count": 116,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-032.json",
+      "sha256": "1872d09cd1fbef18d261fa893c9805432efd53803ff09d660d0d90d5d70ba2be",
+      "source_count": 11
+    },
+    {
+      "occurrence_count": 114,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-033.json",
+      "sha256": "99447dc732540fdce31c676bcc92179a0544d86141ea0deff304fbb195c81bb3",
+      "source_count": 16
+    },
+    {
+      "occurrence_count": 119,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-034.json",
+      "sha256": "34fa88eaa9ac36360f3bdb114420cc5368d14c6ab1b335c891b614a3c26127f4",
+      "source_count": 13
+    },
+    {
+      "occurrence_count": 113,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-035.json",
+      "sha256": "404556879c607d345da0bd5914dea2bcf24d963800122bf1957226ef2a4c48fe",
+      "source_count": 11
+    },
+    {
+      "occurrence_count": 98,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-036.json",
+      "sha256": "aa318f2931c1f1905c59107f6d8c055ebe1e5da5cef1aa121b2bc7f3967b1194",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 66,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-037.json",
+      "sha256": "921625abb4f7e707e502f13a53df37dc7c1f546c2d6cfee0e86387c588b23c70",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 48,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-038.json",
+      "sha256": "f66a2633af6f9973966c8d199193d08ddf58d9fa3ac1103f4ed904c884dc7aad",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 68,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-039.json",
+      "sha256": "f3acfb172cfd6bbb9e16347d6c9351cd501df0973ca24c9c77631100356e4ac2",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 72,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-040.json",
+      "sha256": "db2e473342099644ef6a5df74d4197a6b40ac182a318d900efa436c5eca26cd9",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 85,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-041.json",
+      "sha256": "aaee70be8137612740a1d062e827db35a66988b93b8a271f84e6021f206992bc",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 117,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-042.json",
+      "sha256": "f02aa56f8a6991490f41d1c7d0028380eddb045838d3d13316b42f244cb8476b",
+      "source_count": 20
+    },
+    {
+      "occurrence_count": 115,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-043.json",
+      "sha256": "74a567c46d8677c2828a52f8d1802c45ac63516e0b9b2d4bd3160b7e6b180d2f",
+      "source_count": 16
+    },
+    {
+      "occurrence_count": 115,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-044.json",
+      "sha256": "f867269811a6fd9b0d4ddd4d55011525f87bc05409fce6ce3f633bc45184a692",
+      "source_count": 11
+    },
+    {
+      "occurrence_count": 116,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-045.json",
+      "sha256": "b3cc21b7b0646aaa2488607aa7232138be5a7f99a0163ad048b3b42c0ca6dae7",
+      "source_count": 11
+    },
+    {
+      "occurrence_count": 113,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-046.json",
+      "sha256": "1f50a4babe94ab1945f8b15af73336749577c764e7c2ea6c689aafb2feba9eca",
+      "source_count": 12
+    },
+    {
+      "occurrence_count": 119,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-047.json",
+      "sha256": "b18e0b0d741c9989657aa95e969096a6e27b010cb4a17c13060f10e6b6c8d321",
+      "source_count": 12
+    },
+    {
+      "occurrence_count": 117,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-048.json",
+      "sha256": "dfa30de3e07116c8bede7cb5690c1762ad9faac02311f3d2e495842853aa0343",
+      "source_count": 16
+    },
+    {
+      "occurrence_count": 118,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-049.json",
+      "sha256": "1539353eb84e3a8f64a9f8d3c0837432f90309349025f2bdf3608a74835cc611",
+      "source_count": 17
+    },
+    {
+      "occurrence_count": 120,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-050.json",
+      "sha256": "a114371e3b47cf36f1a9e6c9324a169c0171db35403625190c3ed4aaaa819623",
+      "source_count": 16
+    },
+    {
+      "occurrence_count": 28,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-051.json",
+      "sha256": "ea29fcd03ba2c7af0b0863f0e1148ca686a0e46b42193259d22893ebbc549b65",
+      "source_count": 4
+    }
+  ],
+  "inventory_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.inventory.json",
+  "occurrence_count": 4534,
+  "schema_version": 1,
+  "source_count": 907
+}

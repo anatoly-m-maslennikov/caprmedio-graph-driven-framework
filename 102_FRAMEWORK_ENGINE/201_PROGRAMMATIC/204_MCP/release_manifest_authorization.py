@@ -12,6 +12,7 @@ import copy
 import hashlib
 from pathlib import Path, PurePosixPath
 import re
+import sys
 import tomllib
 from collections.abc import Mapping
 from types import MappingProxyType
@@ -39,6 +40,13 @@ _PLAN_FIELDS = frozenset({
     "manifest_ref", "observed_input_sha256", "current_route_names", "candidate_route_names",
     "candidate_canonical_manifest_sha256", "added_route", "added_admission_route", "candidate_byte_count",
 })
+_PUBLIC_OPERATION = "public"
+_REFRESH_ROUTE_NAMES = (*SELECTED_ROUTE_NAMES, "release_version")
+_O030_REFRESH_ROUTE_NAMES = (*_REFRESH_ROUTE_NAMES, "public.release")
+_O030_REFRESH_PLAN_FIELDS = frozenset({
+    "source_refresh_schema_version", "source_refresh_registration_id",
+})
+_O030_REFRESH_SCHEMA_VERSIONS = frozenset({4, 5})
 
 
 class ReleaseManifestAuthorizationError(ValueError):
@@ -55,7 +63,7 @@ class PublicationAuthorizationContext:
     __slots__ = (
         "_root", "_plan", "_candidate_payload_sha256", "_source_frontier_digest",
         "_operator_name", "_journal_author", "_llm_session", "_authorization_ref",
-        "_purpose", "_pending_event_id", "__weakref__",
+        "_purpose", "_pending_event_id", "_authority_digest", "__weakref__",
     )
 
     def __init__(self, *_: object, **__: object) -> None:
@@ -98,7 +106,7 @@ class PublicationAuthorizationContext:
 
     @property
     def authority_digest(self) -> str:
-        return str(AUTHORITY_PIN["digest"])
+        return self._authority_digest
 
 
 _issued: dict[int, tuple[weakref.ReferenceType[PublicationAuthorizationContext], tuple[object, ...]]] = {}
@@ -131,6 +139,12 @@ def _safe_ref(value: object, label: str) -> str:
 def _sha256(value: object, label: str) -> str:
     if not isinstance(value, str) or _SHA256.fullmatch(value) is None:
         _reject("publication-plan-invalid", f"{label} must be a lowercase SHA-256 digest")
+    return value
+
+
+def _registration_id(value: object, label: str) -> str:
+    if not isinstance(value, str) or not value or "\n" in value or "\r" in value:
+        _reject("publication-plan-invalid", f"{label} must be a non-empty single-line identifier")
     return value
 
 
@@ -188,7 +202,7 @@ def _normalize_refresh_plan(value: Any, root: Path) -> dict[str, Any]:
     if not isinstance(value, Mapping):
         _reject("publication-plan-invalid", "refresh plan must be an object")
     fields = set(value)
-    allowed = {"mode", "publication_operation", *_PLAN_FIELDS}
+    allowed = {"mode", "publication_operation", *_PLAN_FIELDS, *_O030_REFRESH_PLAN_FIELDS}
     if fields - allowed or not ({"publication_operation", *_PLAN_FIELDS} <= fields):
         _reject("publication-plan-invalid", "refresh plan has unsupported or missing fields")
     if value.get("mode", "plan") != "plan" or value["publication_operation"] != "refresh":
@@ -196,17 +210,30 @@ def _normalize_refresh_plan(value: Any, root: Path) -> dict[str, Any]:
     manifest_ref = value["manifest_ref"]
     if not isinstance(manifest_ref, str) or manifest_ref != selected_manifest_ref(root):
         _reject("publication-plan-invalid", "refresh plan has a different manifest carrier")
-    expected_names = [*SELECTED_ROUTE_NAMES, "release_version"]
+    expected_names = list(_REFRESH_ROUTE_NAMES)
+    expected_o030_names = list(_O030_REFRESH_ROUTE_NAMES)
     current, candidate = value["current_route_names"], value["candidate_route_names"]
-    if (not isinstance(current, list) or current != expected_names
-            or not isinstance(candidate, list) or candidate != expected_names):
-        _reject("publication-plan-invalid", "refresh plan must retain the exact sixteen-route sequence")
+    if (not isinstance(current, list) or not isinstance(candidate, list)
+            or current != candidate or current not in (expected_names, expected_o030_names)):
+        _reject(
+            "publication-plan-invalid",
+            "refresh plan must retain the exact sixteen-route sequence or the exact O030 seventeen-route sequence",
+        )
+    is_o030_repair = current == expected_o030_names
+    if is_o030_repair:
+        schema_version = value.get("source_refresh_schema_version")
+        if (type(schema_version) is not int
+                or schema_version not in _O030_REFRESH_SCHEMA_VERSIONS
+                or "source_refresh_registration_id" not in value):
+            _reject("publication-plan-invalid", "O030 refresh plan must name the exact schema-4 or schema-5 registration")
+    elif _O030_REFRESH_PLAN_FIELDS & fields:
+        _reject("publication-plan-invalid", "sixteen-route refresh plan must not claim O030 registration metadata")
     if value["added_route"] != "release_version" or value["added_admission_route"] != "release_version":
         _reject("publication-plan-invalid", "refresh plan does not identify the Release row")
     size = value["candidate_byte_count"]
     if type(size) is not int or size <= 0:
         _reject("publication-plan-invalid", "refresh candidate byte count must be positive")
-    return {
+    normalized = {
         "publication_operation": "refresh",
         "manifest_ref": manifest_ref,
         "observed_input_sha256": _sha256(value["observed_input_sha256"], "observed_input_sha256"),
@@ -219,11 +246,83 @@ def _normalize_refresh_plan(value: Any, root: Path) -> dict[str, Any]:
         "added_admission_route": "release_version",
         "candidate_byte_count": size,
     }
+    if is_o030_repair:
+        normalized.update(
+            source_refresh_schema_version=schema_version,
+            source_refresh_registration_id=_registration_id(
+                value["source_refresh_registration_id"], "source_refresh_registration_id"
+            ),
+        )
+    return normalized
+
+
+def _validate_o030_refresh_registration(root: Path, plan: Mapping[str, Any]) -> None:
+    """Bind a 17-route refresh only to D588's current closed O030 record."""
+    if "source_refresh_schema_version" not in plan:
+        return
+    try:
+        from selected_source_refresh import registered_source_refresh
+
+        registration = registered_source_refresh(root)
+    except (ImportError, OSError, TypeError, ValueError) as error:
+        raise ReleaseManifestAuthorizationError(
+            "publication-source-stale", "O030 refresh registration is unavailable"
+        ) from error
+    schema_version = plan["source_refresh_schema_version"]
+    if (
+        not isinstance(registration, Mapping)
+        or type(registration.get("schema_version")) is not int
+        or registration.get("schema_version") not in _O030_REFRESH_SCHEMA_VERSIONS
+        or registration.get("schema_version") != schema_version
+        or registration.get("registration_id") != plan["source_refresh_registration_id"]
+    ):
+        _reject("publication-source-stale", "O030 refresh registration differs from the issued plan")
+
+
+def _normalize_public_plan(value: Any, root: Path) -> dict[str, Any]:
+    """Normalize only D613's additive sixteen-to-seventeen publication."""
+    if not isinstance(value, Mapping):
+        _reject("publication-plan-invalid", "public publication plan must be an object")
+    fields = set(value)
+    allowed = {"mode", "publication_operation", *_PLAN_FIELDS}
+    if fields - allowed or not ({"publication_operation", *_PLAN_FIELDS} <= fields):
+        _reject("publication-plan-invalid", "public publication plan has unsupported or missing fields")
+    if value.get("mode", "plan") != "plan" or value["publication_operation"] != _PUBLIC_OPERATION:
+        _reject("publication-plan-invalid", "public publication plan operation must be public")
+    manifest_ref = value["manifest_ref"]
+    if not isinstance(manifest_ref, str) or manifest_ref != selected_manifest_ref(root):
+        _reject("publication-plan-invalid", "public publication plan has a different manifest carrier")
+    current, candidate = value["current_route_names"], value["candidate_route_names"]
+    expected_current = [*SELECTED_ROUTE_NAMES, "release_version"]
+    expected_candidate = [*expected_current, "public.release"]
+    if (not isinstance(current, list) or current != expected_current
+            or not isinstance(candidate, list) or candidate != expected_candidate):
+        _reject("publication-plan-invalid", "public publication plan route sequence is not the admitted additive successor")
+    if value["added_route"] != "public.release" or value["added_admission_route"] != "public.release":
+        _reject("publication-plan-invalid", "public publication plan does not describe the public Release route")
+    size = value["candidate_byte_count"]
+    if type(size) is not int or size <= 0:
+        _reject("publication-plan-invalid", "public publication candidate byte count must be positive")
+    return {
+        "publication_operation": _PUBLIC_OPERATION,
+        "manifest_ref": manifest_ref,
+        "observed_input_sha256": _sha256(value["observed_input_sha256"], "observed_input_sha256"),
+        "current_route_names": tuple(current),
+        "candidate_route_names": tuple(candidate),
+        "candidate_canonical_manifest_sha256": _sha256(
+            value["candidate_canonical_manifest_sha256"], "candidate_canonical_manifest_sha256"
+        ),
+        "added_route": "public.release",
+        "added_admission_route": "public.release",
+        "candidate_byte_count": size,
+    }
 
 
 def _normalize_any_plan(value: Any, root: Path) -> dict[str, Any]:
     if isinstance(value, Mapping) and value.get("publication_operation") == "refresh":
         return _normalize_refresh_plan(value, root)
+    if isinstance(value, Mapping) and value.get("publication_operation") == _PUBLIC_OPERATION:
+        return _normalize_public_plan(value, root)
     return _normalize_plan(value, root)
 
 
@@ -279,9 +378,38 @@ def _derive_refresh_parts(
     return _normalize_refresh_plan(plan, root), observed, current, payload, path, admission, candidate
 
 
+def _derive_public_prepublication(
+    root: Path,
+) -> tuple[dict[str, Any], bytes, bytes, Path, dict[str, Any]]:
+    """Use the public publisher's one source-derived successor construction."""
+    try:
+        from public_manifest_publisher import _public_parts
+        plan, observed, _, payload, path, admission = _public_parts(root)
+    except (ImportError, OSError, RuntimeError, TypeError, ValueError) as error:
+        raise ReleaseManifestAuthorizationError(
+            "publication-input-unavailable", "current public publication input is unavailable"
+        ) from error
+    return _normalize_public_plan(plan, root), observed, payload, path, admission
+
+
 def _source_frontier_digest(admission: Mapping[str, Any]) -> str:
     """Seal D572's live admission and its authority pin without a second table."""
     return canonical_digest({"authority": dict(AUTHORITY_PIN), "admission": dict(admission)})
+
+
+def _public_source_frontier_digest(admission: Mapping[str, Any]) -> tuple[str, str]:
+    """Bind exactly D613's current pin and the closed public source record."""
+    public_release = Path(__file__).resolve().parents[1] / "201_TOOLS" / "PUBLIC_RELEASE"
+    if str(public_release) not in sys.path:
+        sys.path.insert(0, str(public_release))
+    try:
+        from selected_admission import AUTHORITY_PIN as public_authority_pin
+    except ImportError as error:
+        raise ReleaseManifestAuthorizationError(
+            "publication-source-stale", "public Release source authority is unavailable"
+        ) from error
+    authority_digest = _sha256(public_authority_pin.get("digest"), "public authority digest")
+    return canonical_digest({"authority": dict(public_authority_pin), "admission": dict(admission)}), authority_digest
 
 
 def _operator_row(root: Path, operator_name: object) -> Mapping[str, Any]:
@@ -336,6 +464,7 @@ def _snapshot(context: PublicationAuthorizationContext) -> tuple[object, ...]:
         context._root, tuple(sorted(context._plan.items())), context._candidate_payload_sha256,
         context._source_frontier_digest, context._operator_name, context._journal_author,
         context._llm_session, context._authorization_ref, context._purpose, context._pending_event_id,
+        context._authority_digest,
     )
     if values != issued[1]:
         _reject("publication-context-forged", "publication context was altered after issuance")
@@ -345,7 +474,7 @@ def _snapshot(context: PublicationAuthorizationContext) -> tuple[object, ...]:
 def _issue(
     root: Path, plan: Mapping[str, Any], *, candidate_payload: bytes, source_frontier_digest: str,
     operator_name: str, journal_author: str, llm_session: tuple[str, str], authorization_ref: str,
-    purpose: str, pending_event_id: str | None,
+    purpose: str, pending_event_id: str | None, authority_digest: str = str(AUTHORITY_PIN["digest"]),
 ) -> PublicationAuthorizationContext:
     context = object.__new__(PublicationAuthorizationContext)
     object.__setattr__(context, "_root", root.as_posix())
@@ -358,10 +487,12 @@ def _issue(
     object.__setattr__(context, "_authorization_ref", authorization_ref)
     object.__setattr__(context, "_purpose", purpose)
     object.__setattr__(context, "_pending_event_id", pending_event_id)
+    object.__setattr__(context, "_authority_digest", _sha256(authority_digest, "authority_digest"))
     values = (
         context._root, tuple(sorted(context._plan.items())), context._candidate_payload_sha256,
         context._source_frontier_digest, context._operator_name, context._journal_author,
         context._llm_session, context._authorization_ref, context._purpose, context._pending_event_id,
+        context._authority_digest,
     )
     identifier = id(context)
     _issued[identifier] = (weakref.ref(context, lambda _reference: _issued.pop(identifier, None)), values)
@@ -407,6 +538,7 @@ def authorize_operator_refresh(
     """Issue one trusted-host-only capability for the exact refresh plan."""
     root = _root(project_root)
     supplied = _normalize_refresh_plan(plan, root)
+    _validate_o030_refresh_registration(root, supplied)
     expected, observed, _, payload, _, admission, _ = _derive_refresh_parts(root)
     if supplied != expected:
         _reject("publication-plan-stale", "refresh plan differs from the current source-derived successor")
@@ -419,6 +551,34 @@ def authorize_operator_refresh(
         operator_name=operator_name, journal_author=author, llm_session=session,
         authorization_ref=_safe_ref(authorization_ref, "authorization_ref"),
         purpose="refresh", pending_event_id=None,
+    )
+
+
+def authorize_operator_public_manifest_publication(
+    project_root: str | Path,
+    plan: Mapping[str, Any],
+    *,
+    operator_name: str,
+    journal_author: str,
+    llm_session: Mapping[str, str],
+    authorization_ref: str,
+) -> PublicationAuthorizationContext:
+    """Issue one opaque capability for D613's exact 16-to-17 successor."""
+    root = _root(project_root)
+    supplied = _normalize_public_plan(plan, root)
+    expected, observed, payload, _, admission = _derive_public_prepublication(root)
+    if supplied != expected:
+        _reject("publication-plan-stale", "public publication plan differs from the current source-derived successor")
+    if hashlib.sha256(observed).hexdigest() != supplied["observed_input_sha256"]:
+        _reject("publication-input-stale", "selected manifest bytes differ from the supplied public plan")
+    operator = _operator_row(root, operator_name)
+    author, session = _journal_context(operator, journal_author, llm_session)
+    frontier, authority_digest = _public_source_frontier_digest(admission)
+    return _issue(
+        root, supplied, candidate_payload=payload, source_frontier_digest=frontier,
+        operator_name=operator_name, journal_author=author, llm_session=session,
+        authorization_ref=_safe_ref(authorization_ref, "authorization_ref"),
+        purpose="public", pending_event_id=None, authority_digest=authority_digest,
     )
 
 
@@ -485,6 +645,65 @@ def _pending_recovery_evidence(
     return plan, payload, dict(event), admission
 
 
+def _pending_public_recovery_evidence(
+    root: Path, pending_event_id: object,
+) -> tuple[dict[str, Any], bytes, dict[str, Any], Mapping[str, Any]]:
+    """Open one D613 sealed intent without accepting caller history or bytes."""
+    if not isinstance(pending_event_id, str) or not pending_event_id:
+        _reject("publication-recovery-invalid", "pending event id must be a non-empty string")
+    try:
+        tools = Path(__file__).resolve().parents[1] / "201_TOOLS"
+        if str(tools) not in sys.path:
+            sys.path.insert(0, str(tools))
+        import work_journal
+        from release_manifest_lifecycle import ACTION_ID, _event_id, _read_intent
+
+        pending, event, _, _ = work_journal._read_pending_event(root, pending_event_id)
+        intent = _read_intent(pending)
+    except Exception as error:
+        raise ReleaseManifestAuthorizationError(
+            "publication-recovery-invalid", "sealed public publication evidence is unavailable or invalid"
+        ) from error
+    plan = _normalize_public_plan(intent["plan"], root)
+    result = event.get("result")
+    if (
+        event.get("action_id") != ACTION_ID
+        or event.get("event") != "completed"
+        or not isinstance(result, Mapping)
+        or result.get("path") != plan["manifest_ref"]
+        or result.get("sha256") is None
+        or pending.get("result_ref") != plan["manifest_ref"]
+        or pending.get("effect_refs") != [plan["manifest_ref"]]
+        or _event_id(root, intent, str(event.get("previous_result_event"))) != pending_event_id
+    ):
+        _reject("publication-recovery-invalid", "pending evidence is not the exact sealed public successor")
+    sealed_result_sha = _sha256(result.get("sha256"), "pending.result.sha256")
+    payload = _read_regular(root, PurePosixPath(plan["manifest_ref"]), label="published selected manifest")
+    if hashlib.sha256(payload).hexdigest() != sealed_result_sha:
+        _reject("publication-recovery-ambiguous", "published public manifest bytes differ from the sealed pending result")
+    try:
+        loaded = load_selected_manifest(root)
+    except (OSError, ValueError, SelectedRouteError) as error:
+        raise ReleaseManifestAuthorizationError(
+            "publication-recovery-ambiguous", "published public manifest cannot be reopened as the admitted successor"
+        ) from error
+    expected_names = [*SELECTED_ROUTE_NAMES, "release_version", "public.release"]
+    if (
+        [row.get("route") for row in loaded.get("routes", [])] != expected_names
+        or loaded.get("canonical_manifest_sha256") != plan["candidate_canonical_manifest_sha256"]
+    ):
+        _reject("publication-recovery-ambiguous", "published manifest is not the sealed public successor")
+    admission = _derive_current_public_admission(root)
+    frontier, authority_digest = _public_source_frontier_digest(admission)
+    if (
+        loaded.get("public_release_source_admissions") != [admission]
+        or intent["source_frontier_digest"] != frontier
+        or intent["authority_digest"] != authority_digest
+    ):
+        _reject("publication-source-stale", "sealed pending intent has a stale public Release source frontier")
+    return plan, payload, dict(event), admission
+
+
 def _validate_recovery_actor(
     event: Mapping[str, Any], *, journal_author: str, session: tuple[str, str],
 ) -> None:
@@ -521,6 +740,30 @@ def authorize_operator_publication_recovery(
     )
 
 
+def authorize_operator_public_manifest_recovery(
+    project_root: str | Path,
+    pending_event_id: str,
+    *,
+    operator_name: str,
+    journal_author: str,
+    llm_session: Mapping[str, str],
+    authorization_ref: str,
+) -> PublicationAuthorizationContext:
+    """Issue finalization-only authority for one already-written D613 successor."""
+    root = _root(project_root)
+    plan, payload, event, admission = _pending_public_recovery_evidence(root, pending_event_id)
+    operator = _operator_row(root, operator_name)
+    author, session = _journal_context(operator, journal_author, llm_session)
+    _validate_recovery_actor(event, journal_author=author, session=session)
+    frontier, authority_digest = _public_source_frontier_digest(admission)
+    return _issue(
+        root, plan, candidate_payload=payload, source_frontier_digest=frontier,
+        operator_name=operator_name, journal_author=author, llm_session=session,
+        authorization_ref=_safe_ref(authorization_ref, "authorization_ref"),
+        purpose="public-recovery", pending_event_id=pending_event_id, authority_digest=authority_digest,
+    )
+
+
 def validate_publication_context(
     context: PublicationAuthorizationContext,
     project_root: str | Path,
@@ -539,12 +782,14 @@ def validate_publication_context(
     supplied = _normalize_plan(plan, root)
     (
         stored_root, stored_plan_items, payload_sha, frontier_sha, operator_name, journal_author,
-        session, _, purpose, pending_event_id,
+        session, _, purpose, pending_event_id, authority_digest,
     ) = snapshot
     if root.as_posix() != stored_root:
         _reject("publication-context-stale", "publication context belongs to another Project root")
     if supplied != dict(stored_plan_items):
         _reject("publication-context-stale", "publication plan differs from the issued context")
+    if authority_digest != AUTHORITY_PIN["digest"]:
+        _reject("publication-context-stale", "publication context has a different source authority")
     operator = _operator_row(root, operator_name)
     _journal_context(operator, journal_author, {"app": session[0], "uuid": session[1]})
     try:
@@ -587,6 +832,121 @@ def validate_publication_context(
     return context
 
 
+def _derive_current_public_admission(root: Path) -> dict[str, Any]:
+    """Reread D613 without accepting a manifest-carried public record."""
+    public_release = Path(__file__).resolve().parents[1] / "201_TOOLS" / "PUBLIC_RELEASE"
+    if str(public_release) not in sys.path:
+        sys.path.insert(0, str(public_release))
+    try:
+        from selected_admission import (
+            PublicReleaseSourceAdmissionError,
+            derive_public_release_source_admission,
+            validate_public_release_source_admission,
+        )
+        derived = derive_public_release_source_admission(root)
+        validated = validate_public_release_source_admission(root, derived)
+    except (ImportError, OSError, TypeError, ValueError) as error:
+        raise ReleaseManifestAuthorizationError(
+            "publication-source-stale", "public Release source admission is not current"
+        ) from error
+    if not isinstance(derived, Mapping) or not isinstance(validated, Mapping) or dict(derived) != dict(validated):
+        _reject("publication-source-stale", "public Release source admission returned an invalid contract")
+    return copy.deepcopy(dict(validated))
+
+
+def validate_public_manifest_context(
+    context: PublicationAuthorizationContext,
+    project_root: str | Path,
+    plan: Mapping[str, Any],
+    *,
+    manifest_state: str = "input",
+) -> PublicationAuthorizationContext:
+    """Freshly validate D613 authority before/after its one public write."""
+    root = _root(project_root)
+    snapshot = _snapshot(context)
+    supplied = _normalize_public_plan(plan, root)
+    (
+        stored_root, stored_plan_items, payload_sha, frontier_sha, operator_name, journal_author,
+        session, _, purpose, pending_event_id, authority_digest,
+    ) = snapshot
+    if root.as_posix() != stored_root:
+        _reject("publication-context-stale", "public publication context belongs to another Project root")
+    if supplied != dict(stored_plan_items):
+        _reject("publication-context-stale", "public publication plan differs from the issued context")
+    operator = _operator_row(root, operator_name)
+    _journal_context(operator, journal_author, {"app": session[0], "uuid": session[1]})
+    admission = _derive_current_public_admission(root)
+    frontier, current_authority_digest = _public_source_frontier_digest(admission)
+    if authority_digest != current_authority_digest or frontier_sha != frontier:
+        _reject("publication-source-stale", "public Release source frontier differs from the issued context")
+    relative = PurePosixPath(supplied["manifest_ref"])
+    current_bytes = _read_regular(root, relative, label="selected manifest carrier")
+    if manifest_state == "input":
+        if purpose != "public":
+            _reject("publication-recovery-finalization-only", "non-public authority cannot authorize a public manifest write")
+        expected, observed, payload, _, expected_admission = _derive_public_prepublication(root)
+        if (expected != supplied or observed != current_bytes or expected_admission != admission):
+            _reject("publication-input-stale", "selected manifest input differs from the issued public plan")
+        if hashlib.sha256(current_bytes).hexdigest() != supplied["observed_input_sha256"]:
+            _reject("publication-input-stale", "selected manifest digest differs from the issued public plan")
+        if hashlib.sha256(payload).hexdigest() != payload_sha:
+            _reject("publication-context-stale", "public candidate serialization differs from the issued context")
+    elif manifest_state == "candidate":
+        if purpose not in {"public", "public-recovery"}:
+            _reject("publication-context-forged", "public publication context has an unsupported authority purpose")
+        if hashlib.sha256(current_bytes).hexdigest() != payload_sha:
+            _reject("publication-candidate-stale", "published manifest bytes differ from the sealed public candidate")
+        try:
+            loaded = load_selected_manifest(root)
+        except (OSError, ValueError, SelectedRouteError) as error:
+            raise ReleaseManifestAuthorizationError(
+                "publication-candidate-stale", "published public manifest is not current"
+            ) from error
+        expected_names = [*SELECTED_ROUTE_NAMES, "release_version", "public.release"]
+        if ([row.get("route") for row in loaded.get("routes", [])] != expected_names
+                or loaded.get("canonical_manifest_sha256") != supplied["candidate_canonical_manifest_sha256"]
+                or loaded.get("public_release_source_admissions") != [admission]):
+            _reject("publication-candidate-stale", "published manifest is not the issued public successor")
+        if purpose == "public-recovery":
+            evidence_plan, evidence_payload, evidence_event, _ = _pending_public_recovery_evidence(root, pending_event_id)
+            if evidence_plan != supplied or evidence_payload != current_bytes:
+                _reject("publication-recovery-ambiguous", "sealed recovery evidence differs from the issued public context")
+            _validate_recovery_actor(evidence_event, journal_author=journal_author, session=session)
+    else:
+        _reject("publication-context-invalid", "manifest_state must be input or candidate")
+    return context
+
+
+def validate_public_manifest_recovery_context(
+    context: PublicationAuthorizationContext,
+    project_root: str | Path,
+    pending_event_id: str,
+) -> PublicationAuthorizationContext:
+    """Admit only the finalization capability issued for this sealed event."""
+    root = _root(project_root)
+    if not isinstance(pending_event_id, str) or not pending_event_id:
+        _reject("publication-recovery-invalid", "pending event id must be a non-empty string")
+    snapshot = _snapshot(context)
+    (
+        stored_root, stored_plan_items, payload_sha, frontier_sha, operator_name, journal_author,
+        session, _, purpose, stored_pending_event_id, authority_digest,
+    ) = snapshot
+    if root.as_posix() != stored_root:
+        _reject("publication-context-stale", "public recovery context belongs to another Project root")
+    if purpose != "public-recovery" or stored_pending_event_id != pending_event_id:
+        _reject("publication-recovery-finalization-only", "public recovery requires its exact finalization-only context")
+    plan, payload, event, admission = _pending_public_recovery_evidence(root, pending_event_id)
+    if plan != dict(stored_plan_items) or hashlib.sha256(payload).hexdigest() != payload_sha:
+        _reject("publication-recovery-ambiguous", "sealed public recovery evidence differs from the issued context")
+    frontier, current_authority_digest = _public_source_frontier_digest(admission)
+    if frontier_sha != frontier or authority_digest != current_authority_digest:
+        _reject("publication-source-stale", "public recovery source frontier differs from the issued context")
+    operator = _operator_row(root, operator_name)
+    _journal_context(operator, journal_author, {"app": session[0], "uuid": session[1]})
+    _validate_recovery_actor(event, journal_author=journal_author, session=session)
+    return context
+
+
 def validate_refresh_context(
     context: PublicationAuthorizationContext,
     project_root: str | Path,
@@ -600,12 +960,15 @@ def validate_refresh_context(
     supplied = _normalize_refresh_plan(plan, root)
     (
         stored_root, stored_plan_items, payload_sha, frontier_sha, operator_name, journal_author,
-        session, _, purpose, pending_event_id,
+        session, _, purpose, pending_event_id, authority_digest,
     ) = snapshot
     if root.as_posix() != stored_root:
         _reject("publication-context-stale", "refresh context belongs to another Project root")
     if supplied != dict(stored_plan_items):
         _reject("publication-context-stale", "refresh plan differs from the issued context")
+    _validate_o030_refresh_registration(root, supplied)
+    if authority_digest != AUTHORITY_PIN["digest"]:
+        _reject("publication-context-stale", "refresh context has a different source authority")
     operator = _operator_row(root, operator_name)
     _journal_context(operator, journal_author, {"app": session[0], "uuid": session[1]})
     try:
@@ -637,11 +1000,12 @@ def validate_refresh_context(
             raise ReleaseManifestAuthorizationError(
                 "publication-candidate-stale", "published manifest is not current"
             ) from error
-        expected_names = [*SELECTED_ROUTE_NAMES, "release_version"]
+        expected_names = list(supplied["candidate_route_names"])
         if ([row.get("route") for row in loaded.get("routes", [])] != expected_names
                 or loaded.get("canonical_manifest_sha256") != supplied["candidate_canonical_manifest_sha256"]):
             _reject("publication-candidate-stale", "published manifest is not the issued refresh successor")
-        if loaded["routes"][-1] != current_route or loaded.get("release_source_admissions") != [admission]:
+        if (loaded["routes"][len(SELECTED_ROUTE_NAMES)] != current_route
+                or loaded.get("release_source_admissions") != [admission]):
             _reject("publication-candidate-stale", "published Release admission is not source-derived")
         expected_candidate = copy.deepcopy(loaded)
         expected_candidate.pop("manifest_ref", None)
@@ -700,14 +1064,36 @@ def validate_refresh_candidate_payload(
         _reject("publication-payload-stale", "candidate payload differs from the sealed refresh context")
 
 
+def validate_public_manifest_candidate_payload(
+    context: PublicationAuthorizationContext,
+    project_root: str | Path,
+    plan: Mapping[str, Any],
+    payload: bytes,
+) -> None:
+    """Confirm one D613 candidate without exposing caller-controlled hashes."""
+    if type(payload) is not bytes or not payload:
+        _reject("publication-payload-invalid", "public candidate payload must be non-empty bytes")
+    validate_public_manifest_context(context, project_root, plan, manifest_state="input")
+    snapshot = _snapshot(context)
+    if snapshot[8] != "public":
+        _reject("publication-recovery-finalization-only", "non-public authority cannot validate a public payload")
+    if hashlib.sha256(payload).hexdigest() != snapshot[2]:
+        _reject("publication-payload-stale", "public candidate payload differs from the sealed publication context")
+
+
 __all__ = [
     "PublicationAuthorizationContext",
     "ReleaseManifestAuthorizationError",
     "authorize_operator_publication",
+    "authorize_operator_public_manifest_publication",
+    "authorize_operator_public_manifest_recovery",
     "authorize_operator_refresh",
     "authorize_operator_publication_recovery",
     "validate_candidate_payload",
+    "validate_public_manifest_candidate_payload",
     "validate_refresh_candidate_payload",
     "validate_publication_context",
+    "validate_public_manifest_context",
+    "validate_public_manifest_recovery_context",
     "validate_refresh_context",
 ]

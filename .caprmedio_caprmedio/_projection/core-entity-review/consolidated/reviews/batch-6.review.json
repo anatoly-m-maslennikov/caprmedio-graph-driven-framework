@@ -1,0 +1,2284 @@
+{
+  "schema_version": 1,
+  "batch": 6,
+  "kind": "Captured nodes against Operator candidate",
+  "non_authoritative": true,
+  "native_admission": "not_performed",
+  "source_migration": "not_performed",
+  "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "candidate_sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+  "input_sha256": "6ffc7e45c5c647e5c299b98761c74db7f9aca3ed76c80a4d7f32cde9df74e71c",
+  "baseline_sha256": "bc5d99e91fb7dd4dcb42e59ff33cc24cff1d0901c5904764394c769aaa0a9430",
+  "prior_review_sha256": "1b9d751f95aa71486908b53b3d7f3f9825defae137be3d8792d45177587c48f8",
+  "review_method": "Reused each row's source-reviewed meaning and global evidence references from nodes.dispositions.json, verified every referenced Main Content quote span through nodes/support/snapshot_sources.py at the captured commit, and compared those meanings with the latest Operator-authored candidate rules. This is not a fresh exhaustive audit of all 951 source pins and does not use current Core as replacement evidence.",
+  "nodes": [
+    {
+      "identity": "Obsolete Project Name",
+      "prior_disposition": "retain",
+      "confidence_percent": 96,
+      "reason": "Registered prior Project names remain historical identity information sourced from Project Settings, not projection authority. The dependent-Entity rule selects the owner plus field; it does not create an independent lifecycle or a per-Property Carrier relation.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-392:32-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-392"
+      ],
+      "preserved_distinctions": [
+        "Registered prior Project names remain historical identity information sourced from Project Settings, not projection authority.",
+        "Obsolete Project Name concerns registered prior names while Project Name is the canonical current name.",
+        "The dependent-Entity rule selects the owner plus field; it does not create an independent lifecycle or a per-Property Carrier relation."
+      ],
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Project Settings.Obsolete Project Name",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Obtain Source Correction Decision",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Reusable Action obtains and records the actual Operator decision on one exact conflict-resolution proposal; it does not apply the correction. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-007:31-38"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-007"
+      ],
+      "preserved_distinctions": [
+        "Reusable Action obtains and records the actual Operator decision on one exact conflict-resolution proposal; it does not apply the correction.",
+        "Keep Action definition, actual Operator decision and its Journal record distinct.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Obtain Source Correction Decision",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Operator",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Collective human Actor formed by at least one identified participant for the Project and Framework Instance. The evidenced performer concept maps to Actor; a generic Actor Type stays distinct from a specific performer, authorization record, or execution.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1422:32-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1422"
+      ],
+      "preserved_distinctions": [
+        "Collective human Actor formed by at least one identified participant for the Project and Framework Instance.",
+        "Operator is the collective Actor, not the authorization record, registry file or software execution.",
+        "The evidenced performer concept maps to Actor; a generic Actor Type stays distinct from a specific performer, authorization record, or execution."
+      ],
+      "action": "retain",
+      "candidate_root": "Actor",
+      "candidate_path": "Actor/Operator",
+      "content_view": "C",
+      "operator_rules": [
+        "/root_entities/2",
+        "/entity_identity_model/actor",
+        "/m_e_root_question"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Optional Projection",
+      "prior_disposition": "retain",
+      "confidence_percent": 94,
+      "reason": "Registered optional Projection context whose activation is resolved by Framework Instance Settings, inactive by default. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1631:25-29"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1631"
+      ],
+      "preserved_distinctions": [
+        "Registered optional Projection context whose activation is resolved by Framework Instance Settings, inactive by default.",
+        "This is a configured view context, not a new admitted Projection Type or an activation Run.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Optional Projection",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Optional Projection/Activation",
+      "prior_disposition": "retain",
+      "confidence_percent": 97,
+      "reason": "Activation resolution for each registered optional Projection: active or inactive, default inactive, unknown Type rejected. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1631:29-29"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1631"
+      ],
+      "preserved_distinctions": [
+        "Activation resolution for each registered optional Projection: active or inactive, default inactive, unknown Type rejected.",
+        "Retain the contextual activation rule without inventing a native Property owner or executed activation.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Optional Projection.Activation",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Owned Atoms",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "All Atoms whose internally carried current Scope Unit equals the selected Scope Unit; membership is not determined by folders or grouping. Scope Unit ownership and stable identity remain distinct from Atom content, applicability Scope and Carrier storage.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1447:30-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1447"
+      ],
+      "preserved_distinctions": [
+        "All Atoms whose internally carried current Scope Unit equals the selected Scope Unit; membership is not determined by folders or grouping.",
+        "This is a selected ownership collection, not an applicability Scope or Carrier collection.",
+        "Scope Unit ownership and stable identity remain distinct from Atom content, applicability Scope and Carrier storage."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Owned Atoms",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Persist Atom Replacement",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Reusable replacement-persistence Action activates successor before predecessor archival and preserves predecessor history; it does not select or authorize replacement. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-051:30-35"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-051"
+      ],
+      "preserved_distinctions": [
+        "Reusable replacement-persistence Action activates successor before predecessor archival and preserves predecessor history; it does not select or authorize replacement.",
+        "Preserve Action definition, archived predecessor, successor and Journal replacement record as distinct.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Persist Atom Replacement",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Plan Graph",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Non-authoritative Plan Projection referencing authoritative Plan Atoms and once-owned decomposition/blocking Relation declarations. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1593:31-31"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1593"
+      ],
+      "preserved_distinctions": [
+        "Non-authoritative Plan Projection referencing authoritative Plan Atoms and once-owned decomposition/blocking Relation declarations.",
+        "Graph-owned Plan Relations and optional directory representation are not duplicate declarations.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Plan Graph",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Prepare Structural Change",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Reusable Action prepares an exact bounded structural-change proposal with references, Goals, descendants, Carrier effects and recoverable cutover. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-012:33-33"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-012"
+      ],
+      "preserved_distinctions": [
+        "Reusable Action prepares an exact bounded structural-change proposal with references, Goals, descendants, Carrier effects and recoverable cutover.",
+        "Declaration removal is distinct from Carrier deletion; observations are not accepted authority.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Prepare Structural Change",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Previous Unit",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Ordered peer Scope Unit with the nearest lower Local Order. Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-913:23-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-913"
+      ],
+      "preserved_distinctions": [
+        "Ordered peer Scope Unit with the nearest lower Local Order.",
+        "This is local peer ordering, not structural ownership or temporal previous Revision.",
+        "Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted."
+      ],
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Primary Entity",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Entity occurrence whose identity does not require another Entity occurrence as bearer. Generic Entity vocabulary has no selected candidate root or owner/field in the latest candidate. Keep it in review; do not place it under Artifact. Atom remains an Artifact subtype, not a dependent Property.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1191:28-28",
+        "CA-P-1934/batch-6/CA-R-1266:28-28"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1191",
+        "CA-R-1266"
+      ],
+      "preserved_distinctions": [
+        "Entity occurrence whose identity does not require another Entity occurrence as bearer.",
+        "Retain identity independence without inferring a concrete Carrier or exhaustive Entity partition.",
+        "Generic Entity vocabulary has no selected candidate root or owner/field in the latest candidate. Keep it in review; do not place it under Artifact. Atom remains an Artifact subtype, not a dependent Property."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The captured meaning for Primary Entity is preserved, but the latest candidate does not select a root or an owner/field expression for this generic Entity vocabulary. Checked captured sources: CA-R-1191, CA-R-1266. Keep this as review work; do not manufacture Artifact ownership or a candidate path."
+      }
+    },
+    {
+      "identity": "Priority",
+      "prior_disposition": "retain",
+      "confidence_percent": 97,
+      "reason": "Concern Priority value and admissible selected-model conflict comparison; High/Medium/Low is not a universal status or inherited tier. Keep Priority as a qualified Atom field in the structural view. Its captured High/Medium/Low domain is Concern-specific; it is not a storage policy, universal Status, or an inferred Issue bearer.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1629:31-44"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1629"
+      ],
+      "preserved_distinctions": [
+        "Concern Priority value and admissible selected-model conflict comparison; High/Medium/Low is not a universal status or inherited tier.",
+        "Priority is a Concern-specific value; ancestry cannot silently increment it.",
+        "Keep Priority as a qualified Atom field in the structural view. Its captured High/Medium/Low domain is Concern-specific; it is not a storage policy, universal Status, or an inferred Issue bearer."
+      ],
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Priority",
+      "content_view": "R",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/role_labels/Concern"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Producer",
+      "prior_disposition": "question",
+      "confidence_percent": 78,
+      "reason": "Checked Demand rules identify a Producer Claim Target Scope Unit and its results but do not settle the bare Producer node identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-932:34-34",
+        "CA-P-1934/batch-6/CA-R-933:30-30",
+        "CA-P-1934/batch-6/CA-R-945:32-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-932",
+        "CA-R-933",
+        "CA-R-945"
+      ],
+      "preserved_distinctions": [
+        "Checked Demand rules identify a Producer Claim Target Scope Unit and its results but do not settle the bare Producer node identity."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/content_direction",
+        "/entity_vs_syntax_rules",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The checked Main Content names qualified Producer target/result roles but does not define a standalone Producer identity. Checked captured sources: CA-R-932, CA-R-933, CA-R-945. Keep this as review work; no candidate path is committed."
+      }
+    },
+    {
+      "identity": "Producer Result",
+      "prior_disposition": "question",
+      "confidence_percent": 78,
+      "reason": "The source defines Producer-result flow direction, not the identity of the bare Producer Result node.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-945:32-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-945"
+      ],
+      "preserved_distinctions": [
+        "The source defines Producer-result flow direction, not the identity of the bare Producer Result node."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/content_direction",
+        "/entity_vs_syntax_rules",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The checked Main Content defines producer-result flow direction but not the bare Producer Result identity. Checked captured sources: CA-R-945. Keep this as review work; no candidate path is committed."
+      }
+    },
+    {
+      "identity": "Producer Result/Flow Direction",
+      "prior_disposition": "retain",
+      "confidence_percent": 98,
+      "reason": "Producer-result flow is from the Producer Claim Target Scope Unit to the Consumer Atom Scope Unit. Preserve the qualified relation or ordering meaning without admitting a new native relation kind from a label or display path alone.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-945:32-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-945"
+      ],
+      "preserved_distinctions": [
+        "Producer-result flow is from the Producer Claim Target Scope Unit to the Consumer Atom Scope Unit.",
+        "Producer target applicability and Consumer Atom ownership play different roles.",
+        "Preserve the qualified relation or ordering meaning without admitting a new native relation kind from a label or display path alone."
+      ],
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/Producer Result.Flow Direction",
+      "content_view": "R",
+      "operator_rules": [
+        "/root_entities/3",
+        "/relation_type_model",
+        "/entity_vs_syntax_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Producer/Result",
+      "prior_disposition": "question",
+      "confidence_percent": 78,
+      "reason": "Demand constrains one exact Producer result authorized by the Consumer accepted Goal; qualified result identity remains undefined.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-933:30-30",
+        "CA-P-1934/batch-6/CA-R-951:30-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-933",
+        "CA-R-951"
+      ],
+      "preserved_distinctions": [
+        "Demand constrains one exact Producer result authorized by the Consumer accepted Goal; qualified result identity remains undefined."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/content_direction",
+        "/entity_vs_syntax_rules",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The checked Main Content constrains one producer result but leaves its qualified identity unresolved. Checked captured sources: CA-R-933, CA-R-951. Keep this as review work; no candidate path is committed."
+      }
+    },
+    {
+      "identity": "Producer/Scope Unit",
+      "prior_disposition": "question",
+      "confidence_percent": 74,
+      "reason": "The checked Claim specifies a Demand filename Producer Scope token, not the identity of Producer/Scope Unit.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-287:28-28"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-287"
+      ],
+      "preserved_distinctions": [
+        "The checked Claim specifies a Demand filename Producer Scope token, not the identity of Producer/Scope Unit."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The checked Main Content supplies a filename token/target qualifier, not a positive Producer Scope Unit identity. Checked captured sources: CA-D-287. Keep this as review work; no candidate path is committed."
+      }
+    },
+    {
+      "identity": "Project",
+      "prior_disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Project is the root Scope Unit with zero parents and Unordered type. Scope Unit ownership and stable identity remain distinct from Atom content, applicability Scope and Carrier storage.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1759:27-29"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1759"
+      ],
+      "preserved_distinctions": [
+        "Project is the root Scope Unit with zero parents and Unordered type.",
+        "Non-Project units have a different structural position.",
+        "Scope Unit ownership and stable identity remain distinct from Atom content, applicability Scope and Carrier storage."
+      ],
+      "action": "retain",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit/Project",
+      "content_view": "C",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Atom ID",
+      "prior_disposition": "retain",
+      "confidence_percent": 98,
+      "reason": "Immutable identity of one accepted Project-owned Atom. The dependent-Entity rule selects the owner plus field; it does not create an independent lifecycle or a per-Property Carrier relation.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-728:27-29"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-728"
+      ],
+      "preserved_distinctions": [
+        "Immutable identity of one accepted Project-owned Atom.",
+        "It identifies an accepted owned Atom rather than its label.",
+        "The dependent-Entity rule selects the owner plus field; it does not create an independent lifecycle or a per-Property Carrier relation."
+      ],
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Project Atom ID",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/carrier_delivery_model",
+        "/entity_identity_model/dependent_entity"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Boundary Position",
+      "prior_disposition": "retain",
+      "confidence_percent": 98,
+      "reason": "Boundary classification distinguishes Project/descendants from bootstrap context. Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-961:26-28"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-961"
+      ],
+      "preserved_distinctions": [
+        "Boundary classification distinguishes Project/descendants from bootstrap context.",
+        "Project coverage differs from bootstrap seed context.",
+        "Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted."
+      ],
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Configuration",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Project-owned expansion authority, excluding current Settings selections and activation/revision values. The seven-root comparison keeps this as an Artifact or dependent-Entity display path; the path is not a native edge, Subject migration, or new root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1218:30-32",
+        "CA-P-1934/batch-6/CA-R-1207:28-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1207",
+        "CA-R-1218"
+      ],
+      "preserved_distinctions": [
+        "Project-owned expansion authority, excluding current Settings selections and activation/revision values.",
+        "Rules/defaults differ from currently selected values.",
+        "The seven-root comparison keeps this as an Artifact or dependent-Entity display path; the path is not a native edge, Subject migration, or new root."
+      ],
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Project Configuration",
+      "content_view": "R",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Name",
+      "prior_disposition": "retain",
+      "confidence_percent": 96,
+      "reason": "Exact selected lowercase project.name, owned by Project Settings. The dependent-Entity rule selects the owner plus field; it does not create an independent lifecycle or a per-Property Carrier relation.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-375:33-35",
+        "CA-P-1934/batch-6/CA-R-1750:34-36"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-375",
+        "CA-R-1750"
+      ],
+      "preserved_distinctions": [
+        "Exact selected lowercase project.name, owned by Project Settings.",
+        "Selected name differs from immutable accepted-Atom identity.",
+        "The dependent-Entity rule selects the owner plus field; it does not create an independent lifecycle or a per-Property Carrier relation."
+      ],
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Project Settings.Project Name",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Scope Unit Graph Projection",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Read-only derived Scope Unit view whose values trace to exact sources and separate declarations, settings, derivations and observations. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1739:30-32",
+        "CA-P-1934/batch-6/CA-R-1740:34-36",
+        "CA-P-1934/batch-6/CA-R-626:35-37"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1739",
+        "CA-R-1740",
+        "CA-R-626"
+      ],
+      "preserved_distinctions": [
+        "Read-only derived Scope Unit view whose values trace to exact sources and separate declarations, settings, derivations and observations.",
+        "Declared, observed and unresolved states remain distinct.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Project Scope Unit Graph Projection",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Settings",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Authoritative non-Atom initialization Artifact for one Project. The seven-root comparison keeps this as an Artifact or dependent-Entity display path; the path is not a native edge, Subject migration, or new root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1738:36-38",
+        "CA-P-1934/batch-6/CA-R-1401:28-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1401",
+        "CA-R-1738"
+      ],
+      "preserved_distinctions": [
+        "Authoritative non-Atom initialization Artifact for one Project.",
+        "Selected settings differ from structural declaration state.",
+        "The seven-root comparison keeps this as an Artifact or dependent-Entity display path; the path is not a native edge, Subject migration, or new root."
+      ],
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Project Settings",
+      "content_view": "R",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Settings Validation",
+      "prior_disposition": "retain",
+      "confidence_percent": 97,
+      "reason": "Evaluation rejects invalid Project Settings identity, placement, Carrier/content, ownership, revision/digest and receipt conditions. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-E-459:45-60"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-459"
+      ],
+      "preserved_distinctions": [
+        "Evaluation rejects invalid Project Settings identity, placement, Carrier/content, ownership, revision/digest and receipt conditions.",
+        "Evaluation contribution is not an Artifact field or executed check proof.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Project Settings Validation",
+      "content_view": "E",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Settings/Atom Prefix",
+      "prior_disposition": "retain",
+      "confidence_percent": 96,
+      "reason": "Operator-selected Atom prefix encoded in artifacts.identity.project_prefix before the first identified Atom. Use the general D storage/field policy. No per-Property Carrier Relation, D Atom, or filename/path identity is introduced.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-376:30-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-376"
+      ],
+      "preserved_distinctions": [
+        "Operator-selected Atom prefix encoded in artifacts.identity.project_prefix before the first identified Atom.",
+        "Settings prefix differs from accepted-Atom identity.",
+        "Use the general D storage/field policy. No per-Property Carrier Relation, D Atom, or filename/path identity is introduced."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Project Settings.Atom Prefix",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Settings/Atom Prefix/Carrier",
+      "prior_disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Project Settings TOML Carrier encodes the selected Atom prefix. Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-376:26-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-376"
+      ],
+      "preserved_distinctions": [
+        "Project Settings TOML Carrier encodes the selected Atom prefix.",
+        "Representing Carrier remains distinct from carried setting.",
+        "Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Project Settings Atom Prefix Carrier)",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Settings/Authoritative Carrier",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Exactly one authoritative Project Settings TOML File Carrier at its governed location. Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-364:28-30",
+        "CA-P-1934/batch-6/CA-E-459:47-60"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-364",
+        "CA-E-459"
+      ],
+      "preserved_distinctions": [
+        "Exactly one authoritative Project Settings TOML File Carrier at its governed location.",
+        "Carrier representation differs from carried settings.",
+        "Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Project Settings Authoritative Carrier)",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Settings/Authoritative Carrier/Content",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Project Settings Carrier content includes initialization inputs but excludes instance choices, Structure declarations and derived values. Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-366:31-33"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-366"
+      ],
+      "preserved_distinctions": [
+        "Project Settings Carrier content includes initialization inputs but excludes instance choices, Structure declarations and derived values.",
+        "Content is distinct from its representing Carrier.",
+        "Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Project Settings Authoritative Carrier Content)",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Settings/Authoritative Carrier/Filename",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Project Settings filename template uses the exact lowercase Project name. Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-363:29-31"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-363"
+      ],
+      "preserved_distinctions": [
+        "Project Settings filename template uses the exact lowercase Project name.",
+        "Filename differs from full Carrier path and identity.",
+        "Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Project Settings Authoritative Carrier Filename)",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Settings/Identifier",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Project Settings Artifact identifier follows caprmedio_<project_name>_settings. Use the general D storage/field policy. No per-Property Carrier Relation, D Atom, or filename/path identity is introduced.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-362:28-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-362"
+      ],
+      "preserved_distinctions": [
+        "Project Settings Artifact identifier follows caprmedio_<project_name>_settings.",
+        "It is an Artifact identifier, not Atom ID.",
+        "Use the general D storage/field policy. No per-Property Carrier Relation, D Atom, or filename/path identity is introduced."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Project Settings.Identifier",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Settings/Project identity",
+      "prior_disposition": "question",
+      "confidence_percent": 70,
+      "reason": "The source defines project.name but not a distinct Project Settings/Project identity meaning.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-375:29-35"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-375"
+      ],
+      "preserved_distinctions": [
+        "The source defines project.name but not a distinct Project Settings/Project identity meaning."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/entity_identity_model/scope_unit",
+        "/dependent_entities",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The checked source does not settle whether this contextual identity is an Artifact field, Scope Unit identity, or syntax-only qualifier. Checked captured sources: CA-D-375. Keep this as review work; no candidate path is committed."
+      }
+    },
+    {
+      "identity": "Project Settings/Project identity/Carrier",
+      "prior_disposition": "question",
+      "confidence_percent": 80,
+      "reason": "The TOML representation of project.name is explicit, but the parent Project identity alias remains unresolved.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-375:29-35"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-375"
+      ],
+      "preserved_distinctions": [
+        "The TOML representation of project.name is explicit, but the parent Project identity alias remains unresolved."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The checked source does not settle the carrier binding; filename/path must not be used as Carrier identity. Checked captured sources: CA-D-375. Keep this as review work; no candidate path is committed."
+      }
+    },
+    {
+      "identity": "Project Structure",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Authoritative non-Atom accepted Scope Unit declaration Artifact with one canonical TOML Carrier and candidate/active separation. The seven-root comparison keeps this as an Artifact or dependent-Entity display path; the path is not a native edge, Subject migration, or new root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1483:29-31",
+        "CA-P-1934/batch-6/CA-D-440:31-33",
+        "CA-P-1934/batch-6/CA-D-442:41-56",
+        "CA-P-1934/batch-6/CA-D-444:33-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-440",
+        "CA-D-442",
+        "CA-D-444",
+        "CA-R-1483"
+      ],
+      "preserved_distinctions": [
+        "Authoritative non-Atom accepted Scope Unit declaration Artifact with one canonical TOML Carrier and candidate/active separation.",
+        "Declarations differ from observations and Goals.",
+        "The seven-root comparison keeps this as an Artifact or dependent-Entity display path; the path is not a native edge, Subject migration, or new root."
+      ],
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Project Structure",
+      "content_view": "R",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Structure Maintenance",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Reusable six-Step structural maintenance Workflow, not a Structure Artifact or actual Run. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-015:48-85",
+        "CA-P-1934/batch-6/CA-E-471:37-59"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-471",
+        "CA-O-015"
+      ],
+      "preserved_distinctions": [
+        "Reusable six-Step structural maintenance Workflow, not a Structure Artifact or actual Run.",
+        "Reusable graph, Steps, Actions and their Runs remain distinct.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Project Structure Maintenance",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Structure Maintenance Application Step",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Application Step invokes the existing Action with exact authorized proposal, current-state and recovery bindings. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-143:23-35"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-143"
+      ],
+      "preserved_distinctions": [
+        "Application Step invokes the existing Action with exact authorized proposal, current-state and recovery bindings.",
+        "Bound invocation does not redefine the Action.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Project Structure Maintenance Application Step",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Structure Maintenance Authorization Step",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Authorization Step binds assessed proposal, current state, authorization and confidence threshold to its referenced Action. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-142:23-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-142"
+      ],
+      "preserved_distinctions": [
+        "Authorization Step binds assessed proposal, current state, authorization and confidence threshold to its referenced Action.",
+        "Exact admitted effects/current authorization distinguish the stage.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Project Structure Maintenance Authorization Step",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Structure Maintenance Candidate Assessment Step",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Candidate assessment Step applies its referenced Action to bounded pre-cutover proposal and exact frontier. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-141:23-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-141"
+      ],
+      "preserved_distinctions": [
+        "Candidate assessment Step applies its referenced Action to bounded pre-cutover proposal and exact frontier.",
+        "Candidate/proposed effects differ from actual returned result effects.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Project Structure Maintenance Candidate Assessment Step",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Structure Maintenance Preparation Step",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Preparation Step invokes the proposal-preparation Action on selected current state and admitted requested structural change. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-140:23-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-140"
+      ],
+      "preserved_distinctions": [
+        "Preparation Step invokes the proposal-preparation Action on selected current state and admitted requested structural change.",
+        "Selected state/request bindings differ from authorization/evaluation inputs.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Project Structure Maintenance Preparation Step",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Structure Maintenance Result Assessment Step",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Result assessment Step evaluates actual cutover effects and resulting frontier after application. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-144:23-35"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-144"
+      ],
+      "preserved_distinctions": [
+        "Result assessment Step evaluates actual cutover effects and resulting frontier after application.",
+        "Resulting declarations/effects are not proposed candidate inputs.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Project Structure Maintenance Result Assessment Step",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project Structure Maintenance Selection Step",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Entry selection Step invokes its existing Action with exact source identities and preserves unresolved selection as a result. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-139:23-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-139"
+      ],
+      "preserved_distinctions": [
+        "Entry selection Step invokes its existing Action with exact source identities and preserves unresolved selection as a result.",
+        "Source-kind separation prevents guessed bindings.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Project Structure Maintenance Selection Step",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project-Owned Carrier",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Project-owned persistent Carriers remain outside Runtime State so cleanup cannot remove canonical authority or Journal history. Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-341:30-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-341"
+      ],
+      "preserved_distinctions": [
+        "Project-owned persistent Carriers remain outside Runtime State so cleanup cannot remove canonical authority or Journal history.",
+        "Carrier location/lifetime differs from the represented authority and records.",
+        "Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Project-Owned Carrier)",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project-Owned Carrier Root",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Governed Project authority/control Carrier root with a separately governed secret-storage exception. Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-318:27-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-318"
+      ],
+      "preserved_distinctions": [
+        "Governed Project authority/control Carrier root with a separately governed secret-storage exception.",
+        "Authority root differs from runtime and native Implementation delivery.",
+        "Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Project-Owned Carrier Root)",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project-Owned Markdown Atom Carrier",
+      "prior_disposition": "question",
+      "confidence_percent": 78,
+      "reason": "captured Claim defines Project-owned Markdown Atom filename serialization, not an independently identified contextual Carrier node.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-283:31-31"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-283"
+      ],
+      "preserved_distinctions": [
+        "captured Claim defines Project-owned Markdown Atom filename serialization, not an independently identified contextual Carrier node."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The checked source names a project-owned carrier context but does not positively settle its independent Carrier identity. Checked captured sources: CA-D-283. Keep this as review work; no candidate path is committed."
+      }
+    },
+    {
+      "identity": "Project-Owned Markdown Atom Carrier/Filename",
+      "prior_disposition": "retain",
+      "confidence_percent": 98,
+      "reason": "Identified Project-owned Markdown Atom filename preserves Atom ID, revision qualifiers, Summary slug and extension constraints. Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-283:31-31"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-283"
+      ],
+      "preserved_distinctions": [
+        "Identified Project-owned Markdown Atom filename preserves Atom ID, revision qualifiers, Summary slug and extension constraints.",
+        "ID/revision/Summary constraints differ from directory placement.",
+        "Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Project-Owned Markdown Atom Carrier Filename)",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project/Operator Registry",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Authoritative Project Operator membership registry represented by one governed operators_registry.toml file. The seven-root comparison keeps this as an Artifact or dependent-Entity display path; the path is not a native edge, Subject migration, or new root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-494:32-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-494"
+      ],
+      "preserved_distinctions": [
+        "Authoritative Project Operator membership registry represented by one governed operators_registry.toml file.",
+        "Registry is not the humans or their actual decisions.",
+        "The seven-root comparison keeps this as an Artifact or dependent-Entity display path; the path is not a native edge, Subject migration, or new root."
+      ],
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Operator Registry",
+      "content_view": "R",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_identity_model/actor"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project/Operator Registry/Carrier",
+      "prior_disposition": "retain",
+      "confidence_percent": 97,
+      "reason": "Registry-to-file representation/binding uses exactly one operators_registry.toml in the Project authority root. Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-494:32-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-494"
+      ],
+      "preserved_distinctions": [
+        "Registry-to-file representation/binding uses exactly one operators_registry.toml in the Project authority root.",
+        "Registry Artifact, its records and representing Carrier remain separate.",
+        "Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Project Operator Registry Carrier)",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project/Principle universe",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "All irreducible governed invariants applying across the current Project form the Project Principle universe. Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1773:38-38"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1773"
+      ],
+      "preserved_distinctions": [
+        "All irreducible governed invariants applying across the current Project form the Project Principle universe.",
+        "Project-wide applicability differs from a Principle owning Scope Unit.",
+        "Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted."
+      ],
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project/Scope Unit",
+      "prior_disposition": "question",
+      "confidence_percent": 76,
+      "reason": "The source fixes a filename PROJECT_SCOPE token to registered Project Name, not the semantic identity Project/Scope Unit.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-292:33-33"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-292"
+      ],
+      "preserved_distinctions": [
+        "The source fixes a filename PROJECT_SCOPE token to registered Project Name, not the semantic identity Project/Scope Unit."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The checked source does not positively settle whether this slash form is a Scope Unit identity or contextual ownership syntax. Checked captured sources: CA-D-292. Keep this as review work; no candidate path is committed."
+      }
+    },
+    {
+      "identity": "Project/graph dimensions",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Structural ownership, scope inclusion, local order, normative authority and other graph dimensions remain distinct. Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1776:34-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1776"
+      ],
+      "preserved_distinctions": [
+        "Structural ownership, scope inclusion, local order, normative authority and other graph dimensions remain distinct.",
+        "A multi-axis constraint is not a new single native Relation kind.",
+        "Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted."
+      ],
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "operator_rules": [
+        "/relation_type_model",
+        "/entity_vs_syntax_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project/lexicographic selection",
+      "prior_disposition": "question",
+      "confidence_percent": 82,
+      "reason": "The checked Method defines priority-order comparison but does not equate it with the legacy lexicographic selection label.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-M-297:40-40"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-297"
+      ],
+      "preserved_distinctions": [
+        "The checked Method defines priority-order comparison but does not equate it with the legacy lexicographic selection label."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/entity_vs_syntax_rules",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The checked source preserves a selection rule but does not establish an independent Entity or native relation. Checked captured sources: CA-M-297. Keep this as review work; no candidate path is committed."
+      }
+    },
+    {
+      "identity": "Project/minimum model",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Project-scope Requirement authority plus its real Implementation is the minimum Project model. Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1772:36-36"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1772"
+      ],
+      "preserved_distinctions": [
+        "Project-scope Requirement authority plus its real Implementation is the minimum Project model.",
+        "Real Implementation is not an Implementation Atom or a view.",
+        "Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted."
+      ],
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "M",
+      "operator_rules": [
+        "/content_direction",
+        "/m_e_root_question",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project/normative authority graph",
+      "prior_disposition": "retain",
+      "confidence_percent": 98,
+      "reason": "Normative-authority subgraph is an explicit typed acyclic hierarchy. Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-833:30-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-833"
+      ],
+      "preserved_distinctions": [
+        "Normative-authority subgraph is an explicit typed acyclic hierarchy.",
+        "Normative authority is distinct from structural ownership and scope inclusion.",
+        "Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted."
+      ],
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "operator_rules": [
+        "/relation_type_model",
+        "/entity_vs_syntax_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Project/priority model application",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Admissible Operator-established priority model applies to an affected Scope and Project stage. Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1487:33-33"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1487"
+      ],
+      "preserved_distinctions": [
+        "Admissible Operator-established priority model applies to an affected Scope and Project stage.",
+        "Affected Scope applicability is not Atom ownership or structural ancestry.",
+        "Treat this as contextual, value-domain or applicability syntax; no hidden native edge, subtype, or independent Entity is admitted."
+      ],
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Non-authoritative generated view from declared sources, retaining appropriate source traceability through upstream views. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1746:36-42"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1746"
+      ],
+      "preserved_distinctions": [
+        "Non-authoritative generated view from declared sources, retaining appropriate source traceability through upstream views.",
+        "Generated view, authoritative source and native actual-state Implementation are distinct.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection Rebuild",
+      "prior_disposition": "retain",
+      "confidence_percent": 97,
+      "reason": "Actual Projection rebuild has one Work Journal Action terminal outcome; receipt alone is not currentness proof. The actual occurrence maps to Execution and remains distinct from its reusable Operation definition and any Journal record. Git preserves every Atom version; the current Active version and archived history remain distinct.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1649:30-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1649"
+      ],
+      "preserved_distinctions": [
+        "Actual Projection rebuild has one Work Journal Action terminal outcome; receipt alone is not currentness proof.",
+        "Occurrence, Journal evidence and verified currentness remain distinct.",
+        "The actual occurrence maps to Execution and remains distinct from its reusable Operation definition and any Journal record. Git preserves every Atom version; the current Active version and archived history remain distinct."
+      ],
+      "action": "rebase",
+      "candidate_root": "Execution",
+      "candidate_path": "Execution/Projection Rebuild",
+      "content_view": "E",
+      "operator_rules": [
+        "/root_entities/6",
+        "/execution_definition_policy",
+        "/projection_member_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Authority",
+      "prior_disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "A delivered view Projection remains derived and non-authoritative despite its Implementation output contribution. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1568:32-39"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1568"
+      ],
+      "preserved_distinctions": [
+        "A delivered view Projection remains derived and non-authoritative despite its Implementation output contribution.",
+        "Artifact kind, I contribution and source authority remain orthogonal.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Authority",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Carrier",
+      "prior_disposition": "question",
+      "confidence_percent": 78,
+      "reason": "The source constrains Projection Carrier updated_at but does not choose whether this qualified node is a concrete Carrier, binding or representation context.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-310:23-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-310"
+      ],
+      "preserved_distinctions": [
+        "The source constrains Projection Carrier updated_at but does not choose whether this qualified node is a concrete Carrier, binding or representation context."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The checked source identifies a carrier context but does not establish a concrete Carrier ID or binding rule. Checked captured sources: CA-D-310. Keep this as review work; no candidate path is committed."
+      }
+    },
+    {
+      "identity": "Projection/Carrier Root",
+      "prior_disposition": "retain",
+      "confidence_percent": 98,
+      "reason": "Persistent Project view Carrier placement uses the projection directory except the separately governed Applicable Methodology root. Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-550:26-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-550"
+      ],
+      "preserved_distinctions": [
+        "Persistent Project view Carrier placement uses the projection directory except the separately governed Applicable Methodology root.",
+        "Carrier Root is a placement/binding policy, not shared concrete Carrier identity.",
+        "Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Projection Carrier Root)",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Carrier/Updated At",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Serialized latest completed Projection rebuild time in Project time is not proof of currentness. Use the general D storage/field policy. No per-Property Carrier Relation, D Atom, or filename/path identity is introduced.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-310:27-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-310"
+      ],
+      "preserved_distinctions": [
+        "Serialized latest completed Projection rebuild time in Project time is not proof of currentness.",
+        "Physical timestamp value differs from the Projection currentness Property.",
+        "Use the general D storage/field policy. No per-Property Carrier Relation, D Atom, or filename/path identity is introduced."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Updated At",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Type",
+      "prior_disposition": "retain",
+      "confidence_percent": 98,
+      "reason": "Projection Type value domain keeps Catalog, Map and Hub distinct; terminology/diagnostic lists use Catalog without creating a new Type. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1634:33-35"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1634"
+      ],
+      "preserved_distinctions": [
+        "Projection Type value domain keeps Catalog, Map and Hub distinct; terminology/diagnostic lists use Catalog without creating a new Type.",
+        "Type values, their instances and linked Claim authority stay separate.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Type",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Type: Artifact Change Log",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Artifact Change Log is a non-authoritative Journal Projection of recorded Artifact changes. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1467:30-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1467"
+      ],
+      "preserved_distinctions": [
+        "Artifact Change Log is a non-authoritative Journal Projection of recorded Artifact changes.",
+        "Recorded Artifact changes differ from all process executions.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Type: Artifact Change Log",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Type: Atom Subjects Graph",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Atom Subjects Graph Type instances derive from selected current Atom Subjects. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1281:40-40"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1281"
+      ],
+      "preserved_distinctions": [
+        "Atom Subjects Graph Type instances derive from selected current Atom Subjects.",
+        "Subjects graph selection differs from native Entities/Terms model facts.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Type: Atom Subjects Graph",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Type: Catalog",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Catalog is a distinct Projection Type used for terminology lists and vocabulary diagnostic indexes, not Term authority. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1634:33-35"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1634"
+      ],
+      "preserved_distinctions": [
+        "Catalog is a distinct Projection Type used for terminology lists and vocabulary diagnostic indexes, not Term authority.",
+        "Catalog remains distinct from Map/Hub and authoritative Claims.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Type: Catalog",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Type: Entities Graph",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Entities Graph Type instances represent native Entity nodes and Relations admitted for that graph kind. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1438:32-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1438"
+      ],
+      "preserved_distinctions": [
+        "Entities Graph Type instances represent native Entity nodes and Relations admitted for that graph kind.",
+        "Native Entity graph differs from Terms graph and literal Subjects graph.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Type: Entities Graph",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Type: Extended Entities Graph",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Extended Entities Graph composes an Entities Graph view with representations of its source Atoms. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1459:38-38"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1459"
+      ],
+      "preserved_distinctions": [
+        "Extended Entities Graph composes an Entities Graph view with representations of its source Atoms.",
+        "Source Atom representations differ from model Entity nodes.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Type: Extended Entities Graph",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Type: Hub",
+      "prior_disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Hub is explicitly a distinct Projection Type value; individual behavior is not defined by this domain admission. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1634:33-33"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1634"
+      ],
+      "preserved_distinctions": [
+        "Hub is explicitly a distinct Projection Type value; individual behavior is not defined by this domain admission.",
+        "Retain the exact domain value without claiming an implemented Hub instance.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Type: Hub",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Type: Implementation Overview",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Implementation Overview is an internal Projection Type of current realization, coverage and source-to-target bindings. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1638:37-37"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1638"
+      ],
+      "preserved_distinctions": [
+        "Implementation Overview is an internal Projection Type of current realization, coverage and source-to-target bindings.",
+        "Derived overview differs from real native Implementation state and retained history.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Type: Implementation Overview",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Type: Map",
+      "prior_disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Map is explicitly a distinct Projection Type value; specific Map behavior remains unspecified here. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1634:33-33"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1634"
+      ],
+      "preserved_distinctions": [
+        "Map is explicitly a distinct Projection Type value; specific Map behavior remains unspecified here.",
+        "Retain the value without inventing actual Projection instances.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Type: Map",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Type: Process Log",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Process Log is a non-authoritative Journal Projection of recorded Workflow/Step Runs and Action executions. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1468:34-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1468"
+      ],
+      "preserved_distinctions": [
+        "Process Log is a non-authoritative Journal Projection of recorded Workflow/Step Runs and Action executions.",
+        "An execution may appear without an Artifact change; logs are not actual Runs.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Type: Process Log",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Type: Reconciled Projection",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Reconciled Projection preserves selected source content, canonical identities and exact final Revisions without synthesis/merge. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1461:33-33"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1461"
+      ],
+      "preserved_distinctions": [
+        "Reconciled Projection preserves selected source content, canonical identities and exact final Revisions without synthesis/merge.",
+        "Reconciled view differs from source authority and conflict-correction execution.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Type: Reconciled Projection",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Projection/Type: Terms Graph",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Terms Graph Type instances have native Term nodes and Relations admitted for that graph kind. Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1335:32-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1335"
+      ],
+      "preserved_distinctions": [
+        "Terms Graph Type instances have native Term nodes and Relations admitted for that graph kind.",
+        "Terms graph differs from diagnostic Catalog and Entities Graph.",
+        "Keep this as a derived Projection view with source traceability and whole-set rebuild semantics; a rebuild does not invent a source Atom version, and the Projection is not another authority or an independent root."
+      ],
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.Type: Terms Graph",
+      "content_view": "P",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Proof Carrier",
+      "prior_disposition": "retain",
+      "confidence_percent": 94,
+      "reason": "Proof Carrier context requires exact versioned/digest-bound dependency-frontier references; prose handles only additional loss-sensitive invalidation conditions. Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-329:23-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-329"
+      ],
+      "preserved_distinctions": [
+        "Proof Carrier context requires exact versioned/digest-bound dependency-frontier references; prose handles only additional loss-sensitive invalidation conditions.",
+        "Carrier representation stays distinct from evidence authority and referenced sources.",
+        "Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Proof Carrier)",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Proof Carrier/Dependency Frontier",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Machine-readable proof_frontier_refs carries exact versioned or digest-bound dependency references. Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-D-329:27-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-329"
+      ],
+      "preserved_distinctions": [
+        "Machine-readable proof_frontier_refs carries exact versioned or digest-bound dependency references.",
+        "Dependency reference identity/revision differs from represented proof meaning.",
+        "Carrier is a separate root identified by Carrier ID; physical filename and path remain storage locations, not Carrier identity."
+      ],
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Proof Carrier Dependency Frontier)",
+      "content_view": "D",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Property",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Dependent Entity representing one characteristic of its bearer. Generic Entity vocabulary has no selected candidate root or owner/field in the latest candidate. Keep it in review; do not place it under Artifact. Atom remains an Artifact subtype, not a dependent Property.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1193:28-28",
+        "CA-P-1934/batch-6/CA-R-1251:28-28"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1193",
+        "CA-R-1251"
+      ],
+      "preserved_distinctions": [
+        "Dependent Entity representing one characteristic of its bearer.",
+        "Property, its value, bearer and referring Carrier remain separate.",
+        "Generic Entity vocabulary has no selected candidate root or owner/field in the latest candidate. Keep it in review; do not place it under Artifact. Atom remains an Artifact subtype, not a dependent Property."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/dependent_entities",
+        "/entity_identity_model/dependent_entity",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The captured meaning for Property is preserved, but the latest candidate does not select a root or an owner/field expression for this generic Entity vocabulary. Checked captured sources: CA-R-1193, CA-R-1251. Keep this as review work; do not manufacture Artifact ownership or a candidate path."
+      }
+    },
+    {
+      "identity": "Propose Source Corrections",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Reusable Action proposes a gap-free correction to an exact source frontier; proposal does not authorize/apply it. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-006:35-44"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-006"
+      ],
+      "preserved_distinctions": [
+        "Reusable Action proposes a gap-free correction to an exact source frontier; proposal does not authorize/apply it.",
+        "Owning source authority, proposal, successor and archival history stay distinct.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Propose Source Corrections",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "Provenance",
+      "prior_disposition": "question",
+      "confidence_percent": 76,
+      "reason": "captured source says provenance does not silently establish Authority, Applicability or Currentness, but does not define Provenance identity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-R-1502:39-47"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1502"
+      ],
+      "preserved_distinctions": [
+        "captured source says provenance does not silently establish Authority, Applicability or Currentness, but does not define Provenance identity."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/entity_identity_model",
+        "/history_model",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The checked source says provenance does not establish authority, applicability, or currentness, but does not define Provenance identity. Checked captured sources: CA-R-1502. Keep this as review work; no candidate path is committed."
+      }
+    },
+    {
+      "identity": "Publish Reconciled Projection",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Reusable Action publishes a checked Reconciled Projection from the exact final frontier with valid approvals and Delivery authority, without source Claim synthesis. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-009:30-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-009"
+      ],
+      "preserved_distinctions": [
+        "Reusable Action publishes a checked Reconciled Projection from the exact final frontier with valid approvals and Delivery authority, without source Claim synthesis.",
+        "Source authority, generated output and actual completed publication are separate.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Publish Reconciled Projection",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "RMED Atom Review Workflow",
+      "prior_disposition": "retain",
+      "confidence_percent": 99,
+      "reason": "Reusable gather/check/fix RMED review Workflow with result-coverage gates and atom-local profile, not proof of an executed Run. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-104:33-59",
+        "CA-P-1934/batch-6/CA-O-104:78-84"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-104"
+      ],
+      "preserved_distinctions": [
+        "Reusable gather/check/fix RMED review Workflow with result-coverage gates and atom-local profile, not proof of an executed Run.",
+        "Applied fixes differ from a post-fix semantic pass; definition differs from actual Run evidence.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.RMED Atom Review Workflow",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    },
+    {
+      "identity": "RMED Atom Review Workflow/coverage",
+      "prior_disposition": "question",
+      "confidence_percent": 82,
+      "reason": "Sources define three stage-bound Coverage Gate substeps, not the generic coverage prefix as an independent Property or Entity.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-119:24-30",
+        "CA-P-1934/batch-6/CA-O-120:24-30",
+        "CA-P-1934/batch-6/CA-O-121:24-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-119",
+        "CA-O-120",
+        "CA-O-121"
+      ],
+      "preserved_distinctions": [
+        "Sources define three stage-bound Coverage Gate substeps, not the generic coverage prefix as an independent Property or Entity."
+      ],
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "operator_rules": [
+        "/m_e_root_question",
+        "/execution_definition_policy",
+        "/review_backlog/question_policy"
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "The checked sources define stage-bound coverage gates, not an independent coverage Entity or Property. Checked captured sources: CA-O-119, CA-O-120, CA-O-121. Keep this as review work; no candidate path is committed."
+      }
+    },
+    {
+      "identity": "RMED Atom Review Workflow/coverage/Action",
+      "prior_disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Referenced Programmatic Coverage Gate Action compares saved main-Step results with explicit expected work; it checks accounting, not semantic Atom correctness. Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind.",
+      "evidence_refs": [
+        "CA-P-1934/batch-6/CA-O-118:25-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-118"
+      ],
+      "preserved_distinctions": [
+        "Referenced Programmatic Coverage Gate Action compares saved main-Step results with explicit expected work; it checks accounting, not semantic Atom correctness.",
+        "Accounting success differs from semantic correctness and from a recorded invocation.",
+        "Keep the reusable Operation definition distinct from an actual Execution and its record; role-centred views do not add a root or native kind."
+      ],
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.RMED Atom Review Workflow.coverage.Action",
+      "content_view": "O",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy"
+      ],
+      "question": null
+    }
+  ]
+}

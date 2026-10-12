@@ -1,0 +1,22 @@
+{
+  "task": "CA-P-1985",
+  "checks": "PASS: exact IDs, owner/status, Summary preserved, Version+1 and canonical body headings; full packet acceptance remains CA-P-1981",
+  "files": [
+    {
+      "atom_id": "CA-E-301",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/06_evaluation/CA-E-301-ATOM_SEARCH-QA_CASE--verify-search-caprmedio-atom-carriers.md",
+      "before_version": 12,
+      "after_version": 13,
+      "before_sha256": "68e7953a63b2a92a1692074744fef136e8fbdf9849af6bf5989baa5145ecef72",
+      "after_sha256": "ca1538da46464a45076dd755a6647240976cf52d40ea61d99c4e003786f45e46"
+    },
+    {
+      "atom_id": "CA-E-304",
+      "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/06_evaluation/CA-E-304-TOOLS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
+      "before_version": 11,
+      "after_version": 12,
+      "before_sha256": "60be51d610c6e2d6ff94854c70a3db44b515ffe8309b3eb7399275c66e99fcbc",
+      "after_sha256": "595c4ea753df4f4cee070ae53e73b1fc3d9c7df66aa385f6ca8f1f6e2f705df9"
+    }
+  ]
+}

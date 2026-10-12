@@ -1,0 +1,1057 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2133",
+  "successor_task": "CA-P-2143",
+  "report_revision": 2,
+  "supersedes": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2133.research.json",
+    "sha256": "90b13cf54d48ec1f60c21bf778e27ff9f0a794599a37e769612d9ef3cff46445"
+  },
+  "family": "governance_expansion_topics",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2132-2139.contract.md",
+        "sha256": "3ed29d889a2d7905614a0d02c23a75f82fb002ffea51f4dce2714f60865aa6ff"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.core-only-successor-2143.contract.md",
+        "sha256": "9019dada59adeb3f23dd2cc114600bc7fd5e9d72daa49034dd9390d46214d7a0"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/100-CA-P-2133-TASK--review-governance-and-expansion-topic-subjects.md",
+      "sha256": "025a8721efb2f3b2c1fb5df4a7a8a037013ed5c09a4e91255704e2b9dcb09c6a",
+      "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1627-CORE_META_MODEL-REQUIREMENT--requirement-exclude-secrets-from-caprmedio.md",
+        "sha256": "7a4452c2e826101eab3d3e19b9b7d672897606ad6f20850e1d330682749f5194"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+        "sha256": "594a30cc1e597486912beb347ad0a857167b5bbbc428ba06c18ea482b9990ccb"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md",
+        "sha256": "0ae2f08278a54534fa50c76bc773598da83104ca003d4eedeb3364a6f3c3d486"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1669-CORE_META_MODEL-GENERAL--classify-implementation-methods-by-their-claims.md",
+        "sha256": "a4a988041eef39c22aece23978739261e3f543dc94580fec54cbb50712e54f7b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1670-CORE_META_MODEL-GENERAL--restrict-implementation-decisions-to-standard-tier.md",
+        "sha256": "9debaf5de7e6d1e0b40433a2c7af1f9bb081ef73b6d58be69a569e410192cdb4"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1680-CORE_META_MODEL--requirement-bound-recursive-self-hosting.md",
+        "sha256": "c3dbfd40a5eddfbb83545b24d75808972ff10506424dd39a194ddcfd0c18ba77"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL-CORE--admit-implementation-independent-core-rules.md",
+        "sha256": "ed7fdce7978319f7ebf7b05f0eea277cdd5682845ae8000cd6b58902d3a3d68b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+        "sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+        "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1685-CORE_META_MODEL-GENERAL--requirement-keep-product-framing-optional.md",
+        "sha256": "54efd56b966ecfd7b91c769fc1ae8da4ed43c74f3936d806c671096ad99f6dc3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL--requirement-close-every-constitutional-amendment.md",
+        "sha256": "529ce352b55356a046df92d0595f44e764ce40a01f46763781e7bd34a9f2156f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1691-CORE_META_MODEL-REQUIREMENT--requirement-promote-active-backlog-candidates-into-atoms.md",
+        "sha256": "4fc85bd5eb791489fef2e8df76020d75cb851f6d074fc87a8adf565b4844d561"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-meta-model-implementation-neutral.md",
+        "sha256": "5ae38a6a474c8dd7c03370ab09981ee3fb3a427b80e8cc70dd2339326f413c99"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+        "sha256": "9c0f1a9c302767d4ea9fb8d94ef79e62adddfffd47722be468098a4a70c43fdc"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1710-CORE_META_MODEL-CORE-REQUIREMENT--route-priority-and-tier-by-content-role.md",
+        "sha256": "e9938f530a5723c689f8a51dc2a1f6b24540cdcb30be1dd4997d4da2eadc40ed"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1713-CORE_META_MODEL-CORE-REQUIREMENT--keep-confidence-subordinate-to-authority.md",
+        "sha256": "6438447ca285421ba933fa1edca12f975412aa71d332b27846022460d23cab5d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md",
+        "sha256": "6722d656d27277ff69ca6f0515405e728ab8aa279295ad1e5a1421bfab25d661"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1715-CORE_META_MODEL-CORE-REQUIREMENT--preserve-unfinished-operative-work-as-plan.md",
+        "sha256": "0fc3ca21872f618306504bf5c9dd33e97220548deb94171b1ff133f02c05cf90"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1716-CORE_META_MODEL-CORE-REQUIREMENT--allow-proposal-of-prmedo-change-from-active-content-roles.md",
+        "sha256": "3d02899b083ed41f6eba2862245ad157f6eb16202bda5b9e8a19ec83571e5388"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+        "sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed"
+      }
+    ]
+  },
+  "selection": {
+    "family": "governance_expansion_topics",
+    "sources": 20,
+    "occurrences": 20,
+    "occurrence_id_set_sha256": "ff34fe82ef27c7ddc55381c3d684c776eb0f890f4cc01bff732bde222e17f56f",
+    "manifest_sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+  },
+  "supporting_current_definitions": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-155-CORE_META_MODEL-CORE--give-every-non-project-goal-atom-one-local-tier.md",
+      "sha256": "077d3261cc6c0b51920b0948b8173ce9a1ae0cc14c8c99d2cc3e87c7cd48c923",
+      "span_sha256": "75341590dab5595119bb0c90b0809bffb35f403f34360b42011e19ef0677b847",
+      "start_line": 24,
+      "end_line": 34,
+      "reason": "Defines Local Tier as exactly one of Principle, Core, General, or Standard for each non-Project-Goal Atom.",
+      "atom_id": "CA-R-155"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL-CORE--distinguish-implementation-methods-from-implementation-decisions.md",
+      "sha256": "de6436f834b1308666a1deb765eedafb0a24d43d670384ca3dd538cd250bcf45",
+      "span_sha256": "a0ff5cf806cdbeefcbdcb81dc97d2583d39c67c20d47d5ca244cb5a821cb1cf6",
+      "start_line": 19,
+      "end_line": 31,
+      "reason": "Distinguishes Implementation Method policy from an Implementation Decision and from execution Plan or native Implementation.",
+      "atom_id": "CA-R-1767"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1530-CORE_META_MODEL-CORE-REQUIREMENT--define-the-operations-content-role.md",
+      "sha256": "8e6280d4acbbab76d70b936a69803d95d0d6e855845003d1e92e5d71470e328f",
+      "span_sha256": "5c8205d7d4cb4c5c820e35286d9b7d1aebd4fa4fd2c20b14e6b980aae59720ba",
+      "start_line": 23,
+      "end_line": 35,
+      "reason": "Defines Operations as an Atom Content Role whose Claim defines reusable Action, Workflow, Step, or Actor behavior, not an Execution.",
+      "atom_id": "CA-R-1530"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1549-CORE_META_MODEL-CORE-REQUIREMENT--define-change-content-roles.md",
+      "sha256": "621e0721ff32f85f65cedd7f213cb3ee6e81268159b53d6496630b2815f426cd",
+      "span_sha256": "43086d5ff7fdb8d9ae1b11d81533581034cd817ba1dc62058f57b0d2042eed48",
+      "start_line": 23,
+      "end_line": 35,
+      "reason": "Defines Change Content Roles as Atom roles for governed Project work and keeps them distinct from Implementation.",
+      "atom_id": "CA-R-1549"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md",
+      "sha256": "77358bb1255d3e82877764480f0d6667e93ce7f4268572101ce129232a3879aa",
+      "span_sha256": "3d1d7e00724a0ba4d42d41f5318d3739dc68472c31dc3f456a9bc479602fdda9",
+      "start_line": 20,
+      "end_line": 39,
+      "reason": "Defines Governance Origin as an Artifact-owned classification with internal and external values.",
+      "atom_id": "CA-R-1709"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1722-CORE_META_MODEL-CORE--govern-extension-semantics.md",
+      "sha256": "e0ecc47c63b4c11348f6f2623d932d65d0a7dc6379e0fa2cce0ded296fa9b5db",
+      "span_sha256": "67f4584167b039ff8e745c4e0bf2dfc835cff0238bcbed7e4b2d341aee398087",
+      "start_line": 23,
+      "end_line": 37,
+      "reason": "States that an Extension is an independently governed optional capability package but does not establish another Entity classification.",
+      "atom_id": "CA-R-1722"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+      "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+      "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+      "start_line": 20,
+      "end_line": 32,
+      "reason": "Defines Framework Instance Settings as the authoritative Artifact containing explicit Operator-selected framework behavior and configuration choices.",
+      "atom_id": "CA-R-1402"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+      "sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+      "span_sha256": "5933ea48ac61e1d0fc89c573d0e8943ba1c048cd262c51875f7b85f2605e03cd",
+      "start_line": 18,
+      "end_line": 32,
+      "reason": "Defines Structural Parent as the kind-independent structural ownership relation from child to immediate parent, with Project Structure as the declaration authority.",
+      "atom_id": "CA-R-1660"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+      "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+      "span_sha256": "de739737d23e504fb8f410a9edf0043d38b05a42a0f76673e7a8d75acc4c2ba8",
+      "start_line": 22,
+      "end_line": 34,
+      "reason": "Defines Local Tier as the Atom Property of one complete independently replaceable Atom Claim, distinct from Content Role and Type.",
+      "atom_id": "CA-R-1287"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md",
+      "sha256": "6722d656d27277ff69ca6f0515405e728ab8aa279295ad1e5a1421bfab25d661",
+      "span_sha256": "0baad00b4253053f52fddcfd7bb408cdbfc7a779a36f88ad206843692752d095",
+      "start_line": 19,
+      "end_line": 29,
+      "reason": "Defines a Plan as a persisted CAPRMEDIO Artifact, distinct from ephemeral operative session control.",
+      "atom_id": "CA-R-1714"
+    }
+  ],
+  "counts": {
+    "assigned": 20,
+    "covered": 20,
+    "proposed": 9,
+    "unresolved": 11,
+    "current_sources": 20,
+    "current_evidence_spans": 30
+  },
+  "limits": [
+    "This is semantic research only; no source migration, native relation admission, selector, singleton kind, @ syntax, Artifact.Revision target, or source/Tool/Plan change is authorized.",
+    "Each proposal preserves the current owner, role, value domain, scope, and authority qualification in evidence; it does not admit a native Property, Relation, Artifact subtype, or source mutation.",
+    "Topical governance, development-flow, extension, authority, and classification labels remain null where the current body spans multiple owners or roots rather than one candidate Entity."
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1627-CORE_META_MODEL-REQUIREMENT--requirement-exclude-secrets-from-caprmedio.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1627-CORE_META_MODEL-REQUIREMENT--requirement-exclude-secrets-from-caprmedio.md",
+      "source_atom_id": "CA-R-1627",
+      "source_version": 18,
+      "source_sha256": "7a4452c2e826101eab3d3e19b9b7d672897606ad6f20850e1d330682749f5194",
+      "field": "governs",
+      "index": null,
+      "old_value": "external-boundary",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1627-CORE_META_MODEL-REQUIREMENT--requirement-exclude-secrets-from-caprmedio.md",
+          "sha256": "7a4452c2e826101eab3d3e19b9b7d672897606ad6f20850e1d330682749f5194",
+          "span_sha256": "c9aa6dc77220262fc2814f6959259afb9f81c2cd62f46ab8e8b59c32b0f4237d",
+          "start_line": 16,
+          "end_line": 46,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.67,
+      "reason": "The body governs secret-value handling across permitted storage, authorized Tool use, excluded surfaces, durable history, and incident response. External boundary is a topical label spanning secret values, authority, Carriers, and history; no single candidate Entity target preserves these distinct boundaries.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Secret values stay in permitted secret storage.",
+        "Authorized authentication is not disclosure authorization.",
+        "Durable history and replicas remain part of exposure remediation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+      "source_atom_id": "CA-R-1658",
+      "source_version": 17,
+      "source_sha256": "594a30cc1e597486912beb347ad0a857167b5bbbc428ba06c18ea482b9990ccb",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "authority",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+          "sha256": "594a30cc1e597486912beb347ad0a857167b5bbbc428ba06c18ea482b9990ccb",
+          "span_sha256": "13c007eb2372af2b04849227de23d3a15ed936bd68e3b3102d049e62402d4a6a",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-CORE-REQUIREMENT--register-structural-parent-relation.md",
+          "sha256": "5f00f0344054fb15433df0c28b1bd593fc263b3d1783a3e9cf783b480ad05bc1",
+          "span_sha256": "5933ea48ac61e1d0fc89c573d0e8943ba1c048cd262c51875f7b85f2605e03cd",
+          "start_line": 18,
+          "end_line": 32,
+          "reason": "Current CA-R-1660 defines Structural Parent as the kind-independent structural ownership relation from a child to its immediate parent."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Relation.Type:Structural Parent",
+      "confidence": 0.92,
+      "reason": "The current Claim specifically prohibits a skipped stored Structural Parent relation between Scope Units. CA-R-1660 identifies Structural Parent as the kind-independent structural ownership Relation directed from child to immediate parent; the candidate's Relation Type model preserves this canonical type while retaining its Scope Unit endpoints and no-skipped-active-intermediary constraint.",
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model",
+          "reason": "The candidate treats Relation Type and Relation Kind as one graph-qualified concept while retaining each type's permitted endpoint constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The relation is the stored structural-parent relation.",
+        "Both endpoints are Scope Units.",
+        "An active intermediate Scope Unit makes the direct ownership relation prohibited."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "source_atom_id": "CA-R-1664",
+      "source_version": 22,
+      "source_sha256": "0ae2f08278a54534fa50c76bc773598da83104ca003d4eedeb3364a6f3c3d486",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "artifact-catalog",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-REQUIREMENT--register-rationale-as-a-type-value-for-analysis-atoms.md",
+          "sha256": "0ae2f08278a54534fa50c76bc773598da83104ca003d4eedeb3364a6f3c3d486",
+          "span_sha256": "adb0e7a886b304614b649f5acd2541ec13d28e899e9830800dc930a17a93acee",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Atom.Type:Rationale",
+      "confidence": 0.94,
+      "reason": "The current Scope and Claim explicitly register Rationale as one internal Type value for an Atom whose Content Role is Analysis. Atom is the actual bearer, Type is its dependent Property, and Rationale is the source-defined allowed value; no Artifact-level Type or new Rationale Entity is inferred.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "Atom is a confirmed narrower Entity of Artifact with named dependent Entities."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms a Property as a dependent Entity node connected to its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The owner remains an Atom.",
+        "Rationale is limited to the Analysis Content Role context.",
+        "The Atom owns exactly one explanatory conclusion without establishing or modifying normative specification."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1669-CORE_META_MODEL-GENERAL--classify-implementation-methods-by-their-claims.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1669-CORE_META_MODEL-GENERAL--classify-implementation-methods-by-their-claims.md",
+      "source_atom_id": "CA-R-1669",
+      "source_version": 18,
+      "source_sha256": "a4a988041eef39c22aece23978739261e3f543dc94580fec54cbb50712e54f7b",
+      "field": "governs",
+      "index": null,
+      "old_value": "applicability",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1669-CORE_META_MODEL-GENERAL--classify-implementation-methods-by-their-claims.md",
+          "sha256": "a4a988041eef39c22aece23978739261e3f543dc94580fec54cbb50712e54f7b",
+          "span_sha256": "c97a3ff33c330592a68c88dda8609a71752e129ff67fe4f6e87bec446abe04e4",
+          "start_line": 23,
+          "end_line": 30,
+          "reason": "Complete current owning Main Content, including Scope, Claim, and Details, was read for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL-CORE--distinguish-implementation-methods-from-implementation-decisions.md",
+          "sha256": "de6436f834b1308666a1deb765eedafb0a24d43d670384ca3dd538cd250bcf45",
+          "span_sha256": "4af1e8d6c012f39e07e6e16c73f16834e536f495b39cc3b2bb12e609bd58633c",
+          "start_line": 23,
+          "end_line": 30,
+          "reason": "Current CA-R-1767 distinguishes Implementation Method reusable policy from an Implementation Decision and excludes both from execution Plan or native Implementation."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1287-CORE_META_MODEL-CORE-REQUIREMENT--define-local-tier-as-an-atom-property.md",
+          "sha256": "56ecd1da85e96be7d61ffcdfa6b8044e3ae86fae568603aa30385293e741e762",
+          "span_sha256": "377a6c41788e4521285993d524117a4ac178d6b1cfa7f36541936cb68e984bb5",
+          "start_line": 26,
+          "end_line": 32,
+          "reason": "Current CA-R-1287 defines Local Tier as an Atom Property of one complete independently replaceable Atom Claim."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier",
+      "confidence": 0.93,
+      "reason": "The current Claim makes Local Tier a classification of the qualified Implementation Method's complete Claim. The supporting definition distinguishes an Implementation Method from an Implementation Decision and confirms it is not an Execution, while the Local Tier definition assigns the Property to Atom; the method qualification remains current-source evidence.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "Atom is a confirmed narrower Entity of Artifact."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms a Property as a dependent Entity node connected to its owning Entity."
+        },
+        {
+          "pointer": "/m_e_root_question",
+          "reason": "Method and Evaluation are role-centred views over shared roots rather than additional roots."
+        }
+      ],
+      "preserved_distinctions": [
+        "The bearer is the qualified Implementation Method Atom, not an Execution or Implementation Decision.",
+        "Classification uses the complete Claim and applicable Local Tier definitions.",
+        "Reuse alone neither forces Core nor excludes a reusable Standard procedure."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1670-CORE_META_MODEL-GENERAL--restrict-implementation-decisions-to-standard-tier.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1670-CORE_META_MODEL-GENERAL--restrict-implementation-decisions-to-standard-tier.md",
+      "source_atom_id": "CA-R-1670",
+      "source_version": 18,
+      "source_sha256": "9debaf5de7e6d1e0b40433a2c7af1f9bb081ef73b6d58be69a569e410192cdb4",
+      "field": "governs",
+      "index": null,
+      "old_value": "applicability",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1670-CORE_META_MODEL-GENERAL--restrict-implementation-decisions-to-standard-tier.md",
+          "sha256": "9debaf5de7e6d1e0b40433a2c7af1f9bb081ef73b6d58be69a569e410192cdb4",
+          "span_sha256": "76278b1ff899d4f128ceaab6e7bbc59e2fa6188f71b52290698426905bb8ef22",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.74,
+      "reason": "The body limits an implementation_decision Atom to the Standard applicability tier of its Structural scope, but it does not identify that applicability tier as the Atom.Local Tier Property or as a Scope Unit Property. Mapping to Atom.Local Tier:Standard would guess the owner and collapse the distinct Structural-scope qualification.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The subject is an implementation_decision Atom.",
+        "Admission is only at the Standard applicability tier of its Structural scope.",
+        "Implementation Decision remains distinct from Implementation Method, execution Plan, and native Implementation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1680-CORE_META_MODEL--requirement-bound-recursive-self-hosting.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1680-CORE_META_MODEL--requirement-bound-recursive-self-hosting.md",
+      "source_atom_id": "CA-R-1680",
+      "source_version": 19,
+      "source_sha256": "c3dbfd40a5eddfbb83545b24d75808972ff10506424dd39a194ddcfd0c18ba77",
+      "field": "governs",
+      "index": null,
+      "old_value": "framework-boundary",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1680-CORE_META_MODEL--requirement-bound-recursive-self-hosting.md",
+          "sha256": "c3dbfd40a5eddfbb83545b24d75808972ff10506424dd39a194ddcfd0c18ba77",
+          "span_sha256": "b261fcdd1cf917ebf69d93dc0fa9924b124924a27b0efad337077a8f43a3253f",
+          "start_line": 21,
+          "end_line": 35,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.68,
+      "reason": "The body separates native reusable framework source, project authority, and non-authoritative convenience locators while recursively self-hosting. Framework boundary is a topic spanning several owners; it does not identify one Artifact, Scope Unit, Carrier, or Relation target.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "CAPRMEDIO self-hosts under the same constitution and governance semantics.",
+        "Project-local authority governs the selected framework revision.",
+        "Convenience locators create neither copied authority nor an additional governance owner or live authority cycle."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL-CORE--admit-implementation-independent-core-rules.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL-CORE--admit-implementation-independent-core-rules.md",
+      "source_atom_id": "CA-R-1681",
+      "source_version": 22,
+      "source_sha256": "ed7fdce7978319f7ebf7b05f0eea277cdd5682845ae8000cd6b58902d3a3d68b",
+      "field": "governs",
+      "index": null,
+      "old_value": "authority",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1681-CORE_META_MODEL-CORE--admit-implementation-independent-core-rules.md",
+          "sha256": "ed7fdce7978319f7ebf7b05f0eea277cdd5682845ae8000cd6b58902d3a3d68b",
+          "span_sha256": "38c5ebf6daa1c33a17432f2883d7a6aadae8465626bae8b3671aa5d188d95150",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.65,
+      "reason": "The body governs the placement boundary for reusable methodology authority and forbids hidden implementation prerequisites in unrelated Claims. Authority is a cross-cutting rule over Claims, Core placement, implementation choices, and explicitly governed Entities, not one current candidate Entity or Property owner.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Only reusable implementation-independent model rules belong in CORE_META_MODEL.",
+        "Mechanism names are permitted only when that mechanism is the explicit Entity governed by the Claim.",
+        "Project-specific implementation choices cannot become reusable methodology authority."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+      "source_atom_id": "CA-R-1682",
+      "source_version": 23,
+      "source_sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+      "field": "governs",
+      "index": null,
+      "old_value": "authority",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL-CORE--normative-atoms-are-the-caprmedio-specification.md",
+          "sha256": "09c755053e3394dd39922835ff4480ae7869235f354e69a788b3f8073d76aa2f",
+          "span_sha256": "9fd4932de9ab6633d10cd9537a6238fc6d0f7195feee3a90eb3593d13525f167",
+          "start_line": 24,
+          "end_line": 36,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Atom",
+      "confidence": 0.94,
+      "reason": "The current Claim expressly identifies applicable Active Requirement, Method, Evaluation, and Delivery Atoms as the collective normative Spec. Atom is the explicit governed unit; the four Content Roles, Active status, governance loci, and distinction from Change content, realization, and execution evidence remain preserved qualifications.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "Atom is a confirmed narrower Entity of Artifact."
+        },
+        {
+          "pointer": "/content_direction",
+          "reason": "The candidate retains role-centred content direction instead of introducing independent Method or Evaluation roots."
+        }
+      ],
+      "preserved_distinctions": [
+        "Only applicable Active Requirement, Method, Evaluation, and Delivery Atoms form the normative Spec.",
+        "Change content, actual realizations, and execution evidence remain distinct.",
+        "The Atom mapping does not make all implementation or Journal evidence normative authority."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "source_atom_id": "CA-R-1683",
+      "source_version": 24,
+      "source_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "field": "governs",
+      "index": null,
+      "old_value": "authority",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "start_line": 28,
+          "end_line": 40,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.71,
+      "reason": "The body explicitly separates RMED Spec authority, CAPO Change content, concrete Implementation, actual Execution and Journal Records, and Verification judgments. Its meaning is the boundary among multiple roots and roles; selecting one Atom, Execution, Journal, Actor, or Relation target would discard the stated distinctions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "RMED Spec authority remains distinct from CAPO Change content and concrete Implementation.",
+        "Actual executions and their Journal Records carry facts, state changes, and evidence.",
+        "Evaluation, evidence, dashboards, and Verification do not establish or override semantic authority."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1685-CORE_META_MODEL-GENERAL--requirement-keep-product-framing-optional.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1685-CORE_META_MODEL-GENERAL--requirement-keep-product-framing-optional.md",
+      "source_atom_id": "CA-R-1685",
+      "source_version": 19,
+      "source_sha256": "54efd56b966ecfd7b91c769fc1ae8da4ed43c74f3936d806c671096ad99f6dc3",
+      "field": "governs",
+      "index": null,
+      "old_value": "development-flow",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1685-CORE_META_MODEL-GENERAL--requirement-keep-product-framing-optional.md",
+          "sha256": "54efd56b966ecfd7b91c769fc1ae8da4ed43c74f3936d806c671096ad99f6dc3",
+          "span_sha256": "2623859e69024c6494a59e0928edc2547fae4e202171bf096a4bfec64dcaa663",
+          "start_line": 19,
+          "end_line": 37,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.68,
+      "reason": "The body distinguishes optional User Story and Outcome framing from Requirements, reusable Operations definitions, and factual observations carried or referenced by a Journal Record. Development flow is not itself one Entity, and no single target preserves the framing/observation/authority boundary.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "User Stories and intended Outcomes are optional framing constructs.",
+        "Measured or reported outcomes are factual observations connected to Journal Records.",
+        "Framing may link governed artifacts but cannot replace their authority."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL--requirement-close-every-constitutional-amendment.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL--requirement-close-every-constitutional-amendment.md",
+      "source_atom_id": "CA-R-1689",
+      "source_version": 23,
+      "source_sha256": "529ce352b55356a046df92d0595f44e764ce40a01f46763781e7bd34a9f2156f",
+      "field": "governs",
+      "index": null,
+      "old_value": "authority",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL--requirement-close-every-constitutional-amendment.md",
+          "sha256": "529ce352b55356a046df92d0595f44e764ce40a01f46763781e7bd34a9f2156f",
+          "span_sha256": "7e96b103b1123e479eba8efb407d142c2371f029bc74225c584fb42e4da63855",
+          "start_line": 17,
+          "end_line": 43,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.74,
+      "reason": "The body specifies a closed constitutional-amendment sequence spanning accepted Atom or Atom Revision, archived predecessors, descendant impact, Projections, Carrier and Journal history, and a resulting authority fixed point. Authority is an aggregate process boundary; Revision alone would omit required lifecycle and downstream qualifications.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "An amendment has nine ordered closure steps.",
+        "An accepted Atom or Atom Revision and fully replaced predecessor archival are required.",
+        "Carrier and Journal history preserve authority revision while lineage and Projection refresh remain separate obligations."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1691-CORE_META_MODEL-REQUIREMENT--requirement-promote-active-backlog-candidates-into-atoms.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1691-CORE_META_MODEL-REQUIREMENT--requirement-promote-active-backlog-candidates-into-atoms.md",
+      "source_atom_id": "CA-R-1691",
+      "source_version": 21,
+      "source_sha256": "4fc85bd5eb791489fef2e8df76020d75cb851f6d074fc87a8adf565b4844d561",
+      "field": "governs",
+      "index": null,
+      "old_value": "development-flow",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1691-CORE_META_MODEL-REQUIREMENT--requirement-promote-active-backlog-candidates-into-atoms.md",
+          "sha256": "4fc85bd5eb791489fef2e8df76020d75cb851f6d074fc87a8adf565b4844d561",
+          "span_sha256": "680bc46cbf5158a959b77ad86744d82d776496d48573dc2a1825303d55180d2e",
+          "start_line": 20,
+          "end_line": 38,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.73,
+      "reason": "The body distinguishes a non-authoritative Development Backlog candidate from the selected bounded Task Atom and later RMEDO Atoms. Mapping development flow to generic Atom would erase the candidate-to-Task transition and named atomicity boundaries; no selected grammar expresses that conditional transition.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "A backlog candidate is not governed truth.",
+        "Active work begins only through one bounded Task Atom.",
+        "Execution materializes only the required RMEDO Atoms and the backlog remains non-authoritative until release finalization."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-meta-model-implementation-neutral.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-meta-model-implementation-neutral.md",
+      "source_atom_id": "CA-R-1696",
+      "source_version": 24,
+      "source_sha256": "5ae38a6a474c8dd7c03370ab09981ee3fb3a427b80e8cc70dd2339326f413c99",
+      "field": "governs",
+      "index": null,
+      "old_value": "principles",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1696-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-meta-model-implementation-neutral.md",
+          "sha256": "5ae38a6a474c8dd7c03370ab09981ee3fb3a427b80e8cc70dd2339326f413c99",
+          "span_sha256": "3d6ae37a70acb51cad122eca1737301a6539a1e0d4c61937c742ff49df52924d",
+          "start_line": 20,
+          "end_line": 36,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.69,
+      "reason": "The body governs CORE_META_MODEL implementation-neutral invariants and expansion boundaries across replaceable mechanisms, bounded owner scopes, and explicit mechanism Claims. Principles is an abstract governance topic; no one candidate root preserves those cross-owner conditions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Reusable invariants have no hidden dependence on replaceable implementation mechanisms.",
+        "A mechanism belongs to the Scope that owns it.",
+        "Extensions and Project Configuration may expand bounded use without rewriting governing Claims."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+      "source_atom_id": "CA-R-1701",
+      "source_version": 20,
+      "source_sha256": "9c0f1a9c302767d4ea9fb8d94ef79e62adddfffd47722be468098a4a70c43fdc",
+      "field": "governs",
+      "index": null,
+      "old_value": "classification",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1701-CORE_META_MODEL-CORE-REQUIREMENT--keep-classification-axes-distinct-without-multiplying-types.md",
+          "sha256": "9c0f1a9c302767d4ea9fb8d94ef79e62adddfffd47722be468098a4a70c43fdc",
+          "span_sha256": "c216535ec80c76198fc6b8d6309f8c8bbc39358d9344f1d023b55086bcdd8882",
+          "start_line": 22,
+          "end_line": 34,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.7,
+      "reason": "The body requires Artifact Type, Atom Content Role, and Governance Origin to remain three distinct axes. Classification is the grouping of all three, not one actual owner or Property; choosing Artifact.Type would lose the Atom-only role and independent Governance Origin axes.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Artifact Type, Atom Content Role, and Governance Origin remain distinct.",
+        "The Content Role axis applies only to Atoms.",
+        "No Artifact or new Type is required for every axis combination."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1710-CORE_META_MODEL-CORE-REQUIREMENT--route-priority-and-tier-by-content-role.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1710-CORE_META_MODEL-CORE-REQUIREMENT--route-priority-and-tier-by-content-role.md",
+      "source_atom_id": "CA-R-1710",
+      "source_version": 18,
+      "source_sha256": "e9938f530a5723c689f8a51dc2a1f6b24540cdcb30be1dd4997d4da2eadc40ed",
+      "field": "governs",
+      "index": null,
+      "old_value": "authority",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1710-CORE_META_MODEL-CORE-REQUIREMENT--route-priority-and-tier-by-content-role.md",
+          "sha256": "e9938f530a5723c689f8a51dc2a1f6b24540cdcb30be1dd4997d4da2eadc40ed",
+          "span_sha256": "228a78fcfed25cacbb3ab4246517717a5a53457d404429d477864bb08c0f7f47",
+          "start_line": 17,
+          "end_line": 29,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Atom.Local Tier",
+      "confidence": 0.96,
+      "reason": "The current Scope and Claim explicitly identify Atom Local Tier as one coordinate, with exactly-one cardinality independent of Content Role. Atom is the named bearer and Local Tier is its dependent Property; Concern priority and Plan blocking remain distinct and are not remapped as tiers.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "Atom is a confirmed narrower Entity of Artifact."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms a Property as a dependent Entity node connected to its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Every Atom's Local Tier is independent of Content Role.",
+        "Concern priority and Plan Work Sequence Number do not become Local Tier.",
+        "The current Local Tier cardinality rule remains source-governed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1713-CORE_META_MODEL-CORE-REQUIREMENT--keep-confidence-subordinate-to-authority.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1713-CORE_META_MODEL-CORE-REQUIREMENT--keep-confidence-subordinate-to-authority.md",
+      "source_atom_id": "CA-R-1713",
+      "source_version": 15,
+      "source_sha256": "6438447ca285421ba933fa1edca12f975412aa71d332b27846022460d23cab5d",
+      "field": "governs",
+      "index": null,
+      "old_value": "authority",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1713-CORE_META_MODEL-CORE-REQUIREMENT--keep-confidence-subordinate-to-authority.md",
+          "sha256": "6438447ca285421ba933fa1edca12f975412aa71d332b27846022460d23cab5d",
+          "span_sha256": "d4bbf4bb060b647b282079c866d60a37484d5342e4a5314cfa016dc1d53a9b82",
+          "start_line": 17,
+          "end_line": 29,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Actor.Type:Operator",
+      "confidence": 0.94,
+      "reason": "The current Claim identifies Operator authority as the authority that Execution confidence cannot create, extend, or replace. The candidate confirms Actor as the work-performing root and explicitly lists Operator as an Actor Type; this preserves a generic operator role, not a specific performer.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor is the confirmed root Entity for who performs work."
+        },
+        {
+          "pointer": "/entity_identity_model/actor/type_examples/1",
+          "reason": "Operator is an explicit confirmed Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains a generic Actor Type rather than a named individual.",
+        "Execution confidence remains distinct from authority and does not create, extend, or replace it.",
+        "No Execution-to-Actor relation is admitted by this proposal."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md",
+      "source_atom_id": "CA-R-1714",
+      "source_version": 16,
+      "source_sha256": "6722d656d27277ff69ca6f0515405e728ab8aa279295ad1e5a1421bfab25d661",
+      "field": "governs",
+      "index": null,
+      "old_value": "development-flow",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md",
+          "sha256": "6722d656d27277ff69ca6f0515405e728ab8aa279295ad1e5a1421bfab25d661",
+          "span_sha256": "e8f832af48e2598ed62c9d91f2c7ff56522035b3ab544f7c035bb74bade3b8d1",
+          "start_line": 17,
+          "end_line": 29,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.91,
+      "reason": "The current Claim explicitly distinguishes an ephemeral operative plan from a persisted CAPRMEDIO Plan artifact created only by governed entry criteria. Artifact is the candidate lifecycle root for a persisted governed unit; the Plan and entry-criteria qualifications remain in the current source.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Artifact is the confirmed root Entity for one governed lifecycle unit."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/2",
+          "reason": "The candidate prevents contextual grouping from automatically becoming another Entity root."
+        }
+      ],
+      "preserved_distinctions": [
+        "An operative plan remains ephemeral session control.",
+        "A Plan remains a persisted CAPRMEDIO Artifact.",
+        "Governed entry criteria remain required for the Plan Artifact."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1715-CORE_META_MODEL-CORE-REQUIREMENT--preserve-unfinished-operative-work-as-plan.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1715-CORE_META_MODEL-CORE-REQUIREMENT--preserve-unfinished-operative-work-as-plan.md",
+      "source_atom_id": "CA-R-1715",
+      "source_version": 16,
+      "source_sha256": "0fc3ca21872f618306504bf5c9dd33e97220548deb94171b1ff133f02c05cf90",
+      "field": "governs",
+      "index": null,
+      "old_value": "development-flow",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1715-CORE_META_MODEL-CORE-REQUIREMENT--preserve-unfinished-operative-work-as-plan.md",
+          "sha256": "0fc3ca21872f618306504bf5c9dd33e97220548deb94171b1ff133f02c05cf90",
+          "span_sha256": "95e9e4f3ee1dcb0d9134357d62551908f518452271d7b55d536580c553260168",
+          "start_line": 17,
+          "end_line": 29,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1714-CORE_META_MODEL-CORE-REQUIREMENT--distinguish-operative-plans-from-plan-artifacts.md",
+          "sha256": "6722d656d27277ff69ca6f0515405e728ab8aa279295ad1e5a1421bfab25d661",
+          "span_sha256": "0baad00b4253053f52fddcfd7bb408cdbfc7a779a36f88ad206843692752d095",
+          "start_line": 19,
+          "end_line": 29,
+          "reason": "Current CA-R-1714 defines a Plan as a persisted CAPRMEDIO Artifact, distinct from ephemeral operative session control."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.91,
+      "reason": "The current Claim requires still-valid unfinished operative actions to be reconciled into the applicable governed Plan. The supporting current Plan definition identifies a Plan as a persisted CAPRMEDIO artifact, so Artifact retains the governed persisted target while the reconciliation triggers remain source-local.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Artifact is the confirmed root Entity for one governed lifecycle unit."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/2",
+          "reason": "The candidate prevents contextual grouping from automatically becoming another Entity root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Only still-valid unfinished operative actions are in scope.",
+        "Deferral, blocking, topic change, compaction, session end, and partial completion remain source conditions.",
+        "The destination remains the applicable governed Plan, not ephemeral session control."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1716-CORE_META_MODEL-CORE-REQUIREMENT--allow-proposal-of-prmedo-change-from-active-content-roles.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1716-CORE_META_MODEL-CORE-REQUIREMENT--allow-proposal-of-prmedo-change-from-active-content-roles.md",
+      "source_atom_id": "CA-R-1716",
+      "source_version": 17,
+      "source_sha256": "3d02899b083ed41f6eba2862245ad157f6eb16202bda5b9e8a19ec83571e5388",
+      "field": "governs",
+      "index": null,
+      "old_value": "development-flow",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1716-CORE_META_MODEL-CORE-REQUIREMENT--allow-proposal-of-prmedo-change-from-active-content-roles.md",
+          "sha256": "3d02899b083ed41f6eba2862245ad157f6eb16202bda5b9e8a19ec83571e5388",
+          "span_sha256": "65d2fd23d64bc094e14cca6fcda219236b5760b435be433a3a196194d1fb2923",
+          "start_line": 17,
+          "end_line": 29,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Actor.Type:Operator",
+      "confidence": 0.94,
+      "reason": "The current Claim allows several content roles and native Implementation to propose a PRMEDO authority change but reserves establishment to Operator-approved authority. Operator is the explicit generic authority actor and the candidate confirms Operator as an Actor Type; proposer roles and approval boundary remain source qualifications.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor is the confirmed root Entity for who performs work."
+        },
+        {
+          "pointer": "/entity_identity_model/actor/type_examples/1",
+          "reason": "Operator is an explicit confirmed Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Concern, Analysis, Task, and native Implementation may only propose.",
+        "Only Operator-approved PRMEDO authority may establish the change.",
+        "No individual Actor identity or new approval Relation is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+      "source_atom_id": "CA-R-1733",
+      "source_version": 17,
+      "source_sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+      "field": "governs",
+      "index": null,
+      "old_value": "extension-model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+          "sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+          "span_sha256": "07e64aa437f20784d61a689841687ea415df8df519d533677b572d93c36790e4",
+          "start_line": 21,
+          "end_line": 35,
+          "reason": "Complete current owning Main Content, including Scope and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The body distinguishes an Extension capability package, its separate binding Atom and typed relations to Scope Units, and Framework Instance Settings ownership of current activation and selected revision. Extension model is not one candidate Entity; mapping it to Artifact or Framework Instance Settings would erase the independent package/binding/current-selection boundaries.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Extension Governance Origin is internal or external relative to the current project.",
+        "Extension application is a separate binding Atom with typed relations to Extension and Scope Units.",
+        "Framework Instance Settings owns current activation and selected Extension revision."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2001",
+  "recorded_at": "2026-10-11 02:22:57 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-010.review.json",
+    "sha256": "f2c3de5d3811e000dca97e6d74f1529bc7a016231e6b9287ac3a873e53359b97"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-010.json",
+    "sha256": "37d4e8ba46a98fe92036a568b4b26747d4cc79ceef1c2e6e4a04b19f07ee8760"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 19,
+    "occurrences": 112,
+    "proposed": 7,
+    "unchanged": 42,
+    "unresolved": 63,
+    "meaning_review": "Root and an independent read-only reviewer checked all seven proposals against current bodies. Display-only Artifact prefixes were withdrawn; Summary, historical Revision, current Atom Version Number and Journal Record retain their distinct meaning.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "63 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}

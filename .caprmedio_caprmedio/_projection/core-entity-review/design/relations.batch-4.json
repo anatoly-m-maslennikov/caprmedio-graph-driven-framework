@@ -1,0 +1,650 @@
+{
+  "source_task": "CA-P-1916",
+  "batch_number": 4,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "source_binding": {
+    "selection_sha256": "f72964ad096a671d0c36cc0cf6649cf2cf131110edb57446fb523dc5feedb840",
+    "source_collection_sha256": "5ebcf48d24841b65ba46ffdd113e964fe10a53da80a40db32cefedc484ae7d3d",
+    "source_frontier_sha256": "7792e842cfe6c66320745660e69cd0df5525ec18bb22b5c060a6ddfff5fc97f7"
+  },
+  "partition_sha256": "2ef26d8979e196b4d120a5b5c18e8f32032fb8eb5a03a8f445fa77a05f9977af",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "semantic_admission": "not_performed",
+  "cases": [
+    {
+      "case_id": "slash:0595cc33ff7999d4603bf9793b75ad2b1553091de185a9b2ea1fc2aec66e9d53",
+      "old_parent": "Projection",
+      "old_child": "Projection/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 91,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "general qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-310",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL--serialize-projection-updated-at.md",
+          "carrier_sha256": "40a88c75afa5bcdad37a417c7dbc12a392b5afc7b38d6f44c35acf23bd884d70",
+          "start_line": 25,
+          "end_line": 27,
+          "quote": "## Claim\n\n**every** Projection Carrier **must** serialize the time of its latest completed rebuild as `updated_at` **in** Project time **without** treating that value alone as proof of currentness.\n",
+          "text_sha256": "35ea0f504b97e0fa3bb1e235dc4e124aeb063a73331977fa4ca0817bc98b12bc"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-310-Claim-read",
+        "no-carrier-spelling-or-incidence-inference",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-310's current Claim qualifies a Projection Carrier only while requiring updated_at serialization; it does not establish an immediate canonical bearer identity.",
+      "question": null
+    },
+    {
+      "case_id": "slash:2d70ce321baafc82a6785b4a0daa8e1dccac595f1705c98ecc79e8312f2d711a",
+      "old_parent": "Carrier",
+      "old_child": "Carrier/Ownership Class",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "general qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-316",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-316-CORE_META_MODEL-GENERAL--classify-carriers-by-ownership.md",
+          "carrier_sha256": "8df0a6f78eac1e3fa92bde5f9c0800b360fbf937d43ceba5daf2033471522be7",
+          "start_line": 25,
+          "end_line": 27,
+          "quote": "## Claim\n\n**every** internal CAPRMEDIO Carrier **must** have **`=1`** Ownership Class **in** (Framework-Owned, Project-Owned, Runtime State).\n",
+          "text_sha256": "f7f97f213c60794823d9f8b0b9461c90e9b8aa4768f75698ff2afcabcce2cd36"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-316-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-316 makes Ownership Class a required Carrier qualification, not a proved native relation fact.",
+      "question": null
+    },
+    {
+      "case_id": "slash:46f6d4f6cba093e3d556721d783bb7ddc352c604a7dbd8355dc3f5d7c1cbe98c",
+      "old_parent": "Journal",
+      "old_child": "Journal/Carrier Root",
+      "disposition": "not-native",
+      "confidence_percent": 92,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "context qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-549",
+          "atom_revision": 2,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-549-CORE_META_MODEL--centralize-project-journal-carriers.md",
+          "carrier_sha256": "27fc7b533f6ad42b288d5d39d7c19ccef96591b32098ec50188dbb6d8e0a3ea4",
+          "start_line": 24,
+          "end_line": 26,
+          "quote": "## Claim\n\n**all** persistent project-control Journal File Carriers of a Project **must** reside under **`=1`** Directory Carrier: `.caprmedio_<project_name>/_journal/`.\n",
+          "text_sha256": "51b8aa0cb357f244e6a4b425662d4046b52626ffbbbc786991caa95039c002fb"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-549-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-549 fixes a storage location for Journal File Carriers; it does not admit a Journal-to-Carrier Root native edge.",
+      "question": null
+    },
+    {
+      "case_id": "slash:59bb2d8626726ce88c1473be217970ae8a11125bb1e181fd3b43235e92929059",
+      "old_parent": "Relation Kind",
+      "old_child": "Relation Kind/registry compilation",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-M-120",
+          "atom_revision": 14,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "carrier_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 43,
+          "end_line": 45,
+          "quote": "## Claim\n\n**to** compile the direct-relation registry, the Generator **must** perform **all** of:\n",
+          "text_sha256": "367411c976dba58674a84be80d8b7b634fa0f78eded3d77e848c9f510b52151b"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-M-120-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "The current Claim describes a Generator procedure, not an identified parent/child semantic relation.",
+      "question": "Should registry compilation be retained only as a display/process qualifier, and if so what approved display semantics apply?"
+    },
+    {
+      "case_id": "slash:5a1b5e4e3f531b83e67d90dd46ddbd00ed136f3a5a80c0b529dbf7b1ac577020",
+      "old_parent": "Projection",
+      "old_child": "Projection/Carrier Root",
+      "disposition": "not-native",
+      "confidence_percent": 92,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "context qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-550",
+          "atom_revision": 3,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+          "carrier_sha256": "01d0405599edffe5e7db9a3be01844cd78f814e149662b2d315c4e49d394dc1d",
+          "start_line": 24,
+          "end_line": 26,
+          "quote": "## Claim\n\n**all** persistent view Projection Carriers of a Project **must** reside under **`=1`** Directory Carrier: `.caprmedio_<project_name>/_projection/`, **except** Applicable Methodology, whose Carrier Root **must** remain `.caprmedio_<project_name>/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/`.\n",
+          "text_sha256": "30b842f4a44862f0f7c64d7a4b56e881650c412d44bbc0da3e4164122a914996"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-550-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-550 prescribes projection-carrier placement, without proving a native Projection-to-Carrier Root identity relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:5f58d1c7e010fca125ae0d81b4225d76eb5a99439ee7d3fe68e602edae0d3b67",
+      "old_parent": "Action",
+      "old_child": "Action/Execution Kind",
+      "disposition": "not-native",
+      "confidence_percent": 91,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "general qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-E-495",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-QA_CASE--validate-action-kinds-and-step-contexts.md",
+          "carrier_sha256": "4c986410371e9625333364147ca0dfec120378ec5d61c525cc69e99be53512f5",
+          "start_line": 32,
+          "end_line": 34,
+          "quote": "## Claim\n\nthe Evaluation **must** check that Action Execution Kind **and** Agentic Step Execution Context remain distinct **and** support reuse **without** duplicate definitions.\n",
+          "text_sha256": "dbaabe65d266655b9d7ac24eba5e64830040233bbceb8b29613fea432ec2ae5a"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-E-495-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "The current Claim distinguishes Execution Kind context from Agentic Step context, but does not establish an immediate native relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:6d1ee66790fc8f27997ed33fbfafb25d799d45d19e3f8e93bb72ad18840d71e1",
+      "old_parent": "Projection",
+      "old_child": "Projection/Revision",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1495",
+          "atom_revision": 6,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1495-CORE_META_MODEL-REQUIREMENT--projections-have-updated-at.md",
+          "carrier_sha256": "618aae585e94d1da5b50a04a1e315c5f5b29678747f760560d12167cc2132ff3",
+          "start_line": 29,
+          "end_line": 31,
+          "quote": "## Claim\n\n**every** Projection has **`=1`** unambiguous Updated At date-time identifying its latest completed rebuild.\n",
+          "text_sha256": "dad5d32f24c3242325c503efc4850b5c5c40ba480b8de0d9479469e69dc11e16"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-R-1495-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "CA-R-1495 establishes Updated At, not a Projection/Revision relation.",
+      "question": "Which current Core Claim, if any, proves the intended Projection-to-Revision relation and its canonical kind?"
+    },
+    {
+      "case_id": "slash:8edb23cd73b7c5f4ce3b9ec18b1d2670856db9491a2ae79abf4c56f7b6d0bb09",
+      "old_parent": "Projection",
+      "old_child": "Projection/Authority",
+      "disposition": "not-native",
+      "confidence_percent": 98,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1568",
+          "atom_revision": 6,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL-GENERAL--permit-projections-as-implementation-outputs.md",
+          "carrier_sha256": "91c4576fa27eb3fbec01af55767468bff2de5e91f7f006a9c4cff067ed6fc699",
+          "start_line": 30,
+          "end_line": 32,
+          "quote": "## Claim\n\na view Projection **may** be delivered as an Implementation output of its governing RMED **without** becoming an Atom **or** another source of truth for the facts it represents.\n",
+          "text_sha256": "5929f8177bbda60895dba0d79785c2f062c912721ca55ce80dfe4e38aa8bd57e"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-R-1568-Claim-read",
+        "negative-boundary-applied",
+        "no-native-admission"
+      ],
+      "reason": "CA-R-1568 expressly prevents a view Projection from becoming another source of truth; no Authority relation is admitted.",
+      "question": null
+    },
+    {
+      "case_id": "slash:8fe37e68bfbdd1fdcc0aa69e01ee2d64d7cabc4781c2ea486af0996a256e8149",
+      "old_parent": "Carrier",
+      "old_child": "Carrier/Canonical Address",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "general qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-267",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-DELIVERY--derive-address-facts-without-duplicated-frontmatter.md",
+          "carrier_sha256": "533c87f928032d8a8049ee4acdc0a34822aa8731a37a5f79964e66e7183b74c6",
+          "start_line": 27,
+          "end_line": 29,
+          "quote": "## Claim\n\nthat address **must** be its sole Carrier encoding **and** embedded metadata **must not** duplicate it. Atom Properties instead follow CA-D-478 **and** CA-D-480.\n",
+          "text_sha256": "f963cedae2cf8e00116df297752f9e22099d10a032206d6ec1b83a4c14b3764c"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-267-Claim-read",
+        "no-metadata-inference",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-267 describes the sole Carrier encoding for an address, not an admitted native relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:9caafe3610c731549a28369a246901c3dc98c25d504925b20ce03e73f622483a",
+      "old_parent": "Relation Kind",
+      "old_child": "Relation Kind/Metadata",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-M-120",
+          "atom_revision": 14,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "carrier_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 43,
+          "end_line": 45,
+          "quote": "## Claim\n\n**to** compile the direct-relation registry, the Generator **must** perform **all** of:\n",
+          "text_sha256": "367411c976dba58674a84be80d8b7b634fa0f78eded3d77e848c9f510b52151b"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-M-120-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "Registry compilation does not itself identify Metadata as a native dependent.",
+      "question": "What current Main Content supplies the relation-kind metadata bearer/dependent kind and direction?"
+    },
+    {
+      "case_id": "slash:9f40a713b2a05d1237f8b37c27bb63aa7176993a800770fd564d9140ce0e41a8",
+      "old_parent": "Workflow",
+      "old_child": "Workflow/Relation Kind",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-E-486",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-486-CORE_META_MODEL-QA_CASE--validate-workflow-steps-and-runs.md",
+          "carrier_sha256": "051c30b75fbb740681b93ec65f81982fa7dc1f7b542117a5b0a9fa36a994023c",
+          "start_line": 32,
+          "end_line": 34,
+          "quote": "## Claim\n\nthe Evaluation **must** check Workflow Steps **and** Runs.\n",
+          "text_sha256": "1c0cfd578037d711291857fc62e24849ec3a57a41d2620612ec96afe88bbef9f"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-E-486-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "The evaluated Workflow Steps and Runs do not prove Workflow/Relation Kind semantics.",
+      "question": "Which current Main Content establishes the intended Workflow-to-Relation Kind relation?"
+    },
+    {
+      "case_id": "slash:a1171b1d7b01981327f52a5e82d9ea38c12f5d048cd7bebc95674335541bd697",
+      "old_parent": "Carrier",
+      "old_child": "Carrier/Representation",
+      "disposition": "not-native",
+      "confidence_percent": 93,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "general qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-311",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md",
+          "carrier_sha256": "a049829113f02daa2df65f2daa3e23ad685b157d1bf64155ead647cc54097b4a",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\n**every** governed Carrier **must** represent its carried Artifact Revision deterministically **and** human-readably **without** adding, removing, duplicating, **or** changing authoritative content.\n",
+          "text_sha256": "adf8bef3b7e5e0268e8a679d46312cc7917d720dce4e5f7deb11536bd3757798"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-311-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-311 requires deterministic representation without semantic change; it does not admit Representation as a native dependent.",
+      "question": null
+    },
+    {
+      "case_id": "slash:a5980637667f2efcc07419321e89b4ffec378a975028c48977ee52b92503092e",
+      "old_parent": "Relation",
+      "old_child": "Relation/authority",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-M-120",
+          "atom_revision": 14,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-CORE--compile-the-direct-relation-registry.md",
+          "carrier_sha256": "4f1a2004c885b1134ef57e309c37e1ab14c86bf008a3374fc93bbc20a2c104db",
+          "start_line": 43,
+          "end_line": 45,
+          "quote": "## Claim\n\n**to** compile the direct-relation registry, the Generator **must** perform **all** of:\n",
+          "text_sha256": "367411c976dba58674a84be80d8b7b634fa0f78eded3d77e848c9f510b52151b"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-M-120-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "The registry procedure alone does not identify an Authority relation for Relation.",
+      "question": "What current Claim proves Relation/authority and its canonical direction?"
+    },
+    {
+      "case_id": "slash:a65a3e6319c6332f257ae94175ae77b1603587422e27c34f40767e6c659ed588",
+      "old_parent": "Projection/Carrier",
+      "old_child": "Projection/Carrier/Updated At",
+      "disposition": "not-native",
+      "confidence_percent": 95,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "general qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-310",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL--serialize-projection-updated-at.md",
+          "carrier_sha256": "40a88c75afa5bcdad37a417c7dbc12a392b5afc7b38d6f44c35acf23bd884d70",
+          "start_line": 25,
+          "end_line": 27,
+          "quote": "## Claim\n\n**every** Projection Carrier **must** serialize the time of its latest completed rebuild as `updated_at` **in** Project time **without** treating that value alone as proof of currentness.\n",
+          "text_sha256": "35ea0f504b97e0fa3bb1e235dc4e124aeb063a73331977fa4ca0817bc98b12bc"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-310-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-310 establishes updated_at serialization as a Carrier qualification, not a native Entity relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:aa9358e1e5b4dfa5a375d2ad8b66fc9b6c2b0d9dd26a34bbdda54afc2618d490",
+      "old_parent": "Workflow",
+      "old_child": "Workflow/Carrier",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-D-467",
+          "atom_revision": 4,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DELIVERY--store-workflow-graphs-and-steps-in-separate-carriers.md",
+          "carrier_sha256": "0532c2205f96363bcf23105b3fe469a1829c0caf2a3fb3d8a5f14e7c0221c171",
+          "start_line": 30,
+          "end_line": 32,
+          "quote": "## Claim\n\na folder-backed Workflow **must** use a Directory Carrier containing **`=1`** Workflow Atom Markdown Carrier **and** separate Markdown Carriers for its Step Atoms.\n",
+          "text_sha256": "5b6ce1276f846fa3dd7401401db4afee8a40341693a5383687285ac27d4709dd"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-467-Claim-read",
+        "no-automatic-carrier-binding",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-467 specifies containment of several carriers, but not an immediate Workflow-to-Carrier canonical identity edge.",
+      "question": "Does an approved Core relation kind make this containment a native Workflow/Carrier relation, and with what direction?"
+    },
+    {
+      "case_id": "slash:b25ed72e9bae743d1ee78d5a924a145a3081982a3d1b1d5cb686b4f7cbeb6c61",
+      "old_parent": "Journal",
+      "old_child": "Journal/Carrier",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "general qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-308",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md",
+          "carrier_sha256": "0d2117b41344599129fd9751872754d7d358d8a759281abd65ba8874de9a5a01",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\n**every** Journal Carrier **must** serialize its ordered Records append-only **in** its registered format **and** **must not** rewrite an admitted Record.\n",
+          "text_sha256": "81d51d7ffa88563874c6453cc2ecea099cf3eb2cda102e7aa6a7777deac15cde"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-308-Claim-read",
+        "no-automatic-carrier-binding",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-308 qualifies Journal Carrier serialization but does not admit a canonical Journal-to-Carrier edge.",
+      "question": null
+    },
+    {
+      "case_id": "slash:b3c991995889ff7763a5aeda00affc38ce61fc89b7a93ba786f5190fc61428e0",
+      "old_parent": "Journal",
+      "old_child": "Journal/Record",
+      "disposition": "not-native",
+      "confidence_percent": 93,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "general qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-308",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md",
+          "carrier_sha256": "0d2117b41344599129fd9751872754d7d358d8a759281abd65ba8874de9a5a01",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\n**every** Journal Carrier **must** serialize its ordered Records append-only **in** its registered format **and** **must not** rewrite an admitted Record.\n",
+          "text_sha256": "81d51d7ffa88563874c6453cc2ecea099cf3eb2cda102e7aa6a7777deac15cde"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-308-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-308 describes ordered Record serialization but supplies no registered native Journal-to-Record relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:ced9f82b93cf974a23e1c5ced48ac74d722295778cf882168e515dfbbd1f7316",
+      "old_parent": "Carrier",
+      "old_child": "Carrier/Storage Boundary",
+      "disposition": "not-native",
+      "confidence_percent": 92,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "general qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-341",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+          "carrier_sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\nFramework-Owned **and** Project-Owned persistent Carriers **must** remain outside Runtime State so Runtime State cleanup cannot remove canonical authority **or** Journal history.\n",
+          "text_sha256": "a33ffbb38d04cf3dd676ac713a53dbab12876bce9290c787e7092a528e7459a5"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-341-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-341 gives a storage-boundary constraint, not a native relation admission.",
+      "question": null
+    },
+    {
+      "case_id": "slash:d1a6d7eb0d441d718e25395ed3845b6b281ea6eb8a3d6870c110a0459e4caefb",
+      "old_parent": "Carrier",
+      "old_child": "Carrier/Format",
+      "disposition": "not-native",
+      "confidence_percent": 94,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "general qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-507",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md",
+          "carrier_sha256": "f972031598deeda63106bb92875fde04f7a34c27916d4a717a481286f1fb2a88",
+          "start_line": 28,
+          "end_line": 30,
+          "quote": "## Claim\n\na change **to** Carrier Format **or** File Carrier Extension alone **must not** establish **or** change Entity identity.\n",
+          "text_sha256": "30b90353b56365dbdd929f2ae731e28a306f1f266c2fc042ba7b12673b2074ad"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-507-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-507 treats Carrier Format as non-identity-bearing, so it cannot admit the native edge.",
+      "question": null
+    },
+    {
+      "case_id": "slash:d7d441715b06d8ce06954562beec97de2b5830de280dbb772af26fb96a6b6d1a",
+      "old_parent": "Projection",
+      "old_child": "Projection/Type",
+      "disposition": "not-native",
+      "confidence_percent": 90,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "general qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-E-246",
+          "atom_revision": 25,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md",
+          "carrier_sha256": "6d5e65915b857be8e399aee9b32364dde2caa56ec6757bd8e69282b4ffee0098",
+          "start_line": 66,
+          "end_line": 68,
+          "quote": "## Claim\n\n**every** valid Atom has **`=1`** GOVERNS Entity matching its Claim **and** DEPENDS_ON for **every** other Entity independently mentioned **in** its complete Markdown Main Content; an Atom citation label is **not** an Entity mention **or** Subject target, **and** the distinct target set **`=`** that mention inventory **without** an intermediate Subject object.\n",
+          "text_sha256": "03ba840f8eb67a56d3b1cfd94579e173a30585262b2e74c524f7d32a70728ab7"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-E-246-Claim-read",
+        "no-subject-incidence-inference",
+        "no-native-admission"
+      ],
+      "reason": "CA-E-246 prevents deriving an Entity target from a citation label or intermediate Subject object; Type remains display-only here.",
+      "question": null
+    },
+    {
+      "case_id": "slash:da03a8094361e76c10d103afe094f7b2530a24edace8bbaf93c6c615fc8f6d66",
+      "old_parent": "Carrier/Canonical Address",
+      "old_child": "Carrier/Canonical Address/Segment",
+      "disposition": "not-native",
+      "confidence_percent": 92,
+      "proposal": null,
+      "display_candidate": {
+        "operator": ".",
+        "meaning": "general qualification only"
+      },
+      "evidence": [
+        {
+          "atom_id": "CA-D-301",
+          "atom_revision": 15,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL--require-portable-safe-carrier-addresses.md",
+          "carrier_sha256": "40fa41c8ff9abdd81a39689a3b95284a2240cf567113bbf794fa874b8e61a691",
+          "start_line": 25,
+          "end_line": 27,
+          "quote": "## Claim\n\n**every** Project-owned Carrier address segment\n",
+          "text_sha256": "8dfaddd9e4f2c99e574e3c002ff609317e8ba41c56a24fa8b82fddb35980e179"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-D-301-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "CA-D-301 constrains address segments but does not register a native dependent relation.",
+      "question": null
+    },
+    {
+      "case_id": "slash:e7ed5fba2142def303e920494cb57f963c554d1bd7f581ef2d51d5b22a95f75a",
+      "old_parent": "Journal",
+      "old_child": "Journal/Revision",
+      "disposition": "unresolved",
+      "confidence_percent": 0,
+      "proposal": null,
+      "evidence": [
+        {
+          "atom_id": "CA-R-1372",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1372-CORE_META_MODEL--derive-journal-revision-updated-at.md",
+          "carrier_sha256": "f783243412bcbb5d31b7818db008ad56da84932ec44828f7931a625dd41976e9",
+          "start_line": 26,
+          "end_line": 28,
+          "quote": "## Claim\n\n**every** Journal/Revision **must** have **`=1`** derived Updated At from its latest accepted Journal entry.\n",
+          "text_sha256": "11d0c24209802c8d679076004ffe39bab5a32d244cc542ccdb2cd3d8f17cc8de"
+        }
+      ],
+      "checks_performed": [
+        "current-CA-R-1372-Claim-read",
+        "no-native-admission"
+      ],
+      "reason": "CA-R-1372 establishes a derived Updated At for Journal/Revision, not the Journal-to-Revision relation itself.",
+      "question": "Which current Core Claim establishes a native Journal-to-Revision relation and its canonical kind?"
+    }
+  ]
+}

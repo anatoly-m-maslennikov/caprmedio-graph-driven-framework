@@ -60,9 +60,13 @@ def fixture_path(relative: str) -> Path:
 
 
 def fingerprint(root: Path) -> dict[str, tuple[str, int] | tuple[str, int, str]]:
-    """Include every directory/file/link and mode; never follow a fixture link."""
+    """Include every directory/file/link and mode, except host Finder metadata."""
     result: dict[str, tuple[str, int] | tuple[str, int, str]] = {}
     for path in sorted(root.rglob("*")):
+        # macOS may create this Finder metadata file beneath a temporary test
+        # root. It is not part of the validator input or a meaningful mutation.
+        if path.name == ".DS_Store":
+            continue
         name = str(path.relative_to(root))
         mode = path.lstat().st_mode
         if path.is_symlink():

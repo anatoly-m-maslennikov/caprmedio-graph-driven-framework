@@ -1,0 +1,2185 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2105",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2103-2108.inputs.json",
+      "sha256": "7babc00405598a0af98c21bc2de69d4db04e9d59672d9746aa048f2f17a44ef3"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "50ab0114669787dba6331b58f8054cd8fb33b5abbed33df6fbf5b52df53923fa"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2103-2108.contract.md",
+        "sha256": "d136e6577b09f6ea0d72be85d13ab547c2193e6e9c045072141d1fc2ca511e6d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/81-CA-P-2105-TASK--review-settings-and-methodology-source-targets.md",
+      "sha256": "6634fbf18e571b4fee14bb811d8b2f66d0deec0c296180593ba84fe8442ffd9c"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+        "sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1373-CORE_META_MODEL-CORE--define-applicable-methodology-conflict.md",
+        "sha256": "8ce47a9afdb2500a239c31cc3fad61794cfaa552d64dadbf2ded546caefe5ebf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+        "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+        "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+        "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+        "sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+        "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+        "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+        "sha256": "14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+        "sha256": "fcb2658717a91add097f34751c89d54f03a047442031ee7cf79e89c9f817d965"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+        "sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-447-CORE_META_MODEL-QA_CASE--validate-three-tier-boundaries-with-concrete-cases.md",
+        "sha256": "8ac530bfc9c0f9340f74e038e40f0f3f711603e83b8857f77fd6f4bdfec3572e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVALUATION_APPROACH--check-rmed-atom-coherence.md",
+        "sha256": "9e3cdee5027c3e24cb91e1ce9fe009dc281b499a49a45aaacea38f3ff59fcada"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+        "sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-253-CORE_META_MODEL-CORE-DELIVERY--place-applicable-methodology-and-its-sources.md",
+        "sha256": "6c7aa690c203c38d7443fa1385f3d2e600651060e6ff083d8e5c9a33bef1e5f6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md",
+        "sha256": "5d420859be25a05194d5f62fe00504dd4ac5a8bb83fde0ac4cac8249c22b07fe"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+        "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md",
+        "sha256": "af41d7cc169cf18ec430fce7275661b97184a781adda47455aac84704324ae71"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+        "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md",
+        "sha256": "29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+        "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+        "sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+        "sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+        "sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-394-CORE_META_MODEL-DELIVERY--bind-convenience-symlink-carriers-to-one-native-source.md",
+        "sha256": "b7f017a14c13671e7b29e90c0bde56c1c542dcacdf11434f61227481bb4d4885"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL--store-default-settings-with-the-core-meta-model-source.md",
+        "sha256": "e1f38f4569fd99cac8207191d46e2d332b5635795a75141cc7c54cf0896d962d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL--reuse-framework-parameter-fields-in-default-settings.md",
+        "sha256": "293af7f9235fd256869da7c667e94c0a37a26ba836bec3b61ed7758f73379fea"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.md",
+        "sha256": "6b39f117ff6b90a81b3553bbf97b183587fda4f8be55a5701c7c62fbe6785475"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-497-CORE_META_MODEL--encode-rmed-review-batch-limits.md",
+        "sha256": "1a689616605c762c43f95dbc5779b3203210c9b9df37d237c1579207e58a080e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+        "sha256": "01d0405599edffe5e7db9a3be01844cd78f814e149662b2d315c4e49d394dc1d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+        "sha256": "a0b02c29350738ef1cfa1a20125af3c29bf707b319de60d5744de1dfb53807fc"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+        "sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+        "sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+      "source_atom_id": "CA-E-241",
+      "source_version": 22,
+      "source_sha256": "14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "CA-E-241 current Main Content was freshly re-read. The current definition identifies one authoritative non-Atom Artifact for explicit Operator-selected Framework Instance behavior and configuration; the named Artifact Type value retains that distinction. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+          "sha256": "14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955",
+          "start_line": 26,
+          "end_line": 50,
+          "span_sha256": "5b885dae23d4631e435557bce76f1c0d4383ba11c7de27c789c5b712cf09aab6",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current global definition CA-R-1402 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current global definition CA-R-1404 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework-Instance/Project authority boundary.",
+        "Does not collapse settings to a field, Carrier, or Atom."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+      "source_atom_id": "CA-E-249",
+      "source_version": 12,
+      "source_sha256": "fcb2658717a91add097f34751c89d54f03a047442031ee7cf79e89c9f817d965",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Core Meta-Model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-E-249 current Main Content was freshly re-read. It uses 'Core Meta-Model' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+          "sha256": "fcb2658717a91add097f34751c89d54f03a047442031ee7cf79e89c9f817d965",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "46303f70354b53b316f0c192b4d653739d0d8e8c5d494020bdc42f74a2469bfb",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains framework authority and structural-scope meaning.",
+        "Does not collapse it into generic Scope Unit or a display-only prefix."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+      "source_atom_id": "CA-E-379",
+      "source_version": 21,
+      "source_sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "CA-E-379 current Main Content was freshly re-read. The current definition identifies one authoritative non-Atom Artifact for explicit Operator-selected Framework Instance behavior and configuration; the named Artifact Type value retains that distinction. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+          "sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023",
+          "start_line": 37,
+          "end_line": 71,
+          "span_sha256": "366de79e0a541fb56b37777de55c331e7e5b255e9bf9b116d879fa51efae9977",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current global definition CA-R-1402 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current global definition CA-R-1404 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework-Instance/Project authority boundary.",
+        "Does not collapse settings to a field, Carrier, or Atom."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+      "source_atom_id": "CA-E-379",
+      "source_version": 21,
+      "source_sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Methodology Source/Expansion Boundary",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-E-379 current Main Content was freshly re-read. It uses 'Methodology Source/Expansion Boundary' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+          "sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023",
+          "start_line": 37,
+          "end_line": 71,
+          "span_sha256": "366de79e0a541fb56b37777de55c331e7e5b255e9bf9b116d879fa51efae9977",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Core permission, source ownership, and expansion-boundary meaning.",
+        "Does not infer a selector or generic Artifact identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-447-CORE_META_MODEL-QA_CASE--validate-three-tier-boundaries-with-concrete-cases.md#subjects.depends_on[8]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-447-CORE_META_MODEL-QA_CASE--validate-three-tier-boundaries-with-concrete-cases.md",
+      "source_atom_id": "CA-E-447",
+      "source_version": 17,
+      "source_sha256": "8ac530bfc9c0f9340f74e038e40f0f3f711603e83b8857f77fd6f4bdfec3572e",
+      "field": "depends_on",
+      "index": 8,
+      "old_value": "Methodology Source/Expansion Boundary",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-E-447 current Main Content was freshly re-read. It uses 'Methodology Source/Expansion Boundary' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-447-CORE_META_MODEL-QA_CASE--validate-three-tier-boundaries-with-concrete-cases.md",
+          "sha256": "8ac530bfc9c0f9340f74e038e40f0f3f711603e83b8857f77fd6f4bdfec3572e",
+          "start_line": 59,
+          "end_line": 103,
+          "span_sha256": "70ca9e665dfeff5467416a9875255e18d87d2ea65494b51f514369e80420f747",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Core permission, source ownership, and expansion-boundary meaning.",
+        "Does not infer a selector or generic Artifact identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVALUATION_APPROACH--check-rmed-atom-coherence.md#subjects.depends_on[11]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVALUATION_APPROACH--check-rmed-atom-coherence.md",
+      "source_atom_id": "CA-E-520",
+      "source_version": 5,
+      "source_sha256": "9e3cdee5027c3e24cb91e1ce9fe009dc281b499a49a45aaacea38f3ff59fcada",
+      "field": "depends_on",
+      "index": 11,
+      "old_value": "CAPRMEDIO Framework Instance",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-E-520 current Main Content was freshly re-read. It uses 'CAPRMEDIO Framework Instance' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVALUATION_APPROACH--check-rmed-atom-coherence.md",
+          "sha256": "9e3cdee5027c3e24cb91e1ce9fe009dc281b499a49a45aaacea38f3ff59fcada",
+          "start_line": 31,
+          "end_line": 69,
+          "span_sha256": "1478e037da3d6369f97f7ebf5e5d33a6504454bc6ce42ff5c57140be6e552181",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the served-instance relation of Settings.",
+        "Does not invent an instance root or singleton."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+      "source_atom_id": "CAPRMEDIO-GOV-EVAL-002",
+      "source_version": 21,
+      "source_sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project Settings",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Project Settings",
+      "confidence": 0.95,
+      "reason": "CAPRMEDIO-GOV-EVAL-002 current Main Content was freshly re-read. The current definition identifies one authoritative Artifact for a Project's initialization inputs and explicitly separates it from a Projection and Framework Instance behavior. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+          "sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4",
+          "start_line": 27,
+          "end_line": 47,
+          "span_sha256": "ba3abf46f7e579ec5f5f656d25eb798d76ac7cf3945d7f79b5a6c005bfd8dea7",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Current global definition CA-R-1738 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains Project-initialization ownership.",
+        "Does not collapse Project Settings into Framework Instance Settings or Project Structure."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+      "source_atom_id": "CAPRMEDIO-GOV-EVAL-002",
+      "source_version": 21,
+      "source_sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "CAPRMEDIO-GOV-EVAL-002 current Main Content was freshly re-read. The current definition identifies one authoritative non-Atom Artifact for explicit Operator-selected Framework Instance behavior and configuration; the named Artifact Type value retains that distinction. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+          "sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4",
+          "start_line": 27,
+          "end_line": 47,
+          "span_sha256": "ba3abf46f7e579ec5f5f656d25eb798d76ac7cf3945d7f79b5a6c005bfd8dea7",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current global definition CA-R-1402 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current global definition CA-R-1404 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework-Instance/Project authority boundary.",
+        "Does not collapse settings to a field, Carrier, or Atom."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-253-CORE_META_MODEL-CORE-DELIVERY--place-applicable-methodology-and-its-sources.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-253-CORE_META_MODEL-CORE-DELIVERY--place-applicable-methodology-and-its-sources.md",
+      "source_atom_id": "CA-D-253",
+      "source_version": 12,
+      "source_sha256": "6c7aa690c203c38d7443fa1385f3d2e600651060e6ff083d8e5c9a33bef1e5f6",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Applicable Methodology/Sources",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Projection.Sources",
+      "confidence": 0.95,
+      "reason": "CA-D-253 current Main Content was freshly re-read. The current body defines reusable, source-structure-based compilation of Applicable Methodology from conforming Extensions and Project Configuration, which supports the Projection's qualified Sources dependent entity. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-253-CORE_META_MODEL-CORE-DELIVERY--place-applicable-methodology-and-its-sources.md",
+          "sha256": "6c7aa690c203c38d7443fa1385f3d2e600651060e6ff083d8e5c9a33bef1e5f6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "fe95eb07c2d1b89fae9466fb32c389ae0b53feeb03935d1b219d696d7d222677",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+          "sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "8ee60ec795427357f6227a2fb398eb5d3e1f4cf9c8624232cbc381e5cecfcf41",
+          "reason": "Current global definition CA-R-1434 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        },
+        {
+          "pointer": "/applicable_methodology/sources",
+          "reason": "Names Core, Installed Extensions, and Project Configuration as Applicable Methodology sources."
+        },
+        {
+          "pointer": "/applicable_methodology/requirement",
+          "reason": "Requires source-faithful, one-to-one projection of every source Atom."
+        },
+        {
+          "pointer": "/projection_member_model/source_reference",
+          "reason": "Requires relative source references for derived Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the complete conforming source-set and source-reference constraints.",
+        "Does not treat a source as an Artifact identity or admit a selector."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md",
+      "source_atom_id": "CA-D-262",
+      "source_version": 12,
+      "source_sha256": "5d420859be25a05194d5f62fe00504dd4ac5a8bb83fde0ac4cac8249c22b07fe",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Extension",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-D-262 current Main Content was freshly re-read. It uses 'Extension' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md",
+          "sha256": "5d420859be25a05194d5f62fe00504dd4ac5a8bb83fde0ac4cac8249c22b07fe",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "856a1cfb62dd8b999c207f2aa0563f693f083f9b05fd349b7a4f7569cb558edb",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Extension identity, activation, and applicable-revision distinctions.",
+        "Does not turn a source contributor into an Artifact type."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md",
+      "source_atom_id": "CA-D-262",
+      "source_version": 12,
+      "source_sha256": "5d420859be25a05194d5f62fe00504dd4ac5a8bb83fde0ac4cac8249c22b07fe",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project Configuration",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-D-262 current Main Content was freshly re-read. It uses 'Project Configuration' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md",
+          "sha256": "5d420859be25a05194d5f62fe00504dd4ac5a8bb83fde0ac4cac8249c22b07fe",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "856a1cfb62dd8b999c207f2aa0563f693f083f9b05fd349b7a4f7569cb558edb",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Project-Configuration source authority and ownership.",
+        "Does not collapse it into a Project Settings artifact or Projection."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+      "source_atom_id": "CA-D-305",
+      "source_version": 10,
+      "source_sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Applicable Methodology/Member",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.95,
+      "reason": "CA-D-305 current Main Content was freshly re-read. The current body concerns an Applicable Methodology member as one derived Atom instance and preserves its exact source Revision through DERIVED_FROM. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+          "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "d29a874ccf9f1831db024f7f0ee04719bd55497ed827016b01a52f672f14a30a",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+          "sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c26c7168557daefca8674df42efe874915ff10e8d05b0b5124724b907eb8a186",
+          "reason": "Current global definition CA-R-1314 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "Confirms Atom as the named Artifact specialization."
+        },
+        {
+          "pointer": "/projection_member_model/member_instances",
+          "reason": "Confirms projected members are derived Atom instances."
+        },
+        {
+          "pointer": "/projection_member_model/source_reference",
+          "reason": "Requires each derived Atom to retain its source reference."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains derived-Atom membership.",
+        "Retains the exact source-Revision relation in the body, without creating Artifact.Revision."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md",
+      "source_atom_id": "CA-D-306",
+      "source_version": 11,
+      "source_sha256": "af41d7cc169cf18ec430fce7275661b97184a781adda47455aac84704324ae71",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Applicable Methodology/Member",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.95,
+      "reason": "CA-D-306 current Main Content was freshly re-read. The current body concerns an Applicable Methodology member as one derived Atom instance and preserves its exact source Revision through DERIVED_FROM. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md",
+          "sha256": "af41d7cc169cf18ec430fce7275661b97184a781adda47455aac84704324ae71",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "eeba921cc7c092d388edbc44bb88b66df71dd91f984c6549950281490e55793b",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1314-CORE_META_MODEL-CORE-REQUIREMENT--preserve-source-atom-revision-identity-in-applicable-methodology.md",
+          "sha256": "053895b5075fbe3f20a69ccfc35edb2331f31a36ec9052cbb584f0ba470aaa88",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c26c7168557daefca8674df42efe874915ff10e8d05b0b5124724b907eb8a186",
+          "reason": "Current global definition CA-R-1314 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "Confirms Atom as the named Artifact specialization."
+        },
+        {
+          "pointer": "/projection_member_model/member_instances",
+          "reason": "Confirms projected members are derived Atom instances."
+        },
+        {
+          "pointer": "/projection_member_model/source_reference",
+          "reason": "Requires each derived Atom to retain its source reference."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains derived-Atom membership.",
+        "Retains the exact source-Revision relation in the body, without creating Artifact.Revision."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+      "source_atom_id": "CA-D-333",
+      "source_version": 12,
+      "source_sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-333 current Main Content was freshly re-read. The current definition identifies one authoritative non-Atom Artifact for explicit Operator-selected Framework Instance behavior and configuration; the named Artifact Type value retains that distinction. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+          "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "6fff9ec3087bd6115c183767a57c66fbea43bb0ed1cf11a25ea2d483cab8a788",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current global definition CA-R-1402 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current global definition CA-R-1404 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework-Instance/Project authority boundary.",
+        "Does not collapse settings to a field, Carrier, or Atom."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+      "source_atom_id": "CA-D-333",
+      "source_version": 12,
+      "source_sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Project Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Project Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-333 current Main Content was freshly re-read. The current definition identifies one authoritative Artifact for a Project's initialization inputs and explicitly separates it from a Projection and Framework Instance behavior. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+          "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "6fff9ec3087bd6115c183767a57c66fbea43bb0ed1cf11a25ea2d483cab8a788",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Current global definition CA-R-1738 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains Project-initialization ownership.",
+        "Does not collapse Project Settings into Framework Instance Settings or Project Structure."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md",
+      "source_atom_id": "CA-D-358",
+      "source_version": 10,
+      "source_sha256": "29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-358 current Main Content was freshly re-read. The current definition identifies one authoritative non-Atom Artifact for explicit Operator-selected Framework Instance behavior and configuration; the named Artifact Type value retains that distinction. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md",
+          "sha256": "29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "9e0254845b30c4011c8f28f5361f3cb566015d266460d21109967b8bc5944068",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current global definition CA-R-1402 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current global definition CA-R-1404 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework-Instance/Project authority boundary.",
+        "Does not collapse settings to a field, Carrier, or Atom."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-361",
+      "source_version": 10,
+      "source_sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Extension",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-D-361 current Main Content was freshly re-read. It uses 'Extension' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+          "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "4b5bdb8371dadd600c4c985d41552c482b3481fff670e253227589e1c793bc3a",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Extension identity, activation, and applicable-revision distinctions.",
+        "Does not turn a source contributor into an Artifact type."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-361",
+      "source_version": 10,
+      "source_sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-361 current Main Content was freshly re-read. The current definition identifies one authoritative non-Atom Artifact for explicit Operator-selected Framework Instance behavior and configuration; the named Artifact Type value retains that distinction. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+          "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "4b5bdb8371dadd600c4c985d41552c482b3481fff670e253227589e1c793bc3a",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current global definition CA-R-1402 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current global definition CA-R-1404 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework-Instance/Project authority boundary.",
+        "Does not collapse settings to a field, Carrier, or Atom."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-361",
+      "source_version": 10,
+      "source_sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Default Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Default Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-361 current Main Content was freshly re-read. The current definition identifies one authoritative Artifact of reusable baseline values, separate from Project initialization and explicit Operator selections. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+          "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "4b5bdb8371dadd600c4c985d41552c482b3481fff670e253227589e1c793bc3a",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+          "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "e348fe4db6df77d4c5b84c7f04b9e44c1c4044ae7b766a5490f087461752ebaa",
+          "reason": "Current global definition CA-R-1441 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains reusable-default rather than selected-setting meaning.",
+        "Does not invent a separate defaults-field schema."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+      "source_atom_id": "CA-D-362",
+      "source_version": 10,
+      "source_sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Project Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-362 current Main Content was freshly re-read. The current definition identifies one authoritative Artifact for a Project's initialization inputs and explicitly separates it from a Projection and Framework Instance behavior. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+          "sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1214709897fc8c28a6ad626ce46fcddc271bab8c381d83a540cba030184f9981",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Current global definition CA-R-1738 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains Project-initialization ownership.",
+        "Does not collapse Project Settings into Framework Instance Settings or Project Structure."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-366",
+      "source_version": 8,
+      "source_sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-366 current Main Content was freshly re-read. The current definition identifies one authoritative non-Atom Artifact for explicit Operator-selected Framework Instance behavior and configuration; the named Artifact Type value retains that distinction. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL--serialize-project-settings-content-in-toml.md",
+          "sha256": "bebc1757b70b3d60b1819c4582ea45fe1fe133c18806c64c7cd43d5619c3876c",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "ac204ba75340b5cfda43dacbfcb5fb9faba22c65cf39f3e2a68c79dcc72f4987",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current global definition CA-R-1402 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current global definition CA-R-1404 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework-Instance/Project authority boundary.",
+        "Does not collapse settings to a field, Carrier, or Atom."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+      "source_atom_id": "CA-D-368",
+      "source_version": 9,
+      "source_sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-368 current Main Content was freshly re-read. The current definition identifies one authoritative non-Atom Artifact for explicit Operator-selected Framework Instance behavior and configuration; the named Artifact Type value retains that distinction. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+          "sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "81ef23b761b82e934caa4a548952806e2bc9f6cf184dc7bb90ca77def35076d7",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current global definition CA-R-1402 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current global definition CA-R-1404 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework-Instance/Project authority boundary.",
+        "Does not collapse settings to a field, Carrier, or Atom."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-394-CORE_META_MODEL-DELIVERY--bind-convenience-symlink-carriers-to-one-native-source.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-394-CORE_META_MODEL-DELIVERY--bind-convenience-symlink-carriers-to-one-native-source.md",
+      "source_atom_id": "CA-D-394",
+      "source_version": 7,
+      "source_sha256": "b7f017a14c13671e7b29e90c0bde56c1c542dcacdf11434f61227481bb4d4885",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Methodology Source",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-D-394 current Main Content was freshly re-read. It uses 'Methodology Source' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-394-CORE_META_MODEL-DELIVERY--bind-convenience-symlink-carriers-to-one-native-source.md",
+          "sha256": "b7f017a14c13671e7b29e90c0bde56c1c542dcacdf11434f61227481bb4d4885",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "5152dc804ca27dfbf77678c292cde6b31f821c75ea87cf88a2c21c1767113cc1",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains source Scope Unit/original-authority and Carrier distinctions.",
+        "Does not turn source location into a generic Artifact."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL--store-default-settings-with-the-core-meta-model-source.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL--store-default-settings-with-the-core-meta-model-source.md",
+      "source_atom_id": "CA-D-407",
+      "source_version": 7,
+      "source_sha256": "e1f38f4569fd99cac8207191d46e2d332b5635795a75141cc7c54cf0896d962d",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Methodology Source",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-D-407 current Main Content was freshly re-read. It uses 'Methodology Source' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL--store-default-settings-with-the-core-meta-model-source.md",
+          "sha256": "e1f38f4569fd99cac8207191d46e2d332b5635795a75141cc7c54cf0896d962d",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "cececcf2b76ed1e19d3c188dff6c4cebc3860792344b34ab3d5d520bdf5d2425",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains source Scope Unit/original-authority and Carrier distinctions.",
+        "Does not turn source location into a generic Artifact."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL--reuse-framework-parameter-fields-in-default-settings.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL--reuse-framework-parameter-fields-in-default-settings.md",
+      "source_atom_id": "CA-D-408",
+      "source_version": 7,
+      "source_sha256": "293af7f9235fd256869da7c667e94c0a37a26ba836bec3b61ed7758f73379fea",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Default Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Default Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-408 current Main Content was freshly re-read. The current definition identifies one authoritative Artifact of reusable baseline values, separate from Project initialization and explicit Operator selections. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL--reuse-framework-parameter-fields-in-default-settings.md",
+          "sha256": "293af7f9235fd256869da7c667e94c0a37a26ba836bec3b61ed7758f73379fea",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "6e2e67bc156cb39fc8d40d8d5d9587d00f348628c8afab1b1fed4124b09cdec0",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+          "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "e348fe4db6df77d4c5b84c7f04b9e44c1c4044ae7b766a5490f087461752ebaa",
+          "reason": "Current global definition CA-R-1441 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains reusable-default rather than selected-setting meaning.",
+        "Does not invent a separate defaults-field schema."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.md",
+      "source_atom_id": "CA-D-447",
+      "source_version": 8,
+      "source_sha256": "6b39f117ff6b90a81b3553bbf97b183587fda4f8be55a5701c7c62fbe6785475",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Default Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Default Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-447 current Main Content was freshly re-read. The current definition identifies one authoritative Artifact of reusable baseline values, separate from Project initialization and explicit Operator selections. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.md",
+          "sha256": "6b39f117ff6b90a81b3553bbf97b183587fda4f8be55a5701c7c62fbe6785475",
+          "start_line": 22,
+          "end_line": 45,
+          "span_sha256": "699cacdcd5f186a5ba21fcab8d8e78762b21a2ede0820b0c4cdbedaaf4d80dbe",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+          "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "e348fe4db6df77d4c5b84c7f04b9e44c1c4044ae7b766a5490f087461752ebaa",
+          "reason": "Current global definition CA-R-1441 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains reusable-default rather than selected-setting meaning.",
+        "Does not invent a separate defaults-field schema."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-497-CORE_META_MODEL--encode-rmed-review-batch-limits.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-497-CORE_META_MODEL--encode-rmed-review-batch-limits.md",
+      "source_atom_id": "CA-D-497",
+      "source_version": 3,
+      "source_sha256": "1a689616605c762c43f95dbc5779b3203210c9b9df37d237c1579207e58a080e",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Default Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Default Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-497 current Main Content was freshly re-read. The current definition identifies one authoritative Artifact of reusable baseline values, separate from Project initialization and explicit Operator selections. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-497-CORE_META_MODEL--encode-rmed-review-batch-limits.md",
+          "sha256": "1a689616605c762c43f95dbc5779b3203210c9b9df37d237c1579207e58a080e",
+          "start_line": 21,
+          "end_line": 42,
+          "span_sha256": "b35a210e516c972889a00afcfb1cba543117dbc229562b879c5da4ba825f3b84",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+          "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "e348fe4db6df77d4c5b84c7f04b9e44c1c4044ae7b766a5490f087461752ebaa",
+          "reason": "Current global definition CA-R-1441 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains reusable-default rather than selected-setting meaning.",
+        "Does not invent a separate defaults-field schema."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-497-CORE_META_MODEL--encode-rmed-review-batch-limits.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-497-CORE_META_MODEL--encode-rmed-review-batch-limits.md",
+      "source_atom_id": "CA-D-497",
+      "source_version": 3,
+      "source_sha256": "1a689616605c762c43f95dbc5779b3203210c9b9df37d237c1579207e58a080e",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-497 current Main Content was freshly re-read. The current definition identifies one authoritative non-Atom Artifact for explicit Operator-selected Framework Instance behavior and configuration; the named Artifact Type value retains that distinction. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-497-CORE_META_MODEL--encode-rmed-review-batch-limits.md",
+          "sha256": "1a689616605c762c43f95dbc5779b3203210c9b9df37d237c1579207e58a080e",
+          "start_line": 21,
+          "end_line": 42,
+          "span_sha256": "b35a210e516c972889a00afcfb1cba543117dbc229562b879c5da4ba825f3b84",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current global definition CA-R-1402 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current global definition CA-R-1404 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework-Instance/Project authority boundary.",
+        "Does not collapse settings to a field, Carrier, or Atom."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+      "source_atom_id": "CA-D-550",
+      "source_version": 3,
+      "source_sha256": "01d0405599edffe5e7db9a3be01844cd78f814e149662b2d315c4e49d394dc1d",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Methodology Source",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-D-550 current Main Content was freshly re-read. It uses 'Methodology Source' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+          "sha256": "01d0405599edffe5e7db9a3be01844cd78f814e149662b2d315c4e49d394dc1d",
+          "start_line": 16,
+          "end_line": 34,
+          "span_sha256": "537ffac0d4bd74b295ed28490707110f9e2d5ec9fbaa70d43e90012449447b07",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains source Scope Unit/original-authority and Carrier distinctions.",
+        "Does not turn source location into a generic Artifact."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+      "source_atom_id": "CA-D-550",
+      "source_version": 3,
+      "source_sha256": "01d0405599edffe5e7db9a3be01844cd78f814e149662b2d315c4e49d394dc1d",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Project Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Project Settings",
+      "confidence": 0.95,
+      "reason": "CA-D-550 current Main Content was freshly re-read. The current definition identifies one authoritative Artifact for a Project's initialization inputs and explicitly separates it from a Projection and Framework Instance behavior. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+          "sha256": "01d0405599edffe5e7db9a3be01844cd78f814e149662b2d315c4e49d394dc1d",
+          "start_line": 16,
+          "end_line": 34,
+          "span_sha256": "537ffac0d4bd74b295ed28490707110f9e2d5ec9fbaa70d43e90012449447b07",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Current global definition CA-R-1738 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains Project-initialization ownership.",
+        "Does not collapse Project Settings into Framework Instance Settings or Project Structure."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+      "source_atom_id": "CA-O-152",
+      "source_version": 2,
+      "source_sha256": "a0b02c29350738ef1cfa1a20125af3c29bf707b319de60d5744de1dfb53807fc",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Methodology Source",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-O-152 current Main Content was freshly re-read. It uses 'Methodology Source' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+          "sha256": "a0b02c29350738ef1cfa1a20125af3c29bf707b319de60d5744de1dfb53807fc",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "4b6655fec5a178e67823242a2fc63f50c0d99e8962b934940c1ec19ddfc0ee97",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains source Scope Unit/original-authority and Carrier distinctions.",
+        "Does not turn source location into a generic Artifact."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md#subjects.depends_on[8]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+      "source_atom_id": "CA-O-152",
+      "source_version": 2,
+      "source_sha256": "a0b02c29350738ef1cfa1a20125af3c29bf707b319de60d5744de1dfb53807fc",
+      "field": "depends_on",
+      "index": 8,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "CA-O-152 current Main Content was freshly re-read. The current definition identifies one authoritative non-Atom Artifact for explicit Operator-selected Framework Instance behavior and configuration; the named Artifact Type value retains that distinction. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+          "sha256": "a0b02c29350738ef1cfa1a20125af3c29bf707b319de60d5744de1dfb53807fc",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "4b6655fec5a178e67823242a2fc63f50c0d99e8962b934940c1ec19ddfc0ee97",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current global definition CA-R-1402 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current global definition CA-R-1404 was freshly re-read for the proposed named target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current global definition CA-R-1405 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework-Instance/Project authority boundary.",
+        "Does not collapse settings to a field, Carrier, or Atom."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md#subjects.depends_on[9]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+      "source_atom_id": "CA-O-152",
+      "source_version": 2,
+      "source_sha256": "a0b02c29350738ef1cfa1a20125af3c29bf707b319de60d5744de1dfb53807fc",
+      "field": "depends_on",
+      "index": 9,
+      "old_value": "Extension",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-O-152 current Main Content was freshly re-read. It uses 'Extension' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-152-CORE_META_MODEL-STEP--select-the-applicable-methodology-sources.md",
+          "sha256": "a0b02c29350738ef1cfa1a20125af3c29bf707b319de60d5744de1dfb53807fc",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "4b6655fec5a178e67823242a2fc63f50c0d99e8962b934940c1ec19ddfc0ee97",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Extension identity, activation, and applicable-revision distinctions.",
+        "Does not turn a source contributor into an Artifact type."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+      "source_atom_id": "CA-O-153",
+      "source_version": 2,
+      "source_sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Applicable Methodology/Source Frontier Digest",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-O-153 current Main Content was freshly re-read. It uses 'Applicable Methodology/Source Frontier Digest' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+          "sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87",
+          "start_line": 30,
+          "end_line": 48,
+          "span_sha256": "64261062d286ff1c5d9855eb9b2f0420f0ba601fc9281c331d9116b72bcd3089",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains deterministic frontier-digest calculation and conflict-checking meaning.",
+        "Does not invent a Projection property or selector."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+      "source_atom_id": "CA-O-153",
+      "source_version": 2,
+      "source_sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Methodology Source/Expansion Boundary",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-O-153 current Main Content was freshly re-read. It uses 'Methodology Source/Expansion Boundary' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+          "sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87",
+          "start_line": 30,
+          "end_line": 48,
+          "span_sha256": "64261062d286ff1c5d9855eb9b2f0420f0ba601fc9281c331d9116b72bcd3089",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Core permission, source ownership, and expansion-boundary meaning.",
+        "Does not infer a selector or generic Artifact identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+      "source_atom_id": "CA-O-153",
+      "source_version": 2,
+      "source_sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Core Meta-Model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-O-153 current Main Content was freshly re-read. It uses 'Core Meta-Model' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+          "sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87",
+          "start_line": 30,
+          "end_line": 48,
+          "span_sha256": "64261062d286ff1c5d9855eb9b2f0420f0ba601fc9281c331d9116b72bcd3089",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains framework authority and structural-scope meaning.",
+        "Does not collapse it into generic Scope Unit or a display-only prefix."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md#subjects.depends_on[9]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+      "source_atom_id": "CA-O-153",
+      "source_version": 2,
+      "source_sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87",
+      "field": "depends_on",
+      "index": 9,
+      "old_value": "Applicable Methodology/Conflict",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Projection.Conflict",
+      "confidence": 0.95,
+      "reason": "CA-O-153 current Main Content was freshly re-read. The current body defines one compiler-detected incompatible candidate selection within one exact Applicable Methodology source frontier, a qualified conflict of that Projection rather than a free Relation. The candidate supports the notation as a candidate mapping only; this is not grammar or native-admission adoption.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-153-CORE_META_MODEL-STEP--assess-applicable-methodology-source-conflicts.md",
+          "sha256": "7135b2a6558ea556f3182b538e03cdadd759556d9f4b14546d18db6e3ca87d87",
+          "start_line": 30,
+          "end_line": 48,
+          "span_sha256": "64261062d286ff1c5d9855eb9b2f0420f0ba601fc9281c331d9116b72bcd3089",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1373-CORE_META_MODEL-CORE--define-applicable-methodology-conflict.md",
+          "sha256": "8ce47a9afdb2500a239c31cc3fad61794cfaa552d64dadbf2ded546caefe5ebf",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "ea55fb9bac8805007c49d7e251e203dd0d9bb278ceed4cc8e308968d80ec0c42",
+          "reason": "Current global definition CA-R-1373 was freshly re-read for the proposed named target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        },
+        {
+          "pointer": "/projection_member_model/whole_set",
+          "reason": "Confirms the whole set of derived instances is one Projection with its own lifecycle."
+        },
+        {
+          "pointer": "/applicable_methodology/requirement",
+          "reason": "Confirms source-faithful, one-to-one Applicable Methodology projection requirements."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the exact source-frontier and incompatible-candidate qualifications.",
+        "Does not collapse the conflict to generic Relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+      "source_atom_id": "CA-O-154",
+      "source_version": 2,
+      "source_sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Core Meta-Model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-O-154 current Main Content was freshly re-read. It uses 'Core Meta-Model' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+          "sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "6ff4a9391d36524bf01d8993a75af0d7732fe20a8e395574817c5ce4f661a63f",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains framework authority and structural-scope meaning.",
+        "Does not collapse it into generic Scope Unit or a display-only prefix."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md#subjects.depends_on[11]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+      "source_atom_id": "CA-O-154",
+      "source_version": 2,
+      "source_sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad",
+      "field": "depends_on",
+      "index": 11,
+      "old_value": "Methodology Source/Expansion Boundary",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-O-154 current Main Content was freshly re-read. It uses 'Methodology Source/Expansion Boundary' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+          "sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "6ff4a9391d36524bf01d8993a75af0d7732fe20a8e395574817c5ce4f661a63f",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Core permission, source ownership, and expansion-boundary meaning.",
+        "Does not infer a selector or generic Artifact identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+      "source_atom_id": "CA-O-154",
+      "source_version": 2,
+      "source_sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Methodology Source",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-O-154 current Main Content was freshly re-read. It uses 'Methodology Source' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+          "sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "6ff4a9391d36524bf01d8993a75af0d7732fe20a8e395574817c5ce4f661a63f",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains source Scope Unit/original-authority and Carrier distinctions.",
+        "Does not turn source location into a generic Artifact."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md#subjects.depends_on[8]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+      "source_atom_id": "CA-O-154",
+      "source_version": 2,
+      "source_sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad",
+      "field": "depends_on",
+      "index": 8,
+      "old_value": "Extension",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "CA-O-154 current Main Content was freshly re-read. It uses 'Extension' with source-specific authority and qualification; the candidate establishes no canonical identity retaining that meaning. The row remains null rather than inventing a replacement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-154-CORE_META_MODEL-STEP--propose-applicable-methodology-source-corrections.md",
+          "sha256": "d370b3199af136e9879cde148e1f13aeab0512e3f3af82fef7b5314c1407e3ad",
+          "start_line": 31,
+          "end_line": 49,
+          "span_sha256": "6ff4a9391d36524bf01d8993a75af0d7732fe20a8e395574817c5ce4f661a63f",
+          "reason": "Complete current owning Main Content was freshly re-read for this assigned occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Extension identity, activation, and applicable-revision distinctions.",
+        "Does not turn a source contributor into an Artifact type."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned": 41,
+    "covered": 41,
+    "owning_sources": 25,
+    "current_sources": 33,
+    "current_evidence_spans": 91,
+    "owning_current_evidence_spans": 41,
+    "proposed": 22,
+    "unresolved": 19
+  },
+  "limits": [
+    "Current candidate research only; no source migration, native admission or grammar adoption.",
+    "No inferred root, selector, singleton kind, @ operator, Artifact.Revision path or carrier registry.",
+    "Prior CA-P-2096 settings/methodology findings were reopened as current definition evidence, not copied as automatic replacements."
+  ]
+}

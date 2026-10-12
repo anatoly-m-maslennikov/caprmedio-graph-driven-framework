@@ -6,11 +6,11 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 17:12:15 +0000"
+version: 2
+updated_at: "2026-10-09 04:37:30 +0400"
 subjects:
   governs: "MCP/HTTP endpoint/Access boundary"
-  depends_on: [MCP, HTTP, Operator, Permission, Credential, Request, Tool]
+  depends_on: [MCP, HTTP, Operator, Permission, Request, Tool]
 relations:
   relates_to: [CA-R-1118]
 ---
@@ -24,11 +24,11 @@ the additional localhost HTTP transport for the existing Project MCP Gateway.
 
 ## Claim
 
-the HTTP endpoint **must** admit a Request **only** with a valid transport Credential and an admitted Host and Origin, while preserving the existing Operator authorization and Tool permission boundaries.
+the HTTP endpoint **must** admit a Request only through its loopback Host/Origin boundary, without password, bearer, or other HTTP authentication, while preserving the existing Operator authorization and Tool permission boundaries.
 
 ## Details
 
-1. use a shared local bearer Token, supplied at runtime; it grants transport access, not Operator identity or permission to mutate.
-2. publish the Docker port on host loopback **only**. Requests with an absent Origin are allowed for non-browser clients; a present Origin must be loopback-allowlisted.
-3. missing configuration, absent or invalid bearer Tokens, hostile Hosts and hostile Origins fail closed before Tool handling.
-4. keep Credentials out of discovery, results, diagnostics, logs, command arguments, image contents and committed carriers.
+1. publish the Docker port on host loopback **only**. Requests with an absent Origin are allowed for non-browser clients; a present Origin must be loopback-allowlisted.
+2. hostile Hosts and hostile Origins fail closed before Tool handling. A password, bearer Token, Authorization value, or credential configuration is neither required nor validated.
+3. preserve existing Operator authorization and Tool permission checks after the transport boundary; localhost transport admission does not grant mutation permission.
+4. do not add HTTP credentials to discovery, results, diagnostics, logs, command arguments, image contents, committed carriers, or persistent configuration.

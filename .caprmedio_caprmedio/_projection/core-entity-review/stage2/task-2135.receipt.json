@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2135",
+  "recorded_at": "2026-10-11 10:47:59 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review relational producer and consumer subjects; not migration approval",
+  "verification": {
+    "task": "CA-P-2135",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2135.research.json",
+      "sha256": "e4ca2241b187c266061078a216d2128e7d5b8350903b9fbc298f7aa72e30ba9f"
+    },
+    "rows": 19,
+    "counts": {
+      "proposed": 16,
+      "unresolved": 3
+    },
+    "exact_evidence_spans": 37,
+    "exact_supporting_definition_spans": 6,
+    "exact_input_pins": 23,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/grammar_graph",
+      "final_report_sha256": "e4ca2241b187c266061078a216d2128e7d5b8350903b9fbc298f7aa72e30ba9f",
+      "result": "PASS: sixteen proposals and three genuine identity gaps across all twelve current owners",
+      "meaning_checks": [
+        "Previous Unit uses ordered peer Scope Unit definition, not Actor subtype.",
+        "Relational Atom is explicitly narrower than Atom; qualified Type targets keep Atom.Type.",
+        "Consumer and Producer preserve Scope Unit roles, not Actor.Type.",
+        "Derived Producer Result flow remains generic Relation without inventing a direct Kind.",
+        "Producer/Result exact identity and evaluation case identity remain null; target divergence is not ownership or ancestry."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/grammar_graph",
+    "final_report_sha256": "e4ca2241b187c266061078a216d2128e7d5b8350903b9fbc298f7aa72e30ba9f",
+    "result": "PASS: sixteen proposals and three genuine identity gaps across all twelve current owners",
+    "meaning_checks": [
+      "Previous Unit uses ordered peer Scope Unit definition, not Actor subtype.",
+      "Relational Atom is explicitly narrower than Atom; qualified Type targets keep Atom.Type.",
+      "Consumer and Producer preserve Scope Unit roles, not Actor.Type.",
+      "Derived Producer Result flow remains generic Relation without inventing a direct Kind.",
+      "Producer/Result exact identity and evaluation case identity remain null; target divergence is not ownership or ancestry."
+    ]
+  },
+  "completion_scope": "All19 selected origins passed exact live pin/span/coverage controls and independent semantic acceptance: sixteen supported proposals and three explicit nulls. Scope Unit roles, Relational Atom typing and derived flow distinctions remain intact; original Core is unchanged.",
+  "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

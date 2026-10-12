@@ -87,12 +87,20 @@ class ReleaseSuiteContextCheckpointTests(unittest.TestCase):
             elapsed_seconds=0.01,
             control_context_digest=self.context_digest,
         )
-        outputs = (self.candidate, self.candidate, source_copy, compilation, suite)
+        package = {
+            "staged": True,
+            "verified": True,
+            "candidate_snapshot_manifest_sha256": self.candidate.manifest.sha256,
+            "release_root": ".caprmedio_runtime/framework/releases/" + self.candidate.manifest.sha256,
+            "file_count": 5,
+        }
+        outputs = (self.candidate, package, suite)
         run.candidate = self.candidate
         run.preflight = _preflight(self.candidate)
         run.source_copy = source_copy
         run.compilation = compilation
         run.suite = suite
+        run.package = package
         for index, output in enumerate(outputs):
             context = SelectedReleaseActionContext(
                 PROJECT_ROOT,
@@ -156,7 +164,7 @@ class ReleaseSuiteContextCheckpointTests(unittest.TestCase):
         # The phase result retains the same Suite observation independently.
         # Altering only state would be caught by ordinary state/result equality,
         # not by validation of the digest itself.
-        suite_result = next(record for record in tampered["results"] if record["index"] == 4)
+        suite_result = next(record for record in tampered["results"] if record["index"] == 2)
         suite_result["result"]["output"]["value"]["control_context_digest"] = "0" * 64
         tampered["sha256"] = release_action_checkpoint_sha256(tampered)
         restored = restore_release_action_checkpoint(

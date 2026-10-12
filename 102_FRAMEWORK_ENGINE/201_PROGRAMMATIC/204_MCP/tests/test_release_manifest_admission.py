@@ -5,23 +5,27 @@ import copy
 import hashlib
 import json
 from pathlib import Path
+import shutil
 import sys
+import tempfile
 import unittest
 
 
 MCP = Path(__file__).resolve().parents[1]
 REPOSITORY = MCP.parents[2]
 APP_TESTS = MCP.parent / "203_APPS/WORKFLOW_ORCHESTRATOR/tests"
-for location in (MCP, MCP / "tests", APP_TESTS):
+PUBLIC_RELEASE = MCP.parent / "201_TOOLS/PUBLIC_RELEASE"
+for location in (PUBLIC_RELEASE, MCP, MCP / "tests", APP_TESTS):
     if str(location) not in sys.path:
         sys.path.insert(0, str(location))
 
 import test_release_source_admission as source_goldens  # noqa: E402
+import selected_admission as public_admission  # noqa: E402
+import selected_routes as routes_module  # noqa: E402
 from selected_routes import (  # noqa: E402
     SELECTED_ROUTE_NAMES, SelectedRouteAdapter, SelectedRouteError, canonical_digest,
     load_selected_manifest, selected_manifest_contract,
 )
-from selected_workflows_docker_fixture import GoldenCase, GoldenProject  # noqa: E402
 
 
 class _NeverSupport:
@@ -39,21 +43,142 @@ class ReleaseManifestAdmissionTest(unittest.TestCase):
         source_goldens.ReleaseSourceAdmissionTest.setUpClass()
 
     def setUp(self) -> None:
-        # Reuse actual D572 plus all39 copied pins; add the actual unchanged15
-        # manifest through its strict existing source-copy fixture helper.
-        self.fixture = source_goldens.ReleaseSourceAdmissionTest()
-        self.fixture.setUp()
-        self.addCleanup(self.fixture.doCleanups)
+        # D572@36 is a historical parser fixture.  Its sealed golden authority
+        # bytes are copied only into this disposable Project; production stays current.
+        self.fixture = self._resealed_d572_fixture()
         self.root = self.fixture.root
-        project = GoldenProject(REPOSITORY, self.root, GoldenCase("W04", "change_atom_status"))
-        self.base = project._copy_reviewed_manifest()
-        self.path = project.manifest_path
+        self.base, self.path = self._resealed_fifteen_route_manifest()
         self.record = copy.deepcopy(self.fixture.record)
         self.release = copy.deepcopy(self.fixture.route)
+
+    def _resealed_d572_fixture(self):
+        fixture = source_goldens.ReleaseSourceAdmissionTest()
+        temporary_root = REPOSITORY / ".caprmedio_tmp/tests/release-manifest-admission"
+        temporary_root.mkdir(parents=True, exist_ok=True)
+        temporary = tempfile.TemporaryDirectory(dir=temporary_root, ignore_cleanup_errors=True)
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        source_goldens.ReleaseSourceAdmissionTest.copy_sources(root)
+        fixture.root = root
+        fixture.record = source_goldens.derive_release_source_admission(root)
+        fixture.private_carriers = []
+        fixture.graph = source_goldens.derive_release_route_graph(root)
+        fixture.route = {"route": "release_version", **copy.deepcopy(fixture.graph)}
+        return fixture
+
+    def _resealed_fifteen_route_manifest(self) -> tuple[dict, Path]:
+        """Copy the fixed fifteen-route baseline with current fixture-only pins."""
+        manifest_ref = routes_module.selected_manifest_ref(self.root)
+        production = json.loads((REPOSITORY / manifest_ref).read_text(encoding="utf-8"))
+        routes = production.get("routes")
+        self.assertIsInstance(routes, list)
+        assert isinstance(routes, list)
+        self.assertEqual(list(SELECTED_ROUTE_NAMES), [row.get("route") for row in routes[:len(SELECTED_ROUTE_NAMES)]])
+        manifest = copy.deepcopy(production)
+        manifest["routes"] = manifest["routes"][:len(SELECTED_ROUTE_NAMES)]
+        manifest.pop("release_source_admissions", None)
+        manifest.pop("public_release_source_admissions", None)
+
+        def copy_and_reseal(value) -> None:
+            if isinstance(value, dict):
+                relative = value.get("source_path")
+                digest = value.get("digest")
+                if isinstance(relative, str) and isinstance(digest, str):
+                    source = REPOSITORY / relative
+                    target = self.root / relative
+                    self.assertTrue(source.is_file() and not source.is_symlink(), relative)
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(source, target)
+                    contents = target.read_bytes()
+                    value["digest"] = hashlib.sha256(contents).hexdigest()
+                    if "atom_id" in value or "version" in value:
+                        text = contents.decode("utf-8")
+                        atom_id = routes_module._frontmatter_value(text, "atom_id")
+                        version = routes_module._frontmatter_value(text, "version")
+                        self.assertIsNotNone(atom_id, relative)
+                        self.assertIsNotNone(version, relative)
+                        assert atom_id is not None and version is not None
+                        value["atom_id"] = atom_id
+                        value["version"] = int(version)
+                for child in value.values():
+                    copy_and_reseal(child)
+            elif isinstance(value, list):
+                for child in value:
+                    copy_and_reseal(child)
+
+        copy_and_reseal(manifest["routes"])
+        copy_and_reseal(manifest["query_source_admissions"])
+        freshness = manifest["source_freshness"]
+        self.assertIsInstance(freshness, dict)
+        assert isinstance(freshness, dict)
+        registry = freshness.get("selected_source_registry_ref")
+        self.assertIsInstance(registry, str)
+        assert isinstance(registry, str)
+        registry_source = REPOSITORY / registry
+        registry_target = self.root / registry
+        registry_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(registry_source, registry_target)
+        freshness["selected_source_registry_digest"] = hashlib.sha256(registry_target.read_bytes()).hexdigest()
+        freshness["selected_binding_digest"] = canonical_digest(manifest["routes"])
+        unsigned = {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"}
+        manifest["canonical_manifest_sha256"] = canonical_digest(unsigned)
+        path = self.root / manifest_ref
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(manifest, separators=(",", ":")), encoding="utf-8")
+        return manifest, path
 
     def successor(self) -> dict:
         return {**copy.deepcopy(self.base), "routes": [*copy.deepcopy(self.base["routes"]), copy.deepcopy(self.release)],
                 "release_source_admissions": [copy.deepcopy(self.record)]}
+
+    def _copy_public_release_sources(self) -> None:
+        """Copy D613 and its exact source rows into the isolated Project."""
+        record = public_admission.derive_public_release_source_admission(REPOSITORY)
+        authority = REPOSITORY / public_admission.AUTHORITY_REF
+        authority_target = self.root / public_admission.AUTHORITY_REF
+        authority_target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(authority, authority_target)
+        pins = [record["workflow"], *record["ordered_steps"], *record["ordered_actions"],
+                *(pin for collection in ("requirements", "methods", "evaluations", "deliveries")
+                  for pin in record["rmed_frontier"][collection])]
+        for relative in {pin["source_path"] for pin in pins}:
+            source = REPOSITORY / relative
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(source, target)
+
+    @staticmethod
+    def _public_route(record: dict) -> dict:
+        steps = copy.deepcopy(record["ordered_steps"])
+        actions = copy.deepcopy(record["ordered_actions"])
+        conditions = (
+            "a unique existing matching PR or no matching PR is evidenced",
+            "one content result is complete",
+            "fresh full suite passes for the public closure",
+            "immutable push proof and one actual open PR URL are evidenced",
+            "exact URL is already present, or mechanically appended and pushed to the same PR",
+        )
+        return {
+            "route": "public.release", "workflow": copy.deepcopy(record["workflow"]),
+            "ordered_steps": [
+                {"step": step, "action": action}
+                for step, action in zip(steps, actions, strict=True)
+            ],
+            "ordered_actions": actions, "native_action_calls": [],
+            "entry_step": steps[0]["atom_id"],
+            "on_result": [
+                {"from": step["atom_id"], "condition": conditions[index],
+                 "to": steps[index + 1]["atom_id"] if index + 1 < len(steps) else "complete"}
+                for index, step in enumerate(steps)
+            ],
+            "mutation_capable": True,
+        }
+
+    def public_successor(self, record: dict) -> dict:
+        manifest = self.successor()
+        manifest["routes"].append(self._public_route(record))
+        manifest["public_release_source_admissions"] = [copy.deepcopy(record)]
+        return manifest
 
     def save(self, manifest: dict, *, rehash: bool = True) -> None:
         if rehash:
@@ -94,6 +219,48 @@ class ReleaseManifestAdmissionTest(unittest.TestCase):
         self.assertEqual(self.base["query_source_admissions"], loaded["query_source_admissions"])
         self.assertEqual(15, len(SELECTED_ROUTE_NAMES), "a preparatory loader must not advertise/register Release")
         self.assertEqual(before, self.fixture.snapshot())
+
+    def test_current_d613_admits_the_ordered_seventeenth_public_route_without_task_done(self) -> None:
+        self._copy_public_release_sources()
+        record = public_admission.derive_public_release_source_admission(self.root)
+        manifest = self.public_successor(record)
+        self.save(manifest)
+        before = self.fixture.snapshot()
+        loaded = load_selected_manifest(self.root)
+        adapter = SelectedRouteAdapter(self.root, service=_NeverSupport())
+        self.assertEqual(before, self.fixture.snapshot())
+        self.assertEqual(
+            [*SELECTED_ROUTE_NAMES, "release_version", "public.release"],
+            [row["route"] for row in loaded["routes"]],
+        )
+        self.assertEqual(self.base["routes"], loaded["routes"][:len(SELECTED_ROUTE_NAMES)])
+        self.assertEqual([record], loaded["public_release_source_admissions"])
+        self.assertIn("public.release", adapter.routes)
+
+    def test_stale_d613_refuses_the_seventeenth_public_route_before_support(self) -> None:
+        self._copy_public_release_sources()
+        record = public_admission.derive_public_release_source_admission(self.root)
+        authority = self.root / public_admission.AUTHORITY_REF
+        original = authority.read_bytes()
+        authority.write_bytes(original + b"\nstale\n")
+        self.refusal(self.public_successor(record))
+
+    def test_rehashed_public_transition_graph_alteration_refuses_before_support(self) -> None:
+        self._copy_public_release_sources()
+        record = public_admission.derive_public_release_source_admission(self.root)
+        manifest = self.public_successor(record)
+        manifest["routes"][-1]["on_result"][0]["condition"] = "complete"
+        self.refusal(manifest)
+
+    def test_public_release_source_admission_is_present_only_for_the_seventeenth_route(self) -> None:
+        self._copy_public_release_sources()
+        record = public_admission.derive_public_release_source_admission(self.root)
+        absent = self.public_successor(record)
+        absent.pop("public_release_source_admissions")
+        self.refusal(absent)
+        unexpected = self.successor()
+        unexpected["public_release_source_admissions"] = [record]
+        self.refusal(unexpected)
 
     def test_missing_extra_unknown_or_out_of_order_release_evidence_refuses_before_support(self) -> None:
         manifest = self.successor()

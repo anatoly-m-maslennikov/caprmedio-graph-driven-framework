@@ -37,12 +37,16 @@ CANONICAL_GENERATOR = ROOT / CANONICAL_GENERATOR_CARRIER
 CONFIG = (
     CONTROL
     / "000_CAPRMEDIO_framework"
-    / "00_APPLICABLE_METHODOLOGY"
-    / "000_APPLICABLE_MTHD_sources"
-    / "003_PROJECT_CONFIGURATION"
     / "caprmedio_framework_settings.toml"
 )
-METHODOLOGY_SOURCES = CONFIG.parent.parent
+# Source scope Units remain under the declared applicable-Methodology source
+# tree.  They are independent from the D359 instance Settings carrier.
+METHODOLOGY_SOURCES = (
+    CONTROL
+    / "000_CAPRMEDIO_framework"
+    / "00_APPLICABLE_METHODOLOGY"
+    / "000_APPLICABLE_MTHD_sources"
+)
 METHODOLOGY_SOURCE_SCOPE_UNITS = (
     ("CORE_META_MODEL", METHODOLOGY_SOURCES / "001_CORE_META_MODEL"),
     ("INSTALLED_EXTENSIONS", METHODOLOGY_SOURCES / "002_INSTALLED_EXTENSIONS"),

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2112",
+  "recorded_at": "2026-10-11 09:03:21 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review final snapshot-field origins; not migration approval",
+  "verification": {
+    "task": "CA-P-2112",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2112.research.json",
+      "sha256": "e65fe0ec394ca5655ee23052d869467aab0a632abede70d3311b86425f58b3d7"
+    },
+    "rows": 17,
+    "counts": {
+      "proposed": 8,
+      "unresolved": 9
+    },
+    "exact_evidence_spans": 25,
+    "exact_input_pins": 11,
+    "historical_plan_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+      "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+    },
+    "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/projection_review_2099",
+      "final_report_sha256": "e65fe0ec394ca5655ee23052d869467aab0a632abede70d3311b86425f58b3d7",
+      "result": "PASS: all seventeen final meanings independently checked; eight supported proposals and nine justified nulls",
+      "meaning_checks": [
+        "Current Activity, Status, Author, Updated At and Change Classification fields remain snapshot dependencies.",
+        "Frontmatter remains representation syntax, not an entity.",
+        "Draft-lineage identity and mixed current/history transitions are not collapsed to Revision.",
+        "Procedural authoring does not establish an Actor or Author field."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/projection_review_2099",
+    "final_report_sha256": "e65fe0ec394ca5655ee23052d869467aab0a632abede70d3311b86425f58b3d7",
+    "result": "PASS: all seventeen final meanings independently checked; eight supported proposals and nine justified nulls",
+    "meaning_checks": [
+      "Current Activity, Status, Author, Updated At and Change Classification fields remain snapshot dependencies.",
+      "Frontmatter remains representation syntax, not an entity.",
+      "Draft-lineage identity and mixed current/history transitions are not collapsed to Revision.",
+      "Procedural authoring does not establish an Actor or Author field."
+    ]
+  },
+  "completion_scope": "All 17 assigned current origins passed independent meaning review and exact pin/span/coverage checks: eight supported proposals and nine explicit nulls. Snapshot fields, syntax, Draft provenance and history remain distinct; no original Atom changed.",
+  "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

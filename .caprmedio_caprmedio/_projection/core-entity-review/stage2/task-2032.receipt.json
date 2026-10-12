@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2032",
+  "recorded_at": "2026-10-11 02:36:44 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-041.review.json",
+    "sha256": "9674be8e230e274ce2c8411a5a70d8b9243ffc18bc53353be71f75c5b1766551"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-041.json",
+    "sha256": "aaee70be8137612740a1d062e827db35a66988b93b8a271f84e6021f206992bc"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 20,
+    "occurrences": 85,
+    "proposed": 19,
+    "unchanged": 30,
+    "unresolved": 36,
+    "meaning_review": "Independent meaning review checked proposals and unchanged values. Nine unproved Settings Artifact, Carrier binding, Revision field and nested Operations Type mappings became unresolved, preserving their owner and value domains.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "36 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}

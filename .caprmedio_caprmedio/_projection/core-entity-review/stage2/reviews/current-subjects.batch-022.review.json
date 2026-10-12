@@ -1,0 +1,2321 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-2013",
+  "batch_id": "current-subjects.batch-022",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-022.json",
+  "input_batch_sha256": "3b995b3096bbdaf5c22e9fdf492066b6cfe813c06441f239841c7bc9376250f5",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": {
+    "operator_candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "consolidated_review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    "current_subjects_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    "current_subjects_review_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  },
+  "source_reviews": [
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL-CORE--preserve-source-scope-in-derived-views.md",
+      "full_file_sha256": "4351c1f107ec24023fb36e05a2452d8a9a079a8ea1859ca3e72278e93eac437d",
+      "atom_id": "CA-R-1749",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL-CORE--preserve-source-scope-in-derived-views.md",
+        "sha256": "4351c1f107ec24023fb36e05a2452d8a9a079a8ea1859ca3e72278e93eac437d",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "96aa800dbeb5dc00f79be7a1f1b1b8980d8cc19bb6dba21910b475e5599dd0ba",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "full_file_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+      "atom_id": "CA-R-1750",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+        "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+        "start_line": 26,
+        "end_line": 38,
+        "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1751-CORE_META_MODEL-CORE--define-structural-level.md",
+      "full_file_sha256": "c78f988c6d40b7c09c7b3d59903a8be65faa6fa556f8fb03952151d2b45803af",
+      "atom_id": "CA-R-1751",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1751-CORE_META_MODEL-CORE--define-structural-level.md",
+        "sha256": "c78f988c6d40b7c09c7b3d59903a8be65faa6fa556f8fb03952151d2b45803af",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "d465a456cdcd335a7f663a4a74fa18402c4859a1050f08df9f90cb8fc5429170",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1752-CORE_META_MODEL-CORE--govern-project-adaptation-semantics.md",
+      "full_file_sha256": "786a0e7ee618b03c2680615b1f1e56b63b48324113f8a68bead9386dab4bf293",
+      "atom_id": "CA-R-1752",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1752-CORE_META_MODEL-CORE--govern-project-adaptation-semantics.md",
+        "sha256": "786a0e7ee618b03c2680615b1f1e56b63b48324113f8a68bead9386dab4bf293",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "a2fc139a0bc29a816c022e06bd2d575442f389f21c57b5b8b055a45981e7b09e",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1753-CORE_META_MODEL-CORE--keep-project-adaptation-authority-out-of-settings.md",
+      "full_file_sha256": "4644a8fe28d99983a249f5c3497748453ddb8b822e51f0abf38386d43894ecf6",
+      "atom_id": "CA-R-1753",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1753-CORE_META_MODEL-CORE--keep-project-adaptation-authority-out-of-settings.md",
+        "sha256": "4644a8fe28d99983a249f5c3497748453ddb8b822e51f0abf38386d43894ecf6",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "da53c6e2544d5c7d9e8bac6d6fc454ee627d8df10edfcb694d5df0af1a96db41",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1754-CORE_META_MODEL-GENERAL--promote-project-adaptation-authority-to-an-extension.md",
+      "full_file_sha256": "a570e58dbe813efe4d67bb8c75c05d883943b781dae968c1edb47d23599b6a66",
+      "atom_id": "CA-R-1754",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1754-CORE_META_MODEL-GENERAL--promote-project-adaptation-authority-to-an-extension.md",
+        "sha256": "a570e58dbe813efe4d67bb8c75c05d883943b781dae968c1edb47d23599b6a66",
+        "start_line": 21,
+        "end_line": 33,
+        "span_sha256": "baa8fbd7a7f8d6eb0eb51e7881e5118d38bec75f1ed3b2ba61c1e8cc72ff6546",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1755-CORE_META_MODEL-CORE--bound-extension-applicability.md",
+      "full_file_sha256": "d152d96b1ac86b261e1e8bfe80aa6892e8868ee347cb7817bfab8aebff383695",
+      "atom_id": "CA-R-1755",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1755-CORE_META_MODEL-CORE--bound-extension-applicability.md",
+        "sha256": "d152d96b1ac86b261e1e8bfe80aa6892e8868ee347cb7817bfab8aebff383695",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "74fc31bb12922fa1334d7bc73ea1de649b4890d1fae045b87bd0cbee6f659dc3",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md",
+      "full_file_sha256": "a87c17733a8f726c431c2d7cda78e60f13723cec4efcb344cf1146ace92a7b8c",
+      "atom_id": "CA-R-1756",
+      "version": 22,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md",
+        "sha256": "a87c17733a8f726c431c2d7cda78e60f13723cec4efcb344cf1146ace92a7b8c",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "93d749541f8190c210a0e74cee6a1bc46e226f125be99d3f51baf41f4960e215",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+      "full_file_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+      "atom_id": "CA-R-1757",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+        "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md",
+      "full_file_sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b",
+      "atom_id": "CA-R-1758",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md",
+        "sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "c48f89906b99d166005bad095d715d36094a3d3db2c2d00e2571b3b619b36ca3",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+      "full_file_sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+      "atom_id": "CA-R-1759",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+        "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md",
+      "full_file_sha256": "24fadc44278ab8a451f9f380b16ad0585e64a7aff5bd6ca61726dcdf61b20094",
+      "atom_id": "CA-R-1760",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md",
+        "sha256": "24fadc44278ab8a451f9f380b16ad0585e64a7aff5bd6ca61726dcdf61b20094",
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "50ce3e51456d57fd104336e8a0b0121cf0e26e85fc2b8a47269ac87a38a2ef40",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md",
+      "full_file_sha256": "6a6ce6060d358af61ecbca6bafb510ab7a6d9bc97585ec5cb31a6008e97964d0",
+      "atom_id": "CA-R-1761",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md",
+        "sha256": "6a6ce6060d358af61ecbca6bafb510ab7a6d9bc97585ec5cb31a6008e97964d0",
+        "start_line": 19,
+        "end_line": 29,
+        "span_sha256": "2abec61ef2491bd56bcd57d3a3a93fcc49493a7aeccdb01d3ebaee2f20954518",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md",
+      "full_file_sha256": "dd5d10c85537b11b8eb9e22f29aa551ad4e000ead2b551ccd5a79c8b3860640a",
+      "atom_id": "CA-R-1762",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md",
+        "sha256": "dd5d10c85537b11b8eb9e22f29aa551ad4e000ead2b551ccd5a79c8b3860640a",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "80d9f02b6bc48e44114c9d7c586defb478e9b4c39f159553e68b36ec0e79d215",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+      "full_file_sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+      "atom_id": "CA-R-1763",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+        "sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+        "start_line": 21,
+        "end_line": 33,
+        "span_sha256": "aaa1dac610f0959950d2d7e627be54a41d07f029ae35499ac2130ca44a3ab3d1",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+      "full_file_sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a",
+      "atom_id": "CA-R-1764",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+        "sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "4202b8098bd78a5c961b96a8992e75f328773e60b71ff99ab0ee076d298db00c",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+      "full_file_sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d",
+      "atom_id": "CA-R-1765",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+        "sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d",
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "ac831b87c46d963e677ce0cf96d73c5cc44639d6dd7766a718cf5c38733ebeea",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1766-CORE_META_MODEL-CORE--make-the-type-value-of-an-atom-identity-bearing.md",
+      "full_file_sha256": "693cf56a21f43b0e36cd07bfccb25332a6a29c529366131660cd7f29801d4ce8",
+      "atom_id": "CA-R-1766",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1766-CORE_META_MODEL-CORE--make-the-type-value-of-an-atom-identity-bearing.md",
+        "sha256": "693cf56a21f43b0e36cd07bfccb25332a6a29c529366131660cd7f29801d4ce8",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "3194fa663e0e5f4ac3e5a4ea6ef8b99d9d7292870f92de7c220ddf1b85349469",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL-CORE--distinguish-implementation-methods-from-implementation-decisions.md",
+      "full_file_sha256": "de6436f834b1308666a1deb765eedafb0a24d43d670384ca3dd538cd250bcf45",
+      "atom_id": "CA-R-1767",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL-CORE--distinguish-implementation-methods-from-implementation-decisions.md",
+        "sha256": "de6436f834b1308666a1deb765eedafb0a24d43d670384ca3dd538cd250bcf45",
+        "start_line": 19,
+        "end_line": 31,
+        "span_sha256": "a0ff5cf806cdbeefcbdcb81dc97d2583d39c67c20d47d5ca244cb5a821cb1cf6",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1768-CORE_META_MODEL-CORE--absorb-implementation-decisions-without-semantic-loss.md",
+      "full_file_sha256": "fcf9762667ba9ef2827d0007866d75a51b033c1911ed9ef92309b030f53089b2",
+      "atom_id": "CA-R-1768",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1768-CORE_META_MODEL-CORE--absorb-implementation-decisions-without-semantic-loss.md",
+        "sha256": "fcf9762667ba9ef2827d0007866d75a51b033c1911ed9ef92309b030f53089b2",
+        "start_line": 17,
+        "end_line": 29,
+        "span_sha256": "0b1bd7981633b853bfa081cf00cbe85e016769cca78e45b6cdff6ae9b2624f67",
+        "reason": "Entire current Main Content was read for this source-specific review."
+      },
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL-CORE--preserve-source-scope-in-derived-views.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL-CORE--preserve-source-scope-in-derived-views.md",
+      "source_atom_id": "CA-R-1749",
+      "source_version": 16,
+      "source_sha256": "4351c1f107ec24023fb36e05a2452d8a9a079a8ea1859ca3e72278e93eac437d",
+      "field": "governs",
+      "index": null,
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires a derived view to preserve every declared source scope without inflating truth, completeness, evaluation, or priority through aggregation. The sources use a broad topology label across source scope, ownership, and structural depth; the candidate has no single canonical identity retaining all those qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1749-CORE_META_MODEL-CORE--preserve-source-scope-in-derived-views.md",
+          "sha256": "4351c1f107ec24023fb36e05a2452d8a9a079a8ea1859ca3e72278e93eac437d",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "96aa800dbeb5dc00f79be7a1f1b1b8980d8cc19bb6dba21910b475e5599dd0ba",
+          "reason": "Current Main Content for CA-R-1749 establishes the reviewed meaning of 'scope-topology'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'scope-topology'.",
+        "Retains CA-R-1749 version 16 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "source_atom_id": "CA-R-1750",
+      "source_version": 21,
+      "source_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Operator",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.95,
+      "reason": "Current Main Content partitions one Operator-selected setting between Project Settings, Framework Instance Settings, or Project Structure and keeps current/default values out of Atom definitions. The current source uses Operator as the setting-selecting performer; the candidate supplies its Actor Type identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current Main Content for CA-R-1750 establishes the reviewed meaning of 'Operator'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/2",
+          "reason": "Actor is the confirmed root for who performs work."
+        },
+        {
+          "pointer": "/entity_identity_model/actor/type_examples/1",
+          "reason": "Operator is explicitly a confirmed Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Operator' to 'Actor.Type: Operator'.",
+        "Retains CA-R-1750 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "source_atom_id": "CA-R-1750",
+      "source_version": 21,
+      "source_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project Settings",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content partitions one Operator-selected setting between Project Settings, Framework Instance Settings, or Project Structure and keeps current/default values out of Atom definitions. The source defines a distinct initialization Artifact; the candidate's generic Artifact root does not retain the Project Settings identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current Main Content for CA-R-1750 establishes the reviewed meaning of 'Project Settings'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Project Settings'.",
+        "Retains CA-R-1750 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "source_atom_id": "CA-R-1750",
+      "source_version": 21,
+      "source_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content partitions one Operator-selected setting between Project Settings, Framework Instance Settings, or Project Structure and keeps current/default values out of Atom definitions. The source distinguishes Project Structure from settings and identifies a per-Scope-Unit override; the candidate has no canonical Project Structure identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current Main Content for CA-R-1750 establishes the reviewed meaning of 'Project Structure'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Project Structure'.",
+        "Retains CA-R-1750 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "source_atom_id": "CA-R-1750",
+      "source_version": 21,
+      "source_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Default Settings",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content partitions one Operator-selected setting between Project Settings, Framework Instance Settings, or Project Structure and keeps current/default values out of Atom definitions. The source distinguishes Default Settings as a settings Artifact, but the candidate names no canonical Default Settings Entity or dependent field that retains that identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current Main Content for CA-R-1750 establishes the reviewed meaning of 'Default Settings'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Default Settings'.",
+        "Retains CA-R-1750 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "source_atom_id": "CA-R-1750",
+      "source_version": 21,
+      "source_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Project Name",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content partitions one Operator-selected setting between Project Settings, Framework Instance Settings, or Project Structure and keeps current/default values out of Atom definitions. The source places Project Name in Project Settings, while the candidate confirms neither Project Settings nor a Project Name field.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current Main Content for CA-R-1750 establishes the reviewed meaning of 'Project Name'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Project Name'.",
+        "Retains CA-R-1750 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "source_atom_id": "CA-R-1750",
+      "source_version": 21,
+      "source_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Atom/Identifier/Project Prefix",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content partitions one Operator-selected setting between Project Settings, Framework Instance Settings, or Project Structure and keeps current/default values out of Atom definitions. The candidate confirms a Scope Unit ID prefix, not an Atom-qualified Project Prefix field; rebasing would change the owner.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current Main Content for CA-R-1750 establishes the reviewed meaning of 'Atom/Identifier/Project Prefix'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Atom/Identifier/Project Prefix'.",
+        "Retains CA-R-1750 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "source_atom_id": "CA-R-1750",
+      "source_version": 21,
+      "source_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Atom",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Main Content partitions one Operator-selected setting between Project Settings, Framework Instance Settings, or Project Structure and keeps current/default values out of Atom definitions. The current source uses the exact candidate Entity identity; retaining the literal does not infer a display path or native mutation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current Main Content for CA-R-1750 establishes the reviewed meaning of 'Atom'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Atom'.",
+        "Retains CA-R-1750 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "source_atom_id": "CA-R-1750",
+      "source_version": 21,
+      "source_sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content partitions one Operator-selected setting between Project Settings, Framework Instance Settings, or Project Structure and keeps current/default values out of Atom definitions. The source distinguishes Framework Instance Settings as an authoritative settings Artifact, but the candidate supplies no canonical identity retaining that settings-specific qualification.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current Main Content for CA-R-1750 establishes the reviewed meaning of 'Framework Instance Settings'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'Framework Instance Settings'.",
+        "Retains CA-R-1750 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1751-CORE_META_MODEL-CORE--define-structural-level.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1751-CORE_META_MODEL-CORE--define-structural-level.md",
+      "source_atom_id": "CA-R-1751",
+      "source_version": 21,
+      "source_sha256": "c78f988c6d40b7c09c7b3d59903a8be65faa6fa556f8fb03952151d2b45803af",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Structural Level as signed Scope Unit ancestry depth relative to the Project at level zero. The sources use a broad topology label across source scope, ownership, and structural depth; the candidate has no single canonical identity retaining all those qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1751-CORE_META_MODEL-CORE--define-structural-level.md",
+          "sha256": "c78f988c6d40b7c09c7b3d59903a8be65faa6fa556f8fb03952151d2b45803af",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "d465a456cdcd335a7f663a4a74fa18402c4859a1050f08df9f90cb8fc5429170",
+          "reason": "Current Main Content for CA-R-1751 establishes the reviewed meaning of 'scope-topology'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'scope-topology'.",
+        "Retains CA-R-1751 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1751-CORE_META_MODEL-CORE--define-structural-level.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1751-CORE_META_MODEL-CORE--define-structural-level.md",
+      "source_atom_id": "CA-R-1751",
+      "source_version": 21,
+      "source_sha256": "c78f988c6d40b7c09c7b3d59903a8be65faa6fa556f8fb03952151d2b45803af",
+      "field": "governs",
+      "index": null,
+      "old_value": "Structural Level",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Structural Level",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Structural Level as signed Scope Unit ancestry depth relative to the Project at level zero. The source identifies Structural Level as a Scope Unit field; the proposal preserves its owner qualification without inventing an allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1751-CORE_META_MODEL-CORE--define-structural-level.md",
+          "sha256": "c78f988c6d40b7c09c7b3d59903a8be65faa6fa556f8fb03952151d2b45803af",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "d465a456cdcd335a7f663a4a74fa18402c4859a1050f08df9f90cb8fc5429170",
+          "reason": "Current Main Content for CA-R-1751 establishes the reviewed meaning of 'Structural Level'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed root; the current source identifies Structural Level as a Scope Unit characterization."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the governs role while mapping 'Structural Level' to 'Scope Unit.Structural Level'.",
+        "Retains CA-R-1751 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1752-CORE_META_MODEL-CORE--govern-project-adaptation-semantics.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1752-CORE_META_MODEL-CORE--govern-project-adaptation-semantics.md",
+      "source_atom_id": "CA-R-1752",
+      "source_version": 19,
+      "source_sha256": "786a0e7ee618b03c2680615b1f1e56b63b48324113f8a68bead9386dab4bf293",
+      "field": "governs",
+      "index": null,
+      "old_value": "extension-model",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines project-owned Project Adaptation authority that changes capabilities for one Project without modifying the Canonical Framework or Extension it adapts. The sources distinguish Project Adaptation and Extension authority, but the candidate supplies no Extension model root, field, or Relation identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1752-CORE_META_MODEL-CORE--govern-project-adaptation-semantics.md",
+          "sha256": "786a0e7ee618b03c2680615b1f1e56b63b48324113f8a68bead9386dab4bf293",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "a2fc139a0bc29a816c022e06bd2d575442f389f21c57b5b8b055a45981e7b09e",
+          "reason": "Current Main Content for CA-R-1752 establishes the reviewed meaning of 'extension-model'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'extension-model'.",
+        "Retains CA-R-1752 version 19 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1753-CORE_META_MODEL-CORE--keep-project-adaptation-authority-out-of-settings.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1753-CORE_META_MODEL-CORE--keep-project-adaptation-authority-out-of-settings.md",
+      "source_atom_id": "CA-R-1753",
+      "source_version": 19,
+      "source_sha256": "4644a8fe28d99983a249f5c3497748453ddb8b822e51f0abf38386d43894ecf6",
+      "field": "governs",
+      "index": null,
+      "old_value": "extension-model",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content keeps Project Adaptation and Extension definitions in applicable Atoms, separate from settings selection and derived Scope Unit Graph views. The sources distinguish Project Adaptation and Extension authority, but the candidate supplies no Extension model root, field, or Relation identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1753-CORE_META_MODEL-CORE--keep-project-adaptation-authority-out-of-settings.md",
+          "sha256": "4644a8fe28d99983a249f5c3497748453ddb8b822e51f0abf38386d43894ecf6",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "da53c6e2544d5c7d9e8bac6d6fc454ee627d8df10edfcb694d5df0af1a96db41",
+          "reason": "Current Main Content for CA-R-1753 establishes the reviewed meaning of 'extension-model'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'extension-model'.",
+        "Retains CA-R-1753 version 19 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1754-CORE_META_MODEL-GENERAL--promote-project-adaptation-authority-to-an-extension.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1754-CORE_META_MODEL-GENERAL--promote-project-adaptation-authority-to-an-extension.md",
+      "source_atom_id": "CA-R-1754",
+      "source_version": 20,
+      "source_sha256": "a570e58dbe813efe4d67bb8c75c05d883943b781dae968c1edb47d23599b6a66",
+      "field": "governs",
+      "index": null,
+      "old_value": "extension-model",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content permits promotion of a coherent reusable Project Adaptation subset into a separately identified Extension while preserving provenance and leaving the source unchanged pending reconciliation. The sources distinguish Project Adaptation and Extension authority, but the candidate supplies no Extension model root, field, or Relation identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1754-CORE_META_MODEL-GENERAL--promote-project-adaptation-authority-to-an-extension.md",
+          "sha256": "a570e58dbe813efe4d67bb8c75c05d883943b781dae968c1edb47d23599b6a66",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "baa8fbd7a7f8d6eb0eb51e7881e5118d38bec75f1ed3b2ba61c1e8cc72ff6546",
+          "reason": "Current Main Content for CA-R-1754 establishes the reviewed meaning of 'extension-model'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'extension-model'.",
+        "Retains CA-R-1754 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1755-CORE_META_MODEL-CORE--bound-extension-applicability.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1755-CORE_META_MODEL-CORE--bound-extension-applicability.md",
+      "source_atom_id": "CA-R-1755",
+      "source_version": 16,
+      "source_sha256": "d152d96b1ac86b261e1e8bfe80aa6892e8868ee347cb7817bfab8aebff383695",
+      "field": "governs",
+      "index": null,
+      "old_value": "extension-model",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content limits every Extension to its declared applicability boundary. The sources distinguish Project Adaptation and Extension authority, but the candidate supplies no Extension model root, field, or Relation identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1755-CORE_META_MODEL-CORE--bound-extension-applicability.md",
+          "sha256": "d152d96b1ac86b261e1e8bfe80aa6892e8868ee347cb7817bfab8aebff383695",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "74fc31bb12922fa1334d7bc73ea1de649b4890d1fae045b87bd0cbee6f659dc3",
+          "reason": "Current Main Content for CA-R-1755 establishes the reviewed meaning of 'extension-model'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'extension-model'.",
+        "Retains CA-R-1755 version 16 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md",
+      "source_atom_id": "CA-R-1756",
+      "source_version": 22,
+      "source_sha256": "a87c17733a8f726c431c2d7cda78e60f13723cec4efcb344cf1146ace92a7b8c",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "artifact-model",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires every Scope Unit to own only direct child Scope Units through one recursive structural-parent relation. This broad model label does not identify whether it denotes the Artifact root, a catalog, or a view; the candidate root alone would lose that distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md",
+          "sha256": "a87c17733a8f726c431c2d7cda78e60f13723cec4efcb344cf1146ace92a7b8c",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "93d749541f8190c210a0e74cee6a1bc46e226f125be99d3f51baf41f4960e215",
+          "reason": "Current Main Content for CA-R-1756 establishes the reviewed meaning of 'artifact-model'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'artifact-model'.",
+        "Retains CA-R-1756 version 22 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md",
+      "source_atom_id": "CA-R-1756",
+      "source_version": 22,
+      "source_sha256": "a87c17733a8f726c431c2d7cda78e60f13723cec4efcb344cf1146ace92a7b8c",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "authority",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires every Scope Unit to own only direct child Scope Units through one recursive structural-parent relation. The source uses a broad authority label; the candidate separates source authority, Scope Unit ownership, and derived views without assigning this label to one canonical identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md",
+          "sha256": "a87c17733a8f726c431c2d7cda78e60f13723cec4efcb344cf1146ace92a7b8c",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "93d749541f8190c210a0e74cee6a1bc46e226f125be99d3f51baf41f4960e215",
+          "reason": "Current Main Content for CA-R-1756 establishes the reviewed meaning of 'authority'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'authority'.",
+        "Retains CA-R-1756 version 22 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md",
+      "source_atom_id": "CA-R-1756",
+      "source_version": 22,
+      "source_sha256": "a87c17733a8f726c431c2d7cda78e60f13723cec4efcb344cf1146ace92a7b8c",
+      "field": "governs",
+      "index": null,
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires every Scope Unit to own only direct child Scope Units through one recursive structural-parent relation. The sources use a broad topology label across source scope, ownership, and structural depth; the candidate has no single canonical identity retaining all those qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1756-CORE_META_MODEL-CORE--make-scope-unit-ownership-immediate-and-recursive.md",
+          "sha256": "a87c17733a8f726c431c2d7cda78e60f13723cec4efcb344cf1146ace92a7b8c",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "93d749541f8190c210a0e74cee6a1bc46e226f125be99d3f51baf41f4960e215",
+          "reason": "Current Main Content for CA-R-1756 establishes the reviewed meaning of 'scope-topology'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'scope-topology'.",
+        "Retains CA-R-1756 version 22 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+      "source_atom_id": "CA-R-1757",
+      "source_version": 17,
+      "source_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines a Scope Unit as a Structural Entity that owns Atoms and may contain child Scope Units. The source uses Structural Entity as a broader class of which Scope Unit is one instance; the candidate does not confirm that class as Scope Unit or another canonical identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current Main Content for CA-R-1757 establishes the reviewed meaning of 'Structural Entity'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Structural Entity'.",
+        "Retains CA-R-1757 version 17 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+      "source_atom_id": "CA-R-1757",
+      "source_version": 17,
+      "source_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Scope Unit as a Structural Entity that owns Atoms and may contain child Scope Units. The current source uses the exact candidate Entity identity; retaining the literal does not infer a display path or native mutation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current Main Content for CA-R-1757 establishes the reviewed meaning of 'Atom'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Atom'.",
+        "Retains CA-R-1757 version 17 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+      "source_atom_id": "CA-R-1757",
+      "source_version": 17,
+      "source_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+      "field": "governs",
+      "index": null,
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines a Scope Unit as a Structural Entity that owns Atoms and may contain child Scope Units. The current source uses the exact candidate Entity identity; retaining the literal does not infer a display path or native mutation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current Main Content for CA-R-1757 establishes the reviewed meaning of 'Scope Unit'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'Scope Unit'.",
+        "Retains CA-R-1757 version 17 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md",
+      "source_atom_id": "CA-R-1758",
+      "source_version": 20,
+      "source_sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires every Scope Unit to have exactly one Type value in the Ordered/Unordered domain. The current source uses the exact candidate Entity identity; retaining the literal does not infer a display path or native mutation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md",
+          "sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c48f89906b99d166005bad095d715d36094a3d3db2c2d00e2571b3b619b36ca3",
+          "reason": "Current Main Content for CA-R-1758 establishes the reviewed meaning of 'Scope Unit'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Scope Unit'.",
+        "Retains CA-R-1758 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md",
+      "source_atom_id": "CA-R-1758",
+      "source_version": 20,
+      "source_sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Type",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires every Scope Unit to have exactly one Type value in the Ordered/Unordered domain. The source explicitly gives every Scope Unit one Type; dot notation retains the owner-field distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md",
+          "sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c48f89906b99d166005bad095d715d36094a3d3db2c2d00e2571b3b619b36ca3",
+          "reason": "Current Main Content for CA-R-1758 establishes the reviewed meaning of 'Type'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed ownership-boundary root; the source explicitly gives it the Type field."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Type' to 'Scope Unit.Type'.",
+        "Retains CA-R-1758 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md",
+      "source_atom_id": "CA-R-1758",
+      "source_version": 20,
+      "source_sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b",
+      "field": "governs",
+      "index": null,
+      "old_value": "Scope Unit/Type",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires every Scope Unit to have exactly one Type value in the Ordered/Unordered domain. The source explicitly gives every Scope Unit one Type; dot notation retains the owner-field distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md",
+          "sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c48f89906b99d166005bad095d715d36094a3d3db2c2d00e2571b3b619b36ca3",
+          "reason": "Current Main Content for CA-R-1758 establishes the reviewed meaning of 'Scope Unit/Type'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed ownership-boundary root; the source explicitly gives it the Type field."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the governs role while mapping 'Scope Unit/Type' to 'Scope Unit.Type'.",
+        "Retains CA-R-1758 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+      "source_atom_id": "CA-R-1759",
+      "source_version": 21,
+      "source_sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires the Project Scope Unit to have no parent Scope Unit and the Unordered Type value. The current source uses the exact candidate Entity identity; retaining the literal does not infer a display path or native mutation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current Main Content for CA-R-1759 establishes the reviewed meaning of 'Scope Unit'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Scope Unit'.",
+        "Retains CA-R-1759 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+      "source_atom_id": "CA-R-1759",
+      "source_version": 21,
+      "source_sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Scope Unit/Type",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires the Project Scope Unit to have no parent Scope Unit and the Unordered Type value. The source explicitly gives every Scope Unit one Type; dot notation retains the owner-field distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current Main Content for CA-R-1759 establishes the reviewed meaning of 'Scope Unit/Type'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed ownership-boundary root; the source explicitly gives it the Type field."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Scope Unit/Type' to 'Scope Unit.Type'.",
+        "Retains CA-R-1759 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+      "source_atom_id": "CA-R-1759",
+      "source_version": 21,
+      "source_sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content requires the Project Scope Unit to have no parent Scope Unit and the Unordered Type value. The source's Project is the parentless Unordered Scope Unit; the candidate has no Project-specific identity that retains those qualifications rather than flattening it to Scope Unit.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current Main Content for CA-R-1759 establishes the reviewed meaning of 'Project'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'Project'.",
+        "Retains CA-R-1759 version 21 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md",
+      "source_atom_id": "CA-R-1760",
+      "source_version": 20,
+      "source_sha256": "24fadc44278ab8a451f9f380b16ad0585e64a7aff5bd6ca61726dcdf61b20094",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Local Order",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Local Order",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Ordered as the Scope Unit Type value whose bearer participates in exactly one sibling Local Order. The source identifies Local Order as a Scope Unit field; the proposal preserves its owner qualification without inventing an allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md",
+          "sha256": "24fadc44278ab8a451f9f380b16ad0585e64a7aff5bd6ca61726dcdf61b20094",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "50ce3e51456d57fd104336e8a0b0121cf0e26e85fc2b8a47269ac87a38a2ef40",
+          "reason": "Current Main Content for CA-R-1760 establishes the reviewed meaning of 'Local Order'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed root; the current source identifies Local Order as a Scope Unit characterization."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Local Order' to 'Scope Unit.Local Order'.",
+        "Retains CA-R-1760 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md",
+      "source_atom_id": "CA-R-1760",
+      "source_version": 20,
+      "source_sha256": "24fadc44278ab8a451f9f380b16ad0585e64a7aff5bd6ca61726dcdf61b20094",
+      "field": "governs",
+      "index": null,
+      "old_value": "Scope Unit/Type: Ordered",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type: Ordered",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Ordered as the Scope Unit Type value whose bearer participates in exactly one sibling Local Order. The source supplies the Scope Unit.Type allowed value Ordered; colon is used only for that Property-to-allowed-value relationship.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md",
+          "sha256": "24fadc44278ab8a451f9f380b16ad0585e64a7aff5bd6ca61726dcdf61b20094",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "50ce3e51456d57fd104336e8a0b0121cf0e26e85fc2b8a47269ac87a38a2ef40",
+          "reason": "Current Main Content for CA-R-1760 establishes the reviewed meaning of 'Scope Unit/Type: Ordered'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed ownership-boundary root and the source identifies Ordered as its Type value."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the governs role while mapping 'Scope Unit/Type: Ordered' to 'Scope Unit.Type: Ordered'.",
+        "Retains CA-R-1760 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md",
+      "source_atom_id": "CA-R-1761",
+      "source_version": 20,
+      "source_sha256": "6a6ce6060d358af61ecbca6bafb510ab7a6d9bc97585ec5cb31a6008e97964d0",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Local Order",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Local Order",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Unordered as the Scope Unit Type value whose bearer does not participate in sibling Local Order. The source identifies Local Order as a Scope Unit field; the proposal preserves its owner qualification without inventing an allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md",
+          "sha256": "6a6ce6060d358af61ecbca6bafb510ab7a6d9bc97585ec5cb31a6008e97964d0",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "2abec61ef2491bd56bcd57d3a3a93fcc49493a7aeccdb01d3ebaee2f20954518",
+          "reason": "Current Main Content for CA-R-1761 establishes the reviewed meaning of 'Local Order'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed root; the current source identifies Local Order as a Scope Unit characterization."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Local Order' to 'Scope Unit.Local Order'.",
+        "Retains CA-R-1761 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md",
+      "source_atom_id": "CA-R-1761",
+      "source_version": 20,
+      "source_sha256": "6a6ce6060d358af61ecbca6bafb510ab7a6d9bc97585ec5cb31a6008e97964d0",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Unordered as the Scope Unit Type value whose bearer does not participate in sibling Local Order. The current source uses the exact candidate Entity identity; retaining the literal does not infer a display path or native mutation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md",
+          "sha256": "6a6ce6060d358af61ecbca6bafb510ab7a6d9bc97585ec5cb31a6008e97964d0",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "2abec61ef2491bd56bcd57d3a3a93fcc49493a7aeccdb01d3ebaee2f20954518",
+          "reason": "Current Main Content for CA-R-1761 establishes the reviewed meaning of 'Scope Unit'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Scope Unit'.",
+        "Retains CA-R-1761 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md",
+      "source_atom_id": "CA-R-1761",
+      "source_version": 20,
+      "source_sha256": "6a6ce6060d358af61ecbca6bafb510ab7a6d9bc97585ec5cb31a6008e97964d0",
+      "field": "governs",
+      "index": null,
+      "old_value": "Scope Unit/Type: Unordered",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type: Unordered",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Unordered as the Scope Unit Type value whose bearer does not participate in sibling Local Order. The source supplies the Scope Unit.Type allowed value Unordered; colon is used only for that Property-to-allowed-value relationship.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md",
+          "sha256": "6a6ce6060d358af61ecbca6bafb510ab7a6d9bc97585ec5cb31a6008e97964d0",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "2abec61ef2491bd56bcd57d3a3a93fcc49493a7aeccdb01d3ebaee2f20954518",
+          "reason": "Current Main Content for CA-R-1761 establishes the reviewed meaning of 'Scope Unit/Type: Unordered'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed ownership-boundary root and the source identifies Unordered as its Type value."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the governs role while mapping 'Scope Unit/Type: Unordered' to 'Scope Unit.Type: Unordered'.",
+        "Retains CA-R-1761 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md",
+      "source_atom_id": "CA-R-1762",
+      "source_version": 19,
+      "source_sha256": "dd5d10c85537b11b8eb9e22f29aa551ad4e000ead2b551ccd5a79c8b3860640a",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project Boundary Position",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Project Boundary Position",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires Scope Units to characterize Project Boundary Position, Type value, and Child Composition independently. The source identifies Project Boundary Position as a Scope Unit field; the proposal preserves its owner qualification without inventing an allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md",
+          "sha256": "dd5d10c85537b11b8eb9e22f29aa551ad4e000ead2b551ccd5a79c8b3860640a",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "80d9f02b6bc48e44114c9d7c586defb478e9b4c39f159553e68b36ec0e79d215",
+          "reason": "Current Main Content for CA-R-1762 establishes the reviewed meaning of 'Project Boundary Position'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed root; the current source identifies Project Boundary Position as a Scope Unit characterization."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Project Boundary Position' to 'Scope Unit.Project Boundary Position'.",
+        "Retains CA-R-1762 version 19 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md",
+      "source_atom_id": "CA-R-1762",
+      "source_version": 19,
+      "source_sha256": "dd5d10c85537b11b8eb9e22f29aa551ad4e000ead2b551ccd5a79c8b3860640a",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Scope Unit/Type",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires Scope Units to characterize Project Boundary Position, Type value, and Child Composition independently. The source explicitly gives every Scope Unit one Type; dot notation retains the owner-field distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md",
+          "sha256": "dd5d10c85537b11b8eb9e22f29aa551ad4e000ead2b551ccd5a79c8b3860640a",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "80d9f02b6bc48e44114c9d7c586defb478e9b4c39f159553e68b36ec0e79d215",
+          "reason": "Current Main Content for CA-R-1762 establishes the reviewed meaning of 'Scope Unit/Type'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed ownership-boundary root; the source explicitly gives it the Type field."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Scope Unit/Type' to 'Scope Unit.Type'.",
+        "Retains CA-R-1762 version 19 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md",
+      "source_atom_id": "CA-R-1762",
+      "source_version": 19,
+      "source_sha256": "dd5d10c85537b11b8eb9e22f29aa551ad4e000ead2b551ccd5a79c8b3860640a",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Child Composition",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Child Composition",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires Scope Units to characterize Project Boundary Position, Type value, and Child Composition independently. The source identifies Child Composition as a Scope Unit field; the proposal preserves its owner qualification without inventing an allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md",
+          "sha256": "dd5d10c85537b11b8eb9e22f29aa551ad4e000ead2b551ccd5a79c8b3860640a",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "80d9f02b6bc48e44114c9d7c586defb478e9b4c39f159553e68b36ec0e79d215",
+          "reason": "Current Main Content for CA-R-1762 establishes the reviewed meaning of 'Child Composition'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed root; the current source identifies Child Composition as a Scope Unit characterization."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Child Composition' to 'Scope Unit.Child Composition'.",
+        "Retains CA-R-1762 version 19 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md",
+      "source_atom_id": "CA-R-1762",
+      "source_version": 19,
+      "source_sha256": "dd5d10c85537b11b8eb9e22f29aa551ad4e000ead2b551ccd5a79c8b3860640a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "Current Main Content requires Scope Units to characterize Project Boundary Position, Type value, and Child Composition independently. The current source uses the exact candidate Entity identity; retaining the literal does not infer a display path or native mutation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1762-CORE_META_MODEL-CORE--coordinate-scope-units-through-three-independent-axes.md",
+          "sha256": "dd5d10c85537b11b8eb9e22f29aa551ad4e000ead2b551ccd5a79c8b3860640a",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "80d9f02b6bc48e44114c9d7c586defb478e9b4c39f159553e68b36ec0e79d215",
+          "reason": "Current Main Content for CA-R-1762 establishes the reviewed meaning of 'Scope Unit'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'Scope Unit'.",
+        "Retains CA-R-1762 version 19 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+      "source_atom_id": "CA-R-1763",
+      "source_version": 18,
+      "source_sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Local Order as the position of an Ordered Scope Unit among siblings sharing a direct parent. The current source uses the exact candidate Entity identity; retaining the literal does not infer a display path or native mutation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+          "sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "aaa1dac610f0959950d2d7e627be54a41d07f029ae35499ac2130ca44a3ab3d1",
+          "reason": "Current Main Content for CA-R-1763 establishes the reviewed meaning of 'Scope Unit'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Scope Unit'.",
+        "Retains CA-R-1763 version 18 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+      "source_atom_id": "CA-R-1763",
+      "source_version": 18,
+      "source_sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Scope Unit/Type",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Local Order as the position of an Ordered Scope Unit among siblings sharing a direct parent. The source explicitly gives every Scope Unit one Type; dot notation retains the owner-field distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+          "sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "aaa1dac610f0959950d2d7e627be54a41d07f029ae35499ac2130ca44a3ab3d1",
+          "reason": "Current Main Content for CA-R-1763 establishes the reviewed meaning of 'Scope Unit/Type'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed ownership-boundary root; the source explicitly gives it the Type field."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Scope Unit/Type' to 'Scope Unit.Type'.",
+        "Retains CA-R-1763 version 18 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+      "source_atom_id": "CA-R-1763",
+      "source_version": 18,
+      "source_sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Local Order as the position of an Ordered Scope Unit among siblings sharing a direct parent. The source requires a recursive structural-parent Relation, but the candidate does not confirm its Relation kind, direction, declaring owner, or permitted endpoints.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+          "sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "aaa1dac610f0959950d2d7e627be54a41d07f029ae35499ac2130ca44a3ab3d1",
+          "reason": "Current Main Content for CA-R-1763 establishes the reviewed meaning of 'Structural Parent Relation'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Structural Parent Relation'.",
+        "Retains CA-R-1763 version 18 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+      "source_atom_id": "CA-R-1763",
+      "source_version": 18,
+      "source_sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Relation",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Relation",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Local Order as the position of an Ordered Scope Unit among siblings sharing a direct parent. The current source uses the exact candidate Entity identity; retaining the literal does not infer a display path or native mutation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+          "sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "aaa1dac610f0959950d2d7e627be54a41d07f029ae35499ac2130ca44a3ab3d1",
+          "reason": "Current Main Content for CA-R-1763 establishes the reviewed meaning of 'Relation'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Relation'.",
+        "Retains CA-R-1763 version 18 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+      "source_atom_id": "CA-R-1763",
+      "source_version": 18,
+      "source_sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+      "field": "governs",
+      "index": null,
+      "old_value": "Local Order",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Local Order",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Local Order as the position of an Ordered Scope Unit among siblings sharing a direct parent. The source identifies Local Order as a Scope Unit field; the proposal preserves its owner qualification without inventing an allowed-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+          "sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "aaa1dac610f0959950d2d7e627be54a41d07f029ae35499ac2130ca44a3ab3d1",
+          "reason": "Current Main Content for CA-R-1763 establishes the reviewed meaning of 'Local Order'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is the confirmed root; the current source identifies Local Order as a Scope Unit characterization."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the governs role while mapping 'Local Order' to 'Scope Unit.Local Order'.",
+        "Retains CA-R-1763 version 18 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+      "source_atom_id": "CA-R-1764",
+      "source_version": 18,
+      "source_sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.95,
+      "reason": "Current Main Content defines Structural Path as the ordered ancestry of Scope Unit identities from the first root to a target. The current source uses the exact candidate Entity identity; retaining the literal does not infer a display path or native mutation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+          "sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "4202b8098bd78a5c961b96a8992e75f328773e60b71ff99ab0ee076d298db00c",
+          "reason": "Current Main Content for CA-R-1764 establishes the reviewed meaning of 'Scope Unit'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Scope Unit'.",
+        "Retains CA-R-1764 version 18 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+      "source_atom_id": "CA-R-1764",
+      "source_version": 18,
+      "source_sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Structural Path as the ordered ancestry of Scope Unit identities from the first root to a target. The source requires a recursive structural-parent Relation, but the candidate does not confirm its Relation kind, direction, declaring owner, or permitted endpoints.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+          "sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "4202b8098bd78a5c961b96a8992e75f328773e60b71ff99ab0ee076d298db00c",
+          "reason": "Current Main Content for CA-R-1764 establishes the reviewed meaning of 'Structural Parent Relation'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Structural Parent Relation'.",
+        "Retains CA-R-1764 version 18 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+      "source_atom_id": "CA-R-1764",
+      "source_version": 18,
+      "source_sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Structural Path",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content defines Structural Path as the ordered ancestry of Scope Unit identities from the first root to a target. The source defines an ordered ancestry; the candidate does not establish whether it is a dependent field, a derived traversal, or a specific typed Relation expression.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+          "sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "4202b8098bd78a5c961b96a8992e75f328773e60b71ff99ab0ee076d298db00c",
+          "reason": "Current Main Content for CA-R-1764 establishes the reviewed meaning of 'Structural Path'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'Structural Path'.",
+        "Retains CA-R-1764 version 18 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+      "source_atom_id": "CA-R-1765",
+      "source_version": 20,
+      "source_sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Artifact",
+      "quarantined": false,
+      "decision": "unchanged",
+      "proposed_value": "Artifact",
+      "confidence": 0.95,
+      "reason": "Current Main Content forbids using NARROWER_THAN to establish admission of an Artifact Type value as an Artifact. The current source uses the exact candidate Entity identity; retaining the literal does not infer a display path or native mutation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+          "sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "ac831b87c46d963e677ce0cf96d73c5cc44639d6dd7766a718cf5c38733ebeea",
+          "reason": "Current Main Content for CA-R-1765 establishes the reviewed meaning of 'Artifact'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'Artifact'.",
+        "Retains CA-R-1765 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+      "source_atom_id": "CA-R-1765",
+      "source_version": 20,
+      "source_sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Type",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Artifact.Type",
+      "confidence": 0.95,
+      "reason": "Current Main Content forbids using NARROWER_THAN to establish admission of an Artifact Type value as an Artifact. The source explicitly identifies the owner as Artifact and the field as Type; dot notation preserves that Property qualification.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+          "sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "ac831b87c46d963e677ce0cf96d73c5cc44639d6dd7766a718cf5c38733ebeea",
+          "reason": "Current Main Content for CA-R-1765 establishes the reviewed meaning of 'Type'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Artifact is the confirmed governed-lifecycle root; the source explicitly qualifies the field as Artifact Type."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the depends_on role while mapping 'Type' to 'Artifact.Type'.",
+        "Retains CA-R-1765 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+      "source_atom_id": "CA-R-1765",
+      "source_version": 20,
+      "source_sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "NARROWER_THAN",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content forbids using NARROWER_THAN to establish admission of an Artifact Type value as an Artifact. The candidate confirms typed Relations generally but does not confirm this named Relation kind or its endpoint/direction constraints.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+          "sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "ac831b87c46d963e677ce0cf96d73c5cc44639d6dd7766a718cf5c38733ebeea",
+          "reason": "Current Main Content for CA-R-1765 establishes the reviewed meaning of 'NARROWER_THAN'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current depends_on relation role and the live meaning of 'NARROWER_THAN'.",
+        "Retains CA-R-1765 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+      "source_atom_id": "CA-R-1765",
+      "source_version": 20,
+      "source_sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d",
+      "field": "governs",
+      "index": null,
+      "old_value": "Artifact/Type",
+      "quarantined": false,
+      "decision": "proposed",
+      "proposed_value": "Artifact.Type",
+      "confidence": 0.95,
+      "reason": "Current Main Content forbids using NARROWER_THAN to establish admission of an Artifact Type value as an Artifact. The source explicitly identifies the owner as Artifact and the field as Type; dot notation preserves that Property qualification.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1765-CORE_META_MODEL-CORE--prohibit-artifact-type-admission-through-narrower-than.md",
+          "sha256": "bf56014384d3b1e4172feae6a8aeb1a21d9bb6692bfdd3b182421c6cee25c03d",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "ac831b87c46d963e677ce0cf96d73c5cc44639d6dd7766a718cf5c38733ebeea",
+          "reason": "Current Main Content for CA-R-1765 establishes the reviewed meaning of 'Artifact/Type'."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Artifact is the confirmed governed-lifecycle root; the source explicitly qualifies the field as Artifact Type."
+        },
+        {
+          "pointer": "/entity_identity_model/dependent_entity",
+          "reason": "The confirmed dependent-entity model identifies a dependent Entity by its owner selector plus its named field."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owner, rather than a root or an implicit relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the governs role while mapping 'Artifact/Type' to 'Artifact.Type'.",
+        "Retains CA-R-1765 version 20 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Retains the source-stated owner, qualification, and any allowed-value domain; no value is assigned beyond the source evidence."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1766-CORE_META_MODEL-CORE--make-the-type-value-of-an-atom-identity-bearing.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1766-CORE_META_MODEL-CORE--make-the-type-value-of-an-atom-identity-bearing.md",
+      "source_atom_id": "CA-R-1766",
+      "source_version": 18,
+      "source_sha256": "693cf56a21f43b0e36cd07bfccb25332a6a29c529366131660cd7f29801d4ce8",
+      "field": "governs",
+      "index": null,
+      "old_value": "artifact-model",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content makes an Atom Type value identity-bearing so an ordinary Type change creates a successor Atom. This broad model label does not identify whether it denotes the Artifact root, a catalog, or a view; the candidate root alone would lose that distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1766-CORE_META_MODEL-CORE--make-the-type-value-of-an-atom-identity-bearing.md",
+          "sha256": "693cf56a21f43b0e36cd07bfccb25332a6a29c529366131660cd7f29801d4ce8",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "3194fa663e0e5f4ac3e5a4ea6ef8b99d9d7292870f92de7c220ddf1b85349469",
+          "reason": "Current Main Content for CA-R-1766 establishes the reviewed meaning of 'artifact-model'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'artifact-model'.",
+        "Retains CA-R-1766 version 18 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL-CORE--distinguish-implementation-methods-from-implementation-decisions.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL-CORE--distinguish-implementation-methods-from-implementation-decisions.md",
+      "source_atom_id": "CA-R-1767",
+      "source_version": 18,
+      "source_sha256": "de6436f834b1308666a1deb765eedafb0a24d43d670384ca3dd538cd250bcf45",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Content Role: Method",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content distinguishes reusable Implementation Methods from concrete Implementation Decisions and from execution Plans or native Implementation. The candidate makes M a role-centred view over shared roots but does not confirm Content Role as an Atom Property with Method as an allowed value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL-CORE--distinguish-implementation-methods-from-implementation-decisions.md",
+          "sha256": "de6436f834b1308666a1deb765eedafb0a24d43d670384ca3dd538cd250bcf45",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "a0ff5cf806cdbeefcbdcb81dc97d2583d39c67c20d47d5ca244cb5a821cb1cf6",
+          "reason": "Current Main Content for CA-R-1767 establishes the reviewed meaning of 'Atom/Content Role: Method'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'Atom/Content Role: Method'.",
+        "Retains CA-R-1767 version 18 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1768-CORE_META_MODEL-CORE--absorb-implementation-decisions-without-semantic-loss.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1768-CORE_META_MODEL-CORE--absorb-implementation-decisions-without-semantic-loss.md",
+      "source_atom_id": "CA-R-1768",
+      "source_version": 16,
+      "source_sha256": "fcf9762667ba9ef2827d0007866d75a51b033c1911ed9ef92309b030f53089b2",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Content Role: Method",
+      "quarantined": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content permits an Implementation Decision to be archived as absorbed only when active Implementation Methods preserve all necessary governed meaning. The candidate makes M a role-centred view over shared roots but does not confirm Content Role as an Atom Property with Method as an allowed value.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1768-CORE_META_MODEL-CORE--absorb-implementation-decisions-without-semantic-loss.md",
+          "sha256": "fcf9762667ba9ef2827d0007866d75a51b033c1911ed9ef92309b030f53089b2",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "0b1bd7981633b853bfa081cf00cbe85e016769cca78e45b6cdff6ae9b2624f67",
+          "reason": "Current Main Content for CA-R-1768 establishes the reviewed meaning of 'Atom/Content Role: Method'."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the current governs relation role and the live meaning of 'Atom/Content Role: Method'.",
+        "Retains CA-R-1768 version 16 as the reviewed current source.",
+        "Does not admit a native grammar, Relation, migration, carrier binding, or replacement source identity.",
+        "Keeps the full literal identity visible rather than flattening it to a generic root or display-only path."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}

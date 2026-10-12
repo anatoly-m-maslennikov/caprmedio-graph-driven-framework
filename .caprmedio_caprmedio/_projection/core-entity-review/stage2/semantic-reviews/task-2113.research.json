@@ -1,0 +1,1348 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2113",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+      "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4"
+    },
+    "baseline_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2112-2117.contract.md",
+        "sha256": "5310bccde97faba8b2e96fecc8de705178b4677fab07af2e897bae4e65ea04bd"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/86-CA-P-2113-TASK--review-remaining-scope-and-project-origins.md",
+      "sha256": "9e5ad00944f97c2c950642d3a66555562d839bfc4fd4dc6308ae39d8082f05f7"
+    },
+    "selection_occurrence_id_set_sha256": "b8bc4d4efe213c84a2cfe572189762e9ae640d53a08474ede0c8279b986b7dce"
+  },
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+      "sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+      "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+      "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+      "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+      "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+      "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+      "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+      "sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141"
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md",
+      "source_atom_id": "CA-R-886",
+      "source_version": 22,
+      "source_sha256": "5be4d1217aac687b419afcc762a6cce480810daa40e9ccdeebf62606515a270f",
+      "field": "governs",
+      "index": null,
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.91,
+      "reason": "The body resolves each Scope Unit reference in an Atom whose Atom Scope is a Scope Unit relative to that ownership boundary. Scope Unit retains the referenced Entity while the Atom-Scope-relative resolution rule remains source-local.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate defines Scope Unit as the recursive root Entity that organizes and owns Atoms and Scope Units."
+        }
+      ],
+      "preserved_distinctions": [
+        "Atom Scope remains the source-specific context.",
+        "Relative reference resolution is not converted into a selector or new Relation."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-886-CORE_META_MODEL-CORE-REQUIREMENT--resolve-scope-unit-references-from-atom-scope.md",
+          "sha256": "5be4d1217aac687b419afcc762a6cce480810daa40e9ccdeebf62606515a270f",
+          "start_line": 21,
+          "end_line": 32,
+          "span_sha256": "ff4c5a6488c2f154959dbd7bf7d42ee3d11ac5636aa91408b4b3f0b08761c7ca",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current global definition: Scope Unit is a Structural Entity ownership boundary for Atoms and may contain child Scope Units."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-913-CORE_META_MODEL-CORE-REQUIREMENT--define-previous-unit.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-913-CORE_META_MODEL-CORE-REQUIREMENT--define-previous-unit.md",
+      "source_atom_id": "CA-R-913",
+      "source_version": 13,
+      "source_sha256": "b1cb57153b547e97706a1a2c1431818b483549ba1a06eae93127150279a88e55",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.65,
+      "reason": "Previous Unit is the ordered peer Scope Unit with nearest lower Local Order. The body does not select whether that derived nearest-peer reference is a Property, typed Relation, or selected view, so a target would infer an unanswered representation/selector choice.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Ordered-peer and nearest-lower-Local-Order qualifications remain explicit.",
+        "No selector, Property, Relation kind, or grammar is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-913-CORE_META_MODEL-CORE-REQUIREMENT--define-previous-unit.md",
+          "sha256": "b1cb57153b547e97706a1a2c1431818b483549ba1a06eae93127150279a88e55",
+          "start_line": 18,
+          "end_line": 29,
+          "span_sha256": "3fa8507885167153b0f1e5e158123f241b87ddb1b6519bb4e13ef3c2cfef617b",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-922-CORE_META_MODEL-CORE--define-current-scope-atom.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-922-CORE_META_MODEL-CORE--define-current-scope-atom.md",
+      "source_atom_id": "CA-R-922",
+      "source_version": 21,
+      "source_sha256": "f4b298ff2f426bbb3344695f0c813e01b268572c2a7dfa99e6d286e5384bd086",
+      "field": "governs",
+      "index": null,
+      "old_value": "Current-scope Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.92,
+      "reason": "A Current-scope Atom is an Atom whose resolved Claim Target Scope Unit equals its current Scope Unit. Artifact/Atom preserves the Atom identity while the equality and target/ownership constraints remain source-local.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "The candidate explicitly identifies Atom as an Artifact Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "The target/current Scope Unit equality remains explicit.",
+        "No target selector, ownership transfer, or Atom subtype is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-922-CORE_META_MODEL-CORE--define-current-scope-atom.md",
+          "sha256": "f4b298ff2f426bbb3344695f0c813e01b268572c2a7dfa99e6d286e5384bd086",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "e2c56c801139d04173db77a0ec130ed1c93dbc87d74162a1d8517d0f46955f13",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-926-CORE_META_MODEL-CORE-REQUIREMENT--let-direct-parents-define-non-project-goals.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-926-CORE_META_MODEL-CORE-REQUIREMENT--let-direct-parents-define-non-project-goals.md",
+      "source_atom_id": "CA-R-926",
+      "source_version": 18,
+      "source_sha256": "d414ebb2adccc21610cc780d1b45602a8bf54a03fb613269d285d63136573888",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.93,
+      "reason": "The body uses Project Structure as authoritative for direct-child Scope Unit placement. Its current global definition is the authoritative non-Atom Artifact, so Artifact preserves identity while authority and placement remain source-local.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate defines Artifact as a governed lifecycle unit containing named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Structure remains authoritative, non-Atom, and distinct from Projection or Carrier.",
+        "Direct-parent and Goal-coverage constraints remain source-local."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-926-CORE_META_MODEL-CORE-REQUIREMENT--let-direct-parents-define-non-project-goals.md",
+          "sha256": "d414ebb2adccc21610cc780d1b45602a8bf54a03fb613269d285d63136573888",
+          "start_line": 23,
+          "end_line": 34,
+          "span_sha256": "5f203485c37b95471cc3bd2d1ca575ba1c8013d7335f86182911630b4af225e4",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current global definition: Project Structure is the authoritative non-Atom Artifact containing accepted Scope Unit declarations."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md",
+      "source_atom_id": "CA-R-927",
+      "source_version": 22,
+      "source_sha256": "b30004bd089ff143193ab7175b7bc3174e7c3eabc4d75617c51b240a14686e22",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.93,
+      "reason": "The body uses Project as the Project Scope Unit for the stated accepted Operator-authored Goal. Project is the parentless Unordered Scope Unit, so Scope Unit preserves its Entity identity.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate defines Scope Unit as the recursive root Entity that organizes and owns Atoms and Scope Units."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains parentless and Unordered.",
+        "Goal, Atom Scope, Author, and target conditions remain source-local."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md",
+          "sha256": "b30004bd089ff143193ab7175b7bc3174e7c3eabc4d75617c51b240a14686e22",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "e7dc545a9235e604e86df30240bc669feab7a2f2119435f6b3636c1d22a210fb",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current global definition: Project Scope Unit has no parent Scope Unit and Type Unordered."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+      "source_atom_id": "CA-R-935",
+      "source_version": 18,
+      "source_sha256": "f80a465a2002c5988cedd9d92e850104cfaedb61e01b85dbe472143dee67398a",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.9,
+      "reason": "The body constrains the ancestor/descendant relation between a Demand Claim Target Scope Unit and Consumer Scope Unit. Relation preserves this typed connection while forbidden topology and endpoints remain source-local.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/3",
+          "reason": "The candidate defines Relation as a typed connection between Entities while retaining endpoint and kind constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Ancestor/descendant prohibition and Consumer/target endpoint roles remain explicit.",
+        "No Relation Kind or topology representation is admitted."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-935-CORE_META_MODEL-GENERAL-REQUIREMENT--prohibit-demands-between-ancestors-and-descendants.md",
+          "sha256": "f80a465a2002c5988cedd9d92e850104cfaedb61e01b85dbe472143dee67398a",
+          "start_line": 22,
+          "end_line": 33,
+          "span_sha256": "4bade355d0153caf498374ea89482b835e6aed66564984331109a8a10f0f8bb3",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md",
+      "source_atom_id": "CA-R-942",
+      "source_version": 17,
+      "source_sha256": "1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Owned Atoms",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.65,
+      "reason": "Owned Atoms is a selected ownership collection spanning a Scope Unit. The body does not select whether it is a dependent Property, Projection, or contextual view, so a candidate target would invent representation identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Selected Scope Unit and ownership boundary remain explicit.",
+        "No collection selector, Projection, or Property identity is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md",
+          "sha256": "1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb",
+          "start_line": 19,
+          "end_line": 30,
+          "span_sha256": "b4917dd30eb4ebc4561d7d21844973af61a9639c0b25ffeaea91358e99745c2d",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md",
+      "source_atom_id": "CA-R-942",
+      "source_version": 17,
+      "source_sha256": "1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb",
+      "field": "governs",
+      "index": null,
+      "old_value": "Subtree-owned Atoms",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.65,
+      "reason": "Subtree-owned Atoms is the recursive union of Owned Atoms for a selected Scope Unit and descendants. The body does not select Property, Projection, or contextual-view identity, so a target would invent representation.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Recursive descendant inclusion remains explicit.",
+        "No collection selector, Projection, or Property identity is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-942-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-owned-atoms.md",
+          "sha256": "1ea239d8081696dc25b5b96a8140cf6f9b276377f412f04eaedf43018b7271bb",
+          "start_line": 19,
+          "end_line": 30,
+          "span_sha256": "b4917dd30eb4ebc4561d7d21844973af61a9639c0b25ffeaea91358e99745c2d",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+      "source_atom_id": "CA-R-947",
+      "source_version": 20,
+      "source_sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.93,
+      "reason": "The body invokes authoritative Project Structure to test a Goal target direct-child relation. Project Structure is the current non-Atom Artifact, so Artifact preserves it without converting it into Projection or Carrier.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate defines Artifact as a governed lifecycle unit containing named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Structure remains authoritative and non-Atom.",
+        "Goal target/direct-child rule remains source-local."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+          "sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+          "start_line": 26,
+          "end_line": 37,
+          "span_sha256": "9a02191b87c262c28905a34c2c9a117493b108d3c989033439ddea46b4762dfe",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current global definition: Project Structure is the authoritative non-Atom Artifact containing accepted Scope Unit declarations."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+      "source_atom_id": "CA-R-947",
+      "source_version": 20,
+      "source_sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.93,
+      "reason": "The body uses Project as the Project Scope Unit fallback when a Goal Atom Scope has no Scope Unit. Project is the parentless Unordered Scope Unit, so Scope Unit preserves the Entity context.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate defines Scope Unit as the recursive root Entity that organizes and owns Atoms and Scope Units."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains parentless and Unordered.",
+        "Goal fallback, Atom Scope, and Claim Target Scope Unit stay explicit."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-CORE-REQUIREMENT--validate-goal-claim-scope.md",
+          "sha256": "5d8bb59b698bed474baaaa0c875756885ac0ebcef3ba0f29c8b8d67395e34e88",
+          "start_line": 26,
+          "end_line": 37,
+          "span_sha256": "9a02191b87c262c28905a34c2c9a117493b108d3c989033439ddea46b4762dfe",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current global definition: Project Scope Unit has no parent Scope Unit and Type Unordered."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+      "source_atom_id": "CA-R-960",
+      "source_version": 14,
+      "source_sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Child Composition",
+      "confidence": 0.9,
+      "reason": "Child Composition classifies one Scope Unit's direct children. This explicit bearer and characteristic support an owner-qualified dependent Property, so the candidate's generic dependent-Entity rule supports Scope Unit.Child Composition.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate establishes Scope Unit as the bearer root."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed model allows an owner-selected dependent field even where its display name is not printed."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate keeps a Property owner-qualified and dependent rather than inventing an independent root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Direct-child bearer and none, LAYERS, FEATURES, MIXED values remain explicit.",
+        "No child Relation, selector, or allowed-value admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-960-CORE_META_MODEL-CORE-REQUIREMENT--define-child-composition.md",
+          "sha256": "1bddbc1216d1cb84426d380f7f10858abe191b7d6b6edb273386e23e1e83a0c6",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "41ef94ece6116d337c66ca5bfaa92f7c168e4eb24c1a0cbc2826f06a8b5c51ae",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current global definition: a Property is a Dependent Entity representing one characteristic of its bearer."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md",
+      "source_atom_id": "CA-R-961",
+      "source_version": 13,
+      "source_sha256": "e4db439ce97bc33c3d1d7048f8c55e4fb4262502ea1600eccd393c34618df5fb",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Project Boundary Position",
+      "confidence": 0.9,
+      "reason": "Project Boundary Position is a Scope Unit characteristic: PROJECT for Project/descendants or BOOTSTRAP_SEED outside. The explicit bearer and characteristic support Scope Unit.Project Boundary Position under the generic dependent-Entity rule.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate establishes Scope Unit as the bearer root."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed model allows an owner-selected dependent field even where its display name is not printed."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate keeps a Property owner-qualified and dependent rather than inventing an independent root."
+        }
+      ],
+      "preserved_distinctions": [
+        "PROJECT and BOOTSTRAP_SEED remain source-specific values.",
+        "Project ancestry and Bootstrap qualification remain explicit."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-961-CORE_META_MODEL-CORE-REQUIREMENT--define-project-boundary-position.md",
+          "sha256": "e4db439ce97bc33c3d1d7048f8c55e4fb4262502ea1600eccd393c34618df5fb",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "0a464bef5825f5ec7498106506226cbc05df854a3eb17da0326ab42f63ab6544",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current global definition: a Property is a Dependent Entity representing one characteristic of its bearer."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+      "source_atom_id": "CA-R-964",
+      "source_version": 14,
+      "source_sha256": "e6e4df66b66aea2a5c71699793ba3b517fa5e974b9910184b29d2049982e11dc",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.93,
+      "reason": "The body expressly defines governed shorthand Unit to mean Scope Unit. This is a direct identity mapping to the candidate Scope Unit root, not an inferred topology expression.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate defines Scope Unit as the recursive root Entity that organizes and owns Atoms and Scope Units."
+        }
+      ],
+      "preserved_distinctions": [
+        "Unit remains only the governed shorthand.",
+        "No new alias, selector, or grammar is admitted."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-964-CORE_META_MODEL-CORE-REQUIREMENT--define-unit-as-scope-unit-shorthand.md",
+          "sha256": "e6e4df66b66aea2a5c71699793ba3b517fa5e974b9910184b29d2049982e11dc",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "9a8bae52694f1ee822a964245fb00c8acc3bf51297fbd37fb703af80340567a3",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c4d12cf876cb678c45850ac3afa0d041a0aab1b7ff3df1790b5faba4fa00e15c",
+          "reason": "Current global definition: Scope Unit is a Structural Entity ownership boundary for Atoms and may contain child Scope Units."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md",
+      "source_atom_id": "CA-R-970",
+      "source_version": 17,
+      "source_sha256": "8d3fe614f7f2ee4c205fb6590b23e2cb25a3049819cf1ff11787134b3d9b6135",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.93,
+      "reason": "The body uses Project as the root context for Scope Unit Name uniqueness. Project is the parentless Unordered Scope Unit, so Scope Unit retains identity while the uniqueness domain remains source-local.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate defines Scope Unit as the recursive root Entity that organizes and owns Atoms and Scope Units."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains parentless and Unordered.",
+        "Name uniqueness and Project-wide domain remain explicit."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md",
+          "sha256": "8d3fe614f7f2ee4c205fb6590b23e2cb25a3049819cf1ff11787134b3d9b6135",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "93165ba6211c3e2efc9b183b6cf5b6fa6d83313942939b7b93a15424271032cb",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current global definition: Project Scope Unit has no parent Scope Unit and Type Unordered."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md",
+      "source_atom_id": "CA-R-976",
+      "source_version": 16,
+      "source_sha256": "cef8bce8abbd9b30a617d75864af9f6d1a263f56d55004edb5381a98d202a0f5",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.9,
+      "reason": "The body distinguishes navigation labels from structural parent, child, and dependency relations and forbids labels from changing them. Relation preserves the relational subject while negative constraints remain source-local.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/3",
+          "reason": "The candidate defines Relation as a typed connection between Entities while retaining endpoint and kind constraints."
+        }
+      ],
+      "preserved_distinctions": [
+        "Navigational Order Number remains non-structural.",
+        "Coordinate, parent, child, Type, Local Order, and dependency stay distinct."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md",
+          "sha256": "cef8bce8abbd9b30a617d75864af9f6d1a263f56d55004edb5381a98d202a0f5",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "5323c15435d1361a7eba44e037c1122e31fbab4c812f4a99bb285dec374d2353",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+      "source_atom_id": "CA-R-978",
+      "source_version": 17,
+      "source_sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+      "field": "governs",
+      "index": null,
+      "old_value": "Navigational Order Number",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Navigational Order Number",
+      "confidence": 0.92,
+      "reason": "Navigational Order Number is an Operator-controlled navigation label for one Scope Unit. The explicit bearer and label characteristic plus current Property definition support Scope Unit.Navigational Order Number.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate establishes Scope Unit as the bearer root."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed model allows an owner-selected dependent field even where its display name is not printed."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate keeps a Property owner-qualified and dependent rather than inventing an independent root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator control and navigation-only role remain explicit.",
+        "It establishes neither topology nor a new allowed-value domain."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+          "sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "e098d5e9fafb800061eb569bdc1eaecc9b2d388c8578774388d789e468f16413",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current global definition: a Property is a Dependent Entity representing one characteristic of its bearer."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-981-CORE_META_MODEL-REQUIREMENT--default-navigational-order-chronologically.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-981-CORE_META_MODEL-REQUIREMENT--default-navigational-order-chronologically.md",
+      "source_atom_id": "CA-R-981",
+      "source_version": 14,
+      "source_sha256": "be1ff82e2d16f92e5137d713ee1d3bcf74c9782ac93e8be16bc4fa0945a18575",
+      "field": "governs",
+      "index": null,
+      "old_value": "Navigational Order Number",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Navigational Order Number",
+      "confidence": 0.92,
+      "reason": "The body assigns a non-Project Scope Unit default navigation number from chronological sibling creation position. The explicit Scope Unit bearer supports Scope Unit.Navigational Order Number.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate establishes Scope Unit as the bearer root."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed model allows an owner-selected dependent field even where its display name is not printed."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate keeps a Property owner-qualified and dependent rather than inventing an independent root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Non-Project, same-parent, chronological, one-based qualifications remain explicit.",
+        "The default does not establish Local Order or a rename rule."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-981-CORE_META_MODEL-REQUIREMENT--default-navigational-order-chronologically.md",
+          "sha256": "be1ff82e2d16f92e5137d713ee1d3bcf74c9782ac93e8be16bc4fa0945a18575",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "191db482dd71f04dd5cc3d89dc6aedd864362a910fe4f051cbccf6c067fd54b1",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current global definition: a Property is a Dependent Entity representing one characteristic of its bearer."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+      "source_atom_id": "CAPRMEDIO-R-791",
+      "source_version": 15,
+      "source_sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "scope-topology",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Structural Coordinate",
+      "confidence": 0.9,
+      "reason": "Structural Coordinate is a derived locator containing one Ordered Scope Unit's Structural Level and Local Order. The explicit bearer and characteristic support Scope Unit.Structural Coordinate under the generic dependent-Entity rule.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate establishes Scope Unit as the bearer root."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed model allows an owner-selected dependent field even where its display name is not printed."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate keeps a Property owner-qualified and dependent rather than inventing an independent root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Ordered-Type condition and Level/Local Order components remain explicit.",
+        "The locator stays derived; no coordinate selector, syntax, or root is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+          "sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "8a3cb571247491936876e9c445a08df2f1f0647889ce8e38fbcb63e8b12ad24b",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current global definition: a Property is a Dependent Entity representing one characteristic of its bearer."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+      "source_atom_id": "CA-M-114",
+      "source_version": 20,
+      "source_sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.9,
+      "reason": "The Method preserves each Governed Term's Project-specific meaning while deriving a terminology Projection. Project is the parentless Unordered Scope Unit; Scope Unit retains Entity identity while Term authority and derivation remain source-local.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate defines Scope Unit as the recursive root Entity that organizes and owns Atoms and Scope Units."
+        }
+      ],
+      "preserved_distinctions": [
+        "Term graph/definition authority remains separate from Entities Graph.",
+        "Project-specific meaning does not make a Subject Path component a Term definition."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-114-CORE_META_MODEL--derive-terminology-projection-from-definition-atoms.md",
+          "sha256": "16513dca0a7370d9a98999f537da293fd8d14ae4d9a47fee7f70fb1f8a9b1dd6",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "9608943484037d3ecd3b6411d7f488c1fb5ffea20511be58a459601ce5e52787",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current global definition: Project Scope Unit has no parent Scope Unit and Type Unordered."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+      "source_atom_id": "CA-E-207",
+      "source_version": 13,
+      "source_sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.9,
+      "reason": "The Evaluation checks priority selection for an affected Scope and Project stage without inventing a model for unresolved input. Project is the parentless Unordered Scope Unit, so Scope Unit preserves context while Evaluation conditions remain source-local.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate defines Scope Unit as the recursive root Entity that organizes and owns Atoms and Scope Units."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator selection and unresolved-state reporting remain explicit.",
+        "No Project-stage subtype or preference model is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+          "sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+          "start_line": 32,
+          "end_line": 55,
+          "span_sha256": "2b5a336859025130d21d96255c5ab2a4d68512641b59e0e02d12c1fedbd8be5f",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current global definition: Project Scope Unit has no parent Scope Unit and Type Unordered."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+      "source_atom_id": "CA-E-240",
+      "source_version": 30,
+      "source_sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.93,
+      "reason": "The QA case uses Project Structure only as authority for direct-child Goal fixtures. Project Structure is the authoritative non-Atom Artifact, so Artifact preserves it without changing ownership or target semantics.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate defines Artifact as a governed lifecycle unit containing named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Structure stays distinct from Hub and Scope Unit.",
+        "Target, textual applicability, and ownership remain separate."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+          "sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498",
+          "start_line": 27,
+          "end_line": 55,
+          "span_sha256": "6c485958ad1e1b0ceeced90154318fc5176c3fa0536fd9d7ae54721e878253f1",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current global definition: Project Structure is the authoritative non-Atom Artifact containing accepted Scope Unit declarations."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-243-CORE_META_MODEL-QA_CASE--validate-a-demand-atom.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-243-CORE_META_MODEL-QA_CASE--validate-a-demand-atom.md",
+      "source_atom_id": "CA-E-243",
+      "source_version": 22,
+      "source_sha256": "061272c1f7f825ff18df3354b97b6f1d69d3d968a91605a2ce426c74203fd98d",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Local Order",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Local Order",
+      "confidence": 0.92,
+      "reason": "The QA case treats equal Producer/Consumer Local Order as invalid Demand direction. Local Order is the Ordered Scope Unit position among same-parent ordered Scope Units, supporting Scope Unit.Local Order.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate establishes Scope Unit as the bearer root."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/meaning",
+          "reason": "The confirmed model allows an owner-selected dependent field even where its display name is not printed."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate keeps a Property owner-qualified and dependent rather than inventing an independent root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Ordered sibling position remains distinct from Demand direction and implementation result.",
+        "No selector, Relation Kind, or structural change is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-243-CORE_META_MODEL-QA_CASE--validate-a-demand-atom.md",
+          "sha256": "061272c1f7f825ff18df3354b97b6f1d69d3d968a91605a2ce426c74203fd98d",
+          "start_line": 27,
+          "end_line": 51,
+          "span_sha256": "28962ce15e1beb071114bb91d081e82defd415f3196f13b49c25a0f1892faf44",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1193-CORE_META_MODEL-CORE-REQUIREMENT--define-property.md",
+          "sha256": "600bc4f919796701478b51b0bc4abea383c89cc8b9929959aa937c288db7c522",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b59fc3280243c214c8e736d8d2abcf3ecc276a3c11e97a8ef2c5d363ea0e0330",
+          "reason": "Current global definition: a Property is a Dependent Entity representing one characteristic of its bearer."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1763-CORE_META_MODEL-CORE--define-local-order.md",
+          "sha256": "5885c31a872f1a9feca8531e125ae40a8ab4e7a5a852c110e5d9ed800e1a7141",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "aaa1dac610f0959950d2d7e627be54a41d07f029ae35499ac2130ca44a3ab3d1",
+          "reason": "Current global definition: Local Order is an Ordered Scope Unit position among same-parent ordered Scope Units."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md#subjects.depends_on[15]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md",
+      "source_atom_id": "CA-E-246",
+      "source_version": 25,
+      "source_sha256": "6d5e65915b857be8e399aee9b32364dde2caa56ec6757bd8e69282b4ffee0098",
+      "field": "depends_on",
+      "index": 15,
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.91,
+      "reason": "The QA case retains one immediate Property bearer whether Primary or Dependent. Primary Entity is bearer-independent Entity identity, and Entity is a graph node; Entity preserves the common target while the bearer distinction stays source-local.",
+      "candidate_basis": [
+        {
+          "pointer": "#/graph_model",
+          "reason": "The candidate defines Entities as graph nodes and keeps qualified source roles distinct from generic Entity identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Primary-versus-Dependent bearer qualification remains explicit.",
+        "Action/Workflow definition-versus-Execution and Subject Relation distinctions remain explicit."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md",
+          "sha256": "6d5e65915b857be8e399aee9b32364dde2caa56ec6757bd8e69282b4ffee0098",
+          "start_line": 58,
+          "end_line": 98,
+          "span_sha256": "01f439259d6634bda4e9d6b90a3686f2411fb3443e24af086282d223189f38ed",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+          "sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a9020ce3a68d82888dc3fcd715f699af15f0328ca22fdc3ce4256d579ea6ba36",
+          "reason": "Current global definition: Primary Entity is an Entity whose identity does not require another Entity as bearer."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "Current global definition: an Entity is an independently identified or bearer-qualified possible graph node."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-466-CORE_META_MODEL-QA_CASE--validate-single-source-of-truth-in-secondary-graphs.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-466-CORE_META_MODEL-QA_CASE--validate-single-source-of-truth-in-secondary-graphs.md",
+      "source_atom_id": "CA-E-466",
+      "source_version": 7,
+      "source_sha256": "fbd793ad409812ff54bfa84a596493181b9444abda65a2cd9641be63f678c06b",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.91,
+      "reason": "The QA case refers to Structural Entity as an independently identified source-node class. Structural Entity is a Primary Entity organizing containment and Entity is the generic node, so Entity avoids reversing the superclass into Scope Unit.",
+      "candidate_basis": [
+        {
+          "pointer": "#/graph_model",
+          "reason": "The candidate defines Entities as graph nodes and keeps qualified source roles distinct from generic Entity identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Structural direct-containment qualification remains explicit.",
+        "Projection authority, Journal evidence, and Relation constraints stay distinct."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-466-CORE_META_MODEL-QA_CASE--validate-single-source-of-truth-in-secondary-graphs.md",
+          "sha256": "fbd793ad409812ff54bfa84a596493181b9444abda65a2cd9641be63f678c06b",
+          "start_line": 31,
+          "end_line": 55,
+          "span_sha256": "87b4137d130ed90fd4f2516d3473b86da1c25278377345d67376c7e28d906f4a",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "Current global definition: Structural Entity is a Primary Entity organizing Entities through direct containment."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "Current global definition: an Entity is an independently identified or bearer-qualified possible graph node."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+      "source_atom_id": "CA-E-510",
+      "source_version": 3,
+      "source_sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.93,
+      "reason": "The QA case checks navigation migration evidence against Project Structure authority without changing parentage or Local Order. Project Structure is the authoritative non-Atom Artifact, so Artifact preserves identity while readiness conditions remain source-local.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate defines Artifact as a governed lifecycle unit containing named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Structure remains distinct from Carrier observations and folder evidence.",
+        "Navigation values do not alter parentage or Local Order."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+          "sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+          "start_line": 35,
+          "end_line": 74,
+          "span_sha256": "7c38b70fd0086092e49c1dbd8a519bc92d0555dfe61ffd500ebc85690693e234",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current global definition: Project Structure is the authoritative non-Atom Artifact containing accepted Scope Unit declarations."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+      "source_atom_id": "CA-E-511",
+      "source_version": 5,
+      "source_sha256": "7d1a04cabf809fd37379b0367ad0d4732c130e13257a1fb427f3a5d5053197bd",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Current-scope Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.92,
+      "reason": "The QA case defines Current-scope Atom through one explicit Claim Target Scope Unit and separate textual applicability. Artifact/Atom preserves identity while equality, target, ownership, and applicability constraints remain source-local.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "The candidate explicitly identifies Atom as an Artifact Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Current-scope equality and target cardinality remain explicit.",
+        "Textual applicability is not structural target or ownership."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+          "sha256": "7d1a04cabf809fd37379b0367ad0d4732c130e13257a1fb427f3a5d5053197bd",
+          "start_line": 36,
+          "end_line": 62,
+          "span_sha256": "89215b28156776c5c690dc33bac31cf4a64fa8bfe824935cc6c8b948265e13c7",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+      "source_atom_id": "CAPRMEDIO-GOV-EVAL-002",
+      "source_version": 21,
+      "source_sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project Structure",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.93,
+      "reason": "The QA case names Project Structure as separate owner of Scope Unit declarations and Authority Mode overrides. Project Structure is the authoritative non-Atom Artifact, so Artifact preserves identity without requiring a structural Projection.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate defines Artifact as a governed lifecycle unit containing named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Structure remains distinct from Framework Instance and Project Settings Artifacts.",
+        "Scope declarations and Authority Mode overrides remain explicit."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+          "sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4",
+          "start_line": 27,
+          "end_line": 47,
+          "span_sha256": "ba3abf46f7e579ec5f5f656d25eb798d76ac7cf3945d7f79b5a6c005bfd8dea7",
+          "reason": "Current owning Main Content was read in full; this exact body span is freshly byte-pinned for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current global definition: Project Structure is the authoritative non-Atom Artifact containing accepted Scope Unit declarations."
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "assigned_occurrences": 27,
+    "owning_sources": 25,
+    "proposed": 24,
+    "unresolved": 3,
+    "owning_current_evidence_spans": 27,
+    "additional_current_definition_evidence_spans": 23
+  },
+  "limits": [
+    "This is non-authoritative, non-executable candidate research only; it performs no source migration or native admission.",
+    "No selector, singleton kind, @ operator, Artifact.Revision containment, carrier registry, source/body change, or display-only Artifact prefix is inferred.",
+    "Nearest-peer and selected recursive ownership-collection cases remain null because their Property/Relation/Projection identity is not selected."
+  ]
+}

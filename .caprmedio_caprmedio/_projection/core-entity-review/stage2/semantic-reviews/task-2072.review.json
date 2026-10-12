@@ -1,0 +1,1379 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "task_id": "CA-P-2072",
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+      "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+      "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+      "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/subject-tools.grammar-contract.md",
+      "sha256": "aa267553ff481c7473c86fedcd757e902bbf00ffe3e2f2deef90b99201598f59"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses Operator as a generic actor role; the pinned Actor identity/type rule supports Actor.Type: Operator without inventing an individual Actor or a narrower Actor kind.",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+          "reason": "The current body uses Operator as a performer/approval role; the confirmed Actor identity rule supports the Type allowed value without inventing an Actor instance.",
+          "sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+          "span_sha256": "f003adc896e74bb23f53d801f32e0c9216a03867e0ce7ec32f8802e64e7de90e",
+          "start_line": 24
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision/Status",
+      "proposed_value": "Artifact.Status",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes current Status of the selected Artifact snapshot. The pinned snapshot rule and dependent-property rule support Artifact.Status without retaining Artifact/Revision.",
+      "evidence": [
+        {
+          "end_line": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1306-CORE_META_MODEL-CORE-REQUIREMENT--define-status-as-an-artifact-revision-property.md",
+          "reason": "The current body defines or evaluates Status across the applicable Artifact domain rather than only Atoms. The snapshot rule supports Artifact.Status without retaining Artifact/Revision.",
+          "sha256": "b19222de4098ccbdd6ec907980f0ab4ae6546794fe40a20f762a24031d6b09ff",
+          "span_sha256": "f3faea52df7dce46beac94dda152aad0857a026e31226dfbdab9f125cc252073",
+          "start_line": 21
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1311-CORE_META_MODEL-CORE-REQUIREMENT--keep-prior-status-transitions-in-the-journal.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision/Status",
+      "proposed_value": "Artifact.Status",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes current Status of the selected Artifact snapshot. The pinned snapshot rule and dependent-property rule support Artifact.Status without retaining Artifact/Revision.",
+      "evidence": [
+        {
+          "end_line": 30,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1311-CORE_META_MODEL-CORE-REQUIREMENT--keep-prior-status-transitions-in-the-journal.md",
+          "reason": "The current body defines or evaluates Status across the applicable Artifact domain rather than only Atoms. The snapshot rule supports Artifact.Status without retaining Artifact/Revision.",
+          "sha256": "021bf1e06d382195c487286784208e033e54f4351f9a57a915019c5cbb975671",
+          "span_sha256": "8b3bdfdd3bbab93d68c6eb7e1414dc28a087a95b25131c8affb3818a6fa4406a",
+          "start_line": 18
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision/Status",
+      "proposed_value": "Artifact.Status",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes current Status of the selected Artifact snapshot. The pinned snapshot rule and dependent-property rule support Artifact.Status without retaining Artifact/Revision.",
+      "evidence": [
+        {
+          "end_line": 30,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1312-CORE_META_MODEL-CORE--separate-governed-transitions-from-status-values.md",
+          "reason": "The current body defines or evaluates Status across the applicable Artifact domain rather than only Atoms. The snapshot rule supports Artifact.Status without retaining Artifact/Revision.",
+          "sha256": "a125b9d20d08aeb1e96bcae739a56b73ade837a764b9688967a7458af4743ba7",
+          "span_sha256": "9a0455d333afdda62ac4771de686419a68ccecbb70cf405c2f05a57811277644",
+          "start_line": 20
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision/Status",
+      "proposed_value": "Artifact.Status",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes current Status of the selected Artifact snapshot. The pinned snapshot rule and dependent-property rule support Artifact.Status without retaining Artifact/Revision.",
+      "evidence": [
+        {
+          "end_line": 32,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+          "reason": "The current body defines or evaluates Status across the applicable Artifact domain rather than only Atoms. The snapshot rule supports Artifact.Status without retaining Artifact/Revision.",
+          "sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+          "span_sha256": "e3010724525db570c72cd869a117999fbfd4a22575cbd7b7425a8c7e23c2c98b",
+          "start_line": 22
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision/Status",
+      "proposed_value": "Artifact.Status",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes current Status of the selected Artifact snapshot. The pinned snapshot rule and dependent-property rule support Artifact.Status without retaining Artifact/Revision.",
+      "evidence": [
+        {
+          "end_line": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md",
+          "reason": "The current body defines or evaluates Status across the applicable Artifact domain rather than only Atoms. The snapshot rule supports Artifact.Status without retaining Artifact/Revision.",
+          "sha256": "9491c0a5c6b7c2b3c51f593941b3bf6e2430c82b59027cb36bf0b7610401a1b0",
+          "span_sha256": "6fd763c37593c3bad43f2e8e51f0cf6353b4cb84d3bdb3c1468ea86848522b2f",
+          "start_line": 19
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision/Status",
+      "proposed_value": "Artifact.Status",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes current Status of the selected Artifact snapshot. The pinned snapshot rule and dependent-property rule support Artifact.Status without retaining Artifact/Revision.",
+      "evidence": [
+        {
+          "end_line": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md",
+          "reason": "The current body defines or evaluates Status across the applicable Artifact domain rather than only Atoms. The snapshot rule supports Artifact.Status without retaining Artifact/Revision.",
+          "sha256": "683c9054bbab9d98fa980f496267f7195fc7158487a8c59944203b12970c8f3c",
+          "span_sha256": "af52b1afa96efc904804877c4ed3089122819c3c694635ba076e05e0d788f283",
+          "start_line": 19
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1412-CORE_META_MODEL-CORE--give-every-atom-revision-one-status.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Atom/Revision/Status",
+      "proposed_value": "Atom.Status",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes current Status of the selected Atom snapshot. The pinned snapshot rule and Atom Status example support Atom.Status; any applicable Content Role and Type value-domain remains source evidence, not an unapproved selector or narrower kind.",
+      "evidence": [
+        {
+          "end_line": 30,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1412-CORE_META_MODEL-CORE--give-every-atom-revision-one-status.md",
+          "reason": "The current body explicitly scopes this Status to an Atom or Atom Content Role/Type. The snapshot rule and Atom Status example support Atom.Status, not a historical Revision field.",
+          "sha256": "7a74e9fe6d6ab90f56016c675b2bc566a0981fd4bb04b1462f5e1d429146d0af",
+          "span_sha256": "74d2a4dafb91e2d52581aa9e2f854394c3e2398d4bbe5210f07834af993c9f08",
+          "start_line": 18
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Atom/Revision/Version",
+      "proposed_value": "Atom.Version Number",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes the selected Atom snapshot Version. The pinned snapshot/versioning rules support Atom.Version Number rather than a historical Revision owner.",
+      "evidence": [
+        {
+          "end_line": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md",
+          "reason": "The current body defines the selected Atom's monotonic Version. The confirmed snapshot and versioning rules support Atom.Version Number.",
+          "sha256": "2c5e7af78d81a3e71def13ef7e24669fa0cf33a8a153b3410b8963934a396cb9",
+          "span_sha256": "4ba17398494d0569c1abdab5969dcb8b94b7afe806e9be78358d007aaa9e7d01",
+          "start_line": 19
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1416-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-updated-at.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Atom/Revision/Updated At",
+      "proposed_value": "Atom.Updated At",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes Updated At for the selected Atom snapshot. The pinned snapshot rule supports Atom.Updated At rather than a historical Revision owner.",
+      "evidence": [
+        {
+          "end_line": 30,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1416-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-updated-at.md",
+          "reason": "The current body defines Updated At for the selected Atom state. The confirmed snapshot rule supports Atom.Updated At.",
+          "sha256": "c8b2402e3f6bc0eb567ab845e8c197de994cd328507c0322bf2c955a62c1ffc9",
+          "span_sha256": "0b1dc764bc905188d07fe2e6cfd1c5c3ce7a1286ad3b48762248773cae79671f",
+          "start_line": 18
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1419-CORE_META_MODEL-CORE--restrict-archived-status-to-non-current-revisions.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision",
+      "proposed_value": "Revision",
+      "disposition": "accepted",
+      "confidence": 0.97,
+      "reason": "Current Main Content concerns a historical or prior revision. The pinned candidate makes Revision a separate historical root and explicitly excludes Artifact/Revision.",
+      "evidence": [
+        {
+          "end_line": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1419-CORE_META_MODEL-CORE--restrict-archived-status-to-non-current-revisions.md",
+          "reason": "The current body explicitly refers to a revision/history record; the candidate moves that identity to the separate Revision root rather than retaining Artifact/Revision.",
+          "sha256": "fed63e6a4b1ee425818a0b3dc77e73f09a666da051c9fe96b52b3531ca6b3f50",
+          "span_sha256": "51a257c3b2c1195c85784c198b7f1398bad7e3d46023b026052bcba947cd8fcb",
+          "start_line": 19
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1419-CORE_META_MODEL-CORE--restrict-archived-status-to-non-current-revisions.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision/Status: Archived",
+      "proposed_value": null,
+      "disposition": "unresolved",
+      "confidence": 0.55,
+      "reason": "Current Main Content identifies Archived as a prior Revision status, but the pinned candidate defines Properties as dependent Entities inside an Artifact and defines Revision only as a separate historical root. It contains no Revision.Status field or rule preserving this status/value context, so this proposal would carry old semantics without candidate support.",
+      "evidence": [
+        {
+          "end_line": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1419-CORE_META_MODEL-CORE--restrict-archived-status-to-non-current-revisions.md",
+          "reason": "The current body expressly identifies Archived as a Status value of a prior Revision, so the status/value distinction is retained under Revision.",
+          "sha256": "fed63e6a4b1ee425818a0b3dc77e73f09a666da051c9fe96b52b3531ca6b3f50",
+          "span_sha256": "51a257c3b2c1195c85784c198b7f1398bad7e3d46023b026052bcba947cd8fcb",
+          "start_line": 19
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 39,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025",
+          "span_sha256": "bd7e3043126cb3e5b3e459995580cd14a86ca8258bd2876428495ed291a2177c",
+          "start_line": 25
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes AI Agent as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: AI Agent retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 39,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025",
+          "span_sha256": "bd7e3043126cb3e5b3e459995580cd14a86ca8258bd2876428495ed291a2177c",
+          "start_line": 25
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes AI Agent as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: AI Agent retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 34,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961",
+          "span_sha256": "c1fadb18dbd7196ea9ee6eb28ddbe378014588eb672dee63407b4ea3fcb1020b",
+          "start_line": 22
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 34,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961",
+          "span_sha256": "c1fadb18dbd7196ea9ee6eb28ddbe378014588eb672dee63407b4ea3fcb1020b",
+          "start_line": 22
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes AI Agent as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: AI Agent retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 39,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd",
+          "span_sha256": "97ff6485edbe1bd8fb1676d50b2f2de7a078edcabaaabc6fbc0c87c999ecf11a",
+          "start_line": 21
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes AI Agent as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: AI Agent retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 38,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563",
+          "span_sha256": "03473b806c8b484905920a69ff6d10e7420cf908f32f589d34ff1d369dd9b084",
+          "start_line": 21
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 38,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563",
+          "span_sha256": "03473b806c8b484905920a69ff6d10e7420cf908f32f589d34ff1d369dd9b084",
+          "start_line": 21
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes AI Agent as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: AI Agent retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "430b66d1c976adec032d6f9e13551c9019abe0df3f7794110436640acf3b5d79",
+          "span_sha256": "c477a8b08401b349851206d8f096c3a98bb0d8a2a6976ce8698cf93ff99dba8f",
+          "start_line": 23
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "430b66d1c976adec032d6f9e13551c9019abe0df3f7794110436640acf3b5d79",
+          "span_sha256": "c477a8b08401b349851206d8f096c3a98bb0d8a2a6976ce8698cf93ff99dba8f",
+          "start_line": 23
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes AI Agent as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: AI Agent retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416",
+          "span_sha256": "ca535e5b7a1eb7e3692bb66d789b378fca2fff5c2bdd90481f0719bcd59438fc",
+          "start_line": 21
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416",
+          "span_sha256": "ca535e5b7a1eb7e3692bb66d789b378fca2fff5c2bdd90481f0719bcd59438fc",
+          "start_line": 21
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes AI Agent as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: AI Agent retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 40,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5",
+          "span_sha256": "9fb05c733ac5158f59fabc6b3dc67ee04963fdac896996ede32b44fdb47ebf97",
+          "start_line": 22
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 40,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5",
+          "span_sha256": "9fb05c733ac5158f59fabc6b3dc67ee04963fdac896996ede32b44fdb47ebf97",
+          "start_line": 22
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 51,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+          "span_sha256": "5574224837c2a96253d87cdffa0886f5b3e8f020d6969e264e5cdac5da44f919",
+          "start_line": 31
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes AI Agent as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: AI Agent retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 51,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+          "reason": "The complete current Main Content supplies the owning live Actor-policy context for this corrective overlay.",
+          "sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+          "span_sha256": "5574224837c2a96253d87cdffa0886f5b3e8f020d6969e264e5cdac5da44f919",
+          "start_line": 31
+        },
+        {
+          "end_line": 49,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+          "reason": "The current Claim explicitly contrasts Operator-authored and AI-authored Atom changes within one Actor policy, establishing the role distinction without identifying any individual Actor.",
+          "sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+          "span_sha256": "e52f18f7d11a8f335a772aebe5a9d975da829698a64f30cc228feea5dabe5e23",
+          "start_line": 39
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes AI Agent as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: AI Agent retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+          "span_sha256": "df41502d38e28cb0f78c9c542f84587024f922816e2b8870d9e79f15883ef468",
+          "start_line": 25
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md#subjects.depends_on[3]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+          "span_sha256": "df41502d38e28cb0f78c9c542f84587024f922816e2b8870d9e79f15883ef468",
+          "start_line": 25
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1874-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-operations-status-values.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision/Status",
+      "proposed_value": "Atom.Status",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes current Status of the selected Atom snapshot. The pinned snapshot rule and Atom Status example support Atom.Status; any applicable Content Role and Type value-domain remains source evidence, not an unapproved selector or narrower kind.",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1874-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-operations-status-values.md",
+          "reason": "The current body explicitly scopes this Status to an Atom or Atom Content Role/Type. The snapshot rule and Atom Status example support Atom.Status, not a historical Revision field.",
+          "sha256": "916f75193f373563730f84d8374a1ffd3d74a243fd0daa8c610b72c48935060a",
+          "span_sha256": "32fa32c79aad10a7bd3499cf9e95101a95a2c27324e0cc91a860867dd370db9c",
+          "start_line": 22
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision/Status",
+      "proposed_value": "Atom.Status",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes current Status of the selected Atom snapshot. The pinned snapshot rule and Atom Status example support Atom.Status; any applicable Content Role and Type value-domain remains source evidence, not an unapproved selector or narrower kind.",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-analysis-status-values.md",
+          "reason": "The current body explicitly scopes this Status to an Atom or Atom Content Role/Type. The snapshot rule and Atom Status example support Atom.Status, not a historical Revision field.",
+          "sha256": "4e9729d9a86cfde040939429e31efea27f72cc7fe0bf9645d1b993181072905b",
+          "span_sha256": "d60a91a062fa2888227814268944858dd82a9b6838dfe4e10af75c907ab51166",
+          "start_line": 22
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "2d10306800cba3cd68d1be8bb698925c976dee96ef7a2692793427c2beb93770",
+          "span_sha256": "4e9cc66b1f94270b359aa6966d54ef5ca0f970eeeec23d90af559dabcbff1ce9",
+          "start_line": 24
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "b2e38a54c68d7e5f75e1905de7c1e095d9aa15da83d0810bde5e0a2833bff198",
+          "span_sha256": "17abcbb5f79cbe00ff33ae922efb1ff077a56f1644a05551d6dbc8e2a15076b5",
+          "start_line": 19
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes AI Agent as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: AI Agent retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "b2e38a54c68d7e5f75e1905de7c1e095d9aa15da83d0810bde5e0a2833bff198",
+          "span_sha256": "17abcbb5f79cbe00ff33ae922efb1ff077a56f1644a05551d6dbc8e2a15076b5",
+          "start_line": 19
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md#subjects.depends_on[4]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "b30004bd089ff143193ab7175b7bc3174e7c3eabc4d75617c51b240a14686e22",
+          "span_sha256": "e7dc545a9235e604e86df30240bc669feab7a2f2119435f6b3636c1d22a210fb",
+          "start_line": 25
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+          "span_sha256": "f6a37ced2321dbd6b96ca34d7eb4601c9a01afe099f44a0feff437444697b6dd",
+          "start_line": 21
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+          "span_sha256": "e098d5e9fafb800061eb569bdc1eaecc9b2d388c8578774388d789e468f16413",
+          "start_line": 21
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+          "span_sha256": "27fa0b52f6810c78830435290d355f0c9f6eb2af9dc0fcbae7bdc4fc2eee204c",
+          "start_line": 21
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 30,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4",
+          "span_sha256": "182377651170ebd3f248979a2b92d2ac9f34fdd102bdf93dc42be05b94104b70",
+          "start_line": 18
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-273-CORE_META_MODEL--derive-ownership-and-claim-target-atom-sets.md#subjects.depends_on[10]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision",
+      "proposed_value": "Revision",
+      "disposition": "accepted",
+      "confidence": 0.97,
+      "reason": "Current Main Content concerns a historical or prior revision. The pinned candidate makes Revision a separate historical root and explicitly excludes Artifact/Revision.",
+      "evidence": [
+        {
+          "end_line": 48,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-273-CORE_META_MODEL--derive-ownership-and-claim-target-atom-sets.md",
+          "reason": "The current body explicitly refers to a revision/history record; the candidate moves that identity to the separate Revision root rather than retaining Artifact/Revision.",
+          "sha256": "2f2a40037201679c18e7b0722f1d1fa26796758b7f797b575df0574c0a4e26ef",
+          "span_sha256": "0bde600e4072965683f3d260eb1da408199fef0e8e785fb623252c39f1527774",
+          "start_line": 29
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-METHOD--repair-accidental-atom-id-reuse.md#subjects.depends_on[4]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision",
+      "proposed_value": "Revision",
+      "disposition": "accepted",
+      "confidence": 0.97,
+      "reason": "Current Main Content concerns a historical or prior revision. The pinned candidate makes Revision a separate historical root and explicitly excludes Artifact/Revision.",
+      "evidence": [
+        {
+          "end_line": 48,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-METHOD--repair-accidental-atom-id-reuse.md",
+          "reason": "The current body explicitly refers to a revision/history record; the candidate moves that identity to the separate Revision root rather than retaining Artifact/Revision.",
+          "sha256": "99bb048b7aabaaadab2bab139acaaba852fe8df1bc7e75bff898f063cedd5249",
+          "span_sha256": "749ee20e238802b464128234065ca45bab6fa689d3bc6b6206bc01b619ad7027",
+          "start_line": 28
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md#subjects.depends_on[3]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 41,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "42bac0554e085881c7902a8477792c052a4abda9c8538efc0751410f71044aac",
+          "span_sha256": "557c1e7d60ddd2c68b30f62ee1b10805997af3cd77616f03836b0b6111c59420",
+          "start_line": 24
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 55,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+          "span_sha256": "2b5a336859025130d21d96255c5ab2a4d68512641b59e0e02d12c1fedbd8be5f",
+          "start_line": 32
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md#subjects.depends_on[7]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 55,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498",
+          "span_sha256": "6c485958ad1e1b0ceeced90154318fc5176c3fa0536fd9d7ae54721e878253f1",
+          "start_line": 27
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md#subjects.depends_on[4]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 50,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955",
+          "span_sha256": "5b885dae23d4631e435557bce76f1c0d4383ba11c7de27c789c5b712cf09aab6",
+          "start_line": 26
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md#subjects.depends_on[4]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "fcb2658717a91add097f34751c89d54f03a047442031ee7cf79e89c9f817d965",
+          "span_sha256": "46303f70354b53b316f0c192b4d653739d0d8e8c5d494020bdc42f74a2469bfb",
+          "start_line": 24
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md#subjects.depends_on[8]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 71,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023",
+          "span_sha256": "366de79e0a541fb56b37777de55c331e7e5b255e9bf9b116d879fa51efae9977",
+          "start_line": 37
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-386-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-type-qualified-status-and-artifact-activity.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision/Status",
+      "proposed_value": "Artifact.Status",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes current Status of the selected Artifact snapshot. The pinned snapshot rule and dependent-property rule support Artifact.Status without retaining Artifact/Revision.",
+      "evidence": [
+        {
+          "end_line": 40,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-386-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-type-qualified-status-and-artifact-activity.md",
+          "reason": "The current body defines or evaluates Status across the applicable Artifact domain rather than only Atoms. The snapshot rule supports Artifact.Status without retaining Artifact/Revision.",
+          "sha256": "716b8601f26158d51281729d18c7b19c76bb2d5c6430d8b1f887b333c92de113",
+          "span_sha256": "6ba446754a5a39f9c16515308ab93906733130899eaa9165ad1cdc1f6e4eb618",
+          "start_line": 23
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-473-CORE_META_MODEL-QA_CASE--validate-implementation-retry-limit-resolution-and-accounting.md#subjects.depends_on[3]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 64,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-473-CORE_META_MODEL-QA_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "0e7ea664a2466237d9a42a983e36805316c23066c6cf74b9d612b3fc8a56d605",
+          "span_sha256": "54b91262ea90a3f96e3175943d87877ae98e43005515f8dd917316fdc22f4fb8",
+          "start_line": 30
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md#subjects.depends_on[7]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 60,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "5393c69f1cbb00a0d5c4366c5ca848a334d782ae251c7c98096ce5adcff9b232",
+          "span_sha256": "665af578a7597a96dfdc0c0a8fd8a5e3bb5ffcb953b6fe83f42b61979c872715",
+          "start_line": 33
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-QA_CASE--validate-action-kinds-and-step-contexts.md#subjects.depends_on[5]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 46,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-QA_CASE--validate-action-kinds-and-step-contexts.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "4c986410371e9625333364147ca0dfec120378ec5d61c525cc69e99be53512f5",
+          "span_sha256": "13646b61265362aaabb63badaea36b78189c75e9f6b666e7fd8011073e31768c",
+          "start_line": 24
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md#subjects.depends_on[3]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "404da79b6bb14e62c88ad5409b1f1947f907acf5812fd1b8ca3a53ce18e7c5d7",
+          "span_sha256": "abc531abc7dbc3833d886c4795c9e76976dd3774f3e9f7cf3879be81f9e46652",
+          "start_line": 25
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+        "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+      },
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "disposition": "accepted",
+      "confidence": 0.98,
+      "reason": "Current Main Content establishes Operator as a generic actor role, and the pinned candidate lists it as an Actor.Type allowed value. Actor.Type: Operator retains an allowed value rather than creating a slash subtype or an individual Actor.",
+      "evidence": [
+        {
+          "end_line": 34,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "a8a1e395a50127fcc7ab120f2d4ca0d33c1176f35793cbaf218b6643bfdba46b",
+          "span_sha256": "5f1251992eff8c74efa144987da0d87a1836d73c54f290ef89e5bfc9f422fd31",
+          "start_line": 22
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Atom/Revision/Version",
+      "proposed_value": "Atom.Version Number",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes the selected Atom snapshot Version. The pinned snapshot/versioning rules support Atom.Version Number rather than a historical Revision owner.",
+      "evidence": [
+        {
+          "end_line": 40,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md",
+          "reason": "The current body defines the selected Atom's monotonic Version. The confirmed snapshot and versioning rules support Atom.Version Number.",
+          "sha256": "3391dbfa646ef362dd1c54cd8c9dab590ee7650f2215d51aec5b7f9ef49d4829",
+          "span_sha256": "32d3aac8a5ae6f6d62c3c23e43099a42fac1d97fa4476bdad6cdee9152f9f006",
+          "start_line": 23
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-466-CORE_META_MODEL-STANDARD--place-carriers-by-applicable-status-delivery.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision/Status",
+      "proposed_value": "Artifact.Status",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes current Status of the selected Artifact snapshot. The pinned snapshot rule and dependent-property rule support Artifact.Status without retaining Artifact/Revision.",
+      "evidence": [
+        {
+          "end_line": 32,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-466-CORE_META_MODEL-STANDARD--place-carriers-by-applicable-status-delivery.md",
+          "reason": "The current body defines or evaluates Status across the applicable Artifact domain rather than only Atoms. The snapshot rule supports Artifact.Status without retaining Artifact/Revision.",
+          "sha256": "d3336f3ff4e75dbe2d02729c0442bdc59e102cbf12f73a0e5fd29539eaad6263",
+          "span_sha256": "d4b8858ee3533328a1715fb7f2cc14d9bd354dc91084201fc46161898e2f3fce",
+          "start_line": 20
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Atom/Revision/Status",
+      "proposed_value": "Atom.Status",
+      "disposition": "accepted",
+      "confidence": 0.96,
+      "reason": "Current Main Content describes current Status of the selected Atom snapshot. The pinned snapshot rule and Atom Status example support Atom.Status; any applicable Content Role and Type value-domain remains source evidence, not an unapproved selector or narrower kind.",
+      "evidence": [
+        {
+          "end_line": 39,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md",
+          "reason": "The current body explicitly scopes this Status to an Atom or Atom Content Role/Type. The snapshot rule and Atom Status example support Atom.Status, not a historical Revision field.",
+          "sha256": "8a83fb3e21c84bc0b657fa61ada0b6d28c4dcef3ebdba070570009e538204de8",
+          "span_sha256": "4d1658c0284f2e39fac610ecabba03c3066bf4e7372ca04cb0cf4c4acf617200",
+          "start_line": 21
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/history.review.json",
+        "sha256": "5b05dbbd72b4d9f6397b29f37286d71e91749a3515c9e3ec035f5275b0d9c576"
+      },
+      "old_value": "Artifact/Revision/Status",
+      "proposed_value": null,
+      "disposition": "unresolved",
+      "confidence": 0.55,
+      "reason": "Current Main Content concerns a newly archived historical Revision, but the pinned candidate defines Properties as dependent Entities inside an Artifact and defines Revision only as a separate historical root. It contains no Revision.Status field or rule preserving this Carrier-placement status context, so this proposal would carry old semantics without candidate support.",
+      "evidence": [
+        {
+          "end_line": 34,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md",
+          "reason": "The current body explicitly defines or uses the Status of an Artifact Revision. The confirmed separate Revision root and dependent-property rule support Revision.Status without Artifact.Revision.",
+          "sha256": "cb58f4cef97a55839daf29f2b3ef14562e9d5cf413291d900ff31334402e9f8a",
+          "span_sha256": "339c2ba39372826993b4c03617bd815d6b9d832f1afd6bd2b3936b8946d9f26a",
+          "start_line": 20
+        }
+      ],
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned_proposed": 57,
+    "actor_types": 36,
+    "history": 21,
+      "accepted": 55,
+    "rejected": 0,
+    "stale": 0,
+      "unresolved": 2
+  },
+  "limits": [
+    "This is an independent, non-executable semantic review; no authoritative Subject, candidate, frozen report, or source has been changed.",
+    "Only compact /, . and : notation is considered; @ is not admitted as a Subject operator.",
+    "Actor Type values remain allowed values of Actor.Type, not inferred Actor subtypes or individual Actors.",
+    "Revision remains a separate historical root, never Artifact.Revision or Artifact/Revision.",
+    "Content Role and Type allowed-value domains remain source evidence; this review does not infer a selector or narrower-kind answer.",
+    "Candidate display notation is not native admission or source-migration approval."
+  ]
+}

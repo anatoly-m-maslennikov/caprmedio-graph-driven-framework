@@ -1,0 +1,41 @@
+{
+  "task": "CA-P-2046",
+  "recorded_at": "2026-10-11 03:01:46 +0400",
+  "result": "PASS: ad-hoc derived ledger preparation only",
+  "implementation": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/integrate_current_subject_reviews.py",
+      "sha256": "2023b57910a64f756e506d7f93e42b37cb3be24655bfb719d1a65220ce5a4f2c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/test_integrate_current_subject_reviews.py",
+      "sha256": "7343ad656f5411f8dd0fab269369568172b06c29f601b13d3381f7c7dc68f79a"
+    }
+  ],
+  "checks": {
+    "isolated_tests": 9,
+    "independent_code_review": "PASS: no blocking gate defect",
+    "live_default_preview": "PASS",
+    "review_tasks": 51,
+    "sources": 907,
+    "occurrences": 4534,
+    "quarantined_sources": 8,
+    "quarantined_occurrences": 35,
+    "decisions": {
+      "proposed": 862,
+      "unchanged": 1575,
+      "unresolved": 2097
+    },
+    "unfinished_plan_rejected": true,
+    "stale_receipt_rejected": true,
+    "receipt_decision_count_mismatch_rejected": true,
+    "missing_and_duplicate_occurrence_rejected": true,
+    "symlink_and_overwrite_rejected": true,
+    "trusted_origin_metadata_preserved": true
+  },
+  "limits": [
+    "Real ledger has not been persisted by this Task",
+    "No source change, semantic mapping, native admission, grammar adoption or migration approval",
+    "Synthetic isolated fixtures mock independent verifiers; real preview separately ran both actual verifier gates"
+  ]
+}

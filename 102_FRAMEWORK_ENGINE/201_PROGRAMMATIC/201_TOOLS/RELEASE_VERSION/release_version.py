@@ -10,6 +10,7 @@ Journal event.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Literal, Mapping
 
 from pydantic import Field, ValidationError, field_validator, model_validator
@@ -21,7 +22,7 @@ from release_contract import (
     StrictModel,
     ValidatedCandidate,
 )
-from release_handoff import build_validated_candidate
+from release_handoff import build_validated_candidate, read_framework_version_toml
 
 
 TOOL_SCHEMA = "caprmedio.release_version.v1"
@@ -48,7 +49,9 @@ class ReleaseVersionRequest(StrictModel):
     expected_project_structure_digest: str
     expected_framework_settings_digest: str
     expected_source_frontier_digest: str
-    run_receipt_refs: list[str] = Field(min_length=1)
+    # Required documentary input; an effect-free preparation has no Run
+    # receipts yet. Actual receipts remain owned by the shared Session.
+    run_receipt_refs: list[str]
     failed_recording_ref: str | None = None
 
     @field_validator("project_root")
@@ -148,7 +151,82 @@ def _intent_from_manifest(manifest: CandidateSnapshotManifest) -> CandidateBuild
     )
 
 
-def _locally_observed_candidate(request: ReleaseVersionRequest) -> ValidatedCandidate:
+def _preparation_root(project_root: Path | str, declared_root: object) -> Path:
+    root = Path(project_root).resolve(strict=True)
+    if (not root.is_dir() or not isinstance(declared_root, str)
+            or not declared_root or declared_root != declared_root.strip()):
+        raise ReleaseVersionError(
+            "release-request-invalid", "release preparation requires the selected Project root",
+        )
+    if Path(declared_root).resolve(strict=True) != root:
+        raise ReleaseVersionError("release-project-root-mismatch", "release parameters differ from the selected Project root")
+    return root
+
+
+def prepare_release_request(project_root: Path | str, parameters: Mapping[str, Any]) -> dict[str, Any]:
+    """Derive the complete frozen native request without effects or receipts.
+
+    Only the operation, selected Project root, and optional expected version
+    are Operator inputs. The registered sources, compiler predictions, N proof,
+    protected settings, and fixed suite invocation are observed locally.
+    """
+
+    if (not isinstance(parameters, Mapping)
+            or not {"operation", "project_root"}.issubset(parameters)
+            or set(parameters) - {"operation", "project_root", "candidate_version"}):
+        raise ReleaseVersionError(
+            "release-request-invalid",
+            "release preparation accepts only operation, project_root and optional candidate_version",
+        )
+    if parameters["operation"] not in ("prepare", "apply"):
+        raise ReleaseVersionError("release-request-invalid", "release preparation requires prepare or apply")
+    root = _preparation_root(project_root, parameters["project_root"])
+    version, _ = read_framework_version_toml(root)
+    if "candidate_version" in parameters and parameters["candidate_version"] != version:
+        raise ReleaseVersionError("release-version-mismatch", "candidate_version must equal root version.toml [framework].version")
+
+    from release_compilation import build_preflight_validated_candidate
+    from release_promotion import bind_selected_native_n_from_checkpoint
+    from release_suite import SUPPORTED_RUNNER, SUITE_DRIVER_COMMAND, SUITE_DRIVER_WORKING_DIRECTORY
+
+    _, candidate = build_preflight_validated_candidate(
+        root,
+        candidate_release=version,
+        full_suite_environment={
+            "runner": SUPPORTED_RUNNER,
+            "command": list(SUITE_DRIVER_COMMAND),
+            "working_directory": SUITE_DRIVER_WORKING_DIRECTORY,
+        },
+        native_installed_n=bind_selected_native_n_from_checkpoint(root),
+    )
+    manifest = candidate.manifest
+    request = ReleaseVersionRequest(
+        operation=parameters["operation"],
+        project_root=str(root),
+        candidateSnapshotManifest=manifest,
+        expected_executing_release=manifest.executing_release,
+        expected_project_structure_digest=manifest.project_structure_digest,
+        expected_framework_settings_digest=manifest.framework_settings_digest,
+        expected_source_frontier_digest=manifest.source_frontier_digest,
+        run_receipt_refs=[],
+    )
+    return request.model_dump(mode="json", by_alias=True)
+
+
+def validate_prepared_release_request(
+    project_root: Path | str, parameters: Mapping[str, Any],
+) -> ReleaseVersionRequest:
+    """Reopen a frozen request without regenerating its authorization inputs."""
+
+    parsed = _parse_request(parameters)
+    root = _preparation_root(project_root, parsed.project_root)
+    from release_promotion import bind_selected_native_n_from_checkpoint
+
+    _locally_observed_candidate(parsed, native_installed_n=bind_selected_native_n_from_checkpoint(root))
+    return parsed
+
+
+def _locally_observed_candidate(request: ReleaseVersionRequest, *, native_installed_n: object | None = None) -> ValidatedCandidate:
     """Rebuild D566 from local bytes and require total equality with the request."""
 
     supplied = request.candidate_snapshot_manifest
@@ -157,6 +235,7 @@ def _locally_observed_candidate(request: ReleaseVersionRequest) -> ValidatedCand
             request.project_root,
             _intent_from_manifest(supplied),
             observed_source_frontier_digest=request.expected_source_frontier_digest,
+            native_installed_n=native_installed_n,
         )
     except ReleaseContractError:
         raise
@@ -212,4 +291,5 @@ def release_version(
     return _result(candidate, parsed.operation, "blocked", parsed.run_receipt_refs)
 
 
-__all__ = ["ReleaseVersionError", "ReleaseVersionRequest", "ReleaseVersionResult", "TOOL_SCHEMA", "release_version"]
+__all__ = ["ReleaseVersionError", "ReleaseVersionRequest", "ReleaseVersionResult", "TOOL_SCHEMA",
+           "prepare_release_request", "validate_prepared_release_request", "release_version"]

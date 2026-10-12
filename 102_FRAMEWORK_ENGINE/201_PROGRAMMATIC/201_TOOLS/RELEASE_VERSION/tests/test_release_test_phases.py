@@ -65,6 +65,24 @@ class ReleaseTestPhaseMapTests(unittest.TestCase):
             derive_test_phase_map(_candidate(rows))
         self.assertEqual(rejected.exception.code, "release-test-phase-row-invalid")
 
+    def test_excludes_versioned_historical_test_carriers_from_execution_phases(self) -> None:
+        historical = (
+            "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/"
+            "selected_source_refresh_golden/test_docker_e2e.d572v13.py",
+            "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/"
+            "selected_source_refresh_golden/test_selected_workflows_docker_e2e.d572v13.py",
+        )
+        active_unit = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/tests/test_release_actions.py"
+        paths = [active_unit, *CANDIDATE_E2E_MODULES, *historical]
+
+        phase_map = derive_test_phase_map(_candidate([
+            _row(path, hashlib.sha256(path.encode()).hexdigest()) for path in paths
+        ]))
+
+        self.assertEqual(phase_map.unit_paths, (active_unit,))
+        self.assertEqual(phase_map.candidate_e2e_paths, tuple(sorted(CANDIDATE_E2E_MODULES)))
+        self.assertFalse(set(historical).intersection(path for path, _, _ in phase_map.rows))
+
     def test_package_rows_use_the_same_phase_projection_as_candidate_inventory(self) -> None:
         paths = [
             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/tests/test_release_actions.py",

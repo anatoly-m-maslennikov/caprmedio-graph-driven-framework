@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2076",
+  "recorded_at": "2026-10-11 05:29:29 +0400",
+  "non_authoritative": true,
+  "result": "PASS: bounded independent semantic review; not migration approval",
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "verification": {
+    "task": "CA-P-2076",
+    "review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2076.review.json",
+      "sha256": "142b092991c78078e2440ade1685670b5048bfb5d12dd664d722794ad5f10a11"
+    },
+    "rows": 138,
+    "counts": {
+      "accepted": 136,
+      "unresolved": 2
+    },
+    "owning_sources": 87,
+    "exact_evidence_spans": 195,
+    "input_pins": 15,
+    "checks": "PASS: assigned coverage, exact input/source/span pins, dispositions, confidence, approved syntax, no executable rows"
+  },
+  "review_method": "Independent source-meaning review, with Root exact assigned coverage/pin/span/confidence/profile checks",
+  "task_input_boundary": "The review pins Task version 1 at registration commit 94e773ac3 where provided. Closure version 2 is not that original input.",
+  "completion_scope": "The 136 accepted candidates preserve Content Role and Local/Global Tier meaning. Selected Tier evidence is current; the raw other_fields package remains stale only for unselected M228 evidence. Two Applicable Methodology meanings remain unresolved; this does not choose realization versus projection or infer the unanswered owner/type notation.",
+  "limits": [
+    "All rows remain non-executable. Accepted means candidate meaning supported, not authorized source edits.",
+    "Rejected/unresolved rows and the parent mapping gate remain open.",
+    "The frozen candidate, baseline ledger, research inputs and authoritative Core are unchanged."
+  ]
+}

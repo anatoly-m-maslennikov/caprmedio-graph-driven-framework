@@ -1,0 +1,2659 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-1999",
+  "batch_id": "current-subjects.batch-008",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-008.json",
+  "input_batch_sha256": "23e60778ae6e765fe1cf32fb1267cc991af693d80704a3ab41926f0cebdee043",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  ],
+  "source_reviews": [
+    {
+      "atom_id": "CA-R-1375",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:23:29 +0400",
+      "updated_at_type": "str",
+      "version": 13,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1376",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:23:29 +0400",
+      "updated_at_type": "str",
+      "version": 12,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1378",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:23:29 +0400",
+      "updated_at_type": "str",
+      "version": 9,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1379",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:23:29 +0400",
+      "updated_at_type": "str",
+      "version": 10,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1381",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "69513678e42c76f89109e8e7b36b81c5734018fd21a08a0ae7e1bdcabec91068",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1381-CORE_META_MODEL-CORE--define-ad-hoc-as-an-atom-collection-type.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:23:29 +0400",
+      "updated_at_type": "str",
+      "version": 10,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1382",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "c3e84e0a0b438d149ebefc0a645e0ac92f0d5dea5c764d39748b4c01af16500a",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:23:29 +0400",
+      "updated_at_type": "str",
+      "version": 9,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1383",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:41:14 +0400",
+      "updated_at_type": "str",
+      "version": 10,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1388",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "e78597de9bf5d0898d451a1d16034b1a3d1edcaa4076548ca854fdf16f6f6fbd",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1388-CORE_META_MODEL-GENERAL--assign-project-goal-global-tier-minus-one.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:41:14 +0400",
+      "updated_at_type": "str",
+      "version": 9,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1389",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "e07e85b3270ca172062cabc170f4d7bc66989b0766bc31d717ddc80f76faa0c9",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1389-CORE_META_MODEL-GENERAL--map-project-local-tiers-to-global-tiers.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:41:14 +0400",
+      "updated_at_type": "str",
+      "version": 8,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1390",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:41:14 +0400",
+      "updated_at_type": "str",
+      "version": 10,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1391",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:41:14 +0400",
+      "updated_at_type": "str",
+      "version": 9,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1392",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "15082a8e9a9ab680d750e4386f9cc5aab9975ac5ae2cbedae5b009e424959d98",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:41:14 +0400",
+      "updated_at_type": "str",
+      "version": 9,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1393",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "058d6e26920af4bf980ec848aece6c9af13e86019b59f98dcca8d01885d025f3",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1393-CORE_META_MODEL-CORE--omit-local-tier-from-project-goal.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:41:14 +0400",
+      "updated_at_type": "str",
+      "version": 9,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1394",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-09-28 15:12:22 +0400",
+      "updated_at_type": "str",
+      "version": 10,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1395",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "9491c0a5c6b7c2b3c51f593941b3bf6e2430c82b59027cb36bf0b7610401a1b0",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:50:34 +0400",
+      "updated_at_type": "str",
+      "version": 10,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1396",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "683c9054bbab9d98fa980f496267f7195fc7158487a8c59944203b12970c8f3c",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:41:14 +0400",
+      "updated_at_type": "str",
+      "version": 10,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1397",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "b18023c1108023137f539703aec3812c3675c257ba154ac0a08cc087621669fb",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1397-CORE_META_MODEL-GENERAL--register-core-method-status-values.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:41:14 +0400",
+      "updated_at_type": "str",
+      "version": 9,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1398",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "f7b33130be9d98abc56a2b0cdd15ea064e32ffa40fff12449fe6ec97b0ab3bf2",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1398-CORE_META_MODEL-GENERAL--register-core-evaluation-status-values.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:41:14 +0400",
+      "updated_at_type": "str",
+      "version": 9,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1399",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "bb45378bdbf9c9e840b603907977676eac9e657d170f9f60ac630605b1d2203f",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL-GENERAL--register-core-delivery-status-values.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-02 22:41:14 +0400",
+      "updated_at_type": "str",
+      "version": 9,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    },
+    {
+      "atom_id": "CA-R-1401",
+      "author": "Anatoly Maslennikov",
+      "findings": [],
+      "full_file_sha256": "58a1f8fedaaf660edd0e21e89dd55ac081c99124b83565cf0a47ed4f4bf3ab64",
+      "owner": "CORE_META_MODEL",
+      "quarantined": false,
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1401-CORE_META_MODEL-CORE-REQUIREMENT--keep-project-settings-outside-the-atom-type.md",
+      "role": "Requirement",
+      "status": "Active",
+      "updated_at": "2026-10-01 21:41:08 +0400",
+      "updated_at_type": "str",
+      "version": 11,
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": []
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md#subjects.depends_on[0]",
+      "old_value": "Core Meta-Model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1375",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+      "source_sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 22-36) states: an Extension **or** Project Configuration **must** add Claims, Terms, allowed values, Types, Methods, Evaluations, Deliveries, Operations, activation rules, compatibility rules, **or** priority rules **only** **where** one active CORE_META_MODEL Atom permits the addition **and** **must not** redefine, replace, shadow, weaken, delete, contradict, reinterpret, **or** mutate Core Meta-Model authority at **any** Local Tier; a higher-ranked local Claim grants no exception **to** this source authority boundary. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+          "sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "e30f0cacadbebec68c5fca9f17ff065bbac343808f12b183c0379f2f96132413",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Core Meta-Model', field 'depends_on', and index 0 remain individually accounted for.",
+        "Core Meta-Model",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md#subjects.depends_on[1]",
+      "old_value": "Extension",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1375",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+      "source_sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Extension",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 22-36) states: an Extension **or** Project Configuration **must** add Claims, Terms, allowed values, Types, Methods, Evaluations, Deliveries, Operations, activation rules, compatibility rules, **or** priority rules **only** **where** one active CORE_META_MODEL Atom permits the addition **and** **must not** redefine, replace, shadow, weaken, delete, contradict, reinterpret, **or** mutate Core Meta-Model authority at **any** Local Tier; a higher-ranked local Claim grants no exception **to** this source authority boundary. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+          "sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "e30f0cacadbebec68c5fca9f17ff065bbac343808f12b183c0379f2f96132413",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Extension', field 'depends_on', and index 1 remain individually accounted for.",
+        "Extension",
+        "Extension source authority remains distinct from the derived Applicable Methodology Projection.",
+        "One projected Atom maps to one source Atom with its source ID, version and relative source link; no second authority is created."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md#subjects.depends_on[2]",
+      "old_value": "Project Configuration",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1375",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+      "source_sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Project Configuration",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 22-36) states: an Extension **or** Project Configuration **must** add Claims, Terms, allowed values, Types, Methods, Evaluations, Deliveries, Operations, activation rules, compatibility rules, **or** priority rules **only** **where** one active CORE_META_MODEL Atom permits the addition **and** **must not** redefine, replace, shadow, weaken, delete, contradict, reinterpret, **or** mutate Core Meta-Model authority at **any** Local Tier; a higher-ranked local Claim grants no exception **to** this source authority boundary. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+          "sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "e30f0cacadbebec68c5fca9f17ff065bbac343808f12b183c0379f2f96132413",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Project Configuration', field 'depends_on', and index 2 remain individually accounted for.",
+        "Project-owned expansion authority, excluding current Settings selections and activation/revision values.",
+        "Rules/defaults differ from currently selected values.",
+        "The seven-root comparison keeps this as an Artifact or dependent-Entity display path; the path is not a native edge, Subject migration, or new root."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md#subjects.depends_on[3]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1375",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+      "source_sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+      "source_version": 13,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 22-36) states: an Extension **or** Project Configuration **must** add Claims, Terms, allowed values, Types, Methods, Evaluations, Deliveries, Operations, activation rules, compatibility rules, **or** priority rules **only** **where** one active CORE_META_MODEL Atom permits the addition **and** **must not** redefine, replace, shadow, weaken, delete, contradict, reinterpret, **or** mutate Core Meta-Model authority at **any** Local Tier; a higher-ranked local Claim grants no exception **to** this source authority boundary. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: CA-R-918 supplies captured Main Content for Atom/Claim; no source-backed duplicate, redundancy, empty-definition, or safe replacement was established in this bounded review. Latest-candidate comparison: The candidate's Substance umbrella maps RMED to Claim as a proposed display/content direction only; captured Claim remains an Atom-owned independently replaceable statement.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+          "sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "e30f0cacadbebec68c5fca9f17ff065bbac343808f12b183c0379f2f96132413",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Claim', field 'depends_on', and index 3 remain individually accounted for.",
+        "No identity replacement, relation rewrite, constraint loss, historical-reference loss, or query-semantic change is proposed.",
+        "The candidate's Substance umbrella maps RMED to Claim as a proposed display/content direction only; captured Claim remains an Atom-owned independently replaceable statement.",
+        "Captured CA-R-918 lines 26-26: **every** Atom **must** have **`=1`** independently replaceable Claim."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md#subjects.depends_on[4]",
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1375",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+      "source_sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Framework Instance Settings",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 22-36) states: an Extension **or** Project Configuration **must** add Claims, Terms, allowed values, Types, Methods, Evaluations, Deliveries, Operations, activation rules, compatibility rules, **or** priority rules **only** **where** one active CORE_META_MODEL Atom permits the addition **and** **must not** redefine, replace, shadow, weaken, delete, contradict, reinterpret, **or** mutate Core Meta-Model authority at **any** Local Tier; a higher-ranked local Claim grants no exception **to** this source authority boundary. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+          "sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "e30f0cacadbebec68c5fca9f17ff065bbac343808f12b183c0379f2f96132413",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Framework Instance Settings', field 'depends_on', and index 4 remain individually accounted for.",
+        "Framework Instance Settings",
+        "Framework Instance Settings remains an authoritative Artifact for explicit instance choices, distinct from Project initialization inputs and Project Structure.",
+        "Its Carrier and field conventions remain general D policy comparisons; the Artifact identity is not replaced by a storage path."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md#subjects.governs",
+      "old_value": "Methodology Source/Expansion Boundary",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1375",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+      "source_sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+      "source_version": 13,
+      "decision": "unchanged",
+      "proposed_value": "Methodology Source/Expansion Boundary",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 22-36) states: an Extension **or** Project Configuration **must** add Claims, Terms, allowed values, Types, Methods, Evaluations, Deliveries, Operations, activation rules, compatibility rules, **or** priority rules **only** **where** one active CORE_META_MODEL Atom permits the addition **and** **must not** redefine, replace, shadow, weaken, delete, contradict, reinterpret, **or** mutate Core Meta-Model authority at **any** Local Tier; a higher-ranked local Claim grants no exception **to** this source authority boundary. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1375-CORE_META_MODEL-CORE--restrict-methodology-source-expansion-to-core-permission.md",
+          "sha256": "2c4a97c2d4c6c054ac8e5318641aa9e8e71c7627b37a32cd66885690ca132d75",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "e30f0cacadbebec68c5fca9f17ff065bbac343808f12b183c0379f2f96132413",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Methodology Source/Expansion Boundary', field 'governs', and index None remain individually accounted for.",
+        "permits Extension or Project Configuration additions only where active Core authority permits them and forbids mutation of Core authority",
+        "the permitted expansion boundary, not an activation or source-ownership transfer",
+        "Retain explicit source/target/scope mapping and the no-Core-mutation boundary as projection context, not as a new native relation or subtype."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md#subjects.depends_on[0]",
+      "old_value": "Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1376",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+      "source_sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Entity",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 20-32) states: a Structural Entity **means** a Primary Entity whose governed role is **to** organize **`>=0`** Entities through direct containment while retaining identity independently of its contained Entities. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Entity', field 'depends_on', and index 0 remain individually accounted for.",
+        "Entity",
+        "The seven-root candidate boundary is preserved; generic Entity vocabulary does not add another root or Artifact ownership.",
+        "A heading, alias or display grouping is not itself a new Entity or native relation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md#subjects.depends_on[1]",
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1376",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+      "source_sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 20-32) states: a Structural Entity **means** a Primary Entity whose governed role is **to** organize **`>=0`** Entities through direct containment while retaining identity independently of its contained Entities. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Entity occurrence whose identity does not require another Entity occurrence as bearer. Generic Entity vocabulary has no selected candidate root or owner/field in the latest candidate. Keep it in review; do not place it under Artifact. Atom remains an Artifact subtype, not a dependent Property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Primary Entity', field 'depends_on', and index 1 remain individually accounted for.",
+        "Entity occurrence whose identity does not require another Entity occurrence as bearer.",
+        "Retain identity independence without inferring a concrete Carrier or exhaustive Entity partition.",
+        "Generic Entity vocabulary has no selected candidate root or owner/field in the latest candidate. Keep it in review; do not place it under Artifact. Atom remains an Artifact subtype, not a dependent Property."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md#subjects.depends_on[2]",
+      "old_value": "Structural Entity/Direct Containment",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1376",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+      "source_sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+      "source_version": 12,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 20-32) states: a Structural Entity **means** a Primary Entity whose governed role is **to** organize **`>=0`** Entities through direct containment while retaining identity independently of its contained Entities. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Captured snapshot review for 'Structural Entity/Direct Containment' checked 5 source Atom(s) against CA-P-1936/batch-8/E005 but did not establish a positive candidate mapping. Candidate comparison: The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Structural Entity/Direct Containment', field 'depends_on', and index 2 remain individually accounted for.",
+        "The original identity 'Structural Entity/Direct Containment', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md#subjects.governs",
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1376",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+      "source_sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+      "source_version": 12,
+      "decision": "unchanged",
+      "proposed_value": "Structural Entity",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 20-32) states: a Structural Entity **means** a Primary Entity whose governed role is **to** organize **`>=0`** Entities through direct containment while retaining identity independently of its contained Entities. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Structural Entity', field 'governs', and index None remain individually accounted for.",
+        "Structural Entity remains distinct from its Carrier and from any binding metadata.",
+        "The captured identity is not replaced by a heading-derived candidate subtype."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md#subjects.depends_on[0]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1378",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+      "source_sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+      "source_version": 9,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 20-32) states: an Atom Collection **means** a Structural Entity that groups **`>=0`** Atoms **without** becoming their owning Scope Unit. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+          "sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "5bdf7c1f09f9b971295f00be943d7f297c812a3522ba537a293f835642674616",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom', field 'depends_on', and index 0 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Atom's qualification is independent governability at minimal useful granularity, not document size or file count.",
+        "Atom identity and captured smallest-governed meaning remain; its dependent fields do not gain separate lifecycles."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md#subjects.depends_on[1]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1378",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+      "source_sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+      "source_version": 9,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 20-32) states: an Atom Collection **means** a Structural Entity that groups **`>=0`** Atoms **without** becoming their owning Scope Unit. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+          "sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "5bdf7c1f09f9b971295f00be943d7f297c812a3522ba537a293f835642674616",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Scope Unit', field 'depends_on', and index 1 remain individually accounted for.",
+        "Logical declaration establishes the unit; a native physical layout does not change declared parentage, Type, Name or Local Order.",
+        "R1757 defines a Structural Entity providing an Atom ownership boundary and possible child units; R1484 distinguishes declaration from Goal coverage and Carrier materialization.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md#subjects.depends_on[2]",
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1378",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+      "source_sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+      "source_version": 9,
+      "decision": "unchanged",
+      "proposed_value": "Structural Entity",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 20-32) states: an Atom Collection **means** a Structural Entity that groups **`>=0`** Atoms **without** becoming their owning Scope Unit. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+          "sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "5bdf7c1f09f9b971295f00be943d7f297c812a3522ba537a293f835642674616",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Structural Entity', field 'depends_on', and index 2 remain individually accounted for.",
+        "Structural Entity remains distinct from its Carrier and from any binding metadata.",
+        "The captured identity is not replaced by a heading-derived candidate subtype."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md#subjects.governs",
+      "old_value": "Atom Collection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1378",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+      "source_sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 20-32) states: an Atom Collection **means** a Structural Entity that groups **`>=0`** Atoms **without** becoming their owning Scope Unit. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: CA-R-1378 defines a Structural Entity grouping zero or more Atoms without becoming their owning Scope Unit. Candidate comparison: the collection and its qualified fields remain dependent structural content rather than independent roots.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+          "sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "5bdf7c1f09f9b971295f00be943d7f297c812a3522ba537a293f835642674616",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom Collection', field 'governs', and index None remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Collection identity preserves grouping while member Atoms retain their own owning Scope Unit.",
+        "Collection grouping, direct containment and allowed-value domains remain distinct; grouping alone does not create another root."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md#subjects.depends_on[0]",
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1379",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+      "source_sha256": "50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e",
+      "source_version": 10,
+      "decision": "unchanged",
+      "proposed_value": "Structural Entity",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 18-30) states: the Term Atom Collection **must** be NARROWER_THAN Structural Entity. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+          "sha256": "50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "ce9c172ae5b332ba0bcf58a6f13c58729aa206bba4c3a7c4216d7edbd0124cf9",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Structural Entity', field 'depends_on', and index 0 remain individually accounted for.",
+        "Structural Entity remains distinct from its Carrier and from any binding metadata.",
+        "The captured identity is not replaced by a heading-derived candidate subtype."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md#subjects.governs",
+      "old_value": "Atom Collection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1379",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+      "source_sha256": "50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 18-30) states: the Term Atom Collection **must** be NARROWER_THAN Structural Entity. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: CA-R-1378 defines a Structural Entity grouping zero or more Atoms without becoming their owning Scope Unit. Candidate comparison: the collection and its qualified fields remain dependent structural content rather than independent roots.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+          "sha256": "50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "ce9c172ae5b332ba0bcf58a6f13c58729aa206bba4c3a7c4216d7edbd0124cf9",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom Collection', field 'governs', and index None remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Collection identity preserves grouping while member Atoms retain their own owning Scope Unit.",
+        "Collection grouping, direct containment and allowed-value domains remain distinct; grouping alone does not create another root."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1381-CORE_META_MODEL-CORE--define-ad-hoc-as-an-atom-collection-type.md#subjects.depends_on[0]",
+      "old_value": "Atom Collection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1381",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1381-CORE_META_MODEL-CORE--define-ad-hoc-as-an-atom-collection-type.md",
+      "source_sha256": "69513678e42c76f89109e8e7b36b81c5734018fd21a08a0ae7e1bdcabec91068",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 18-30) states: the Type value Ad Hoc **means** the value under Atom Collection whose bearer groups Atoms **without** introducing a planning boundary. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: CA-R-1378 defines a Structural Entity grouping zero or more Atoms without becoming their owning Scope Unit. Candidate comparison: the collection and its qualified fields remain dependent structural content rather than independent roots.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1381-CORE_META_MODEL-CORE--define-ad-hoc-as-an-atom-collection-type.md",
+          "sha256": "69513678e42c76f89109e8e7b36b81c5734018fd21a08a0ae7e1bdcabec91068",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "24172680a9d5c642877f5b1dc8947174bf6c8c5b5e8b87c6a1b7545067e56084",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom Collection', field 'depends_on', and index 0 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Collection identity preserves grouping while member Atoms retain their own owning Scope Unit.",
+        "Collection grouping, direct containment and allowed-value domains remain distinct; grouping alone does not create another root."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1381-CORE_META_MODEL-CORE--define-ad-hoc-as-an-atom-collection-type.md#subjects.governs",
+      "old_value": "Atom Collection/Type: Ad Hoc",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1381",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1381-CORE_META_MODEL-CORE--define-ad-hoc-as-an-atom-collection-type.md",
+      "source_sha256": "69513678e42c76f89109e8e7b36b81c5734018fd21a08a0ae7e1bdcabec91068",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 18-30) states: the Type value Ad Hoc **means** the value under Atom Collection whose bearer groups Atoms **without** introducing a planning boundary. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: CA-R-1381 directly defines Ad Hoc as the Atom Collection Type value for grouping Atoms without introducing a planning boundary, and CA-R-1546 admits it as the Core allowed value. Candidate comparison: the collection and its qualified fields remain dependent structural content rather than independent roots.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1381-CORE_META_MODEL-CORE--define-ad-hoc-as-an-atom-collection-type.md",
+          "sha256": "69513678e42c76f89109e8e7b36b81c5734018fd21a08a0ae7e1bdcabec91068",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "24172680a9d5c642877f5b1dc8947174bf6c8c5b5e8b87c6a1b7545067e56084",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom Collection/Type: Ad Hoc', field 'governs', and index None remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "This identity is the Ad Hoc member of Atom Collection/Type, not the whole Type domain and not an independent planning boundary.",
+        "Collection grouping, direct containment and allowed-value domains remain distinct; grouping alone does not create another root."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md#subjects.depends_on[0]",
+      "old_value": "Scope Unit/Type: Ordered",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1382",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md",
+      "source_sha256": "c3e84e0a0b438d149ebefc0a645e0ac92f0d5dea5c764d39748b4c01af16500a",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 18-30) states: **every** Ordered Scope Unit **must** use Layer as its default Label. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: R1760 defines Ordered as the Type value whose bearer participates in exactly one Local Order among sibling units. Candidate comparison: Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md",
+          "sha256": "c3e84e0a0b438d149ebefc0a645e0ac92f0d5dea5c764d39748b4c01af16500a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "956f0c3d1754728138ed1d569e24c4c22f70e010dbd78bffe0f4e8767dbe2940",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Scope Unit/Type: Ordered', field 'depends_on', and index 0 remain individually accounted for.",
+        "The definition fixes one Local Order participation; it does not admit execution order or assign this value to an actual unit.",
+        "R1760 defines Ordered as the Type value whose bearer participates in exactly one Local Order among sibling units.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md#subjects.governs",
+      "old_value": "Scope Unit/Label",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1382",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md",
+      "source_sha256": "c3e84e0a0b438d149ebefc0a645e0ac92f0d5dea5c764d39748b4c01af16500a",
+      "source_version": 9,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Label",
+      "confidence": 0.95,
+      "reason": "Current Main Content Claim (lines 18-30) states: **every** Ordered Scope Unit **must** use Layer as its default Label. The cited confirmed candidate rules preserve this same bearer/property or allowed-value distinction; 'Scope Unit.Label' is a display proposal only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md",
+          "sha256": "c3e84e0a0b438d149ebefc0a645e0ac92f0d5dea5c764d39748b4c01af16500a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "956f0c3d1754728138ed1d569e24c4c22f70e010dbd78bffe0f4e8767dbe2940",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/scope_unit_rename/metadata_scope_unit_folder_format",
+          "reason": "The confirmed Scope Unit rule explicitly preserves Label in the metadata Scope Unit folder format, while the current Claim defines the Ordered Scope Unit Label."
+        },
+        {
+          "pointer": "#/entity_identity_model/scope_unit_rename/rename",
+          "reason": "The confirmed Scope Unit rename rule retains a changeable Label without replacing Scope Unit identity; the current Claim supplies its default."
+        }
+      ],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Scope Unit/Label', field 'governs', and index None remain individually accounted for.",
+        "Layer/Feature defaults do not establish parentage, authority or Type; Label remains a qualified Property of the unit.",
+        "R972 defines the Scope Unit-borne Label Property; Ordered/Unordered defaults and independent Operator overrides are separately governed.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md#subjects.depends_on[0]",
+      "old_value": "Atom Collection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+      "source_sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 19-31) states: an Atom Collection **may** directly contain another Atom Collection. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: CA-R-1378 defines a Structural Entity grouping zero or more Atoms without becoming their owning Scope Unit. Candidate comparison: the collection and its qualified fields remain dependent structural content rather than independent roots.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+          "sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "fe13b5f7480a15de831a23f052d59ca1eff963a13767dbba1807714f68b19080",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom Collection', field 'depends_on', and index 0 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Collection identity preserves grouping while member Atoms retain their own owning Scope Unit.",
+        "Collection grouping, direct containment and allowed-value domains remain distinct; grouping alone does not create another root."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md#subjects.depends_on[1]",
+      "old_value": "Structural Entity/Direct Containment",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+      "source_sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 19-31) states: an Atom Collection **may** directly contain another Atom Collection. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Captured snapshot review for 'Structural Entity/Direct Containment' checked 5 source Atom(s) against CA-P-1936/batch-8/E005 but did not establish a positive candidate mapping. Candidate comparison: The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+          "sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "fe13b5f7480a15de831a23f052d59ca1eff963a13767dbba1807714f68b19080",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Structural Entity/Direct Containment', field 'depends_on', and index 1 remain individually accounted for.",
+        "The original identity 'Structural Entity/Direct Containment', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The slash-qualified structural label may describe a relation, containment, or carrier qualifier, but the captured Main Content does not establish its exact candidate identity, direction, or endpoints."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md#subjects.governs",
+      "old_value": "Atom Collection/Direct Containment",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+      "source_sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 19-31) states: an Atom Collection **may** directly contain another Atom Collection. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: CA-R-1383 directly permits one Atom Collection to directly contain another Atom Collection, supplying a discrete direct-containment rule without admitting a new relation kind. Candidate comparison: the collection and its qualified fields remain dependent structural content rather than independent roots.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+          "sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "fe13b5f7480a15de831a23f052d59ca1eff963a13767dbba1807714f68b19080",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom Collection/Direct Containment', field 'governs', and index None remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "This qualified identity concerns an immediate Atom Collection-to-Atom Collection arrangement, not a general assertion about all nested entities.",
+        "Collection grouping, direct containment and allowed-value domains remain distinct; grouping alone does not create another root."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1388-CORE_META_MODEL-GENERAL--assign-project-goal-global-tier-minus-one.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role: Requirement/Type: Goal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1388",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1388-CORE_META_MODEL-GENERAL--assign-project-goal-global-tier-minus-one.md",
+      "source_sha256": "e78597de9bf5d0898d451a1d16034b1a3d1edcaa4076548ca854fdf16f6f6fbd",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 19-31) states: an accepted Project Goal Atom **must** have Global Tier **`-1`**. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Captured CA-R-925 and CA-R-1775 preserve Goal as a Requirement-qualified RMED Claim, not Plan Objective content; the path is prose rather than allowed-value notation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1388-CORE_META_MODEL-GENERAL--assign-project-goal-global-tier-minus-one.md",
+          "sha256": "e78597de9bf5d0898d451a1d16034b1a3d1edcaa4076548ca854fdf16f6f6fbd",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c271184a3edc3879aed5da9790823df55e74da1ee5768472e12e5fb00b5a984e",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Content Role: Requirement/Type: Goal', field 'depends_on', and index 0 remain individually accounted for.",
+        "Goal is a Relational Atom with Content Role Requirement and Type Goal.",
+        "A parent Scope Unit owns child-targeted Goal Atoms without transferring ownership.",
+        "Goal stays distinct from Demand; no type hierarchy is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1388-CORE_META_MODEL-GENERAL--assign-project-goal-global-tier-minus-one.md#subjects.depends_on[1]",
+      "old_value": "Project",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1388",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1388-CORE_META_MODEL-GENERAL--assign-project-goal-global-tier-minus-one.md",
+      "source_sha256": "e78597de9bf5d0898d451a1d16034b1a3d1edcaa4076548ca854fdf16f6f6fbd",
+      "source_version": 9,
+      "decision": "unchanged",
+      "proposed_value": "Project",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 19-31) states: an accepted Project Goal Atom **must** have Global Tier **`-1`**. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1388-CORE_META_MODEL-GENERAL--assign-project-goal-global-tier-minus-one.md",
+          "sha256": "e78597de9bf5d0898d451a1d16034b1a3d1edcaa4076548ca854fdf16f6f6fbd",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c271184a3edc3879aed5da9790823df55e74da1ee5768472e12e5fb00b5a984e",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Project', field 'depends_on', and index 1 remain individually accounted for.",
+        "Project is the root Scope Unit with zero parents and Unordered type.",
+        "Non-Project units have a different structural position.",
+        "Scope Unit ownership and stable identity remain distinct from Atom content, applicability Scope and Carrier storage."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1388-CORE_META_MODEL-GENERAL--assign-project-goal-global-tier-minus-one.md#subjects.governs",
+      "old_value": "Atom/Global Tier",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1388",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1388-CORE_META_MODEL-GENERAL--assign-project-goal-global-tier-minus-one.md",
+      "source_sha256": "e78597de9bf5d0898d451a1d16034b1a3d1edcaa4076548ca854fdf16f6f6fbd",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.82,
+      "reason": "Current Main Content Claim (lines 19-31) states: an accepted Project Goal Atom **must** have Global Tier **`-1`**. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1388-CORE_META_MODEL-GENERAL--assign-project-goal-global-tier-minus-one.md",
+          "sha256": "e78597de9bf5d0898d451a1d16034b1a3d1edcaa4076548ca854fdf16f6f6fbd",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "c271184a3edc3879aed5da9790823df55e74da1ee5768472e12e5fb00b5a984e",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Global Tier', field 'governs', and index None remain individually accounted for.",
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1389-CORE_META_MODEL-GENERAL--map-project-local-tiers-to-global-tiers.md#subjects.depends_on[0]",
+      "old_value": "Atom/Local Tier",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1389",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1389-CORE_META_MODEL-GENERAL--map-project-local-tiers-to-global-tiers.md",
+      "source_sha256": "e07e85b3270ca172062cabc170f4d7bc66989b0766bc31d717ddc80f76faa0c9",
+      "source_version": 8,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.82,
+      "reason": "Current Main Content Claim (lines 19-31) states: a Project-scoped Atom **must** have Global Tier **`0`** for Principle, **`1`** for Core, **and** **`2`** for Standard. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1389-CORE_META_MODEL-GENERAL--map-project-local-tiers-to-global-tiers.md",
+          "sha256": "e07e85b3270ca172062cabc170f4d7bc66989b0766bc31d717ddc80f76faa0c9",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "6951ee7d791f94564a421656b727c9c5ac527082a5b1bf558e88e9975676d4d2",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Local Tier', field 'depends_on', and index 0 remain individually accounted for.",
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1389-CORE_META_MODEL-GENERAL--map-project-local-tiers-to-global-tiers.md#subjects.depends_on[1]",
+      "old_value": "Project",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1389",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1389-CORE_META_MODEL-GENERAL--map-project-local-tiers-to-global-tiers.md",
+      "source_sha256": "e07e85b3270ca172062cabc170f4d7bc66989b0766bc31d717ddc80f76faa0c9",
+      "source_version": 8,
+      "decision": "unchanged",
+      "proposed_value": "Project",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 19-31) states: a Project-scoped Atom **must** have Global Tier **`0`** for Principle, **`1`** for Core, **and** **`2`** for Standard. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1389-CORE_META_MODEL-GENERAL--map-project-local-tiers-to-global-tiers.md",
+          "sha256": "e07e85b3270ca172062cabc170f4d7bc66989b0766bc31d717ddc80f76faa0c9",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "6951ee7d791f94564a421656b727c9c5ac527082a5b1bf558e88e9975676d4d2",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Project', field 'depends_on', and index 1 remain individually accounted for.",
+        "Project is the root Scope Unit with zero parents and Unordered type.",
+        "Non-Project units have a different structural position.",
+        "Scope Unit ownership and stable identity remain distinct from Atom content, applicability Scope and Carrier storage."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1389-CORE_META_MODEL-GENERAL--map-project-local-tiers-to-global-tiers.md#subjects.governs",
+      "old_value": "Atom/Global Tier",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1389",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1389-CORE_META_MODEL-GENERAL--map-project-local-tiers-to-global-tiers.md",
+      "source_sha256": "e07e85b3270ca172062cabc170f4d7bc66989b0766bc31d717ddc80f76faa0c9",
+      "source_version": 8,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.82,
+      "reason": "Current Main Content Claim (lines 19-31) states: a Project-scoped Atom **must** have Global Tier **`0`** for Principle, **`1`** for Core, **and** **`2`** for Standard. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1389-CORE_META_MODEL-GENERAL--map-project-local-tiers-to-global-tiers.md",
+          "sha256": "e07e85b3270ca172062cabc170f4d7bc66989b0766bc31d717ddc80f76faa0c9",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "6951ee7d791f94564a421656b727c9c5ac527082a5b1bf558e88e9975676d4d2",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Global Tier', field 'governs', and index None remain individually accounted for.",
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md#subjects.depends_on[0]",
+      "old_value": "Atom/Local Tier: Core",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1390",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+      "source_sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.82,
+      "reason": "Current Main Content Claim (lines 20-32) states: a Core Atom scoped **to** a non-Project Scope Unit **must** have a Global Tier one greater than the Standard Global Tier of its direct parent Scope Unit. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+          "sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "c58cfec88da2ecb7778f833168672500b1e4435af598ad07434db008ae9199a4",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Local Tier: Core', field 'depends_on', and index 0 remain individually accounted for.",
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md#subjects.depends_on[1]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1390",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+      "source_sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+      "source_version": 10,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 20-32) states: a Core Atom scoped **to** a non-Project Scope Unit **must** have a Global Tier one greater than the Standard Global Tier of its direct parent Scope Unit. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+          "sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "c58cfec88da2ecb7778f833168672500b1e4435af598ad07434db008ae9199a4",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Scope Unit', field 'depends_on', and index 1 remain individually accounted for.",
+        "Logical declaration establishes the unit; a native physical layout does not change declared parentage, Type, Name or Local Order.",
+        "R1757 defines a Structural Entity providing an Atom ownership boundary and possible child units; R1484 distinguishes declaration from Goal coverage and Carrier materialization.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md#subjects.depends_on[2]",
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1390",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+      "source_sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 20-32) states: a Core Atom scoped **to** a non-Project Scope Unit **must** have a Global Tier one greater than the Standard Global Tier of its direct parent Scope Unit. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Captured snapshot review for 'Structural Parent Relation' checked 12 source Atom(s) against CA-P-1936/batch-8/E008 but did not establish a positive candidate mapping. Candidate comparison: The captured parent-relation occurrence does not establish the exact candidate Relation direction, graph ownership, or permitted endpoints. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+          "sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "c58cfec88da2ecb7778f833168672500b1e4435af598ad07434db008ae9199a4",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Structural Parent Relation', field 'depends_on', and index 2 remain individually accounted for.",
+        "The original identity 'Structural Parent Relation', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured parent-relation occurrence does not establish the exact candidate Relation direction, graph ownership, or permitted endpoints."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md#subjects.governs",
+      "old_value": "Atom/Global Tier",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1390",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+      "source_sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.82,
+      "reason": "Current Main Content Claim (lines 20-32) states: a Core Atom scoped **to** a non-Project Scope Unit **must** have a Global Tier one greater than the Standard Global Tier of its direct parent Scope Unit. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1390-CORE_META_MODEL-GENERAL--derive-child-core-global-tier-from-parent-standard.md",
+          "sha256": "de6ad77e1aaeaf2bee7032c73ffc00272f59ce73da3aa6f8423ccf8d9f656eec",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "c58cfec88da2ecb7778f833168672500b1e4435af598ad07434db008ae9199a4",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Global Tier', field 'governs', and index None remain individually accounted for.",
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md#subjects.depends_on[0]",
+      "old_value": "Atom/Local Tier: General",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1391",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+      "source_sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.82,
+      "reason": "Current Main Content Claim (lines 20-32) states: within a non-Project Scope Unit, the General Global Tier **must** be one greater than its Core Global Tier **and** the Standard Global Tier **must** be one greater than its General Global Tier. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+          "sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "971dfeb0049bbe9ff465794d3ef5acb349cb35254d812d713f464d4b26eacd28",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Local Tier: General', field 'depends_on', and index 0 remain individually accounted for.",
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md#subjects.depends_on[1]",
+      "old_value": "Atom/Local Tier: Standard",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1391",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+      "source_sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.82,
+      "reason": "Current Main Content Claim (lines 20-32) states: within a non-Project Scope Unit, the General Global Tier **must** be one greater than its Core Global Tier **and** the Standard Global Tier **must** be one greater than its General Global Tier. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+          "sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "971dfeb0049bbe9ff465794d3ef5acb349cb35254d812d713f464d4b26eacd28",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Local Tier: Standard', field 'depends_on', and index 1 remain individually accounted for.",
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md#subjects.depends_on[2]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1391",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+      "source_sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+      "source_version": 9,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 20-32) states: within a non-Project Scope Unit, the General Global Tier **must** be one greater than its Core Global Tier **and** the Standard Global Tier **must** be one greater than its General Global Tier. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+          "sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "971dfeb0049bbe9ff465794d3ef5acb349cb35254d812d713f464d4b26eacd28",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Scope Unit', field 'depends_on', and index 2 remain individually accounted for.",
+        "Logical declaration establishes the unit; a native physical layout does not change declared parentage, Type, Name or Local Order.",
+        "R1757 defines a Structural Entity providing an Atom ownership boundary and possible child units; R1484 distinguishes declaration from Goal coverage and Carrier materialization.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md#subjects.governs",
+      "old_value": "Atom/Global Tier",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1391",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+      "source_sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.82,
+      "reason": "Current Main Content Claim (lines 20-32) states: within a non-Project Scope Unit, the General Global Tier **must** be one greater than its Core Global Tier **and** the Standard Global Tier **must** be one greater than its General Global Tier. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1391-CORE_META_MODEL-GENERAL--derive-non-project-general-and-standard-global-tiers.md",
+          "sha256": "aecfdc9ad484702a9471d3998a323a7995a89dd0f38f4416aec9ebd5b0d904a9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "971dfeb0049bbe9ff465794d3ef5acb349cb35254d812d713f464d4b26eacd28",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Global Tier', field 'governs', and index None remain individually accounted for.",
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md#subjects.depends_on[0]",
+      "old_value": "Atom/Local Tier: Standard",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1392",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md",
+      "source_sha256": "15082a8e9a9ab680d750e4386f9cc5aab9975ac5ae2cbedae5b009e424959d98",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.82,
+      "reason": "Current Main Content Claim (lines 19-31) states: an accepted Goal Atom for a non-Project Scope Unit **must** use the Standard Local Tier of its direct parent Scope Unit. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md",
+          "sha256": "15082a8e9a9ab680d750e4386f9cc5aab9975ac5ae2cbedae5b009e424959d98",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "452fdd893cd29d1f3fc67ad6c8cc015e78d145f94394bb50fc85202fe172c3c6",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Local Tier: Standard', field 'depends_on', and index 0 remain individually accounted for.",
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md#subjects.depends_on[1]",
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1392",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md",
+      "source_sha256": "15082a8e9a9ab680d750e4386f9cc5aab9975ac5ae2cbedae5b009e424959d98",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.0,
+      "reason": "Current Main Content Claim (lines 19-31) states: an accepted Goal Atom for a non-Project Scope Unit **must** use the Standard Local Tier of its direct parent Scope Unit. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Captured snapshot review for 'Structural Parent Relation' checked 12 source Atom(s) against CA-P-1936/batch-8/E008 but did not establish a positive candidate mapping. Candidate comparison: The captured parent-relation occurrence does not establish the exact candidate Relation direction, graph ownership, or permitted endpoints. Keep the mapping pathless until targeted review supplies positive meaning evidence; no native admission or replacement is made.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md",
+          "sha256": "15082a8e9a9ab680d750e4386f9cc5aab9975ac5ae2cbedae5b009e424959d98",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "452fdd893cd29d1f3fc67ad6c8cc015e78d145f94394bb50fc85202fe172c3c6",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Structural Parent Relation', field 'depends_on', and index 1 remain individually accounted for.",
+        "The original identity 'Structural Parent Relation', its captured source references, and qualified meaning remain unchanged.",
+        "Candidate rules remain separate from captured Core evidence; no native admission, subtype, edge, or replacement identity is made.",
+        "The captured parent-relation occurrence does not establish the exact candidate Relation direction, graph ownership, or permitted endpoints."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md#subjects.governs",
+      "old_value": "Atom/Content Role: Requirement/Type: Goal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1392",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md",
+      "source_sha256": "15082a8e9a9ab680d750e4386f9cc5aab9975ac5ae2cbedae5b009e424959d98",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 19-31) states: an accepted Goal Atom for a non-Project Scope Unit **must** use the Standard Local Tier of its direct parent Scope Unit. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Captured CA-R-925 and CA-R-1775 preserve Goal as a Requirement-qualified RMED Claim, not Plan Objective content; the path is prose rather than allowed-value notation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1392-CORE_META_MODEL-GENERAL--classify-non-project-goals-as-parent-standard.md",
+          "sha256": "15082a8e9a9ab680d750e4386f9cc5aab9975ac5ae2cbedae5b009e424959d98",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "452fdd893cd29d1f3fc67ad6c8cc015e78d145f94394bb50fc85202fe172c3c6",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Content Role: Requirement/Type: Goal', field 'governs', and index None remain individually accounted for.",
+        "Goal is a Relational Atom with Content Role Requirement and Type Goal.",
+        "A parent Scope Unit owns child-targeted Goal Atoms without transferring ownership.",
+        "Goal stays distinct from Demand; no type hierarchy is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1393-CORE_META_MODEL-CORE--omit-local-tier-from-project-goal.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role: Requirement/Type: Goal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1393",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1393-CORE_META_MODEL-CORE--omit-local-tier-from-project-goal.md",
+      "source_sha256": "058d6e26920af4bf980ec848aece6c9af13e86019b59f98dcca8d01885d025f3",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 19-31) states: an accepted Project Goal Atom **must** have **`=0`** Local Tiers. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Captured CA-R-925 and CA-R-1775 preserve Goal as a Requirement-qualified RMED Claim, not Plan Objective content; the path is prose rather than allowed-value notation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1393-CORE_META_MODEL-CORE--omit-local-tier-from-project-goal.md",
+          "sha256": "058d6e26920af4bf980ec848aece6c9af13e86019b59f98dcca8d01885d025f3",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "95b6f8ad616db5527da44006822854269132b5004036e2dcce76d1e0973505db",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Content Role: Requirement/Type: Goal', field 'depends_on', and index 0 remain individually accounted for.",
+        "Goal is a Relational Atom with Content Role Requirement and Type Goal.",
+        "A parent Scope Unit owns child-targeted Goal Atoms without transferring ownership.",
+        "Goal stays distinct from Demand; no type hierarchy is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1393-CORE_META_MODEL-CORE--omit-local-tier-from-project-goal.md#subjects.depends_on[1]",
+      "old_value": "Project",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1393",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1393-CORE_META_MODEL-CORE--omit-local-tier-from-project-goal.md",
+      "source_sha256": "058d6e26920af4bf980ec848aece6c9af13e86019b59f98dcca8d01885d025f3",
+      "source_version": 9,
+      "decision": "unchanged",
+      "proposed_value": "Project",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 19-31) states: an accepted Project Goal Atom **must** have **`=0`** Local Tiers. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1393-CORE_META_MODEL-CORE--omit-local-tier-from-project-goal.md",
+          "sha256": "058d6e26920af4bf980ec848aece6c9af13e86019b59f98dcca8d01885d025f3",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "95b6f8ad616db5527da44006822854269132b5004036e2dcce76d1e0973505db",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Project', field 'depends_on', and index 1 remain individually accounted for.",
+        "Project is the root Scope Unit with zero parents and Unordered type.",
+        "Non-Project units have a different structural position.",
+        "Scope Unit ownership and stable identity remain distinct from Atom content, applicability Scope and Carrier storage."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1393-CORE_META_MODEL-CORE--omit-local-tier-from-project-goal.md#subjects.governs",
+      "old_value": "Atom/Local Tier",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1393",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1393-CORE_META_MODEL-CORE--omit-local-tier-from-project-goal.md",
+      "source_sha256": "058d6e26920af4bf980ec848aece6c9af13e86019b59f98dcca8d01885d025f3",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.82,
+      "reason": "Current Main Content Claim (lines 19-31) states: an accepted Project Goal Atom **must** have **`=0`** Local Tiers. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate names no Local/Global Tier model or allowed-value domain, so a candidate path would overstate the available direction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1393-CORE_META_MODEL-CORE--omit-local-tier-from-project-goal.md",
+          "sha256": "058d6e26920af4bf980ec848aece6c9af13e86019b59f98dcca8d01885d025f3",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "95b6f8ad616db5527da44006822854269132b5004036e2dcce76d1e0973505db",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Local Tier', field 'governs', and index None remain individually accounted for.",
+        "The captured qualified tier and allowed-value distinctions remain separate; no tier collapse is proposed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md#subjects.depends_on[0]",
+      "old_value": "Artifact",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1394",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+      "source_sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+      "source_version": 10,
+      "decision": "unchanged",
+      "proposed_value": "Artifact",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 22-32) states: the Artifact Property Activity **means** the derived Property that classifies an Artifact as Active **or** Inactive from its current Revision Status within the applicability defined by CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models. absence of an applicable Status model **means** absence of Activity, **not** Activity Inactive. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+          "sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "e3010724525db570c72cd869a117999fbfd4a22575cbd7b7425a8c7e23c2c98b",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Artifact', field 'depends_on', and index 0 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "The same governed Artifact identity remains while its recorded Revision states differ.",
+        "Artifact retains one lifecycle; named dependent Entities do not gain independent lifecycles."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md#subjects.depends_on[1]",
+      "old_value": "Artifact/Revision/Status",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1394",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+      "source_sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 22-32) states: the Artifact Property Activity **means** the derived Property that classifies an Artifact as Active **or** Inactive from its current Revision Status within the applicability defined by CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models. absence of an applicable Status model **means** absence of Activity, **not** Activity Inactive. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: CA-R-1306 supplies captured Main Content for Artifact/Revision/Status; no source-backed duplicate, redundancy, empty-definition, or safe replacement was established in this bounded review. Latest-candidate comparison: The current version becomes Active on update while older archived versions remain history; archived status is not a permanent Atom-ID exclusion.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+          "sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "e3010724525db570c72cd869a117999fbfd4a22575cbd7b7425a8c7e23c2c98b",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Artifact/Revision/Status', field 'depends_on', and index 1 remain individually accounted for.",
+        "Revision remains an immutable recorded governed-meaning state, distinct from its Version Number, Updated At, Status, carrier representation, history, and exact historical references.",
+        "The current version becomes Active on update while older archived versions remain history; archived status is not a permanent Atom-ID exclusion.",
+        "Captured CA-R-1306 lines 31-31: a Status **means** the Artifact Revision Property whose allowed values resolve from the complete qualified path of its Artifact Type **or** Atom Content Role **and** Type."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md#subjects.depends_on[2]",
+      "old_value": "Property",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1394",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+      "source_sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 22-32) states: the Artifact Property Activity **means** the derived Property that classifies an Artifact as Active **or** Inactive from its current Revision Status within the applicability defined by CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models. absence of an applicable Status model **means** absence of Activity, **not** Activity Inactive. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Dependent Entity representing one characteristic of its bearer. Generic Entity vocabulary has no selected candidate root or owner/field in the latest candidate. Keep it in review; do not place it under Artifact. Atom remains an Artifact subtype, not a dependent Property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+          "sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "e3010724525db570c72cd869a117999fbfd4a22575cbd7b7425a8c7e23c2c98b",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Property', field 'depends_on', and index 2 remain individually accounted for.",
+        "Dependent Entity representing one characteristic of its bearer.",
+        "Property, its value, bearer and referring Carrier remain separate.",
+        "Generic Entity vocabulary has no selected candidate root or owner/field in the latest candidate. Keep it in review; do not place it under Artifact. Atom remains an Artifact subtype, not a dependent Property."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md#subjects.depends_on[3]",
+      "old_value": "Artifact/Activity: Active",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1394",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+      "source_sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+      "source_version": 10,
+      "decision": "proposed",
+      "proposed_value": "Artifact.Activity: Active",
+      "confidence": 0.95,
+      "reason": "Current Main Content Claim (lines 22-32) states: the Artifact Property Activity **means** the derived Property that classifies an Artifact as Active **or** Inactive from its current Revision Status within the applicability defined by CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models. absence of an applicable Status model **means** absence of Activity, **not** Activity Inactive. The cited confirmed candidate rules preserve this same bearer/property or allowed-value distinction; 'Artifact.Activity: Active' is a display proposal only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+          "sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "e3010724525db570c72cd869a117999fbfd4a22575cbd7b7425a8c7e23c2c98b",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities",
+          "reason": "The candidate defines Properties as named dependent Entities inside an Artifact, and the current Claim explicitly defines Activity as an Artifact Property."
+        },
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate identifies Artifact as the governed lifecycle unit that contains named dependent Entities; the current Claim limits Activity to that bearer."
+        }
+      ],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Artifact/Activity: Active', field 'depends_on', and index 3 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Activity applies only under CA-R-1307 and Active requires Status exactly Active.",
+        "Activity status remains qualified by the applicable Status model and current Revision."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md#subjects.depends_on[4]",
+      "old_value": "Artifact/Activity: Inactive",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1394",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+      "source_sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+      "source_version": 10,
+      "decision": "proposed",
+      "proposed_value": "Artifact.Activity: Inactive",
+      "confidence": 0.95,
+      "reason": "Current Main Content Claim (lines 22-32) states: the Artifact Property Activity **means** the derived Property that classifies an Artifact as Active **or** Inactive from its current Revision Status within the applicability defined by CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models. absence of an applicable Status model **means** absence of Activity, **not** Activity Inactive. The cited confirmed candidate rules preserve this same bearer/property or allowed-value distinction; 'Artifact.Activity: Inactive' is a display proposal only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+          "sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "e3010724525db570c72cd869a117999fbfd4a22575cbd7b7425a8c7e23c2c98b",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities",
+          "reason": "The candidate defines Properties as named dependent Entities inside an Artifact, and the current Claim explicitly defines Activity as an Artifact Property."
+        },
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate identifies Artifact as the governed lifecycle unit that contains named dependent Entities; the current Claim limits Activity to that bearer."
+        }
+      ],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Artifact/Activity: Inactive', field 'depends_on', and index 4 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "It requires that Activity applies; absence of an applicable Status model is not Inactive.",
+        "Activity status remains qualified by the applicable Status model and current Revision."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md#subjects.governs",
+      "old_value": "Artifact/Activity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1394",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+      "source_sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+      "source_version": 10,
+      "decision": "proposed",
+      "proposed_value": "Artifact.Activity",
+      "confidence": 0.95,
+      "reason": "Current Main Content Claim (lines 22-32) states: the Artifact Property Activity **means** the derived Property that classifies an Artifact as Active **or** Inactive from its current Revision Status within the applicability defined by CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models. absence of an applicable Status model **means** absence of Activity, **not** Activity Inactive. The cited confirmed candidate rules preserve this same bearer/property or allowed-value distinction; 'Artifact.Activity' is a display proposal only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1394-CORE_META_MODEL-CORE--define-artifact-activity.md",
+          "sha256": "528cdcbdcdfbb450b6b263b2c7cf3f7debfd56d225a553cb9553223c7569253b",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "e3010724525db570c72cd869a117999fbfd4a22575cbd7b7425a8c7e23c2c98b",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities",
+          "reason": "The candidate defines Properties as named dependent Entities inside an Artifact, and the current Claim explicitly defines Activity as an Artifact Property."
+        },
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate identifies Artifact as the governed lifecycle unit that contains named dependent Entities; the current Claim limits Activity to that bearer."
+        }
+      ],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Artifact/Activity', field 'governs', and index None remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Artifact qualification binds derivation to that Artifact's applicable Revision Status model.",
+        "Activity status remains qualified by the applicable Status model and current Revision."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md#subjects.depends_on[0]",
+      "old_value": "Artifact/Activity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1395",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md",
+      "source_sha256": "9491c0a5c6b7c2b3c51f593941b3bf6e2430c82b59027cb36bf0b7610401a1b0",
+      "source_version": 10,
+      "decision": "proposed",
+      "proposed_value": "Artifact.Activity",
+      "confidence": 0.95,
+      "reason": "Current Main Content Claim (lines 19-31) states: an Artifact's Activity **must** be Active **if** Activity applies under CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models, its current Revision has **`=1`** valid Status from the applicable explicitly defined Status model, **and** that Status **`=`** Active. The cited confirmed candidate rules preserve this same bearer/property or allowed-value distinction; 'Artifact.Activity' is a display proposal only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md",
+          "sha256": "9491c0a5c6b7c2b3c51f593941b3bf6e2430c82b59027cb36bf0b7610401a1b0",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "6fd763c37593c3bad43f2e8e51f0cf6353b4cb84d3bdb3c1468ea86848522b2f",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities",
+          "reason": "The candidate defines Properties as named dependent Entities inside an Artifact, and the current Claim explicitly defines Activity as an Artifact Property."
+        },
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate identifies Artifact as the governed lifecycle unit that contains named dependent Entities; the current Claim limits Activity to that bearer."
+        }
+      ],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Artifact/Activity', field 'depends_on', and index 0 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Artifact qualification binds derivation to that Artifact's applicable Revision Status model.",
+        "Activity status remains qualified by the applicable Status model and current Revision."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md#subjects.depends_on[1]",
+      "old_value": "Artifact/Revision/Status",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1395",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md",
+      "source_sha256": "9491c0a5c6b7c2b3c51f593941b3bf6e2430c82b59027cb36bf0b7610401a1b0",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 19-31) states: an Artifact's Activity **must** be Active **if** Activity applies under CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models, its current Revision has **`=1`** valid Status from the applicable explicitly defined Status model, **and** that Status **`=`** Active. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: CA-R-1306 supplies captured Main Content for Artifact/Revision/Status; no source-backed duplicate, redundancy, empty-definition, or safe replacement was established in this bounded review. Latest-candidate comparison: The current version becomes Active on update while older archived versions remain history; archived status is not a permanent Atom-ID exclusion.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md",
+          "sha256": "9491c0a5c6b7c2b3c51f593941b3bf6e2430c82b59027cb36bf0b7610401a1b0",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "6fd763c37593c3bad43f2e8e51f0cf6353b4cb84d3bdb3c1468ea86848522b2f",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Artifact/Revision/Status', field 'depends_on', and index 1 remain individually accounted for.",
+        "Revision remains an immutable recorded governed-meaning state, distinct from its Version Number, Updated At, Status, carrier representation, history, and exact historical references.",
+        "The current version becomes Active on update while older archived versions remain history; archived status is not a permanent Atom-ID exclusion.",
+        "Captured CA-R-1306 lines 31-31: a Status **means** the Artifact Revision Property whose allowed values resolve from the complete qualified path of its Artifact Type **or** Atom Content Role **and** Type."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md#subjects.governs",
+      "old_value": "Artifact/Activity: Active",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1395",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md",
+      "source_sha256": "9491c0a5c6b7c2b3c51f593941b3bf6e2430c82b59027cb36bf0b7610401a1b0",
+      "source_version": 10,
+      "decision": "proposed",
+      "proposed_value": "Artifact.Activity: Active",
+      "confidence": 0.95,
+      "reason": "Current Main Content Claim (lines 19-31) states: an Artifact's Activity **must** be Active **if** Activity applies under CA-R-1307-CORE_META_MODEL-CORE-REQUIREMENT--limit-artifact-activity-to-explicit-status-models, its current Revision has **`=1`** valid Status from the applicable explicitly defined Status model, **and** that Status **`=`** Active. The cited confirmed candidate rules preserve this same bearer/property or allowed-value distinction; 'Artifact.Activity: Active' is a display proposal only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1395-CORE_META_MODEL-CORE--derive-active-artifact-activity.md",
+          "sha256": "9491c0a5c6b7c2b3c51f593941b3bf6e2430c82b59027cb36bf0b7610401a1b0",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "6fd763c37593c3bad43f2e8e51f0cf6353b4cb84d3bdb3c1468ea86848522b2f",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities",
+          "reason": "The candidate defines Properties as named dependent Entities inside an Artifact, and the current Claim explicitly defines Activity as an Artifact Property."
+        },
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate identifies Artifact as the governed lifecycle unit that contains named dependent Entities; the current Claim limits Activity to that bearer."
+        }
+      ],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Artifact/Activity: Active', field 'governs', and index None remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Activity applies only under CA-R-1307 and Active requires Status exactly Active.",
+        "Activity status remains qualified by the applicable Status model and current Revision."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md#subjects.depends_on[0]",
+      "old_value": "Artifact/Activity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1396",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md",
+      "source_sha256": "683c9054bbab9d98fa980f496267f7195fc7158487a8c59944203b12970c8f3c",
+      "source_version": 10,
+      "decision": "proposed",
+      "proposed_value": "Artifact.Activity",
+      "confidence": 0.95,
+      "reason": "Current Main Content Claim (lines 19-31) states: an Artifact's Activity **must** be Inactive **if** Activity applies under CA-R-1307, its current Revision has **`=1`** valid Status from the applicable explicitly defined Status model, **and** that Status **`!=`** Active. The cited confirmed candidate rules preserve this same bearer/property or allowed-value distinction; 'Artifact.Activity' is a display proposal only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md",
+          "sha256": "683c9054bbab9d98fa980f496267f7195fc7158487a8c59944203b12970c8f3c",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "af52b1afa96efc904804877c4ed3089122819c3c694635ba076e05e0d788f283",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities",
+          "reason": "The candidate defines Properties as named dependent Entities inside an Artifact, and the current Claim explicitly defines Activity as an Artifact Property."
+        },
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate identifies Artifact as the governed lifecycle unit that contains named dependent Entities; the current Claim limits Activity to that bearer."
+        }
+      ],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Artifact/Activity', field 'depends_on', and index 0 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Artifact qualification binds derivation to that Artifact's applicable Revision Status model.",
+        "Activity status remains qualified by the applicable Status model and current Revision."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md#subjects.depends_on[1]",
+      "old_value": "Artifact/Revision/Status",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1396",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md",
+      "source_sha256": "683c9054bbab9d98fa980f496267f7195fc7158487a8c59944203b12970c8f3c",
+      "source_version": 10,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 19-31) states: an Artifact's Activity **must** be Inactive **if** Activity applies under CA-R-1307, its current Revision has **`=1`** valid Status from the applicable explicitly defined Status model, **and** that Status **`!=`** Active. No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: CA-R-1306 supplies captured Main Content for Artifact/Revision/Status; no source-backed duplicate, redundancy, empty-definition, or safe replacement was established in this bounded review. Latest-candidate comparison: The current version becomes Active on update while older archived versions remain history; archived status is not a permanent Atom-ID exclusion.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md",
+          "sha256": "683c9054bbab9d98fa980f496267f7195fc7158487a8c59944203b12970c8f3c",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "af52b1afa96efc904804877c4ed3089122819c3c694635ba076e05e0d788f283",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Artifact/Revision/Status', field 'depends_on', and index 1 remain individually accounted for.",
+        "Revision remains an immutable recorded governed-meaning state, distinct from its Version Number, Updated At, Status, carrier representation, history, and exact historical references.",
+        "The current version becomes Active on update while older archived versions remain history; archived status is not a permanent Atom-ID exclusion.",
+        "Captured CA-R-1306 lines 31-31: a Status **means** the Artifact Revision Property whose allowed values resolve from the complete qualified path of its Artifact Type **or** Atom Content Role **and** Type."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md#subjects.governs",
+      "old_value": "Artifact/Activity: Inactive",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1396",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md",
+      "source_sha256": "683c9054bbab9d98fa980f496267f7195fc7158487a8c59944203b12970c8f3c",
+      "source_version": 10,
+      "decision": "proposed",
+      "proposed_value": "Artifact.Activity: Inactive",
+      "confidence": 0.95,
+      "reason": "Current Main Content Claim (lines 19-31) states: an Artifact's Activity **must** be Inactive **if** Activity applies under CA-R-1307, its current Revision has **`=1`** valid Status from the applicable explicitly defined Status model, **and** that Status **`!=`** Active. The cited confirmed candidate rules preserve this same bearer/property or allowed-value distinction; 'Artifact.Activity: Inactive' is a display proposal only.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1396-CORE_META_MODEL-CORE--derive-inactive-artifact-activity.md",
+          "sha256": "683c9054bbab9d98fa980f496267f7195fc7158487a8c59944203b12970c8f3c",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "af52b1afa96efc904804877c4ed3089122819c3c694635ba076e05e0d788f283",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities",
+          "reason": "The candidate defines Properties as named dependent Entities inside an Artifact, and the current Claim explicitly defines Activity as an Artifact Property."
+        },
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "The candidate identifies Artifact as the governed lifecycle unit that contains named dependent Entities; the current Claim limits Activity to that bearer."
+        }
+      ],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Artifact/Activity: Inactive', field 'governs', and index None remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "It requires that Activity applies; absence of an applicable Status model is not Inactive.",
+        "Activity status remains qualified by the applicable Status model and current Revision."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1397-CORE_META_MODEL-GENERAL--register-core-method-status-values.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role: Method",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1397",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1397-CORE_META_MODEL-GENERAL--register-core-method-status-values.md",
+      "source_sha256": "b18023c1108023137f539703aec3812c3675c257ba154ac0a08cc087621669fb",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 18-30) states: the Core allowed values of Method Status **must** be exactly (Draft, Active, Archived). No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate resolves Method as an M view whose specifications are Atoms, with actual performances represented as Executions.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1397-CORE_META_MODEL-GENERAL--register-core-method-status-values.md",
+          "sha256": "b18023c1108023137f539703aec3812c3675c257ba154ac0a08cc087621669fb",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a8ff2428e06d726b6623f203ce6acd2a17a65f1619e2a7bac060e7b86ccad67a",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Content Role: Method', field 'depends_on', and index 0 remain individually accounted for.",
+        "Method is a view over shared roots, not an additional root."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1397-CORE_META_MODEL-GENERAL--register-core-method-status-values.md#subjects.governs",
+      "old_value": "Atom/Content Role: Method/Status",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1397",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1397-CORE_META_MODEL-GENERAL--register-core-method-status-values.md",
+      "source_sha256": "b18023c1108023137f539703aec3812c3675c257ba154ac0a08cc087621669fb",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 18-30) states: the Core allowed values of Method Status **must** be exactly (Draft, Active, Archived). No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate confirms Status as a named dependent Entity and requires version increments for Status-only changes; the captured qualified domain remains distinct.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1397-CORE_META_MODEL-GENERAL--register-core-method-status-values.md",
+          "sha256": "b18023c1108023137f539703aec3812c3675c257ba154ac0a08cc087621669fb",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a8ff2428e06d726b6623f203ce6acd2a17a65f1619e2a7bac060e7b86ccad67a",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Content Role: Method/Status', field 'governs', and index None remain individually accounted for.",
+        "Qualified Status fields and allowed-value domains do not collapse merely because their labels repeat.",
+        "An older archived version does not transfer archived Status to the current version."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1398-CORE_META_MODEL-GENERAL--register-core-evaluation-status-values.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role: Evaluation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1398",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1398-CORE_META_MODEL-GENERAL--register-core-evaluation-status-values.md",
+      "source_sha256": "f7b33130be9d98abc56a2b0cdd15ea064e32ffa40fff12449fe6ec97b0ab3bf2",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 18-30) states: the Core allowed values of Evaluation Status **must** be exactly (Draft, Active, Archived). No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Captured Core defines Evaluation as a falsifiable check, acceptance criterion, or disposition rule, while keeping its mechanism and realization-chain contributions distinct. Candidate comparison: the captured Evaluation role is presented as an M/E view over shared roots, distinct from actual Execution.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1398-CORE_META_MODEL-GENERAL--register-core-evaluation-status-values.md",
+          "sha256": "f7b33130be9d98abc56a2b0cdd15ea064e32ffa40fff12449fe6ec97b0ab3bf2",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a6210387e31d88197abb389a9f23cc1084f98493f9ce8bc4281b18f62228c32b",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Content Role: Evaluation', field 'depends_on', and index 0 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "It establishes how a Claim is checked and disposed, without prescribing the realization mechanism.",
+        "Evaluation mechanism and realization remain distinct from an actual Execution."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1398-CORE_META_MODEL-GENERAL--register-core-evaluation-status-values.md#subjects.governs",
+      "old_value": "Atom/Content Role: Evaluation/Status",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1398",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1398-CORE_META_MODEL-GENERAL--register-core-evaluation-status-values.md",
+      "source_sha256": "f7b33130be9d98abc56a2b0cdd15ea064e32ffa40fff12449fe6ec97b0ab3bf2",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 18-30) states: the Core allowed values of Evaluation Status **must** be exactly (Draft, Active, Archived). No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: The candidate confirms Status as a named dependent Entity and requires version increments for Status-only changes; the captured qualified domain remains distinct.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1398-CORE_META_MODEL-GENERAL--register-core-evaluation-status-values.md",
+          "sha256": "f7b33130be9d98abc56a2b0cdd15ea064e32ffa40fff12449fe6ec97b0ab3bf2",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a6210387e31d88197abb389a9f23cc1084f98493f9ce8bc4281b18f62228c32b",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Content Role: Evaluation/Status', field 'governs', and index None remain individually accounted for.",
+        "Qualified Status fields and allowed-value domains do not collapse merely because their labels repeat.",
+        "An older archived version does not transfer archived Status to the current version."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL-GENERAL--register-core-delivery-status-values.md#subjects.depends_on[0]",
+      "old_value": "Atom/Content Role: Delivery",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1399",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL-GENERAL--register-core-delivery-status-values.md",
+      "source_sha256": "bb45378bdbf9c9e840b603907977676eac9e657d170f9f60ac630605b1d2203f",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 18-30) states: the Core allowed values of Delivery Status **must** be exactly (Draft, Active, Archived). No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Captured Core defines Delivery as the Content Role for a Claim defining the Carrier model or constraining how an Entity is carried. Candidate comparison: the captured Delivery role is presented as general Carrier delivery policy, not a per-Property Carrier edge.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL-GENERAL--register-core-delivery-status-values.md",
+          "sha256": "bb45378bdbf9c9e840b603907977676eac9e657d170f9f60ac630605b1d2203f",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "d4178ef264b4d128abe6b142d05cab9168909d1a2b51212a74fe0dde6a5a512c",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Content Role: Delivery', field 'depends_on', and index 0 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "It classifies a Claim about carrying and Carrier model, not a display location or an Entity's existence.",
+        "Delivery policy remains general and reusable; no D Atom or Carrier Relation Type is created per Property."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL-GENERAL--register-core-delivery-status-values.md#subjects.governs",
+      "old_value": "Atom/Content Role: Delivery/Status",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1399",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL-GENERAL--register-core-delivery-status-values.md",
+      "source_sha256": "bb45378bdbf9c9e840b603907977676eac9e657d170f9f60ac630605b1d2203f",
+      "source_version": 9,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.89,
+      "reason": "Current Main Content Claim (lines 18-30) states: the Core allowed values of Delivery Status **must** be exactly (Draft, Active, Archived). No confirmed candidate mapping preserves this identity's exact qualifier, owner, allowed-value domain, or relation direction. Frozen consolidated evidence: Captured Core assigns Delivery Status an exact Draft, Active, Archived domain. Candidate comparison: the captured Delivery role is presented as general Carrier delivery policy, not a per-Property Carrier edge.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1399-CORE_META_MODEL-GENERAL--register-core-delivery-status-values.md",
+          "sha256": "bb45378bdbf9c9e840b603907977676eac9e657d170f9f60ac630605b1d2203f",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "d4178ef264b4d128abe6b142d05cab9168909d1a2b51212a74fe0dde6a5a512c",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom/Content Role: Delivery/Status', field 'governs', and index None remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "It is the status domain qualified by Delivery, not a global workflow or user-interface status.",
+        "Delivery policy remains general and reusable; no D Atom or Carrier Relation Type is created per Property."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1401-CORE_META_MODEL-CORE-REQUIREMENT--keep-project-settings-outside-the-atom-type.md#subjects.depends_on[0]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1401",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1401-CORE_META_MODEL-CORE-REQUIREMENT--keep-project-settings-outside-the-atom-type.md",
+      "source_sha256": "58a1f8fedaaf660edd0e21e89dd55ac081c99124b83565cf0a47ed4f4bf3ab64",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 20-32) states: the Project Settings Artifact **must not** be an Atom. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1401-CORE_META_MODEL-CORE-REQUIREMENT--keep-project-settings-outside-the-atom-type.md",
+          "sha256": "58a1f8fedaaf660edd0e21e89dd55ac081c99124b83565cf0a47ed4f4bf3ab64",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "4f02e71df3ea82be9bd64592dbb7f7024ce6cac4d13e7781b68ee1c3f1dacfdb",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Atom', field 'depends_on', and index 0 remain individually accounted for.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Atom's qualification is independent governability at minimal useful granularity, not document size or file count.",
+        "Atom identity and captured smallest-governed meaning remain; its dependent fields do not gain separate lifecycles."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1401-CORE_META_MODEL-CORE-REQUIREMENT--keep-project-settings-outside-the-atom-type.md#subjects.governs",
+      "old_value": "Project Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1401",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1401-CORE_META_MODEL-CORE-REQUIREMENT--keep-project-settings-outside-the-atom-type.md",
+      "source_sha256": "58a1f8fedaaf660edd0e21e89dd55ac081c99124b83565cf0a47ed4f4bf3ab64",
+      "source_version": 11,
+      "decision": "unchanged",
+      "proposed_value": "Project Settings",
+      "confidence": 0.9,
+      "reason": "Current Main Content Claim (lines 20-32) states: the Project Settings Artifact **must not** be an Atom. The exact current Subject remains semantically correct and the candidate selects no conflicting qualified replacement; retain it without an added display prefix, grammar change, or native admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1401-CORE_META_MODEL-CORE-REQUIREMENT--keep-project-settings-outside-the-atom-type.md",
+          "sha256": "58a1f8fedaaf660edd0e21e89dd55ac081c99124b83565cf0a47ed4f4bf3ab64",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "4f02e71df3ea82be9bd64592dbb7f7024ce6cac4d13e7781b68ee1c3f1dacfdb",
+          "reason": "Current Main Content only, beginning immediately after the closing frontmatter delimiter; it includes the Claim grounding this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Requirement role and CORE_META_MODEL source scope remain source metadata; this review does not rename a key, alter a body, or adopt native grammar.",
+        "Exact old Subject 'Project Settings', field 'governs', and index None remain individually accounted for.",
+        "Authoritative non-Atom initialization Artifact for one Project.",
+        "Selected settings differ from structural declaration state.",
+        "The seven-root comparison keeps this as an Artifact or dependent-Entity display path; the path is not a native edge, Subject migration, or new root."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "review_summary": {
+    "source_count": 20,
+    "occurrence_count": 63,
+    "decisions": {
+      "proposed": 8,
+      "unchanged": 18,
+      "unresolved": 37
+    },
+    "quarantined_sources": 0,
+    "unresolved_identities": [
+      "Artifact/Revision/Status",
+      "Atom Collection",
+      "Atom Collection/Direct Containment",
+      "Atom Collection/Type: Ad Hoc",
+      "Atom/Claim",
+      "Atom/Content Role: Delivery",
+      "Atom/Content Role: Delivery/Status",
+      "Atom/Content Role: Evaluation",
+      "Atom/Content Role: Evaluation/Status",
+      "Atom/Content Role: Method",
+      "Atom/Content Role: Method/Status",
+      "Atom/Content Role: Requirement/Type: Goal",
+      "Atom/Global Tier",
+      "Atom/Local Tier",
+      "Atom/Local Tier: Core",
+      "Atom/Local Tier: General",
+      "Atom/Local Tier: Standard",
+      "Core Meta-Model",
+      "Primary Entity",
+      "Property",
+      "Scope Unit/Type: Ordered",
+      "Structural Entity/Direct Containment",
+      "Structural Parent Relation"
+    ],
+    "boundary": "All rows are non-executable display/research records only; no current source, grammar, native relation, key, identity, migration, or runtime change is authorized."
+  }
+}

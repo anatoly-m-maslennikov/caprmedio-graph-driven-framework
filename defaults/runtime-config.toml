@@ -1,0 +1,10 @@
+# Per-Project runtime settings. Installation creates this file only if absent.
+# Existing settings and comments are preserved by upgrades and rollbacks.
+schema_version = 1
+
+[project_mcp]
+# Omit port to let Docker allocate an available loopback port.
+startup_timeout_seconds = 60.0
+# Build settings apply only to development startup. Installed startup never builds.
+build_timeout_seconds = 600.0
+build_if_missing = true

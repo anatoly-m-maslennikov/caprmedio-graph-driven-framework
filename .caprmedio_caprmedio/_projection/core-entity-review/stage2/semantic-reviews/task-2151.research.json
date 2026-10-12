@@ -1,0 +1,1008 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2151",
+  "family": "unqualified_origins_008",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2144-2151.inputs.json",
+      "sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+    },
+    "frozen_baseline_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2132-2139.contract.md",
+        "sha256": "3ed29d889a2d7905614a0d02c23a75f82fb002ffea51f4dce2714f60865aa6ff"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2144-2151.contract.md",
+        "sha256": "0df1d9e998ad2b8cc3e26f7cb5dfdf58421a9e6c9f27a456a828d32c02f4a651"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/115-CA-P-2151-TASK--review-remaining-unqualified-subjects-008.md",
+      "sha256": "aff7597f58b2b99dcfb3b9b531bde5e6181678d7d3cfbe06580e0ccdd048fa1e",
+      "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md",
+        "sha256": "8a3dcb7cfdb3369ec268726cc54f3f0e0c1bfbc947841792deb87bb844245414"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-136-CORE_META_MODEL-WORKFLOW--build-terms-graph.md",
+        "sha256": "60a2d8abbed65e00b376608c39ed01ae8d1960566f49a60ef498c694f508d3ff"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
+        "sha256": "8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-142-CORE_META_MODEL-STEP--authorize-project-structure-maintenance-change.md",
+        "sha256": "8e5623348eda93af6d5ef64a7f240a22cbcc8ed8f84316ad84d83338814661a4"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-145-CORE_META_MODEL-STEP--assess-update-identity-for-atom-lifecycle.md",
+        "sha256": "e1da6f807f965d94bb2f6b829767fb23d34ea6dc600408f78408378caf208f89"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md",
+        "sha256": "d7fdaebdd1d0c6ca7dac9aced25552c487336f2a51f18c0f03ef65d16ff4618a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
+        "sha256": "3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md",
+        "sha256": "a743a84fd24db32123ac8162e7a2178e6d83b1b727cbe54477b6020914537384"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-161-CORE_META_MODEL-WORKFLOW--find-and-fetch-journal-events.md",
+        "sha256": "362b9d3848a796a14e7374cfa0bf0b561c4f2035b7b2bf87bd9b56fc97a6724d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md",
+        "sha256": "71301ecf9531c70adeba03d6cf7f39761a237a081cee43eb0f9f7ce40e12f9fe"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/FIND_AND_FETCH_JOURNAL_EVENTS/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md",
+        "sha256": "8d0238a1614f5888f2aa486038d271cc58db1d3f0d7014dece0baa53004a489c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+        "sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694"
+      }
+    ]
+  },
+  "selection": {
+    "family": "unqualified_origins_008",
+    "sources": 12,
+    "occurrences": 21,
+    "occurrence_id_set_sha256": "ba7ef8f445d0a2685ed63afb30202dae44ad517021cb3d03687b1b14967db878",
+    "manifest_sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+  },
+  "supporting_current_definitions": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1452-CORE_META_MODEL-CORE--define-action.md",
+      "sha256": "d469011478752241340e3dd544f0744bddc7b7129e3ae7e1e249144363e5c007",
+      "span_sha256": "c4d2539d1695121227304edabbda93764add1d6f91f5532293fa039058d5c57b",
+      "start_line": 27,
+      "end_line": 39,
+      "reason": "Current Action definition: an Operations Atom Type Action is distinct from Actor, Tool, execution, Journal Record, and Carrier."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1508-CORE_META_MODEL-CORE-REQUIREMENT--define-workflow.md",
+      "sha256": "ed2727d3a4457544c2aea4aea3f4364ca5fbe650e830eeb316fc4a0f41b4b4c5",
+      "span_sha256": "d9d7a43a3ee655209206fa84b33c58ec9a792049e373db07b1863f37fc544329",
+      "start_line": 25,
+      "end_line": 43,
+      "reason": "Current Workflow definition: an Operations Atom Type Workflow is a reusable graph distinct from a Workflow Run."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1509-CORE_META_MODEL-CORE-REQUIREMENT--define-step.md",
+      "sha256": "29969fbadae10b18096c356dca721982b60e256dbf186301a065210cfbce3083",
+      "span_sha256": "48fc0ce117b1ffe5da5ed4a8f458af13cf634d84ac29002b479a6fb6a556f4e5",
+      "start_line": 24,
+      "end_line": 41,
+      "reason": "Current Step definition: a Step node is defined by one Step Atom and one Action binding, distinct from a Step Run."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1565-CORE_META_MODEL-CORE-REQUIREMENT--admit-the-operations-atom-types.md",
+      "sha256": "ec302438794099e2a70d5bccf49b6489b92516b38bccb204e1266a55b2696f0e",
+      "span_sha256": "0cf39f9abdef34da05c2e849da0df2874fa0f5f4fb8065901e3d0d1331c379c3",
+      "start_line": 22,
+      "end_line": 34,
+      "reason": "Current Operations Atom Type definition: Action, Workflow and Step are admitted internal Type values, not unqualified named identities."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1318-CORE_META_MODEL-CORE-REQUIREMENT--define-term.md",
+      "sha256": "b30f5d73b9c4aff8cfc69c228a2ed4759c9d260297162cea46d0f42b75dd6e6b",
+      "span_sha256": "8444305a87c97690d8277d47f7fb1ae9511b051f6214d31bd71576fa569df9c0",
+      "start_line": 18,
+      "end_line": 32,
+      "reason": "Current Term definition: a Term is a Project-specific word or phrase with consistent meaning."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+      "sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+      "span_sha256": "1a3bba1d5da1976d8f222acca350c245c877b91b0161d416d0051890e8a88a4e",
+      "start_line": 20,
+      "end_line": 32,
+      "reason": "Current Governed Term definition: one active Definition Atom owns the Term meaning."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-416-CORE_META_MODEL-CORE--classify-markdown-atom-carrier.md",
+      "sha256": "4ea0337e488075878d9f35dc6a5200abff93c1533a418db3bf062fd8d9e2375f",
+      "span_sha256": "b470e69f747af659c0450342ef6f8bc00e3d2372bd128a3f7692d6391fbb0afc",
+      "start_line": 20,
+      "end_line": 30,
+      "reason": "Current Markdown Atom Carrier definition: it is a Term narrower than File Carrier."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+      "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+      "span_sha256": "7805108fab24bf8592fce367a13d290038e6b46d059731973eb8ec58ddf78678",
+      "start_line": 20,
+      "end_line": 34,
+      "reason": "Current Journal definition: a Journal Record describes an event and is not the event itself."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1528-CORE_META_MODEL-GENERAL-REQUIREMENT--record-tool-calls-within-step-runs.md",
+      "sha256": "6f0398d693b75a32af5778be51539da934a79e25492b73d88a82284b70fda17d",
+      "span_sha256": "f046de19cd1fbb7b8d863f6f8a0f27875cba246054814d39cbdb9c6149914da8",
+      "start_line": 24,
+      "end_line": 42,
+      "reason": "Current Tool Call definition: Tool calls are execution details within Step Runs, not automatically Actions or Steps."
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md",
+      "source_atom_id": "CA-O-134",
+      "source_version": 3,
+      "source_sha256": "8a3dcb7cfdb3369ec268726cc54f3f0e0c1bfbc947841792deb87bb844245414",
+      "field": "governs",
+      "index": null,
+      "old_value": "Construct Entities Graph Projection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The owning body defines a particular reusable Operations Action, Workflow, or Step and its exact bindings. Mapping the named definition to generic Artifact/Atom, an Atom Type value, or Execution would discard its identity and definition-versus-actual-run boundary; the candidate has no lossless named Operation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-134-CORE_META_MODEL-ACTION--construct-entities-graph-projection.md",
+          "sha256": "8a3dcb7cfdb3369ec268726cc54f3f0e0c1bfbc947841792deb87bb844245414",
+          "span_sha256": "57bc37aabc4d072b32f70c2d8d2742c05c5f0400abd2720c28ade79a58d52a21",
+          "start_line": 19,
+          "end_line": 53,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate's Execution root is one actual run, not a named reusable Action, Workflow, or Step definition."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact named Operations definition, its Action/Workflow/Step type and bindings remain distinct.",
+        "A reusable Operation definition remains distinct from an actual Execution, Journal evidence, Tool call, and Carrier."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-136-CORE_META_MODEL-WORKFLOW--build-terms-graph.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-136-CORE_META_MODEL-WORKFLOW--build-terms-graph.md",
+      "source_atom_id": "CA-O-136",
+      "source_version": 2,
+      "source_sha256": "60a2d8abbed65e00b376608c39ed01ae8d1960566f49a60ef498c694f508d3ff",
+      "field": "governs",
+      "index": null,
+      "old_value": "Build Terms Graph",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The owning body defines a particular reusable Operations Action, Workflow, or Step and its exact bindings. Mapping the named definition to generic Artifact/Atom, an Atom Type value, or Execution would discard its identity and definition-versus-actual-run boundary; the candidate has no lossless named Operation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-136-CORE_META_MODEL-WORKFLOW--build-terms-graph.md",
+          "sha256": "60a2d8abbed65e00b376608c39ed01ae8d1960566f49a60ef498c694f508d3ff",
+          "span_sha256": "6dd274ac2e70dc195253a61d751534937021cf54102e71f18935c5f209321216",
+          "start_line": 19,
+          "end_line": 43,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate's Execution root is one actual run, not a named reusable Action, Workflow, or Step definition."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact named Operations definition, its Action/Workflow/Step type and bindings remain distinct.",
+        "A reusable Operation definition remains distinct from an actual Execution, Journal evidence, Tool call, and Carrier."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
+      "source_atom_id": "CA-O-137",
+      "source_version": 3,
+      "source_sha256": "8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Term",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.34,
+      "reason": "The current body defines a Project-specific vocabulary Term (and, for Governed Term, its one active Definition Atom owner). Terms remain a separate graph and no candidate root or lossless admitted path preserves that vocabulary/definition ownership.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
+          "sha256": "8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd",
+          "span_sha256": "beeb7e03edd98bd140424653f0ff374e120ec8b35fc069e0c0d29ef3b9bc2da5",
+          "start_line": 19,
+          "end_line": 53,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities",
+          "reason": "The candidate fixes the seven Entity roots; the owner and current Term definitions retain vocabulary identity as the separate Terms graph."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project-specific Term meaning and, where applicable, the exact active Definition Atom owner remain distinct.",
+        "No Entity-root substitution, source-title inference, or new Terms root is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
+      "source_atom_id": "CA-O-137",
+      "source_version": 3,
+      "source_sha256": "8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Governed Term",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.34,
+      "reason": "The current body defines a Project-specific vocabulary Term (and, for Governed Term, its one active Definition Atom owner). Terms remain a separate graph and no candidate root or lossless admitted path preserves that vocabulary/definition ownership.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
+          "sha256": "8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd",
+          "span_sha256": "beeb7e03edd98bd140424653f0ff374e120ec8b35fc069e0c0d29ef3b9bc2da5",
+          "start_line": 19,
+          "end_line": 53,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities",
+          "reason": "The candidate fixes the seven Entity roots; the owner and current Term definitions retain vocabulary identity as the separate Terms graph."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project-specific Term meaning and, where applicable, the exact active Definition Atom owner remain distinct.",
+        "No Entity-root substitution, source-title inference, or new Terms root is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
+      "source_atom_id": "CA-O-137",
+      "source_version": 3,
+      "source_sha256": "8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd",
+      "field": "governs",
+      "index": null,
+      "old_value": "Construct Terms Graph Projection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The owning body defines a particular reusable Operations Action, Workflow, or Step and its exact bindings. Mapping the named definition to generic Artifact/Atom, an Atom Type value, or Execution would discard its identity and definition-versus-actual-run boundary; the candidate has no lossless named Operation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
+          "sha256": "8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd",
+          "span_sha256": "beeb7e03edd98bd140424653f0ff374e120ec8b35fc069e0c0d29ef3b9bc2da5",
+          "start_line": 19,
+          "end_line": 53,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate's Execution root is one actual run, not a named reusable Action, Workflow, or Step definition."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact named Operations definition, its Action/Workflow/Step type and bindings remain distinct.",
+        "A reusable Operation definition remains distinct from an actual Execution, Journal evidence, Tool call, and Carrier."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-142-CORE_META_MODEL-STEP--authorize-project-structure-maintenance-change.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-142-CORE_META_MODEL-STEP--authorize-project-structure-maintenance-change.md",
+      "source_atom_id": "CA-O-142",
+      "source_version": 2,
+      "source_sha256": "8e5623348eda93af6d5ef64a7f240a22cbcc8ed8f84316ad84d83338814661a4",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project Structure Maintenance Authorization Step",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The owning body defines a particular reusable Operations Action, Workflow, or Step and its exact bindings. Mapping the named definition to generic Artifact/Atom, an Atom Type value, or Execution would discard its identity and definition-versus-actual-run boundary; the candidate has no lossless named Operation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-142-CORE_META_MODEL-STEP--authorize-project-structure-maintenance-change.md",
+          "sha256": "8e5623348eda93af6d5ef64a7f240a22cbcc8ed8f84316ad84d83338814661a4",
+          "span_sha256": "9a6fbc38af30bd32e83ad71b4b74dbfe7ff6182279205ffe6e8af20c4838207e",
+          "start_line": 19,
+          "end_line": 36,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate's Execution root is one actual run, not a named reusable Action, Workflow, or Step definition."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact named Operations definition, its Action/Workflow/Step type and bindings remain distinct.",
+        "A reusable Operation definition remains distinct from an actual Execution, Journal evidence, Tool call, and Carrier."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-145-CORE_META_MODEL-STEP--assess-update-identity-for-atom-lifecycle.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-145-CORE_META_MODEL-STEP--assess-update-identity-for-atom-lifecycle.md",
+      "source_atom_id": "CA-O-145",
+      "source_version": 2,
+      "source_sha256": "e1da6f807f965d94bb2f6b829767fb23d34ea6dc600408f78408378caf208f89",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Assess Atom Update Identity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The owning body defines a particular reusable Operations Action, Workflow, or Step and its exact bindings. Mapping the named definition to generic Artifact/Atom, an Atom Type value, or Execution would discard its identity and definition-versus-actual-run boundary; the candidate has no lossless named Operation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-145-CORE_META_MODEL-STEP--assess-update-identity-for-atom-lifecycle.md",
+          "sha256": "e1da6f807f965d94bb2f6b829767fb23d34ea6dc600408f78408378caf208f89",
+          "span_sha256": "09a79cdbbf24b4c30084ee751b663aa512d0cd106467b7a63bd4d2ef8b367891",
+          "start_line": 19,
+          "end_line": 35,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate's Execution root is one actual run, not a named reusable Action, Workflow, or Step definition."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact named Operations definition, its Action/Workflow/Step type and bindings remain distinct.",
+        "A reusable Operation definition remains distinct from an actual Execution, Journal evidence, Tool call, and Carrier."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md",
+      "source_atom_id": "CA-O-158",
+      "source_version": 4,
+      "source_sha256": "d7fdaebdd1d0c6ca7dac9aced25552c487336f2a51f18c0f03ef65d16ff4618a",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Markdown",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.43,
+      "reason": "The owner uses Markdown as the selected carrier representation route; current Core classifies Markdown Atom Carrier as a Term narrower than File Carrier. It does not identify one Carrier Entity, so mapping bare Markdown to Carrier would conflate representation terminology with a specific carrier identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md",
+          "sha256": "d7fdaebdd1d0c6ca7dac9aced25552c487336f2a51f18c0f03ef65d16ff4618a",
+          "span_sha256": "483eed9ec0b2b463abc4c7d2844787d70428cc6681162631f363d6277a4c4f0d",
+          "start_line": 18,
+          "end_line": 67,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Carrier is an Entity that carries or stores a representation; the owner supplies only Markdown-carrier terminology, not an identified Carrier Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Markdown representation terminology remains distinct from an identified Carrier Entity and from a Markdown Artifact result.",
+        "The snapshot, identity and read-only query boundaries remain source-local."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md",
+      "source_atom_id": "CA-O-158",
+      "source_version": 4,
+      "source_sha256": "d7fdaebdd1d0c6ca7dac9aced25552c487336f2a51f18c0f03ef65d16ff4618a",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Tool",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.4,
+      "reason": "The complete bodies use Tool as a called capability or implementation detail. Current Core keeps a Tool Call as execution evidence within a Step Run and does not establish a named Tool Entity, Artifact, or Carrier target for this unqualified occurrence.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md",
+          "sha256": "d7fdaebdd1d0c6ca7dac9aced25552c487336f2a51f18c0f03ef65d16ff4618a",
+          "span_sha256": "483eed9ec0b2b463abc4c7d2844787d70428cc6681162631f363d6277a4c4f0d",
+          "start_line": 18,
+          "end_line": 67,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "Execution is an actual run; current Tool-call evidence is an execution detail and does not identify a Tool root or named Artifact."
+        }
+      ],
+      "preserved_distinctions": [
+        "Tool-call identity and actual Step Run evidence remain distinct from Action/Step definitions and from any Tool implementation Artifact.",
+        "No Tool root, singleton kind, or generic Artifact substitution is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md",
+      "source_atom_id": "CA-O-158",
+      "source_version": 4,
+      "source_sha256": "d7fdaebdd1d0c6ca7dac9aced25552c487336f2a51f18c0f03ef65d16ff4618a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Find and Fetch Artifacts",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The owning body defines a particular reusable Operations Action, Workflow, or Step and its exact bindings. Mapping the named definition to generic Artifact/Atom, an Atom Type value, or Execution would discard its identity and definition-versus-actual-run boundary; the candidate has no lossless named Operation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md",
+          "sha256": "d7fdaebdd1d0c6ca7dac9aced25552c487336f2a51f18c0f03ef65d16ff4618a",
+          "span_sha256": "483eed9ec0b2b463abc4c7d2844787d70428cc6681162631f363d6277a4c4f0d",
+          "start_line": 18,
+          "end_line": 67,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate's Execution root is one actual run, not a named reusable Action, Workflow, or Step definition."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact named Operations definition, its Action/Workflow/Step type and bindings remain distinct.",
+        "A reusable Operation definition remains distinct from an actual Execution, Journal evidence, Tool call, and Carrier."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
+      "source_atom_id": "CA-O-159",
+      "source_version": 2,
+      "source_sha256": "3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Markdown",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.43,
+      "reason": "The owner uses Markdown as the selected carrier representation route; current Core classifies Markdown Atom Carrier as a Term narrower than File Carrier. It does not identify one Carrier Entity, so mapping bare Markdown to Carrier would conflate representation terminology with a specific carrier identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
+          "sha256": "3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08",
+          "span_sha256": "43f2df59a54b875c22598d42cf3b8c03606dbbc8e42013895c1c1ca2675b02b5",
+          "start_line": 18,
+          "end_line": 67,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Carrier is an Entity that carries or stores a representation; the owner supplies only Markdown-carrier terminology, not an identified Carrier Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Markdown representation terminology remains distinct from an identified Carrier Entity and from a Markdown Artifact result.",
+        "The snapshot, identity and read-only query boundaries remain source-local."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
+      "source_atom_id": "CA-O-159",
+      "source_version": 2,
+      "source_sha256": "3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Tool",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.4,
+      "reason": "The complete bodies use Tool as a called capability or implementation detail. Current Core keeps a Tool Call as execution evidence within a Step Run and does not establish a named Tool Entity, Artifact, or Carrier target for this unqualified occurrence.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
+          "sha256": "3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08",
+          "span_sha256": "43f2df59a54b875c22598d42cf3b8c03606dbbc8e42013895c1c1ca2675b02b5",
+          "start_line": 18,
+          "end_line": 67,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "Execution is an actual run; current Tool-call evidence is an execution detail and does not identify a Tool root or named Artifact."
+        }
+      ],
+      "preserved_distinctions": [
+        "Tool-call identity and actual Step Run evidence remain distinct from Action/Step definitions and from any Tool implementation Artifact.",
+        "No Tool root, singleton kind, or generic Artifact substitution is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
+      "source_atom_id": "CA-O-159",
+      "source_version": 2,
+      "source_sha256": "3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08",
+      "field": "governs",
+      "index": null,
+      "old_value": "Artifact query and selected fetch",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The owning body defines a particular reusable Operations Action, Workflow, or Step and its exact bindings. Mapping the named definition to generic Artifact/Atom, an Atom Type value, or Execution would discard its identity and definition-versus-actual-run boundary; the candidate has no lossless named Operation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
+          "sha256": "3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08",
+          "span_sha256": "43f2df59a54b875c22598d42cf3b8c03606dbbc8e42013895c1c1ca2675b02b5",
+          "start_line": 18,
+          "end_line": 67,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate's Execution root is one actual run, not a named reusable Action, Workflow, or Step definition."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact named Operations definition, its Action/Workflow/Step type and bindings remain distinct.",
+        "A reusable Operation definition remains distinct from an actual Execution, Journal evidence, Tool call, and Carrier."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md",
+      "source_atom_id": "CA-O-160",
+      "source_version": 2,
+      "source_sha256": "a743a84fd24db32123ac8162e7a2178e6d83b1b727cbe54477b6020914537384",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Markdown",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.43,
+      "reason": "The owner uses Markdown as the selected carrier representation route; current Core classifies Markdown Atom Carrier as a Term narrower than File Carrier. It does not identify one Carrier Entity, so mapping bare Markdown to Carrier would conflate representation terminology with a specific carrier identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md",
+          "sha256": "a743a84fd24db32123ac8162e7a2178e6d83b1b727cbe54477b6020914537384",
+          "span_sha256": "64d912677768d1db16263b48f36a935d95f142cbaec15e37bf58dc92489431dd",
+          "start_line": 20,
+          "end_line": 36,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "Carrier is an Entity that carries or stores a representation; the owner supplies only Markdown-carrier terminology, not an identified Carrier Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Markdown representation terminology remains distinct from an identified Carrier Entity and from a Markdown Artifact result.",
+        "The snapshot, identity and read-only query boundaries remain source-local."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md",
+      "source_atom_id": "CA-O-160",
+      "source_version": 2,
+      "source_sha256": "a743a84fd24db32123ac8162e7a2178e6d83b1b727cbe54477b6020914537384",
+      "field": "governs",
+      "index": null,
+      "old_value": "Artifact query and fetch execution",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The owning body defines a particular reusable Operations Action, Workflow, or Step and its exact bindings. Mapping the named definition to generic Artifact/Atom, an Atom Type value, or Execution would discard its identity and definition-versus-actual-run boundary; the candidate has no lossless named Operation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md",
+          "sha256": "a743a84fd24db32123ac8162e7a2178e6d83b1b727cbe54477b6020914537384",
+          "span_sha256": "64d912677768d1db16263b48f36a935d95f142cbaec15e37bf58dc92489431dd",
+          "start_line": 20,
+          "end_line": 36,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate's Execution root is one actual run, not a named reusable Action, Workflow, or Step definition."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact named Operations definition, its Action/Workflow/Step type and bindings remain distinct.",
+        "A reusable Operation definition remains distinct from an actual Execution, Journal evidence, Tool call, and Carrier."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-161-CORE_META_MODEL-WORKFLOW--find-and-fetch-journal-events.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-161-CORE_META_MODEL-WORKFLOW--find-and-fetch-journal-events.md",
+      "source_atom_id": "CA-O-161",
+      "source_version": 2,
+      "source_sha256": "362b9d3848a796a14e7374cfa0bf0b561c4f2035b7b2bf87bd9b56fc97a6724d",
+      "field": "governs",
+      "index": null,
+      "old_value": "Find and Fetch Journal Events",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The owning body defines a particular reusable Operations Action, Workflow, or Step and its exact bindings. Mapping the named definition to generic Artifact/Atom, an Atom Type value, or Execution would discard its identity and definition-versus-actual-run boundary; the candidate has no lossless named Operation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-161-CORE_META_MODEL-WORKFLOW--find-and-fetch-journal-events.md",
+          "sha256": "362b9d3848a796a14e7374cfa0bf0b561c4f2035b7b2bf87bd9b56fc97a6724d",
+          "span_sha256": "f364ab16264f19c1debbce5b83c9db9fe630e4e0b3c52e2f7a36b80ee607941a",
+          "start_line": 19,
+          "end_line": 46,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate's Execution root is one actual run, not a named reusable Action, Workflow, or Step definition."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact named Operations definition, its Action/Workflow/Step type and bindings remain distinct.",
+        "A reusable Operation definition remains distinct from an actual Execution, Journal evidence, Tool call, and Carrier."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md",
+      "source_atom_id": "CA-O-162",
+      "source_version": 2,
+      "source_sha256": "71301ecf9531c70adeba03d6cf7f39761a237a081cee43eb0f9f7ce40e12f9fe",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Event",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.38,
+      "reason": "The body queries Event IDs in a selected canonical Journal, while current Core says a Journal Record describes an event and is not the event itself. It does not identify an Event as an Artifact, Journal Record, or actual Execution, so no lossless candidate target is supported.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md",
+          "sha256": "71301ecf9531c70adeba03d6cf7f39761a237a081cee43eb0f9f7ce40e12f9fe",
+          "span_sha256": "9fe8dfce05a1ddd691d7c6fcd738d0a1753d4875bb5649c8527ce3b206ccd00b",
+          "start_line": 19,
+          "end_line": 32,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "Execution is an actual run; an Event is neither that run nor its Journal Record under the current evidence."
+        }
+      ],
+      "preserved_distinctions": [
+        "Event, Journal Record, Journal Artifact, and actual Execution remain distinct.",
+        "The sealed Journal-prefix and query-result boundaries remain source-local."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md",
+      "source_atom_id": "CA-O-162",
+      "source_version": 2,
+      "source_sha256": "71301ecf9531c70adeba03d6cf7f39761a237a081cee43eb0f9f7ce40e12f9fe",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Tool",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.4,
+      "reason": "The complete bodies use Tool as a called capability or implementation detail. Current Core keeps a Tool Call as execution evidence within a Step Run and does not establish a named Tool Entity, Artifact, or Carrier target for this unqualified occurrence.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md",
+          "sha256": "71301ecf9531c70adeba03d6cf7f39761a237a081cee43eb0f9f7ce40e12f9fe",
+          "span_sha256": "9fe8dfce05a1ddd691d7c6fcd738d0a1753d4875bb5649c8527ce3b206ccd00b",
+          "start_line": 19,
+          "end_line": 32,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "Execution is an actual run; current Tool-call evidence is an execution detail and does not identify a Tool root or named Artifact."
+        }
+      ],
+      "preserved_distinctions": [
+        "Tool-call identity and actual Step Run evidence remain distinct from Action/Step definitions and from any Tool implementation Artifact.",
+        "No Tool root, singleton kind, or generic Artifact substitution is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md",
+      "source_atom_id": "CA-O-162",
+      "source_version": 2,
+      "source_sha256": "71301ecf9531c70adeba03d6cf7f39761a237a081cee43eb0f9f7ce40e12f9fe",
+      "field": "governs",
+      "index": null,
+      "old_value": "Journal Event query",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The owning body defines a particular reusable Operations Action, Workflow, or Step and its exact bindings. Mapping the named definition to generic Artifact/Atom, an Atom Type value, or Execution would discard its identity and definition-versus-actual-run boundary; the candidate has no lossless named Operation target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md",
+          "sha256": "71301ecf9531c70adeba03d6cf7f39761a237a081cee43eb0f9f7ce40e12f9fe",
+          "span_sha256": "9fe8dfce05a1ddd691d7c6fcd738d0a1753d4875bb5649c8527ce3b206ccd00b",
+          "start_line": 19,
+          "end_line": 32,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "The candidate's Execution root is one actual run, not a named reusable Action, Workflow, or Step definition."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact named Operations definition, its Action/Workflow/Step type and bindings remain distinct.",
+        "A reusable Operation definition remains distinct from an actual Execution, Journal evidence, Tool call, and Carrier."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/FIND_AND_FETCH_JOURNAL_EVENTS/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/FIND_AND_FETCH_JOURNAL_EVENTS/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md",
+      "source_atom_id": "CA-O-163",
+      "source_version": 2,
+      "source_sha256": "8d0238a1614f5888f2aa486038d271cc58db1d3f0d7014dece0baa53004a489c",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Event",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.38,
+      "reason": "The body queries Event IDs in a selected canonical Journal, while current Core says a Journal Record describes an event and is not the event itself. It does not identify an Event as an Artifact, Journal Record, or actual Execution, so no lossless candidate target is supported.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/FIND_AND_FETCH_JOURNAL_EVENTS/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md",
+          "sha256": "8d0238a1614f5888f2aa486038d271cc58db1d3f0d7014dece0baa53004a489c",
+          "span_sha256": "9c9f402f6a9cd1691ba20dc709996180ec7ec4e3d8191b7030a0f4cd4e7a7ba5",
+          "start_line": 19,
+          "end_line": 33,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/6",
+          "reason": "Execution is an actual run; an Event is neither that run nor its Journal Record under the current evidence."
+        }
+      ],
+      "preserved_distinctions": [
+        "Event, Journal Record, Journal Artifact, and actual Execution remain distinct.",
+        "The sealed Journal-prefix and query-result boundaries remain source-local."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+      "source_atom_id": "CA-O-077",
+      "source_version": 4,
+      "source_sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Carrier/Reconciliation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.45,
+      "reason": "The owner governs one authorized reconciliation responsibility spanning an Atom's carried Properties and address. Mapping only Atom or Carrier would discard the composite reconciliation responsibility, while no selector, relation kind, or new singleton kind is approved to retain it.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_ops/CA-O-077-CORE_META_MODEL-ACTION--reconcile-atom-properties-and-addresses-together.md",
+          "sha256": "008ff95f303db059c924037da7a5bb29d1784dfb14bd9d3e4f51364011f0e694",
+          "span_sha256": "c5463b8a97104176d669db6bfa6bc1786d28c0f74f2315539ec2b08197b6335e",
+          "start_line": 24,
+          "end_line": 39,
+          "reason": "Complete current owning Main Content after the second frontmatter delimiter was read for this exact selected origin, including Summary, Scope/Operation/Claim, and Details."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities",
+          "reason": "The fixed roots keep Atom and Carrier distinct but do not identify this composite reconciliation responsibility without selector or new-kind invention."
+        }
+      ],
+      "preserved_distinctions": [
+        "Atom, Carrier, carried Property values, address representation, Revision history, and authorized reconciliation responsibility remain distinct.",
+        "No per-Property Carrier registry, Artifact.Revision containment, selector, or singleton reconciliation kind is inferred."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned": 21,
+    "covered": 21,
+    "owning_sources": 12,
+    "current_sources": 12,
+    "current_evidence_spans": 21,
+    "owning_current_evidence_spans": 21,
+    "proposed": 0,
+    "unresolved": 21
+  },
+  "executable": false,
+  "limits": [
+    "This is semantic research only; no source migration, native admission, selector, singleton kind, @ syntax, Artifact.Revision target, or source/Tool/Plan/Git change is authorized.",
+    "Named Operation definitions, Terms vocabulary, Markdown carrier terminology, Tool-call details, Events, and the composite reconciliation responsibility are not flattened into generic candidate roots.",
+    "Project Configuration is not semantic support; all owning and supporting evidence is from current original Core sources, while the Operator decision record is retained only as the required current input pin."
+  ]
+}

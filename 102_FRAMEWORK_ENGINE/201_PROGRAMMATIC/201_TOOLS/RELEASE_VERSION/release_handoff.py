@@ -8,16 +8,26 @@ event.
 from __future__ import annotations
 
 import hashlib
+import importlib.util
+import json
 import tomllib
+import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Literal, Mapping
+from typing import TYPE_CHECKING, Any, Literal, Mapping
+
+if TYPE_CHECKING:
+    from framework_package import VerifiedFrameworkPackage
+    from native_selected_installation import NativeSelectedInstallation
+    from retained_full_gate_packet import RetainedNativeFullGatePacket
 
 from pydantic import Field, field_validator, model_validator
 
 from release_contract import (
     IMAGE_DOCKERFILE,
     PROJECT_SKILL_TARGET,
+    RELEASE,
+    VERSION_TOML_RELATIVE,
     CandidateBuildRequest,
     CandidateImageReference,
     CandidateSnapshotManifest,
@@ -32,17 +42,18 @@ from release_contract import (
     encode_candidate_manifest,
 )
 from release_inventory import ReleaseInventoryError, persistent_regular_files, refuse_secret_path
+from methodology_layout import resolve_methodology_layout
 
 
 CANONICAL_SOURCE_RELATIVE = (
-    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources"
+    ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
 )
 PROJECT_STRUCTURE_RELATIVE = ".caprmedio_caprmedio/project_structure.toml"
-FRAMEWORK_SETTINGS_RELATIVE = f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"
+FRAMEWORK_SETTINGS_RELATIVE = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
 CURRENT_SELECTOR_RELATIVE = ".caprmedio_runtime/framework/current.toml"
-DERIVED_SOURCE_COPY_RELATIVE = "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources"
-MATERIALIZED_RELATIVE = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/_release_materialized"
+NATIVE_CURRENT_SELECTOR_RELATIVE = ".caprmedio_runtime/installation/current.toml"
+DERIVED_SOURCE_COPY_RELATIVE = "101_FRAMEWORK_METHODOLOGY/sources"
+MATERIALIZED_RELATIVE = ".caprmedio_tmp/release_candidates"
 ENGINE_ROOT_RELATIVE = "102_FRAMEWORK_ENGINE"
 SKILL_ROOT_RELATIVE = "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca"
 COMPILER_ENTRYPOINT_RELATIVE = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py"
@@ -60,6 +71,59 @@ _HOOK_CONFIGURATION_FILE_NAMES = frozenset(
         "lefthook.yml",
     }
 )
+_METHODOLOGY_EXPORT_PATH = Path(__file__).resolve().parents[1] / "COMPILE_APPLICABLE_METHODOLOGY" / "methodology_export.py"
+
+
+@dataclass(frozen=True)
+class NativeInstalledNBinding:
+    """Actual native N proof inputs and one frozen, physically admitted fact."""
+
+    verified_package: VerifiedFrameworkPackage
+    full_gate_packet: RetainedNativeFullGatePacket
+    selected: NativeSelectedInstallation
+
+
+def bind_native_installed_n(project_root: Path | str, verified_package: Any,
+                            full_gate_packet: Any, *, target_context_sha256: str) -> NativeInstalledNBinding:
+    tools_root = str(Path(__file__).resolve().parents[1])
+    if tools_root not in sys.path:
+        sys.path.insert(0, tools_root)
+    from native_selected_installation import reopen_current_native_installation
+
+    selected = reopen_current_native_installation(
+        project_root, verified_package, full_gate_packet, target_context_sha256=target_context_sha256,
+    )
+    if selected.image_digest.removeprefix("sha256:") != full_gate_packet.evidence.candidate_image_digest.removeprefix("sha256:"):
+        raise _error("release-native-n-image-mismatch", "selected native image differs from the actual retained Full Gate image")
+    return NativeInstalledNBinding(verified_package, full_gate_packet, selected)
+
+
+def reopen_native_installed_n(root: Path | str, binding: object) -> NativeInstalledNBinding:
+    if not isinstance(binding, NativeInstalledNBinding):
+        raise _error("release-native-n-untrusted", "native N requires the concrete admitted package and retained Full Gate packet")
+    try:
+        observed = bind_native_installed_n(
+            root, binding.verified_package, binding.full_gate_packet,
+            target_context_sha256=binding.selected.target_project_context_sha256,
+        )
+    except (RuntimeError, AttributeError, TypeError, ValueError) as error:
+        raise _error("release-native-n-stale", "selected native N cannot be physically reopened") from error
+    if observed != binding:
+        raise _error("release-native-n-stale", "selected native N changed after freezing")
+    return observed
+
+
+def selected_n_selector_relative(candidate: Any) -> str:
+    return NATIVE_CURRENT_SELECTOR_RELATIVE if getattr(candidate, "native_installed_n", None) is not None else CURRENT_SELECTOR_RELATIVE
+
+
+def selected_n_identity(candidate: Any) -> str:
+    binding = getattr(candidate, "native_installed_n", None)
+    if binding is not None:
+        if not isinstance(binding, NativeInstalledNBinding):
+            raise _error("release-native-n-untrusted", "native N binding is not typed")
+        return binding.full_gate_packet.retained_candidate.candidate_snapshot_manifest_sha256
+    return candidate.authority.executing_release
 
 
 def _error(code: str, message: str) -> ReleaseContractError:
@@ -178,6 +242,23 @@ def _inventory_row(root: Path, path: Path, resource: str, destination: str) -> S
     )
 
 
+def read_framework_version_toml(root: Path | str) -> tuple[str, str]:
+    """Read the one sealed root version carrier and its exact byte digest."""
+
+    project = _root(root)
+    version_toml = _file(project, VERSION_TOML_RELATIVE, code="release-version-missing")
+    payload = version_toml.read_bytes()
+    try:
+        document = tomllib.loads(payload.decode("utf-8"))
+    except (UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        raise _error("release-version-invalid", "root version.toml is not valid UTF-8 TOML") from error
+    framework = document.get("framework")
+    version = framework.get("version") if isinstance(framework, dict) else None
+    if not isinstance(version, str) or not RELEASE.fullmatch(version):
+        raise _error("release-version-invalid", "root version.toml must declare [framework].version as a stable release identifier")
+    return version, _sha256_bytes(payload)
+
+
 def _image_input_paths(root: Path, dockerfile: Path) -> list[Path]:
     """Observe the fixed dependency inputs declared by the pinned Dockerfile.
 
@@ -219,10 +300,11 @@ def _assert_hook_free_skill_payload(root: Path, skill_root: Path) -> list[Path]:
 
 
 def _observed_inventory(root: Path) -> tuple[list[SourceInventoryRow], CandidateImageReference]:
-    source_root = _directory(root, CANONICAL_SOURCE_RELATIVE)
+    source_root = _directory(root, resolve_methodology_layout(root).source_root)
     engine_root = _directory(root, ENGINE_ROOT_RELATIVE)
     skill_root = _directory(root, SKILL_ROOT_RELATIVE)
     dockerfile = _file(root, IMAGE_DOCKERFILE)
+    version_toml = _file(root, VERSION_TOML_RELATIVE, code="release-version-missing")
     rows: list[SourceInventoryRow] = []
     for path in _regular_files(root, source_root):
         rows.append(_inventory_row(root, path, "METHODOLOGY", f"METHODOLOGY/sources/{path.relative_to(source_root).as_posix()}"))
@@ -238,6 +320,7 @@ def _observed_inventory(root: Path) -> tuple[list[SourceInventoryRow], Candidate
         else:
             destination = f"IMAGE_INPUT/{image_input.relative_to(root).as_posix()}"
         rows.append(_inventory_row(root, image_input, "IMAGE_INPUT", destination))
+    rows.append(_inventory_row(root, version_toml, "PACKAGE_CONTROL", VERSION_TOML_RELATIVE))
     if not any(row.resource == "FRAMEWORK_ENGINE" for row in rows):
         raise _error("release-inventory-incomplete", "Framework Engine inventory is empty")
     image = CandidateImageReference(
@@ -253,17 +336,31 @@ def build_validated_candidate(
     request: CandidateBuildRequest | Mapping[str, Any],
     *,
     observed_source_frontier_digest: str | None = None,
+    native_installed_n: NativeInstalledNBinding | None = None,
 ) -> ValidatedCandidate:
     """Observe local N/currentness and construct one pre-compiler candidate.v2."""
 
     root = _root(project_root)
     intent = request if isinstance(request, CandidateBuildRequest) else CandidateBuildRequest.model_validate(request)
-    source_root = _directory(root, CANONICAL_SOURCE_RELATIVE)
-    structure = _file(root, PROJECT_STRUCTURE_RELATIVE)
-    settings = _file(root, FRAMEWORK_SETTINGS_RELATIVE)
-    executing_release = _selector_release(root)
+    try:
+        layout = resolve_methodology_layout(root)
+    except (OSError, ValueError) as error:
+        raise _error("release-currentness-stale", "current Project Structure cannot resolve the registered Methodology places") from error
+    source_root = _directory(root, layout.source_root)
+    structure = _file(root, f"{layout.control_root}/project_structure.toml")
+    settings = _file(root, f"{layout.installed_root}/caprmedio_framework_settings.toml")
+    if native_installed_n is not None:
+        native_installed_n = reopen_native_installed_n(root, native_installed_n)
+        executing_release = native_installed_n.selected.framework_version
+    else:
+        if (root / NATIVE_CURRENT_SELECTOR_RELATIVE).exists() or (root / NATIVE_CURRENT_SELECTOR_RELATIVE).is_symlink():
+            raise _error("release-native-n-proof-required", "native runtime requires its physically admitted package and retained Full Gate packet")
+        executing_release = _selector_release(root)
     if executing_release == intent.candidate_release:
         raise _error("release-currentness-invalid", "candidate release is already the locally selected release")
+    framework_version, version_toml_sha256 = read_framework_version_toml(root)
+    if framework_version != intent.candidate_release:
+        raise _error("release-version-mismatch", "root version.toml [framework].version must equal the candidate release")
     rows, image = _observed_inventory(root)
     image = image.model_copy(update={"candidate_image_reference": intent.candidate_image_reference})
     snapshot_digest = tree_sha256(root, source_root)
@@ -272,7 +369,9 @@ def build_validated_candidate(
         {
             "executing_release": executing_release,
             "candidate_release": intent.candidate_release,
-            "canonical_source_snapshot_ref": CANONICAL_SOURCE_RELATIVE,
+            "framework_version": framework_version,
+            "version_toml_sha256": version_toml_sha256,
+            "canonical_source_snapshot_ref": layout.source_root,
             "canonical_source_snapshot_digest": snapshot_digest,
             "project_structure_digest": _sha256_bytes(structure.read_bytes()),
             "framework_settings_digest": _sha256_bytes(settings.read_bytes()),
@@ -289,6 +388,8 @@ def build_validated_candidate(
     authority = SealedAuthority(
         executing_release=executing_release,
         candidate_release=intent.candidate_release,
+        framework_version=framework_version,
+        version_toml_sha256=version_toml_sha256,
         canonical_source_snapshot_digest=snapshot_digest,
         project_structure_digest=_sha256_bytes(structure.read_bytes()),
         framework_settings_digest=_sha256_bytes(settings.read_bytes()),
@@ -296,7 +397,7 @@ def build_validated_candidate(
         nested_source_recursive_sha256_before=snapshot_digest,
         expected_candidate_snapshot_manifest_sha256=manifest.sha256,
     )
-    return ValidatedCandidate(str(root), manifest, authority, intent)
+    return ValidatedCandidate(str(root), manifest, authority, intent, native_installed_n)
 
 
 def _revalidate(candidate: ValidatedCandidate) -> ValidatedCandidate:
@@ -306,6 +407,7 @@ def _revalidate(candidate: ValidatedCandidate) -> ValidatedCandidate:
         candidate.project_root,
         candidate.intent,
         observed_source_frontier_digest=candidate.authority.source_frontier_digest,
+        native_installed_n=candidate.native_installed_n,
     )
     if observed.authority != candidate.authority or observed.manifest != candidate.manifest:
         raise _error("release-currentness-stale", "locally observed selection or sealed candidate inputs changed")
@@ -321,22 +423,168 @@ class SealedSourceCopy:
     actual_derived_source_copy_sha256: str
 
 
+@dataclass(frozen=True)
+class SealedMethodologyExport:
+    """A private candidate export re-opened through the exporter seal reader.
+
+    This is deliberately a wrapper around the existing strict candidate.v2
+    boundary rather than an unsealed caller mapping or an implicit v3 schema.
+    The private export is therefore bound both to the locally observed
+    candidate snapshot and to the frozen/export-seal checksums it actually
+    delivered.
+    """
+
+    candidate: ValidatedCandidate
+    release_candidate_root: str
+    source_export_root: str
+    frozen_manifest_sha256: str
+    export_inventory_sha256: str
+    export_seal_sha256: str
+
+
+def _exporter_module() -> Any:
+    """Load the bounded exporter without treating its payload as authority."""
+
+    spec = importlib.util.spec_from_file_location("_release_handoff_methodology_export", _METHODOLOGY_EXPORT_PATH)
+    if spec is None or spec.loader is None:  # pragma: no cover - installation failure
+        raise _error("release-methodology-export-unavailable", "sealed Methodology exporter is unavailable")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+def _private_candidate_root(root: Path, value: Path | str) -> Path:
+    supplied = Path(value)
+    if not supplied.is_absolute():
+        supplied = root / supplied
+    candidate = supplied.resolve(strict=False)
+    base = (root / ".caprmedio_tmp" / "release_candidates").resolve(strict=False)
+    try:
+        relative = candidate.relative_to(base)
+    except ValueError as error:
+        raise _error("release-private-candidate-root-invalid", "Methodology export is outside the private release-candidate root") from error
+    if len(relative.parts) != 1 or relative.name in {"", ".", ".."}:
+        raise _error("release-private-candidate-root-invalid", "Methodology export must name one private candidate run")
+    return candidate
+
+
+def _export_seal_sha256(candidate_root: Path, exporter: Any) -> str:
+    """Read the checksum only after ``read_sealed_export`` has validated it."""
+
+    path = candidate_root / exporter.SEAL_NAME
+    if path.is_symlink() or not path.is_file():
+        raise _error("release-methodology-export-invalid", "sealed Methodology export has no regular seal")
+    try:
+        seal = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise _error("release-methodology-export-invalid", "sealed Methodology export seal is unreadable") from error
+    value = seal.get("sha256") if isinstance(seal, dict) else None
+    if not isinstance(value, str) or len(value) != 64 or any(character not in "0123456789abcdef" for character in value):
+        raise _error("release-methodology-export-invalid", "sealed Methodology export checksum is invalid")
+    return value
+
+
+def _assert_export_inventory_bound(candidate: ValidatedCandidate, export: Any, exporter: Any) -> None:
+    """Require every frozen/export pin to be one of the candidate source rows."""
+
+    source_rows = {
+        row.source_path: row.source_sha256
+        for row in candidate.manifest.source_inventory_rows
+        if row.resource == "METHODOLOGY"
+    }
+    inventory = export.inventory
+    frozen = inventory.get("frozen_manifest")
+    if not isinstance(frozen, Mapping) or frozen.get("source_root") != str(
+        _root(candidate.project_root) / candidate.manifest.canonical_source_snapshot_ref
+    ):
+        raise _error("release-methodology-export-source-mismatch", "sealed export was not frozen from the candidate canonical source root")
+    root = _root(candidate.project_root)
+    if frozen.get("schema") != exporter.FROZEN_SCHEMA:
+        raise _error("release-methodology-export-project-binding-required", "new Project handoff requires the Project-bound frozen export schema")
+    try:
+        expected_binding = exporter.reopen_project_export_binding(root, root / candidate.manifest.canonical_source_snapshot_ref)
+    except Exception as error:
+        raise _error("release-methodology-export-project-binding-invalid", "Project export controls cannot be physically reopened") from error
+    binding = frozen.get("project_binding")
+    if not isinstance(binding, Mapping) or binding != expected_binding:
+        raise _error("release-methodology-export-project-binding-stale", "frozen export controls differ from the actual Project")
+    if (binding.get("project_structure_sha256") != candidate.authority.project_structure_digest
+            or binding.get("instance_settings_sha256") != candidate.authority.framework_settings_digest):
+        raise _error("release-methodology-export-project-binding-mismatch", "frozen export controls differ from the sealed candidate authority")
+    pins: list[Mapping[str, Any]] = []
+    for key in ("atoms", "support", "catalog_pins"):
+        rows = inventory.get(key)
+        if not isinstance(rows, list):
+            raise _error("release-methodology-export-invalid", f"sealed export {key} inventory is invalid")
+        pins.extend(row for row in rows if isinstance(row, Mapping))
+    for pin in pins:
+        path = pin.get("source_path", pin.get("path"))
+        digest = pin.get("sha256")
+        candidate_path = f"{candidate.manifest.canonical_source_snapshot_ref}/{path}" if isinstance(path, str) else None
+        if not isinstance(path, str) or not isinstance(digest, str) or source_rows.get(candidate_path) != digest:
+            raise _error("release-methodology-export-source-mismatch", "sealed export pin differs from the candidate source inventory")
+
+
+def bind_sealed_methodology_export(
+    candidate: ValidatedCandidate, release_candidate_root: Path | str,
+) -> SealedMethodologyExport:
+    """Bind one exporter-sealed private delivery to an unchanged candidate.v2.
+
+    The exporter is the only authority that opens its private delivery.  This
+    adapter never accepts an inventory mapping, a caller-supplied checksum, or
+    an unsealed source directory.
+    """
+
+    current = _revalidate(candidate)
+    root = _root(current.project_root)
+    candidate_root = _private_candidate_root(root, release_candidate_root)
+    exporter = _exporter_module()
+    try:
+        export = exporter.read_sealed_export(release_candidate_root=candidate_root)
+    except Exception as error:
+        code = getattr(error, "code", "release-methodology-export-invalid")
+        raise _error(str(code), "private Methodology export is not sealed and valid") from error
+    _assert_export_inventory_bound(current, export, exporter)
+    return SealedMethodologyExport(
+        candidate=current,
+        release_candidate_root=_relative(root, candidate_root, label="private candidate root"),
+        source_export_root=_relative(root, export.output_root, label="private Methodology export"),
+        frozen_manifest_sha256=export.frozen_manifest_sha256,
+        export_inventory_sha256=export.inventory_digest,
+        export_seal_sha256=_export_seal_sha256(candidate_root, exporter),
+    )
+
+
+def revalidate_sealed_methodology_export(value: SealedMethodologyExport) -> SealedMethodologyExport:
+    """Re-open the seal immediately before a private compiler consumes it."""
+
+    if not isinstance(value, SealedMethodologyExport):
+        raise _error("release-methodology-export-untrusted", "compiler requires a locally bound sealed Methodology export")
+    root = _root(value.candidate.project_root)
+    observed = bind_sealed_methodology_export(value.candidate, root / value.release_candidate_root)
+    if observed != value:
+        raise _error("release-methodology-export-stale", "sealed Methodology export changed after handoff binding")
+    return observed
+
+
 def validate_source_copy(candidate: ValidatedCandidate, source_copy_root: Path | str | None = None) -> SealedSourceCopy:
     """Validate a completed derived copy before compiler or package admission."""
 
     current = _revalidate(candidate)
     root = _root(current.project_root)
-    expected = root / DERIVED_SOURCE_COPY_RELATIVE
+    source_copy_relative = resolve_methodology_layout(root).source_copy_root
+    expected = root / source_copy_relative
     supplied = expected if source_copy_root is None else Path(source_copy_root)
     if not supplied.is_absolute():
         supplied = root / supplied
     if supplied.resolve(strict=False) != expected.resolve(strict=False):
         raise _error("release-copy-root-invalid", "derived source copy root is not the D561 delivery root")
-    copy_root = _directory(root, DERIVED_SOURCE_COPY_RELATIVE, code="release-copy-missing")
+    copy_root = _directory(root, source_copy_relative, code="release-copy-missing")
     actual = tree_sha256(root, copy_root)
     if actual != current.manifest.expected_derived_source_copy_sha256:
         raise _error("release-copy-digest-mismatch", "complete derived source copy does not match the sealed expectation")
-    return SealedSourceCopy(current, DERIVED_SOURCE_COPY_RELATIVE, actual)
+    return SealedSourceCopy(current, source_copy_relative, actual)
 
 
 class CompilerEntrypoint(StrictModel):
@@ -372,7 +620,7 @@ class CompilerSuccessEvidence(StrictModel):
 
 
 class PackageRow(StrictModel):
-    resource: Literal["FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"]
+    resource: Literal["FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "PACKAGE_CONTROL"]
     source_path: str
     destination_path: str
     sha256: str = Field(pattern="^[0-9a-f]{64}$")
@@ -389,6 +637,7 @@ class PackageRow(StrictModel):
             "FRAMEWORK_ENGINE": "FRAMEWORK_ENGINE/",
             "METHODOLOGY": "METHODOLOGY/",
             "SKILL": "SKILLS/ca/",
+            "PACKAGE_CONTROL": VERSION_TOML_RELATIVE,
         }
         if not self.destination_path.startswith(prefixes[self.resource]):
             raise ValueError("package destination is outside its resource root")
@@ -396,8 +645,11 @@ class PackageRow(StrictModel):
 
 
 class SealedCandidateCompilation(StrictModel):
+    native_installed_n: Any = Field(default=None, exclude=True)
     candidate_snapshot_manifest_sha256: str = Field(pattern="^[0-9a-f]{64}$")
     authority: SealedAuthority
+    framework_version: str
+    version_toml_sha256: str = Field(pattern="^[0-9a-f]{64}$")
     source_copy_root: str
     expected_derived_source_copy_sha256: str = Field(pattern="^[0-9a-f]{64}$")
     actual_derived_source_copy_sha256: str = Field(pattern="^[0-9a-f]{64}$")
@@ -415,12 +667,26 @@ class SealedCandidateCompilation(StrictModel):
 
     @model_validator(mode="after")
     def complete_package_rows(self) -> "SealedCandidateCompilation":
+        if self.native_installed_n is not None and not isinstance(self.native_installed_n, NativeInstalledNBinding):
+            raise ValueError("native N handoff must carry a concrete admitted binding")
+        if (
+            self.framework_version != self.authority.framework_version
+            or self.version_toml_sha256 != self.authority.version_toml_sha256
+        ):
+            raise ValueError("sealed compilation version binding differs from authority")
         destinations = [row.destination_path for row in self.package_rows]
         if len(destinations) != len(set(destinations)):
             raise ValueError("package handoff has destination collisions")
         resources = {row.resource for row in self.package_rows}
-        if not {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"} <= resources:
+        if not {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "PACKAGE_CONTROL"} <= resources:
             raise ValueError("package handoff is not a complete Framework package")
+        controls = [row for row in self.package_rows if row.resource == "PACKAGE_CONTROL"]
+        if len(controls) != 1 or (
+            controls[0].source_path != VERSION_TOML_RELATIVE
+            or controls[0].destination_path != VERSION_TOML_RELATIVE
+            or controls[0].sha256 != self.version_toml_sha256
+        ):
+            raise ValueError("package handoff must retain the exact root version.toml control row")
         if not {"SKILLS/ca/SKILL.md", "SKILLS/ca/agents/openai.yaml"} <= set(destinations):
             raise ValueError("package handoff lacks required ca Skill files")
         return self
@@ -493,8 +759,11 @@ def seal_candidate_compilation(
     if compiler_evidence.actual_compiled_output_sha256 != actual_output:
         raise _error("release-compiler-evidence-mismatch", "compiler evidence does not match materialized bytes")
     return SealedCandidateCompilation(
+        native_installed_n=candidate.native_installed_n,
         candidate_snapshot_manifest_sha256=candidate.manifest.sha256,
         authority=candidate.authority,
+        framework_version=candidate.manifest.framework_version,
+        version_toml_sha256=candidate.manifest.version_toml_sha256,
         source_copy_root=source_copy.source_copy_root,
         expected_derived_source_copy_sha256=candidate.manifest.expected_derived_source_copy_sha256,
         actual_derived_source_copy_sha256=actual_copy,
@@ -511,14 +780,25 @@ __all__ = [
     "CANONICAL_SOURCE_RELATIVE",
     "COMPILER_ENTRYPOINT_RELATIVE",
     "CURRENT_SELECTOR_RELATIVE",
+    "NATIVE_CURRENT_SELECTOR_RELATIVE",
+    "NativeInstalledNBinding",
+    "bind_native_installed_n",
+    "reopen_native_installed_n",
+    "selected_n_selector_relative",
+    "selected_n_identity",
     "DERIVED_SOURCE_COPY_RELATIVE",
     "MATERIALIZED_RELATIVE",
+    "VERSION_TOML_RELATIVE",
     "CompilerEntrypoint",
     "CompilerSuccessEvidence",
     "PackageRow",
     "SealedCandidateCompilation",
+    "SealedMethodologyExport",
     "SealedSourceCopy",
+    "bind_sealed_methodology_export",
     "build_validated_candidate",
+    "read_framework_version_toml",
+    "revalidate_sealed_methodology_export",
     "seal_candidate_compilation",
     "tree_sha256",
     "validate_source_copy",

@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2018",
+  "recorded_at": "2026-10-11 02:28:08 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-027.review.json",
+    "sha256": "07bff7c2a88cab85ac9c0c8ea985e00be2820c5abdb60db74dd4261d9f22d86e"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-027.json",
+    "sha256": "5225f026f92e9c04cca69dd5b8f5245d26cb2be64ef3aa4fe85ce7d1bb59e989"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 20,
+    "occurrences": 85,
+    "proposed": 9,
+    "unchanged": 10,
+    "unresolved": 66,
+    "meaning_review": "Independent meaning review checked proposed and unchanged rows. The Atom Claim Projection alias was corrected to unresolved because a derived Summary or Translation field does not establish a whole Projection subtype or lifecycle.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "66 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}

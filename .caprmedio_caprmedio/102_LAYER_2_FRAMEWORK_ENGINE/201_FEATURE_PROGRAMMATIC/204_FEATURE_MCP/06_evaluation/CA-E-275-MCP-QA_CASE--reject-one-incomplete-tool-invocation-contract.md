@@ -4,8 +4,8 @@ cce_form: evaluation
 subjects:
   governs: "framework-engine-mcp"
   depends_on: []
-version: 5
-updated_at: "2026-09-17 02:10:33 +0000"
+version: 6
+updated_at: "2026-10-11 01:09:00 +0400"
 relations:
   evaluation_for:
     - CA-M-169
@@ -18,16 +18,16 @@ llm_session_ids:
 
 ## Claim checked
 
-MCP exposes **only** a complete coherent canonical Tool invocation contract.
+MCP exposes **only** a complete coherent canonical descriptor with `schema_version: 1`.
 
 ## Test case
 
-Validate one Tool contract missing its structured result envelope.
+Validate one Tool descriptor missing a required CA-D-621 field beside one complete Tool descriptor. Repeat with a handwritten duplicate input schema, an unresolved callable entrypoint, and a missing Action binding.
 
 ## Acceptance criteria
 
-Validation returns a field-level failure **and** produces no eligible projection.
+The defective Tool returns a field-level unavailable diagnostic and produces no eligible projection. The independent complete Tool remains eligible. The harness proves models are imported from canonical symbols and that validation never invokes or applies either Tool.
 
 ## Failure disposition
 
-Stop exposure **until** the contract is complete **and** unambiguous.
+Stop exposure of the affected descriptor **until** its contract is complete, canonical-model-derived, **and** unambiguous.

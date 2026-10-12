@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2003",
+  "recorded_at": "2026-10-11 02:25:56 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-012.review.json",
+    "sha256": "2b103101be8e421b61374c5574c369c7e8b115ff8eefff48e8e19ddf263d3849"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-012.json",
+    "sha256": "ce385d07b952f29e94c51ac83361b1ef0a54a3c628ae9b3ad220e8a6316d7acc"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 20,
+    "occurrences": 96,
+    "proposed": 10,
+    "unchanged": 65,
+    "unresolved": 21,
+    "meaning_review": "Independent meaning review checked all proposed mappings and high-risk unchanged rows. Three unsupported role-label-as-allowed-value mappings were corrected to unresolved, preserving Substance and role distinctions.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "21 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}

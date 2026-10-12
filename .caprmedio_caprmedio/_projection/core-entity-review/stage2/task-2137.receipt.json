@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2137",
+  "recorded_at": "2026-10-11 10:51:03 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining fields history and carrier subjects; not migration approval",
+  "verification": {
+    "task": "CA-P-2137",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2137.research.json",
+      "sha256": "d89d428d4262410bdb1bf1a833dd28b9bb6186bb153eaa6abf58c9157e39b113"
+    },
+    "rows": 29,
+    "counts": {
+      "unresolved": 22,
+      "proposed": 7
+    },
+    "exact_evidence_spans": 36,
+    "exact_supporting_definition_spans": 0,
+    "exact_input_pins": 31,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/semantic_labels_2126",
+      "final_report_sha256": "d89d428d4262410bdb1bf1a833dd28b9bb6186bb153eaa6abf58c9157e39b113",
+      "result": "PASS: corrected Status proposal, four Carrier and two Version Number proposals, twenty-two justified nulls",
+      "meaning_checks": [
+        "CA-D-483 Atom.Status is supported by current owner and CA-R-1412, actual candidate compact_examples/2.",
+        "One-Status cardinality, no-Hub/no-other-Revision override, exact Content Role/Type value domain and YAML representation remain explicit.",
+        "Four Carrier and two Atom.Version Number proposals retain prior reviewed origins, targets and confidence.",
+        "CA-R-366 composite identity/Version/Updated At reference remains null; no Atom/Revision containment inferred.",
+        "All twenty-two remaining nulls preserve identity, history, syntax, defaults, ownership and lifecycle distinctions."
+      ],
+      "rejected_interim_reports": [
+        {
+          "sha256": "ed0f4b7e5e0301837fd0ae3f83e84a847df054564136e0de6247ea556a63f1ed",
+          "reviewer": "/root/semantic_labels_2126",
+          "result": "FAIL: CA-D-483 governs Status is explicitly defined and should not be null",
+          "issues": [
+            "CA-D-483 governs -> Atom.Status with compact_examples/2 and current CA-R-1412 evidence; preserve snapshot, qualified domain and YAML representation."
+          ]
+        }
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/semantic_labels_2126",
+    "final_report_sha256": "d89d428d4262410bdb1bf1a833dd28b9bb6186bb153eaa6abf58c9157e39b113",
+    "result": "PASS: corrected Status proposal, four Carrier and two Version Number proposals, twenty-two justified nulls",
+    "meaning_checks": [
+      "CA-D-483 Atom.Status is supported by current owner and CA-R-1412, actual candidate compact_examples/2.",
+      "One-Status cardinality, no-Hub/no-other-Revision override, exact Content Role/Type value domain and YAML representation remain explicit.",
+      "Four Carrier and two Atom.Version Number proposals retain prior reviewed origins, targets and confidence.",
+      "CA-R-366 composite identity/Version/Updated At reference remains null; no Atom/Revision containment inferred.",
+      "All twenty-two remaining nulls preserve identity, history, syntax, defaults, ownership and lifecycle distinctions."
+    ],
+    "rejected_interim_reports": [
+      {
+        "sha256": "ed0f4b7e5e0301837fd0ae3f83e84a847df054564136e0de6247ea556a63f1ed",
+        "reviewer": "/root/semantic_labels_2126",
+        "result": "FAIL: CA-D-483 governs Status is explicitly defined and should not be null",
+        "issues": [
+          "CA-D-483 governs -> Atom.Status with compact_examples/2 and current CA-R-1412 evidence; preserve snapshot, qualified domain and YAML representation."
+        ]
+      }
+    ]
+  },
+  "completion_scope": "All29 selected origins passed exact live pin/span/coverage controls and independent semantic acceptance: seven supported proposals and twenty-two explicit nulls. The unjustified Status null was corrected using current definition evidence; snapshot, domain and Carrier syntax remain distinct. Original Core is unchanged.",
+  "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

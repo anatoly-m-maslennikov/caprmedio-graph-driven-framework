@@ -52,6 +52,7 @@ class ReleaseContractTests(unittest.TestCase):
         encoded = parsed.model_dump(mode="json", by_alias=True)
         self.assertEqual(set(encoded), {
             "schema", "sha256", "executing_release", "candidate_release",
+            "framework_version", "version_toml_sha256",
             "canonical_source_snapshot_ref", "canonical_source_snapshot_digest",
             "project_structure_digest", "framework_settings_digest", "source_frontier_digest",
             "nested_source_recursive_sha256_before", "expected_derived_source_copy_sha256",
@@ -60,7 +61,7 @@ class ReleaseContractTests(unittest.TestCase):
         })
         self.assertEqual(encoded["schema"], "caprmedio.release_version.candidate.v2")
         self.assertEqual({row["resource"] for row in encoded["source_inventory_rows"]}, {
-            "FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "IMAGE_INPUT",
+            "FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL", "IMAGE_INPUT", "PACKAGE_CONTROL",
         })
         for row in encoded["source_inventory_rows"]:
             self.assertEqual(set(row), {
@@ -119,6 +120,7 @@ class ReleaseContractTests(unittest.TestCase):
     def test_substituted_bindings_with_old_checksum_are_rejected(self) -> None:
         for field in (
             "executing_release", "candidate_release", "canonical_source_snapshot_ref",
+            "framework_version", "version_toml_sha256",
             "canonical_source_snapshot_digest", "project_structure_digest", "framework_settings_digest",
             "source_frontier_digest", "nested_source_recursive_sha256_before",
             "expected_derived_source_copy_sha256", "expected_compiled_output_sha256",

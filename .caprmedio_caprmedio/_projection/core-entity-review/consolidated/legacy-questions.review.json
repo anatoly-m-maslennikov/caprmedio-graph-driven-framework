@@ -1,0 +1,771 @@
+{
+  "schema_version": 1,
+  "kind": "Legacy question consolidation",
+  "non_authoritative": true,
+  "native_admission": "not_performed",
+  "source_migration": "not_performed",
+  "scope": "Classification of the 47 legacy question wordings against selected Operator model; node review may separately reveal concrete conflicts.",
+  "candidate": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+    "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+    "not_core_evidence": true
+  },
+  "legacy_questions": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/questions.md",
+    "sha256": "f06676b92a488ea3ffd0ab32736c5d67e4806c18cd7c02a20d5ffd90fe05ac4c"
+  },
+  "legacy_case_count": 47,
+  "operator_questions_from_legacy_wording": 0,
+  "reopen_rule": "Ask only if captured meaning or the attempted new mapping exposes an incompatible decision not already answered. An absent native kind, source proof or reviewed mapping is not itself such a conflict.",
+  "later_harness_note": "Live/resumable Execution-state storage is not decided by Atom-history Git preservation; defer that separate harness storage choice to its concrete implementation.",
+  "cases": [
+    {
+      "case": 1,
+      "legacy_identity": "Evaluation/Report",
+      "legacy_question": "Which current Core Main Content source defines Evaluation/Report and states whether it is a native relation, a display qualification, or neither?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 2,
+      "legacy_identity": "Atom/Claim/Target Scope Unit",
+      "legacy_question": "Which reviewed native relation kind, if any, should represent an Atom Claim's target Scope Unit without changing Scope Unit ownership?",
+      "status": "covered_at_model_level",
+      "basis": "Ownership/applicability, dependent Entity identity, declaration authority and uniqueness are already selected. Native mapping/proof remains review work.",
+      "rules": [
+        "entity_identity_model",
+        "dependent_entities",
+        "content_direction",
+        "relation_lifecycle_question"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 3,
+      "legacy_identity": "Atom/Content Role: Plan/Type: Plan/Assignee/Carrier",
+      "legacy_question": "Is Plan/Type: Plan/Assignee/Carrier intended as an explicit native relation, or is it only a carrier/assignment representation?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 4,
+      "legacy_identity": "Atom/Carrier/Current Scope Unit",
+      "legacy_question": "Which current Main Content Claim explicitly proves the Atom Carrier to Current Scope Unit binding, and which closed relation kind should own it?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 5,
+      "legacy_identity": "Atom/Content Role: Plan/Type: Plan/Claim/Target Scope Unit",
+      "legacy_question": "Should the Plan Claim Target Scope Unit remain a property/context reference, or is a separately governed native relation required?",
+      "status": "covered_at_model_level",
+      "basis": "Ownership/applicability, dependent Entity identity, declaration authority and uniqueness are already selected. Native mapping/proof remains review work.",
+      "rules": [
+        "entity_identity_model",
+        "dependent_entities",
+        "content_direction",
+        "relation_lifecycle_question"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 6,
+      "legacy_identity": "Scope Unit/Scope",
+      "legacy_question": "Does Scope Unit/Scope denote a separately modelled entity relation, or only the Scope Unit's own ownership-boundary meaning?",
+      "status": "covered_at_model_level",
+      "basis": "Ownership/applicability, dependent Entity identity, declaration authority and uniqueness are already selected. Native mapping/proof remains review work.",
+      "rules": [
+        "entity_identity_model",
+        "dependent_entities",
+        "content_direction",
+        "relation_lifecycle_question"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 7,
+      "legacy_identity": "Atom/Content Role: Requirement/Type: Demand/Producer Result",
+      "legacy_question": "Which approved native relation kind, if any, should represent Demand to Producer Result while preserving the existing Demand constraints?",
+      "status": "source_and_relation_mapping_review",
+      "basis": "Inspect the captured Demand/Result constraints and keep their qualified cardinality/endpoint meaning. Missing primitive names are not a new Operator decision without incompatible alternatives.",
+      "rules": [
+        "relation_type_model",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 8,
+      "legacy_identity": "Atom/Relation Owner",
+      "legacy_question": "Atom direct-relation ownership family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "status": "covered_at_model_level",
+      "basis": "Ownership/applicability, dependent Entity identity, declaration authority and uniqueness are already selected. Native mapping/proof remains review work.",
+      "rules": [
+        "entity_identity_model",
+        "dependent_entities",
+        "content_direction",
+        "relation_lifecycle_question"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 9,
+      "legacy_identity": "Atom/Content Role: Plan/Type: Plan/Blocking/Carrier",
+      "legacy_question": "plan substructure and Carrier binding family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 10,
+      "legacy_identity": "Atom/Revision/Status: Draft/Revision Lineage",
+      "legacy_question": "revision lineage/history family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "status": "history_framing_superseded_or_deferred",
+      "basis": "Revision is a separate historical root, Projection tracks its own lifecycle, Git preserves Atom history; specialized FROM/TO links are deferred.",
+      "rules": [
+        "root_entities.Revision",
+        "projection_member_model",
+        "history_model",
+        "review_backlog.deliberately_deferred"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 11,
+      "legacy_identity": "Atom/Content Role: Plan/Type: Plan/Recursive Decomposition",
+      "legacy_question": "plan substructure and Carrier binding family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 12,
+      "legacy_identity": "Atom/Content Role: Evaluation/grouping",
+      "legacy_question": "evaluation grouping family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 13,
+      "legacy_identity": "Atom/Direct Relation",
+      "legacy_question": "Atom direct-relation ownership family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "status": "covered_at_model_level",
+      "basis": "Ownership/applicability, dependent Entity identity, declaration authority and uniqueness are already selected. Native mapping/proof remains review work.",
+      "rules": [
+        "entity_identity_model",
+        "dependent_entities",
+        "content_direction",
+        "relation_lifecycle_question"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 14,
+      "legacy_identity": "Artifact/Property",
+      "legacy_question": "artifact property family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "status": "covered_at_model_level",
+      "basis": "Ownership/applicability, dependent Entity identity, declaration authority and uniqueness are already selected. Native mapping/proof remains review work.",
+      "rules": [
+        "entity_identity_model",
+        "dependent_entities",
+        "content_direction",
+        "relation_lifecycle_question"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 15,
+      "legacy_identity": "Atom/Identity/collision repair",
+      "legacy_question": "identity collision repair family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "status": "covered_at_model_level",
+      "basis": "Ownership/applicability, dependent Entity identity, declaration authority and uniqueness are already selected. Native mapping/proof remains review work.",
+      "rules": [
+        "entity_identity_model",
+        "dependent_entities",
+        "content_direction",
+        "relation_lifecycle_question"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 16,
+      "legacy_identity": "Atom/Content Role: Plan/Authoritative Carrier Bundle",
+      "legacy_question": "plan substructure and Carrier binding family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 17,
+      "legacy_identity": "Atom/Carrier/Reconciliation",
+      "legacy_question": "Carrier reconciliation family: which current Claim, Procedure, or Condition explicitly connects these qualified endpoints?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 18,
+      "legacy_identity": "Relation Kind/registry compilation",
+      "legacy_question": "Should registry compilation be retained only as a display/process qualifier, and if so what approved display semantics apply?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 19,
+      "legacy_identity": "Projection/Revision",
+      "legacy_question": "Which current Core Claim, if any, proves the intended Projection-to-Revision relation and its canonical kind?",
+      "status": "history_framing_superseded_or_deferred",
+      "basis": "Revision is a separate historical root, Projection tracks its own lifecycle, Git preserves Atom history; specialized FROM/TO links are deferred.",
+      "rules": [
+        "root_entities.Revision",
+        "projection_member_model",
+        "history_model",
+        "review_backlog.deliberately_deferred"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 20,
+      "legacy_identity": "Relation Kind/Metadata",
+      "legacy_question": "What current Main Content supplies the relation-kind metadata bearer/dependent kind and direction?",
+      "status": "covered_at_model_level",
+      "basis": "Ownership/applicability, dependent Entity identity, declaration authority and uniqueness are already selected. Native mapping/proof remains review work.",
+      "rules": [
+        "entity_identity_model",
+        "dependent_entities",
+        "content_direction",
+        "relation_lifecycle_question"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 21,
+      "legacy_identity": "Workflow/Relation Kind",
+      "legacy_question": "Which current Main Content establishes the intended Workflow-to-Relation Kind relation?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 22,
+      "legacy_identity": "Relation/authority",
+      "legacy_question": "What current Claim proves Relation/authority and its canonical direction?",
+      "status": "covered_at_model_level",
+      "basis": "Ownership/applicability, dependent Entity identity, declaration authority and uniqueness are already selected. Native mapping/proof remains review work.",
+      "rules": [
+        "entity_identity_model",
+        "dependent_entities",
+        "content_direction",
+        "relation_lifecycle_question"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 23,
+      "legacy_identity": "Workflow/Carrier",
+      "legacy_question": "Does an approved Core relation kind make this containment a native Workflow/Carrier relation, and with what direction?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 24,
+      "legacy_identity": "Journal/Revision",
+      "legacy_question": "Which current Core Claim establishes a native Journal-to-Revision relation and its canonical kind?",
+      "status": "history_framing_superseded_or_deferred",
+      "basis": "Revision is a separate historical root, Projection tracks its own lifecycle, Git preserves Atom history; specialized FROM/TO links are deferred.",
+      "rules": [
+        "root_entities.Revision",
+        "projection_member_model",
+        "history_model",
+        "review_backlog.deliberately_deferred"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 25,
+      "legacy_identity": "Project Settings/Project identity/Carrier",
+      "legacy_question": "Contextual-label family: what exact non-native contextual meaning, if any, connects Project Settings/Project identity to Project Settings/Project identity/Carrier; otherwise should this legacy occurrence be retired as not-native?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 26,
+      "legacy_identity": "Markdown Atom Carrier/YAML Frontmatter/Default",
+      "legacy_question": "Contextual-label family: what exact non-native contextual meaning, if any, connects Markdown Atom Carrier/YAML Frontmatter to Markdown Atom Carrier/YAML Frontmatter/Default; otherwise should this legacy occurrence be retired as not-native?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 27,
+      "legacy_identity": "Methodology Source/Carrier",
+      "legacy_question": "Contextual-label family: what exact non-native contextual meaning, if any, connects Methodology Source to Methodology Source/Carrier; otherwise should this legacy occurrence be retired as not-native?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 28,
+      "legacy_identity": "Applicable Methodology/Sources/CORE_META_MODEL",
+      "legacy_question": "Contextual-label family: what exact non-native contextual meaning, if any, connects Applicable Methodology/Sources to Applicable Methodology/Sources/CORE_META_MODEL; otherwise should this legacy occurrence be retired as not-native?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 29,
+      "legacy_identity": "RMED Atom Review Workflow/coverage/Action",
+      "legacy_question": "Contextual-label family: what exact non-native contextual meaning, if any, connects RMED Atom Review Workflow/coverage to RMED Atom Review Workflow/coverage/Action; otherwise should this legacy occurrence be retired as not-native?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 30,
+      "legacy_identity": "Applicable Methodology/Source Frontier Digest",
+      "legacy_question": "Contextual-label family: what exact non-native contextual meaning, if any, connects Applicable Methodology to Applicable Methodology/Source Frontier Digest; otherwise should this legacy occurrence be retired as not-native?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 31,
+      "legacy_identity": "Tool/Workflow Operations",
+      "legacy_question": "Contextual-label family: what exact non-native contextual meaning, if any, connects Tool to Tool/Workflow Operations; otherwise should this legacy occurrence be retired as not-native?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 32,
+      "legacy_identity": "Structural Entity/Authoritative Carrier",
+      "legacy_question": "Which current Core source identifies the immediate Authoritative Carrier relation and canonical direction?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 33,
+      "legacy_identity": "Directory Carrier/Nesting",
+      "legacy_question": "Should this remain a display-only containment context, and what approved relation/endpoints represent it?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 34,
+      "legacy_identity": "Methodology Source/Expansion Boundary",
+      "legacy_question": "Which current Claim or Condition defines the Methodology Source Expansion Boundary and its approved relation kind?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 35,
+      "legacy_identity": "Work Journal/Action",
+      "legacy_question": "What current source establishes the exact Work Journal-to-Action relation and its canonical direction?",
+      "status": "meaning_selected_native_mapping_review",
+      "basis": "Journal records what happened; an actual Operation run is an Execution. Exact record fields and primitive names are review/admission work.",
+      "rules": [
+        "history_model.journal_role",
+        "root_entities.Execution",
+        "execution_definition_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 36,
+      "legacy_identity": "Applicable Methodology/Carrier Set",
+      "legacy_question": "Which current source defines an Applicable Methodology Carrier Set relation and canonical kind?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 37,
+      "legacy_identity": "Project/minimum model",
+      "legacy_question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for Project to Project/minimum model, rather than only contextual qualification?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 38,
+      "legacy_identity": "Step/Agentic Execution Context",
+      "legacy_question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for Step to Step/Agentic Execution Context, rather than only contextual qualification?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 39,
+      "legacy_identity": "CCE/Role Profile/resolution",
+      "legacy_question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for CCE/Role Profile to CCE/Role Profile/resolution, rather than only contextual qualification?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 40,
+      "legacy_identity": "Tool/Workflow Operations/Atom Lifecycle/Request Parameters",
+      "legacy_question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for Tool/Workflow Operations/Atom Lifecycle to Tool/Workflow Operations/Atom Lifecycle/Request Parameters, rather than only contextual qualification?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 41,
+      "legacy_identity": "Framework Instance Settings/Authoritative Carrier",
+      "legacy_question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for Framework Instance Settings to Framework Instance Settings/Authoritative Carrier, rather than only contextual qualification?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 42,
+      "legacy_identity": "Tool/Workflow Operations/Atom Lifecycle",
+      "legacy_question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for Tool/Workflow Operations to Tool/Workflow Operations/Atom Lifecycle, rather than only contextual qualification?",
+      "status": "review_context_process_or_dependent_meaning",
+      "basis": "A label, grouping or process heading is not automatically a new Entity or Relation. Preserve its old meaning and map it using the selected model before proposing any new native kind.",
+      "rules": [
+        "entity_vs_syntax_rules",
+        "content_direction",
+        "execution_definition_policy",
+        "review_backlog.question_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 43,
+      "legacy_identity": "Project-Owned Markdown Atom Carrier/Filename",
+      "legacy_question": "Which current Claim, Operation, Procedure, or Condition supplies an explicit relation-kind and direction for Project-Owned Markdown Atom Carrier to Project-Owned Markdown Atom Carrier/Filename, rather than only contextual qualification?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 44,
+      "legacy_identity": "File Carrier/Extension",
+      "legacy_question": "Should File Carrier/Extension remain a representation or source qualification, or is there an explicitly governed native relation between those distinct terms?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 45,
+      "legacy_identity": "Framework Instance Settings/Carrier",
+      "legacy_question": "Which current Main Content Claim, if any, proves the Framework Instance Settings Carrier binding, and is it only a display qualification or a native relation?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 46,
+      "legacy_identity": "Hub/Carrier",
+      "legacy_question": "Which current Main Content Claim explicitly identifies the Hub Carrier binding, and should it remain display-only rather than become a native relation?",
+      "status": "review_under_general_delivery_policies",
+      "basis": "Review storage and representation meaning using general Core D policies, one representation/composite parts, and independent Carrier ID. Missing native proof does not establish a new human choice.",
+      "rules": [
+        "carrier_delivery_model",
+        "entity_representation_rules",
+        "representation_composition",
+        "entity_identity_model.carrier_identity"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    },
+    {
+      "case": 47,
+      "legacy_identity": "Work Journal/Record",
+      "legacy_question": "Record/receipt family: does current Core identify a completed governed-change Work Journal receipt as a Work Journal Record, and if so what exact relation kind and direction connects it to the Work Journal?",
+      "status": "meaning_selected_native_mapping_review",
+      "basis": "Journal records what happened; an actual Operation run is an Execution. Exact record fields and primitive names are review/admission work.",
+      "rules": [
+        "history_model.journal_role",
+        "root_entities.Execution",
+        "execution_definition_policy"
+      ],
+      "operator_question_established": false,
+      "native_admission": "not_performed",
+      "old_case_preserved": true
+    }
+  ]
+}

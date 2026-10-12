@@ -1,0 +1,2743 @@
+{
+  "base_ledger": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+    "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+  },
+  "counts": {
+    "AI Agent": 10,
+    "Operator": 33,
+    "baseline_proposed": 43,
+    "occurrences": 43,
+    "proposed": 36,
+    "sources": 34,
+    "unresolved": 7
+  },
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+      "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+      "sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+      "sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+      "sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+      "sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md",
+      "sha256": "430b66d1c976adec032d6f9e13551c9019abe0df3f7794110436640acf3b5d79"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+      "sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+      "sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+      "sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+      "sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md",
+      "sha256": "2d10306800cba3cd68d1be8bb698925c976dee96ef7a2692793427c2beb93770"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md",
+      "sha256": "b2e38a54c68d7e5f75e1905de7c1e095d9aa15da83d0810bde5e0a2833bff198"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md",
+      "sha256": "b30004bd089ff143193ab7175b7bc3174e7c3eabc4d75617c51b240a14686e22"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+      "sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+      "sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+      "sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+      "sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md",
+      "sha256": "42bac0554e085881c7902a8477792c052a4abda9c8538efc0751410f71044aac"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+      "sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+      "sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+      "sha256": "14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+      "sha256": "fcb2658717a91add097f34751c89d54f03a047442031ee7cf79e89c9f817d965"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+      "sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-471-CORE_META_MODEL-EVALUATION_APPROACH--validate-structural-change-cutover.md",
+      "sha256": "1718ae5ac2b7359c74b1d6c17b15b84fdbc2ca36c3f390961324716431d31c8d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-473-CORE_META_MODEL-QA_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+      "sha256": "0e7ea664a2466237d9a42a983e36805316c23066c6cf74b9d612b3fc8a56d605"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md",
+      "sha256": "5393c69f1cbb00a0d5c4366c5ca848a334d782ae251c7c98096ce5adcff9b232"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-QA_CASE--validate-workflow-execution-and-handoff-definitions.md",
+      "sha256": "649fc2ca1ffca21d2aeceb31611f41a06fe7dc2627644241fdabc540acaeeae1"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md",
+      "sha256": "687b3d30d85e0ca910a82f6688bc0f14dc3424f25f48ba8ac444d644f226ddc6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-494-CORE_META_MODEL-QA_CASE--validate-workflow-run-definition-bindings.md",
+      "sha256": "55b1d6c759133d0166335e5bb43bbe061cff344ed71bb44af5e8a2f0f861f3b0"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-QA_CASE--validate-action-kinds-and-step-contexts.md",
+      "sha256": "4c986410371e9625333364147ca0dfec120378ec5d61c525cc69e99be53512f5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-QA_CASE--validate-self-contained-agentic-invocations.md",
+      "sha256": "17de1ecc22b82359e2ebf18c4a3c447de634dd1fd169a79b2a36b059c6da5a60"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md",
+      "sha256": "404da79b6bb14e62c88ad5409b1f1947f907acf5812fd1b8ca3a53ce18e7c5d7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md",
+      "sha256": "a8a1e395a50127fcc7ab120f2d4ca0d33c1176f35793cbaf218b6643bfdba46b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md",
+      "sha256": "1ae8e1df0c2eeb193b37fa1953b3761b8a2c4247fb7f250c7958c344b466f0ae"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-444-CORE_META_MODEL-STANDARD--separate-candidate-project-structure-from-active-authority.md",
+      "sha256": "18651eac6973724eacc0f5034fd7742b848dddb7560dcc4d858a718d7042e95a"
+    }
+  ],
+  "native_admission": "not_performed",
+  "non_authoritative": true,
+  "occurrences": [
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 39,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025",
+          "span_sha256": "bd7e3043126cb3e5b3e459995580cd14a86ca8258bd2876428495ed291a2177c",
+          "start_line": 25
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md#subjects.depends_on[0]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1551's current Main Content ('Reserve Principle-conflict resolution to the Operator') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1551",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+      "source_sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025",
+      "source_version": 4
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/AI Agent",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/0",
+          "reason": "The confirmed Actor Type examples explicitly include AI Agent."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 39,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025",
+          "span_sha256": "bd7e3043126cb3e5b3e459995580cd14a86ca8258bd2876428495ed291a2177c",
+          "start_line": 25
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md#subjects.depends_on[1]",
+      "old_value": "AI Agent",
+      "preserved_distinctions": [
+        "AI Agent remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: AI Agent",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1551's current Main Content ('Reserve Principle-conflict resolution to the Operator') explicitly uses AI Agent as a source role. The confirmed Actor identity and Type example support Actor.Type: AI Agent; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1551",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+      "source_sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025",
+      "source_version": 4
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/AI Agent",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/0",
+          "reason": "The confirmed Actor Type examples explicitly include AI Agent."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 34,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961",
+          "span_sha256": "c1fadb18dbd7196ea9ee6eb28ddbe378014588eb672dee63407b4ea3fcb1020b",
+          "start_line": 22
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md#subjects.depends_on[0]",
+      "old_value": "AI Agent",
+      "preserved_distinctions": [
+        "AI Agent remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: AI Agent",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1552's current Main Content ('Require active delegation for AI Agent actions') explicitly uses AI Agent as a source role. The confirmed Actor identity and Type example support Actor.Type: AI Agent; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1552",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+      "source_sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961",
+      "source_version": 4
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 34,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961",
+          "span_sha256": "c1fadb18dbd7196ea9ee6eb28ddbe378014588eb672dee63407b4ea3fcb1020b",
+          "start_line": 22
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md#subjects.depends_on[1]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1552's current Main Content ('Require active delegation for AI Agent actions') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1552",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+      "source_sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961",
+      "source_version": 4
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/AI Agent",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/0",
+          "reason": "The confirmed Actor Type examples explicitly include AI Agent."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 39,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd",
+          "span_sha256": "97ff6485edbe1bd8fb1676d50b2f2de7a078edcabaaabc6fbc0c87c999ecf11a",
+          "start_line": 21
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md#subjects.depends_on[1]",
+      "old_value": "AI Agent",
+      "preserved_distinctions": [
+        "AI Agent remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: AI Agent",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1554's current Main Content ('Bound Scripted Migrations') explicitly uses AI Agent as a source role. The confirmed Actor identity and Type example support Actor.Type: AI Agent; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1554",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+      "source_sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd",
+      "source_version": 4
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/AI Agent",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/0",
+          "reason": "The confirmed Actor Type examples explicitly include AI Agent."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 38,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563",
+          "span_sha256": "03473b806c8b484905920a69ff6d10e7420cf908f32f589d34ff1d369dd9b084",
+          "start_line": 21
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md#subjects.depends_on[0]",
+      "old_value": "AI Agent",
+      "preserved_distinctions": [
+        "AI Agent remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: AI Agent",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1555's current Main Content ('Govern CA execution gates') explicitly uses AI Agent as a source role. The confirmed Actor identity and Type example support Actor.Type: AI Agent; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1555",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+      "source_sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563",
+      "source_version": 5
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 38,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563",
+          "span_sha256": "03473b806c8b484905920a69ff6d10e7420cf908f32f589d34ff1d369dd9b084",
+          "start_line": 21
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md#subjects.depends_on[1]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1555's current Main Content ('Govern CA execution gates') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1555",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+      "source_sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563",
+      "source_version": 5
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/AI Agent",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/0",
+          "reason": "The confirmed Actor Type examples explicitly include AI Agent."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "430b66d1c976adec032d6f9e13551c9019abe0df3f7794110436640acf3b5d79",
+          "span_sha256": "c477a8b08401b349851206d8f096c3a98bb0d8a2a6976ce8698cf93ff99dba8f",
+          "start_line": 23
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md#subjects.depends_on[0]",
+      "old_value": "AI Agent",
+      "preserved_distinctions": [
+        "AI Agent remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: AI Agent",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1556's current Main Content ('Keep Analysis optional before specification') explicitly uses AI Agent as a source role. The confirmed Actor identity and Type example support Actor.Type: AI Agent; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1556",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md",
+      "source_sha256": "430b66d1c976adec032d6f9e13551c9019abe0df3f7794110436640acf3b5d79",
+      "source_version": 5
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "430b66d1c976adec032d6f9e13551c9019abe0df3f7794110436640acf3b5d79",
+          "span_sha256": "c477a8b08401b349851206d8f096c3a98bb0d8a2a6976ce8698cf93ff99dba8f",
+          "start_line": 23
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md#subjects.depends_on[1]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1556's current Main Content ('Keep Analysis optional before specification') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1556",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md",
+      "source_sha256": "430b66d1c976adec032d6f9e13551c9019abe0df3f7794110436640acf3b5d79",
+      "source_version": 5
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/AI Agent",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/0",
+          "reason": "The confirmed Actor Type examples explicitly include AI Agent."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416",
+          "span_sha256": "ca535e5b7a1eb7e3692bb66d789b378fca2fff5c2bdd90481f0719bcd59438fc",
+          "start_line": 21
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md#subjects.depends_on[0]",
+      "old_value": "AI Agent",
+      "preserved_distinctions": [
+        "AI Agent remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: AI Agent",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1557's current Main Content ('Keep conflict discovery in Exploration Mode') explicitly uses AI Agent as a source role. The confirmed Actor identity and Type example support Actor.Type: AI Agent; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1557",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+      "source_sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416",
+      "source_version": 5
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416",
+          "span_sha256": "ca535e5b7a1eb7e3692bb66d789b378fca2fff5c2bdd90481f0719bcd59438fc",
+          "start_line": 21
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md#subjects.depends_on[1]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1557's current Main Content ('Keep conflict discovery in Exploration Mode') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1557",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+      "source_sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416",
+      "source_version": 5
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/AI Agent",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/0",
+          "reason": "The confirmed Actor Type examples explicitly include AI Agent."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 40,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5",
+          "span_sha256": "9fb05c733ac5158f59fabc6b3dc67ee04963fdac896996ede32b44fdb47ebf97",
+          "start_line": 22
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md#subjects.depends_on[0]",
+      "old_value": "AI Agent",
+      "preserved_distinctions": [
+        "AI Agent remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: AI Agent",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1558's current Main Content ('Route questions and ideas through Exploration Mode') explicitly uses AI Agent as a source role. The confirmed Actor identity and Type example support Actor.Type: AI Agent; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1558",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+      "source_sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5",
+      "source_version": 4
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 40,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5",
+          "span_sha256": "9fb05c733ac5158f59fabc6b3dc67ee04963fdac896996ede32b44fdb47ebf97",
+          "start_line": 22
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md#subjects.depends_on[1]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1558's current Main Content ('Route questions and ideas through Exploration Mode') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1558",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+      "source_sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5",
+      "source_version": 4
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 51,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+          "span_sha256": "5574224837c2a96253d87cdffa0886f5b3e8f020d6969e264e5cdac5da44f919",
+          "start_line": 31
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md#subjects.depends_on[1]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1559's current Main Content ('Gate governing Atom changes during implementation') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1559",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+      "source_sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+      "source_version": 5
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/AI Agent",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/0",
+          "reason": "The confirmed Actor Type examples explicitly include AI Agent."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 51,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+          "reason": "The complete current Main Content supplies the owning live Actor-policy context for this corrective overlay.",
+          "sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+          "span_sha256": "5574224837c2a96253d87cdffa0886f5b3e8f020d6969e264e5cdac5da44f919",
+          "start_line": 31
+        },
+        {
+          "end_line": 49,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+          "reason": "The current Claim explicitly contrasts Operator-authored and AI-authored Atom changes within one Actor policy, establishing the role distinction without identifying any individual Actor.",
+          "sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+          "span_sha256": "e52f18f7d11a8f335a772aebe5a9d975da829698a64f30cc228feea5dabe5e23",
+          "start_line": 39
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md#subjects.depends_on[2]",
+      "old_value": "AI Agent",
+      "preserved_distinctions": [
+        "AI Agent remains a source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: AI Agent",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1559's current Claim explicitly contrasts Operator-authored and AI-authored Atom changes under one Actor policy. Together with the exact baseline AI Agent Subject and the confirmed Actor Type example, that establishes Actor.Type: AI Agent without inferring an individual Actor Name; the prior Actor slash value falsely treated the role as a narrower kind.",
+      "source_atom_id": "CA-R-1559",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+      "source_sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+      "source_version": 5
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/AI Agent",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/0",
+          "reason": "The confirmed Actor Type examples explicitly include AI Agent."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+          "span_sha256": "df41502d38e28cb0f78c9c542f84587024f922816e2b8870d9e79f15883ef468",
+          "start_line": 25
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md#subjects.depends_on[0]",
+      "old_value": "AI Agent",
+      "preserved_distinctions": [
+        "AI Agent remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: AI Agent",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1561's current Main Content ('Let AI Agents resolve Concerns under bounded authority') explicitly uses AI Agent as a source role. The confirmed Actor identity and Type example support Actor.Type: AI Agent; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1561",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+      "source_sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+      "source_version": 4
+    },
+    {
+      "baseline_confidence": 0.92,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-014",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-014.review.json",
+        "originating_review_sha256": "39a74342f2c041a9ddb9b60007dcb3c3c1ada977428d0132e6d6d8e29e9871f4",
+        "task_id": "CA-P-2005"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+          "span_sha256": "df41502d38e28cb0f78c9c542f84587024f922816e2b8870d9e79f15883ef468",
+          "start_line": 25
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md#subjects.depends_on[3]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-1561's current Main Content ('Let AI Agents resolve Concerns under bounded authority') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-1561",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+      "source_sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+      "source_version": 4
+    },
+    {
+      "baseline_confidence": 0.95,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-024",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-024.review.json",
+        "originating_review_sha256": "79749875ce1f4786ec0130fe0d45f1d513a16855b80515587915132b3c1298b8",
+        "task_id": "CA-P-2015"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "2d10306800cba3cd68d1be8bb698925c976dee96ef7a2692793427c2beb93770",
+          "span_sha256": "4e9cc66b1f94270b359aa6966d54ef5ca0f970eeeec23d90af559dabcbff1ce9",
+          "start_line": 24
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md#subjects.depends_on[2]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-380's current Main Content ('Configure the semantic-resolution confidence default') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-380",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md",
+      "source_sha256": "2d10306800cba3cd68d1be8bb698925c976dee96ef7a2692793427c2beb93770",
+      "source_version": 24
+    },
+    {
+      "baseline_confidence": 0.96,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-025",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-025.review.json",
+        "originating_review_sha256": "82a9387d19f067c1acaf7087ddfabcb601beb74ed9451a09241f7f90a5ea6c48",
+        "task_id": "CA-P-2016"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "b2e38a54c68d7e5f75e1905de7c1e095d9aa15da83d0810bde5e0a2833bff198",
+          "span_sha256": "17abcbb5f79cbe00ff33ae922efb1ff077a56f1644a05551d6dbc8e2a15076b5",
+          "start_line": 19
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md#subjects.depends_on[0]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-852's current Main Content ('Encode Bounded AI Agent Delegation') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-852",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md",
+      "source_sha256": "b2e38a54c68d7e5f75e1905de7c1e095d9aa15da83d0810bde5e0a2833bff198",
+      "source_version": 16
+    },
+    {
+      "baseline_confidence": 0.96,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-025",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-025.review.json",
+        "originating_review_sha256": "82a9387d19f067c1acaf7087ddfabcb601beb74ed9451a09241f7f90a5ea6c48",
+        "task_id": "CA-P-2016"
+      },
+      "baseline_proposed_value": "Actor/AI Agent",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/0",
+          "reason": "The confirmed Actor Type examples explicitly include AI Agent."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 31,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md",
+          "reason": "The complete current Main Content explicitly establishes AI Agent as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "b2e38a54c68d7e5f75e1905de7c1e095d9aa15da83d0810bde5e0a2833bff198",
+          "span_sha256": "17abcbb5f79cbe00ff33ae922efb1ff077a56f1644a05551d6dbc8e2a15076b5",
+          "start_line": 19
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md#subjects.depends_on[1]",
+      "old_value": "AI Agent",
+      "preserved_distinctions": [
+        "AI Agent remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: AI Agent",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-852's current Main Content ('Encode Bounded AI Agent Delegation') explicitly uses AI Agent as a source role. The confirmed Actor identity and Type example support Actor.Type: AI Agent; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-852",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md",
+      "source_sha256": "b2e38a54c68d7e5f75e1905de7c1e095d9aa15da83d0810bde5e0a2833bff198",
+      "source_version": 16
+    },
+    {
+      "baseline_confidence": 0.96,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-025",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-025.review.json",
+        "originating_review_sha256": "82a9387d19f067c1acaf7087ddfabcb601beb74ed9451a09241f7f90a5ea6c48",
+        "task_id": "CA-P-2016"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "b30004bd089ff143193ab7175b7bc3174e7c3eabc4d75617c51b240a14686e22",
+          "span_sha256": "e7dc545a9235e604e86df30240bc669feab7a2f2119435f6b3636c1d22a210fb",
+          "start_line": 25
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md#subjects.depends_on[4]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-927's current Main Content ('Let Operators Define Project Goals') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-927",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md",
+      "source_sha256": "b30004bd089ff143193ab7175b7bc3174e7c3eabc4d75617c51b240a14686e22",
+      "source_version": 22
+    },
+    {
+      "baseline_confidence": 0.93,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-026",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-026.review.json",
+        "originating_review_sha256": "610dcdeebbf3c37e4142fcdc63803c82630d2922338d9233377123c5c70178fa",
+        "task_id": "CA-P-2017"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+          "span_sha256": "f6a37ced2321dbd6b96ca34d7eb4601c9a01afe099f44a0feff437444697b6dd",
+          "start_line": 21
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md#subjects.depends_on[2]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-972's current Main Content ('Define Scope Unit Label') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-972",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+      "source_sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+      "source_version": 18
+    },
+    {
+      "baseline_confidence": 0.95,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-027",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-027.review.json",
+        "originating_review_sha256": "07bff7c2a88cab85ac9c0c8ea985e00be2820c5abdb60db74dd4261d9f22d86e",
+        "task_id": "CA-P-2018"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+          "span_sha256": "e098d5e9fafb800061eb569bdc1eaecc9b2d388c8578774388d789e468f16413",
+          "start_line": 21
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md#subjects.depends_on[0]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-978's current Main Content ('Define Navigational Order Number') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-978",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+      "source_sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+      "source_version": 17
+    },
+    {
+      "baseline_confidence": 0.95,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-027",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-027.review.json",
+        "originating_review_sha256": "07bff7c2a88cab85ac9c0c8ea985e00be2820c5abdb60db74dd4261d9f22d86e",
+        "task_id": "CA-P-2018"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 33,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+          "span_sha256": "27fa0b52f6810c78830435290d355f0c9f6eb2af9dc0fcbae7bdc4fc2eee204c",
+          "start_line": 21
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md#subjects.depends_on[0]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-982's current Main Content ('Let the Operator Override Scope Unit Label') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-982",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+      "source_sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+      "source_version": 15
+    },
+    {
+      "baseline_confidence": 0.95,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-027",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-027.review.json",
+        "originating_review_sha256": "07bff7c2a88cab85ac9c0c8ea985e00be2820c5abdb60db74dd4261d9f22d86e",
+        "task_id": "CA-P-2018"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 30,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4",
+          "span_sha256": "182377651170ebd3f248979a2b92d2ac9f34fdd102bdf93dc42be05b94104b70",
+          "start_line": 18
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md#subjects.depends_on[0]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-R-983's current Main Content ('Let the Operator Override Navigational Order Number') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-R-983",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+      "source_sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4",
+      "source_version": 14
+    },
+    {
+      "baseline_confidence": 0.96,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-030",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-030.review.json",
+        "originating_review_sha256": "6f449962379ad2aa0e7e6a4ba31e1e268d7e1fc1c79a424166a71e591eb55307",
+        "task_id": "CA-P-2021"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 41,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "42bac0554e085881c7902a8477792c052a4abda9c8538efc0751410f71044aac",
+          "span_sha256": "557c1e7d60ddd2c68b30f62ee1b10805997af3cd77616f03836b0b6111c59420",
+          "start_line": 24
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md#subjects.depends_on[3]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-M-304's current Main Content ('Write self-contained agentic Action instructions') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-M-304",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md",
+      "source_sha256": "42bac0554e085881c7902a8477792c052a4abda9c8538efc0751410f71044aac",
+      "source_version": 4
+    },
+    {
+      "baseline_confidence": 0.96,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-030",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-030.review.json",
+        "originating_review_sha256": "6f449962379ad2aa0e7e6a4ba31e1e268d7e1fc1c79a424166a71e591eb55307",
+        "task_id": "CA-P-2021"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 55,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+          "span_sha256": "2b5a336859025130d21d96255c5ab2a4d68512641b59e0e02d12c1fedbd8be5f",
+          "start_line": 32
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md#subjects.depends_on[0]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-207's current Main Content ('Evaluate priority-governed alternative selection') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-E-207",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+      "source_sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+      "source_version": 13
+    },
+    {
+      "baseline_confidence": 0.96,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-030",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-030.review.json",
+        "originating_review_sha256": "6f449962379ad2aa0e7e6a4ba31e1e268d7e1fc1c79a424166a71e591eb55307",
+        "task_id": "CA-P-2021"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 55,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498",
+          "span_sha256": "6c485958ad1e1b0ceeced90154318fc5176c3fa0536fd9d7ae54721e878253f1",
+          "start_line": 27
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 7,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md#subjects.depends_on[7]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-240's current Main Content ('Validate Atom Scope **and** Claim Scope') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-E-240",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+      "source_sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498",
+      "source_version": 30
+    },
+    {
+      "baseline_confidence": 0.96,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-030",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-030.review.json",
+        "originating_review_sha256": "6f449962379ad2aa0e7e6a4ba31e1e268d7e1fc1c79a424166a71e591eb55307",
+        "task_id": "CA-P-2021"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 50,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955",
+          "span_sha256": "5b885dae23d4631e435557bce76f1c0d4383ba11c7de27c789c5b712cf09aab6",
+          "start_line": 26
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md#subjects.depends_on[4]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-241's current Main Content ('Validate CCE Claims and derived Projections') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-E-241",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+      "source_sha256": "14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955",
+      "source_version": 22
+    },
+    {
+      "baseline_confidence": 0.95,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-031",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-031.review.json",
+        "originating_review_sha256": "00acef4381453a02189c619ed1cf599e468bec76d7ad1e3cc8fb995417e1f48d",
+        "task_id": "CA-P-2022"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "fcb2658717a91add097f34751c89d54f03a047442031ee7cf79e89c9f817d965",
+          "span_sha256": "46303f70354b53b316f0c192b4d653739d0d8e8c5d494020bdc42f74a2469bfb",
+          "start_line": 24
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md#subjects.depends_on[4]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-249's current Main Content ('Evaluate methodology expansion mappings') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-E-249",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+      "source_sha256": "fcb2658717a91add097f34751c89d54f03a047442031ee7cf79e89c9f817d965",
+      "source_version": 12
+    },
+    {
+      "baseline_confidence": 0.95,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-031",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-031.review.json",
+        "originating_review_sha256": "00acef4381453a02189c619ed1cf599e468bec76d7ad1e3cc8fb995417e1f48d",
+        "task_id": "CA-P-2022"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 71,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023",
+          "span_sha256": "366de79e0a541fb56b37777de55c331e7e5b255e9bf9b116d879fa51efae9977",
+          "start_line": 37
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 8,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md#subjects.depends_on[8]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-379's current Main Content ('Validate Applicable Methodology Compilation') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-E-379",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+      "source_sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023",
+      "source_version": 21
+    },
+    {
+      "baseline_confidence": 0.95,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-033",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-033.review.json",
+        "originating_review_sha256": "f9f60191bcffe030be5bea91e33c504dd4f8d6ede28a6b01e11f4e39b0b5466d",
+        "task_id": "CA-P-2024"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.0,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 61,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-471-CORE_META_MODEL-EVALUATION_APPROACH--validate-structural-change-cutover.md",
+          "reason": "The complete current Main Content does not establish Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "1718ae5ac2b7359c74b1d6c17b15b84fdbc2ca36c3f390961324716431d31c8d",
+          "span_sha256": "8ca44a82cc9a4c5ca0324c9578ca4cab9bc1f68ed698580aee6c4ca3576b8de4",
+          "start_line": 31
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-471-CORE_META_MODEL-EVALUATION_APPROACH--validate-structural-change-cutover.md#subjects.depends_on[2]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "The baseline Actor role remains tracked without converting it into a narrower Actor kind.",
+        "No Actor Type, individual Actor Name, Actor ID, delegation, or permission is invented from missing current evidence.",
+        "This is unresolved research, not an Operator decision request or an executable change."
+      ],
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-471's current Main Content ('Validate structural change cutover') does not establish Operator as its Actor role. The old baseline Subject alone cannot supply current meaning, so no Actor Type or instance Name is inferred.",
+      "source_atom_id": "CA-E-471",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-471-CORE_META_MODEL-EVALUATION_APPROACH--validate-structural-change-cutover.md",
+      "source_sha256": "1718ae5ac2b7359c74b1d6c17b15b84fdbc2ca36c3f390961324716431d31c8d",
+      "source_version": 7
+    },
+    {
+      "baseline_confidence": 0.95,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-033",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-033.review.json",
+        "originating_review_sha256": "f9f60191bcffe030be5bea91e33c504dd4f8d6ede28a6b01e11f4e39b0b5466d",
+        "task_id": "CA-P-2024"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 64,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-473-CORE_META_MODEL-QA_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "0e7ea664a2466237d9a42a983e36805316c23066c6cf74b9d612b3fc8a56d605",
+          "span_sha256": "54b91262ea90a3f96e3175943d87877ae98e43005515f8dd917316fdc22f4fb8",
+          "start_line": 30
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-473-CORE_META_MODEL-QA_CASE--validate-implementation-retry-limit-resolution-and-accounting.md#subjects.depends_on[3]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-473's current Main Content ('Validate implementation retry-limit resolution and accounting') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-E-473",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-473-CORE_META_MODEL-QA_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+      "source_sha256": "0e7ea664a2466237d9a42a983e36805316c23066c6cf74b9d612b3fc8a56d605",
+      "source_version": 10
+    },
+    {
+      "baseline_confidence": 0.95,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-033",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-033.review.json",
+        "originating_review_sha256": "f9f60191bcffe030be5bea91e33c504dd4f8d6ede28a6b01e11f4e39b0b5466d",
+        "task_id": "CA-P-2024"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 60,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "5393c69f1cbb00a0d5c4366c5ca848a334d782ae251c7c98096ce5adcff9b232",
+          "span_sha256": "665af578a7597a96dfdc0c0a8fd8a5e3bb5ffcb953b6fe83f42b61979c872715",
+          "start_line": 33
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 7,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md#subjects.depends_on[7]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-477's current Main Content ('Validate gap-free RMEDO conflict resolution') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-E-477",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md",
+      "source_sha256": "5393c69f1cbb00a0d5c4366c5ca848a334d782ae251c7c98096ce5adcff9b232",
+      "source_version": 5
+    },
+    {
+      "baseline_confidence": 0.94,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-034",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-034.review.json",
+        "originating_review_sha256": "43eb614f49e23577d6da15dfacf99f4d27a6cfc07da306287583f060fce821c3",
+        "task_id": "CA-P-2025"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.0,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 48,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-QA_CASE--validate-workflow-execution-and-handoff-definitions.md",
+          "reason": "The complete current Main Content does not establish Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "649fc2ca1ffca21d2aeceb31611f41a06fe7dc2627644241fdabc540acaeeae1",
+          "span_sha256": "8addcdf7f2c23f4c97bb8a327035391a6de6db71049e7b06544826b9974e7e46",
+          "start_line": 24
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-QA_CASE--validate-workflow-execution-and-handoff-definitions.md#subjects.depends_on[5]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "The baseline Actor role remains tracked without converting it into a narrower Actor kind.",
+        "No Actor Type, individual Actor Name, Actor ID, delegation, or permission is invented from missing current evidence.",
+        "This is unresolved research, not an Operator decision request or an executable change."
+      ],
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-489's current Main Content ('Validate Workflow execution and handoff definitions') does not establish Operator as its Actor role. The old baseline Subject alone cannot supply current meaning, so no Actor Type or instance Name is inferred.",
+      "source_atom_id": "CA-E-489",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-QA_CASE--validate-workflow-execution-and-handoff-definitions.md",
+      "source_sha256": "649fc2ca1ffca21d2aeceb31611f41a06fe7dc2627644241fdabc540acaeeae1",
+      "source_version": 5
+    },
+    {
+      "baseline_confidence": 0.94,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-034",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-034.review.json",
+        "originating_review_sha256": "43eb614f49e23577d6da15dfacf99f4d27a6cfc07da306287583f060fce821c3",
+        "task_id": "CA-P-2025"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.0,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 49,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md",
+          "reason": "The complete current Main Content does not establish Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "687b3d30d85e0ca910a82f6688bc0f14dc3424f25f48ba8ac444d644f226ddc6",
+          "span_sha256": "ab73898e0884f4a6b3f6252b9c52957b24db4f770ccfeafc7c997b61bd36919d",
+          "start_line": 27
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 8,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md#subjects.depends_on[8]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "The baseline Actor role remains tracked without converting it into a narrower Actor kind.",
+        "No Actor Type, individual Actor Name, Actor ID, delegation, or permission is invented from missing current evidence.",
+        "This is unresolved research, not an Operator decision request or an executable change."
+      ],
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-491's current Main Content ('Validate update-to-replacement routing') does not establish Operator as its Actor role. The old baseline Subject alone cannot supply current meaning, so no Actor Type or instance Name is inferred.",
+      "source_atom_id": "CA-E-491",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md",
+      "source_sha256": "687b3d30d85e0ca910a82f6688bc0f14dc3424f25f48ba8ac444d644f226ddc6",
+      "source_version": 5
+    },
+    {
+      "baseline_confidence": 0.94,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-034",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-034.review.json",
+        "originating_review_sha256": "43eb614f49e23577d6da15dfacf99f4d27a6cfc07da306287583f060fce821c3",
+        "task_id": "CA-P-2025"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.0,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 46,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-494-CORE_META_MODEL-QA_CASE--validate-workflow-run-definition-bindings.md",
+          "reason": "The complete current Main Content does not establish Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "55b1d6c759133d0166335e5bb43bbe061cff344ed71bb44af5e8a2f0f861f3b0",
+          "span_sha256": "ecb484a09bc99a27a5b79c388a3a6e4fbccdb8523c987b3e5d0a72560f20d9c4",
+          "start_line": 25
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-494-CORE_META_MODEL-QA_CASE--validate-workflow-run-definition-bindings.md#subjects.depends_on[6]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "The baseline Actor role remains tracked without converting it into a narrower Actor kind.",
+        "No Actor Type, individual Actor Name, Actor ID, delegation, or permission is invented from missing current evidence.",
+        "This is unresolved research, not an Operator decision request or an executable change."
+      ],
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-494's current Main Content ('Validate Workflow Run definition bindings') does not establish Operator as its Actor role. The old baseline Subject alone cannot supply current meaning, so no Actor Type or instance Name is inferred.",
+      "source_atom_id": "CA-E-494",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-494-CORE_META_MODEL-QA_CASE--validate-workflow-run-definition-bindings.md",
+      "source_sha256": "55b1d6c759133d0166335e5bb43bbe061cff344ed71bb44af5e8a2f0f861f3b0",
+      "source_version": 5
+    },
+    {
+      "baseline_confidence": 0.94,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-034",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-034.review.json",
+        "originating_review_sha256": "43eb614f49e23577d6da15dfacf99f4d27a6cfc07da306287583f060fce821c3",
+        "task_id": "CA-P-2025"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 46,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-QA_CASE--validate-action-kinds-and-step-contexts.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "4c986410371e9625333364147ca0dfec120378ec5d61c525cc69e99be53512f5",
+          "span_sha256": "13646b61265362aaabb63badaea36b78189c75e9f6b666e7fd8011073e31768c",
+          "start_line": 24
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-QA_CASE--validate-action-kinds-and-step-contexts.md#subjects.depends_on[5]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-495's current Main Content ('Validate Action kinds and Step contexts') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-E-495",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-QA_CASE--validate-action-kinds-and-step-contexts.md",
+      "source_sha256": "4c986410371e9625333364147ca0dfec120378ec5d61c525cc69e99be53512f5",
+      "source_version": 4
+    },
+    {
+      "baseline_confidence": 0.94,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-034",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-034.review.json",
+        "originating_review_sha256": "43eb614f49e23577d6da15dfacf99f4d27a6cfc07da306287583f060fce821c3",
+        "task_id": "CA-P-2025"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.0,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 45,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-QA_CASE--validate-self-contained-agentic-invocations.md",
+          "reason": "The complete current Main Content does not establish Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "17de1ecc22b82359e2ebf18c4a3c447de634dd1fd169a79b2a36b059c6da5a60",
+          "span_sha256": "b821cc5baa23dab2bc6e1dc875c176cdae9f4da6afb9f5af1da94c1b199d0f01",
+          "start_line": 24
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-QA_CASE--validate-self-contained-agentic-invocations.md#subjects.depends_on[4]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "The baseline Actor role remains tracked without converting it into a narrower Actor kind.",
+        "No Actor Type, individual Actor Name, Actor ID, delegation, or permission is invented from missing current evidence.",
+        "This is unresolved research, not an Operator decision request or an executable change."
+      ],
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-E-497's current Main Content ('Validate self-contained agentic invocations') does not establish Operator as its Actor role. The old baseline Subject alone cannot supply current meaning, so no Actor Type or instance Name is inferred.",
+      "source_atom_id": "CA-E-497",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-QA_CASE--validate-self-contained-agentic-invocations.md",
+      "source_sha256": "17de1ecc22b82359e2ebf18c4a3c447de634dd1fd169a79b2a36b059c6da5a60",
+      "source_version": 4
+    },
+    {
+      "baseline_confidence": 0.95,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-040",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-040.review.json",
+        "originating_review_sha256": "1090f7cf627c076e254981992691fb4ffc8504a85fe258c3d05fbe6422b29805",
+        "task_id": "CA-P-2031"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "404da79b6bb14e62c88ad5409b1f1947f907acf5812fd1b8ca3a53ce18e7c5d7",
+          "span_sha256": "abc531abc7dbc3833d886c4795c9e76976dd3774f3e9f7cf3879be81f9e46652",
+          "start_line": 25
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md#subjects.depends_on[3]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-D-375's current Main Content ('Serialize Project initialization identity') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-D-375",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md",
+      "source_sha256": "404da79b6bb14e62c88ad5409b1f1947f907acf5812fd1b8ca3a53ce18e7c5d7",
+      "source_version": 9
+    },
+    {
+      "baseline_confidence": 0.95,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-040",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-040.review.json",
+        "originating_review_sha256": "1090f7cf627c076e254981992691fb4ffc8504a85fe258c3d05fbe6422b29805",
+        "task_id": "CA-P-2031"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.95,
+      "decision": "proposed",
+      "evidence": [
+        {
+          "end_line": 34,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md",
+          "reason": "The complete current Main Content explicitly establishes Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "a8a1e395a50127fcc7ab120f2d4ca0d33c1176f35793cbaf218b6643bfdba46b",
+          "span_sha256": "5f1251992eff8c74efa144987da0d87a1836d73c54f290ef89e5bfc9f422fd31",
+          "start_line": 22
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md#subjects.depends_on[2]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "Operator remains the source-established Actor Type, not a narrower Actor kind.",
+        "No individual Actor Name, Actor ID, delegation, or permission is invented.",
+        "This is a non-executable candidate overlay; the current source remains unchanged."
+      ],
+      "proposed_value": "Actor.Type: Operator",
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-D-376's current Main Content ('Serialize the Project Atom prefix') explicitly uses Operator as a source role. The confirmed Actor identity and Type example support Actor.Type: Operator; the prior Actor slash value falsely treated that role as a narrower kind. No individual Actor Name is inferred.",
+      "source_atom_id": "CA-D-376",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md",
+      "source_sha256": "a8a1e395a50127fcc7ab120f2d4ca0d33c1176f35793cbaf218b6643bfdba46b",
+      "source_version": 8
+    },
+    {
+      "baseline_confidence": 0.95,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-040",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-040.review.json",
+        "originating_review_sha256": "1090f7cf627c076e254981992691fb4ffc8504a85fe258c3d05fbe6422b29805",
+        "task_id": "CA-P-2031"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.0,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 37,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md",
+          "reason": "The complete current Main Content does not establish Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "1ae8e1df0c2eeb193b37fa1953b3761b8a2c4247fb7f250c7958c344b466f0ae",
+          "span_sha256": "ba3b7090acde35038013713d4cda923058969897f2a2a73a0e0f1b77cd009b30",
+          "start_line": 25
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md#subjects.depends_on[1]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "The baseline Actor role remains tracked without converting it into a narrower Actor kind.",
+        "No Actor Type, individual Actor Name, Actor ID, delegation, or permission is invented from missing current evidence.",
+        "This is unresolved research, not an Operator decision request or an executable change."
+      ],
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-D-383's current Main Content ('Serialize Interaction Reporting Mode') does not establish Operator as its Actor role. The old baseline Subject alone cannot supply current meaning, so no Actor Type or instance Name is inferred.",
+      "source_atom_id": "CA-D-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md",
+      "source_sha256": "1ae8e1df0c2eeb193b37fa1953b3761b8a2c4247fb7f250c7958c344b466f0ae",
+      "source_version": 11
+    },
+    {
+      "baseline_confidence": 0.93,
+      "baseline_decision": "proposed",
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-041",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-041.review.json",
+        "originating_review_sha256": "9674be8e230e274ce2c8411a5a70d8b9243ffc18bc53353be71f75c5b1766551",
+        "task_id": "CA-P-2032"
+      },
+      "baseline_proposed_value": "Actor/Operator",
+      "candidate_basis": [
+        {
+          "pointer": "#/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name, so a generic role does not create or require an individual Actor Name."
+        },
+        {
+          "pointer": "#/entity_identity_model/actor/type_examples/1",
+          "reason": "The confirmed Actor Type examples explicitly include Operator."
+        },
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The confirmed generic rule keeps a qualified Property as a dependent Entity rather than treating the role as a narrower root kind."
+        },
+        {
+          "pointer": "#/entity_identity_model/dependent_entity/identity",
+          "reason": "The confirmed dependent-Entity rule supports an owner-qualified field identity without requiring an already printed display string."
+        }
+      ],
+      "confidence": 0.0,
+      "decision": "unresolved",
+      "evidence": [
+        {
+          "end_line": 36,
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-444-CORE_META_MODEL-STANDARD--separate-candidate-project-structure-from-active-authority.md",
+          "reason": "The complete current Main Content does not establish Operator as the source's Actor role; it is the owning live evidence for this corrective overlay.",
+          "sha256": "18651eac6973724eacc0f5034fd7742b848dddb7560dcc4d858a718d7042e95a",
+          "span_sha256": "06a92fe8f6abb6d60883dc1de22123985574605a91b6007f81fda16a900331b2",
+          "start_line": 24
+        }
+      ],
+      "executable": false,
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-444-CORE_META_MODEL-STANDARD--separate-candidate-project-structure-from-active-authority.md#subjects.depends_on[2]",
+      "old_value": "Operator",
+      "preserved_distinctions": [
+        "The baseline Actor role remains tracked without converting it into a narrower Actor kind.",
+        "No Actor Type, individual Actor Name, Actor ID, delegation, or permission is invented from missing current evidence.",
+        "This is unresolved research, not an Operator decision request or an executable change."
+      ],
+      "proposed_value": null,
+      "quarantined": false,
+      "question": null,
+      "reason": "CA-D-444's current Main Content ('Separate candidate Project Structure from active authority') does not establish Operator as its Actor role. The old baseline Subject alone cannot supply current meaning, so no Actor Type or instance Name is inferred.",
+      "source_atom_id": "CA-D-444",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-444-CORE_META_MODEL-STANDARD--separate-candidate-project-structure-from-active-authority.md",
+      "source_sha256": "18651eac6973724eacc0f5034fd7742b848dddb7560dcc4d858a718d7042e95a",
+      "source_version": 6
+    }
+  ],
+  "schema_version": 1,
+  "scope": "CA-P-2058 derived corrective overlay for baseline Actor Type candidate forms only; no source change, semantic acceptance, grammar adoption, native admission, or migration authorization.",
+  "selection": {
+    "baseline_predicates": [
+      {
+        "baseline_proposed_value": "Actor/Operator",
+        "count": 33,
+        "old_value": "Operator"
+      },
+      {
+        "baseline_proposed_value": "Actor/AI Agent",
+        "count": 10,
+        "old_value": "AI Agent"
+      }
+    ],
+    "occurrence_count": 43,
+    "occurrence_id_sha256": "b82b2ff3c39511926cb35ea380735f75051e5d05433bfaa3ce21143307e48f8c",
+    "source_count": 34
+  },
+  "source_migration": "not_performed",
+  "task_id": "CA-P-2058"
+}

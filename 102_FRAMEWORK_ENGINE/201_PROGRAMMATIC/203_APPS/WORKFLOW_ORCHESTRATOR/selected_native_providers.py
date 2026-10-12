@@ -3,13 +3,28 @@ from __future__ import annotations
 
 from collections.abc import Callable, Mapping
 from dataclasses import fields, is_dataclass
+import hashlib
+import importlib.util
 import json
 from pathlib import Path
+import subprocess
 import sys
+import tempfile
 from typing import Any
 
 from implementation_agent import ImplementationAgent
 from selected_execution import SelectedExecution, SelectedExecutionError, canonical_json, make_revert_action_handler
+
+
+class _SelectedPublicReleaseExecution(SelectedExecution):
+    """Use only the program-owned public executor for the D613-admitted route."""
+
+    def __init__(self, root: Path, provider: "SelectedNativeProviders", **kwargs: Any) -> None:
+        super().__init__(root, **kwargs)
+        self._provider = provider
+
+    def _execute_admitted_session(self, frozen: Mapping[str, Any], session: Any) -> Any:
+        return self._provider._dispatch_selected_public_release(self, frozen, session)
 
 
 class SelectedNativeProviders:
@@ -32,7 +47,8 @@ class SelectedNativeProviders:
     def execution(self, frozen: Mapping[str, Any]) -> SelectedExecution:
         """Build providers from the queue's frozen request, never ambient effects."""
         try:
-            parameters = json.loads(canonical_json(frozen["request"]["execution"].get("parameters")))
+            execution = frozen["request"]["execution"]
+            parameters = json.loads(canonical_json(execution.get("parameters")))
         except (KeyError, TypeError, ValueError) as error:
             raise SelectedExecutionError("native providers require the frozen selected execution") from error
 
@@ -59,10 +75,90 @@ class SelectedNativeProviders:
             return make_revert_action_handler(service)(context)
 
         handlers = {"CA-O-131": revert}
-        if frozen["request"]["execution"].get("operation_route") == "release_version":
+        route = execution.get("operation_route")
+        if route == "release_version":
             handlers.update(self._release_handlers(frozen, parameters))
-        return SelectedExecution(self.root, handlers=handlers,
-                                 implementation_agent=self.implementation_agent)
+        execution_class: type[SelectedExecution] = (
+            _SelectedPublicReleaseExecution if route == "public.release" else SelectedExecution
+        )
+        if execution_class is _SelectedPublicReleaseExecution:
+            return _SelectedPublicReleaseExecution(
+                self.root, self, handlers=handlers, implementation_agent=self.implementation_agent,
+            )
+        return SelectedExecution(self.root, handlers=handlers, implementation_agent=self.implementation_agent)
+
+    @staticmethod
+    def _public_graph_is_exact(graph: Mapping[str, Any]) -> bool:
+        expected = (
+            ("CA-O-189", "CA-O-190"), ("CA-O-191", "CA-O-192"),
+            ("CA-O-193", "CA-O-194"), ("CA-O-195", "CA-O-196"),
+            ("CA-O-197", "CA-O-198"),
+        )
+        workflow = graph.get("workflow")
+        steps = graph.get("steps")
+        if (graph.get("route") != "public.release" or graph.get("entry_step") != expected[0][0]
+                or not isinstance(workflow, Mapping) or workflow.get("atom_id") != "CA-O-188"
+                or graph.get("native_action_calls") != [] or not isinstance(steps, list)):
+            return False
+        pairs: list[tuple[object, object]] = []
+        for step in steps:
+            actions = step.get("actions") if isinstance(step, Mapping) else None
+            if not isinstance(actions, list) or len(actions) != 1 or not isinstance(actions[0], Mapping):
+                return False
+            pairs.append((step.get("atom_id"), actions[0].get("atom_id")))
+        return tuple(pairs) == expected
+
+    def _dispatch_selected_public_release(
+        self, selected: SelectedExecution, frozen: Mapping[str, Any], session: Any,
+    ) -> None:
+        """Refuse the retired selected-session path; use the direct MCP tool."""
+        raise SelectedExecutionError("public Release selected-session provider is disabled; use direct public.release")
+
+    def _project_release_module(self, kind: str) -> Any:
+        """Load this Project's helper without shadowing reusable proof modules."""
+        path = self.root / "PROJECT_TOOLS" / kind / "native_hooks.py"
+        if path.is_symlink() or not path.is_file() or path.resolve().parent != path.parent:
+            raise SelectedExecutionError("Project release helper is unavailable")
+        name = "_caprmedio_project_hooks_" + hashlib.sha256(str(path).encode()).hexdigest()
+        spec = importlib.util.spec_from_file_location(name, path)
+        if spec is None or spec.loader is None:
+            raise SelectedExecutionError("Project release helper cannot be loaded")
+        module = importlib.util.module_from_spec(spec)
+        sys.modules[name] = module
+        spec.loader.exec_module(module)
+        return module
+
+    def _public_release_changes(self) -> list[str]:
+        """Give the one text prompt current local release evidence, without fetch."""
+        changes: list[str] = []
+        commands = (
+            ("log", "--format=%h %s", "main..HEAD"),
+            ("diff", "--name-status", "main", "--", ".", ":(exclude)**/.env*", ":(exclude)**/*.env"),
+        )
+        for arguments in commands:
+            observed = subprocess.run(["git", "-C", str(self.root), *arguments],
+                                      capture_output=True, text=True, timeout=30, check=False)
+            if observed.returncode != 0 or len(observed.stdout.encode()) > 1024 * 1024:
+                raise SelectedExecutionError("public Release change list cannot be gathered completely")
+            changes.extend(line for line in observed.stdout.splitlines() if line)
+        if not changes:
+            raise SelectedExecutionError("public Release has no selected changes to describe")
+        return changes
+
+    def _public_release_prompt(self, root: Path, version: str, changes: Any) -> Mapping[str, Any]:
+        prompt_path = root / "PROJECT_TOOLS/PUBLIC_RELEASE/pr_description_prompt.md"
+        if prompt_path.is_symlink() or not prompt_path.is_file():
+            raise SelectedExecutionError("public Release prompt is unavailable")
+        # Text generation gets an empty read-only workspace, not write access
+        # to the Project or a snapshot of every unrelated artifact.
+        with tempfile.TemporaryDirectory(prefix="caprmedio-public-prompt-", ignore_cleanup_errors=True) as workspace:
+            response = self.implementation_agent(prompt_path.read_text(encoding="utf-8") +
+                "\nUse the transport envelope: result=complete, outputs contains exactly the three arrays, evidence=[], blockers=[].",
+                {"workspace": workspace, "version": version, "changes": changes})
+        if (not isinstance(response, Mapping) or response.get("result") != "complete"
+                or response.get("blockers") or not isinstance(response.get("outputs"), Mapping)):
+            raise SelectedExecutionError("public Release text prompt did not complete")
+        return response["outputs"]
 
     @staticmethod
     def _json_value(value: Any) -> Any:
@@ -305,12 +401,12 @@ class SelectedNativeProviders:
             extract_pending_recordings,
             load_release_checkpoint,
         )
-        from selected_routes import load_selected_manifest
+        from selected_routes import load_release_execution_manifest
         from workflow_run_support import RunExecutionSession
 
         execution = json.loads(canonical_json(frozen["request"]["execution"]))
         graph = json.loads(canonical_json(frozen.get("graph")))
-        admitted = load_selected_manifest(self.root)
+        admitted = load_release_execution_manifest(self.root)
         selected = SelectedExecution(self.root)
         current_graph = selected._revalidate(frozen)
         admissions = admitted.get("release_source_admissions")
@@ -533,6 +629,17 @@ class SelectedNativeProviders:
                 else:
                     return self._blocked("Release checkpoint reader returned an invalid checkpoint carrier")
                 private_session = session
+            # Bind only after the frozen graph, actual parent Run identities
+            # and any retained checkpoint have passed this provider's checks.
+            # This runtime authority is deliberately absent from the codec.
+            private_run.selected_action_session = session
+            if index == 0 and private_run.candidate is None:
+                from release_promotion import bind_selected_native_n_from_checkpoint
+
+                try:
+                    private_run.native_installed_n = bind_selected_native_n_from_checkpoint(self.root)
+                except Exception as error:
+                    return self._blocked(f"Release installed native N packet cannot be reopened: {error}")
             typed = SelectedReleaseActionContext(
                 str(self.root), workflow["run_id"], step["run_id"], action["run_id"],
                 workflow["run_id"], step["run_id"], pairs[index][0], pairs[index][1],

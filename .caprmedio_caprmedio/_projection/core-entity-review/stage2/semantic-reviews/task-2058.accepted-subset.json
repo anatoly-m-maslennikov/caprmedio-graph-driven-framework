@@ -1,0 +1,503 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-2058",
+  "input_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+      "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "sha256": "867e784ea0c58fef0c59f00048817fa47c90978ff54ca7ebb2c30b14d394b299"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2085.research.json",
+      "sha256": "ebfce47eb8ccd518c692021e1d413bed9b0e6f34e2cc30081964586bce32443d"
+    }
+  ],
+  "counts": {
+    "occurrences": 43,
+    "Operator": 33,
+    "AI Agent": 10,
+    "supported_candidates": 43,
+    "unresolved": 0
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-1551",
+      "source_version": 4,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+      "source_sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-R-1551",
+      "source_version": 4,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+      "source_sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025",
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-1552",
+      "source_version": 4,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+      "source_sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961",
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-R-1552",
+      "source_version": 4,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+      "source_sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-R-1554",
+      "source_version": 4,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+      "source_sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd",
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-1555",
+      "source_version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+      "source_sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563",
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-R-1555",
+      "source_version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+      "source_sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-1556",
+      "source_version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md",
+      "source_sha256": "430b66d1c976adec032d6f9e13551c9019abe0df3f7794110436640acf3b5d79",
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-R-1556",
+      "source_version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md",
+      "source_sha256": "430b66d1c976adec032d6f9e13551c9019abe0df3f7794110436640acf3b5d79",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-1557",
+      "source_version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+      "source_sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416",
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-R-1557",
+      "source_version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+      "source_sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-1558",
+      "source_version": 4,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+      "source_sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5",
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-R-1558",
+      "source_version": 4,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+      "source_sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-R-1559",
+      "source_version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+      "source_sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md#subjects.depends_on[2]",
+      "source_atom_id": "CA-R-1559",
+      "source_version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+      "source_sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-1561",
+      "source_version": 4,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+      "source_sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md#subjects.depends_on[3]",
+      "source_atom_id": "CA-R-1561",
+      "source_version": 4,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+      "source_sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md#subjects.depends_on[2]",
+      "source_atom_id": "CA-R-380",
+      "source_version": 24,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md",
+      "source_sha256": "2d10306800cba3cd68d1be8bb698925c976dee96ef7a2692793427c2beb93770",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-852",
+      "source_version": 16,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md",
+      "source_sha256": "b2e38a54c68d7e5f75e1905de7c1e095d9aa15da83d0810bde5e0a2833bff198",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-R-852",
+      "source_version": 16,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md",
+      "source_sha256": "b2e38a54c68d7e5f75e1905de7c1e095d9aa15da83d0810bde5e0a2833bff198",
+      "old_value": "AI Agent",
+      "proposed_value": "Actor.Type: AI Agent",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md#subjects.depends_on[4]",
+      "source_atom_id": "CA-R-927",
+      "source_version": 22,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-927-CORE_META_MODEL-CORE--let-operators-define-project-goals.md",
+      "source_sha256": "b30004bd089ff143193ab7175b7bc3174e7c3eabc4d75617c51b240a14686e22",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md#subjects.depends_on[2]",
+      "source_atom_id": "CA-R-972",
+      "source_version": 18,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+      "source_sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-978",
+      "source_version": 17,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md",
+      "source_sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-982",
+      "source_version": 15,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+      "source_sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-983",
+      "source_version": 14,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+      "source_sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md#subjects.depends_on[3]",
+      "source_atom_id": "CA-M-304",
+      "source_version": 4,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL--write-self-contained-agentic-action-instructions.md",
+      "source_sha256": "42bac0554e085881c7902a8477792c052a4abda9c8538efc0751410f71044aac",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-E-207",
+      "source_version": 13,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+      "source_sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md#subjects.depends_on[7]",
+      "source_atom_id": "CA-E-240",
+      "source_version": 30,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+      "source_sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md#subjects.depends_on[4]",
+      "source_atom_id": "CA-E-241",
+      "source_version": 22,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+      "source_sha256": "14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md#subjects.depends_on[4]",
+      "source_atom_id": "CA-E-249",
+      "source_version": 12,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-249-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-methodology-expansion-mappings.md",
+      "source_sha256": "fcb2658717a91add097f34751c89d54f03a047442031ee7cf79e89c9f817d965",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md#subjects.depends_on[8]",
+      "source_atom_id": "CA-E-379",
+      "source_version": 21,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-379-CORE_META_MODEL-EVALUATION_APPROACH--validate-applicable-methodology-compilation.md",
+      "source_sha256": "db46fe91bf39c16f4c1f833848f2e073096812f8f1f8b6c8edfd393adae5a023",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-471-CORE_META_MODEL-EVALUATION_APPROACH--validate-structural-change-cutover.md#subjects.depends_on[2]",
+      "source_atom_id": "CA-E-471",
+      "source_version": 7,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-471-CORE_META_MODEL-EVALUATION_APPROACH--validate-structural-change-cutover.md",
+      "source_sha256": "1718ae5ac2b7359c74b1d6c17b15b84fdbc2ca36c3f390961324716431d31c8d",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2085.research.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-473-CORE_META_MODEL-QA_CASE--validate-implementation-retry-limit-resolution-and-accounting.md#subjects.depends_on[3]",
+      "source_atom_id": "CA-E-473",
+      "source_version": 10,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-473-CORE_META_MODEL-QA_CASE--validate-implementation-retry-limit-resolution-and-accounting.md",
+      "source_sha256": "0e7ea664a2466237d9a42a983e36805316c23066c6cf74b9d612b3fc8a56d605",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md#subjects.depends_on[7]",
+      "source_atom_id": "CA-E-477",
+      "source_version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md",
+      "source_sha256": "5393c69f1cbb00a0d5c4366c5ca848a334d782ae251c7c98096ce5adcff9b232",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-QA_CASE--validate-workflow-execution-and-handoff-definitions.md#subjects.depends_on[5]",
+      "source_atom_id": "CA-E-489",
+      "source_version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-QA_CASE--validate-workflow-execution-and-handoff-definitions.md",
+      "source_sha256": "649fc2ca1ffca21d2aeceb31611f41a06fe7dc2627644241fdabc540acaeeae1",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2085.research.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md#subjects.depends_on[8]",
+      "source_atom_id": "CA-E-491",
+      "source_version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md",
+      "source_sha256": "687b3d30d85e0ca910a82f6688bc0f14dc3424f25f48ba8ac444d644f226ddc6",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2085.research.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-494-CORE_META_MODEL-QA_CASE--validate-workflow-run-definition-bindings.md#subjects.depends_on[6]",
+      "source_atom_id": "CA-E-494",
+      "source_version": 5,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-494-CORE_META_MODEL-QA_CASE--validate-workflow-run-definition-bindings.md",
+      "source_sha256": "55b1d6c759133d0166335e5bb43bbe061cff344ed71bb44af5e8a2f0f861f3b0",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2085.research.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-QA_CASE--validate-action-kinds-and-step-contexts.md#subjects.depends_on[5]",
+      "source_atom_id": "CA-E-495",
+      "source_version": 4,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-495-CORE_META_MODEL-QA_CASE--validate-action-kinds-and-step-contexts.md",
+      "source_sha256": "4c986410371e9625333364147ca0dfec120378ec5d61c525cc69e99be53512f5",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-QA_CASE--validate-self-contained-agentic-invocations.md#subjects.depends_on[4]",
+      "source_atom_id": "CA-E-497",
+      "source_version": 4,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-QA_CASE--validate-self-contained-agentic-invocations.md",
+      "source_sha256": "17de1ecc22b82359e2ebf18c4a3c447de634dd1fd169a79b2a36b059c6da5a60",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2085.research.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md#subjects.depends_on[3]",
+      "source_atom_id": "CA-D-375",
+      "source_version": 9,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md",
+      "source_sha256": "404da79b6bb14e62c88ad5409b1f1947f907acf5812fd1b8ca3a53ce18e7c5d7",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md#subjects.depends_on[2]",
+      "source_atom_id": "CA-D-376",
+      "source_version": 8,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md",
+      "source_sha256": "a8a1e395a50127fcc7ab120f2d4ca0d33c1176f35793cbaf218b6643bfdba46b",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2072.review.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-D-383",
+      "source_version": 11,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md",
+      "source_sha256": "1ae8e1df0c2eeb193b37fa1953b3761b8a2c4247fb7f250c7958c344b466f0ae",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2085.research.json",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-444-CORE_META_MODEL-STANDARD--separate-candidate-project-structure-from-active-authority.md#subjects.depends_on[2]",
+      "source_atom_id": "CA-D-444",
+      "source_version": 6,
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-444-CORE_META_MODEL-STANDARD--separate-candidate-project-structure-from-active-authority.md",
+      "source_sha256": "18651eac6973724eacc0f5034fd7742b848dddb7560dcc4d858a718d7042e95a",
+      "old_value": "Operator",
+      "proposed_value": "Actor.Type: Operator",
+      "review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2085.research.json",
+      "executable": false
+    }
+  ]
+}

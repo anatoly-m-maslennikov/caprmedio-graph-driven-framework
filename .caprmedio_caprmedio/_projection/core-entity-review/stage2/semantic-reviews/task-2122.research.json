@@ -1,0 +1,971 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2122",
+  "family": "entity_artifact_identity_and_authority",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2121-2128.inputs.json",
+      "sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "4f2ec9d285283a76386dd176f6d4a6bf6a101db32219349462a91bc6c666ecf2"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2121-2128.contract.md",
+        "sha256": "77165a20424dbc6d2a67eaf0ee6363bf8bbedc161df3d6f4e003c7f757afe622"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/92-CA-P-2122-TASK--review-entity-identity-and-authority-origins.md",
+      "sha256": "73621fcac9513e765bac64953a0086e65ab0b5e950cb4db7bce5b06232fba7fb",
+      "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md",
+        "sha256": "752dc43e7816396c4e6bbc9ac689a5cc32258326e98d04ad9f338307e7b05ca3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1285-CORE_META_MODEL-CORE-REQUIREMENT--give-every-borne-type-property-one-value.md",
+        "sha256": "5b9e9feb9f261c75c2c4eb618a67d1dc86b1e0ab10ff1155d29395ecf1c67983"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+        "sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+        "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL-CORE--keep-entity-identity-independent-of-graph-materialization.md",
+        "sha256": "9f02a3b4585c3c9debced436702c083bf7b4d626d1c28705783d63cb303b8898"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+        "sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+        "sha256": "31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1502-CORE_META_MODEL-CORE--keep-authority-applicability-and-currentness-distinct.md",
+        "sha256": "8c54eace3e0a0cf12594572dd0b3fd3011f9c04b7224f0f74db4e47edcf95c96"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1571-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-non-atom-implementation-outputs-at-standard.md",
+        "sha256": "ccaf94fd0aa849e497e8205a51d7febc25373148d7b0a66fa11d315cb4e37f15"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+        "sha256": "f588c8bd8c3ba37bbcc14c4bec37d6fd617267690337812ae5967f4899de7a6a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md",
+        "sha256": "77358bb1255d3e82877764480f0d6667e93ce7f4268572101ce129232a3879aa"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+        "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+        "sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md",
+        "sha256": "369fe868f538c2d16e46f13875cd62f5422637145d3fd46535b29f02d2c61bdb"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md",
+        "sha256": "d10f530533646e4e9546c1db181c82d00afb7bacd1475918c8afcee4fd4e87d7"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+        "sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-135-CORE_META_MODEL-METHOD--exclude-generated-only-implementation-edges.md",
+        "sha256": "21d7a124cdb31b41665fefbda11604ede8cadeb635c0c3873511bab303969420"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-387-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--reject-invalid-type-assignments.md",
+        "sha256": "0fdebfd3a98131382e9c7e5a3be4f536e8e2a43481b081fc08fbce10f5eee93a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+        "sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+        "sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14"
+      }
+    ]
+  },
+  "selection": {
+    "family": "entity_artifact_identity_and_authority",
+    "sources": 20,
+    "occurrences": 20,
+    "occurrence_id_set_sha256": "7aafdf0299a1d26f0a39713fbb37a58c6384b91e4669d3f061d8e6da221e8f70",
+    "manifest_sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+  },
+  "supporting_current_definitions": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+      "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+      "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+      "start_line": 18,
+      "end_line": 30,
+      "reason": "Defines Entity as an independently identified or bearer-qualified object admitted as a graph node; this supports the explicit generic Entity owner only where the owning body itself says Entity.",
+      "atom_id": "CA-R-1248"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+      "sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+      "span_sha256": "735f291aa1a29c8d608ad9694a08d0bf60cd94b32c590528d3a83f475f905082",
+      "start_line": 19,
+      "end_line": 31,
+      "reason": "Defines Artifact as the Primary Entity with a governed identity persisting across Artifact Revisions.",
+      "atom_id": "CA-R-1268"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1436-CORE_META_MODEL-CORE--define-is-allowed-value-of.md",
+      "sha256": "a33bdc582beb140647e6012022730abf531f6311923edf80ed7d1fe1614dabad",
+      "span_sha256": "9b32b753e9f2c14983afdc4907dcd01f237abb7851b5fe5c620759fc93867b89",
+      "start_line": 20,
+      "end_line": 36,
+      "reason": "Defines an allowed value as a value admitted for a Property in qualified context, preserving allowed-value rather than assignment meaning.",
+      "atom_id": "CA-R-1436"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+      "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+      "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+      "start_line": 20,
+      "end_line": 32,
+      "reason": "Defines Framework Instance Settings as the authoritative Artifact for explicit Operator-selected framework behavior and configuration.",
+      "atom_id": "CA-R-1402"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+      "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+      "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+      "start_line": 21,
+      "end_line": 33,
+      "reason": "Defines Project Structure as the authoritative non-Atom Artifact owning accepted Scope Unit declarations.",
+      "atom_id": "CA-R-1483"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1470-CORE_META_MODEL-CORE--define-single-source-of-truth.md",
+      "sha256": "fdd8765be6618a53fd491a48907f6cf297398066efa9da9055bc54fdea47a017",
+      "span_sha256": "99c645b327d08c07092100cfa863091a3bbbe65e679812d99bda0a06fb031452",
+      "start_line": 23,
+      "end_line": 39,
+      "reason": "Defines Single Source of Truth per independently maintained fact and assigns authority by the governing model rather than to one generic Entity.",
+      "atom_id": "CA-R-1470"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md",
+      "sha256": "2c1fceec5acedbcb559e49119a2bd6ded3da5fa2eb5d75a466b2dfc3688fa6f0",
+      "span_sha256": "156bbf8c7057b8123f54b655511daf064d88ba5540b31710b7079b1fadfb9a12",
+      "start_line": 18,
+      "end_line": 30,
+      "reason": "Defines the one authoritative Name of every Scope Unit and distinguishes that Name from a derived readable rendering.",
+      "atom_id": "CA-R-962"
+    }
+  ],
+  "counts": {
+    "assigned": 20,
+    "covered": 20,
+    "proposed": 8,
+    "unresolved": 12,
+    "current_sources": 20,
+    "current_evidence_spans": 27
+  },
+  "limits": [
+    "This is semantic research only; no source migration, native relation admission, selector, singleton kind, @ syntax, Artifact.Revision target, or source/Tool/Plan change is authorized.",
+    "A candidate property expression preserves its current owner, current allowed-value domain, and current qualification; it does not admit a native Property, Relation, storage rule, or source mutation.",
+    "Unresolved rows retain their explicit identity, authority, registry, provenance, or selection distinctions rather than becoming generic Entity targets."
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md",
+      "source_atom_id": "CA-R-1261",
+      "source_version": 12,
+      "source_sha256": "752dc43e7816396c4e6bbc9ac689a5cc32258326e98d04ad9f338307e7b05ca3",
+      "field": "governs",
+      "index": null,
+      "old_value": "Entity Taxonomy",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1261-CORE_META_MODEL-CORE-REQUIREMENT--keep-the-core-entity-taxonomy-open.md",
+          "sha256": "752dc43e7816396c4e6bbc9ac689a5cc32258326e98d04ad9f338307e7b05ca3",
+          "span_sha256": "69e74304bf08d00cd640994dcbe7a4ee4b360f23fde638c56661bdc9869063cd",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The body governs the openness of the Core Meta-Model Entity subkind registry, including Extension and Project Configuration subkinds. It does not identify one current Entity instance or a candidate-owned dependent Property. Mapping it to generic Entity would erase the registry and openness distinction.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Core Meta-Model registry scope.",
+        "Non-exhaustive compatible Extension and Project Configuration subkinds."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1285-CORE_META_MODEL-CORE-REQUIREMENT--give-every-borne-type-property-one-value.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1285-CORE_META_MODEL-CORE-REQUIREMENT--give-every-borne-type-property-one-value.md",
+      "source_atom_id": "CA-R-1285",
+      "source_version": 13,
+      "source_sha256": "5b9e9feb9f261c75c2c4eb618a67d1dc86b1e0ab10ff1155d29395ecf1c67983",
+      "field": "governs",
+      "index": null,
+      "old_value": "Entity/Type",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1285-CORE_META_MODEL-CORE-REQUIREMENT--give-every-borne-type-property-one-value.md",
+          "sha256": "5b9e9feb9f261c75c2c4eb618a67d1dc86b1e0ab10ff1155d29395ecf1c67983",
+          "span_sha256": "b7776746d802e450f0035adfcdcf0fc4d4f5d9cf30af1719502dc78c015b7084",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Entity.Type",
+      "confidence": 0.95,
+      "reason": "The current Claim explicitly limits the rule to an Entity occurrence that bears Type and requires exactly one direct Type value. Entity is therefore the stated generic owner, while Type is the dependent Property; this does not infer that every Entity bears Type.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Only an Entity occurrence that bears Type is in scope.",
+        "The direct Type cardinality is exactly one.",
+        "This is a candidate dependent-property expression, not native property admission."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+      "source_atom_id": "CA-R-1315",
+      "source_version": 16,
+      "source_sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Entity/Type/Status",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1315-CORE_META_MODEL-GENERAL-REQUIREMENT--select-only-current-active-rmedo-atom-revisions.md",
+          "sha256": "3d626c044d2ac851afd5c8635592ed89d26bdc07a880ad58a6c633ffd620756a",
+          "span_sha256": "d5845f9b8c123969e6a06aceab4548a8e452b6172fed94050abde93eeafcd6b3",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The current body selects only current Atom Revisions whose type-qualified Status is Active and whose Content Role is in a named set. The candidate keeps Revision separate from Artifact and does not settle whether this compound current-revision qualification belongs to Revision, Atom.Status, or a qualified selection expression. A single target would lose a current qualifier.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Current Atom Revision rather than generic Entity.",
+        "Type-qualified Status Active.",
+        "Content Role allowed set: Requirement, Method, Evaluation, Delivery, Operations."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+      "source_atom_id": "CA-R-1405",
+      "source_version": 11,
+      "source_sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+      "field": "governs",
+      "index": null,
+      "old_value": "Artifact/Type",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "start_line": 23,
+          "end_line": 35,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Artifact.Type",
+      "confidence": 0.96,
+      "reason": "The current Scope and Claim explicitly define the Core allowed values of Artifact Type. Artifact is the named owner and Type is its Property; the exact Core value list remains an allowed-value domain governed by the source.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Artifact is a confirmed root Entity and governed lifecycle unit."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms Properties as dependent Entity nodes with an owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Artifact is the property owner.",
+        "Atom, Journal, Projection, Project Settings, Framework Instance Settings, and Default Settings remain the current Core allowed-value domain.",
+        "The value domain remains open to permitted expansion."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL-CORE--keep-entity-identity-independent-of-graph-materialization.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL-CORE--keep-entity-identity-independent-of-graph-materialization.md",
+      "source_atom_id": "CA-R-1406",
+      "source_version": 9,
+      "source_sha256": "9f02a3b4585c3c9debced436702c083bf7b4d626d1c28705783d63cb303b8898",
+      "field": "governs",
+      "index": null,
+      "old_value": "Entity/Identity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1406-CORE_META_MODEL-CORE--keep-entity-identity-independent-of-graph-materialization.md",
+          "sha256": "9f02a3b4585c3c9debced436702c083bf7b4d626d1c28705783d63cb303b8898",
+          "span_sha256": "6c4c8b64f73f2843a9fd2e8166a53a53ae9c440ee9dfef3cd689a940eaf162f4",
+          "start_line": 22,
+          "end_line": 34,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.7,
+      "reason": "The body forbids Graph Projection materialization, refresh, or deletion from establishing, changing, or removing Entity identity. The candidate confirms several concrete identity models but does not establish one generic Entity.Identity dependent Property with this cross-Projection rule; a blanket Entity target would omit the identity boundary.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Entity identity is independent of Projection materialization, refresh, and deletion.",
+        "The rule is negative: those operations must not establish, change, or remove identity."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+      "source_atom_id": "CA-R-1430",
+      "source_version": 8,
+      "source_sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Authority Mode",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+          "sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263",
+          "span_sha256": "b11e18e136e6a834292212df42fc5f17fb928513cccd14c88936ca66f5d4845f",
+          "start_line": 27,
+          "end_line": 39,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.74,
+      "reason": "The body assigns Authority Mode to two distinct owners: Framework Instance Settings selects Project and default Scope Unit modes, while Project Structure alone owns an explicit per-Scope-Unit override. No selected single target preserves both ownership cases without a selector or conjunction, neither of which is adopted.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Framework Instance Settings selects Project and default Scope Unit modes.",
+        "Project Structure owns explicit per-Scope-Unit overrides.",
+        "Permitted values are strict and casual.",
+        "Neither mode changes active Atom authority."
+      ],
+      "question": "Should a future subject model represent the Framework Instance Settings selection and Project Structure per-Scope-Unit override as separately addressable Authority Mode targets without introducing selector or conjunction syntax?",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+      "source_atom_id": "CA-R-1437",
+      "source_version": 6,
+      "source_sha256": "31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Single Source of Truth",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+          "sha256": "31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf",
+          "span_sha256": "0e29e9b297ced7ac025980f02ac9592683869c626fca6a6ea4f3d748513e9088",
+          "start_line": 25,
+          "end_line": 39,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.72,
+      "reason": "The body governs per-fact authoritative-source declarations for independently authored Relation facts and separately permits traceable derived Relations under admitted derivation authority. It does not make Single Source of Truth one dependent Property of Relation or another one owner; mapping to Relation would lose source-declaration, derivation, and upstream-Projection distinctions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Exactly one authoritative source declaration for every independently authored Relation fact.",
+        "Derived Relations trace to authority and input facts without fabricated direct declarations.",
+        "Relation Kind explicit-source requirements remain."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1502-CORE_META_MODEL-CORE--keep-authority-applicability-and-currentness-distinct.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1502-CORE_META_MODEL-CORE--keep-authority-applicability-and-currentness-distinct.md",
+      "source_atom_id": "CA-R-1502",
+      "source_version": 5,
+      "source_sha256": "8c54eace3e0a0cf12594572dd0b3fd3011f9c04b7224f0f74db4e47edcf95c96",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Provenance",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1502-CORE_META_MODEL-CORE--keep-authority-applicability-and-currentness-distinct.md",
+          "sha256": "8c54eace3e0a0cf12594572dd0b3fd3011f9c04b7224f0f74db4e47edcf95c96",
+          "span_sha256": "1f887e2f2c7785facb5d3d71c59f6343e73d018f9d5a9c545ab73353c6422b64",
+          "start_line": 31,
+          "end_line": 47,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.67,
+      "reason": "The body keeps Authority, Applicability, and Currentness distinct Artifact Properties and says provenance and role-specific evidence do not silently establish any of them. Its old Provenance dependency therefore does not identify a Provenance owner or dependent Property target; mapping it to Artifact would incorrectly merge the three distinct Properties.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Artifact Authority, Applicability, and Currentness remain distinct.",
+        "Provenance does not silently establish any of them.",
+        "Owning RMEDO Atoms govern resolution and reporting through derived views."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1571-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-non-atom-implementation-outputs-at-standard.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1571-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-non-atom-implementation-outputs-at-standard.md",
+      "source_atom_id": "CA-R-1571",
+      "source_version": 4,
+      "source_sha256": "ccaf94fd0aa849e497e8205a51d7febc25373148d7b0a66fa11d315cb4e37f15",
+      "field": "governs",
+      "index": null,
+      "old_value": "Artifact/Local Tier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1571-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-non-atom-implementation-outputs-at-standard.md",
+          "sha256": "ccaf94fd0aa849e497e8205a51d7febc25373148d7b0a66fa11d315cb4e37f15",
+          "span_sha256": "f1c222a97b70cc9184078d87aa0d1fd96213a9483248341bca96e2f64d24143f",
+          "start_line": 22,
+          "end_line": 36,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Artifact.Local Tier:Standard",
+      "confidence": 0.95,
+      "reason": "The current body explicitly scopes non-Atom Implementation Artifacts and requires their Local Tier to resolve to Standard. Artifact is the stated owner, Local Tier is the dependent Property, and Standard is the preserved allowed value; no Atom identity or Content Role is introduced.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Artifact is a confirmed root Entity and governed lifecycle unit."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms Properties as dependent Entity nodes with an owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Only non-Atom Implementation Artifacts are in scope.",
+        "Standard remains the required Local Tier value.",
+        "The classification does not add Atom Content Role or Atom identity and does not change represented-source authority or tier."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+      "source_atom_id": "CA-R-1708",
+      "source_version": 24,
+      "source_sha256": "f588c8bd8c3ba37bbcc14c4bec37d6fd617267690337812ae5967f4899de7a6a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Artifact/Type",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1708-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifacts-through-the-extensible-type-registry.md",
+          "sha256": "f588c8bd8c3ba37bbcc14c4bec37d6fd617267690337812ae5967f4899de7a6a",
+          "span_sha256": "4b0e98b2676447ef169a9455128e05de0f6fb195cdbf215c377f678c3bfb2c22",
+          "start_line": 22,
+          "end_line": 34,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Artifact.Type",
+      "confidence": 0.96,
+      "reason": "The current Claim states that every Artifact has exactly one Type admitted by applicable authority, with Core values specified separately and open to permitted expansion. Artifact is the named property owner and Type is the dependent Property.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Artifact is a confirmed root Entity and governed lifecycle unit."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms Properties as dependent Entity nodes with an owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Artifact retains exactly one Type.",
+        "Applicable authority admits the value.",
+        "Core values remain open to permitted expansion."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md",
+      "source_atom_id": "CA-R-1709",
+      "source_version": 24,
+      "source_sha256": "77358bb1255d3e82877764480f0d6667e93ce7f4268572101ce129232a3879aa",
+      "field": "governs",
+      "index": null,
+      "old_value": "Governance Origin",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1709-CORE_META_MODEL-CORE-REQUIREMENT--define-two-governance-origins.md",
+          "sha256": "77358bb1255d3e82877764480f0d6667e93ce7f4268572101ce129232a3879aa",
+          "span_sha256": "3d1d7e00724a0ba4d42d41f5318d3739dc68472c31dc3f456a9bc479602fdda9",
+          "start_line": 20,
+          "end_line": 39,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Artifact.Governance Origin",
+      "confidence": 0.95,
+      "reason": "The current body defines Governance Origin as classifying where a governed Artifact's primary meaning is owned. Artifact is therefore the explicit owner and Governance Origin its dependent Property; the internal and external values remain the source-defined domain.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Artifact is a confirmed root Entity and governed lifecycle unit."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms Properties as dependent Entity nodes with an owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The owner is the governed Artifact's primary meaning, not provenance, form, Content Role, structural scope, or graph relation.",
+        "The source-defined allowed values remain internal and external.",
+        "Requirement authority defines the values and admitted Types; Delivery authority governs Carrier encoding."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md#subjects.depends_on[8]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "source_atom_id": "CA-R-1746",
+      "source_version": 20,
+      "source_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "field": "depends_on",
+      "index": 8,
+      "old_value": "Single Source of Truth",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "start_line": 26,
+          "end_line": 42,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.73,
+      "reason": "The body says a Projection is a non-authoritative generated view whose sources retain authority under Single Source of Truth, including upstream traceability and possible native Implementation actual-state sources. One target cannot preserve both the Projection's non-authoritative form and the multiple fact-specific source owners.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Projection is a non-authoritative generated view.",
+        "Source authority follows Single Source of Truth with upstream traceability.",
+        "Native Implementation actual-state facts can be authoritative without making generated views authoritative."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+      "source_atom_id": "CA-R-1764",
+      "source_version": 18,
+      "source_sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Structural Path",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1764-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-path.md",
+          "sha256": "be6e340d39af2e19f52f5470c82f0a85b8ea4407ab4ef28977efad670c6aaf0a",
+          "span_sha256": "4202b8098bd78a5c961b96a8992e75f328773e60b71ff99ab0ee076d298db00c",
+          "start_line": 19,
+          "end_line": 31,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Structural Path",
+      "confidence": 0.95,
+      "reason": "The current Scope and Claim define Structural Path as the ordered ancestry of Scope Unit identities from the first root to one target Scope Unit. Scope Unit is the explicit owner, and Structural Path is a dependent property-like locator rather than a new root.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is a confirmed root Entity with recursive Scope Unit nesting."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms Properties as dependent Entity nodes with an owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The path is ordered ancestry.",
+        "It begins at the first Scope Unit root and ends at one target Scope Unit.",
+        "It is expressed through Scope Unit identities."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md",
+      "source_atom_id": "CA-R-971",
+      "source_version": 15,
+      "source_sha256": "369fe868f538c2d16e46f13875cd62f5422637145d3fd46535b29f02d2c61bdb",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Authority",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md",
+          "sha256": "369fe868f538c2d16e46f13875cd62f5422637145d3fd46535b29f02d2c61bdb",
+          "span_sha256": "058aea3b7a3822ac66d7b182afe3c7fa11d17b10abbf284803f6cfd36b614bac",
+          "start_line": 20,
+          "end_line": 32,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.61,
+      "reason": "The body states only that a readable rendering derived from a Scope Unit Name must not become an independent Scope Unit property or authority. It does not define Authority as a Scope Unit-owned Property or identify a target for the prohibition; mapping to Scope Unit.Authority would invent that ownership.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The readable rendering is derived from a Scope Unit Name.",
+        "It must not become an independent Scope Unit property.",
+        "It must not become authority."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md",
+      "source_atom_id": "CA-R-999",
+      "source_version": 14,
+      "source_sha256": "d10f530533646e4e9546c1db181c82d00afb7bacd1475918c8afcee4fd4e87d7",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Governed Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-REQUIREMENT--define-scope-expression.md",
+          "sha256": "d10f530533646e4e9546c1db181c82d00afb7bacd1475918c8afcee4fd4e87d7",
+          "span_sha256": "cc3053e677ac9666f65552fc8053fb06028624797aa366dcd5fccf1ff4ba114c",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.67,
+      "reason": "The body defines a Scope Expression that identifies Governed Entities through references, IDs, operators, and field predicates. Governed Entity is the variable target set of that expression, not one current Entity owner or Property; a generic Entity target would lose the expression and selection distinctions.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "One deterministic Scope Expression.",
+        "Atomic references, explicit Atom IDs, parentheses, registered set or logical operators, and field predicates including where.",
+        "The expression identifies Governed Entities rather than defining a new Entity kind."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+      "source_atom_id": "CAPRMEDIO-R-791",
+      "source_version": 15,
+      "source_sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+      "field": "governs",
+      "index": null,
+      "old_value": "Structural Coordinate",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+          "sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+          "span_sha256": "8a3cb571247491936876e9c445a08df2f1f0647889ce8e38fbcb63e8b12ad24b",
+          "start_line": 18,
+          "end_line": 30,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Structural Coordinate",
+      "confidence": 0.95,
+      "reason": "The current Scope and Claim define Structural Coordinate for ordered Scope Units as a derived locator containing one Scope Unit's Structural Level and Local Order when Type is Ordered. Scope Unit is the explicit owner; the derived and Type-qualified conditions are preserved.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "Scope Unit is a confirmed root Entity with recursive Scope Unit nesting."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms Properties as dependent Entity nodes with an owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Only Scope Units with Type Ordered are in scope.",
+        "The coordinate is derived rather than an independent identity.",
+        "It contains Structural Level and Local Order.",
+        "The quarantined source remains non-executable and its metadata status is not repaired."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-135-CORE_META_MODEL-METHOD--exclude-generated-only-implementation-edges.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-135-CORE_META_MODEL-METHOD--exclude-generated-only-implementation-edges.md",
+      "source_atom_id": "CA-M-135",
+      "source_version": 18,
+      "source_sha256": "21d7a124cdb31b41665fefbda11604ede8cadeb635c0c3873511bab303969420",
+      "field": "governs",
+      "index": null,
+      "old_value": "provenance",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-135-CORE_META_MODEL-METHOD--exclude-generated-only-implementation-edges.md",
+          "sha256": "21d7a124cdb31b41665fefbda11604ede8cadeb635c0c3873511bab303969420",
+          "span_sha256": "c269d36d1440b2daaeded054900ff99f0a82d063d8d455a1a411bb274eb080a9",
+          "start_line": 17,
+          "end_line": 31,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.66,
+      "reason": "The body governs provenance validation for recorded changes and its conditional contribution to Implementation Relations, coverage, and traceability. It requires Journal provenance for generated-only refreshes but does not identify a single candidate owner for provenance across changes, Journals, generated Projections, and substantive governed sources.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Validation covers every recorded change in the governed selection.",
+        "Only changes to non-generated governed sources contribute Implementation relation, coverage, or semantic traceability.",
+        "Generated-only refresh retains Journal provenance but is not an implementation input."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-387-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--reject-invalid-type-assignments.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-387-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--reject-invalid-type-assignments.md",
+      "source_atom_id": "CA-E-387",
+      "source_version": 13,
+      "source_sha256": "0fdebfd3a98131382e9c7e5a3be4f536e8e2a43481b081fc08fbce10f5eee93a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Entity/Type",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-387-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--reject-invalid-type-assignments.md",
+          "sha256": "0fdebfd3a98131382e9c7e5a3be4f536e8e2a43481b081fc08fbce10f5eee93a",
+          "span_sha256": "57d038954a66cdb8e7f6b6560a95e0f28230634fb1f5eb986d1fd4fd4598a49f",
+          "start_line": 21,
+          "end_line": 39,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "proposed",
+      "proposed_value": "Entity.Type",
+      "confidence": 0.95,
+      "reason": "The current Evaluation explicitly evaluates Type assignments on Entity occurrences and distinguishes occurrences that bear Type from those that do not. Entity is the stated generic owner and Type is the dependent Property; the assignment and qualification checks remain source constraints.",
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate confirms that a Property is a dependent Entity node connected to its owning Entity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Only Entity occurrences that bear Type are evaluated for direct-value cardinality.",
+        "The selected value remains constrained by the most-specific applicable qualified Type Subject.",
+        "No-Type occurrences are not cardinality failures."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+      "source_atom_id": "CAPRMEDIO-GOV-EVAL-002",
+      "source_version": 21,
+      "source_sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Authority Mode",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+          "sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4",
+          "span_sha256": "ba3abf46f7e579ec5f5f656d25eb798d76ac7cf3945d7f79b5a6c005bfd8dea7",
+          "start_line": 27,
+          "end_line": 47,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.74,
+      "reason": "The evaluation repeats the two-owner Authority Mode boundary: Framework Instance Settings configures default and Project modes, while Project Structure owns explicit per-unit overrides. A single selected target would lose one ownership path, and no selector or conjunction syntax is adopted.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Settings Artifact and Project Structure ownership paths remain distinct.",
+        "Project Settings owns initialization inputs.",
+        "No structural Projection is required to make the choices."
+      ],
+      "question": "Should the two Authority Mode ownership paths be represented as separately addressable targets without adding selector or conjunction syntax?",
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+      "source_atom_id": "CAPRMEDIO-GOV-EVAL-005",
+      "source_version": 23,
+      "source_sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Single Source of Truth",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+          "sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14",
+          "span_sha256": "c63afa2366d9efe24807b13083d26179df203e903fb3505ed3cf3480c6c16604",
+          "start_line": 29,
+          "end_line": 72,
+          "reason": "Complete current owning Main Content, including Summary, Scope, Claim, and Details, was read for this exact origin."
+        }
+      ],
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.7,
+      "reason": "The evaluation validates Single Source of Truth across independently authored and derived Relations, declaration Carriers, relation kinds, graph contexts, endpoints, lifecycle, and source traceability. It does not identify one candidate-owned Property for that cross-cutting authority rule; mapping it to Relation would discard the declaration and graph-qualified constraints.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Independently authored direct Relations have one registered declaration Carrier; inverses remain derived.",
+        "Derived Relations require admitted derivation authority and input facts.",
+        "Relation Kind graph ownership, endpoint, lifecycle, and source-traceability constraints remain."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2022",
+  "recorded_at": "2026-10-11 02:28:20 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-031.review.json",
+    "sha256": "00acef4381453a02189c619ed1cf599e468bec76d7ad1e3cc8fb995417e1f48d"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-031.json",
+    "sha256": "4efea5f184479a1cf6ab5fb08351cf645d35dd0859033cf630f8ed8453ac8cf7"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 14,
+    "occurrences": 118,
+    "proposed": 20,
+    "unchanged": 37,
+    "unresolved": 61,
+    "meaning_review": "Independent meaning review checked all proposals and high-risk unchanged rows in batches 028–031 against all current source Main Content pins. No concrete rejection remains in batch 031.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "61 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}

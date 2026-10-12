@@ -1,4 +1,4 @@
-"""Private O164@6 phase composition behind the shared Session recorder.
+"""Private current-O164 phase composition behind the shared Session recorder.
 
 Phases are selected only by private Step/Action identity. The adapter retains
 typed observations and requires the shared durable checkpoint callback before
@@ -10,12 +10,22 @@ effects stop without implicit replay.
 from __future__ import annotations
 
 import hashlib
+import importlib.util
+import stat
+import sys
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Literal, Mapping, TYPE_CHECKING
 
-from release_compilation import ReleaseCompilationPreflight, preflight_release_compilation, render_release_candidate
+from release_compilation import (
+    ReleaseCompilationPreflight,
+    SealedPrivateMethodologyCompilation,
+    compile_sealed_methodology_export,
+    _mkdir_safe,
+    preflight_release_compilation,
+    render_release_candidate,
+)
 from release_contract import SHA256, ReleaseContractError, ValidatedCandidate, canonical_json
 from release_delivery import deliver_release_sources
 from release_e2e_gate import (
@@ -24,36 +34,54 @@ from release_e2e_gate import (
     run_candidate_e2e_gate,
     verify_bound_candidate_e2e_evidence,
 )
-from release_handoff import FRAMEWORK_SETTINGS_RELATIVE, SealedCandidateCompilation, SealedSourceCopy, _revalidate
+from release_handoff import (
+    FRAMEWORK_SETTINGS_RELATIVE,
+    SealedCandidateCompilation,
+    SealedMethodologyExport,
+    SealedSourceCopy,
+    _revalidate,
+    _exporter_module,
+    bind_sealed_methodology_export,
+)
 from release_image import (
     DockerExecutor, ImageBuildEvidence, ImageVerificationEvidence, ImageRetirementEvidence,
-    build_candidate_image, verify_candidate_image, retire_prior_image,
+    build_candidate_image, verify_candidate_image, retire_prior_image, cleanup_superseded_release_images,
 )
 from release_packaging import stage_framework_package
-from release_promotion import PromotionEvidence, promote_bound_release
-from release_suite import SuiteGateEvidence, execute_bound_release_suite, verify_bound_suite_evidence
-from release_suite_execution import installed_n_suite_executor
+from release_portable_contract import (
+    SealedPortableCandidateCompilation,
+    SealedPortableSourceSnapshot,
+    collect_portable_source_snapshot,
+    seal_portable_source_snapshot,
+)
+from release_portable_package import PreparedPortableReleasePackage, prepare_portable_release_package
+from release_promotion import NativePromotionEvidence, PromotionEvidence, promote_bound_release
+from release_suite import (
+    PortableSuiteGateEvidence,
+    SuiteGateEvidence,
+    execute_bound_release_suite,
+    verify_bound_suite_evidence,
+)
+from release_suite_execution import fresh_unit_suite_executor
 from release_version import ReleaseVersionRequest, _locally_observed_candidate
 
 if TYPE_CHECKING:
     from release_full_gate import FullGateEvidence
+    from workflow_run_support import RunExecutionSession
 
 
 PHASES = (
     ("CA-O-170", "CA-O-165", "freeze"),
-    ("CA-O-171", "CA-O-165", "validate"),
-    ("CA-O-172", "CA-O-166", "deliver_sources"),
-    ("CA-O-173", "CA-O-166", "compile"),
-    ("CA-O-185", "CA-O-168", "closed_unit_gate"),
     ("CA-O-175", "CA-O-167", "stage_candidate"),
+    ("CA-O-185", "CA-O-168", "closed_unit_gate"),
     ("CA-O-176", "CA-O-168", "candidate_image_build"),
     ("CA-O-186", "CA-O-168", "candidate_image_canary"),
     ("CA-O-182", "CA-O-181", "host_candidate_e2e"),
     ("CA-O-184", "CA-O-183", "aggregate_full_gate"),
+    ("CA-O-172", "CA-O-166", "deliver_sources"),
+    ("CA-O-173", "CA-O-166", "compile"),
     ("CA-O-178", "CA-O-169", "promote"),
-    ("CA-O-179", "CA-O-169", "retire"),
 )
-
 
 @dataclass(frozen=True)
 class SelectedReleaseActionContext:
@@ -77,6 +105,19 @@ class AdmittedImageExecutor:
     project_root: str
     workflow_run_id: str
     executor: DockerExecutor
+
+
+@dataclass(frozen=True)
+class LocalReleaseHelperBinding:
+    """Exact Project-local helper bytes captured before the candidate gate.
+
+    These helpers deliberately remain Project-owned rather than package
+    members.  The private Run therefore retains their two immutable digests
+    and only executes the bytes that match them at the destructive boundary.
+    """
+
+    native_hooks_sha256: str
+    local_release_sha256: str
 
 
 @dataclass(frozen=True)
@@ -126,6 +167,16 @@ class ReleaseActionRun:
     compilation: SealedCandidateCompilation | None = None
     suite: SuiteGateEvidence | None = None
     package: dict[str, object] | None = None
+    # O164@9 retains the same selected Step/Action sequence but carries a
+    # separate portable frontier.  These fields deliberately do not replace
+    # legacy state: v5/v6 checkpoints and recovery retain their historical
+    # typed carrier shape.
+    methodology_export: SealedMethodologyExport | None = None
+    private_compilation: SealedPrivateMethodologyCompilation | None = None
+    portable_source_snapshot: SealedPortableSourceSnapshot | None = None
+    portable_compilation: SealedPortableCandidateCompilation | None = None
+    portable_suite: PortableSuiteGateEvidence | None = None
+    prepared_portable_package: PreparedPortableReleasePackage | None = None
     build: ImageBuildEvidence | None = None
     verification: ImageVerificationEvidence | None = None
     e2e: CandidateE2EGateEvidence | None = None
@@ -133,14 +184,22 @@ class ReleaseActionRun:
     # this boundary typed by that model at use/codec time without importing a
     # concurrently authored module during ordinary earlier-phase dispatch.
     full_gate: FullGateEvidence | None = None
-    promotion: PromotionEvidence | None = None
+    promotion: PromotionEvidence | NativePromotionEvidence | None = None
     retirement: ImageRetirementEvidence | None = None
+    local_helper_binding: LocalReleaseHelperBinding | None = None
     # The caller supplies the one shared durable checkpoint writer.  This
     # private adapter never opens a carrier or creates a second record; the
     # callback is runtime-only and the closed checkpoint codec excludes it.
     checkpoint_callback: Callable[["ReleaseActionRun"], None] | None = field(
         default=None, repr=False, compare=False,
     )
+    # Only the selected provider binds this actual shared Session, after its
+    # graph, inputs and actual parent lineage checks.  Recovery must rebind it;
+    # a checkpoint never encodes an executable Session or grants authority.
+    selected_action_session: RunExecutionSession | None = field(
+        default=None, repr=False, compare=False,
+    )
+    native_installed_n: Any | None = field(default=None, repr=False, compare=False)
 
 
 def _request(value: ReleaseVersionRequest | Mapping[str, Any]) -> ReleaseVersionRequest:
@@ -181,26 +240,29 @@ def begin_release_action_run(request: ReleaseVersionRequest | Mapping[str, Any],
 def _selection(request, context, run):
     if not isinstance(run, ReleaseActionRun) or not isinstance(context, SelectedReleaseActionContext):
         raise ReleaseContractError("release-action-context-untrusted", "dispatch requires retained private Run and selected context")
-    if (context.workflow_atom_id != "CA-O-164" or type(context.workflow_version) is not int or context.workflow_version != 6
+    if (context.workflow_atom_id != "CA-O-164" or type(context.workflow_version) is not int
+            or context.workflow_version < 1
             or context.workflow_run_id != run.workflow_run_id or context.parent_workflow_run_id != run.workflow_run_id
             or context.parent_step_run_id != context.step_run_id
             or context.project_root != run.project_root or str(Path(request.project_root).resolve(strict=True)) != run.project_root
             or context.frozen_parameters_sha256 != run.frozen_parameters_sha256
             or _fingerprint(request) != run.frozen_parameters_sha256
             or _fingerprint(run.request) != run.frozen_parameters_sha256):
-        raise ReleaseContractError("release-action-frozen-binding-mismatch", "root, parameters or frozen Run lineage differ")
+        raise ReleaseContractError("release-action-frozen-binding-mismatch", "root, parameters, selected workflow, or frozen Run lineage differ")
     for identity in (context.workflow_run_id, context.step_run_id, context.action_run_id):
         if not isinstance(identity, str) or not identity or identity != identity.strip() or "\n" in identity or "\r" in identity:
             raise ReleaseContractError("release-action-context-invalid", "selected Run identities must be bounded")
     matches = [index for index, pair in enumerate(PHASES) if pair[:2] == (context.step_atom_id, context.action_atom_id)]
     if len(matches) != 1:
-        raise ReleaseContractError("release-action-phase-unselected", "Step/Action pair is outside O164@6")
+        raise ReleaseContractError("release-action-phase-unselected", "Step/Action pair is outside current O164")
     index = matches[0]
     if index in run.contexts and run.contexts[index] != context:
         raise ReleaseContractError("release-action-identity-mismatch", "selected occurrence identity changed")
     if any(other != index and (saved.step_run_id == context.step_run_id or saved.action_run_id == context.action_run_id)
            for other, saved in run.contexts.items()):
         raise ReleaseContractError("release-action-identity-mismatch", "Step/Action Run identity repeats another occurrence")
+    if any(saved.workflow_version != context.workflow_version for saved in run.contexts.values()):
+        raise ReleaseContractError("release-action-identity-mismatch", "one private Release Run cannot mix selected workflow revisions")
     return index, PHASES[index][2]
 
 
@@ -284,10 +346,501 @@ def _executor(run):
     return admission.executor
 
 
+def _native_candidate_root(run: ReleaseActionRun) -> Path:
+    """Resolve the private D597 root named by the selected release Run."""
+
+    run_id = run.workflow_run_id
+    if not isinstance(run_id, str) or not run_id or Path(run_id).name != run_id or run_id in {".", ".."}:
+        raise ReleaseContractError("release-action-native-run-invalid", "portable release requires one safe selected Run identifier")
+    return Path(run.project_root) / ".caprmedio_tmp" / "release_candidates" / run_id
+
+
+_LOCAL_RELEASE_HELPER_DIRECTORY = ("PROJECT_TOOLS", "RELEASE_VERSION")
+_LOCAL_RELEASE_HELPER_NAMES = ("native_hooks.py", "local_release.py")
+
+
+def _read_local_release_helper(root: Path, name: str) -> tuple[Path, bytes]:
+    """Read one fixed helper only through regular, non-symlink ancestors."""
+
+    if name not in _LOCAL_RELEASE_HELPER_NAMES:
+        raise ReleaseContractError("local-release-helper-invalid", "local helper name is outside the fixed release boundary")
+    current = root
+    for part in (*_LOCAL_RELEASE_HELPER_DIRECTORY, name):
+        current /= part
+        try:
+            mode = current.lstat().st_mode
+        except OSError as error:
+            raise ReleaseContractError("local-release-helper-unavailable", "Project local-release helper is unavailable") from error
+        expected_directory = part != name
+        if stat.S_ISLNK(mode) or (expected_directory and not stat.S_ISDIR(mode)) or (not expected_directory and not stat.S_ISREG(mode)):
+            raise ReleaseContractError("local-release-helper-unavailable", "Project local-release helper path is unsafe")
+    try:
+        return current, current.read_bytes()
+    except OSError as error:
+        raise ReleaseContractError("local-release-helper-unavailable", "Project local-release helper cannot be read") from error
+
+
+def _freeze_local_release_helper_binding(root: Path) -> LocalReleaseHelperBinding:
+    """Observe the exact two Project helpers before any selected v11 gate."""
+
+    _hooks, hooks_bytes = _read_local_release_helper(root, "native_hooks.py")
+    _core, core_bytes = _read_local_release_helper(root, "local_release.py")
+    return LocalReleaseHelperBinding(
+        native_hooks_sha256=hashlib.sha256(hooks_bytes).hexdigest(),
+        local_release_sha256=hashlib.sha256(core_bytes).hexdigest(),
+    )
+
+
+def _bound_local_release_helper_bytes(root: Path, binding: LocalReleaseHelperBinding) -> tuple[Path, bytes, Path, bytes]:
+    """Reopen the frozen helpers and refuse any drift before their execution."""
+
+    if type(binding) is not LocalReleaseHelperBinding:
+        raise ReleaseContractError("local-release-helper-unbound", "destructive local release requires a frozen helper binding")
+    if any(not isinstance(value, str) or SHA256.fullmatch(value) is None for value in (
+        binding.native_hooks_sha256, binding.local_release_sha256,
+    )):
+        raise ReleaseContractError("local-release-helper-binding-invalid", "frozen local helper digests are malformed")
+    hooks_path, hooks_bytes = _read_local_release_helper(root, "native_hooks.py")
+    core_path, core_bytes = _read_local_release_helper(root, "local_release.py")
+    if (hashlib.sha256(hooks_bytes).hexdigest() != binding.native_hooks_sha256
+            or hashlib.sha256(core_bytes).hexdigest() != binding.local_release_sha256):
+        raise ReleaseContractError("local-release-helper-stale", "Project local-release helper changed after the frozen candidate boundary")
+    return hooks_path, hooks_bytes, core_path, core_bytes
+
+
+def _load_bound_local_release_helpers(root: Path, binding: LocalReleaseHelperBinding):
+    """Execute only the pre-read, digest-bound Project helper bytes.
+
+    ``native_hooks`` receives its sibling module explicitly.  This avoids its
+    former later filesystem import, which could otherwise substitute mutable
+    Project code after the Full Gate.
+    """
+
+    hooks_path, hooks_bytes, core_path, core_bytes = _bound_local_release_helper_bytes(root, binding)
+    key = hashlib.sha256(canonical_json({
+        "root": str(root),
+        "native_hooks_sha256": binding.native_hooks_sha256,
+        "local_release_sha256": binding.local_release_sha256,
+    })).hexdigest()
+    core_name = f"_caprmedio_selected_local_release_core_{key}"
+    hooks_name = f"_caprmedio_selected_local_release_hooks_{key}"
+
+    core = sys.modules.get(core_name)
+    if core is None:
+        core = importlib.util.module_from_spec(importlib.util.spec_from_loader(core_name, loader=None))
+        core.__file__ = str(core_path)
+        sys.modules[core_name] = core
+        try:
+            exec(compile(core_bytes, str(core_path), "exec"), core.__dict__)
+        except BaseException:
+            if sys.modules.get(core_name) is core:
+                sys.modules.pop(core_name, None)
+            raise
+    hooks = sys.modules.get(hooks_name)
+    if hooks is None:
+        hooks = importlib.util.module_from_spec(importlib.util.spec_from_loader(hooks_name, loader=None))
+        hooks.__file__ = str(hooks_path)
+        hooks.__caprmedio_project_root__ = str(root)
+        sys.modules[hooks_name] = hooks
+        try:
+            exec(compile(hooks_bytes, str(hooks_path), "exec"), hooks.__dict__)
+        except BaseException:
+            if sys.modules.get(hooks_name) is hooks:
+                sys.modules.pop(hooks_name, None)
+            raise
+    binder = getattr(hooks, "bind_local_release_core", None)
+    if not callable(binder):
+        raise ReleaseContractError("local-release-helper-unavailable", "Project local-release hook cannot bind its frozen sibling")
+    try:
+        binder(core)
+    except BaseException:
+        if sys.modules.get(hooks_name) is hooks:
+            sys.modules.pop(hooks_name, None)
+        raise
+    return hooks
+
+
+def _selected_local_bindings(run: ReleaseActionRun):
+    """Load the Project-owned local transition factory at its fixed boundary."""
+
+    root = Path(run.project_root).resolve(strict=True)
+    module = _load_bound_local_release_helpers(root, run.local_helper_binding)
+    factory = getattr(module, "create_selected_local_bindings", None)
+    if not callable(factory):
+        raise ReleaseContractError("local-release-hooks-unavailable", "Project local-release bindings expose no selected factory")
+    return factory(root, run=run, context=run.in_progress)
+
+
+def _stage_candidate_selected_session(run: ReleaseActionRun):
+    """Reopen the exact, already-started O167 Action from the injected Session.
+
+    D602 admission is internal to the selected Local Release.  This function
+    deliberately accepts no caller command, authorization flag, or O199
+    adapter: the selected provider is the sole runtime writer of
+    ``selected_action_session`` after it has revalidated the current graph.
+    """
+
+    from workflow_run_support import RunExecutionSession, SelectedRunError
+
+    context = run.in_progress
+    session = run.selected_action_session
+    if not isinstance(context, SelectedReleaseActionContext) or context.step_atom_id != "CA-O-175" or context.action_atom_id != "CA-O-167":
+        raise ReleaseContractError("release-source-admission-context-invalid", "internal source admission requires the current O175/O167 context")
+    if not isinstance(session, RunExecutionSession):
+        raise ReleaseContractError("release-source-admission-session-unavailable", "internal source admission requires the injected selected Session")
+    root = Path(run.project_root).resolve(strict=True)
+    tracker_root = getattr(getattr(session, "tracker", None), "root", None)
+    try:
+        same_root = isinstance(tracker_root, (str, Path)) and Path(tracker_root).resolve(strict=True) == root
+    except (OSError, TypeError, ValueError):
+        same_root = False
+    if not same_root:
+        raise ReleaseContractError("release-source-admission-session-invalid", "selected Session belongs to another Project")
+
+    actual_records = getattr(session, "actual", None)
+    if not isinstance(actual_records, Mapping):
+        raise ReleaseContractError("release-source-admission-session-invalid", "selected Session has no actual Run inventory")
+    records = list(actual_records.values())
+    by_run_id = {
+        record.get("run_id"): record
+        for record in records
+        if isinstance(record, Mapping) and isinstance(record.get("run_id"), str)
+    }
+    workflow = by_run_id.get(context.workflow_run_id)
+    step = by_run_id.get(context.step_run_id)
+    action = by_run_id.get(context.action_run_id)
+    definition = action.get("definition") if isinstance(action, Mapping) else None
+    if (
+        not isinstance(workflow, Mapping) or workflow.get("kind") != "workflow"
+        or not isinstance(step, Mapping) or step.get("kind") != "step" or step.get("parent_run_id") != context.workflow_run_id
+        or not isinstance(action, Mapping) or action.get("kind") != "action" or action.get("parent_run_id") != context.step_run_id
+        or not isinstance(definition, Mapping) or set(definition) != {"atom_id", "version", "path", "digest"}
+        or definition.get("atom_id") != context.action_atom_id or type(definition.get("version")) is not int or definition["version"] < 1
+        or not isinstance(definition.get("path"), str) or not isinstance(definition.get("digest"), str)
+        or SHA256.fullmatch(definition["digest"]) is None
+    ):
+        raise ReleaseContractError("release-source-admission-session-invalid", "selected Session lacks the exact O167 Workflow/Step/Action lineage")
+
+    relative = Path(definition["path"])
+    if ("\\" in definition["path"] or relative.is_absolute() or not relative.parts
+            or any(part in {"", ".", ".."} or part.startswith(".env") or part.endswith(".env") for part in relative.parts)):
+        raise ReleaseContractError("release-source-admission-source-invalid", "selected O167 source path is unsafe")
+    source = root
+    try:
+        for index, part in enumerate(relative.parts):
+            source = source / part
+            mode = source.lstat().st_mode
+            expected = stat.S_ISREG if index == len(relative.parts) - 1 else stat.S_ISDIR
+            if stat.S_ISLNK(mode) or not expected(mode):
+                raise ReleaseContractError("release-source-admission-source-invalid", "selected O167 source path is aliased or malformed")
+        if hashlib.sha256(source.read_bytes()).hexdigest() != definition["digest"]:
+            raise ReleaseContractError("release-source-admission-source-stale", "selected O167 source differs from its admitted binding")
+        provenance = session.read_recorded_action_start(context.action_run_id)
+    except ReleaseContractError:
+        raise
+    except (OSError, SelectedRunError) as error:
+        raise ReleaseContractError("release-source-admission-session-invalid", "selected O167 start cannot be physically reopened") from error
+    if (
+        provenance.action_run_id != context.action_run_id
+        or provenance.parent_lineage != (context.step_run_id, context.workflow_run_id)
+        or not isinstance(provenance.author, str)
+        or not provenance.author
+    ):
+        raise ReleaseContractError("release-source-admission-session-invalid", "selected O167 start provenance differs from the current lineage")
+    return session, context, provenance
+
+
+def _admit_stage_candidate_sources(run: ReleaseActionRun, snapshot: SealedPortableSourceSnapshot):
+    """Write/reopen D602 evidence only through the current O167 Session start."""
+
+    from source_catalog_admission import (
+        SourceCatalogAdmissionError,
+        TrustedSourceAdmissionInvocation,
+        admit_package_sources,
+    )
+
+    _session, context, _provenance = _stage_candidate_selected_session(run)
+
+    def admit(request):
+        # Reopen both source binding and Journal provenance on each writer
+        # callback boundary.  ``admit_package_sources`` separately rechecks
+        # the exact physical source snapshot before its publications.
+        _current_session, current_context, before = _stage_candidate_selected_session(run)
+        if current_context != context:
+            raise ReleaseContractError("release-source-admission-session-stale", "current O167 context changed during source admission")
+        _after_session, after_context, after = _stage_candidate_selected_session(run)
+        if after_context != context or after != before:
+            raise ReleaseContractError("release-source-admission-session-stale", "current O167 Session changed during source admission")
+        return TrustedSourceAdmissionInvocation(
+            request.snapshot_sha256,
+            before.author,
+            f"selected-release/{context.workflow_run_id}/action/{context.action_run_id}",
+            before.action_run_id,
+        )
+
+    try:
+        return admit_package_sources(run.project_root, snapshot, invocation_admitter=admit,
+                                     publication_root=_native_candidate_root(run))
+    except SourceCatalogAdmissionError as error:
+        raise ReleaseContractError(error.code, str(error)) from error
+
+
+def _prepare_native_methodology_compilation(run: ReleaseActionRun, candidate: ValidatedCandidate):
+    """Produce the real private export and compilation within started O167.
+
+    Selection comes only from the current Project-bound active frontier and
+    the frozen candidate inventory, never from caller-supplied export paths.
+    An existing private root is evidence to inspect, not permission to replay.
+    """
+
+    _stage_candidate_selected_session(run)
+    current = _revalidate(candidate)
+    root = Path(current.project_root)
+    source = root / current.manifest.canonical_source_snapshot_ref
+    candidate_root = _native_candidate_root(run)
+    if candidate_root.exists() or candidate_root.is_symlink():
+        raise ReleaseContractError("release-private-candidate-collision", "private candidate preparation already has retained effects")
+    exporter = _exporter_module()
+    binding = exporter.reopen_project_export_binding(root, source)
+    active, _source_digest = exporter._stable_active(source, binding)
+    # A non-Atom-looking file is not an admitted local-release support. Only
+    # the compiler's declared defaults accompany the complete active frontier;
+    # arbitrary explicit supports remain available to the generic exporter.
+    declared_support = exporter.compiler.DEFAULT_SETTINGS_RELATIVE.as_posix()
+    declared_source = (Path(current.manifest.canonical_source_snapshot_ref) / declared_support).as_posix()
+    matching = [row for row in current.manifest.source_inventory_rows
+                if row.resource == "METHODOLOGY" and row.source_path == declared_source]
+    if len(matching) != 1:
+        raise ReleaseContractError("release-private-support-pin-missing", "compiler-declared default settings lack one frozen source pin")
+    pin = exporter.SourcePin(declared_support, matching[0].source_sha256)
+    exporter._support_is_atom(pin, exporter._pin_bytes(source, pin, "support"))
+    support = [{"path": pin.path, "sha256": pin.sha256}]
+    frozen = exporter.freeze_methodology_manifest(
+        source_root=source,
+        selected_atoms=[{"atom_id": atom.atom_id, "version": atom.version} for atom in active],
+        support_inventory=support,
+        catalog_pins=[],
+        project_root=root,
+    )
+    if frozen["selected_atoms"] != frozen["active_frontier"]:
+        raise ReleaseContractError("release-private-source-frontier-stale", "current active export frontier changed during preparation")
+    _revalidate(current)
+    _stage_candidate_selected_session(run)
+    exporter._candidate_root(candidate_root)
+    if candidate_root == source or candidate_root.is_relative_to(source):
+        raise ReleaseContractError("candidate-root-unsafe", "release candidate cannot be inside source_root")
+    _mkdir_safe(root, ".caprmedio_tmp/release_candidates")
+    try:
+        candidate_root.mkdir(exist_ok=False)
+    except FileExistsError as error:
+        raise ReleaseContractError("release-private-candidate-collision", "private candidate preparation already has retained effects") from error
+    frozen_path = candidate_root / "frozen-methodology-manifest.json"
+    exporter._write(frozen_path, exporter.frozen_manifest_bytes(frozen))
+    exporter.export_selected_methodology(
+        source_root=source,
+        frozen_manifest_path=frozen_path,
+        release_candidate_root=candidate_root,
+        project_root=root,
+    )
+    export = bind_sealed_methodology_export(current, candidate_root)
+    return export, compile_sealed_methodology_export(export)
+
+
+def _invoke_native_portable(phase: str, run: ReleaseActionRun, candidate: ValidatedCandidate) -> tuple:
+    """Execute O164@9's existing occurrences against the portable frontier.
+
+    O167 is the complete private preparation boundary: it exports, compiles,
+    seals the portable catalog frontier, and prepares the non-active package.
+    The gate phases finish before O166 mutates the product or installed tree.
+    """
+
+    if phase == "stage_candidate":
+        export, private = _prepare_native_methodology_compilation(run, candidate)
+        if export.candidate != candidate:
+            raise ReleaseContractError("release-action-result-mismatch", "private Methodology export is not bound to the frozen candidate")
+        snapshot = collect_portable_source_snapshot(candidate, private, candidate_run_id=run.workflow_run_id)
+        admission = _admit_stage_candidate_sources(run, snapshot)
+        portable = seal_portable_source_snapshot(snapshot, publication_root=_native_candidate_root(run))
+        if portable.candidate != candidate or portable.private_compilation != private:
+            raise ReleaseContractError("release-action-result-mismatch", "portable compilation differs from the sealed private Methodology frontier")
+        package = prepare_portable_release_package(run.project_root, portable)
+        if (not isinstance(package, PreparedPortableReleasePackage)
+                or package.candidate_snapshot_manifest_sha256 != candidate.manifest.sha256
+                or package.input_manifest_sha256 != portable.input_manifest_sha256):
+            raise ReleaseContractError("release-action-result-mismatch", "private portable package is not exactly portable-contract bound")
+        run.methodology_export = export
+        run.private_compilation = private
+        run.portable_source_snapshot = snapshot
+        run.portable_compilation = portable
+        run.prepared_portable_package = package
+        return "completed", "complete private Methodology export, compilation, catalog and package prepared", (
+            f"{private.compiled_root}/compiled-delivery-manifest.json#sha256={private.compiled_manifest_sha256}",
+            f"{next(row.source_path for row in portable.portable_package_rows if row.resource == 'CATALOG')}#sha256={portable.source_catalog_sha256}",
+            admission.receipt_path.relative_to(Path(run.project_root)).as_posix(),
+            f"{package.private_package_root.relative_to(run.project_root).as_posix()}/manifest.toml",
+        ), package
+    portable = run.portable_compilation
+    if (not isinstance(portable, SealedPortableCandidateCompilation) or portable.candidate != candidate
+            or not isinstance(run.methodology_export, SealedMethodologyExport)
+            or run.methodology_export.candidate != candidate):
+        raise ReleaseContractError("release-action-prerequisite-missing", "sealed private Methodology and portable compilation are unavailable")
+    if phase == "closed_unit_gate":
+        suite = execute_bound_release_suite(
+            candidate,
+            portable,
+            executor=fresh_unit_suite_executor(
+                candidate,
+                portable,
+                project_root=run.project_root,
+                docker=_executor(run),
+            ),
+        )
+        if not isinstance(suite, PortableSuiteGateEvidence):
+            raise ReleaseContractError("release-action-result-untrusted", "native Unit result is not portable typed evidence")
+        _bound(suite, candidate)
+        run.portable_suite = suite
+        return ("completed" if suite.passed else "pending"), suite.reason, (
+            (f"{suite.evidence_root}/receipt.json",) if suite.receipt_sha256 else ()
+        ), suite
+    suite = run.portable_suite
+    if not isinstance(suite, PortableSuiteGateEvidence) or not suite.passed:
+        raise ReleaseContractError("release-action-prerequisite-missing", "passing native Unit evidence is unavailable")
+    package = run.prepared_portable_package
+    if not isinstance(package, PreparedPortableReleasePackage):
+        raise ReleaseContractError("release-action-prerequisite-missing", "private portable package is unavailable")
+    if phase == "candidate_image_build":
+        build = build_candidate_image(candidate, portable, suite, executor=_executor(run), prepared_package=package)
+        if not isinstance(build, ImageBuildEvidence):
+            raise ReleaseContractError("release-action-result-untrusted", "native image build is not typed evidence")
+        _bound(build, candidate)
+        run.build = build
+        complete = build.outcome == "built" and build.execution_kind == "docker-subprocess" and build.receipt_sha256 is not None
+        return ("completed" if complete else "pending"), build.reason, (
+            (f"{build.evidence_root}/receipt.json",) if build.receipt_sha256 else ()
+        ), build
+    if run.build is None or run.build.outcome != "built" or run.build.execution_kind != "docker-subprocess":
+        raise ReleaseContractError("release-action-prerequisite-missing", "actual native image build proof is unavailable")
+    if phase == "candidate_image_canary":
+        verified = verify_candidate_image(candidate, portable, suite, run.build, executor=_executor(run), prepared_package=package)
+        if not isinstance(verified, ImageVerificationEvidence):
+            raise ReleaseContractError("release-action-result-untrusted", "native image canary is not typed evidence")
+        _bound(verified, candidate)
+        run.verification = verified
+        complete = verified.outcome == "verified" and verified.execution_kind == "docker-subprocess" and verified.receipt_sha256 is not None
+        return ("completed" if complete else "pending"), verified.reason, (
+            (f"{verified.evidence_root}/receipt.json",) if verified.receipt_sha256 else ()
+        ), verified
+    if run.verification is None or run.verification.outcome != "verified" or run.verification.execution_kind != "docker-subprocess":
+        raise ReleaseContractError("release-action-prerequisite-missing", "actual native image proof is unavailable")
+    if phase == "host_candidate_e2e":
+        evidence = run_candidate_e2e_gate(
+            candidate, portable, suite, run.verification,
+            image_build=run.build, executor=HostE2EExecutor(), prepared_package=package,
+        )
+        if not isinstance(evidence, CandidateE2EGateEvidence):
+            raise ReleaseContractError("release-action-result-untrusted", "native candidate E2E result is not typed evidence")
+        _bound(evidence, candidate)
+        run.e2e = evidence
+        return ("completed" if evidence.passed else "pending"), evidence.reason, (
+            (f"{evidence.evidence_root}/receipt.json",) if evidence.receipt_sha256 else ()
+        ), evidence
+    if run.e2e is None or not run.e2e.passed:
+        raise ReleaseContractError("release-action-prerequisite-missing", "passing native host E2E evidence is unavailable")
+    if phase == "aggregate_full_gate":
+        from release_full_gate import NativeFullGateEvidence, aggregate_bound_release_gates, verify_bound_full_gate_evidence
+
+        verify_bound_candidate_e2e_evidence(
+            candidate, portable, suite, run.verification, run.e2e,
+            image_build=run.build, prepared_package=package,
+        )
+        full_gate = aggregate_bound_release_gates(
+            candidate, portable, suite, run.build, run.verification, run.e2e,
+            prepared_package=package,
+        )
+        if not isinstance(full_gate, NativeFullGateEvidence):
+            raise ReleaseContractError("release-action-result-untrusted", "native aggregate is not portable full-gate evidence")
+        _bound(full_gate, candidate)
+        run.full_gate = full_gate
+        if full_gate.passed:
+            from release_retained_package import read_retained_native_package_evidence
+
+            retained_package = read_retained_native_package_evidence(
+                package.private_package_root, Path(run.project_root) / full_gate.package_evidence_relpath,
+                expected_sha256=full_gate.package_evidence_sha256,
+            )
+            verify_bound_full_gate_evidence(
+                candidate, portable, suite, run.build, run.verification, run.e2e, full_gate,
+                retained_package=retained_package,
+            )
+            from release_retained_candidate import retain_retained_candidate_identity
+
+            retain_retained_candidate_identity(candidate, portable, package)
+        return ("completed" if full_gate.passed else "pending"), full_gate.reason, (
+            (f"{full_gate.evidence_root}/receipt.json",) if full_gate.receipt_sha256 else ()
+        ), full_gate
+    if phase == "deliver_sources":
+        bindings = _selected_local_bindings(run)
+        source_copy, atom_count = bindings.deliver_sources()
+        return "completed", "exact gated Methodology atoms delivered to the product", (
+            f"{source_copy}#active-atom-count={atom_count}",
+            *bindings.checkpoint_refs,
+        ), run.methodology_export
+    if phase == "compile":
+        bindings = _selected_local_bindings(run)
+        digest = bindings.compile_product()
+        return "completed", "exact gated product Methodology compiled", (
+            f"{bindings.layout.applicable_root}#sha256={digest}",
+            *bindings.checkpoint_refs,
+        ), run.portable_compilation
+    if phase == "promote":
+        from release_promotion import prepare_and_publish_selected_native_runtime
+
+        bindings = _selected_local_bindings(run)
+        installed_root = bindings.layout.installed_root
+        outcome, reason, refs, promoted = prepare_and_publish_selected_native_runtime(run, run.in_progress)
+        if promoted is not None and type(promoted) is not NativePromotionEvidence:
+            raise ReleaseContractError("release-action-result-untrusted", "native publication result is not typed evidence")
+        run.promotion = promoted
+        if outcome == "completed" and promoted is not None:
+            try:
+                startup, startup_ref = bindings.start_and_check_mcp(promoted)
+            except (OSError, ValueError, RuntimeError) as error:
+                return "effect_uncertain", f"native publication occurred but final Methodology/MCP verification stopped: {error}", (
+                    installed_root, *bindings.checkpoint_refs, *refs,
+                ), promoted, promoted.outcome
+            refs = (*refs, startup_ref)
+            if not isinstance(startup, Mapping) or startup.get("condition") not in {"READY_STARTED", "READY_REUSED"}:
+                return "effect_uncertain", "native publication occurred but installed MCP did not report ready", (
+                    installed_root, *bindings.checkpoint_refs, *refs,
+                ), promoted, promoted.outcome
+            try:
+                cleanup = cleanup_superseded_release_images(
+                    candidate, portable, suite, run.build, run.verification, promoted,
+                    e2e=run.e2e, full_gate=run.full_gate, executor=_executor(run),
+                    prepared_package=package,
+                )
+            except (OSError, ValueError, RuntimeError) as error:
+                return "effect_uncertain", f"installation succeeded but image cleanup stopped: {getattr(error, 'code', type(error).__name__)}", (
+                    installed_root, *bindings.checkpoint_refs, *refs,
+                ), promoted, promoted.outcome
+            refs = (*refs, cleanup.report_ref)
+            if cleanup.outcome != "cleaned":
+                cleanup_outcome = cleanup.outcome if cleanup.outcome in {"effect_uncertain", "recording_uncertain"} else "pending"
+                return cleanup_outcome, f"installation succeeded; {cleanup.reason}", (
+                    installed_root, *bindings.checkpoint_refs, *refs,
+                ), promoted, promoted.outcome
+            reason = f"{reason}; {cleanup.reason}"
+        return outcome, reason, (installed_root, *bindings.checkpoint_refs, *refs), promoted, promoted.outcome if promoted is not None else outcome
+    raise ReleaseContractError("release-action-phase-unselected", "unknown selected native portable phase")
+
+
 def _invoke(phase, run):
     candidate = run.candidate
     if phase == "freeze":
-        candidate = _locally_observed_candidate(run.request)
+        candidate = (
+            _locally_observed_candidate(run.request, native_installed_n=run.native_installed_n)
+            if run.native_installed_n is not None else _locally_observed_candidate(run.request)
+        )
         preflight = preflight_release_compilation(run.project_root, candidate_release=candidate.manifest.candidate_release)
         if (preflight.expected_derived_source_copy_sha256 != candidate.manifest.expected_derived_source_copy_sha256
                 or preflight.expected_compiled_output_sha256 != candidate.manifest.expected_compiled_output_sha256
@@ -300,6 +853,7 @@ def _invoke(phase, run):
     if (not isinstance(candidate, ValidatedCandidate) or candidate.project_root != run.project_root
             or candidate.manifest != run.request.candidate_snapshot_manifest):
         raise ReleaseContractError("release-action-prerequisite-mismatch", "retained candidate differs from this frozen Run")
+    return _invoke_native_portable(phase, run, candidate)
     if run.source_copy is not None and (not isinstance(run.source_copy, SealedSourceCopy)
             or run.source_copy.candidate != candidate):
         raise ReleaseContractError("release-action-prerequisite-mismatch", "retained source-copy result belongs to another candidate")
@@ -335,7 +889,7 @@ def _invoke(phase, run):
         suite = execute_bound_release_suite(
             candidate,
             run.compilation,
-            executor=installed_n_suite_executor(
+            executor=fresh_unit_suite_executor(
                 candidate,
                 run.compilation,
                 project_root=run.project_root,
@@ -540,6 +1094,20 @@ def execute_release_action(request: ReleaseVersionRequest | Mapping[str, Any], *
             result = _result(run, context, phase, "blocked", f"phase stopped: {error.code}")
             run.contexts[index], run.results[index], run.stopped = context, result, True
             return result
+    if phase == "freeze":
+        try:
+            observed_binding = _freeze_local_release_helper_binding(Path(run.project_root).resolve(strict=True))
+            if run.local_helper_binding is None:
+                run.local_helper_binding = observed_binding
+            elif run.local_helper_binding != observed_binding:
+                raise ReleaseContractError(
+                    "local-release-helper-stale",
+                    "Project local-release helper differs from the retained frozen helper binding",
+                )
+        except (OSError, ValueError, RuntimeError) as error:
+            result = _result(run, context, phase, "blocked", f"phase stopped: {getattr(error, 'code', type(error).__name__)}")
+            run.contexts[index], run.results[index], run.stopped = context, result, True
+            return result
     run.contexts[index], run.in_progress = context, context
     try:
         # Persist the selected in-progress identity before any helper may
@@ -552,7 +1120,7 @@ def execute_release_action(request: ReleaseVersionRequest | Mapping[str, Any], *
         run.next_phase = index
         result = _result(
             run, context, phase, "blocked",
-            f"shared checkpoint failed before phase invocation: {type(error).__name__}",
+            f"shared checkpoint failed before phase invocation: {getattr(error, 'code', type(error).__name__)}",
         )
         run.results[index], run.stopped = result, True
         return result
@@ -571,7 +1139,7 @@ def execute_release_action(request: ReleaseVersionRequest | Mapping[str, Any], *
         result = _result(run, context, phase, "blocked" if isinstance(error, ReleaseContractError) else "failed",
                          f"phase stopped: {getattr(error, 'code', type(error).__name__)}", attempted=attempted, refs=refs)
     except Exception as error:
-        result = _result(run, context, phase, "effect_uncertain", f"private phase result is unknown: {type(error).__name__}", attempted=attempted)
+        result = _result(run, context, phase, "effect_uncertain", f"private phase result is unknown: {getattr(error, 'code', type(error).__name__)}", attempted=attempted)
     finally:
         run.in_progress = None
     run.results[index] = result

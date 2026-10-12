@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-1998",
+  "recorded_at": "2026-10-11 02:22:49 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-007.review.json",
+    "sha256": "453a33c4f55d786be0616c16b7d73b1130855dc628d0411bbe90676ca31a50d5"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-007.json",
+    "sha256": "19e2f3a5e0d8c38cc3550d000928a3fc583f1fba1ac34eb8abc43b55bf21273e"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 20,
+    "occurrences": 68,
+    "proposed": 14,
+    "unchanged": 45,
+    "unresolved": 9,
+    "meaning_review": "An independent read-only reviewer checked all proposals and high-risk unchanged rows. All six rejected field, signature, Subject-Relation and methodology-alias proposals are now null; retained mappings preserve their actual defined owner/field distinctions.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "9 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}

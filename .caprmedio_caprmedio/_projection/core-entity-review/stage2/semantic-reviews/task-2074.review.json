@@ -1,0 +1,2485 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "task_id": "CA-P-2074",
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "carrier_review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+      "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "research_ownership": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.research-ownership.json",
+      "sha256": "e1c83dde94e04488645bfd508c4407c43ae18779dcf13cc1c5099e12071e8b2f"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      }
+    ],
+    "current_grammar": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/subject-tools.grammar-contract.md",
+        "sha256": "aa267553ff481c7473c86fedcd757e902bbf00ffe3e2f2deef90b99201598f59"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-tools.current-contract.md",
+        "sha256": "cab46c2481e61fdca0ee7df38bce638d178eb37865e2e9e0be580179b2f3dbb6"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/61-CA-P-2074-TASK--review-carrier-mapping-candidates.md",
+      "sha256": "19437ba230ec10563dc7a3121c713cc1db5eb8dd339f0f3af86676efb0b3fd66"
+    }
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1361-CORE_META_MODEL--define-canonical-scope-signature.md#subjects.depends_on[3]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/0",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1361-CORE_META_MODEL--define-canonical-scope-signature.md",
+          "sha256": "7e5fce4d3eeafe4bc4cab3f4fcd972c5e3a94b5ba86fc96f3d0285d7737a977f",
+          "start_line": 22,
+          "end_line": 50,
+          "span_sha256": "8edeb4aa44f7c9d4c317fa9b3f65fd05561d827574a755aa55f8715d1b74d59c",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1583-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-completion.md#subjects.depends_on[3]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/3",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "File Carrier",
+      "proposed_value": null,
+      "disposition": "unresolved",
+      "confidence": 0,
+      "reason": "The old Subject names File Carrier, but the re-read owning Main Content does not establish that kind for this occurrence. Other sources cannot replace source-specific meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1583-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-completion.md",
+          "sha256": "aa6bce1b9aab28443c6e34b9cc4519dcf0a1bdfffa37b898f94c92febe72c3f2",
+          "start_line": 22,
+          "end_line": 41,
+          "span_sha256": "ed7c5c194808515566f19a16118e45735c19f17e0ca7a06e8010edfcd296bbd5",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier/File"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1586-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-details.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/4",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1586-CORE_META_MODEL-CORE-REQUIREMENT--define-plan-details.md",
+          "sha256": "bb52ec824445518fb7eebdcca7c55c2a99fe46677bb4f615f3c06c6722a1cf5b",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "d16d0188ef06f5a2d03df16c4e9f20db8738c831588185ef344b250c4e2078b7",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1590-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-standalone-plans.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/5",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1590-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-standalone-plans.md",
+          "sha256": "38b8d2288aab37581afe93b2f207a55d141cfc3b0a06673ef791c7963b2eb35f",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "7276de1822a9dc48e11b6157be5d3e112855d9ec8ec98857ffff6f9959d38970",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1598-CORE_META_MODEL-CORE-REQUIREMENT--keep-every-atom-self-sufficient.md#subjects.depends_on[3]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/6",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1598-CORE_META_MODEL-CORE-REQUIREMENT--keep-every-atom-self-sufficient.md",
+          "sha256": "b76be3aa6457c81127c7864a53ee75952417f8dbc14f8f0e534e2d0abdcf9983",
+          "start_line": 23,
+          "end_line": 39,
+          "span_sha256": "981633acb0fe653ad2d3ff7cf8d298f0a8c57b98e7ad6d82ef4b73a244cbd2ac",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/7",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-CORE-REQUIREMENT--recover-work-journal-coverage-without-invention.md",
+          "sha256": "17818dc16dd72a5eb861d295bd5c7fdfaef3e2cc6c0de432fe74e72ede0f9681",
+          "start_line": 21,
+          "end_line": 42,
+          "span_sha256": "09613c33577fb980bc02a49045080c915645dc526665e4faedf44cc3fd194f99",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL--refresh-updated-at-whenever-an-atom-changes.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/8",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL--refresh-updated-at-whenever-an-atom-changes.md",
+          "sha256": "253278979269bbc4ce755a729f601409798ce309eaa035f03ee7a18d708373b6",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "397c5b1889376206af01c6e7044003a6fdc9df4ed7e255391f6b6c865dd3ba1c",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL--refresh-updated-at-whenever-an-atom-changes.md#subjects.depends_on[4]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/9",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier Placement",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL--refresh-updated-at-whenever-an-atom-changes.md",
+          "sha256": "253278979269bbc4ce755a729f601409798ce309eaa035f03ee7a18d708373b6",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "397c5b1889376206af01c6e7044003a6fdc9df4ed7e255391f6b6c865dd3ba1c",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier Placement"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-862-CORE_META_MODEL-CORE-REQUIREMENT--bind-scope-unit-places-without-requiring-local-delivery-atoms.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/11",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Implementation Folder",
+      "proposed_value": "Scope Unit.Implementation Folder",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly treats Implementation Folder as an owned Scope Unit binding or observation. The confirmed Scope Unit root and dependent-property rule support this target without making a path a Carrier identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-862-CORE_META_MODEL-CORE-REQUIREMENT--bind-scope-unit-places-without-requiring-local-delivery-atoms.md",
+          "sha256": "2c3b55fa8c64ff236eaec12483ca43141025aeb2f7c030dc17f3bec5d7dde195",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "dbe8d563dda12641cd7e607754bfb9e2a0550c3c45aabacdefcd7e321676e4d8",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-241-CORE_META_MODEL--derive-canonical-scope-signatures-without-source-rewrite.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/12",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-241-CORE_META_MODEL--derive-canonical-scope-signatures-without-source-rewrite.md",
+          "sha256": "97f0b470a85ecdd81c279fea0008177f6fefabb5669030c94ca6e65ee15f2efc",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "77bd9f98d2f79a22c857a24c306d7d13f5d9745a8329a81adcb4ccd52dd247dc",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-METHOD--repair-accidental-atom-id-reuse.md#subjects.depends_on[5]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/13",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Carrier/Canonical Address",
+      "proposed_value": "Carrier.Canonical Address",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly uses Canonical Address as a Carrier location or validation fact. The candidate confirms path and filename are storage location rather than Carrier identity, which this dependent-property target preserves.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-METHOD--repair-accidental-atom-id-reuse.md",
+          "sha256": "99bb048b7aabaaadab2bab139acaaba852fe8df1bc7e75bff898f063cedd5249",
+          "start_line": 28,
+          "end_line": 48,
+          "span_sha256": "749ee20e238802b464128234065ca45bab6fa689d3bc6b6206bc01b619ad7027",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL-GENERAL--author-plan-atoms.md#subjects.depends_on[13]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/14",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "File Carrier",
+      "proposed_value": null,
+      "disposition": "unresolved",
+      "confidence": 0,
+      "reason": "The old Subject names File Carrier, but the re-read owning Main Content does not establish that kind for this occurrence. Other sources cannot replace source-specific meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL-GENERAL--author-plan-atoms.md",
+          "sha256": "b20340474959f2b3e19417b6d7de7398e62bd6d556c341edec7d3ae64011092d",
+          "start_line": 31,
+          "end_line": 54,
+          "span_sha256": "b2b474a7d88674a4fbfc6f13d99a62771a625227a1979057c310565d6f4fbd55",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier/File"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-407-CORE_META_MODEL-EVALUATION_APPROACH--validate-canonical-scope-signature-boundary.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/15",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-407-CORE_META_MODEL-EVALUATION_APPROACH--validate-canonical-scope-signature-boundary.md",
+          "sha256": "ef78590cf46f4f2679aa38bd0dd034bf97e6816adfb0c6e1030b5a0ff82ce65b",
+          "start_line": 24,
+          "end_line": 41,
+          "span_sha256": "1d2ffb01d8c3aa0cdca0d769d58e8c391d16fa4d19a30eb462017e64cc81cad5",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-448-CORE_META_MODEL-EVALUATION_APPROACH--validate-accidental-atom-id-reuse-repair.md#subjects.depends_on[5]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/16",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Carrier/Canonical Address",
+      "proposed_value": "Carrier.Canonical Address",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly uses Canonical Address as a Carrier location or validation fact. The candidate confirms path and filename are storage location rather than Carrier identity, which this dependent-property target preserves.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-448-CORE_META_MODEL-EVALUATION_APPROACH--validate-accidental-atom-id-reuse-repair.md",
+          "sha256": "1504f5ef8fda49372abf4f637712bc84e8a77dfb93cca49089ffcddb46412ace",
+          "start_line": 30,
+          "end_line": 51,
+          "span_sha256": "778b7889bf7038f63610874c8b17a33088e2fa1d4890785efb460b2965b13825",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-EVALUATION_APPROACH--validate-atom-replacement-event-evidence.md#subjects.depends_on[7]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/17",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-EVALUATION_APPROACH--validate-atom-replacement-event-evidence.md",
+          "sha256": "e1b8a1f6f8c8a64966578f24f74f153ffc6f7bffd60ae9b252a3ff8bbd701dcb",
+          "start_line": 31,
+          "end_line": 56,
+          "span_sha256": "63f45df62e919afde2d3422f46f7a396feab29915fc1affba053b452074d6b61",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-CORE-QA_CASE--check-the-journal-storage-boundary.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/18",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-CORE-QA_CASE--check-the-journal-storage-boundary.md",
+          "sha256": "6ab9828f130133780eb89ea7dac13b3e3cc60134a92ab8a120d31da9a23ea2ae",
+          "start_line": 27,
+          "end_line": 56,
+          "span_sha256": "882a6ee220040b72a81dbec0ce0cc42dddf5ad02e51a4f872467172fdb3ad4c5",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-482-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-principle-content-role-semantics.md#subjects.depends_on[13]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/19",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-482-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--validate-principle-content-role-semantics.md",
+          "sha256": "63074cf1df61acaee8b72785316a000db1b1d4a5b893591c789fa2d88706683f",
+          "start_line": 42,
+          "end_line": 67,
+          "span_sha256": "60aaaf37ea6de8361cebd90ef93fad5a490d72427605134b81710cb2ca454746",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-QA_CASE--validate-plan-carrier-identity-and-placement.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/20",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "File Carrier",
+      "proposed_value": "Carrier/File",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly distinguishes a File Carrier. The separate Carrier root plus confirmed file representation role support Carrier/File as a narrower Carrier kind, with no filename/path identity, @ operator, or native edge inferred.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-QA_CASE--validate-plan-carrier-identity-and-placement.md",
+          "sha256": "0da834a92da258996ea4f261c4b13710c31d59c263b187940646635ba25e9fad",
+          "start_line": 28,
+          "end_line": 47,
+          "span_sha256": "03bea356fb0eb4927742e1552dede3df9ddb4e76d45223facc844ed3e65e6cf1",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-QA_CASE--validate-plan-carrier-identity-and-placement.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/21",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Directory Carrier",
+      "proposed_value": "Carrier/Folder",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly distinguishes a Directory/Folder Carrier. The separate Carrier root plus confirmed folder representation role support Carrier/Folder as a narrower Carrier kind, not an Artifact property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-QA_CASE--validate-plan-carrier-identity-and-placement.md",
+          "sha256": "0da834a92da258996ea4f261c4b13710c31d59c263b187940646635ba25e9fad",
+          "start_line": 28,
+          "end_line": 47,
+          "span_sha256": "03bea356fb0eb4927742e1552dede3df9ddb4e76d45223facc844ed3e65e6cf1",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-507-CORE_META_MODEL-QA_CASE--validate-explicitly-owned-plan-decomposition.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/24",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Directory Carrier",
+      "proposed_value": "Carrier/Folder",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly distinguishes a Directory/Folder Carrier. The separate Carrier root plus confirmed folder representation role support Carrier/Folder as a narrower Carrier kind, not an Artifact property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-507-CORE_META_MODEL-QA_CASE--validate-explicitly-owned-plan-decomposition.md",
+          "sha256": "e6243c4fa3c568a0284a6acf54a28a3e7d156df071f013f7ced4b21f657dc67b",
+          "start_line": 23,
+          "end_line": 45,
+          "span_sha256": "cc013379e50253ab74f4de9d4fa9bf591d42a0ae9e6926712b3db6776c25491b",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-507-CORE_META_MODEL-QA_CASE--validate-explicitly-owned-plan-decomposition.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/25",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "File Carrier",
+      "proposed_value": "Carrier/File",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly distinguishes a File Carrier. The separate Carrier root plus confirmed file representation role support Carrier/File as a narrower Carrier kind, with no filename/path identity, @ operator, or native edge inferred.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-507-CORE_META_MODEL-QA_CASE--validate-explicitly-owned-plan-decomposition.md",
+          "sha256": "e6243c4fa3c568a0284a6acf54a28a3e7d156df071f013f7ced4b21f657dc67b",
+          "start_line": 23,
+          "end_line": 45,
+          "span_sha256": "cc013379e50253ab74f4de9d4fa9bf591d42a0ae9e6926712b3db6776c25491b",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md#subjects.depends_on[8]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/26",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Directory Carrier/Numeric Prefix",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The re-read Main Content concerns a filename/address token, prefix, or segment. The candidate says syntax used to describe an Entity is not itself an Entity, so this target invents a bearer property from carrier syntax.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+          "sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+          "start_line": 35,
+          "end_line": 74,
+          "span_sha256": "7c38b70fd0086092e49c1dbd8a519bc92d0555dfe61ffd500ebc85690693e234",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier/Folder.Numeric Prefix"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md#subjects.depends_on[9]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/27",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Implementation Folder",
+      "proposed_value": "Scope Unit.Implementation Folder",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly treats Implementation Folder as an owned Scope Unit binding or observation. The confirmed Scope Unit root and dependent-property rule support this target without making a path a Carrier identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+          "sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+          "start_line": 35,
+          "end_line": 74,
+          "span_sha256": "7c38b70fd0086092e49c1dbd8a519bc92d0555dfe61ffd500ebc85690693e234",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/29",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-521-CORE_META_MODEL-QA_CASE--verify-updated-at-refresh-and-semantic-versioning.md",
+          "sha256": "70f17039419cd20eee9a38c3d106b9d75b7bf4b563b732b3632b9c5115f601a0",
+          "start_line": 32,
+          "end_line": 58,
+          "span_sha256": "9eed858245e2fd7fe6cb4b6ffc38461c6cc2bb21fccd67628dd508069627fe69",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-253-CORE_META_MODEL-CORE-DELIVERY--place-applicable-methodology-and-its-sources.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/30",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Applicable Methodology/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-253-CORE_META_MODEL-CORE-DELIVERY--place-applicable-methodology-and-its-sources.md",
+          "sha256": "6c7aa690c203c38d7443fa1385f3d2e600651060e6ff083d8e5c9a33bef1e5f6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "fe95eb07c2d1b89fae9466fb32c389ae0b53feeb03935d1b219d696d7d222677",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Applicable Methodology.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/31",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "File Carrier/Format",
+      "proposed_value": "Carrier/File.Format",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly defines File Carrier Format. The target retains Format as a fact of the narrower File Carrier, not an Entity identity or a per-property carried-by registry.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-262-CORE_META_MODEL-DELIVERY--register-current-file-carrier-formats.md",
+          "sha256": "5d420859be25a05194d5f62fe00504dd4ac5a8bb83fde0ac4cac8249c22b07fe",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "856a1cfb62dd8b999c207f2aa0563f693f083f9b05fd349b7a4f7569cb558edb",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-DELIVERY--derive-direct-containment-from-the-nearest-directory-carrier.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/32",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Directory Carrier/Nesting",
+      "proposed_value": null,
+      "disposition": "unresolved",
+      "confidence": 0,
+      "reason": "The re-read Main Content defines a D policy for deriving or not persisting containment from folder nesting, not Nesting as a dependent Carrier/Folder Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-DELIVERY--derive-direct-containment-from-the-nearest-directory-carrier.md",
+          "sha256": "0f19e5fd28ed760867d261ad14aa29e0bed6b95d7482ad8a0bd196483f144f36",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "11a68463a5de6d3848b329b0bd315f0e0f9bf6d36ccf822ae18c4e65afa76131",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier/Folder.Nesting"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-CORE-DELIVERY--prohibit-persisting-derived-containment.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/33",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Directory Carrier/Nesting",
+      "proposed_value": null,
+      "disposition": "unresolved",
+      "confidence": 0,
+      "reason": "The re-read Main Content defines a D policy for deriving or not persisting containment from folder nesting, not Nesting as a dependent Carrier/Folder Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-CORE-DELIVERY--prohibit-persisting-derived-containment.md",
+          "sha256": "e8786ab9d629bf73b7d5a6679cfecbf72921ed04ab8c888d8f4e4d85b7fe8d36",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d20e8b2bfa8174cd89b75fb929a1b46cfcbca0618640266d919e8acc52994ee6",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier/Folder.Nesting"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-DELIVERY--derive-address-facts-without-duplicated-frontmatter.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/34",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Carrier/Canonical Address",
+      "proposed_value": "Carrier.Canonical Address",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly uses Canonical Address as a Carrier location or validation fact. The candidate confirms path and filename are storage location rather than Carrier identity, which this dependent-property target preserves.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-DELIVERY--derive-address-facts-without-duplicated-frontmatter.md",
+          "sha256": "533c87f928032d8a8049ee4acdc0a34822aa8731a37a5f79964e66e7183b74c6",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "b5d72b128557ddb95a3964ccd1f96d734ab124eff81a14618811bd695880172a",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-285-CORE_META_MODEL--serialize-local-tier-filename-tokens.md#subjects.depends_on[5]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/35",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-285-CORE_META_MODEL--serialize-local-tier-filename-tokens.md",
+          "sha256": "4434a46931e802ff2c4e0a722f2be39a907314480e8e057c7ac31a99f1b94856",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "afd37c824d1e9a36f172c09fd0480c48951d7653ef64ff2a519884da908a4a0c",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-285-CORE_META_MODEL--serialize-local-tier-filename-tokens.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/36",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Local Tier/Filename Token",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The re-read Main Content concerns a filename/address token, prefix, or segment. The candidate says syntax used to describe an Entity is not itself an Entity, so this target invents a bearer property from carrier syntax.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-285-CORE_META_MODEL--serialize-local-tier-filename-tokens.md",
+          "sha256": "4434a46931e802ff2c4e0a722f2be39a907314480e8e057c7ac31a99f1b94856",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "afd37c824d1e9a36f172c09fd0480c48951d7653ef64ff2a519884da908a4a0c",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Local Tier.Carrier Filename Token"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-291-CORE_META_MODEL-DELIVERY--serialize-the-current-scope-unit-in-atom-filenames.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/38",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Carrier/Current Scope Unit/Filename Token",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The re-read Main Content concerns a filename/address token, prefix, or segment. The candidate says syntax used to describe an Entity is not itself an Entity, so this target invents a bearer property from carrier syntax.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-291-CORE_META_MODEL-DELIVERY--serialize-the-current-scope-unit-in-atom-filenames.md",
+          "sha256": "9a2855535ac2f6c7a35661ad558d97694f53feaadaba91ba890a20a7be04b9bd",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "40c48d80b14ed41264a768d8c6d4f032812f8ce310a09faa31d63f156c980e5f",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Carrier.Current Scope Unit.Filename Token"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/39",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Directory Carrier/Numeric Prefix",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The re-read Main Content concerns a filename/address token, prefix, or segment. The candidate says syntax used to describe an Entity is not itself an Entity, so this target invents a bearer property from carrier syntax.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-300-CORE_META_MODEL--size-structural-level-prefixes-dynamically.md",
+          "sha256": "c70f6b177a74db94c3905cc2386bcf2bed99557d421aa974404fae91c7669819",
+          "start_line": 20,
+          "end_line": 37,
+          "span_sha256": "e1c7226dd689528d4b8b3f48ec052017853f833597bb5724618ca94f18f38075",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier/Folder.Numeric Prefix"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL--require-portable-safe-carrier-addresses.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/40",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Carrier/Canonical Address/Segment",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The re-read Main Content concerns a filename/address token, prefix, or segment. The candidate says syntax used to describe an Entity is not itself an Entity, so this target invents a bearer property from carrier syntax.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-301-CORE_META_MODEL--require-portable-safe-carrier-addresses.md",
+          "sha256": "40fa41c8ff9abdd81a39689a3b95284a2240cf567113bbf794fa874b8e61a691",
+          "start_line": 17,
+          "end_line": 33,
+          "span_sha256": "c6ff139b9320d672c3821dfabd32eaff4b863b77e7376b1e9a0bf9c52300d391",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier.Canonical Address.Segment"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/41",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Scope/Filename Token",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The re-read Main Content concerns a filename/address token, prefix, or segment. The candidate says syntax used to describe an Entity is not itself an Entity, so this target invents a bearer property from carrier syntax.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-DELIVERY--serialize-scope-unit-references-as-filename-tokens.md",
+          "sha256": "6dafff118ee74ab5995cb2918584bcc4fa1c843de0bb306f06926f4169ed6bfb",
+          "start_line": 19,
+          "end_line": 29,
+          "span_sha256": "95b61c83fa9f10121dc787a147617acf2a59283139727a4b49db1d76fce4d580",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Scope.Carrier Filename Token"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/44",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Methodology Source/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+          "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "d29a874ccf9f1831db024f7f0ee04719bd55497ed827016b01a52f672f14a30a",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Methodology Source.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/45",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Applicable Methodology/Projected Atom Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+          "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+          "start_line": 20,
+          "end_line": 39,
+          "span_sha256": "d29a874ccf9f1831db024f7f0ee04719bd55497ed827016b01a52f672f14a30a",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Applicable Methodology.Projected Atom Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/46",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Applicable Methodology/Carrier Set",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-306-CORE_META_MODEL--materialize-applicable-methodology-as-projected-atom-files.md",
+          "sha256": "af41d7cc169cf18ec430fce7275661b97184a781adda47455aac84704324ae71",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "eeba921cc7c092d388edbc44bb88b66df71dd91f984c6549950281490e55793b",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Applicable Methodology.Carrier Set"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/47",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Journal/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md",
+          "sha256": "0d2117b41344599129fd9751872754d7d358d8a759281abd65ba8874de9a5a01",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "57018bd05fac9e1e1ac46783e6eaf872b1789f4167cff78e12974952b61a21b6",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Journal.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/48",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Materialized Representation/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-309-CORE_META_MODEL-CORE--bind-materialized-representations-to-regeneration-sources.md",
+          "sha256": "08d9a70a3f6edc6ad973af0c23f47639b9fa1e299a258e068a0cf12aa18f59ee",
+          "start_line": 18,
+          "end_line": 34,
+          "span_sha256": "e8dbab07e73339390204a23c0207aa32c30b6529243d130ca55be8fcedb1de64",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Materialized Representation.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/49",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Carrier/Representation",
+      "proposed_value": "Carrier.Representation",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content defines how a Carrier represents its carried Artifact Revision. This agrees with the candidate Carrier meaning and representation boundary without creating an identity or relation type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-311-CORE_META_MODEL-CORE--represent-authority-without-semantic-change.md",
+          "sha256": "a049829113f02daa2df65f2daa3e23ad685b157d1bf64155ead647cc54097b4a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "da7e3a09e206b768e6da76bc1fa4100f54b487c3adf49efbf243b047e11a3383",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL--place-each-project-framework-instance-inside-its-project.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/50",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "CAPRMEDIO Framework Instance/Carrier Root",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-317-CORE_META_MODEL--place-each-project-framework-instance-inside-its-project.md",
+          "sha256": "c93ede85518a750816c36cff62d6f7e1ec3a66377f31ae221d17296cac30c8ef",
+          "start_line": 17,
+          "end_line": 31,
+          "span_sha256": "94e2664237226c6211e89c4090805ebb4dc909f8f6cbfcd8c4165e2b4449e2a9",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "CAPRMEDIO Framework Instance.Carrier Root"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-318-CORE_META_MODEL--place-project-owned-persistent-carriers.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/51",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Project-Owned Carrier Root",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-318-CORE_META_MODEL--place-project-owned-persistent-carriers.md",
+          "sha256": "03e49c2ba9f28aecfcfca3899d40f5bd9a3131e0220613f88b83badc4deb51ea",
+          "start_line": 17,
+          "end_line": 31,
+          "span_sha256": "1a87893421b60b4680f275c7302be963e354e7c17732de5a202be0a198900dad",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Project.Carrier Root"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-329-CORE_META_MODEL--serialize-proof-frontier-references.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/52",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Proof Carrier/Dependency Frontier",
+      "proposed_value": null,
+      "disposition": "unresolved",
+      "confidence": 0,
+      "reason": "The re-read Main Content specifies proof-frontier serialization, but the candidate confirms neither a Proof Carrier subtype nor a Dependency Frontier dependent Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-329-CORE_META_MODEL--serialize-proof-frontier-references.md",
+          "sha256": "965f664d842c8633f356944fdb9b3fd899da2e5aff2fa2999ac72581677345ca",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "4a86d057e8db02bc01a15d758dff892f38f60096565639ce80ef86b6737284c7",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier/Proof.Dependency Frontier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/54",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "File Carrier/GitHub Preview",
+      "proposed_value": null,
+      "disposition": "unresolved",
+      "confidence": 0,
+      "reason": "The re-read Main Content requires a GitHub rendering capability, not GitHub Preview as a dependent File Carrier Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-330-CORE_META_MODEL--preserve-github-file-preview-compatibility.md",
+          "sha256": "5a23877586a794848b0a8228d768d5a5d5300db0d44c7f6b44318e253403d804",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "cc02aba98b2f841d2e3df5a6d552778f45ba18ab699cabb758ea35abe9820c60",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier/File.GitHub Preview"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-331-CORE_META_MODEL--keep-durable-hub-navigation-at-folder-level.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/55",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Hub/Carrier/Navigation Entry",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-331-CORE_META_MODEL--keep-durable-hub-navigation-at-folder-level.md",
+          "sha256": "4164a0e480deed49d8bb569559941e8b7822bac09c8a88cf02205982c532e6a2",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "e88dac45df7a32b03b9afd58159b4e154d740d6c7f40335b6b6cbcadd8a88dc7",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Hub.Carrier.Navigation Entry"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/56",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Carrier/Canonical Address",
+      "proposed_value": "Carrier.Canonical Address",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly uses Canonical Address as a Carrier location or validation fact. The candidate confirms path and filename are storage location rather than Carrier identity, which this dependent-property target preserves.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-336-CORE_META_MODEL--resolve-active-atoms-from-canonical-carrier-identities.md",
+          "sha256": "568a05be96135d288657d09811f49e48746a3dd78c949d3d9dc6a17e7d5b9ae0",
+          "start_line": 19,
+          "end_line": 35,
+          "span_sha256": "facccc2f6a9ec2363b21e6452a347480382d1b80344227090e2979c588587749",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.depends_on[4]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/58",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/60",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Framework-Owned Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+          "sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "0f33d786700e5def80c90cda99da1849769ef842ae2cb37a3230e329cf7dd837",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Framework.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/61",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Project-Owned Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+          "sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "0f33d786700e5def80c90cda99da1849769ef842ae2cb37a3230e329cf7dd837",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Project.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/62",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Runtime State Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+          "sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "0f33d786700e5def80c90cda99da1849769ef842ae2cb37a3230e329cf7dd837",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Runtime State.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/63",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Carrier/Storage Boundary",
+      "proposed_value": null,
+      "disposition": "unresolved",
+      "confidence": 0,
+      "reason": "The re-read Main Content defines a persistent-versus-runtime storage policy. The candidate places such conventions in general D policy and does not confirm Storage Boundary as a Carrier Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-341-CORE_META_MODEL-CORE--separate-persistent-authority-from-runtime-state.md",
+          "sha256": "a97b70b64bc8097b7c2f94ff727ed81d7cafc1ed8941fed02cc1d764eaaa36e9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "0f33d786700e5def80c90cda99da1849769ef842ae2cb37a3230e329cf7dd837",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier.Storage Boundary"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md#subjects.depends_on[5]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/64",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 26,
+          "end_line": 36,
+          "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/65",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Directory Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The re-read Main Content expressly says this Status subdirectory must not be a Directory Carrier. Carrier/Folder asserts the contrary specialization.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md",
+          "sha256": "7ed53b09f12c8b16705ceaa24917e74fdf9705c60c78dcd764cf5c43a2b71f81",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "905e260aad436dddf0fbad846f48f5a2762be9573bd13d5dfdb53bdd8ad2cc2f",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier/Folder"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/66",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier Placement/Status Subdirectory",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-352-CORE_META_MODEL-CORE--keep-status-subdirectories-outside-the-directory-carrier-type.md",
+          "sha256": "7ed53b09f12c8b16705ceaa24917e74fdf9705c60c78dcd764cf5c43a2b71f81",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "905e260aad436dddf0fbad846f48f5a2762be9573bd13d5dfdb53bdd8ad2cc2f",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier Placement.Status Subdirectory"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/72",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "File Carrier",
+      "proposed_value": "Carrier/File",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly distinguishes a File Carrier. The separate Carrier root plus confirmed file representation role support Carrier/File as a narrower Carrier kind, with no filename/path identity, @ operator, or native edge inferred.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+          "sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "1dcce09ccf86046e5e40d53c270d358d0971341597df9a309dff8b4a05e76405",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/73",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "File Carrier/Format",
+      "proposed_value": "Carrier/File.Format",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly defines File Carrier Format. The target retains Format as a fact of the narrower File Carrier, not an Entity identity or a per-property carried-by registry.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+          "sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "1dcce09ccf86046e5e40d53c270d358d0971341597df9a309dff8b4a05e76405",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md#subjects.depends_on[0]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/74",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "File Carrier",
+      "proposed_value": "Carrier/File",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly distinguishes a File Carrier. The separate Carrier root plus confirmed file representation role support Carrier/File as a narrower Carrier kind, with no filename/path identity, @ operator, or native edge inferred.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+          "sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "01cb144b7435bd2a9c8ced9e89a7cb9b7b935948d93e0282238854b230e95193",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/75",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "File Carrier/Format",
+      "proposed_value": "Carrier/File.Format",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly defines File Carrier Format. The target retains Format as a fact of the narrower File Carrier, not an Entity identity or a per-property carried-by registry.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+          "sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "01cb144b7435bd2a9c8ced9e89a7cb9b7b935948d93e0282238854b230e95193",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/76",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-368-CORE_META_MODEL--serialize-the-necessary-information-confidence-default.md",
+          "sha256": "2e0bef089d6cdb0620db9cd87f912f30d659c3a7145f3e64fa0b5e3904c554c8",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "81ef23b761b82e934caa4a548952806e2bc9f6cf184dc7bb90ca77def35076d7",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Framework Instance Settings.Confidence.Necessary Information Threshold.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-369-CORE_META_MODEL--serialize-the-semantic-resolution-confidence-default.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/77",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-369-CORE_META_MODEL--serialize-the-semantic-resolution-confidence-default.md",
+          "sha256": "400ff65877f571b7155d9035e39096c7aeee5690c5dee5f570a2d34d21308d82",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "bf0cf7846d123ebe60a2dd07610664f5313c4f016fc73c4481254b422ab2adaf",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Framework Instance Settings.Confidence.Semantic Resolution Threshold.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/78",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Project Settings/Project identity/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md",
+          "sha256": "404da79b6bb14e62c88ad5409b1f1947f907acf5812fd1b8ca3a53ce18e7c5d7",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "abc531abc7dbc3833d886c4795c9e76976dd3774f3e9f7cf3879be81f9e46652",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Project Settings.Project identity.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/79",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Project Settings/Atom Prefix/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md",
+          "sha256": "a8a1e395a50127fcc7ab120f2d4ca0d33c1176f35793cbaf218b6643bfdba46b",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "5f1251992eff8c74efa144987da0d87a1836d73c54f290ef89e5bfc9f422fd31",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Project Settings.Atom Prefix.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL--exclude-atom-metadata-from-framework-instance-settings.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/80",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Framework Instance Settings/Carrier/Atom metadata exclusion",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-377-CORE_META_MODEL--exclude-atom-metadata-from-framework-instance-settings.md",
+          "sha256": "1eb64a26f700a11193563752a1d25cd1fcc715ede996b59d2cd6cb58208d2faa",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "6f9541a9f72bf9e385a3fe79843476a60ee0e9a73fa99ba44a620692810a74ab",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Framework Instance Settings.Carrier.Atom metadata exclusion"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-386-CORE_META_MODEL-DELIVERY--serialize-concern-priority.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/81",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-386-CORE_META_MODEL-DELIVERY--serialize-concern-priority.md",
+          "sha256": "fe423e168cf55a7451cad44871f1826b1138bd24324c54c651b61f8c177db0ce",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "33799b26c03694929b3335dbdffff7bf577762139b6d2d57406d90ada10cd001",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL--store-default-settings-with-the-core-meta-model-source.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/82",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Default Settings/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-407-CORE_META_MODEL--store-default-settings-with-the-core-meta-model-source.md",
+          "sha256": "e1f38f4569fd99cac8207191d46e2d332b5635795a75141cc7c54cf0896d962d",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "cececcf2b76ed1e19d3c188dff6c4cebc3860792344b34ab3d5d520bdf5d2425",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Default Settings.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL--reuse-framework-parameter-fields-in-default-settings.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/83",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Default Settings/Carrier/Content",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-408-CORE_META_MODEL--reuse-framework-parameter-fields-in-default-settings.md",
+          "sha256": "293af7f9235fd256869da7c667e94c0a37a26ba836bec3b61ed7758f73379fea",
+          "start_line": 29,
+          "end_line": 41,
+          "span_sha256": "6e2e67bc156cb39fc8d40d8d5d9587d00f348628c8afab1b1fed4124b09cdec0",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Default Settings.Carrier.Content"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-445-CORE_META_MODEL-GENERAL--admit-explicit-scope-unit-carrier-bindings.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/84",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Implementation Folder",
+      "proposed_value": "Scope Unit.Implementation Folder",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly treats Implementation Folder as an owned Scope Unit binding or observation. The confirmed Scope Unit root and dependent-property rule support this target without making a path a Carrier identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-445-CORE_META_MODEL-GENERAL--admit-explicit-scope-unit-carrier-bindings.md",
+          "sha256": "2e5463aa7889e20e6ef7bfe77eb2d596bc7cc41e740b6fa05e3e82ce19e2b253",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "d0d6bb5120114786b1172ef37c8b4313bd9a061bc4831f15d4a9cf8137bbd102",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/85",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Implementation Retry Limit/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-447-CORE_META_MODEL-DELIVERY--serialize-the-implementation-retry-limit-setting.md",
+          "sha256": "6b39f117ff6b90a81b3553bbf97b183587fda4f8be55a5701c7c62fbe6785475",
+          "start_line": 22,
+          "end_line": 45,
+          "span_sha256": "699cacdcd5f186a5ba21fcab8d8e78762b21a2ede0820b0c4cdbedaaf4d80dbe",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Implementation Retry Limit.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-451-CORE_META_MODEL-STANDARD--classify-folders-by-their-carrier-responsibility.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/86",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier Placement",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-451-CORE_META_MODEL-STANDARD--classify-folders-by-their-carrier-responsibility.md",
+          "sha256": "b213375c53de3490d767e8cdfde2f84cd5bea8392d5f4f515afda50610a87e67",
+          "start_line": 20,
+          "end_line": 35,
+          "span_sha256": "b10364714d2b3069a7145ab11db58a33d33f69fb7ff1858d71e2b1d3ae712473",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier Placement"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-452-CORE_META_MODEL-STANDARD--place-local-environment-injection-carriers.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/87",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Project-Owned Carrier Root",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-452-CORE_META_MODEL-STANDARD--place-local-environment-injection-carriers.md",
+          "sha256": "d41df8b908601938efc6a08fdd661e6d51422950ce0c83070340592720a0980e",
+          "start_line": 19,
+          "end_line": 44,
+          "span_sha256": "e0dbc5a8ffd1fe141c1c5e26b458e0cd81e25e759016824f477403484e57c879",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Project.Carrier Root"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-457-CORE_META_MODEL-STANDARD--serialize-operations-atom-type-tokens.md#subjects.depends_on[5]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/88",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-457-CORE_META_MODEL-STANDARD--serialize-operations-atom-type-tokens.md",
+          "sha256": "7d73a21345f51c21e15bd24b2ca4f6e76291063db2bd2c7fb6362cdd6e89981d",
+          "start_line": 23,
+          "end_line": 42,
+          "span_sha256": "bd9740618837ca62f1a37cf2ce5fde1d321b2f8f1604dda0cef63513ff2d8bf0",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-466-CORE_META_MODEL-STANDARD--place-carriers-by-applicable-status-delivery.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/89",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier Placement",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-466-CORE_META_MODEL-STANDARD--place-carriers-by-applicable-status-delivery.md",
+          "sha256": "d3336f3ff4e75dbe2d02729c0442bdc59e102cbf12f73a0e5fd29539eaad6263",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "d4b8858ee3533328a1715fb7f2cc14d9bd354dc91084201fc46161898e2f3fce",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier Placement"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DELIVERY--store-workflow-graphs-and-steps-in-separate-carriers.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/90",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DELIVERY--store-workflow-graphs-and-steps-in-separate-carriers.md",
+          "sha256": "0532c2205f96363bcf23105b3fe469a1829c0caf2a3fb3d8a5f14e7c0221c171",
+          "start_line": 22,
+          "end_line": 38,
+          "span_sha256": "1e0179224549ed6e706e91cbfddf6191e5510b42c06b33af5b13e3102acee132",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-480-CORE_META_MODEL--keep-atom-addresses-consistent-with-carried-properties.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/93",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Carrier/Canonical Address",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-480-CORE_META_MODEL--keep-atom-addresses-consistent-with-carried-properties.md",
+          "sha256": "b5bb0b3b11a8ac86964c39680b87158380d6c1da1c02173d0876957580ea6698",
+          "start_line": 22,
+          "end_line": 38,
+          "span_sha256": "9a8a3545cd2674cce51b57811c8755e2cc5d0d7f03c13b841b3b0bef3439352e",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Carrier.Canonical Address"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md#subjects.depends_on[3]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/95",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier Placement",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md",
+          "sha256": "8a83fb3e21c84bc0b657fa61ada0b6d28c4dcef3ebdba070570009e538204de8",
+          "start_line": 21,
+          "end_line": 39,
+          "span_sha256": "4d1658c0284f2e39fac610ecabba03c3066bf4e7372ca04cb0cf4c4acf617200",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier Placement"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-484-CORE_META_MODEL-DELIVERY--omit-default-tier-tokens-from-change-and-implementation-filenames.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/96",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom Carrier/Filename/Local Tier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The re-read Main Content concerns a filename/address token, prefix, or segment. The candidate says syntax used to describe an Entity is not itself an Entity, so this target invents a bearer property from carrier syntax.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-484-CORE_META_MODEL-DELIVERY--omit-default-tier-tokens-from-change-and-implementation-filenames.md",
+          "sha256": "b64b3b5f2cb9c0e246fc6b7fd314610d19fb99168fb6bbdb2a7d76e3b086e66f",
+          "start_line": 21,
+          "end_line": 35,
+          "span_sha256": "3f0ed506f8932adf5f23faaa1614d609c41ca514a2426cec7f498e2f07fa89b3",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Carrier.Filename.Local Tier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-494-CORE_META_MODEL-DELIVERY--store-operator-registry-in-project-root.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/98",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Project/Operator Registry/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-494-CORE_META_MODEL-DELIVERY--store-operator-registry-in-project-root.md",
+          "sha256": "98f80305941f3f19636e2807a2e8b5bcf5b240f5e065182e3a4f8174035424f8",
+          "start_line": 23,
+          "end_line": 42,
+          "span_sha256": "e16bb0720aa924ae27dcf45c680e4b6674c2a82e2e9b244aa5bd10a478dbbec4",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Project.Operator Registry.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/99",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections.md",
+          "sha256": "60bb7faad37efa795acd0a730b8af40c6759fd29cbf435aa4ea1599902088234",
+          "start_line": 22,
+          "end_line": 41,
+          "span_sha256": "3d6982dbc93bc0ab77e3f9fdacf54d592fa3623853f47a363ab328dbabd9db38",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-496-CORE_META_MODEL--store-one-review-report-per-source-atom.md#subjects.depends_on[3]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/102",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "File Carrier",
+      "proposed_value": null,
+      "disposition": "unresolved",
+      "confidence": 0,
+      "reason": "The re-read Main Content specifies JSON report filenames, but does not establish the File Carrier kind; filename syntax alone cannot provide it.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-496-CORE_META_MODEL--store-one-review-report-per-source-atom.md",
+          "sha256": "29708a515544e1acb402420264e5160c722dc386e435d84f4a821843b7d587ae",
+          "start_line": 22,
+          "end_line": 47,
+          "span_sha256": "360cbcf189274c49f9f4aa3a279fe5e15ed8114e6aeb0b4fb1ab03d2b6ac5698",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier/File"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md#subjects.depends_on[1]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/103",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Carrier/Format",
+      "proposed_value": "Carrier.Format",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly defines File Carrier Format. The target retains Format as a fact of the narrower File Carrier, not an Entity identity or a per-property carried-by registry.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md",
+          "sha256": "f972031598deeda63106bb92875fde04f7a34c27916d4a717a481286f1fb2a88",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "db9d00489a696e61c63a6f80857333f94ec61a643662e65385b343b88d368049",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/104",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "File Carrier/Extension",
+      "proposed_value": "Carrier/File.Extension",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly distinguishes File Carrier Extension from Entity identity. The target retains that Carrier fact without treating the extension or path as a Carrier ID.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md",
+          "sha256": "f972031598deeda63106bb92875fde04f7a34c27916d4a717a481286f1fb2a88",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "db9d00489a696e61c63a6f80857333f94ec61a643662e65385b343b88d368049",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-549-CORE_META_MODEL--centralize-project-journal-carriers.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/105",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Journal/Carrier Root",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-549-CORE_META_MODEL--centralize-project-journal-carriers.md",
+          "sha256": "27fc7b533f6ad42b288d5d39d7c19ccef96591b32098ec50188dbb6d8e0a3ea4",
+          "start_line": 16,
+          "end_line": 34,
+          "span_sha256": "fe89c5b45dfeb24e9c04b2bb502c937038bdb34fcb6707adea3d693500c1c02a",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Journal.Carrier Root"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/106",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Projection/Carrier Root",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The re-read Main Content does not support this proposed bearer/property identity under the confirmed Carrier-root and D-policy boundaries.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL--centralize-project-projection-carriers.md",
+          "sha256": "01d0405599edffe5e7db9a3be01844cd78f814e149662b2d315c4e49d394dc1d",
+          "start_line": 16,
+          "end_line": 34,
+          "span_sha256": "537ffac0d4bd74b295ed28490707110f9e2d5ec9fbaa70d43e90012449447b07",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Projection.Carrier Root"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL--deliver-runtime-journals-to-configured-sinks.md#subjects.governs",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/107",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Runtime Journal/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The target makes Carrier or Carrier Root a dependent property of a bearer not confirmed as a Carrier-bearing root or owner. The current source describes storage/placement policy, not that new bearer property or root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL--deliver-runtime-journals-to-configured-sinks.md",
+          "sha256": "a0efc0dc67bbac626021e6137567d953f20314e8102c926099f8e4f2d71fd7fa",
+          "start_line": 17,
+          "end_line": 31,
+          "span_sha256": "b3f982a5dc6bd5605ce9b473d4df9508e3a1df73aa1f71ece389598a407ad7ed",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Runtime Journal.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md#subjects.depends_on[2]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/108",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier Placement",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md",
+          "sha256": "cb58f4cef97a55839daf29f2b3ef14562e9d5cf413291d900ff31334402e9f8a",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "339c2ba39372826993b4c03617bd815d6b9d832f1afd6bd2b3936b8946d9f26a",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier Placement"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md#subjects.depends_on[3]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/109",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Atom/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-051-CORE_META_MODEL-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md",
+          "sha256": "a5fc844d29549361d9a835786324956ef6040a2dc9ab88c3a884aeac103850ff",
+          "start_line": 24,
+          "end_line": 37,
+          "span_sha256": "c9c0bf1365cccf2438a5488e5957aa58b3495e1c9579dffc2f0f4a57f3bbe179",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Atom.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md#subjects.depends_on[7]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/110",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Artifact/Carrier",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "Approved-profile dot makes its right-hand term a dependent Entity. The candidate makes Carrier a separate root, while D policy—not per-Artifact or per-Atom bindings—governs carrier storage and placement; this target collapses that boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+          "sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+          "start_line": 30,
+          "end_line": 44,
+          "span_sha256": "b32490be3e76a16ef6d5d62fe8b9891b05dd396b96868ee84dc6fd500bda5ada",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Artifact.Carrier"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-078-CORE_META_MODEL-ACTION--reconcile-navigation-numbers-during-project-structure-migration.md#subjects.depends_on[8]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/111",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Directory Carrier/Numeric Prefix",
+      "proposed_value": null,
+      "disposition": "rejected",
+      "confidence": 0.99,
+      "reason": "The re-read Main Content concerns a filename/address token, prefix, or segment. The candidate says syntax used to describe an Entity is not itself an Entity, so this target invents a bearer property from carrier syntax.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-078-CORE_META_MODEL-ACTION--reconcile-navigation-numbers-during-project-structure-migration.md",
+          "sha256": "021771bd4094074d36294390318dd23fd16619c098f8dbd3bed2dfb59e5eb014",
+          "start_line": 33,
+          "end_line": 65,
+          "span_sha256": "e79dfd38288e8bec57def9e852d930e18a5e2955681f11735e82c016a6cec641",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false,
+      "input_proposed_value": "Carrier/Folder.Numeric Prefix"
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-078-CORE_META_MODEL-ACTION--reconcile-navigation-numbers-during-project-structure-migration.md#subjects.depends_on[9]",
+      "input_report": {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/carriers.review.json",
+        "sha256": "d3936673c547fa93056985fb642bc0f5624832e42ad740bc13f19c387d32b1ee",
+        "pointer": "/occurrences/112",
+        "decision": "proposed",
+        "confidence": 0.93
+      },
+      "old_value": "Implementation Folder",
+      "proposed_value": "Scope Unit.Implementation Folder",
+      "disposition": "accepted",
+      "confidence": 0.93,
+      "reason": "The re-read Main Content explicitly treats Implementation Folder as an owned Scope Unit binding or observation. The confirmed Scope Unit root and dependent-property rule support this target without making a path a Carrier identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-078-CORE_META_MODEL-ACTION--reconcile-navigation-numbers-during-project-structure-migration.md",
+          "sha256": "021771bd4094074d36294390318dd23fd16619c098f8dbd3bed2dfb59e5eb014",
+          "start_line": 33,
+          "end_line": 65,
+          "span_sha256": "e79dfd38288e8bec57def9e852d930e18a5e2955681f11735e82c016a6cec641",
+          "reason": "Current owning Main Content was re-read; this exact span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "executable": false
+    }
+  ],
+  "counts": {
+    "input_proposed_rows": 90,
+    "reviewed_rows": 90,
+    "accepted": 20,
+    "rejected": 62,
+    "stale": 0,
+    "unresolved": 8,
+    "current_source_files": 76,
+    "current_owning_spans_verified": 90
+  },
+  "limits": [
+    "Semantic review of the existing proposal report only; every row remains non-executable.",
+    "Carrier remains a separate root with Carrier ID distinct from filename and path.",
+    "D policies govern storage and serialization; this review creates no per-property carried-by registry.",
+    "No grammar adoption, native admission, source migration, or live graph change is performed."
+  ]
+}

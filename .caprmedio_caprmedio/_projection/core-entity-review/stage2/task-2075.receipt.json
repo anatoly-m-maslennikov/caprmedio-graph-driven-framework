@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2075",
+  "recorded_at": "2026-10-11 05:28:54 +0400",
+  "non_authoritative": true,
+  "result": "PASS: bounded independent semantic review; not migration approval",
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "verification": {
+    "task": "CA-P-2075",
+    "review": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2075.review.json",
+      "sha256": "ed0fbb4bf986526e2a1f4851f47c1c078f557be0b93237196a186f0fc0279f9a"
+    },
+    "rows": 23,
+    "counts": {
+      "accepted": 23
+    },
+    "owning_sources": 20,
+    "exact_evidence_spans": 23,
+    "input_pins": 10,
+    "checks": "PASS: assigned coverage, exact input/source/span pins, dispositions, confidence, approved syntax, no executable rows"
+  },
+  "review_method": "Independent source-meaning review, with Root exact assigned coverage/pin/span/confidence/profile checks",
+  "task_input_boundary": "The review pins Task version 1 at registration commit 94e773ac3 where provided. Closure version 2 is not that original input.",
+  "completion_scope": "All 23 selected occurrences have current own source/span evidence. The raw relations_subjects report still has three stale grammar references; this separately pinned review supplies current grammar evidence without rebinding the raw report or treating it as migration-ready.",
+  "limits": [
+    "All rows remain non-executable. Accepted means candidate meaning supported, not authorized source edits.",
+    "Rejected/unresolved rows and the parent mapping gate remain open.",
+    "The frozen candidate, baseline ledger, research inputs and authoritative Core are unchanged."
+  ]
+}

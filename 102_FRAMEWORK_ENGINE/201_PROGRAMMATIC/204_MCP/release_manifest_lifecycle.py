@@ -26,7 +26,10 @@ from release_manifest_authorization import (  # noqa: E402
     PublicationAuthorizationContext,
     ReleaseManifestAuthorizationError,
     validate_candidate_payload,
+    validate_public_manifest_candidate_payload,
     validate_refresh_candidate_payload,
+    validate_public_manifest_context,
+    validate_public_manifest_recovery_context,
     validate_publication_context,
     validate_refresh_context,
 )
@@ -37,6 +40,12 @@ ACTION_ID = "MCP_RELEASE_MANIFEST_PUBLICATION"
 STRUCTURAL_SCOPE = "MCP"
 _INTENT_PREFIX = "release-manifest-publication:"
 _GIT_COMMIT = re.compile(r"[0-9a-f]{40,64}")
+_REFRESH_ROUTE_NAMES = (*SELECTED_ROUTE_NAMES, "release_version")
+_O030_REFRESH_ROUTE_NAMES = (*_REFRESH_ROUTE_NAMES, "public.release")
+_O030_REFRESH_PLAN_FIELDS = frozenset({
+    "source_refresh_schema_version", "source_refresh_registration_id",
+})
+_O030_REFRESH_SCHEMA_VERSIONS = frozenset({4, 5})
 
 
 class ReleaseManifestLifecycleError(RuntimeError):
@@ -108,7 +117,7 @@ def _normalized_refresh_plan(plan: Mapping[str, Any]) -> dict[str, Any]:
     if (
         not isinstance(plan, Mapping)
         or not required <= set(plan)
-        or set(plan) - required - {"mode"}
+        or set(plan) - required - {"mode", *_O030_REFRESH_PLAN_FIELDS}
         or plan.get("publication_operation") != "refresh"
         or ("mode" in plan and plan["mode"] != "plan")
     ):
@@ -119,9 +128,29 @@ def _normalized_refresh_plan(plan: Mapping[str, Any]) -> dict[str, Any]:
     result["candidate_canonical_manifest_sha256"] = _digest(
         result["candidate_canonical_manifest_sha256"], "refresh plan.candidate_canonical_manifest_sha256"
     )
-    expected_names = [*SELECTED_ROUTE_NAMES, "release_version"]
-    if result["current_route_names"] != expected_names or result["candidate_route_names"] != expected_names:
-        raise ReleaseManifestLifecycleError("refresh plan does not retain the exact sixteen-route projection")
+    expected_names = list(_REFRESH_ROUTE_NAMES)
+    expected_o030_names = list(_O030_REFRESH_ROUTE_NAMES)
+    if (result["current_route_names"] != result["candidate_route_names"]
+            or result["current_route_names"] not in (expected_names, expected_o030_names)):
+        raise ReleaseManifestLifecycleError(
+            "refresh plan does not retain the exact sixteen-route projection or the exact O030 seventeen-route projection"
+        )
+    is_o030_repair = result["current_route_names"] == expected_o030_names
+    if is_o030_repair:
+        schema_version = plan.get("source_refresh_schema_version")
+        if (type(schema_version) is not int
+                or schema_version not in _O030_REFRESH_SCHEMA_VERSIONS):
+            raise ReleaseManifestLifecycleError("O030 refresh plan must name the exact schema-4 or schema-5 registration")
+        registration_id = plan.get("source_refresh_registration_id")
+        if (not isinstance(registration_id, str) or not registration_id
+                or "\n" in registration_id or "\r" in registration_id):
+            raise ReleaseManifestLifecycleError("O030 refresh plan registration identifier is invalid")
+        result.update(
+            source_refresh_schema_version=schema_version,
+            source_refresh_registration_id=registration_id,
+        )
+    elif _O030_REFRESH_PLAN_FIELDS & set(plan):
+        raise ReleaseManifestLifecycleError("sixteen-route refresh plan must not claim O030 registration metadata")
     if result["added_route"] != "release_version" or result["added_admission_route"] != "release_version":
         raise ReleaseManifestLifecycleError("refresh plan does not identify the Release row")
     if type(result["candidate_byte_count"]) is not int or result["candidate_byte_count"] < 1:
@@ -129,9 +158,42 @@ def _normalized_refresh_plan(plan: Mapping[str, Any]) -> dict[str, Any]:
     return result
 
 
+def _normalized_public_plan(plan: Mapping[str, Any]) -> dict[str, Any]:
+    required = {
+        "publication_operation", "manifest_ref", "observed_input_sha256", "current_route_names",
+        "candidate_route_names", "candidate_canonical_manifest_sha256", "added_route",
+        "added_admission_route", "candidate_byte_count",
+    }
+    if (
+        not isinstance(plan, Mapping)
+        or not required <= set(plan)
+        or set(plan) - required - {"mode"}
+        or plan.get("publication_operation") != "public"
+        or ("mode" in plan and plan["mode"] != "plan")
+    ):
+        raise ReleaseManifestLifecycleError("public publication plan has missing or unsupported fields")
+    result = {key: plan[key] for key in required}
+    result["manifest_ref"] = _safe_ref(result["manifest_ref"], "public plan.manifest_ref")
+    result["observed_input_sha256"] = _digest(result["observed_input_sha256"], "public plan.observed_input_sha256")
+    result["candidate_canonical_manifest_sha256"] = _digest(
+        result["candidate_canonical_manifest_sha256"], "public plan.candidate_canonical_manifest_sha256"
+    )
+    expected_current = [*SELECTED_ROUTE_NAMES, "release_version"]
+    expected_candidate = [*expected_current, "public.release"]
+    if result["current_route_names"] != expected_current or result["candidate_route_names"] != expected_candidate:
+        raise ReleaseManifestLifecycleError("public publication plan does not describe the admitted sixteen-to-seventeen route successor")
+    if result["added_route"] != "public.release" or result["added_admission_route"] != "public.release":
+        raise ReleaseManifestLifecycleError("public publication plan does not describe the public Release addition")
+    if type(result["candidate_byte_count"]) is not int or result["candidate_byte_count"] < 1:
+        raise ReleaseManifestLifecycleError("public publication plan has invalid candidate byte count")
+    return result
+
+
 def _normalized_any_plan(plan: Mapping[str, Any]) -> dict[str, Any]:
     if isinstance(plan, Mapping) and plan.get("publication_operation") == "refresh":
         return _normalized_refresh_plan(plan)
+    if isinstance(plan, Mapping) and plan.get("publication_operation") == "public":
+        return _normalized_public_plan(plan)
     return _normalized_plan(plan)
 
 
@@ -200,7 +262,12 @@ class ReleaseManifestLifecycle:
             return False
         try:
             normalized = _normalized_any_plan(plan)
-            validator = validate_refresh_context if "publication_operation" in normalized else validate_publication_context
+            operation = normalized.get("publication_operation")
+            validator = (
+                validate_refresh_context if operation == "refresh"
+                else validate_public_manifest_context if operation == "public"
+                else validate_publication_context
+            )
             validator(self.context, self.root, dict(normalized))
         except (ReleaseManifestAuthorizationError, ReleaseManifestLifecycleError, OSError, TypeError, ValueError):
             return False
@@ -318,6 +385,9 @@ class ReleaseManifestLifecycle:
         ) if key in result}
         if "publication_operation" in result:
             plan["publication_operation"] = result["publication_operation"]
+        for field in _O030_REFRESH_PLAN_FIELDS:
+            if field in result:
+                plan[field] = result[field]
         return _normalized_any_plan(plan)
 
     def recover_release_manifest_publication(self, event_id: str) -> dict[str, Any]:
@@ -328,6 +398,8 @@ class ReleaseManifestLifecycle:
             raise ReleaseManifestLifecycleError("pending publication intent is unavailable") from error
         intent = _read_intent(pending)
         plan = dict(intent["plan"])
+        if _normalized_any_plan(plan).get("publication_operation") == "public":
+            validate_public_manifest_recovery_context(self.context, self.root, event_id)
         expected_id = _event_id(self.root, intent, str(event["previous_result_event"]))
         if event_id != expected_id:
             raise ReleaseManifestLifecycleError("pending publication event identity is not canonical")
@@ -337,7 +409,12 @@ class ReleaseManifestLifecycle:
     def _validate_context(self, plan: Mapping[str, Any], *, manifest_state: str = "input") -> None:
         try:
             normalized = _normalized_any_plan(plan)
-            validator = validate_refresh_context if "publication_operation" in normalized else validate_publication_context
+            operation = normalized.get("publication_operation")
+            validator = (
+                validate_refresh_context if operation == "refresh"
+                else validate_public_manifest_context if operation == "public"
+                else validate_publication_context
+            )
             validated = validator(
                 self.context, self.root, dict(normalized), manifest_state=manifest_state,
             )
@@ -365,7 +442,12 @@ class ReleaseManifestLifecycle:
     def _validate_candidate_payload(self, plan: Mapping[str, Any], payload: bytes) -> None:
         try:
             normalized = _normalized_any_plan(plan)
-            validator = validate_refresh_candidate_payload if "publication_operation" in normalized else validate_candidate_payload
+            operation = normalized.get("publication_operation")
+            validator = (
+                validate_refresh_candidate_payload if operation == "refresh"
+                else validate_public_manifest_candidate_payload if operation == "public"
+                else validate_candidate_payload
+            )
             validator(self.context, self.root, dict(normalized), payload)
         except (ReleaseManifestAuthorizationError, OSError, TypeError, ValueError) as error:
             raise ReleaseManifestLifecycleError("candidate publication payload is not bound to trusted authority") from error
@@ -562,7 +644,9 @@ class ReleaseManifestLifecycle:
             loaded = load_selected_manifest(self.root)
         except (OSError, ValueError, SelectedRouteError) as error:
             raise ReleaseManifestLifecycleError("published selected manifest cannot be reopened") from error
-        if [row.get("route") for row in loaded.get("routes", [])] != [*SELECTED_ROUTE_NAMES, "release_version"]:
+        if [row.get("route") for row in loaded.get("routes", [])] != list(
+            _normalized_any_plan(plan)["candidate_route_names"]
+        ):
             raise ReleaseManifestLifecycleError("published selected manifest is ambiguous; mutation will not be replayed")
         try:
             return work_journal.recover_pending_event(self.root, event_id)

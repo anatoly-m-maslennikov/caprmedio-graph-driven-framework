@@ -73,6 +73,29 @@ class FrameworkCompilerCurrentnessTests(unittest.TestCase):
         self.assertEqual(after, before)
         self.assertFalse((self.fixture.root / ".caprmedio_runtime/framework/current.toml").exists())
 
+    def test_accepts_default_and_external_canonical_instance_settings(self) -> None:
+        default = self.fixture.source / compiler.DEFAULT_SETTINGS_RELATIVE
+        default.parent.mkdir(parents=True, exist_ok=True)
+        default.write_text("[defaults]\nname = \"fixture\"\n", encoding="utf-8")
+        instance = self.fixture.root / ".caprmedio_caprmedio" / compiler.INSTANCE_SETTINGS_RELATIVE
+        instance.parent.mkdir(parents=True, exist_ok=True)
+        instance.write_text("[instance]\nname = \"external\"\n", encoding="utf-8")
+        legacy = self.fixture.source / "003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"
+        legacy.write_text("this is not valid = [TOML\n", encoding="utf-8")
+
+        proof = verify_canonical_compiler_currentness(self.fixture.root)
+
+        self.assertEqual(proof.compiled_root, self.fixture.output.relative_to(self.fixture.root).as_posix())
+
+    def test_refuses_symlinked_external_canonical_instance_settings(self) -> None:
+        instance = self.fixture.root / ".caprmedio_caprmedio" / compiler.INSTANCE_SETTINGS_RELATIVE
+        instance.parent.mkdir(parents=True, exist_ok=True)
+        target = self.fixture.root / "outside-settings.toml"
+        target.write_text("[instance]\nname = \"untrusted\"\n", encoding="utf-8")
+        instance.symlink_to(target)
+
+        self.assert_rejected("initial-compiler-control-unsafe")
+
     def test_refuses_missing_or_extra_compiled_output(self) -> None:
         carrier = self.fixture.output_carrier("04_requirement", "CA-R-001--foundation.md")
         carrier.unlink()

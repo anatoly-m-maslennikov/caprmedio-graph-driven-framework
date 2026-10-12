@@ -1,0 +1,450 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2158",
+  "registration": "50bf643d95f3f3171fe79199889f6b9dbf78e019",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "result": "PASS_WITH_UNRESOLVED_POLICY_AND_IDENTITY_DECISIONS",
+  "input_pins": {
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/21-CA-P-2158-TASK--audit-quarantined-core-source-carriers.md",
+      "sha256": "6fb553b9e06913c0c34e330a13667f3f8caba5df6ac598f8639bc5f779e7685d",
+      "registration": "50bf643d95f3f3171fe79199889f6b9dbf78e019"
+    },
+    "remaining_gates_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/contract.md",
+      "sha256": "cea762d3a48929859eb33a5c031c59890360e5cd08a96d5965d57e94e1e0e6ce"
+    },
+    "live_epic": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins.md",
+      "sha256": "33fd56457ef31b6a2c730c9e976da621e615d1ed7bc0febe8c8934ac3aa58051"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99"
+    },
+    "authoritative_structure": {
+      "path": ".caprmedio_caprmedio/project_structure.toml",
+      "sha256": "0ceb85e781490b89fc539f27eb5bf3a5187d4c982a648f27b40b6057257df92c"
+    },
+    "selected_project_settings": {
+      "path": ".caprmedio_caprmedio/caprmedio_project_settings.toml",
+      "sha256": "a0f8761157c1bd6b2ce79b72c69ceeea4cb6131b2bf79a246346f181d8c302de"
+    },
+    "producer": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/inventory_current_subjects.py",
+      "sha256": "4a0ebb02cf41f3310166238faeb535a9e6c5d2e28e3f4b5c9a961050a4ff5207"
+    },
+    "current_inventory_verifier": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_current_inventory.py",
+      "sha256": "6006e8a1946f7cf66b641002fbb3b77f6c941c0c4e183b509ef5276dfdf27cf4"
+    },
+    "working_ledger_verifier": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py",
+      "sha256": "cc0fe5a31a6c36ce67a7a4f60a8a2bbd4e799eb0012fea3accaa44673e6c4e42"
+    },
+    "carrier_parser": {
+      "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/parsing.py",
+      "sha256": "4c33dc474be3ec0f5764d4b26a6239361aa460fa94a4197e5b1fc7158830eda0"
+    },
+    "id_meaning": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-728-CORE_META_MODEL-REQUIREMENT--define-project-atom-id.md",
+      "sha256": "1d765cffdc8c32941043e493b710827d56d4244d57dde46810376027982313df"
+    },
+    "project_id_encoding": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL--serialize-assigned-atom-identities.md",
+      "sha256": "9435f3abb5a56f46c37c43c3e758afa1e288a0af259f39a34237495d8fcf255f"
+    },
+    "project_prefix_carrier": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md",
+      "sha256": "a8a1e395a50127fcc7ab120f2d4ca0d33c1176f35793cbaf218b6643bfdba46b"
+    },
+    "project_settings_meaning": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f"
+    },
+    "frontmatter_policy": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter.md",
+      "sha256": "8322273a6938108a8889c01b74c7bfc600b01ba39bfaa0bd0c0c01cc7352a6a3"
+    },
+    "timestamp_meaning": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1416-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-updated-at.md",
+      "sha256": "c8b2402e3f6bc0eb567ab845e8c197de994cd328507c0322bf2c955a62c1ffc9"
+    },
+    "timestamp_timezone_policy": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL--configure-the-artifact-timestamp-timezone.md",
+      "sha256": "3042bb9e7056b85e8b0b248e83869f8145260da9813ca31101963e923bf4c67e"
+    },
+    "revision_version_policy": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md",
+      "sha256": "2c5e7af78d81a3e71def13ef7e24669fa0cf33a8a153b3410b8963934a396cb9"
+    },
+    "revision_identity_policy": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-CORE--give-every-non-draft-atom-revision-one-identifier.md",
+      "sha256": "3391dbfa646ef362dd1c54cd8c9dab590ee7650f2215d51aec5b7f9ef49d4829"
+    },
+    "lifecycle_workflow": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-127-CORE_META_MODEL-WORKFLOW--manage-atom-lifecycle.md",
+      "sha256": "6daf77356ac8bac44e252a546aa1e34a7c02558dc1aa4e6b428cb0b15283fd67"
+    },
+    "governed_history": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1698-CORE_META_MODEL-CORE-REQUIREMENT--evolve-authority-through-governed-history.md",
+      "sha256": "e86def1c7eb4756b25db0704305f57188a922b2c61cd5aeca609adbb54110420"
+    },
+    "journal_carrier": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-308-CORE_META_MODEL-CORE--serialize-journals-as-append-only-carriers.md",
+      "sha256": "0d2117b41344599129fd9751872754d7d358d8a759281abd65ba8874de9a5a01"
+    },
+    "historical_prefix_evidence": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CAPRMEDIO-GOV-REQU-479--migrate-framework-prefix-to-caprmedio@1.md",
+      "sha256": "0d61e34f05d8688e26b0c692c5c23000a54cf6b42246204a3635b66e47f4cf7f"
+    }
+  },
+  "authority_boundary": {
+    "current_core_authority": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+    "structure_pin": ".caprmedio_caprmedio/project_structure.toml:82-90",
+    "current_project_prefix": {
+      "path": ".caprmedio_caprmedio/caprmedio_project_settings.toml",
+      "span": "94-95",
+      "value": "CA",
+      "note": "This is current selected Project Settings evidence; it is not by itself a historical identity-migration receipt."
+    },
+    "timestamp_setting": {
+      "path": ".caprmedio_caprmedio/caprmedio_project_settings.toml",
+      "span": "82-83",
+      "value": "local",
+      "note": "local does not provide a fixed offset for repairing a historical naive timestamp."
+    }
+  },
+  "counts": {
+    "current_active_core_sources": 907,
+    "current_active_core_sources_with_CA_prefix": 901,
+    "current_active_core_sources_with_legacy_CAPRMEDIO_prefix": 6,
+    "current_occurrences": 4534,
+    "quarantined_sources": 8,
+    "quarantined_occurrences": 35,
+    "timestamp_quarantine_sources": 2,
+    "identity_prefix_quarantine_sources": 6,
+    "quarantine_occurrences_by_source": {
+      "CA-R-1873": 5,
+      "CAPRMEDIO-R-791": 2,
+      "CAPRMEDIO-GOV-EVAL-001": 1,
+      "CAPRMEDIO-GOV-EVAL-002": 5,
+      "CAPRMEDIO-GOV-EVAL-005": 12,
+      "CAPRMEDIO-GOV-EVAL-009": 1,
+      "CAPRMEDIO-GOV-EVAL-010": 4,
+      "CA-D-559": 5
+    }
+  },
+  "checks": {
+    "read_only_producer": {
+      "command": "uv run --offline --isolated --with PyYAML==6.0.3 --no-project python .caprmedio_caprmedio/_projection/core-entity-review/stage2/support/inventory_current_subjects.py",
+      "outcome": "PASS",
+      "observed": {
+        "source_count": 907,
+        "occurrence_count": 4534,
+        "quarantined_source_count": 8,
+        "quarantined_source_ids": [
+          "CA-R-1873",
+          "CAPRMEDIO-R-791",
+          "CAPRMEDIO-GOV-EVAL-001",
+          "CAPRMEDIO-GOV-EVAL-002",
+          "CAPRMEDIO-GOV-EVAL-005",
+          "CAPRMEDIO-GOV-EVAL-009",
+          "CAPRMEDIO-GOV-EVAL-010",
+          "CA-D-559"
+        ],
+        "timestamp_quarantine_count": 2,
+        "timestamp_quarantine_ids": [
+          "CA-R-1873",
+          "CA-D-559"
+        ]
+      },
+      "code_pins": [
+        "inventory_current_subjects.py:136-153 selects the exact CORE_META_MODEL authority from project_structure.toml",
+        "inventory_current_subjects.py:45-48 defines the CA/RMEDO and explicit-offset predicates",
+        "inventory_current_subjects.py:223-244 applies atom_id, raw quoting, type and timestamp checks"
+      ]
+    },
+    "working_ledger_verifier": {
+      "command": "uv run --offline --isolated --with PyYAML==6.0.3 --no-project python .caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_working_mapping_ledger.py --root .",
+      "outcome": "PASS",
+      "observed": {
+        "sources": 907,
+        "occurrences": 4534,
+        "proposed": 1928,
+        "unchanged": 1540,
+        "unresolved": 1066,
+        "quarantined_sources": 8
+      },
+      "code_pins": [
+        "verify_working_mapping_ledger.py:330-343 resolves the same registered authority",
+        "verify_working_mapping_ledger.py:390-408 repeats the ID and explicit-offset checks"
+      ]
+    },
+    "strict_parser_direct": {
+      "outcome": "PASS",
+      "observed": "parse_carrier succeeded for all eight quarantined carriers; no CarrierError",
+      "meaning": "The quarantine is metadata-admission logic, not malformed UTF-8/YAML/frontmatter parser failure.",
+      "parser_pins": [
+        "parsing.py:60-70 decodes UTF-8, splits YAML frontmatter, safe-loads one mapping and returns metadata",
+        "parsing.py:71-77 only converts carrier/YAML errors to CarrierError"
+      ],
+      "parsed_updated_at_types": {
+        "CA-R-1873": "datetime",
+        "CA-D-559": "datetime",
+        "CAPRMEDIO-R-791": "str",
+        "CAPRMEDIO-GOV-EVAL-001": "str",
+        "CAPRMEDIO-GOV-EVAL-002": "str",
+        "CAPRMEDIO-GOV-EVAL-005": "str",
+        "CAPRMEDIO-GOV-EVAL-009": "str",
+        "CAPRMEDIO-GOV-EVAL-010": "str"
+      }
+    },
+    "source_hash_recheck": {
+      "outcome": "PASS",
+      "observed": "All eight live source bytes and SHA-256 values equal the working-ledger source_reviews rows."
+    },
+    "saved_current_inventory_verifier": {
+      "outcome": "EXPECTED_HISTORICAL_SNAPSHOT_DRIFT",
+      "command": "uv run --offline --isolated --with PyYAML==6.0.3 --no-project python .caprmedio_caprmedio/_projection/core-entity-review/stage2/support/verify_current_inventory.py --root .",
+      "reason": "exact selected source inventory",
+      "evidence": "Saved and reconstructed inventories each contain 907 sources. The expected CA-P-2059 delta removes CA-R-1204 (slash-only filename) and adds CA-R-1931 (separator filename); exactly four common rows changed full_file_sha256/version/updated_at (CA-R-1321, CA-R-1324, CA-M-228, CA-E-383), while 902 common source rows are unchanged. This is approved CA-P-2059 grammar drift in the captured snapshot, not mere ordering drift and not a verifier defect. The quarantined selected-source subset remains exactly equal. Do not rewrite the captured inventory or weaken the verifier."
+    },
+    "preservation_checks": {
+      "outcome": "PASS",
+      "observed": [
+        "No source, Plan, Core, ledger, Git, runtime or approval files were changed by this audit.",
+        "No timestamp offset or replacement Atom ID was invented.",
+        "No source was renamed or re-identified."
+      ]
+    }
+  },
+  "source_findings": [
+    {
+      "atom_id": "CA-R-1873",
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-CORE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "full_file_sha256": "cf857c75b7e791c035eb34ee63801010d72cc4ad8bf39852ea76e933b9fe53a6",
+      "version": 1,
+      "occurrence_count": 5,
+      "frontmatter_span": "1-16",
+      "body_span": "17-31",
+      "body_evidence": "Claim lines 25-27 distinguishes Implementation actual-state authority from derived non-authoritative Projection; Details lines 29-31 preserves source authority and does not alter the metadata finding.",
+      "observed": {
+        "atom_id": "CA-R-1873",
+        "raw_updated_at": "2026-10-04 22:30:05",
+        "parsed_updated_at_type": "datetime",
+        "finding": "updated_at_invalid_or_naive"
+      },
+      "classification": "Genuine violation of the specific current Markdown Atom Revision carrier rule; no parser failure. Exact offset remains unresolved because the current timestamp setting is local and no offset is present.",
+      "evidence_pins": [
+        "source:2,10-15",
+        "CA-D-270:29,33-35",
+        "inventory_current_subjects.py:223-244",
+        "verify_working_mapping_ledger.py:390-408"
+      ]
+    },
+    {
+      "atom_id": "CA-D-559",
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL--deliver-runtime-journals-to-configured-sinks.md",
+      "full_file_sha256": "a0efc0dc67bbac626021e6137567d953f20314e8102c926099f8e4f2d71fd7fa",
+      "version": 1,
+      "occurrence_count": 5,
+      "frontmatter_span": "1-16",
+      "body_span": "17-31",
+      "body_evidence": "Claim lines 25-27 permits configured runtime Journal sinks; Details lines 29-31 preserves Journal history and does not alter the metadata finding.",
+      "observed": {
+        "atom_id": "CA-D-559",
+        "raw_updated_at": "2026-10-04 22:33:01",
+        "parsed_updated_at_type": "datetime",
+        "finding": "updated_at_invalid_or_naive"
+      },
+      "classification": "Genuine violation of the specific current Markdown Atom Revision carrier rule; no parser failure. Exact offset remains unresolved because the current timestamp setting is local and no offset is present.",
+      "evidence_pins": [
+        "source:2,10-15",
+        "CA-D-270:29,33-35",
+        "inventory_current_subjects.py:223-244",
+        "verify_working_mapping_ledger.py:390-408"
+      ]
+    },
+    {
+      "atom_id": "CAPRMEDIO-R-791",
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-R-791-CORE_META_MODEL-CORE-REQUIREMENT--define-structural-coordinate.md",
+      "full_file_sha256": "0f8f16eab257e51afdf8dadbb642ee94bf0011d0942f91d900e6e72ac7a41718",
+      "version": 15,
+      "occurrence_count": 2,
+      "frontmatter_span": "1-17",
+      "body_span": "18-30",
+      "body_evidence": "Claim lines 26-28 defines Structural Coordinate as a derived locator for an Ordered Scope Unit; the body provides no identity-migration decision.",
+      "observed": {
+        "atom_id": "CAPRMEDIO-R-791",
+        "raw_updated_at": "2026-10-01 21:46:54 +0400",
+        "parsed_updated_at_type": "str",
+        "finding": "missing_or_invalid_atom_id"
+      },
+      "classification": "Observed failure of the current CA-hardcoded frontier predicate, but semantic validity is unresolved rather than proven malformed: the current generic rule uses a registered Project prefix, while archived evidence records CAPRMEDIO as a prior canonical prefix and the identity policy says Atom IDs are immutable.",
+      "evidence_pins": [
+        "source:1-17",
+        "CA-D-378:28-30",
+        "CA-D-376:26-32",
+        "CA-R-728:23-30",
+        "historical CAPRMEDIO-GOV-REQU-479:16-32",
+        "inventory_current_subjects.py:45-46,227-244"
+      ]
+    },
+    {
+      "atom_id": "CAPRMEDIO-GOV-EVAL-001",
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-001-CORE_META_MODEL-GENERAL-QA_CASE--relation-vocabulary-interpretability.md",
+      "full_file_sha256": "693e0262b0b4a373fc99d5504b99809e9a25781331bf1b89388c516ba9fbcf6d",
+      "version": 20,
+      "occurrence_count": 1,
+      "frontmatter_span": "1-17",
+      "body_span": "18-38",
+      "body_evidence": "Claim lines 22-28 covers relation-vocabulary interpretation without inventing relation kinds; acceptance/failure boundaries are lines 32-38.",
+      "observed": {
+        "atom_id": "CAPRMEDIO-GOV-EVAL-001",
+        "raw_updated_at": "2026-10-03 03:47:46 +0400",
+        "parsed_updated_at_type": "str",
+        "finding": "missing_or_invalid_atom_id"
+      },
+      "classification": "Observed failure of the current CA-hardcoded frontier predicate; semantic validity is unresolved pending historical-prefix identity continuity or an explicit governed migration receipt.",
+      "evidence_pins": [
+        "source:1-17,22-38",
+        "CA-D-378:28-30",
+        "CA-D-376:26-32",
+        "CA-R-728:23-30",
+        "historical CAPRMEDIO-GOV-REQU-479:16-32",
+        "inventory_current_subjects.py:45-46,227-244"
+      ]
+    },
+    {
+      "atom_id": "CAPRMEDIO-GOV-EVAL-002",
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-002-CORE_META_MODEL-QA_CASE--settings-artifact-usability.md",
+      "full_file_sha256": "7e8309975d3e47a7bd4e1ab527e3ceeb29ef4fef0ac6c6bb1cc46c6ec70e3de4",
+      "version": 21,
+      "occurrence_count": 5,
+      "frontmatter_span": "1-26",
+      "body_span": "27-47",
+      "body_evidence": "Claim lines 31-37 distinguishes Settings Artifacts from Project Structure and rejects a required structural Projection; acceptance/failure boundaries are lines 41-47.",
+      "observed": {
+        "atom_id": "CAPRMEDIO-GOV-EVAL-002",
+        "raw_updated_at": "2026-10-01 21:46:54 +0400",
+        "parsed_updated_at_type": "str",
+        "finding": "missing_or_invalid_atom_id"
+      },
+      "classification": "Observed failure of the current CA-hardcoded frontier predicate; semantic validity is unresolved pending historical-prefix identity continuity or an explicit governed migration receipt.",
+      "evidence_pins": [
+        "source:1-26,31-47",
+        "CA-D-378:28-30",
+        "CA-D-376:26-32",
+        "CA-R-728:23-30",
+        "historical CAPRMEDIO-GOV-REQU-479:16-32",
+        "inventory_current_subjects.py:45-46,227-244"
+      ]
+    },
+    {
+      "atom_id": "CAPRMEDIO-GOV-EVAL-005",
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+      "full_file_sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14",
+      "version": 23,
+      "occurrence_count": 12,
+      "frontmatter_span": "1-28",
+      "body_span": "29-72",
+      "body_evidence": "Scope lines 33-58 covers Relation Kind, graph ownership, source traceability and derived views; Claim lines 60-62 and acceptance/failure lines 66-72 retain the entire relation-validation meaning.",
+      "observed": {
+        "atom_id": "CAPRMEDIO-GOV-EVAL-005",
+        "raw_updated_at": "2026-10-03 03:48:14 +0400",
+        "parsed_updated_at_type": "str",
+        "finding": "missing_or_invalid_atom_id"
+      },
+      "classification": "Observed failure of the current CA-hardcoded frontier predicate; semantic validity is unresolved pending historical-prefix identity continuity or an explicit governed migration receipt.",
+      "evidence_pins": [
+        "source:1-28,33-72",
+        "CA-D-378:28-30",
+        "CA-D-376:26-32",
+        "CA-R-728:23-30",
+        "historical CAPRMEDIO-GOV-REQU-479:16-32",
+        "inventory_current_subjects.py:45-46,227-244"
+      ]
+    },
+    {
+      "atom_id": "CAPRMEDIO-GOV-EVAL-009",
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-009-CORE_META_MODEL-QA_CASE--effective-priority-selection.md",
+      "full_file_sha256": "debf8c3f03344fc462b228052941f60107f165c5d571dfebde4724368c947ada",
+      "version": 19,
+      "occurrence_count": 1,
+      "frontmatter_span": "1-19",
+      "body_span": "20-49",
+      "body_evidence": "Scope lines 24-35 defines effective-priority checks; Claim lines 37-39 and failure disposition lines 43-49 prohibit an unauthorized winner.",
+      "observed": {
+        "atom_id": "CAPRMEDIO-GOV-EVAL-009",
+        "raw_updated_at": "2026-10-01 21:46:54 +0400",
+        "parsed_updated_at_type": "str",
+        "finding": "missing_or_invalid_atom_id"
+      },
+      "classification": "Observed failure of the current CA-hardcoded frontier predicate; semantic validity is unresolved pending historical-prefix identity continuity or an explicit governed migration receipt.",
+      "evidence_pins": [
+        "source:1-19,24-49",
+        "CA-D-378:28-30",
+        "CA-D-376:26-32",
+        "CA-R-728:23-30",
+        "historical CAPRMEDIO-GOV-REQU-479:16-32",
+        "inventory_current_subjects.py:45-46,227-244"
+      ]
+    },
+    {
+      "atom_id": "CAPRMEDIO-GOV-EVAL-010",
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md",
+      "full_file_sha256": "994b91d17ef0089ff49d3bc8d07776830d0ab3803ebcef5fbbbdfee9343219b6",
+      "version": 17,
+      "occurrence_count": 4,
+      "frontmatter_span": "1-23",
+      "body_span": "24-36",
+      "body_evidence": "Scope lines 28-30 and Claim lines 32-34 preserve the generated-only provenance boundary, including the no-VCS case.",
+      "observed": {
+        "atom_id": "CAPRMEDIO-GOV-EVAL-010",
+        "raw_updated_at": "2026-10-03 03:48:25 +0400",
+        "parsed_updated_at_type": "str",
+        "finding": "missing_or_invalid_atom_id"
+      },
+      "classification": "Observed failure of the current CA-hardcoded frontier predicate; semantic validity is unresolved pending historical-prefix identity continuity or an explicit governed migration receipt.",
+      "evidence_pins": [
+        "source:1-23,28-36",
+        "CA-D-378:28-30",
+        "CA-D-376:26-32",
+        "CA-R-728:23-30",
+        "historical CAPRMEDIO-GOV-REQU-479:16-32",
+        "inventory_current_subjects.py:45-46,227-244"
+      ]
+    }
+  ],
+  "policy_conflicts": [
+    {
+      "topic": "Project identity prefix",
+      "observed_rule": "Current Project Settings selects CA at caprmedio_project_settings.toml:94-95; CA-D-378:28-30 requires the registered Project prefix and the producer/verifier hardcode CA- in inventory_current_subjects.py:45-46 and verify_current_inventory.py:48.",
+      "counterevidence": "CA-D-378 is parameterized by PROJECT_PREFIX; CA-R-728:29 defines Project Atom ID semantically as immutable identity; archived CAPRMEDIO-GOV-REQU-479:18-32 records CAPRMEDIO as a prior canonical prefix and permits former-prefix artifacts until governed migration.",
+      "decision": "Do not call the six CAPRMEDIO IDs malformed solely from the CA-hardcoded predicate. They are current-admission failures, but require a historical identity-continuity/migration decision. Do not rename or re-ID."
+    },
+    {
+      "topic": "Updated-at serialization",
+      "observed_rule": "CA-D-270:29,33-35 specifically governs Markdown Atom Revision Carriers and requires a quoted YAML string with an explicit UTC offset; producer and ledger verifier enforce this at inventory_current_subjects.py:223-244 and verify_working_mapping_ledger.py:405-408. Validator tests also reject plain timestamps at test_schema_extended.py:117-129 and reject missing/invalid timestamps under CA-D-270 at test_authority_checks.py:80-95.",
+      "counterevidence": "Active CA-D-390:27-33 says Framework Instance Settings may use local/UTC/IANA timezone and that every emitted updated_at uses YYYY-MM-DD HH:MM:SS with the setting supplying interpretation; selected settings set artifact_timestamps.timezone = local at caprmedio_project_settings.toml:82-83.",
+      "decision": "The two raw unquoted/no-offset values are genuine violations of the more-specific current Markdown-carrier rule, not parser errors, but exact repair offset/format must remain blocked until the CA-D-270 versus CA-D-390 wording is explicitly resolved."
+    }
+  ],
+  "repair_boundary": {
+    "no_repair_performed": true,
+    "timestamp_defect_minimal_repair_if_policy_is_confirmed": "Once the CA-D-270 versus CA-D-390 policy is explicitly confirmed, use the existing authorized Atom lifecycle Workflow to create the next revision, never an in-place edit: preserve the Atom ID, body, Subjects, relations and semantic content; increment VersionNumber exactly one from the prior revision; stamp the actual execution time in the configured Project timezone using the explicitly confirmed serialization; preserve the old naive bytes/history and append the required Journal receipt, then re-run producer and ledger verification. Do not guess an offset or retroactively reconstruct a missing historical offset from neighboring files or local settings.",
+    "identity_defect_minimal_repair": "No direct prefix substitution is admissible. First obtain an Operator decision binding the historical CAPRMEDIO identity to current CA authority or approving a governed one-to-one identity migration. If migration is approved, use its existing lifecycle/history boundary, preserve old-to-new references and archived evidence, and re-enumerate; otherwise extend the admission check to the explicitly approved historical prefix. CA-R-728:29, CA-D-446:33-38, CA-R-1698:29-30 and CA-O-127 lifecycle rules prohibit an ad-hoc re-ID.",
+    "history_boundary": "CA-R-1698:29-30 requires recoverable revisions preserving exact historical meaning; CA-D-308:29-31 requires append-only Journal records. CA-O-127's Summary and Details require an admitted lifecycle run, exact authorization/assessment and durable Journal receipts; no raw text edit is authorized by this audit."
+  },
+  "safe_next_actions": [
+    "Keep all eight original carriers byte-for-byte unchanged and quarantined.",
+    "Resolve the current-prefix versus historical-CAPRMEDIO identity question with an explicit Operator decision and a source-backed migration/continuity receipt; do not infer that current CA alone invalidates immutable historical IDs.",
+    "Resolve the CA-D-270 versus CA-D-390 timestamp wording before selecting a repair representation; once confirmed, stamp the actual execution time of each new lifecycle update using the configured Project timezone and explicit serialization, preserving old naive bytes/history without reconstructing historical offsets.",
+    "If approved, perform only the normal lifecycle/history-bound repair and re-run the read-only producer and working-ledger verifier; no Core, Plan, source, runtime, MCP or FPF writes belong to this audit.",
+    "Do not mark the remaining quarantine gate complete from this diagnostic report alone."
+  ]
+}

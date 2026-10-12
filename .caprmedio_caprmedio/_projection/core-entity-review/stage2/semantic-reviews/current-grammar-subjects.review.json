@@ -1,0 +1,1344 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2087",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "grammar_adoption_result": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-adoption.result.json",
+      "sha256": "29c9122a27c470127e33acea75a8e56433c78f924fa1126b0349bd27fe542155"
+    },
+    "current_grammar_source_drift": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-grammar-source-drift.json",
+      "sha256": "26c7bf2e6eb86c0ac5a2ed049c7f6252e674eba810958bd8c9235d1ed7274fb0"
+    },
+    "working_ledger_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+      "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/72-CA-P-2087-TASK--recheck-current-grammar-subject-origins.md",
+      "sha256": "cbabe88ae3d92154412884580a20784f4da050af9e0f983fbe3293cc983e5a73"
+    }
+  },
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+      "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/subject-tools.grammar-contract.md",
+      "sha256": "aa267553ff481c7473c86fedcd757e902bbf00ffe3e2f2deef90b99201598f59"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-tools.current-contract.md",
+      "sha256": "cab46c2481e61fdca0ee7df38bce638d178eb37865e2e9e0be580179b2f3dbb6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+      "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md",
+      "sha256": "2c1fceec5acedbcb559e49119a2bd6ded3da5fa2eb5d75a466b2dfc3688fa6f0"
+    }
+  ],
+  "sources": [
+    {
+      "atom_id": "CA-R-1931",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "version": 1,
+      "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+      "body": {
+        "start_line": 20,
+        "end_line": 32,
+        "span_sha256": "722e678e2acd7aa260e63834cc9b6c75a32869b7e392dea6994d0b87c42ab07e"
+      },
+      "historical_lineage": {
+        "relation": "replaces",
+        "atom_id": "CA-R-1204",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1204-CORE_META_MODEL--use-subject-path-slash-only-for-bearer-qualification@14.md",
+        "version": 14,
+        "sha256": "f57d56dab2cff12ea38a94900a1f146e40ead39f0af9e26e3130e9867f290dda",
+        "note": "The successor retains the four Subject fields/values but its current separator meanings were re-read independently; CA-R-1204's slash-only Claim is not reused."
+      }
+    },
+    {
+      "atom_id": "CA-R-1321",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "version": 13,
+      "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+      "body": {
+        "start_line": 22,
+        "end_line": 32,
+        "span_sha256": "f4c6efd211f56aaa6943821fb1b63c4fc99f8c6444744adac4235c555445dae7"
+      },
+      "historical_lineage": {
+        "relation": "same_id_revision",
+        "atom_id": "CA-R-1321",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression@12.md",
+        "version": 12,
+        "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+        "note": "The Subject fields/values are unchanged, but the current Claim now includes dot and excludes @; decisions use only the current body."
+      }
+    },
+    {
+      "atom_id": "CA-R-1324",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "version": 11,
+      "sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7",
+      "body": {
+        "start_line": 18,
+        "end_line": 30,
+        "span_sha256": "23b90b574b1d59c164871e09c41492f231b0dfdd5b2cde510930fc0cb155964c"
+      },
+      "historical_lineage": {
+        "relation": "same_id_revision",
+        "atom_id": "CA-R-1324",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/archive/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators@10.md",
+        "version": 10,
+        "sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+        "note": "The Subject fields/values are unchanged, but the current Claim reserves dot and excludes @; decisions use only the current body."
+      }
+    },
+    {
+      "atom_id": "CA-M-228",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "version": 15,
+      "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+      "body": {
+        "start_line": 24,
+        "end_line": 36,
+        "span_sha256": "bcc3aad808c6630fad1210598ec7f7ef0bbee7bbb86e39dd014757d67702ddfa"
+      },
+      "historical_lineage": {
+        "relation": "same_id_revision",
+        "atom_id": "CA-M-228",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/archive/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification@14.md",
+        "version": 14,
+        "sha256": "f5a2152648b95c04af56c49118f43ac64ee46dd8183b23913cb64f335d6f26df",
+        "note": "The Subject fields/values are unchanged, but the current Claim changes separator direction and excludes @; decisions use only the current body."
+      }
+    },
+    {
+      "atom_id": "CA-E-383",
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "version": 14,
+      "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "body": {
+        "start_line": 41,
+        "end_line": 71,
+        "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f"
+      },
+      "historical_lineage": {
+        "relation": "same_id_revision",
+        "atom_id": "CA-E-383",
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/archive/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions@13.md",
+        "version": 13,
+        "sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274",
+        "note": "The Subject fields/values are unchanged, but the current Claim/Details add dot, reject @, and replace the evaluated requirement link; decisions use only the current body."
+      }
+    }
+  ],
+  "occurrences": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md#subjects.governs",
+      "source_atom_id": "CA-R-1931",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "source_version": 1,
+      "source_sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+      "field": "governs",
+      "index": null,
+      "old_value": "Subject Path",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+          "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "722e678e2acd7aa260e63834cc9b6c75a32869b7e392dea6994d0b87c42ab07e",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Syntax remains distinct from the Entity it can identify.",
+        "No /, ., :, @, selector, or native grammar adoption is inferred from this null finding."
+      ],
+      "reason": "Subject Path is a syntactic expression/profile or authoring activity in the current body. It identifies or constrains a canonical target but is not itself established as a candidate Entity; no syntax token, selector, or new root is inferred."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-1931",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "source_version": 1,
+      "source_sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Dependent Entity",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+          "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "722e678e2acd7aa260e63834cc9b6c75a32869b7e392dea6994d0b87c42ab07e",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Dependent Entity",
+      "confidence": 0.92,
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The frozen candidate confirms that named dependent Entities, including Properties, are Entities within an Artifact rather than independent roots."
+        }
+      ],
+      "preserved_distinctions": [
+        "The dependent qualifier is retained; no bearer instance or selector is invented.",
+        "This does not admit syntax, a carrier mapping, or a native graph change."
+      ],
+      "reason": "The current body uses Dependent Entity for the immediate bearer-qualified occurrence. The frozen candidate directly supports dependent Entities as Entities; retaining the exact generic reference does not choose an individual dependent or bearer."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-R-1931",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "source_version": 1,
+      "source_sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "IS_BORNE_BY",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+          "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "722e678e2acd7aa260e63834cc9b6c75a32869b7e392dea6994d0b87c42ab07e",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "IS_BORNE_BY",
+      "confidence": 0.9,
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The frozen candidate supports typed Relations and does not authorize arbitrary relation kinds or endpoints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current mechanical bearer relation remains distinct from a path token and from a particular bearer/dependent instance.",
+        "No new native edge or migration is performed by this candidate-only record."
+      ],
+      "reason": "The current body expressly states that dot retains the mechanical native fact Dependent IS_BORNE_BY Bearer. The frozen candidate supports Relation generically; retaining this exact reference does not invent another relation or endpoint."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md#subjects.depends_on[2]",
+      "source_atom_id": "CA-R-1931",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "source_version": 1,
+      "source_sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Entity",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+          "sha256": "f11bc913a0f7b31abc746a86599eaeaa76db8be412568ef4c34f68c7d01525c8",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "722e678e2acd7aa260e63834cc9b6c75a32869b7e392dea6994d0b87c42ab07e",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "The current global definition confirms that Entity is an authoritative possible graph node, preserving the generic category rather than creating another root."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.91,
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen graph model confirms that Entities are graph nodes, supporting the source's generic Entity category without making it an eighth root."
+        }
+      ],
+      "preserved_distinctions": [
+        "The generic Entity category remains distinct from any selected canonical target and from the seven candidate roots.",
+        "No new root, topic alias, syntax token, selector, or native admission is inferred."
+      ],
+      "reason": "The current body uses Entity as the generic category of a Subject Expression target. CA-R-1248 defines Entity as a possible graph node, and the frozen graph model confirms that generic Entity nodes are valid without turning Entity into an eighth root or selecting a particular target."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md#subjects.governs",
+      "source_atom_id": "CA-R-1321",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "source_version": 13,
+      "source_sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+      "field": "governs",
+      "index": null,
+      "old_value": "Subject Expression",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "f4c6efd211f56aaa6943821fb1b63c4fc99f8c6444744adac4235c555445dae7",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Syntax remains distinct from the Entity it can identify.",
+        "No /, ., :, @, selector, or native grammar adoption is inferred from this null finding."
+      ],
+      "reason": "Subject Expression is a syntactic expression/profile or authoring activity in the current body. It identifies or constrains a canonical target but is not itself established as a candidate Entity; no syntax token, selector, or new root is inferred."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-1321",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "source_version": 13,
+      "source_sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Entity",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "f4c6efd211f56aaa6943821fb1b63c4fc99f8c6444744adac4235c555445dae7",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "The current global definition confirms that Entity is an authoritative possible graph node, preserving the generic category rather than creating another root."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.91,
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen graph model confirms that Entities are graph nodes, supporting the source's generic Entity category without making it an eighth root."
+        }
+      ],
+      "preserved_distinctions": [
+        "The generic Entity category remains distinct from any selected canonical target and from the seven candidate roots.",
+        "No new root, topic alias, syntax token, selector, or native admission is inferred."
+      ],
+      "reason": "The current body defines a Subject Expression as a reference to exactly one Entity. CA-R-1248 defines Entity as a possible graph node, and the frozen graph model confirms that generic Entity nodes are valid without turning Entity into an eighth root or selecting a particular target."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-R-1321",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "source_version": 13,
+      "source_sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Term",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "f4c6efd211f56aaa6943821fb1b63c4fc99f8c6444744adac4235c555445dae7",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term-layer meaning remains distinct from Entity identity.",
+        "No Term root, Term-name Property, or cross-graph relation is invented."
+      ],
+      "reason": "Term is a Term-layer reference in the current body. The frozen candidate confirms that Terms belong to a separate graph and does not establish this label as an Entities-Graph target."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md#subjects.depends_on[2]",
+      "source_atom_id": "CA-R-1321",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "source_version": 13,
+      "source_sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Property",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "f4c6efd211f56aaa6943821fb1b63c4fc99f8c6444744adac4235c555445dae7",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Property",
+      "confidence": 0.92,
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The frozen candidate explicitly includes Properties among named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Property remains a dependent Entity category, not a separate root or a concrete Property occurrence.",
+        "No Property cardinality, assignment, selector, or storage field is inferred."
+      ],
+      "reason": "The current body expressly distinguishes a Property component/occurrence and, where applicable, its allowed-value qualification. The frozen candidate supports Property as a dependent Entity; retaining the generic reference adds no concrete owner or value."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md#subjects.depends_on[3]",
+      "source_atom_id": "CA-R-1321",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "source_version": 13,
+      "source_sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Subject",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "f4c6efd211f56aaa6943821fb1b63c4fc99f8c6444744adac4235c555445dae7",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Subject Relation remains distinct from the target Entity and from syntax.",
+        "No unqualified generic Relation replacement is guessed."
+      ],
+      "reason": "The current body distinguishes the Atom's Subject Relation from the target identified by the expression, but the frozen candidate does not establish a canonical Subject Entity or exact Subject Relation target. Collapsing it to generic Relation would lose the source qualification."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md#subjects.depends_on[4]",
+      "source_atom_id": "CA-R-1321",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "source_version": 13,
+      "source_sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Atom",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+          "sha256": "e70433376c3c1fdda8189e90f31a2d9b7cfd740a2c23e7f9c91ad9a3de81be5f",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "f4c6efd211f56aaa6943821fb1b63c4fc99f8c6444744adac4235c555445dae7",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Atom",
+      "confidence": 0.92,
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate identifies Atom as an Artifact-narrower Entity made of named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Atom remains distinct from its Subject Relation and from the syntax used to identify a target.",
+        "No Atom instance, relation, or migration is inferred."
+      ],
+      "reason": "The current body explicitly distinguishes the Atom and its Subject Relation from the target identified by a Subject Expression. The frozen candidate directly supports Atom as an Entity, so retaining this generic reference is lossless."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md#subjects.governs",
+      "source_atom_id": "CA-R-1324",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "source_version": 11,
+      "source_sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7",
+      "field": "governs",
+      "index": null,
+      "old_value": "Term/name",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+          "sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "23b90b574b1d59c164871e09c41492f231b0dfdd5b2cde510930fc0cb155964c",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term-layer meaning remains distinct from Entity identity.",
+        "No Term root, Term-name Property, or cross-graph relation is invented."
+      ],
+      "reason": "Term/name is a Term-layer reference in the current body. The frozen candidate confirms that Terms belong to a separate graph and does not establish this label as an Entities-Graph target."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-R-1324",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "source_version": 11,
+      "source_sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Subject Expression",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+          "sha256": "b672d509190b0e87d5ff839721da9a5b05e52a572cc845450f2a7f1a96fa21f7",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "23b90b574b1d59c164871e09c41492f231b0dfdd5b2cde510930fc0cb155964c",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Syntax remains distinct from the Entity it can identify.",
+        "No /, ., :, @, selector, or native grammar adoption is inferred from this null finding."
+      ],
+      "reason": "Subject Expression is a syntactic expression/profile or authoring activity in the current body. It identifies or constrains a canonical target but is not itself established as a candidate Entity; no syntax token, selector, or new root is inferred."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md#subjects.governs",
+      "source_atom_id": "CA-M-228",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "source_version": 15,
+      "source_sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+      "field": "governs",
+      "index": null,
+      "old_value": "Subject Expression Writing",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+          "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "bcc3aad808c6630fad1210598ec7f7ef0bbee7bbb86e39dd014757d67702ddfa",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Syntax remains distinct from the Entity it can identify.",
+        "No /, ., :, @, selector, or native grammar adoption is inferred from this null finding."
+      ],
+      "reason": "Subject Expression Writing is a syntactic expression/profile or authoring activity in the current body. It identifies or constrains a canonical target but is not itself established as a candidate Entity; no syntax token, selector, or new root is inferred."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-M-228",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "source_version": 15,
+      "source_sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Subject Path",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+          "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "bcc3aad808c6630fad1210598ec7f7ef0bbee7bbb86e39dd014757d67702ddfa",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Syntax remains distinct from the Entity it can identify.",
+        "No /, ., :, @, selector, or native grammar adoption is inferred from this null finding."
+      ],
+      "reason": "Subject Path is a syntactic expression/profile or authoring activity in the current body. It identifies or constrains a canonical target but is not itself established as a candidate Entity; no syntax token, selector, or new root is inferred."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-M-228",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "source_version": 15,
+      "source_sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Entity",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+          "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "bcc3aad808c6630fad1210598ec7f7ef0bbee7bbb86e39dd014757d67702ddfa",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "The current global definition confirms that Entity is an authoritative possible graph node, preserving the generic category rather than creating another root."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.91,
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "The frozen graph model confirms that Entities are graph nodes, supporting the source's generic Entity category without making it an eighth root."
+        }
+      ],
+      "preserved_distinctions": [
+        "The generic Entity category remains distinct from any selected canonical target and from the seven candidate roots.",
+        "No new root, topic alias, syntax token, selector, or native admission is inferred."
+      ],
+      "reason": "The current method requires a canonical Entity reference while keeping syntax and Subject Relation separate. CA-R-1248 defines Entity as a possible graph node, and the frozen graph model supports that generic category without turning it into an eighth root or selecting a particular target."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md#subjects.depends_on[2]",
+      "source_atom_id": "CA-M-228",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "source_version": 15,
+      "source_sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Relation",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+          "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "bcc3aad808c6630fad1210598ec7f7ef0bbee7bbb86e39dd014757d67702ddfa",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.9,
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The frozen candidate identifies Relation as typed connections between Entities without permitting arbitrary kinds or endpoints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The relation remains generic; no unlisted relation kind or endpoint pair is invented.",
+        "Syntax remains separate from a Subject Relation and from a target Entity."
+      ],
+      "reason": "The current body distinguishes a Relation/Subject Relation from the canonical target and from Subject syntax. The frozen candidate supports Relation as a root Entity category, so retaining the generic reference does not admit an additional Relation kind."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md#subjects.depends_on[3]",
+      "source_atom_id": "CA-M-228",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "source_version": 15,
+      "source_sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Term",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+          "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "bcc3aad808c6630fad1210598ec7f7ef0bbee7bbb86e39dd014757d67702ddfa",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term-layer meaning remains distinct from Entity identity.",
+        "No Term root, Term-name Property, or cross-graph relation is invented."
+      ],
+      "reason": "Term is a Term-layer reference in the current body. The frozen candidate confirms that Terms belong to a separate graph and does not establish this label as an Entities-Graph target."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md#subjects.depends_on[4]",
+      "source_atom_id": "CA-M-228",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "source_version": 15,
+      "source_sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Subject",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+          "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "bcc3aad808c6630fad1210598ec7f7ef0bbee7bbb86e39dd014757d67702ddfa",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Subject Relation remains distinct from the target Entity and from syntax.",
+        "No unqualified generic Relation replacement is guessed."
+      ],
+      "reason": "The current body distinguishes the Atom's Subject Relation from the target identified by the expression, but the frozen candidate does not establish a canonical Subject Entity or exact Subject Relation target. Collapsing it to generic Relation would lose the source qualification."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md#subjects.depends_on[5]",
+      "source_atom_id": "CA-M-228",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "source_version": 15,
+      "source_sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "GOVERNS",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+          "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "bcc3aad808c6630fad1210598ec7f7ef0bbee7bbb86e39dd014757d67702ddfa",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "GOVERNS",
+      "confidence": 0.9,
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The frozen candidate supports typed Relations while leaving their permitted kinds and endpoints constrained."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current relation-kind spelling is retained; no new relation kind or endpoint rule is created.",
+        "The Atom-to-target Subject Relation remains distinct from the target Entity and from syntax."
+      ],
+      "reason": "The current body expressly names this relation kind as part of the Atom-to-target Subject Relation. With the frozen generic Relation root, retaining the exact current relation-kind reference neither changes its kind nor admits a new edge."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md#subjects.depends_on[6]",
+      "source_atom_id": "CA-M-228",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "source_version": 15,
+      "source_sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "DEPENDS_ON",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+          "sha256": "f3febddbb9edf1776b7fd6d8680f46b69b735a7eb1a311bea844b0fbb74bcd70",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "bcc3aad808c6630fad1210598ec7f7ef0bbee7bbb86e39dd014757d67702ddfa",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "DEPENDS_ON",
+      "confidence": 0.9,
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The frozen candidate supports typed Relations while leaving their permitted kinds and endpoints constrained."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current relation-kind spelling is retained; no new relation kind or endpoint rule is created.",
+        "The Atom-to-target Subject Relation remains distinct from the target Entity and from syntax."
+      ],
+      "reason": "The current body expressly names this relation kind as part of the Atom-to-target Subject Relation. With the frozen generic Relation root, retaining the exact current relation-kind reference neither changes its kind nor admits a new edge."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.governs",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "governs",
+      "index": null,
+      "old_value": "Subject Expression Evaluation",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Evaluation activity remains distinct from the grammar syntax and evaluated target.",
+        "No new Evaluation root or Execution is inferred."
+      ],
+      "reason": "The current body describes an Evaluation of invalid Subject Expressions, but the frozen candidate does not establish Subject Expression Evaluation as a candidate Entity. M/E views do not create a new root from this role-centred phrase."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.depends_on[0]",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "General Term",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term-layer meaning remains distinct from Entity identity.",
+        "No Term root, Term-name Property, or cross-graph relation is invented."
+      ],
+      "reason": "General Term is a Term-layer reference in the current body. The frozen candidate confirms that Terms belong to a separate graph and does not establish this label as an Entities-Graph target."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.depends_on[1]",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Governed Term",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term-layer meaning remains distinct from Entity identity.",
+        "No Term root, Term-name Property, or cross-graph relation is invented."
+      ],
+      "reason": "Governed Term is a Term-layer reference in the current body. The frozen candidate confirms that Terms belong to a separate graph and does not establish this label as an Entities-Graph target."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.depends_on[2]",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Subject Expression",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Syntax remains distinct from the Entity it can identify.",
+        "No /, ., :, @, selector, or native grammar adoption is inferred from this null finding."
+      ],
+      "reason": "Subject Expression is a syntactic expression/profile or authoring activity in the current body. It identifies or constrains a canonical target but is not itself established as a candidate Entity; no syntax token, selector, or new root is inferred."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.depends_on[3]",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Dependent Entity",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Dependent Entity",
+      "confidence": 0.92,
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The frozen candidate confirms that named dependent Entities, including Properties, are Entities within an Artifact rather than independent roots."
+        }
+      ],
+      "preserved_distinctions": [
+        "The dependent qualifier is retained; no bearer instance or selector is invented.",
+        "This does not admit syntax, a carrier mapping, or a native graph change."
+      ],
+      "reason": "The current body uses Dependent Entity for the immediate bearer-qualified occurrence. The frozen candidate directly supports dependent Entities as Entities; retaining the exact generic reference does not choose an individual dependent or bearer."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.depends_on[4]",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Property",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Property",
+      "confidence": 0.92,
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities",
+          "reason": "The frozen candidate explicitly includes Properties among named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Property remains a dependent Entity category, not a separate root or a concrete Property occurrence.",
+        "No Property cardinality, assignment, selector, or storage field is inferred."
+      ],
+      "reason": "The current body expressly distinguishes a Property component/occurrence and, where applicable, its allowed-value qualification. The frozen candidate supports Property as a dependent Entity; retaining the generic reference adds no concrete owner or value."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.depends_on[5]",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "IS_BORNE_BY",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "IS_BORNE_BY",
+      "confidence": 0.9,
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The frozen candidate supports typed Relations and does not authorize arbitrary relation kinds or endpoints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current mechanical bearer relation remains distinct from a path token and from a particular bearer/dependent instance.",
+        "No new native edge or migration is performed by this candidate-only record."
+      ],
+      "reason": "The current body expressly states that dot retains the mechanical native fact Dependent IS_BORNE_BY Bearer. The frozen candidate supports Relation generically; retaining this exact reference does not invent another relation or endpoint."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.depends_on[6]",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "IS_ALLOWED_VALUE_OF",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "IS_ALLOWED_VALUE_OF",
+      "confidence": 0.9,
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3",
+          "reason": "The frozen candidate supports typed Relations and does not authorize arbitrary relation kinds or endpoints."
+        }
+      ],
+      "preserved_distinctions": [
+        "The exact current allowed-value qualification remains distinct from Property assignment or cardinality.",
+        "No new native edge or migration is performed by this candidate-only record."
+      ],
+      "reason": "The current body expressly names IS_ALLOWED_VALUE_OF as the allowed-value qualification and rejects treating it as assignment or cardinality. The frozen generic Relation support permits retention without inventing another relation."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.depends_on[7]",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Term",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term-layer meaning remains distinct from Entity identity.",
+        "No Term root, Term-name Property, or cross-graph relation is invented."
+      ],
+      "reason": "Term is a Term-layer reference in the current body. The frozen candidate confirms that Terms belong to a separate graph and does not establish this label as an Entities-Graph target."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.depends_on[8]",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "depends_on",
+      "index": 8,
+      "old_value": "CCE Operator",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Term-layer meaning remains distinct from Entity identity.",
+        "No Term root, Term-name Property, or cross-graph relation is invented."
+      ],
+      "reason": "CCE Operator is a Term-layer reference in the current body. The frozen candidate confirms that Terms belong to a separate graph and does not establish this label as an Entities-Graph target."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.depends_on[9]",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "depends_on",
+      "index": 9,
+      "old_value": "Scope Unit/Name",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md",
+          "sha256": "2c1fceec5acedbcb559e49119a2bd6ded3da5fa2eb5d75a466b2dfc3688fa6f0",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "156bbf8c7057b8123f54b655511daf064d88ba5540b31710b7079b1fadfb9a12",
+          "reason": "The current global definition requires exactly one authoritative Name for every Scope Unit, retaining the owner and dependent field separately."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Name",
+      "confidence": 0.91,
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/1",
+          "reason": "The frozen candidate identifies Scope Unit as the owner category rather than replacing it with a generic or carrier-qualified Entity."
+        },
+        {
+          "pointer": "/entity_identity_model/scope_unit_rename/rename",
+          "reason": "The confirmed candidate rule preserves the stable Scope Unit ID while allowing its separate Name suffix to change."
+        }
+      ],
+      "preserved_distinctions": [
+        "Scope Unit remains distinct from its Name and from a CCE Operator.",
+        "The current negative CCE reclassification condition remains body meaning; no selector, carrier mapping, or native grammar adoption is inferred."
+      ],
+      "reason": "The current evaluation body preserves Scope Unit Name as the forbidden target of a CCE reclassification. CA-R-962 establishes Name as an authoritative field of every Scope Unit, and the frozen candidate preserves stable Scope Unit identity separately from Name; Scope Unit.Name therefore retains the exact owner-and-field distinction while the negative condition remains in the source body."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.depends_on[10]",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Subject",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Subject Relation remains distinct from the target Entity and from syntax.",
+        "No unqualified generic Relation replacement is guessed."
+      ],
+      "reason": "The current body distinguishes the Atom's Subject Relation from the target identified by the expression, but the frozen candidate does not establish a canonical Subject Entity or exact Subject Relation target. Collapsing it to generic Relation would lose the source qualification."
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md#subjects.depends_on[11]",
+      "source_atom_id": "CA-E-383",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "source_version": 14,
+      "source_sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+      "field": "depends_on",
+      "index": 11,
+      "old_value": "Subject Path",
+      "quarantined": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+          "sha256": "6e17caba7c5dac4bce187bdd79084bd49d316abc393ebb564280364fee39f143",
+          "start_line": 41,
+          "end_line": 71,
+          "span_sha256": "578b06757128dbf0ff07dbc7b4e75389eb50f006b2de108125faa09185270b7f",
+          "reason": "The complete current Main Content was re-read and its exact current body span was byte-verified for this occurrence."
+        }
+      ],
+      "question": null,
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Syntax remains distinct from the Entity it can identify.",
+        "No /, ., :, @, selector, or native grammar adoption is inferred from this null finding."
+      ],
+      "reason": "Subject Path is a syntactic expression/profile or authoring activity in the current body. It identifies or constrains a canonical target but is not itself established as a candidate Entity; no syntax token, selector, or new root is inferred."
+    }
+  ],
+  "counts": {
+    "sources": 5,
+    "occurrences": 33,
+    "unchanged": 0,
+    "proposed": 15,
+    "unresolved": 18,
+    "quarantined": 0,
+    "current_body_spans": 33
+  },
+  "limits": [
+    "Current grammar-source evidence only; frozen candidate, baseline ledger, original reports, source Subjects, and source bodies remain unchanged.",
+    "Only /, ., and : occur in current grammar meanings; @ is rejected, and no selector or conjunction grammar is inferred.",
+    "A grammar token, Term-layer label, generic Entity category, or broad topic is not automatically a candidate Entity.",
+    "All rows are non-executable and perform no native admission, source migration, runtime/MCP/FPF invocation, or grammar implementation change."
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2159",
+  "recorded_at": "2026-10-11 13:15:09 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded audit stage 2 execution gates; not migration approval",
+  "verification": {
+    "task_id": "CA-P-2159",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/execution-gates.json",
+      "sha256": "faafc25d961ddfca914da8b126aa94f210ef1046366cc900db9f6b7e5d0ad7f7"
+    },
+    "file_pins_verified": 22,
+    "spans_verified": 0,
+    "pin_details": [
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/22-CA-P-2159-TASK--audit-stage-2-execution-gates.md",
+        "sha256": "7dab4fd5edf3e1b1d6adda75849b939f79d4a7a0a33d157a5ff914acdf9274f2",
+        "context": "50bf643d95f3f3171fe79199889f6b9dbf78e019"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/contract.md",
+        "sha256": "cea762d3a48929859eb33a5c031c59890360e5cd08a96d5965d57e94e1e0e6ce",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2.md",
+        "sha256": "959c0223a854e5ef2bb6c62fcd3b9b56987dd69c5f55cc5709962149def36add",
+        "context": "50bf643d95f3f3171fe79199889f6b9dbf78e019"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+        "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/frontier-audit.json",
+        "sha256": "e6ac5b82f3b60ac13ffacd86fa13149de126e83d685d7b1fe8c7eb846dbe68c3",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-tools.current-contract.md",
+        "sha256": "cab46c2481e61fdca0ee7df38bce638d178eb37865e2e9e0be580179b2f3dbb6",
+        "context": "current"
+      },
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py",
+        "sha256": "8d1b7b033712a7ede53e0049f12b4ea873dd8af55374adde3134edd737a94657",
+        "context": "current"
+      },
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_patch.py",
+        "sha256": "b0ed708f607992e6b084ed12bdd06aa1b1f63325fd1b88486a6e60422fa36f45",
+        "context": "current"
+      },
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py",
+        "sha256": "1b41735a7ea5770d745f56cf02751adae0ef458ac7f21c3dabd4c830984385a6",
+        "context": "current"
+      },
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/subject_notation.py",
+        "sha256": "97bfbbe5f125eec5d41836f7084e80ef922f4cc79298d054ef3300796ea2cc4c",
+        "context": "current"
+      },
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/subject_model_sources.py",
+        "sha256": "201b5fbb3a891eafc4f1518bd1872b11863aa47b15600ff84f4a63c8763b8ac2",
+        "context": "current"
+      },
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/core_entity_admission.py",
+        "sha256": "a54ad6e8f2780e0ea51bbd7f72e8f50ff8545653ce30daf4306e7fa3446662a6",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins.md",
+        "sha256": "33fd56457ef31b6a2c730c9e976da621e615d1ed7bc0febe8c8934ac3aa58051",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/09-CA-P-1967-TASK--seal-the-exact-subject-migration-preview.md",
+        "sha256": "e8a7fef3146a322af92b014873e3d15cd897be0011ec838f99283565eaf1cb9c",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/10-CA-P-1968-EPIC--apply-approved-subject-migration-batches.md",
+        "sha256": "bf4debea4e269af8e8451690a5b653b4399589512d34df842d4e0bb5a19542d3",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/11-CA-P-1969-TASK--verify-subject-migration-before-content-updates.md",
+        "sha256": "26a24ce96e01f1cf523fddef73334017ac0d819ffeb99f5f2b56e274484b2925",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/12-CA-P-1970-EPIC--align-atom-content-after-subject-migration.md",
+        "sha256": "fcd30132e2b72099e41fe35ddd9f260423667361e21f96f622cd0948a9515a83",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/13-CA-P-1971-TASK--verify-the-stage-2-entity-model.md",
+        "sha256": "f7c1c782bb994dcff106f553183679b8f34f70797dd650cbcffbec7ea10de05c",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/05-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/25-CA-P-1909-TASK--build-and-verify-the-accepted-core-entities-graph.md",
+        "sha256": "0e92f0da80f928e72b9997c9b557e302a478efe9961a518214f9b2ad8804cd21",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/05-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/26-CA-P-1910-TASK--prepare-the-accepted-core-subject-migration-preview.md",
+        "sha256": "a4bd5afa587e50e2fa170f236e9e3b04020de0c4cb579ae163bbb0ff49a9bbc2",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/05-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/27-CA-P-1911-TASK--apply-the-approved-core-subject-migration.md",
+        "sha256": "0b5dcfd12c4adc8cfd4249f21bb5d162cdb62985860c8a690b227880631feb10",
+        "context": "current"
+      },
+      {
+        "path": ".caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/05-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/28-CA-P-1912-TASK--verify-the-migrated-core-graph-reproduction.md",
+        "sha256": "7c804027ea21b2e016fea10f038c262375821067e07ff08728a5c6f5cde0cc43",
+        "context": "current"
+      }
+    ],
+    "result": "PASS: read-only mechanical pins and bounded invariants; not semantic approval",
+    "independent_review": {
+      "reviewer": "Root",
+      "result": "Accepted the bounded local execution-gate audit. Twenty-two current/historical file pins verified. Six prerequisite findings preserve the sole accepted-graph/preview/approval/application/reproduction route and Subjects-before-body boundary. Apply rejection is static code evidence, not a live apply attempt; scoped missing-name scan is not a repository-wide or MCP absence proof.",
+      "actual_executor": ".caprmedio_tmp/accept_remaining_gate_audits.py",
+      "exit_code": 0
+    }
+  },
+  "independent_review": {
+    "reviewer": "Root",
+    "result": "Accepted the bounded local execution-gate audit. Twenty-two current/historical file pins verified. Six prerequisite findings preserve the sole accepted-graph/preview/approval/application/reproduction route and Subjects-before-body boundary. Apply rejection is static code evidence, not a live apply attempt; scoped missing-name scan is not a repository-wide or MCP absence proof.",
+    "actual_executor": ".caprmedio_tmp/accept_remaining_gate_audits.py",
+    "exit_code": 0
+  },
+  "completion_scope": "Completed the six-finding audit of Stage 2 execution gates. Local lookup and sealed preview readiness do not establish semantic admission, an accepted graph, application authorization or reproduction. Complete mapping and the existing exact preview/approval route are still required; Step 2 body work remains gated. No MCP, runtime activation, source mutation or alternative application route was introduced.",
+  "registration_commit": "50bf643d95f3f3171fe79199889f6b9dbf78e019",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

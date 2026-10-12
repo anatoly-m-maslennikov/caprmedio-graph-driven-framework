@@ -133,13 +133,18 @@ def _preflight_control_carriers(root: Path) -> tuple[Path, Path | None]:
 
 
 def _preflight_framework_settings(root: Path, places: object) -> None:
-    source = _safe_relative(places.source.as_posix(), label="configured Methodology source root")
-    _regular_ancestors(root, source, label="configured Methodology source root")
-    source_root = root / source
-    if source_root.is_symlink() or not source_root.is_dir():
-        raise _error("initial-compiler-control-unsafe", "configured Methodology source root is unsafe")
-    for relative in _COMPILER.SETTINGS_FILENAMES:
-        _regular_file(root, source / relative, label="Framework Settings Carrier", required=False)
+    """Preflight only the compiler's canonical default and D359 instance carriers."""
+
+    labels = (
+        "Default Framework Settings Carrier",
+        "Canonical Framework Instance Settings Carrier",
+    )
+    for label, carrier in zip(labels, _COMPILER.framework_settings_carriers(root, places), strict=True):
+        try:
+            relative = carrier.relative_to(root)
+        except ValueError as error:  # pragma: no cover - compiler invariant
+            raise _error("initial-compiler-control-invalid", f"{label} escapes project root") from error
+        _regular_file(root, relative, label=label, required=False)
 
 
 def _expected_output(root: Path, places: object, candidates: list[object]) -> dict[str, bytes]:

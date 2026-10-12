@@ -10,6 +10,7 @@ import sys
 import tempfile
 import time
 import unittest
+from dataclasses import replace
 from pathlib import Path
 from unittest.mock import patch
 
@@ -33,9 +34,15 @@ from release_suite import (
 from release_suite_execution import (
     InstalledNSuiteDockerExecutor,
     SelectedNImageBinding,
+    _EXECUTOR_SCRATCH_RELATIVE,
     _prepare_executor_scratch,
+    installed_n_suite_executor,
+    fresh_unit_suite_executor,
+    FreshUnitRunnerDockerExecutor,
 )
 from release_suite_limits import MAX_UNIT_TIMEOUT_SECONDS
+from release_portable_contract import SealedPortableCandidateCompilation
+from portable_package_fixture import PortablePackageFixture
 
 
 IMAGE = "sha256:" + "a" * 64
@@ -51,6 +58,69 @@ class GovernedSuiteBindingsTests(unittest.TestCase):
         # sealed module-rules byte sequence.
         payload = (RELEASE_ROOT / "release_suite_bindings.json").read_bytes()
         self.assertEqual(payload, canonical_json(json.loads(payload)))
+
+
+class InstalledNPortableCompilationFactoryTests(unittest.TestCase):
+    """The local N executor accepts only a freshly reopened portable seal."""
+
+    def setUp(self) -> None:
+        self.fixture = PortablePackageFixture()
+        self.addCleanup(self.fixture.cleanup)
+        self.candidate = self.fixture.candidate
+        self.compilation = self.fixture.sealed
+        self.assertIsInstance(self.compilation, SealedPortableCandidateCompilation)
+        self.docker = FakeDocker()
+        self.binding = SelectedNImageBinding(
+            IMAGE, "N", CONTEXT, False, "e" * 64, "N",
+        )
+
+    def _executor(self, candidate=None, compilation=None):
+        # The portable fixture is intentionally pre-package and therefore has
+        # no complete retained N Framework package.  This factory test uses
+        # its real sealed portable contract while preserving the independently
+        # tested active-N admission boundary and declared-driver validation;
+        # image inspection remains real.
+        with (
+            patch("release_suite_execution._active_n_state"),
+            patch("release_suite_execution._selector_binding", return_value=self.binding),
+            patch("release_suite_execution.require_declared_suite_command"),
+        ):
+            return installed_n_suite_executor(
+                self.candidate if candidate is None else candidate,
+                self.compilation if compilation is None else compilation,
+                project_root=str(self.fixture.root),
+                docker=self.docker,
+            )
+
+    def test_real_portable_compilation_reopens_and_derives_golden_n_docker_input(self) -> None:
+        executor = self._executor()
+
+        self.assertEqual(executor.compiled_root, self.compilation.private_compilation.compiled_root)
+        self.assertEqual(executor.native_installed_n, self.candidate.native_installed_n)
+        self.assertEqual(len(self.docker.calls), 1)
+        self.assertEqual(
+            self.docker.calls[0],
+            (("docker", "image", "inspect", IMAGE), self.fixture.root, 30),
+        )
+
+    def test_refuses_portable_compilation_for_a_different_selected_candidate_before_docker(self) -> None:
+        foreign = replace(self.candidate, native_installed_n=object())
+
+        with self.assertRaises(ReleaseContractError) as rejected:
+            self._executor(candidate=foreign)
+
+        self.assertEqual(rejected.exception.code, "release-suite-executor-binding-mismatch")
+        self.assertEqual(self.docker.calls, [])
+
+    def test_refuses_stale_portable_compilation_before_n_image_inspection(self) -> None:
+        defaults = self.fixture.root / "defaults/runtime-config.toml"
+        defaults.write_bytes(defaults.read_bytes() + b"\n[fixture]\nstale = true\n")
+
+        with self.assertRaises(ReleaseContractError) as rejected:
+            self._executor()
+
+        self.assertEqual(rejected.exception.code, "portable-contract-stale")
+        self.assertEqual(self.docker.calls, [])
 
 
 class FakeDocker:
@@ -85,6 +155,147 @@ class FakeDocker:
         raise AssertionError(argv)
 
 
+class FreshUnitRunnerFactoryTests(unittest.TestCase):
+    """Physical sealed inputs and simulated Docker; not a real gate pass."""
+
+    def setUp(self):
+        dockerfile = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile"
+        self.fixture = PortablePackageFixture(extra_engine_members={
+            dockerfile: (RELEASE_ROOT.parents[3] / dockerfile).read_bytes(),
+        })
+        self.binding = SelectedNImageBinding(IMAGE, "N", CONTEXT, False, "e" * 64, "N")
+        self.docker = FakeDocker()
+        original = self.docker.run
+
+        def run(argv, *, cwd, timeout_seconds):
+            if argv[:2] == ("docker", "build"):
+                self.docker.calls.append((argv, cwd, timeout_seconds))
+                Path(argv[argv.index("--iidfile") + 1]).write_text(IMAGE)
+                digest = argv[argv.index("--label") + 1].split("=", 1)[1]
+                self.docker.inspect_payload = [{"Id": IMAGE, "Config": {
+                    "Labels": {"org.caprmedio.unit-runner-inputs": digest},
+                    "Env": ["PATH=/opt/venv/bin:/usr/local/bin:/usr/bin:/bin"],
+                }}]
+                return DockerCommandResult(0, b"simulated build", b"")
+            return original(argv, cwd=cwd, timeout_seconds=timeout_seconds)
+
+        self.docker.run = run
+
+    def factory(self):
+        # Documentary predecessor has separate admission tests. This fixture
+        # has a real portable seal, but no selected runtime or real Docker.
+        with patch("release_suite_execution._active_n_state"), patch(
+            "release_suite_execution._selector_binding", return_value=self.binding,
+        ), patch("release_suite_execution.require_declared_suite_command"):
+            return fresh_unit_suite_executor(self.fixture.candidate, self.fixture.sealed,
+                                             project_root=str(self.fixture.root), docker=self.docker)
+
+    def test_fresh_runner_build_has_no_candidate_payload_or_n_image_inspection(self):
+        executor = self.factory()
+        self.assertIsInstance(executor, FreshUnitRunnerDockerExecutor)
+        self.assertEqual(executor.source_context_sha256, CONTEXT)  # documentary only
+        context = self.fixture.root / executor.runner_binding.context_root
+        self.assertEqual({path.name for path in context.iterdir()}, {"Dockerfile", "pyproject.toml", "uv.lock"})
+        payload = (context / "Dockerfile").read_bytes()
+        self.assertIn(b"uv sync --locked", payload)
+        self.assertNotIn(b"COPY 102_FRAMEWORK_ENGINE", payload)
+        self.assertNotIn(b"entrypoint.py", payload)
+        self.assertEqual([argv[:2] for argv, _, _ in self.docker.calls], [("docker", "build"), ("docker", "image")])
+        receipt = json.loads((self.fixture.root / executor.runner_binding.receipt_ref).read_bytes())
+        self.assertEqual(receipt["input_sha256"], executor.runner_binding.input_sha256)
+        self.assertEqual(receipt["image_digest"], IMAGE)
+
+    def test_fresh_runner_failed_build_retains_bounded_stderr_bytes(self):
+        stderr = b"locked dependency resolution failed"
+        original = self.docker.run
+
+        def fail_build(argv, *, cwd, timeout_seconds):
+            if argv[:2] == ("docker", "build"):
+                self.docker.calls.append((argv, cwd, timeout_seconds))
+                return DockerCommandResult(1, b"", stderr)
+            return original(argv, cwd=cwd, timeout_seconds=timeout_seconds)
+
+        self.docker.run = fail_build
+
+        with self.assertRaises(ReleaseContractError) as rejected:
+            self.factory()
+
+        self.assertEqual(rejected.exception.code, "release-unit-runner-build-failed")
+        attempts = sorted((self.fixture.root / ".caprmedio_tmp/release_unit_runners").glob("attempt-*"))
+        self.assertEqual(len(attempts), 1)
+        attempt = attempts[0]
+        self.assertEqual((attempt / "command-0.stderr").read_bytes(), stderr)
+        result = json.loads((attempt / "build-result.json").read_bytes())
+        self.assertEqual(result["stderr_sha256"], hashlib.sha256(stderr).hexdigest())
+
+    def test_stale_lock_refuses_before_any_docker_effect(self):
+        lock = self.fixture.root / "uv.lock"
+        lock.write_bytes(lock.read_bytes() + b"\n# changed\n")
+        with self.assertRaises(ReleaseContractError):
+            self.factory()
+        self.assertEqual(self.docker.calls, [])
+
+    def test_missing_dependency_boundary_refuses_before_docker(self):
+        self.fixture = PortablePackageFixture()  # Its real sealed Dockerfile lacks the dependency boundary.
+        with self.assertRaises(ReleaseContractError) as rejected:
+            self.factory()
+        self.assertEqual(rejected.exception.code, "release-unit-runner-input-invalid")
+        self.assertEqual(self.docker.calls, [])
+
+    def test_tampered_private_runner_receipt_refuses_before_unit_launch(self):
+        executor = self.factory()
+        receipt = self.fixture.root / executor.runner_binding.receipt_ref
+        receipt.write_bytes(receipt.read_bytes() + b"changed")
+        attempt = self.fixture.root / ".caprmedio_runtime/release_suite" / executor.candidate_snapshot_manifest_sha256 / "attempt-test"
+        workspace, output = attempt / "workspace", attempt / "output"
+        workspace.mkdir(parents=True)
+        output.mkdir()
+        environment = {
+            "PATH": executor.image_path,
+            PROJECT_ROOT_ENVIRONMENT_VARIABLE: "/workspace",
+            REPORT_ENVIRONMENT_VARIABLE: "/output/coverage.xml",
+            COMPILED_ROOT_ENVIRONMENT_VARIABLE: executor.compiled_root,
+            CANDIDATE_MANIFEST_ENVIRONMENT_VARIABLE: executor.candidate_snapshot_manifest_sha256,
+            SOURCE_BINDINGS_ENVIRONMENT_VARIABLE: "/workspace/" + SOURCE_BINDINGS_RELATIVE,
+            SOURCE_BINDINGS_SHA256_ENVIRONMENT_VARIABLE: "a" * 64,
+        }
+        before = list(self.docker.calls)
+        with self.assertRaises(ReleaseContractError) as rejected:
+            executor.run(executor.sealed_command, workspace=workspace, output_root=output,
+                         working_directory=executor.sealed_working_directory, environment=environment,
+                         timeout_seconds=10)
+        self.assertEqual(rejected.exception.code, "release-unit-runner-unproven")
+        self.assertEqual(self.docker.calls, before)
+
+    def test_fresh_runner_shared_execution_preserves_portable_tmp_inputs(self):
+        executor = self.factory()
+        attempt = (self.fixture.root / ".caprmedio_runtime/release_suite"
+                   / executor.candidate_snapshot_manifest_sha256 / "attempt-fresh-scratch")
+        workspace, output = attempt / "workspace", attempt / "output"
+        compiled = workspace / executor.compiled_root
+        compiled.mkdir(parents=True)
+        retained = compiled / "sealed-input.json"
+        retained.write_bytes(b"sealed portable input")
+        output.mkdir()
+        environment = {
+            "PATH": executor.image_path,
+            PROJECT_ROOT_ENVIRONMENT_VARIABLE: "/workspace",
+            REPORT_ENVIRONMENT_VARIABLE: "/output/coverage.xml",
+            COMPILED_ROOT_ENVIRONMENT_VARIABLE: executor.compiled_root,
+            CANDIDATE_MANIFEST_ENVIRONMENT_VARIABLE: executor.candidate_snapshot_manifest_sha256,
+            SOURCE_BINDINGS_ENVIRONMENT_VARIABLE: "/workspace/" + SOURCE_BINDINGS_RELATIVE,
+            SOURCE_BINDINGS_SHA256_ENVIRONMENT_VARIABLE: "a" * 64,
+        }
+
+        result = executor.run(executor.sealed_command, workspace=workspace, output_root=output,
+                              working_directory=executor.sealed_working_directory,
+                              environment=environment, timeout_seconds=10)
+
+        self.assertEqual(result.exit_code, 0)
+        self.assertEqual(retained.read_bytes(), b"sealed portable input")
+        self.assertTrue((workspace / _EXECUTOR_SCRATCH_RELATIVE).is_dir())
+
+
 class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
     def setUp(self) -> None:
         # The Release suite intentionally retains attempt carriers.  Keep this
@@ -96,6 +307,8 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
         self.workspace, self.output = self.attempt / "workspace", self.attempt / "output"
         self.workspace.mkdir(parents=True)
         self.output.mkdir()
+        (self.workspace / ".caprmedio_tmp").mkdir()
+        (self.workspace / "compiled/candidate").mkdir(parents=True)
         (self.workspace / "tests").mkdir()
         rules_relative = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_suite_bindings.json"
         test_relative = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tests/test_fixture.py"
@@ -223,13 +436,13 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
         self.assertIn(f"type=bind,src={self.output},dst=/output", argv)
         self.assertFalse(any(item.startswith(f"type=bind,src={self.root},dst=") for item in argv))
         self.assertEqual(
-            tuple(item for item in argv if item.startswith("/tmp:") or item.startswith("/workspace/.caprmedio_tmp:")),
+            tuple(item for item in argv if item.startswith("/tmp:") or item.startswith(f"/workspace/{_EXECUTOR_SCRATCH_RELATIVE}:")),
             (
                 "/tmp:rw,nosuid,nodev,exec,size=2g,mode=1777",
-                "/workspace/.caprmedio_tmp:rw,nosuid,nodev,exec,size=2g,mode=1777",
+                f"/workspace/{_EXECUTOR_SCRATCH_RELATIVE}:rw,nosuid,nodev,exec,size=2g,mode=1777",
             ),
         )
-        scratch = self.workspace / ".caprmedio_tmp"
+        scratch = self.workspace / _EXECUTOR_SCRATCH_RELATIVE
         self.assertTrue(scratch.is_dir())
         self.assertEqual(list(scratch.iterdir()), [])
         self.assertNotIn("/var/run/docker.sock", argv)
@@ -246,6 +459,30 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
         self.assertEqual(argv[image_index + 4], "--")
         self.assertEqual(argv[image_index + 5:], ("python", "-m", "pytest"))
         self.assertEqual(self.docker.calls[-1][1], self.root)
+
+    def test_compiled_input_under_tmp_is_remounted_read_only_over_writable_tmpfs(self) -> None:
+        compiled_root = ".caprmedio_tmp/release_candidates/run/compiled"
+        compiled = self.workspace / compiled_root
+        compiled.mkdir(parents=True)
+        (compiled / "sealed.json").write_text("sealed", encoding="utf-8")
+        self.executor = replace(self.executor, compiled_root=compiled_root)
+        environment = self.environment()
+        environment[COMPILED_ROOT_ENVIRONMENT_VARIABLE] = compiled_root
+
+        self.executor.run(
+            ("python", "-m", "pytest"), workspace=self.workspace, output_root=self.output,
+            working_directory="tests", environment=environment, timeout_seconds=120,
+        )
+
+        argv = self.docker.calls[-1][0]
+        self.assertIn(
+            f"type=bind,src={compiled.parent.parent},dst=/workspace/.caprmedio_tmp/release_candidates,readonly",
+            argv,
+        )
+        self.assertIn(
+            "/workspace/.caprmedio_tmp:rw,nosuid,nodev,exec,size=2g,mode=1777",
+            argv,
+        )
 
     def test_inline_installed_n_guard_preserves_normal_child_exit_without_a_shell(self) -> None:
         guard = self.recorded_deadline_guard(1)
@@ -386,11 +623,10 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
         self.assertEqual(linked.exception.code, "release-suite-executor-mount-unsafe")
         self.assertEqual(self.docker.calls, [])
 
-    def test_nonempty_scratch_refuses_before_docker_run(self) -> None:
+    def test_unpreserved_tmp_input_refuses_before_docker_run(self) -> None:
         from release_contract import ReleaseContractError
 
-        scratch = self.workspace / ".caprmedio_tmp"
-        scratch.mkdir()
+        scratch = self.workspace / _EXECUTOR_SCRATCH_RELATIVE
         (scratch / "unexpected").write_text("not scratch", encoding="utf-8")
         with self.assertRaises(ReleaseContractError) as nonempty:
             self.executor.run(("python", "-m", "pytest"), workspace=self.workspace, output_root=self.output,
@@ -401,7 +637,8 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
     def test_symlinked_scratch_refuses_before_docker_run(self) -> None:
         from release_contract import ReleaseContractError
 
-        scratch = self.workspace / ".caprmedio_tmp"
+        scratch = self.workspace / _EXECUTOR_SCRATCH_RELATIVE
+        scratch.rmdir()
         target = self.root / "outside-scratch"
         target.mkdir()
         scratch.symlink_to(target, target_is_directory=True)
@@ -471,66 +708,57 @@ class InstalledNSuiteDockerExecutorTests(unittest.TestCase):
 
 
 class ScratchMetadataHelperTests(unittest.TestCase):
-    """Only disposable scratch preparation; no executor or Docker invocation."""
+    """Only disposable temporary-namespace preparation; no Docker invocation."""
 
     def setUp(self) -> None:
-        temporary = tempfile.TemporaryDirectory(prefix="suite-scratch-metadata-")
-        self.addCleanup(temporary.cleanup)
+        temporary = tempfile.TemporaryDirectory(prefix="suite-scratch-metadata-", delete=False)
         self.workspace = Path(temporary.name)
-        self.scratch = self.workspace / ".caprmedio_tmp"
-
-    def test_new_scratch_remains_fixed_empty_private_leaf(self) -> None:
-        self.assertEqual(self.scratch, _prepare_executor_scratch(self.workspace))
-        self.assertEqual([], list(self.scratch.iterdir()))
-        self.assertEqual(0o700, self.scratch.stat().st_mode & 0o777)
-
-    def test_ds_store_only_scratch_is_accepted_without_opening_or_mutating_metadata(self) -> None:
-        self.scratch.mkdir(mode=0o700)
-        metadata = self.scratch / ".DS_Store"
-        metadata.write_bytes(b"Finder metadata\n")
-        metadata.chmod(0o000)
-        with patch.object(Path, "open", side_effect=PermissionError("metadata must not be read")):
-            self.assertEqual(self.scratch, _prepare_executor_scratch(self.workspace))
-        self.assertEqual(0o000, metadata.stat().st_mode & 0o777)
-        metadata.chmod(0o600)
-        self.assertEqual(b"Finder metadata\n", metadata.read_bytes())
-
-    def test_real_scratch_state_and_metadata_lookalikes_are_still_rejected(self) -> None:
+        self.scratch = self.workspace / _EXECUTOR_SCRATCH_RELATIVE
         self.scratch.mkdir()
-        (self.scratch / ".DS_Store").write_bytes(b"metadata\n")
-        for name in ("unexpected", ".DS_Store.bak"):
-            with self.subTest(name=name):
-                real_file = self.scratch / name
-                real_file.write_bytes(b"not metadata\n")
-                try:
-                    with self.assertRaises(ReleaseContractError) as refusal:
-                        _prepare_executor_scratch(self.workspace)
-                    self.assertEqual("release-suite-executor-scratch-unsafe", refusal.exception.code)
-                    self.assertEqual(b"not metadata\n", real_file.read_bytes())
-                finally:
-                    real_file.unlink()
 
-    def test_lowercase_name_is_not_exact_metadata(self) -> None:
-        # Do not create .DS_Store first: on case-insensitive hosts a lowercase
-        # spelling would alias that existing file rather than be a lookalike.
-        self.scratch.mkdir()
-        (self.scratch / ".ds_store").write_bytes(b"not exact Finder metadata\n")
-        with self.assertRaises(ReleaseContractError):
-            _prepare_executor_scratch(self.workspace)
+    def test_tmp_namespace_preserves_compiled_release_namespace(self) -> None:
+        compiled = self.scratch / "release_candidates/run/compiled"
+        compiled.mkdir(parents=True)
+        sibling = compiled.parent / "methodology"
+        sibling.mkdir()
+        retained = compiled / "sealed-input.json"
+        retained.write_bytes(b"sealed portable input")
 
-    def test_metadata_named_directory_or_symlink_is_not_empty_scratch(self) -> None:
-        self.scratch.mkdir()
-        metadata = self.scratch / ".DS_Store"
-        metadata.mkdir()
+        self.assertEqual(self.scratch / "release_candidates", _prepare_executor_scratch(
+            self.workspace, ".caprmedio_tmp/release_candidates/run/compiled",
+        ))
+        self.assertEqual(b"sealed portable input", retained.read_bytes())
+
+    def test_compiled_root_outside_tmp_namespace_needs_no_nested_mount(self) -> None:
+        compiled = self.workspace / "compiled/candidate"
+        compiled.mkdir(parents=True)
+        self.assertIsNone(_prepare_executor_scratch(self.workspace, "compiled/candidate"))
+
+    def test_missing_tmp_namespace_is_created_for_outside_compiled_root(self) -> None:
+        missing = Path(tempfile.mkdtemp(prefix="suite-scratch-missing-"))
+        compiled = missing / "compiled/candidate"
+        compiled.mkdir(parents=True)
+        self.assertIsNone(_prepare_executor_scratch(missing, "compiled/candidate"))
+        self.assertTrue((missing / _EXECUTOR_SCRATCH_RELATIVE).is_dir())
+
+    def test_symlinked_tmp_namespace_refuses(self) -> None:
+        symlink_workspace = Path(tempfile.mkdtemp(prefix="suite-scratch-symlink-"))
+        target = symlink_workspace / "real-tmp"
+        target.mkdir()
+        symlink = symlink_workspace / _EXECUTOR_SCRATCH_RELATIVE
+        symlink.symlink_to(target, target_is_directory=True)
         with self.assertRaises(ReleaseContractError):
-            _prepare_executor_scratch(self.workspace)
-        metadata.rmdir()
-        target = self.workspace / "real-state"
-        target.write_bytes(b"real state\n")
-        metadata.symlink_to(target)
-        with self.assertRaises(ReleaseContractError):
-            _prepare_executor_scratch(self.workspace)
-        self.assertEqual(b"real state\n", target.read_bytes())
+            _prepare_executor_scratch(symlink_workspace, "compiled/candidate")
+
+    def test_unpreserved_tmp_input_refuses(self) -> None:
+        compiled = self.scratch / "release_candidates/run/compiled"
+        compiled.mkdir(parents=True)
+        (self.scratch / "other-sealed-input").write_text("must not hide", encoding="utf-8")
+        with self.assertRaises(ReleaseContractError) as refusal:
+            _prepare_executor_scratch(
+                self.workspace, ".caprmedio_tmp/release_candidates/run/compiled",
+            )
+        self.assertEqual("release-suite-executor-scratch-unsafe", refusal.exception.code)
 
 
 if __name__ == "__main__":

@@ -7,14 +7,17 @@ import hashlib
 import json
 import os
 import re
+import stat
 import sys
 import tomllib
+import uuid
 from dataclasses import dataclass, replace
-from datetime import datetime
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from project_runtime import atomic_tempfile
+from project_selection import bound_selection
+from artifact_metadata import current_timestamp
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
     ProposedCarrierError,
     source_context_from_project,
@@ -58,6 +61,12 @@ def canonical_json(value: object) -> str:
 
 
 def resolve_repository(value: str | Path) -> Path:
+    selection = bound_selection()
+    if selection is not None:
+        candidate = Path(value).expanduser().resolve()
+        if not _inside(candidate, selection.root):
+            raise ToolError("outside-project", "path is outside the selected Project")
+        return selection.root
     candidate = Path(value).expanduser().resolve()
     for root in (candidate, *candidate.parents):
         if (root / ".git").exists():
@@ -77,6 +86,9 @@ def control_root(root: Path) -> Path:
     """Return the configured current Project carrier root, never a legacy root."""
 
     root = root.resolve()
+    selection = bound_selection(root)
+    if selection is not None:
+        return selection.control_root
     try:
         settings = tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
     except (OSError, tomllib.TOMLDecodeError) as error:
@@ -94,7 +106,8 @@ def project_identity_prefix(root: Path) -> str:
     """Read the authoritative Project-owned Atom prefix from Project Settings."""
 
     try:
-        settings = tomllib.loads((root.resolve() / SETTINGS_PATH).read_text(encoding="utf-8"))
+        selection = bound_selection(root)
+        settings = selection.settings if selection is not None else tomllib.loads((root.resolve() / SETTINGS_PATH).read_text(encoding="utf-8"))
     except (OSError, tomllib.TOMLDecodeError) as error:
         raise ToolError("project-settings-unavailable", "cannot read Project Settings identity") from error
     prefix = settings.get("artifacts", {}).get("identity", {}).get("project_prefix")
@@ -314,7 +327,7 @@ def _normalize_frontmatter(value: Any) -> str:
     return normalized
 
 
-def _revision(frontmatter: str, *, creating: bool) -> str:
+def _revision(root: Path, frontmatter: str, *, creating: bool) -> str:
     lines = frontmatter.splitlines()
     index = next((i for i, line in enumerate(lines) if re.fullmatch(r"version:\s*[0-9]+\s*", line)), None)
     current = int(lines[index].split(":", 1)[1]) if index is not None else 0
@@ -323,7 +336,7 @@ def _revision(frontmatter: str, *, creating: bool) -> str:
         lines.append(line)
     else:
         lines[index] = line
-    stamp = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %z")
+    stamp = current_timestamp(root)
     index = next((i for i, line in enumerate(lines) if line.startswith("updated_at:")), None)
     line = f'updated_at: "{stamp}"'
     if index is None:
@@ -429,6 +442,119 @@ def write_atom_revision(atom: Atom, frontmatter: str, content: str) -> None:
     _atomic_write(atom.path, render(frontmatter, content))
 
 
+def _raw_revision_parent(root: Path, path: Path, *, create: bool = False) -> int:
+    """Hold the lexical destination directory without following any alias."""
+
+    try:
+        relative = path.relative_to(root)
+        if not relative.parts or ".." in relative.parts:
+            raise ValueError("unsafe path")
+        flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
+        descriptor = os.open(root, flags)
+        try:
+            for part in relative.parts[:-1]:
+                if create:
+                    try:
+                        os.mkdir(part, dir_fd=descriptor)
+                    except FileExistsError:
+                        pass
+                child = os.open(part, flags, dir_fd=descriptor)
+                os.close(descriptor)
+                descriptor = child
+            return descriptor
+        except BaseException:
+            os.close(descriptor)
+            raise
+    except (OSError, ValueError, AttributeError) as error:
+        raise ToolError("subject-destination-unsafe", "Subject destination cannot be safely opened") from error
+
+
+def _raw_revision_fingerprint(value: os.stat_result) -> tuple[int, ...]:
+    return (value.st_dev, value.st_ino, value.st_size, value.st_mtime_ns, value.st_ctime_ns,
+            stat.S_IMODE(value.st_mode))
+
+
+def read_raw_atom_revision(root: Path, path: Path) -> tuple[bytes, tuple[int, ...]]:
+    """Read exact bytes and mode through a no-follow, stable regular-file handle."""
+
+    parent = _raw_revision_parent(root, path)
+    try:
+        descriptor = os.open(path.name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=parent)
+        with os.fdopen(descriptor, "rb") as stream:
+            before = os.fstat(stream.fileno())
+            if not stat.S_ISREG(before.st_mode):
+                raise ToolError("subject-source-unsafe", "Subject revision is not a regular file")
+            raw = stream.read()
+            after = os.fstat(stream.fileno())
+        if _raw_revision_fingerprint(before) != _raw_revision_fingerprint(after):
+            raise ToolError("subject-source-changed", "Subject revision changed during readback")
+        return raw, _raw_revision_fingerprint(after)
+    finally:
+        os.close(parent)
+
+
+def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
+                            expected: tuple[int, ...] | None, mode: int) -> tuple[int, ...] | None:
+    """Publish raw bytes, or remove our exact revision; never overwrite an archive."""
+
+    parent = _raw_revision_parent(root, path, create=expected is None and raw is not None)
+    staging = None
+    temporary = ".subject-" + uuid.uuid4().hex + ".tmp"
+    staged = False
+    published: tuple[int, ...] | None = None
+    try:
+        if raw is not None:
+            staging = _raw_revision_parent(root, root / ".caprmedio_tmp" / "atom_subject_apply" / "atomic" / temporary, create=True)
+            if os.fstat(staging).st_dev != os.fstat(parent).st_dev:
+                raise ToolError("subject-destination-unsafe", "Subject temporary state is on a different filesystem")
+            descriptor = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW,
+                                 mode, dir_fd=staging)
+            staged = True
+            with os.fdopen(descriptor, "wb") as stream:
+                os.fchmod(stream.fileno(), mode)
+                stream.write(raw)
+                stream.flush()
+                os.fsync(stream.fileno())
+        try:
+            current = os.stat(path.name, dir_fd=parent, follow_symlinks=False)
+        except FileNotFoundError:
+            current = None
+        if ((expected is None and current is not None)
+                or (expected is not None and (current is None or not stat.S_ISREG(current.st_mode)
+                                             or _raw_revision_fingerprint(current) != expected))):
+            raise ToolError("subject-destination-stale", "Subject destination differs from the captured revision")
+        fresh_parent = _raw_revision_parent(root, path)
+        try:
+            if (os.fstat(fresh_parent).st_dev, os.fstat(fresh_parent).st_ino) != (os.fstat(parent).st_dev, os.fstat(parent).st_ino):
+                raise ToolError("subject-destination-stale", "Subject destination directory changed")
+        finally:
+            os.close(fresh_parent)
+        if raw is None:
+            os.unlink(path.name, dir_fd=parent)
+        elif expected is None:
+            os.link(temporary, path.name, src_dir_fd=staging, dst_dir_fd=parent, follow_symlinks=False)
+            os.unlink(temporary, dir_fd=staging)
+            staged = False
+        else:
+            os.replace(temporary, path.name, src_dir_fd=staging, dst_dir_fd=parent)
+            staged = False
+        if raw is not None:
+            published = _raw_revision_fingerprint(os.stat(path.name, dir_fd=parent, follow_symlinks=False))
+        os.fsync(parent)
+        if raw is None:
+            return None
+        return published
+    except OSError as error:
+        raise ToolError("subject-publication-failed", "Subject raw-byte publication failed",
+                        {"publication_fingerprint": published} if published is not None else {}) from error
+    finally:
+        if staged:
+            os.unlink(temporary, dir_fd=staging)
+        if staging is not None:
+            os.close(staging)
+        os.close(parent)
+
+
 def _validate_complete_carrier(root: Path, path: Path, frontmatter: str, content: str, *, creating: bool) -> None:
     try:
         parsed = parse_carrier(("---\n" + frontmatter + "\n---\n" + content).encode("utf-8"), Path("proposed.md"))
@@ -477,7 +603,7 @@ def prepare_create_atom_revision(
         return path, normalized, atom_id
     if not isinstance(content, str):
         raise ToolError("complete-carrier-required", "new Atom carrier content is required before preparation")
-    prepared = _revision(normalized, creating=creating) if creating else normalized
+    prepared = _revision(root, normalized, creating=creating) if creating else normalized
     _validate_complete_carrier(root, path, prepared, content, creating=creating)
     return path, prepared, atom_id
 
@@ -732,7 +858,14 @@ def _restore(snapshots: Mapping[Path, bytes | None]) -> None:
 
 def run_search(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
-    atoms = scan_atoms(root, under=args.under, lifecycle=args.lifecycle)
+    if getattr(args, "subject", None) is not None:
+        from atom_subject_lookup import run_subject_search
+
+        return run_subject_search(root, args)
+    if (any(getattr(args, field, None) for field in ("subject_field", "subject_match", "content_role", "scope_unit"))
+            or getattr(args, "subject_profile", None) is not None):
+        raise ToolError("input-invalid", "Subject filters require --subject")
+    atoms = scan_atoms(root, under=args.under, lifecycle=args.lifecycle or "all")
     if args.atom:
         selected = {atom.relative for atom in resolve_selectors(root, args.atom)}
         atoms = [atom for atom in atoms if atom.relative in selected]
@@ -783,7 +916,7 @@ def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         if atom_id:
             planned_ids.add(atom_id)
         frontmatter = _with_atom_id(_normalize_frontmatter(item.get("frontmatter", "")), atom_id)
-        frontmatter = _revision(frontmatter, creating=True)
+        frontmatter = _revision(root, frontmatter, creating=True)
         plans.append((path, render(frontmatter, item.get("content", ""))))
     result = {"count": len(plans), "changes": [{"operation": "create", "path": p.relative_to(root).as_posix()} for p, _ in plans]}
     if not args.apply:
@@ -800,7 +933,25 @@ def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
 
 def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
-    raw_items = _items(_load_payload(args.input))
+    payload = _load_payload(args.input)
+    raw_items = _items(payload)
+    subject_items = ["subject_patches" in item for item in raw_items]
+    if any(subject_items):
+        if not set(payload) <= {"atoms", "subject_profile"}:
+            raise ToolError("input-invalid", "Subject-only root contains only atoms and optional subject_profile")
+        if not all(subject_items):
+            raise ToolError("input-invalid", "Subject-only and generic update items cannot be mixed")
+        if args.apply:
+            raise ToolError("subject-apply-not-admitted", "Subject-only updates are local previews, not an admitted live writer")
+        from atom_subject_patch import preview_subject_patches
+
+        profile = payload.get("subject_profile", "legacy")
+        if not isinstance(profile, str) or profile not in {"legacy", "approved"}:
+            raise ToolError("subject-profile-invalid", "subject_profile must be legacy or approved")
+
+        return preview_subject_patches(root, raw_items, subject_profile=profile)
+    if "subject_profile" in payload:
+        raise ToolError("input-invalid", "subject_profile requires Subject-only update items")
     selectors = [item.get("selector") for item in raw_items]
     if any(not isinstance(selector, str) for selector in selectors):
         raise ToolError("input-invalid", "every update item requires selector")
@@ -812,7 +963,7 @@ def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         frontmatter = _normalize_frontmatter(item["frontmatter"]) if "frontmatter" in item else atom.frontmatter
         frontmatter = _with_atom_id(frontmatter, atom.atom_id)
         content = item["content"] if "content" in item else atom.content
-        plans.append((atom, render(_revision(frontmatter, creating=False), content)))
+        plans.append((atom, render(_revision(root, frontmatter, creating=False), content)))
     result = {"count": len(plans), "changes": [{"operation": "update", "path": atom.relative} for atom, _ in plans]}
     if not args.apply:
         return result
@@ -1139,7 +1290,7 @@ def run_upgrade(root: Path, args: argparse.Namespace) -> dict[str, Any]:
             raise ToolError("upgrade-location-missing", f"Atom has no content-role location: {atom.relative}")
         target = (rows[target_scope]["full_authority_path"] / role_name / filename).resolve()
         _validate_destination(root, target, filename_required=True)
-        frontmatter = _revision(atom.frontmatter, creating=False)
+        frontmatter = _revision(root, atom.frontmatter, creating=False)
         plans.append((atom, target, render(frontmatter, atom.content), current_tier, target_tier, current_scope, target_scope))
 
     targets = [target for _, target, *_ in plans]
@@ -1177,10 +1328,33 @@ def describe(tool_id: str) -> dict[str, Any]:
     kinds = {"ATOM_SEARCH": "finder", "ATOM_READ": "finder", "ATOM_CREATE": "doer",
              "ATOM_UPDATE": "doer", "ATOM_MOVE": "doer", "ATOM_ARCHIVE": "doer",
              "ATOM_PROMOTE": "doer", "ATOM_UPGRADE": "doer"}
-    return {"capability_id": tool_id, "kind": kinds[tool_id],
+    result = {"capability_id": tool_id, "kind": kinds[tool_id],
             "scope": "CAPRMEDIO Markdown Atom carriers under .caprmedio_caprmedio", "singular_and_bulk": True,
             "mutation_default": "dry-run" if kinds[tool_id] == "doer" else "read-only",
             "selector_forms": ["repository-relative path", "full filename", "filename stem", "Atom ID"]}
+    if tool_id == "ATOM_SEARCH":
+        result["subject_lookup"] = {
+            "criterion": "--subject VALUE", "fields": ["governs", "depends_on", "both"],
+            "matches": ["exact", "prefix"], "prefix_boundaries": ["/", ":"],
+            "profile_option": "--subject-profile", "profiles": ["legacy", "approved"],
+            "default_profile": "legacy",
+            "profile_prefix_boundaries": {"legacy": ["/", ":"], "approved": ["/", ".", ":"]},
+            "default_lifecycle": "active", "filters": ["under", "atom", "query", "content_role", "scope_unit", "lifecycle", "limit"],
+            "output": ["source_root", "count", "occurrences", "diagnostics", "subject_profile", "subject_profile_evidence"],
+            "mcp_binding": None,
+        }
+    elif tool_id == "ATOM_UPDATE":
+        result["subject_preview"] = {
+            "root_fields": ["atoms", "subject_profile (optional)"],
+            "profiles": ["legacy", "approved"], "default_profile": "legacy",
+            "output_evidence": ["subject_profile", "subject_profile_evidence"],
+            "item_fields": ["selector", "expected", "subject_patches"],
+            "expected_fields": ["atom_id", "version", "sha256"],
+            "patch_fields": ["field", "index (depends_on only)", "old", "new"],
+            "selector": "exact repository-relative file path", "apply_supported": False,
+            "mcp_binding": None,
+        }
+    return result
 
 
 def parser(tool_id: str) -> argparse.ArgumentParser:
@@ -1193,9 +1367,15 @@ def parser(tool_id: str) -> argparse.ArgumentParser:
         run.add_argument("--query", action="append")
         run.add_argument("--atom", action="append")
         run.add_argument("--under")
-        run.add_argument("--lifecycle", choices=("all", "active", "draft", "archived", "done", "resolved", "canceled"), default="all")
+        run.add_argument("--lifecycle", choices=("all", "active", "draft", "archived", "done", "resolved", "canceled"))
         run.add_argument("--limit", type=int)
         run.add_argument("--view", choices=("metadata", "content", "both"), default="metadata")
+        run.add_argument("--subject")
+        run.add_argument("--subject-field", choices=("governs", "depends_on", "both"))
+        run.add_argument("--subject-match", choices=("exact", "prefix"))
+        run.add_argument("--subject-profile", choices=("legacy", "approved"))
+        run.add_argument("--content-role", action="append")
+        run.add_argument("--scope-unit")
     elif tool_id == "ATOM_READ":
         run.add_argument("--atom", action="append", required=True)
         run.add_argument("--view", choices=("metadata", "content", "both"), default="both")

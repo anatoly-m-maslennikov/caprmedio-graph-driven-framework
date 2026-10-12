@@ -1,0 +1,1238 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2116",
+  "family": "projections_and_collections",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+      "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2112-2117.contract.md",
+        "sha256": "5310bccde97faba8b2e96fecc8de705178b4677fab07af2e897bae4e65ea04bd"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/89-CA-P-2116-TASK--review-final-projection-family-origins.md",
+      "sha256": "2374441e56360b6493b2dcc56bebcd9f26edb72e1eeb678514d512bd0a446db8"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md",
+        "sha256": "d1e5fed55a099d470da7c7e766ae0b1bec5a6b83c1707c3a648aa26e00802043"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-QA_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+        "sha256": "5db4d560b31de1eb2de323baee397f35eb6dbd70e64bc2aca6e2844df6384156"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-QA_CASE--validate-common-plan-authoring.md",
+        "sha256": "0715e8a52b36dccb8510e3e2dc0d43f395384413521b9071191d749ebccf7df5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-QA_CASE--validate-plan-blocking-and-parallel-readiness.md",
+        "sha256": "c2f9b7d5ffcaea593698480c7c8ad7d4d4d2b90fb0395e9a09680f468f115894"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-507-CORE_META_MODEL-QA_CASE--validate-explicitly-owned-plan-decomposition.md",
+        "sha256": "e6243c4fa3c568a0284a6acf54a28a3e7d156df071f013f7ced4b21f657dc67b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+        "sha256": "7d1a04cabf809fd37379b0367ad0d4732c130e13257a1fb427f3a5d5053197bd"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+        "sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+        "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-391-CORE_META_MODEL--encode-project-scope-authority-modes-in-the-scope-unit-graph.md",
+        "sha256": "f5218881c7f122c2871d116e2cb58678a4b149d98dae94010ff65a7d636b0b4f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-392-CORE_META_MODEL--register-obsolete-project-names.md",
+        "sha256": "dfc6540a2654237153dbf7a660589ea4fa69e08124fc65ece65cf39df4d21150"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DELIVERY--store-workflow-graphs-and-steps-in-separate-carriers.md",
+        "sha256": "0532c2205f96363bcf23105b3fe469a1829c0caf2a3fb3d8a5f14e7c0221c171"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-STANDARD--serialize-plan-file-sections.md",
+        "sha256": "7e91dbd7f5bd26889e0a2f3b9efeb3bbbafd680856b6e404736f7dcbc0c9b06c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-STANDARD--serialize-explicit-plan-confidence-overrides.md",
+        "sha256": "ccda5b5fdacef80965b8eaaee28e6a5a44ff6f10c89111bb8748a2d4bba2be90"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-475-CORE_META_MODEL-STANDARD--serialize-the-plan-backlog-directory.md",
+        "sha256": "ca52f96efabd9dada8b13bb3e7a7ef52f21be88988d95d1b216069854122417e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
+        "sha256": "8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd"
+      }
+    ],
+    "supporting_definitions": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+        "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+        "atom_id": "CA-R-1248",
+        "version": 12
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-126-CORE_META_MODEL-CORE--give-each-governed-term-one-definition-atom.md",
+        "sha256": "433949d977649ee9622dffaec028e899ec725a6c9b3edf8b34c3a9537093f562",
+        "atom_id": "CA-R-126",
+        "version": 17
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1265-CORE_META_MODEL-CORE-REQUIREMENT--keep-atom-collection-outside-the-atom-taxonomy.md",
+        "sha256": "0a591172b3f9b3b954edfc9319c00cf9886f0e12438be1de55b6b60f2c175f41",
+        "atom_id": "CA-R-1265",
+        "version": 12
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+        "sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+        "atom_id": "CA-R-1319",
+        "version": 10
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+        "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+        "atom_id": "CA-R-1376",
+        "version": 12
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+        "sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+        "atom_id": "CA-R-1378",
+        "version": 9
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+        "sha256": "50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e",
+        "atom_id": "CA-R-1379",
+        "version": 10
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1471-CORE_META_MODEL-CORE--keep-secondary-graphs-derived-from-source-authority.md",
+        "sha256": "643f22a173144fe9d0e53639954f4ae020bc9461a5bf7dbb33e0996227a7f79d",
+        "atom_id": "CA-R-1471",
+        "version": 5
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1578-CORE_META_MODEL-CORE-REQUIREMENT--define-hub-atom-as-a-derived-description.md",
+        "sha256": "1d876effe9ecbf2edbcfddb55a1832256c5f540bf4a8fa74bbaaae086d8b5f54",
+        "atom_id": "CA-R-1578",
+        "version": 4
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1593-CORE_META_MODEL-CORE-REQUIREMENT--define-the-plan-graph.md",
+        "sha256": "e92bcedc80539fdd86b5a1ddd3dd019cd60d4b40df856afb56f57e7d4b274a9e",
+        "atom_id": "CA-R-1593",
+        "version": 5
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-REQUIREMENT--distinguish-projected-representations-from-represented-entities.md",
+        "sha256": "70e09266435f444236b0bb9769bd0103dd9a046b431902290a2a877dc6c173e8",
+        "atom_id": "CA-R-1609",
+        "version": 4
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+        "sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+        "atom_id": "CA-R-1739",
+        "version": 21
+      }
+    ]
+  },
+  "limits": [
+    "Research only; proposals need independent semantic acceptance before working-ledger use.",
+    "No source migration, native admission, selector, @ operator, new root, singleton narrower kind, Artifact.Revision, Carrier registry, or runtime action is authorized.",
+    "Terms remain in their separate graph; generic CAPRMEDIO Graph is not silently replaced by a Projection Type.",
+    "Every unresolved value remains null with current owning-source evidence; it is not a completed mapping decision.",
+    "Projection, Projection Type, collection/set, structural Entity, Atom, and Hub-description meanings remain distinct; absent candidate display names alone are not grounds for null."
+  ],
+  "selection": {
+    "family": "projections_and_collections",
+    "occurrence_id_set_sha256": "43c22d19a9779d1777bef911ccd251582514ba9da0c2e488dfe6b51bae6f61c2",
+    "assigned_sources": 15,
+    "assigned_occurrences": 15
+  },
+  "counts": {
+    "assigned": 15,
+    "covered": 15,
+    "proposed": 13,
+    "unresolved": 2,
+    "current_sources": 15,
+    "current_evidence_spans": 15
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md",
+      "source_atom_id": "CA-E-499",
+      "source_version": 7,
+      "source_sha256": "d1e5fed55a099d470da7c7e766ae0b1bec5a6b83c1707c3a648aa26e00802043",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Atom Collection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.93,
+      "reason": "Current Atom Collection means a Structural Entity grouping Atoms without becoming their owning Scope Unit. The current Entity and Structural Entity definitions and candidate graph model support Entity as the shared target. The source-specific grouping, Carrier, Status-container, or non-ownership distinction remains explicit; the collection is not collapsed into a Projection or Atom. The evaluation's Standard output Projection does not make the Atom Collection itself a Projection; the whole/set distinction is retained.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-499-CORE_META_MODEL-QA_CASE--validate-specification-and-concrete-content-tiers.md",
+          "sha256": "d1e5fed55a099d470da7c7e766ae0b1bec5a6b83c1707c3a648aa26e00802043",
+          "start_line": 28,
+          "end_line": 57,
+          "span_sha256": "00021d5713b0bc813215305cb7bcbaea029b0abc51ff45a75a995ef8597cc10d",
+          "reason": "The complete current Main Content distinguishes specification authority from Standard concrete content and says a Projection representing Core or General Atoms retains source classifications without becoming an authoritative Atom."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "Current global definition: Entity is an independently identified or bearer-qualified object admitted as a possible CAPRMEDIO Graph node."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "Current global definition: Structural Entity organizes >=0 Entities through direct containment while retaining independent identity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+          "sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "5bdf7c1f09f9b971295f00be943d7f297c812a3522ba537a293f835642674616",
+          "reason": "Current global definition: Atom Collection is a Structural Entity grouping >=0 Atoms without becoming their owning Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+          "sha256": "50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "ce9c172ae5b332ba0bcf58a6f13c58729aa206bba4c3a7c4216d7edbd0124cf9",
+          "reason": "Current global classification: Atom Collection is NARROWER_THAN Structural Entity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1265-CORE_META_MODEL-CORE-REQUIREMENT--keep-atom-collection-outside-the-atom-taxonomy.md",
+          "sha256": "0a591172b3f9b3b954edfc9319c00cf9886f0e12438be1de55b6b60f2c175f41",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "37815e24752eb1e3847c9b576e5dcebcdea0e7f7fcba15eceb935b2703f49499",
+          "reason": "Current global boundary: Atom Collection is not NARROWER_THAN Atom."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "The candidate admits Entity nodes connected by typed Relations, supporting an independently identified structural collection."
+        },
+        {
+          "pointer": "/entity_representation_rules/0",
+          "reason": "A collection with its own identity has one representation; grouping does not create a second representation of each member."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/2",
+          "reason": "Contextual grouping is not automatically a new Entity kind."
+        }
+      ],
+      "preserved_distinctions": [
+        "Atom Collection remains a structural set/grouping Entity outside the Atom taxonomy.",
+        "Collection grouping, Carrier placement, Status-container meaning, and Scope ownership remain distinct.",
+        "No Projection/set Type, Atom subtype, selector, or new collection root is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-QA_CASE--validate-workflow-scheme-and-step-carrier-separation.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-QA_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "source_atom_id": "CA-E-500",
+      "source_version": 4,
+      "source_sha256": "5db4d560b31de1eb2de323baee397f35eb6dbd70e64bc2aca6e2844df6384156",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Atom Collection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.93,
+      "reason": "Current Atom Collection means a Structural Entity grouping Atoms without becoming their owning Scope Unit. The current Entity and Structural Entity definitions and candidate graph model support Entity as the shared target. The source-specific grouping, Carrier, Status-container, or non-ownership distinction remains explicit; the collection is not collapsed into a Projection or Atom. The workflow folder is only Carrier grouping, so collection identity is not promoted to Workflow or Scope Unit.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-QA_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+          "sha256": "5db4d560b31de1eb2de323baee397f35eb6dbd70e64bc2aca6e2844df6384156",
+          "start_line": 24,
+          "end_line": 42,
+          "span_sha256": "45b4dabcb070d9c748757eb8f6d259b1ffeb7cf1722d3bdbf83c69e07bf9fbc2",
+          "reason": "The complete current Main Content separates Workflow graph meaning and Step Carriers, forbidding storage order or a folder from creating another Workflow identity or Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "Current global definition: Entity is an independently identified or bearer-qualified object admitted as a possible CAPRMEDIO Graph node."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "Current global definition: Structural Entity organizes >=0 Entities through direct containment while retaining independent identity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+          "sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "5bdf7c1f09f9b971295f00be943d7f297c812a3522ba537a293f835642674616",
+          "reason": "Current global definition: Atom Collection is a Structural Entity grouping >=0 Atoms without becoming their owning Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+          "sha256": "50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "ce9c172ae5b332ba0bcf58a6f13c58729aa206bba4c3a7c4216d7edbd0124cf9",
+          "reason": "Current global classification: Atom Collection is NARROWER_THAN Structural Entity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1265-CORE_META_MODEL-CORE-REQUIREMENT--keep-atom-collection-outside-the-atom-taxonomy.md",
+          "sha256": "0a591172b3f9b3b954edfc9319c00cf9886f0e12438be1de55b6b60f2c175f41",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "37815e24752eb1e3847c9b576e5dcebcdea0e7f7fcba15eceb935b2703f49499",
+          "reason": "Current global boundary: Atom Collection is not NARROWER_THAN Atom."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "The candidate admits Entity nodes connected by typed Relations, supporting an independently identified structural collection."
+        },
+        {
+          "pointer": "/entity_representation_rules/0",
+          "reason": "A collection with its own identity has one representation; grouping does not create a second representation of each member."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/2",
+          "reason": "Contextual grouping is not automatically a new Entity kind."
+        }
+      ],
+      "preserved_distinctions": [
+        "Atom Collection remains a structural set/grouping Entity outside the Atom taxonomy.",
+        "Collection grouping, Carrier placement, Status-container meaning, and Scope ownership remain distinct.",
+        "No Projection/set Type, Atom subtype, selector, or new collection root is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-QA_CASE--validate-common-plan-authoring.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-QA_CASE--validate-common-plan-authoring.md",
+      "source_atom_id": "CA-E-501",
+      "source_version": 7,
+      "source_sha256": "0715e8a52b36dccb8510e3e2dc0d43f395384413521b9071191d749ebccf7df5",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Hub Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Hub Atom means a derived description of an Atom with no new Type, subtype, stored classification, identity, or authority tier. The candidate identifies Atom under Artifact, so Atom is the represented target while Hub description and Plan-specific semantics remain source-qualified.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-QA_CASE--validate-common-plan-authoring.md",
+          "sha256": "0715e8a52b36dccb8510e3e2dc0d43f395384413521b9071191d749ebccf7df5",
+          "start_line": 31,
+          "end_line": 57,
+          "span_sha256": "35381aa3b26394a6ccb710d06dba6bfe1069c7a80932d5a4d29adf27b8996f3e",
+          "reason": "The complete current Main Content tests common Plan authoring, Hub completion, Scope Unit ownership, and the pure-Hub exception."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1578-CORE_META_MODEL-CORE-REQUIREMENT--define-hub-atom-as-a-derived-description.md",
+          "sha256": "1d876effe9ecbf2edbcfddb55a1832256c5f540bf4a8fa74bbaaae086d8b5f54",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "98db2b95cdd99bfc7e508a847bda8309bb51917b21bb2f2c274f50b7ad78b171",
+          "reason": "Current global definition: Hub Atom is a derived description of an Atom and introduces no new identity, Type, subtype, or authority tier."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate identifies Atom as the Artifact-contained Entity represented by a Hub description."
+        },
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "A derived Hub representation remains distinct from its represented Atom."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "A derived description does not become another authority."
+        }
+      ],
+      "preserved_distinctions": [
+        "Hub Atom remains a derived description of an Atom.",
+        "Hub context does not create another Atom identity, subtype, lifecycle, or authority tier.",
+        "No singleton Hub kind, selector, or native syntax is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-QA_CASE--validate-plan-blocking-and-parallel-readiness.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-QA_CASE--validate-plan-blocking-and-parallel-readiness.md",
+      "source_atom_id": "CA-E-504",
+      "source_version": 5,
+      "source_sha256": "c2f9b7d5ffcaea593698480c7c8ad7d4d4d2b90fb0395e9a09680f468f115894",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Hub Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Hub Atom means a derived description of an Atom with no new Type, subtype, stored classification, identity, or authority tier. The candidate identifies Atom under Artifact, so Atom is the represented target while Hub description and Plan-specific semantics remain source-qualified.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-504-CORE_META_MODEL-QA_CASE--validate-plan-blocking-and-parallel-readiness.md",
+          "sha256": "c2f9b7d5ffcaea593698480c7c8ad7d4d4d2b90fb0395e9a09680f468f115894",
+          "start_line": 23,
+          "end_line": 45,
+          "span_sha256": "fb783774f8cb11a785f4226b0ace8fefb14229f00b02221e4d6bc6fd2eb75129",
+          "reason": "The complete current Main Content tests explicit Plan blockers, Done gates, decomposition/blocking cycles, and the distinction between readiness and execution."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1578-CORE_META_MODEL-CORE-REQUIREMENT--define-hub-atom-as-a-derived-description.md",
+          "sha256": "1d876effe9ecbf2edbcfddb55a1832256c5f540bf4a8fa74bbaaae086d8b5f54",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "98db2b95cdd99bfc7e508a847bda8309bb51917b21bb2f2c274f50b7ad78b171",
+          "reason": "Current global definition: Hub Atom is a derived description of an Atom and introduces no new identity, Type, subtype, or authority tier."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate identifies Atom as the Artifact-contained Entity represented by a Hub description."
+        },
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "A derived Hub representation remains distinct from its represented Atom."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "A derived description does not become another authority."
+        }
+      ],
+      "preserved_distinctions": [
+        "Hub Atom remains a derived description of an Atom.",
+        "Hub context does not create another Atom identity, subtype, lifecycle, or authority tier.",
+        "No singleton Hub kind, selector, or native syntax is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-507-CORE_META_MODEL-QA_CASE--validate-explicitly-owned-plan-decomposition.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-507-CORE_META_MODEL-QA_CASE--validate-explicitly-owned-plan-decomposition.md",
+      "source_atom_id": "CA-E-507",
+      "source_version": 4,
+      "source_sha256": "e6243c4fa3c568a0284a6acf54a28a3e7d156df071f013f7ced4b21f657dc67b",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Plan Graph",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Projection",
+      "confidence": 0.96,
+      "reason": "Current Plan Graph means a Projection whose nodes reference authoritative Plan Atoms and whose graph-owned Relations represent decomposition and blocking. Projection is the whole graph target; source-owned Plan relations, endpoint identities, and recursive views remain distinct. Explicitly owned decomposition declarations, not file adjacency, supply the Plan Graph facts.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-507-CORE_META_MODEL-QA_CASE--validate-explicitly-owned-plan-decomposition.md",
+          "sha256": "e6243c4fa3c568a0284a6acf54a28a3e7d156df071f013f7ced4b21f657dc67b",
+          "start_line": 23,
+          "end_line": 45,
+          "span_sha256": "cc013379e50253ab74f4de9d4fa9bf591d42a0ae9e6926712b3db6776c25491b",
+          "reason": "The complete current Main Content requires reproduction only from explicitly owned Plan Relations and preserves independent Plan Atom identity, Revision, Status, Claim, and Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1593-CORE_META_MODEL-CORE-REQUIREMENT--define-the-plan-graph.md",
+          "sha256": "e92bcedc80539fdd86b5a1ddd3dd019cd60d4b40df856afb56f57e7d4b274a9e",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "2326187cdeb02c6cc540a71b51500af9d3fd9663e5f3101c56384e3cfb394653",
+          "reason": "Current global definition: Plan Graph is a Projection whose nodes reference authoritative Plan Atoms and whose graph-owned Relations represent decomposition and blocking."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1471-CORE_META_MODEL-CORE--keep-secondary-graphs-derived-from-source-authority.md",
+          "sha256": "643f22a173144fe9d0e53639954f4ae020bc9461a5bf7dbb33e0996227a7f79d",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "31973b757624e34cd417d30ccc3e141ae6f1753f65d2da736fa15f77038e9ec1",
+          "reason": "Current global boundary: secondary CAPRMEDIO Graphs are derived Projections and remain non-authoritative."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-REQUIREMENT--distinguish-projected-representations-from-represented-entities.md",
+          "sha256": "70e09266435f444236b0bb9769bd0103dd9a046b431902290a2a877dc6c173e8",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "c157056fbee462a941cb14860009c83ccd44d42b4a4cf213b15e425de7062db5",
+          "reason": "Current global boundary: a representation inside a Projection remains distinct from the Entity it represents and creates no separate authority."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "The candidate models Plan Graph as a distinct Projection Entity instance."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "The graph view remains derived and non-authoritative."
+        },
+        {
+          "pointer": "/projection_member_model/authority_boundary",
+          "reason": "Derived graph members do not become authority for source Atoms."
+        }
+      ],
+      "preserved_distinctions": [
+        "Plan Graph remains the whole graph-specific Projection.",
+        "Plan Atom identity, Revision, Status, Claim, Scope Unit, and source-owned Relation facts remain distinct.",
+        "No folder/navigation-derived relation, selector, or new graph root is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+      "source_atom_id": "CA-E-511",
+      "source_version": 5,
+      "source_sha256": "7d1a04cabf809fd37379b0367ad0d4732c130e13257a1fb427f3a5d5053197bd",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Hub Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Hub Atom means a derived description of an Atom with no new Type, subtype, stored classification, identity, or authority tier. The candidate identifies Atom under Artifact, so Atom is the represented target while Hub description and Plan-specific semantics remain source-qualified.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+          "sha256": "7d1a04cabf809fd37379b0367ad0d4732c130e13257a1fb427f3a5d5053197bd",
+          "start_line": 36,
+          "end_line": 62,
+          "span_sha256": "89215b28156776c5c690dc33bac31cf4a64fa8bfe824935cc6c8b948265e13c7",
+          "reason": "The complete current Main Content distinguishes Claim Target Scope Unit from textual applicability and says Hub nesting does not create another target."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1578-CORE_META_MODEL-CORE-REQUIREMENT--define-hub-atom-as-a-derived-description.md",
+          "sha256": "1d876effe9ecbf2edbcfddb55a1832256c5f540bf4a8fa74bbaaae086d8b5f54",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "98db2b95cdd99bfc7e508a847bda8309bb51917b21bb2f2c274f50b7ad78b171",
+          "reason": "Current global definition: Hub Atom is a derived description of an Atom and introduces no new identity, Type, subtype, or authority tier."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate identifies Atom as the Artifact-contained Entity represented by a Hub description."
+        },
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "A derived Hub representation remains distinct from its represented Atom."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "A derived description does not become another authority."
+        }
+      ],
+      "preserved_distinctions": [
+        "Hub Atom remains a derived description of an Atom.",
+        "Hub context does not create another Atom identity, subtype, lifecycle, or authority tier.",
+        "No singleton Hub kind, selector, or native syntax is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+      "source_atom_id": "CAPRMEDIO-GOV-EVAL-005",
+      "source_version": 23,
+      "source_sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "CAPRMEDIO Graph",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.78,
+      "reason": "The current source uses CAPRMEDIO Graph as a generic graph-kind/context class for relation validity across multiple graph kinds. Current global evidence only establishes that particular secondary graphs are Projections; the candidate has no generic CAPRMEDIO Graph identity. Replacing this occurrence with Projection would collapse generic graph context into one derived view. The quarantined origin remains covered and non-executable; no metadata or source repair is inferred.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-005-CORE_META_MODEL-QA_CASE--canonical-relation-validity.md",
+          "sha256": "a4bc5f58d2d06a4b599d74c00429c926dc2ba45eb3e500b2701b896690f5df14",
+          "start_line": 29,
+          "end_line": 72,
+          "span_sha256": "c63afa2366d9efe24807b13083d26179df203e903fb3505ed3cf3480c6c16604",
+          "reason": "The complete current Main Content validates relation kinds across graph kinds, source declarations, endpoint contexts, projections, and derived relation views; this source is quarantined and remains unrepaired."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1471-CORE_META_MODEL-CORE--keep-secondary-graphs-derived-from-source-authority.md",
+          "sha256": "643f22a173144fe9d0e53639954f4ae020bc9461a5bf7dbb33e0996227a7f79d",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "31973b757624e34cd417d30ccc3e141ae6f1753f65d2da736fa15f77038e9ec1",
+          "reason": "Current global boundary: secondary CAPRMEDIO Graphs are derived Projections and remain non-authoritative."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-REQUIREMENT--distinguish-projected-representations-from-represented-entities.md",
+          "sha256": "70e09266435f444236b0bb9769bd0103dd9a046b431902290a2a877dc6c173e8",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "c157056fbee462a941cb14860009c83ccd44d42b4a4cf213b15e425de7062db5",
+          "reason": "Current global boundary: a representation inside a Projection remains distinct from the Entity it represents and creates no separate authority."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Generic CAPRMEDIO Graph remains distinct from a specific Projection or Projection Type.",
+        "Graph-kind ownership, endpoint context, source Relation authority, and derived-view fidelity remain separate.",
+        "The quarantined source remains visible; no graph root, selector, or cross-graph native edge is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+      "source_atom_id": "CA-D-333",
+      "source_version": 12,
+      "source_sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project Scope Unit Graph Projection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Projection",
+      "confidence": 0.95,
+      "reason": "The current source explicitly governs a retained Project Scope Unit Graph Projection as a derived, read-only view or compatibility representation. Current Projection definitions preserve the distinction from source Entities and authority, so Projection is supported without creating a new root or source mutation. Generation metadata, source states, bindings, and unresolved findings remain Projection metadata carried by a Carrier.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-333-CORE_META_MODEL-GENERAL--serialize-scope-unit-graph-projection-generation-metadata.md",
+          "sha256": "bf77494c08450a4be5e469aaf70f3d551982e8c321641267cc1c85713f9ddab0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "6fff9ec3087bd6115c183767a57c66fbea43bb0ed1cf11a25ea2d483cab8a788",
+          "reason": "The complete current Main Content defines retained Project Scope Unit Graph Projection metadata and its Carrier traceability without requiring a separate structural Projection."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+          "sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "17b5363499e8427c52d0024b5f2879baa5ca5fd92c3f6e877a36db3d40fa0635",
+          "reason": "Current global definition: Project Scope Unit Graph Projection is a read-only view derived from Project Structure, Atom authority, Settings, and Carrier observations."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1471-CORE_META_MODEL-CORE--keep-secondary-graphs-derived-from-source-authority.md",
+          "sha256": "643f22a173144fe9d0e53639954f4ae020bc9461a5bf7dbb33e0996227a7f79d",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "31973b757624e34cd417d30ccc3e141ae6f1753f65d2da736fa15f77038e9ec1",
+          "reason": "Current global boundary: secondary CAPRMEDIO Graphs are derived Projections and remain non-authoritative."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-REQUIREMENT--distinguish-projected-representations-from-represented-entities.md",
+          "sha256": "70e09266435f444236b0bb9769bd0103dd9a046b431902290a2a877dc6c173e8",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "c157056fbee462a941cb14860009c83ccd44d42b4a4cf213b15e425de7062db5",
+          "reason": "Current global boundary: a representation inside a Projection remains distinct from the Entity it represents and creates no separate authority."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "The candidate models the retained structural view as a distinct Projection Entity instance."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "Projection remains derived and non-authoritative."
+        },
+        {
+          "pointer": "/projection_member_model/authority_boundary",
+          "reason": "Derived findings do not become authority for Project Structure or source facts."
+        }
+      ],
+      "preserved_distinctions": [
+        "The retained view remains distinct from Project Structure and source Entities.",
+        "Derived metadata, authority modes, exposed identity, observations, and unresolved findings remain non-authoritative.",
+        "No separate structural Projection, source mutation, selector, or new Projection subtype is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-391-CORE_META_MODEL--encode-project-scope-authority-modes-in-the-scope-unit-graph.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-391-CORE_META_MODEL--encode-project-scope-authority-modes-in-the-scope-unit-graph.md",
+      "source_atom_id": "CA-D-391",
+      "source_version": 6,
+      "source_sha256": "f5218881c7f122c2871d116e2cb58678a4b149d98dae94010ff65a7d636b0b4f",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project Scope Unit Graph Projection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Projection",
+      "confidence": 0.95,
+      "reason": "The current source explicitly governs a retained Project Scope Unit Graph Projection as a derived, read-only view or compatibility representation. Current Projection definitions preserve the distinction from source Entities and authority, so Projection is supported without creating a new root or source mutation. Derived authority_mode does not own or select Project Structure authority.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-391-CORE_META_MODEL--encode-project-scope-authority-modes-in-the-scope-unit-graph.md",
+          "sha256": "f5218881c7f122c2871d116e2cb58678a4b149d98dae94010ff65a7d636b0b4f",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "ecef7238cebf7aa1485dadc7dc32b524b11a4733cbc9d9cc349b8e1396718432",
+          "reason": "The complete current Main Content defines retained Project Scope Unit Graph Projection authority_mode as a derived value and forbids it from owning or selecting authority."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+          "sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "17b5363499e8427c52d0024b5f2879baa5ca5fd92c3f6e877a36db3d40fa0635",
+          "reason": "Current global definition: Project Scope Unit Graph Projection is a read-only view derived from Project Structure, Atom authority, Settings, and Carrier observations."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1471-CORE_META_MODEL-CORE--keep-secondary-graphs-derived-from-source-authority.md",
+          "sha256": "643f22a173144fe9d0e53639954f4ae020bc9461a5bf7dbb33e0996227a7f79d",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "31973b757624e34cd417d30ccc3e141ae6f1753f65d2da736fa15f77038e9ec1",
+          "reason": "Current global boundary: secondary CAPRMEDIO Graphs are derived Projections and remain non-authoritative."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-REQUIREMENT--distinguish-projected-representations-from-represented-entities.md",
+          "sha256": "70e09266435f444236b0bb9769bd0103dd9a046b431902290a2a877dc6c173e8",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "c157056fbee462a941cb14860009c83ccd44d42b4a4cf213b15e425de7062db5",
+          "reason": "Current global boundary: a representation inside a Projection remains distinct from the Entity it represents and creates no separate authority."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "The candidate models the retained structural view as a distinct Projection Entity instance."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "Projection remains derived and non-authoritative."
+        },
+        {
+          "pointer": "/projection_member_model/authority_boundary",
+          "reason": "Derived findings do not become authority for Project Structure or source facts."
+        }
+      ],
+      "preserved_distinctions": [
+        "The retained view remains distinct from Project Structure and source Entities.",
+        "Derived metadata, authority modes, exposed identity, observations, and unresolved findings remain non-authoritative.",
+        "No separate structural Projection, source mutation, selector, or new Projection subtype is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-392-CORE_META_MODEL--register-obsolete-project-names.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-392-CORE_META_MODEL--register-obsolete-project-names.md",
+      "source_atom_id": "CA-D-392",
+      "source_version": 8,
+      "source_sha256": "dfc6540a2654237153dbf7a660589ea4fa69e08124fc65ece65cf39df4d21150",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project Scope Unit Graph Projection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Projection",
+      "confidence": 0.95,
+      "reason": "The current source explicitly governs a retained Project Scope Unit Graph Projection as a derived, read-only view or compatibility representation. Current Projection definitions preserve the distinction from source Entities and authority, so Projection is supported without creating a new root or source mutation. Exposed Project identity and obsolete names do not become Projection authority.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-392-CORE_META_MODEL--register-obsolete-project-names.md",
+          "sha256": "dfc6540a2654237153dbf7a660589ea4fa69e08124fc65ece65cf39df4d21150",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "8b39e3edac671ad4b46c4d2964d71b74038a90e0e9aa1f39c091464b38f408d4",
+          "reason": "The complete current Main Content defines Project identity and obsolete names as values exposed by a Project Scope Unit Graph Projection without making the view authoritative."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+          "sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "17b5363499e8427c52d0024b5f2879baa5ca5fd92c3f6e877a36db3d40fa0635",
+          "reason": "Current global definition: Project Scope Unit Graph Projection is a read-only view derived from Project Structure, Atom authority, Settings, and Carrier observations."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1471-CORE_META_MODEL-CORE--keep-secondary-graphs-derived-from-source-authority.md",
+          "sha256": "643f22a173144fe9d0e53639954f4ae020bc9461a5bf7dbb33e0996227a7f79d",
+          "start_line": 24,
+          "end_line": 38,
+          "span_sha256": "31973b757624e34cd417d30ccc3e141ae6f1753f65d2da736fa15f77038e9ec1",
+          "reason": "Current global boundary: secondary CAPRMEDIO Graphs are derived Projections and remain non-authoritative."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1609-CORE_META_MODEL-REQUIREMENT--distinguish-projected-representations-from-represented-entities.md",
+          "sha256": "70e09266435f444236b0bb9769bd0103dd9a046b431902290a2a877dc6c173e8",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "c157056fbee462a941cb14860009c83ccd44d42b4a4cf213b15e425de7062db5",
+          "reason": "Current global boundary: a representation inside a Projection remains distinct from the Entity it represents and creates no separate authority."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "The candidate models the retained structural view as a distinct Projection Entity instance."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "Projection remains derived and non-authoritative."
+        },
+        {
+          "pointer": "/projection_member_model/authority_boundary",
+          "reason": "Derived findings do not become authority for Project Structure or source facts."
+        }
+      ],
+      "preserved_distinctions": [
+        "The retained view remains distinct from Project Structure and source Entities.",
+        "Derived metadata, authority modes, exposed identity, observations, and unresolved findings remain non-authoritative.",
+        "No separate structural Projection, source mutation, selector, or new Projection subtype is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DELIVERY--store-workflow-graphs-and-steps-in-separate-carriers.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DELIVERY--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "source_atom_id": "CA-D-467",
+      "source_version": 4,
+      "source_sha256": "0532c2205f96363bcf23105b3fe469a1829c0caf2a3fb3d8a5f14e7c0221c171",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Atom Collection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.93,
+      "reason": "Current Atom Collection means a Structural Entity grouping Atoms without becoming their owning Scope Unit. The current Entity and Structural Entity definitions and candidate graph model support Entity as the shared target. The source-specific grouping, Carrier, Status-container, or non-ownership distinction remains explicit; the collection is not collapsed into a Projection or Atom. The grouping folder remains a Carrier arrangement, not a Workflow identity or owning Scope Unit.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DELIVERY--store-workflow-graphs-and-steps-in-separate-carriers.md",
+          "sha256": "0532c2205f96363bcf23105b3fe469a1829c0caf2a3fb3d8a5f14e7c0221c171",
+          "start_line": 22,
+          "end_line": 38,
+          "span_sha256": "1e0179224549ed6e706e91cbfddf6191e5510b42c06b33af5b13e3102acee132",
+          "reason": "The complete current Main Content defines separate Workflow and Step Carriers and says the grouping folder is a Carrier grouping, not another Workflow definition or owning Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "Current global definition: Entity is an independently identified or bearer-qualified object admitted as a possible CAPRMEDIO Graph node."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "Current global definition: Structural Entity organizes >=0 Entities through direct containment while retaining independent identity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+          "sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "5bdf7c1f09f9b971295f00be943d7f297c812a3522ba537a293f835642674616",
+          "reason": "Current global definition: Atom Collection is a Structural Entity grouping >=0 Atoms without becoming their owning Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+          "sha256": "50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "ce9c172ae5b332ba0bcf58a6f13c58729aa206bba4c3a7c4216d7edbd0124cf9",
+          "reason": "Current global classification: Atom Collection is NARROWER_THAN Structural Entity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1265-CORE_META_MODEL-CORE-REQUIREMENT--keep-atom-collection-outside-the-atom-taxonomy.md",
+          "sha256": "0a591172b3f9b3b954edfc9319c00cf9886f0e12438be1de55b6b60f2c175f41",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "37815e24752eb1e3847c9b576e5dcebcdea0e7f7fcba15eceb935b2703f49499",
+          "reason": "Current global boundary: Atom Collection is not NARROWER_THAN Atom."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "The candidate admits Entity nodes connected by typed Relations, supporting an independently identified structural collection."
+        },
+        {
+          "pointer": "/entity_representation_rules/0",
+          "reason": "A collection with its own identity has one representation; grouping does not create a second representation of each member."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/2",
+          "reason": "Contextual grouping is not automatically a new Entity kind."
+        }
+      ],
+      "preserved_distinctions": [
+        "Atom Collection remains a structural set/grouping Entity outside the Atom taxonomy.",
+        "Collection grouping, Carrier placement, Status-container meaning, and Scope ownership remain distinct.",
+        "No Projection/set Type, Atom subtype, selector, or new collection root is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-STANDARD--serialize-plan-file-sections.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-STANDARD--serialize-plan-file-sections.md",
+      "source_atom_id": "CA-D-470",
+      "source_version": 7,
+      "source_sha256": "7e91dbd7f5bd26889e0a2f3b9efeb3bbbafd680856b6e404736f7dcbc0c9b06c",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Hub Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Hub Atom means a derived description of an Atom with no new Type, subtype, stored classification, identity, or authority tier. The candidate identifies Atom under Artifact, so Atom is the represented target while Hub description and Plan-specific semantics remain source-qualified.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-STANDARD--serialize-plan-file-sections.md",
+          "sha256": "7e91dbd7f5bd26889e0a2f3b9efeb3bbbafd680856b6e404736f7dcbc0c9b06c",
+          "start_line": 24,
+          "end_line": 42,
+          "span_sha256": "61823685a2d599f0e10ba24280db59c653601ccba8ebdb72ae5032a3384943a2",
+          "reason": "The complete current Main Content defines Plan Markdown File Carrier sections, including Hub handling and the single Definition of Done boundary."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1578-CORE_META_MODEL-CORE-REQUIREMENT--define-hub-atom-as-a-derived-description.md",
+          "sha256": "1d876effe9ecbf2edbcfddb55a1832256c5f540bf4a8fa74bbaaae086d8b5f54",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "98db2b95cdd99bfc7e508a847bda8309bb51917b21bb2f2c274f50b7ad78b171",
+          "reason": "Current global definition: Hub Atom is a derived description of an Atom and introduces no new identity, Type, subtype, or authority tier."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate identifies Atom as the Artifact-contained Entity represented by a Hub description."
+        },
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "A derived Hub representation remains distinct from its represented Atom."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "A derived description does not become another authority."
+        }
+      ],
+      "preserved_distinctions": [
+        "Hub Atom remains a derived description of an Atom.",
+        "Hub context does not create another Atom identity, subtype, lifecycle, or authority tier.",
+        "No singleton Hub kind, selector, or native syntax is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-STANDARD--serialize-explicit-plan-confidence-overrides.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-STANDARD--serialize-explicit-plan-confidence-overrides.md",
+      "source_atom_id": "CA-D-472",
+      "source_version": 5,
+      "source_sha256": "ccda5b5fdacef80965b8eaaee28e6a5a44ff6f10c89111bb8748a2d4bba2be90",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Hub Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Atom",
+      "confidence": 0.95,
+      "reason": "Current Hub Atom means a derived description of an Atom with no new Type, subtype, stored classification, identity, or authority tier. The candidate identifies Atom under Artifact, so Atom is the represented target while Hub description and Plan-specific semantics remain source-qualified.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-STANDARD--serialize-explicit-plan-confidence-overrides.md",
+          "sha256": "ccda5b5fdacef80965b8eaaee28e6a5a44ff6f10c89111bb8748a2d4bba2be90",
+          "start_line": 22,
+          "end_line": 39,
+          "span_sha256": "dce380112ab2618c97a712f2d69fecc2115c5344e48f3e24acbfa4b95b3d2214",
+          "reason": "The complete current Main Content defines explicit Plan confidence overrides in the Plan Atom's own mandatory file and keeps Hub inheritance in that same file."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1578-CORE_META_MODEL-CORE-REQUIREMENT--define-hub-atom-as-a-derived-description.md",
+          "sha256": "1d876effe9ecbf2edbcfddb55a1832256c5f540bf4a8fa74bbaaae086d8b5f54",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "98db2b95cdd99bfc7e508a847bda8309bb51917b21bb2f2c274f50b7ad78b171",
+          "reason": "Current global definition: Hub Atom is a derived description of an Atom and introduces no new identity, Type, subtype, or authority tier."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/narrower_entities/0",
+          "reason": "The candidate identifies Atom as the Artifact-contained Entity represented by a Hub description."
+        },
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "A derived Hub representation remains distinct from its represented Atom."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "A derived description does not become another authority."
+        }
+      ],
+      "preserved_distinctions": [
+        "Hub Atom remains a derived description of an Atom.",
+        "Hub context does not create another Atom identity, subtype, lifecycle, or authority tier.",
+        "No singleton Hub kind, selector, or native syntax is admitted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-475-CORE_META_MODEL-STANDARD--serialize-the-plan-backlog-directory.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-475-CORE_META_MODEL-STANDARD--serialize-the-plan-backlog-directory.md",
+      "source_atom_id": "CA-D-475",
+      "source_version": 4,
+      "source_sha256": "ca52f96efabd9dada8b13bb3e7a7ef52f21be88988d95d1b216069854122417e",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Atom Collection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Entity",
+      "confidence": 0.93,
+      "reason": "Current Atom Collection means a Structural Entity grouping Atoms without becoming their owning Scope Unit. The current Entity and Structural Entity definitions and candidate graph model support Entity as the shared target. The source-specific grouping, Carrier, Status-container, or non-ownership distinction remains explicit; the collection is not collapsed into a Projection or Atom. The source explicitly rejects an independently identified Version Plan Collection; the generic collection meaning remains distinct from that rejected storage container.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-475-CORE_META_MODEL-STANDARD--serialize-the-plan-backlog-directory.md",
+          "sha256": "ca52f96efabd9dada8b13bb3e7a7ef52f21be88988d95d1b216069854122417e",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "4909c5ddd8e254c85e15c0111aee669353a6846036e9fd033b6e39faf1c709c5",
+          "reason": "The complete current Main Content defines the Plan Backlog Directory as a Status container, not a Plan Atom or independently identified Version Plan Collection."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1248-CORE_META_MODEL-CORE-REQUIREMENT--define-entity.md",
+          "sha256": "7dc7c6805b23dc758fdca38e2d50506b86c2035844b90a78612c1690f664aad5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "7f829b589a69b01eec8c418b39e013e9b58f1241b7c7779a4c2325f8558b4017",
+          "reason": "Current global definition: Entity is an independently identified or bearer-qualified object admitted as a possible CAPRMEDIO Graph node."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "Current global definition: Structural Entity organizes >=0 Entities through direct containment while retaining independent identity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1378-CORE_META_MODEL-CORE--define-atom-collection.md",
+          "sha256": "ab4bf5d9cac8953bbab46acd9f5f9ddfed5ba3f870b25ba7d5105a454ee4f5b2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "5bdf7c1f09f9b971295f00be943d7f297c812a3522ba537a293f835642674616",
+          "reason": "Current global definition: Atom Collection is a Structural Entity grouping >=0 Atoms without becoming their owning Scope Unit."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1379-CORE_META_MODEL-CORE--classify-atom-collection-as-a-structural-entity.md",
+          "sha256": "50f7444a25c743973db925b40e58d04e48e18dd0dc4458c482c9f8b8c27cff7e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "ce9c172ae5b332ba0bcf58a6f13c58729aa206bba4c3a7c4216d7edbd0124cf9",
+          "reason": "Current global classification: Atom Collection is NARROWER_THAN Structural Entity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1265-CORE_META_MODEL-CORE-REQUIREMENT--keep-atom-collection-outside-the-atom-taxonomy.md",
+          "sha256": "0a591172b3f9b3b954edfc9319c00cf9886f0e12438be1de55b6b60f2c175f41",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "37815e24752eb1e3847c9b576e5dcebcdea0e7f7fcba15eceb935b2703f49499",
+          "reason": "Current global boundary: Atom Collection is not NARROWER_THAN Atom."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/graph_model",
+          "reason": "The candidate admits Entity nodes connected by typed Relations, supporting an independently identified structural collection."
+        },
+        {
+          "pointer": "/entity_representation_rules/0",
+          "reason": "A collection with its own identity has one representation; grouping does not create a second representation of each member."
+        },
+        {
+          "pointer": "/entity_vs_syntax_rules/2",
+          "reason": "Contextual grouping is not automatically a new Entity kind."
+        }
+      ],
+      "preserved_distinctions": [
+        "Atom Collection remains a structural set/grouping Entity outside the Atom taxonomy.",
+        "Collection grouping, Carrier placement, Status-container meaning, and Scope ownership remain distinct.",
+        "No Projection/set Type, Atom subtype, selector, or new collection root is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
+      "source_atom_id": "CA-O-137",
+      "source_version": 3,
+      "source_sha256": "8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Definition Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "input_proposed_value": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.78,
+      "reason": "The current operation requires active Definition Atom authority and exact definition/source traceability. The current global rules confirm the Definition Atom role, but the candidate has no dedicated Definition Atom identity or dependent field. Mapping it to generic Atom would erase the defining-authority role, while Terms Graph and Projection are separate graph/view boundaries. Terms remain a separate graph and missing or conflicting Definition Atom evidence remains an unresolved source condition.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-137-CORE_META_MODEL-ACTION--construct-terms-graph-projection.md",
+          "sha256": "8ea08ef172a82515db7f145bf642a3943ecc41fc6decf4a86a69bea78ce494fd",
+          "start_line": 19,
+          "end_line": 53,
+          "span_sha256": "beeb7e03edd98bd140424653f0ff374e120ec8b35fc069e0c0d29ef3b9bc2da5",
+          "reason": "The complete current Main Content defines construction of a derived Terms Graph from active Term and Relation authority and requires Definition Atom evidence, exact source selection, and unresolved gaps to remain visible."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-126-CORE_META_MODEL-CORE--give-each-governed-term-one-definition-atom.md",
+          "sha256": "433949d977649ee9622dffaec028e899ec725a6c9b3edf8b34c3a9537093f562",
+          "start_line": 21,
+          "end_line": 31,
+          "span_sha256": "f55664aa4003aa3797d879713cd3dafb5cc1874bce575724fbb255e3e0cf8730",
+          "reason": "Current global rule: every Governed Term resolves to exactly one active Definition Atom in its Claim Scope."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL-CORE--define-governed-term.md",
+          "sha256": "9c7f8ebf078c05a7d5ebef82ddec4e0903d269a387341a5c7fb6731b8ffbea58",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1a3bba1d5da1976d8f222acca350c245c877b91b0161d416d0051890e8a88a4e",
+          "reason": "Current global definition: a Governed Term's Project-specific meaning is owned by exactly one active Definition Atom."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Definition Atom remains the active source of governed Term meaning and source traceability.",
+        "Terms Graph membership, Relation authority, and missing/conflicting definition evidence remain distinct.",
+        "No generic Atom, selector, or new definition-specific root is inferred."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ]
+}

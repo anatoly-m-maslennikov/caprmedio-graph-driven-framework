@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2147",
+  "recorded_at": "2026-10-11 12:01:22 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining unqualified subjects 004; not migration approval",
+  "verification": {
+    "task": "CA-P-2147",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2147.research.json",
+      "sha256": "398330315580e7a2784e45b50fa86cc8b1dc965d0d46c5db01103ebc6228a0fb"
+    },
+    "rows": 25,
+    "counts": {
+      "unresolved": 12,
+      "proposed": 13
+    },
+    "exact_evidence_spans": 26,
+    "exact_supporting_definition_spans": 0,
+    "exact_input_pins": 32,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision",
+      "foreign_meaning_evidence",
+      "wrong_registration",
+      "partial_owner_body"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2144-2151.inputs.json",
+      "sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+    },
+    "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/projection_review_2099",
+      "final_report_sha256": "398330315580e7a2784e45b50fa86cc8b1dc965d0d46c5db01103ebc6228a0fb",
+      "result": "PASS: thirteen supported proposals and twelve justified nulls after three false-null corrections",
+      "meaning_checks": [
+        "D346/D347 explicitly define non-authoritative Canonical Signature and Canonical Scope Signature Projections.",
+        "D360's completed Work Journal receipt supports Journal.Record with current R1745, not an actual Execution/event.",
+        "Canonical CARRIES stays direct; inverse navigation is not a second primitive kind; generic containment pairs preserve pair-level meaning.",
+        "Settings Artifact ownership and dependent identifiers remain distinct from carrier filenames, syntax, Revision binding and compound provenance."
+      ],
+      "rejected_previous_revisions": [
+        {
+          "sha256": "c5b79b26e322dca5e59efdd7491ccd7439be097c90af5f5b21b56d7cf2e0ad33",
+          "reviewer": "/root/projection_review_2099",
+          "result": "FAIL: three supported nulls overlook explicit Core Projection/Journal Record meanings",
+          "required_corrections": [
+            "CA-D-346 governs Projection",
+            "CA-D-347 governs Projection",
+            "CA-D-360 depends_on[1] Journal.Record with original Core R1745 support"
+          ]
+        }
+      ],
+      "verification_limits": [
+        "The unaccepted prior c5b report bytes were not retained, so bytewise identity of twenty-two unaffected rows was not claimed; all current rows were independently re-reviewed."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/projection_review_2099",
+    "final_report_sha256": "398330315580e7a2784e45b50fa86cc8b1dc965d0d46c5db01103ebc6228a0fb",
+    "result": "PASS: thirteen supported proposals and twelve justified nulls after three false-null corrections",
+    "meaning_checks": [
+      "D346/D347 explicitly define non-authoritative Canonical Signature and Canonical Scope Signature Projections.",
+      "D360's completed Work Journal receipt supports Journal.Record with current R1745, not an actual Execution/event.",
+      "Canonical CARRIES stays direct; inverse navigation is not a second primitive kind; generic containment pairs preserve pair-level meaning.",
+      "Settings Artifact ownership and dependent identifiers remain distinct from carrier filenames, syntax, Revision binding and compound provenance."
+    ],
+    "rejected_previous_revisions": [
+      {
+        "sha256": "c5b79b26e322dca5e59efdd7491ccd7439be097c90af5f5b21b56d7cf2e0ad33",
+        "reviewer": "/root/projection_review_2099",
+        "result": "FAIL: three supported nulls overlook explicit Core Projection/Journal Record meanings",
+        "required_corrections": [
+          "CA-D-346 governs Projection",
+          "CA-D-347 governs Projection",
+          "CA-D-360 depends_on[1] Journal.Record with original Core R1745 support"
+        ]
+      }
+    ],
+    "verification_limits": [
+      "The unaccepted prior c5b report bytes were not retained, so bytewise identity of twenty-two unaffected rows was not claimed; all current rows were independently re-reviewed."
+    ]
+  },
+  "completion_scope": "All 25 selected origins across 19 owners passed complete current-body/pin/span/coverage controls, fourteen wrong-data controls and independent semantic reacceptance: thirteen supported proposals and twelve explicit nulls. Three false nulls were corrected to explicit Projection/Journal Record meanings; original Core is unchanged.",
+  "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

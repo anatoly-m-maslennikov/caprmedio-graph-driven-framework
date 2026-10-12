@@ -1,0 +1,1230 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2137",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2132-2139.contract.md",
+        "sha256": "3ed29d889a2d7905614a0d02c23a75f82fb002ffea51f4dce2714f60865aa6ff"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/104-CA-P-2137-TASK--review-remaining-fields-history-and-carrier-subjects.md",
+      "sha256": "f214d22ebd628b0897f2182d3abc66882929651f4777a7db18b836607f00f6a9"
+    },
+    "task_registration_sha256": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+    "selection_occurrence_id_set_sha256": "c62071f54be2586772e7a6aef06aecac236eaf3d275ae85f82fa6b8da9a000f4",
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+        "sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1417-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-content.md",
+        "sha256": "19192b48227e151e5fd3b092447fd95a3a59e964e7fea20769c7a928cbf91ee0"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1495-CORE_META_MODEL-REQUIREMENT--projections-have-updated-at.md",
+        "sha256": "618aae585e94d1da5b50a04a1e315c5f5b29678747f760560d12167cc2132ff3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-366-CORE_META_MODEL--reference-exact-atom-revisions-by-version-and-time.md",
+        "sha256": "4752a46e9e07cb57bcf6dcd505587af204cdb557189f9f572f2776566f097949"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-448-CORE_META_MODEL-EVALUATION_APPROACH--validate-accidental-atom-id-reuse-repair.md",
+        "sha256": "1504f5ef8fda49372abf4f637712bc84e8a77dfb93cca49089ffcddb46412ace"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-QA_CASE--validate-plan-carrier-identity-and-placement.md",
+        "sha256": "0da834a92da258996ea4f261c4b13710c31d59c263b187940646635ba25e9fad"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-288-CORE_META_MODEL-DELIVERY--serialize-draft-atom-filenames-with-an-empty-number.md",
+        "sha256": "20e84e78dd39241773a5434693dd8fe4a308d1dffd043cd656eec8e6f9306551"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-289-CORE_META_MODEL--serialize-archive-revision-version-suffixes.md",
+        "sha256": "8489ccfb75f951effff4b61a1abe97e4d52001524c6d1ce87192e290e5cb0efb"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-290-CORE_META_MODEL-DELIVERY--omit-version-suffixes-from-active-carriers.md",
+        "sha256": "ccac89b8e0ef3018e7122c6d87093376ae794ad2b9aa660b292befb52ae76980"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL--serialize-projection-updated-at.md",
+        "sha256": "40a88c75afa5bcdad37a417c7dbc12a392b5afc7b38d6f44c35acf23bd884d70"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-374-CORE_META_MODEL--serialize-instance-authority-mode-selections.md",
+        "sha256": "e532c697123854d6588e8d016670f63728474e48480ed239413133d54108f1da"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-391-CORE_META_MODEL--encode-project-scope-authority-modes-in-the-scope-unit-graph.md",
+        "sha256": "f5218881c7f122c2871d116e2cb58678a4b149d98dae94010ff65a7d636b0b4f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-CORE--give-every-atom-revision-one-authoritative-carrier-bundle.md",
+        "sha256": "8b5a10d78d72d18256a9a00bc6350fe472489fe5247d97827b57d0f216b6b48e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md",
+        "sha256": "8a83fb3e21c84bc0b657fa61ada0b6d28c4dcef3ebdba070570009e538204de8"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+        "sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-506-CORE_META_MODEL-CORE--give-every-non-ephemeral-entity-a-carrier.md",
+        "sha256": "8f1102676b3b04ec408c17a6a6995858030bd9b0df609cf9feb9f96fb829fae9"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md",
+        "sha256": "f972031598deeda63106bb92875fde04f7a34c27916d4a717a481286f1fb2a88"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md",
+        "sha256": "cb58f4cef97a55839daf29f2b3ef14562e9d5cf413291d900ff31334402e9f8a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+        "sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md",
+        "sha256": "462ff2638fdba7050c83c27c9a8f974c1008c431cb46b4d8d81212d207ea1f37"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+      "source_atom_id": "CA-R-1284",
+      "source_version": 11,
+      "source_sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Applicable Methodology Revision",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body uses this as the one finite Type-value context, but no current/candidate definition identifies an applicable-methodology revision Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+          "sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "992631212174e7f23d303e5b5419cfa5c37f10a9ab79f8e300cbcd69b5ede3e0",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Applicable Methodology Revision' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1417-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-content.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1417-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-content.md",
+      "source_atom_id": "CA-R-1417",
+      "source_version": 9,
+      "source_sha256": "19192b48227e151e5fd3b092447fd95a3a59e964e7fea20769c7a928cbf91ee0",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Revision/Content",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body gives each Atom Revision Content, but Content is not established as Atom Substance or a separate admitted dependent Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1417-CORE_META_MODEL-CORE-REQUIREMENT--give-every-atom-revision-one-content.md",
+          "sha256": "19192b48227e151e5fd3b092447fd95a3a59e964e7fea20769c7a928cbf91ee0",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "3488113d6fc23e8da43658c4a9534638a780c71df6a7ff5caf23c354f30d0454",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Atom/Revision/Content' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1495-CORE_META_MODEL-REQUIREMENT--projections-have-updated-at.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1495-CORE_META_MODEL-REQUIREMENT--projections-have-updated-at.md",
+      "source_atom_id": "CA-R-1495",
+      "source_version": 6,
+      "source_sha256": "618aae585e94d1da5b50a04a1e315c5f5b29678747f760560d12167cc2132ff3",
+      "field": "governs",
+      "index": null,
+      "old_value": "Projection/Revision",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body defines a Projection rebuild timestamp, not a historical Projection Revision identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1495-CORE_META_MODEL-REQUIREMENT--projections-have-updated-at.md",
+          "sha256": "618aae585e94d1da5b50a04a1e315c5f5b29678747f760560d12167cc2132ff3",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "2ab5edca1803e42819115e907b5e7f4fb3f4b92dd7292d17cb9b01f8f68ad0c7",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Projection/Revision' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-366-CORE_META_MODEL--reference-exact-atom-revisions-by-version-and-time.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-366-CORE_META_MODEL--reference-exact-atom-revisions-by-version-and-time.md",
+      "source_atom_id": "CA-R-366",
+      "source_version": 21,
+      "source_sha256": "4752a46e9e07cb57bcf6dcd505587af204cdb557189f9f572f2776566f097949",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Revision/Reference",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body specifies an exact Atom Revision reference, but the frozen Revision root explicitly excludes Atom/Revision; no lossless revision target is admitted.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-366-CORE_META_MODEL--reference-exact-atom-revisions-by-version-and-time.md",
+          "sha256": "4752a46e9e07cb57bcf6dcd505587af204cdb557189f9f572f2776566f097949",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "945179592e3ecbff45500b39dee74a7958e57119ac9cf11fc17141fd957aa59d",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Atom/Revision/Reference' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-448-CORE_META_MODEL-EVALUATION_APPROACH--validate-accidental-atom-id-reuse-repair.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-448-CORE_META_MODEL-EVALUATION_APPROACH--validate-accidental-atom-id-reuse-repair.md",
+      "source_atom_id": "CA-E-448",
+      "source_version": 9,
+      "source_sha256": "1504f5ef8fda49372abf4f637712bc84e8a77dfb93cca49089ffcddb46412ace",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Identity/collision repair",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body defines an evaluation/repair procedure and expressly distinguishes identity repair from authoritative history; it does not identify a target Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-448-CORE_META_MODEL-EVALUATION_APPROACH--validate-accidental-atom-id-reuse-repair.md",
+          "sha256": "1504f5ef8fda49372abf4f637712bc84e8a77dfb93cca49089ffcddb46412ace",
+          "start_line": 30,
+          "end_line": 51,
+          "span_sha256": "778b7889bf7038f63610874c8b17a33088e2fa1d4890785efb460b2965b13825",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Atom/Identity/collision repair' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-QA_CASE--validate-plan-carrier-identity-and-placement.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-QA_CASE--validate-plan-carrier-identity-and-placement.md",
+      "source_atom_id": "CA-E-502",
+      "source_version": 5,
+      "source_sha256": "0da834a92da258996ea4f261c4b13710c31d59c263b187940646635ba25e9fad",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Atom/Revision/Authoritative Carrier Bundle",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.91,
+      "reason": "The current evaluation validates the identity and placement of an authoritative carrier bundle. The explicit carrier semantics support Carrier without turning its Markdown/file/hub conditions into a separate registry.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-QA_CASE--validate-plan-carrier-identity-and-placement.md",
+          "sha256": "0da834a92da258996ea4f261c4b13710c31d59c263b187940646635ba25e9fad",
+          "start_line": 28,
+          "end_line": 47,
+          "span_sha256": "03bea356fb0eb4927742e1552dede3df9ddb4e76d45223facc844ed3e65e6cf1",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+          "sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+          "start_line": 24,
+          "end_line": 40,
+          "span_sha256": "bc28eb163874f0a9519793627af8bbd78ec1f60e518383e820dcdbbdb47eda82",
+          "reason": "Current global definition establishes Entity\u2013Carrier binding and distinguishes carrier identity from location/representation."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "The frozen candidate admits Carrier as a root."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "The frozen candidate separates Carrier identity from file location and presentation syntax."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier identity remains distinct from filename, basename, location, and display syntax.",
+        "The source's explicit bundle, Markdown, placement, cardinality, and archive conditions remain unchanged; no per-Property carrier registry is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-288-CORE_META_MODEL-DELIVERY--serialize-draft-atom-filenames-with-an-empty-number.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-288-CORE_META_MODEL-DELIVERY--serialize-draft-atom-filenames-with-an-empty-number.md",
+      "source_atom_id": "CA-D-288",
+      "source_version": 12,
+      "source_sha256": "20e84e78dd39241773a5434693dd8fe4a308d1dffd043cd656eec8e6f9306551",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Revision/Status: Draft/Filename",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body governs filename serialization for Drafts; filename syntax is not Carrier identity, status value, or historical Revision admission.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-288-CORE_META_MODEL-DELIVERY--serialize-draft-atom-filenames-with-an-empty-number.md",
+          "sha256": "20e84e78dd39241773a5434693dd8fe4a308d1dffd043cd656eec8e6f9306551",
+          "start_line": 18,
+          "end_line": 28,
+          "span_sha256": "f407b64b8a95b60a33f836ec5af6e0692743f7debb7b4add1997e0bc6847da2b",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Atom/Revision/Status: Draft/Filename' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-289-CORE_META_MODEL--serialize-archive-revision-version-suffixes.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-289-CORE_META_MODEL--serialize-archive-revision-version-suffixes.md",
+      "source_atom_id": "CA-D-289",
+      "source_version": 12,
+      "source_sha256": "8489ccfb75f951effff4b61a1abe97e4d52001524c6d1ce87192e290e5cb0efb",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Artifact/Revision/Version",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body serializes an archive basename suffix. It does not establish Artifact.Revision containment or a revision target for the basename syntax.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-289-CORE_META_MODEL--serialize-archive-revision-version-suffixes.md",
+          "sha256": "8489ccfb75f951effff4b61a1abe97e4d52001524c6d1ce87192e290e5cb0efb",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "8ef8ea93658fb7e4b4faa4067c75c5f805b2c9b469dc344595b00cfe5c1d3391",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Artifact/Revision/Version' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-289-CORE_META_MODEL--serialize-archive-revision-version-suffixes.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-289-CORE_META_MODEL--serialize-archive-revision-version-suffixes.md",
+      "source_atom_id": "CA-D-289",
+      "source_version": 12,
+      "source_sha256": "8489ccfb75f951effff4b61a1abe97e4d52001524c6d1ce87192e290e5cb0efb",
+      "field": "governs",
+      "index": null,
+      "old_value": "Artifact/Revision/Archive Carrier Basename",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body governs a basename convention, which is a lexical/location rule rather than a Carrier identity or Artifact.Revision relation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-289-CORE_META_MODEL--serialize-archive-revision-version-suffixes.md",
+          "sha256": "8489ccfb75f951effff4b61a1abe97e4d52001524c6d1ce87192e290e5cb0efb",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "8ef8ea93658fb7e4b4faa4067c75c5f805b2c9b469dc344595b00cfe5c1d3391",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Artifact/Revision/Archive Carrier Basename' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-290-CORE_META_MODEL-DELIVERY--omit-version-suffixes-from-active-carriers.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-290-CORE_META_MODEL-DELIVERY--omit-version-suffixes-from-active-carriers.md",
+      "source_atom_id": "CA-D-290",
+      "source_version": 11,
+      "source_sha256": "ccac89b8e0ef3018e7122c6d87093376ae794ad2b9aa660b292befb52ae76980",
+      "field": "governs",
+      "index": null,
+      "old_value": "Artifact/Activity: Active/Carrier Basename",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body governs an active basename convention; it does not establish an Activity or Carrier property target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-290-CORE_META_MODEL-DELIVERY--omit-version-suffixes-from-active-carriers.md",
+          "sha256": "ccac89b8e0ef3018e7122c6d87093376ae794ad2b9aa660b292befb52ae76980",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "7c6e82ac356be00031f31f349b37bb2d85cf3e15f863ca62ba33cfceeec9ee35",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Artifact/Activity: Active/Carrier Basename' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL--serialize-projection-updated-at.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL--serialize-projection-updated-at.md",
+      "source_atom_id": "CA-D-310",
+      "source_version": 11,
+      "source_sha256": "40a88c75afa5bcdad37a417c7dbc12a392b5afc7b38d6f44c35acf23bd884d70",
+      "field": "governs",
+      "index": null,
+      "old_value": "Projection/Carrier/Updated At",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body serializes a Projection rebuild time and explicitly does not prove currentness; it is not Atom.Updated At or a Carrier identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL--serialize-projection-updated-at.md",
+          "sha256": "40a88c75afa5bcdad37a417c7dbc12a392b5afc7b38d6f44c35acf23bd884d70",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "66efc4f0ad42a3b121f01b446b21e19217997cb21f356510ddd88d265d0b2ad3",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Projection/Carrier/Updated At' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-374-CORE_META_MODEL--serialize-instance-authority-mode-selections.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-374-CORE_META_MODEL--serialize-instance-authority-mode-selections.md",
+      "source_atom_id": "CA-D-374",
+      "source_version": 7,
+      "source_sha256": "e532c697123854d6588e8d016670f63728474e48480ed239413133d54108f1da",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Authority Mode",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current authority-mode serialization identifies a setting/domain but does not establish the owner, property, or allowed-value target required for a lossless candidate mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-374-CORE_META_MODEL--serialize-instance-authority-mode-selections.md",
+          "sha256": "e532c697123854d6588e8d016670f63728474e48480ed239413133d54108f1da",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "426ce3fba305faa44f193421c9aaa74be93422e7f56a3c9b7b643d38df2d2135",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Authority Mode' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-391-CORE_META_MODEL--encode-project-scope-authority-modes-in-the-scope-unit-graph.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-391-CORE_META_MODEL--encode-project-scope-authority-modes-in-the-scope-unit-graph.md",
+      "source_atom_id": "CA-D-391",
+      "source_version": 6,
+      "source_sha256": "f5218881c7f122c2871d116e2cb58678a4b149d98dae94010ff65a7d636b0b4f",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Authority Mode",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current authority-mode serialization identifies a setting/domain but does not establish the owner, property, or allowed-value target required for a lossless candidate mapping.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-391-CORE_META_MODEL--encode-project-scope-authority-modes-in-the-scope-unit-graph.md",
+          "sha256": "f5218881c7f122c2871d116e2cb58678a4b149d98dae94010ff65a7d636b0b4f",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "ecef7238cebf7aa1485dadc7dc32b524b11a4733cbc9d9cc349b8e1396718432",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Authority Mode' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-CORE--give-every-atom-revision-one-authoritative-carrier-bundle.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-CORE--give-every-atom-revision-one-authoritative-carrier-bundle.md",
+      "source_atom_id": "CA-D-463",
+      "source_version": 5,
+      "source_sha256": "8b5a10d78d72d18256a9a00bc6350fe472489fe5247d97827b57d0f216b6b48e",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Revision/Authoritative Carrier Bundle",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.96,
+      "reason": "The current body explicitly defines an authoritative Carrier Bundle for every Atom Revision and its Markdown file Carrier. It is direct Carrier semantics, while the one-bundle and component constraints remain in the source.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-CORE--give-every-atom-revision-one-authoritative-carrier-bundle.md",
+          "sha256": "8b5a10d78d72d18256a9a00bc6350fe472489fe5247d97827b57d0f216b6b48e",
+          "start_line": 22,
+          "end_line": 36,
+          "span_sha256": "39023a705964653696e5cd3a5894d62392aaaf0edcef78b099b7f955e7e771dc",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+          "sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+          "start_line": 24,
+          "end_line": 40,
+          "span_sha256": "bc28eb163874f0a9519793627af8bbd78ec1f60e518383e820dcdbbdb47eda82",
+          "reason": "Current global definition establishes Entity\u2013Carrier binding and distinguishes carrier identity from location/representation."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "The frozen candidate admits Carrier as a root."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "The frozen candidate separates Carrier identity from file location and presentation syntax."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier identity remains distinct from filename, basename, location, and display syntax.",
+        "The source's explicit bundle, Markdown, placement, cardinality, and archive conditions remain unchanged; no per-Property carrier registry is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md",
+      "source_atom_id": "CA-D-483",
+      "source_version": 5,
+      "source_sha256": "8a83fb3e21c84bc0b657fa61ada0b6d28c4dcef3ebdba070570009e538204de8",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Revision/Status/Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Status",
+      "confidence": 0.96,
+      "reason": "The current body expressly identifies Status as the property carried by an Atom Revision, requires exactly one explicit status, and preserves its applicable Content Role and Type status model. CA-R-1412 independently establishes exactly one Status per Atom Revision. Together they support Atom.Status while retaining the qualified value domain and YAML representation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-DELIVERY--carry-atom-revision-status-in-frontmatter.md",
+          "sha256": "8a83fb3e21c84bc0b657fa61ada0b6d28c4dcef3ebdba070570009e538204de8",
+          "start_line": 21,
+          "end_line": 39,
+          "span_sha256": "4d1658c0284f2e39fac610ecabba03c3066bf4e7372ca04cb0cf4c4acf617200",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1412-CORE_META_MODEL-CORE--give-every-atom-revision-one-status.md",
+          "sha256": "7a74e9fe6d6ab90f56016c675b2bc566a0981fd4bb04b1462f5e1d429146d0af",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "74d2a4dafb91e2d52581aa9e2f854394c3e2398d4bbe5210f07834af993c9f08",
+          "reason": "Current global definition independently requires exactly one Status for every Atom Revision."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/compact_examples/2",
+          "reason": "The frozen candidate names Atom.Status as the dependent Status property; the current owner and Type/Content Role value-domain evidence determine this proposal."
+        }
+      ],
+      "preserved_distinctions": [
+        "Status remains one Atom Revision property; another Revision or containing Hub cannot override it.",
+        "The exact value remains constrained by the applicable Content Role and Type Status model.",
+        "The YAML `status` field is carrier syntax representing the Property, not a Carrier registry or a separate target."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+      "source_atom_id": "CA-D-485",
+      "source_version": 4,
+      "source_sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Artifact/Property/Default",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body distinguishes defaulted values from copied inherited overrides, but does not identify a supported Artifact property owner or default-value domain.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-DELIVERY--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+          "sha256": "a157243342e5e161ea6afb7c36928cff0b892f5a65a449adc8656214668b7718",
+          "start_line": 22,
+          "end_line": 38,
+          "span_sha256": "c5bd6d1192eda02f3331db1c94f92d4030a62d31546117d431f106a215e07a41",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Artifact/Property/Default' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-506-CORE_META_MODEL-CORE--give-every-non-ephemeral-entity-a-carrier.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-506-CORE_META_MODEL-CORE--give-every-non-ephemeral-entity-a-carrier.md",
+      "source_atom_id": "CA-D-506",
+      "source_version": 1,
+      "source_sha256": "8f1102676b3b04ec408c17a6a6995858030bd9b0df609cf9feb9f96fb829fae9",
+      "field": "governs",
+      "index": null,
+      "old_value": "Entity/Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.96,
+      "reason": "The current body expressly governs the Entity\u2013Carrier binding for every non-ephemeral Entity and separates shared carrier/location from carried Property representation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-506-CORE_META_MODEL-CORE--give-every-non-ephemeral-entity-a-carrier.md",
+          "sha256": "8f1102676b3b04ec408c17a6a6995858030bd9b0df609cf9feb9f96fb829fae9",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "369ae60fd95913cf750532bee37131c9abf752758ca78bad1423b50b39a77ec6",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+          "sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+          "start_line": 24,
+          "end_line": 40,
+          "span_sha256": "bc28eb163874f0a9519793627af8bbd78ec1f60e518383e820dcdbbdb47eda82",
+          "reason": "Current global definition establishes Entity\u2013Carrier binding and distinguishes carrier identity from location/representation."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "The frozen candidate admits Carrier as a root."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "The frozen candidate separates Carrier identity from file location and presentation syntax."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier identity remains distinct from filename, basename, location, and display syntax.",
+        "The source's explicit bundle, Markdown, placement, cardinality, and archive conditions remain unchanged; no per-Property carrier registry is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md",
+      "source_atom_id": "CA-D-507",
+      "source_version": 1,
+      "source_sha256": "f972031598deeda63106bb92875fde04f7a34c27916d4a717a481286f1fb2a88",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Entity/Identity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body is a negative format/extension rule: carrier representation cannot establish Entity identity. It does not identify an identity target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md",
+          "sha256": "f972031598deeda63106bb92875fde04f7a34c27916d4a717a481286f1fb2a88",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "db9d00489a696e61c63a6f80857333f94ec61a643662e65385b343b88d368049",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Entity/Identity' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md",
+      "source_atom_id": "CA-D-507",
+      "source_version": 1,
+      "source_sha256": "f972031598deeda63106bb92875fde04f7a34c27916d4a717a481286f1fb2a88",
+      "field": "governs",
+      "index": null,
+      "old_value": "Entity/Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body is a negative rule about carrier format/file extension and does not establish a positive Entity\u2013Carrier binding target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-507-CORE_META_MODEL-CORE--separate-entity-identity-from-carrier-format.md",
+          "sha256": "f972031598deeda63106bb92875fde04f7a34c27916d4a717a481286f1fb2a88",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "db9d00489a696e61c63a6f80857333f94ec61a643662e65385b343b88d368049",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Entity/Carrier' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md",
+      "source_atom_id": "CA-D-565",
+      "source_version": 1,
+      "source_sha256": "cb58f4cef97a55839daf29f2b3ef14562e9d5cf413291d900ff31334402e9f8a",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Artifact/Revision/Archive Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.92,
+      "reason": "The current body explicitly binds a newly archived Atom Revision to a Markdown Archive Carrier under stated conditions. It supports Carrier but does not create Artifact.Revision containment or a universal archive registry.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md",
+          "sha256": "cb58f4cef97a55839daf29f2b3ef14562e9d5cf413291d900ff31334402e9f8a",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "339c2ba39372826993b4c03617bd815d6b9d832f1afd6bd2b3936b8946d9f26a",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+          "sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+          "start_line": 24,
+          "end_line": 40,
+          "span_sha256": "bc28eb163874f0a9519793627af8bbd78ec1f60e518383e820dcdbbdb47eda82",
+          "reason": "Current global definition establishes Entity\u2013Carrier binding and distinguishes carrier identity from location/representation."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "The frozen candidate admits Carrier as a root."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "The frozen candidate separates Carrier identity from file location and presentation syntax."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier identity remains distinct from filename, basename, location, and display syntax.",
+        "The source's explicit bundle, Markdown, placement, cardinality, and archive conditions remain unchanged; no per-Property carrier registry is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md",
+      "source_atom_id": "CA-D-565",
+      "source_version": 1,
+      "source_sha256": "cb58f4cef97a55839daf29f2b3ef14562e9d5cf413291d900ff31334402e9f8a",
+      "field": "governs",
+      "index": null,
+      "old_value": "New Archived Revision Markdown Carrier Binding",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body defines a conditional binding operation, not a separately admitted Entity identity; its Carrier condition remains explicit.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-STANDARD--bind-new-archived-revision-markdown-carrier.md",
+          "sha256": "cb58f4cef97a55839daf29f2b3ef14562e9d5cf413291d900ff31334402e9f8a",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "339c2ba39372826993b4c03617bd815d6b9d832f1afd6bd2b3936b8946d9f26a",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'New Archived Revision Markdown Carrier Binding' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+      "source_atom_id": "CA-D-568",
+      "source_version": 5,
+      "source_sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Atom/Revision/Status: Draft",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body uses Draft lifecycle/status qualification, but no confirmed candidate owner and allowed-value domain supports mapping the status path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+          "sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d",
+          "start_line": 32,
+          "end_line": 52,
+          "span_sha256": "6dfcb8cff6983c0e3228868a04c26433cf2c055ad98b3a5dcf2dd841b81cac86",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Atom/Revision/Status: Draft' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+      "source_atom_id": "CA-D-568",
+      "source_version": 5,
+      "source_sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Atom/Revision/Version",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Version Number",
+      "confidence": 0.95,
+      "reason": "The current Draft continuity rule explicitly checks predecessor/current Version values as distinct revision-history information, supporting Atom.Version Number without changing Atom identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+          "sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d",
+          "start_line": 32,
+          "end_line": 52,
+          "span_sha256": "6dfcb8cff6983c0e3228868a04c26433cf2c055ad98b3a5dcf2dd841b81cac86",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md",
+          "sha256": "2c5e7af78d81a3e71def13ef7e24669fa0cf33a8a153b3410b8963934a396cb9",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "4ba17398494d0569c1abdab5969dcb8b94b7afe806e9be78358d007aaa9e7d01",
+          "reason": "Current global definition establishes one Version Number per Atom Revision while preserving Atom identity."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/compact_examples/4",
+          "reason": "The frozen candidate names Atom.Version Number as the version dependent entity."
+        },
+        {
+          "pointer": "/atom_versioning",
+          "reason": "The frozen candidate describes version as revision-history information, not identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Version remains revision-history data and does not change Atom identity.",
+        "Draft status and predecessor/current lineage conditions remain explicit."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+      "source_atom_id": "CA-D-568",
+      "source_version": 5,
+      "source_sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Atom/Revision/History",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body retains lineage/history evidence but does not establish a separately admitted history Entity or Revision containment target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+          "sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d",
+          "start_line": 32,
+          "end_line": 52,
+          "span_sha256": "6dfcb8cff6983c0e3228868a04c26433cf2c055ad98b3a5dcf2dd841b81cac86",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Atom/Revision/History' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+      "source_atom_id": "CA-D-568",
+      "source_version": 5,
+      "source_sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Revision/Status: Draft/Identity Continuity Evidence",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body defines Draft continuity evidence and exclusions, not a candidate Entity target; identity and status qualifications must remain intact.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-DELIVERY--bind-draft-identity-continuity-evidence.md",
+          "sha256": "64d2e60303d9dceeaee694263ebd888daf4bd217a794830896b1c5837517559d",
+          "start_line": 32,
+          "end_line": 52,
+          "span_sha256": "6dfcb8cff6983c0e3228868a04c26433cf2c055ad98b3a5dcf2dd841b81cac86",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Atom/Revision/Status: Draft/Identity Continuity Evidence' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md",
+      "source_atom_id": "CA-D-570",
+      "source_version": 4,
+      "source_sha256": "462ff2638fdba7050c83c27c9a8f974c1008c431cb46b4d8d81212d207ea1f37",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Atom/Revision/Status: Draft",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body uses Draft lifecycle/status qualification, but no confirmed candidate owner and allowed-value domain supports mapping the status path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md",
+          "sha256": "462ff2638fdba7050c83c27c9a8f974c1008c431cb46b4d8d81212d207ea1f37",
+          "start_line": 30,
+          "end_line": 48,
+          "span_sha256": "78519d16b77365a6f29393fb7ddf9ccca3f5a2fed2069e211a2fcb7b1d0c00f6",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Atom/Revision/Status: Draft' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md",
+      "source_atom_id": "CA-D-570",
+      "source_version": 4,
+      "source_sha256": "462ff2638fdba7050c83c27c9a8f974c1008c431cb46b4d8d81212d207ea1f37",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Atom/Revision/History",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body retains lineage/history evidence but does not establish a separately admitted history Entity or Revision containment target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md",
+          "sha256": "462ff2638fdba7050c83c27c9a8f974c1008c431cb46b4d8d81212d207ea1f37",
+          "start_line": 30,
+          "end_line": 48,
+          "span_sha256": "78519d16b77365a6f29393fb7ddf9ccca3f5a2fed2069e211a2fcb7b1d0c00f6",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Atom/Revision/History' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md",
+      "source_atom_id": "CA-D-570",
+      "source_version": 4,
+      "source_sha256": "462ff2638fdba7050c83c27c9a8f974c1008c431cb46b4d8d81212d207ea1f37",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Atom/Revision/Version",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Version Number",
+      "confidence": 0.95,
+      "reason": "The current Draft lineage rule explicitly serializes predecessor/current Version values as revision-history information, supporting Atom.Version Number without inventing a status or history entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md",
+          "sha256": "462ff2638fdba7050c83c27c9a8f974c1008c431cb46b4d8d81212d207ea1f37",
+          "start_line": 30,
+          "end_line": 48,
+          "span_sha256": "78519d16b77365a6f29393fb7ddf9ccca3f5a2fed2069e211a2fcb7b1d0c00f6",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-GENERAL--give-every-atom-revision-one-version.md",
+          "sha256": "2c5e7af78d81a3e71def13ef7e24669fa0cf33a8a153b3410b8963934a396cb9",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "4ba17398494d0569c1abdab5969dcb8b94b7afe806e9be78358d007aaa9e7d01",
+          "reason": "Current global definition establishes one Version Number per Atom Revision while preserving Atom identity."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/dependent_entities/compact_examples/4",
+          "reason": "The frozen candidate names Atom.Version Number as the version dependent entity."
+        },
+        {
+          "pointer": "/atom_versioning",
+          "reason": "The frozen candidate describes version as revision-history information, not identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Version remains revision-history data and does not change Atom identity.",
+        "Draft status and predecessor/current lineage conditions remain explicit."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md",
+      "source_atom_id": "CA-D-570",
+      "source_version": 4,
+      "source_sha256": "462ff2638fdba7050c83c27c9a8f974c1008c431cb46b4d8d81212d207ea1f37",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Revision/Status: Draft/Revision Lineage",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.25,
+      "reason": "The current body defines Draft revision-lineage serialization, not an admitted Entity identity; status/history qualifiers must remain intact.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DELIVERY--serialize-draft-revision-lineage.md",
+          "sha256": "462ff2638fdba7050c83c27c9a8f974c1008c431cb46b4d8d81212d207ea1f37",
+          "start_line": 30,
+          "end_line": 48,
+          "span_sha256": "78519d16b77365a6f29393fb7ddf9ccca3f5a2fed2069e211a2fcb7b1d0c00f6",
+          "reason": "Complete current owning Main Content, including Scope and Details where present, was read."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source's 'Atom/Revision/Status: Draft/Revision Lineage' qualification remains explicit in its current body.",
+        "No generic Carrier, Revision, property owner, allowed value, or syntax-derived Entity is guessed."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned": 29,
+    "covered": 29,
+    "owning_sources": 20,
+    "proposed": 7,
+    "unresolved": 22,
+    "owning_current_evidence_spans": 29,
+    "additional_current_definition_evidence_spans": 7
+  },
+  "limits": [
+    "Research only; no source migration, native admission, selector, @ operator, new root, singleton kind, Artifact.Revision containment, per-Property Carrier registry, or runtime action is authorized.",
+    "Current snapshot Properties remain distinct from Revision/history; Carrier IDs remain distinct from filenames, basenames, and paths.",
+    "Git content/history and Journal records are not promoted to an Event or Revision target without explicit current identity evidence.",
+    "Universal D carrier policy is not converted into a per-property Carrier registry.",
+    "Every unresolved row remains a null target with current owning-source evidence."
+  ]
+}

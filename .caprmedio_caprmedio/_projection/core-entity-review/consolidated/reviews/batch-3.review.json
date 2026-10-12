@@ -1,0 +1,2387 @@
+{
+  "schema_version": 1,
+  "batch": 3,
+  "kind": "Captured nodes against Operator candidate",
+  "non_authoritative": true,
+  "native_admission": "not_performed",
+  "source_migration": "not_performed",
+  "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "candidate_sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+  "input_sha256": "dd32659d557158390a52c869c87afbc5c28757f7bcb73a0c5f39a2d2d4c4dc3a",
+  "baseline_sha256": "bc5d99e91fb7dd4dcb42e59ff33cc24cff1d0901c5904764394c769aaa0a9430",
+  "prior_review_sha256": "1b9d751f95aa71486908b53b3d7f3f9825defae137be3d8792d45177587c48f8",
+  "review_method": "Compared each assigned identity with its accepted prior reviewed meaning, then checked the pertinent captured-snapshot Main Content evidence and exact quote spans through nodes/support/snapshot_sources.py. Applied only the latest Operator-authored candidate rules; no fresh exhaustive audit of all 951 source pins, no Core read, native admission or source migration was performed.",
+  "nodes": [
+    {
+      "identity": "Atom/Property/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Atom Property storage)",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Captured Delivery authority gives Atom/Property/Carrier a qualified canonical-internal-location and sole-value-source constraint; retain without treating frontmatter, a Main Content section, or a Carrier as a replacement identity or native fact. Latest candidate comparison: Keep the qualified property-location obligation under general Carrier delivery policy; do not create a per-property Carrier edge or D Atom.",
+      "operator_rules": [
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_identity_model.carrier_identity",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1939::e1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-478"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Carrier identity remains distinct from filename/path, carried Entity and binding metadata; no per-Property Carrier edge or D Atom is introduced."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Relation Owner",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Relation Owner",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement. Latest candidate comparison: Treat this as a named dependent Entity of Artifact/Atom with the shared Artifact lifecycle; the display path does not admit a native edge.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1939::e2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-268"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Scope/Filename Token",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Reference Token",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement. Latest candidate comparison: Keep the serialized Scope Unit token as a delivery convention; it does not replace the stable Scope Unit ID or make name/path the identity.",
+      "operator_rules": [
+        "root_entities[1]",
+        "entity_identity_model.scope_unit",
+        "carrier_delivery_model",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1939::e3"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-302"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Carrier identity remains distinct from filename/path, carried Entity and binding metadata; no per-Property Carrier edge or D Atom is introduced."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Status",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review found only another target's definition, a representation rule, or no target meaning; this is not evidence to drop, consolidate, or generalize. Latest candidate comparison: The latest candidate supplies a broad boundary but the assigned captured sources do not establish this exact identity's meaning; keep it unresolved.",
+      "operator_rules": [
+        "atom_versioning",
+        "atom_lookup",
+        "history_model"
+      ],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-E-447",
+        "CA-E-460",
+        "CA-M-273",
+        "CA-M-288",
+        "CAPRMEDIO-GOV-EVAL-005"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "No absence of checked meaning is treated as emptiness or permission to drop the identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured-snapshot Main Content statement defines or supplies a meaningful constraint for Atom/Status? This is a captured-evidence gap, not a new Operator design question; keep the mapping unresolved until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "Atom/Subjects",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Subjects",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement. Latest candidate comparison: Treat this as a named dependent Entity of Artifact/Atom with the shared Artifact lifecycle; the display path does not admit a native edge.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1939::e4"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-269",
+        "CA-D-471",
+        "CA-E-240",
+        "CA-E-246",
+        "CA-E-449",
+        "CA-E-499",
+        "CA-E-511",
+        "CA-E-520",
+        "CA-M-125",
+        "CA-M-225",
+        "CA-M-232",
+        "CA-M-313",
+        "CA-R-1198",
+        "CA-R-1201",
+        "CA-R-1202",
+        "CA-R-1276",
+        "CA-R-1278",
+        "CA-R-1280",
+        "CA-R-1281",
+        "CA-R-1363",
+        "CA-R-1455",
+        "CA-R-1456",
+        "CA-R-1459",
+        "CA-R-1550",
+        "CA-R-1597"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Subjects/Frontmatter",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Delivery Policy (Subjects frontmatter)",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement. Latest candidate comparison: Keep frontmatter placement as a general representation policy, distinct from the Subject identity and without a per-Property Carrier edge.",
+      "operator_rules": [
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_identity_model.carrier_identity",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1939::e5"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-269"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Carrier identity remains distinct from filename/path, carried Entity and binding metadata; no per-Property Carrier edge or D Atom is introduced."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Summary",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Summary",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement. Latest candidate comparison: Treat this as a named dependent Entity of Artifact/Atom with the shared Artifact lifecycle; the display path does not admit a native edge.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1939::e6"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-282",
+        "CA-D-283",
+        "CA-D-469",
+        "CA-D-470",
+        "CA-D-478",
+        "CA-D-479",
+        "CA-D-480",
+        "CA-E-241",
+        "CA-E-246",
+        "CA-E-384",
+        "CA-E-463",
+        "CA-E-472",
+        "CA-E-491",
+        "CA-E-502",
+        "CA-E-506",
+        "CA-E-520",
+        "CA-E-521",
+        "CA-M-111",
+        "CA-M-116",
+        "CA-M-125",
+        "CA-M-231",
+        "CA-M-294",
+        "CA-M-303",
+        "CA-M-306",
+        "CA-O-053",
+        "CA-O-067",
+        "CA-O-077",
+        "CA-O-079",
+        "CA-O-087",
+        "CA-O-090",
+        "CA-O-103",
+        "CA-O-111",
+        "CA-O-128",
+        "CA-R-1273",
+        "CA-R-1274",
+        "CA-R-1280",
+        "CA-R-1418",
+        "CA-R-1432",
+        "CA-R-1464",
+        "CA-R-1465",
+        "CA-R-1575"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Atom/Type",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review found only another target's definition, a representation rule, or no target meaning; this is not evidence to drop, consolidate, or generalize. Latest candidate comparison: The latest candidate supplies a broad boundary but the assigned captured sources do not establish this exact identity's meaning; keep it unresolved.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-D-483"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "No absence of checked meaning is treated as emptiness or permission to drop the identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured-snapshot Main Content statement defines or supplies a meaningful constraint for Atom/Type? This is a captured-evidence gap, not a new Operator design question; keep the mapping unresolved until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "Author",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Actor",
+      "candidate_path": "Actor.Author",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured Methods give Author bounded authorship obligations: make an Atom Claim understandable without unstated connections and exclude activity labels from Content Role names; retain without inferring Actor identity or a native relation. Latest candidate comparison: Keep authorship obligations distinct from a generic Actor identity and from a native relation admission.",
+      "operator_rules": [
+        "root_entities[2]",
+        "entity_identity_model.actor"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1939::e7",
+        "CA-P-1931/batch-3/CA-P-1939::e8"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-472",
+        "CA-M-113",
+        "CA-M-115",
+        "CA-M-125",
+        "CA-M-229",
+        "CA-M-237",
+        "CA-M-287",
+        "CA-M-288",
+        "CA-M-294",
+        "CA-M-301",
+        "CA-M-303",
+        "CA-O-103"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Authority",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot review found only another target's definition, a representation rule, or no target meaning; this is not evidence to drop, consolidate, or generalize. Latest candidate comparison: The latest candidate supplies a broad boundary but the assigned captured sources do not establish this exact identity's meaning; keep it unresolved.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-971"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "No absence of checked meaning is treated as emptiness or permission to drop the identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured-snapshot Main Content statement defines or supplies a meaningful constraint for Authority? This is a captured-evidence gap, not a new Operator design question; keep the mapping unresolved until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "Authority Mode",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Authority Mode",
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement. Latest candidate comparison: Keep the qualified decision/threshold field as a named dependent Entity under the owning Artifact lifecycle.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1939::e9"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-374",
+        "CA-D-391",
+        "CA-R-1430",
+        "CA-R-1655",
+        "CAPRMEDIO-GOV-EVAL-002"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Authorize Structural Change",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Authorize Structural Change",
+      "content_view": "M",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement. Latest candidate comparison: Keep the reusable method/policy definition separate from any actual Execution; no automatic repeatability rule is inferred.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1939::e10"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-013",
+        "CA-O-015"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Autonomous Confidence Threshold",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Autonomous Confidence Threshold",
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content supplies an exact definition or meaningful constraint for this identity; retain without inferring a native relation or replacement. Latest candidate comparison: Keep the qualified decision/threshold field as a named dependent Entity under the owning Artifact lifecycle.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1939::e11"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-472",
+        "CA-D-485",
+        "CA-E-443",
+        "CA-E-471",
+        "CA-E-477",
+        "CA-E-501",
+        "CA-E-519",
+        "CA-M-272",
+        "CA-M-306",
+        "CA-O-006",
+        "CA-O-010",
+        "CA-O-013",
+        "CA-O-024",
+        "CA-O-028",
+        "CA-O-090",
+        "CA-O-111",
+        "CA-R-1044",
+        "CA-R-1045",
+        "CA-R-1551",
+        "CA-R-1561",
+        "CA-R-1587",
+        "CA-R-1591"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "BEARS",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/BEARS",
+      "content_view": "P",
+      "confidence_percent": 95,
+      "reason": "Retain BEARS: captured CA-R-1243 defines BEARS as the derived inverse view of IS_BORNE_BY in the Entities Graph and forbids another primitive relation kind. No replacement, reduction, or native admission is proposed. Latest candidate comparison: Preserve the typed Relation meaning and endpoint direction; BEARS remains a derived inverse view and CARRIES remains distinct from Carrier and binding metadata.",
+      "operator_rules": [
+        "root_entities[3]",
+        "graph_model",
+        "relation_type_model",
+        "projection_member_model",
+        "applicable_methodology",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e001"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-449",
+        "CA-R-1243",
+        "CA-R-1456"
+      ],
+      "preserved_distinctions": [
+        "preserve the derived inverse direction and Entities Graph ownership separately from the primitive IS_BORNE_BY relation",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Derived view membership and source authority remain distinct; source IDs, versions and provenance are not rewritten here."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Build Entities Graph",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Build Entities Graph",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Retain Build Entities Graph: captured CA-O-133 defines Build Entities Graph as a reusable one-node Workflow with explicit terminal outcomes and recording conditions. No replacement, reduction, or native admission is proposed. Latest candidate comparison: Preserve the reusable Operation/Workflow or Step definition separately from its actual Execution, Projection result and Journal record.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e002"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-133"
+      ],
+      "preserved_distinctions": [
+        "preserve the reusable Workflow identity separately from its Action, Step, particular Run, Projection result, and Journal record",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Build Terms Graph",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Build Terms Graph",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Retain Build Terms Graph: captured CA-O-136 defines Build Terms Graph as a reusable one-node Workflow with explicit terminal outcomes and recording conditions. No replacement, reduction, or native admission is proposed. Latest candidate comparison: Preserve the reusable Operation/Workflow or Step definition separately from its actual Execution, Projection result and Journal record.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e003"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-136"
+      ],
+      "preserved_distinctions": [
+        "preserve the Terms Workflow separately from its Action, Step, particular Run, Projection result, and Journal record",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Expansion",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Expansion: captured CA-R-1736 defines the canonical CAPRMEDIO expansion and its ordered Concern-through-Operations role set. No replacement, reduction, or native admission is proposed. Latest candidate comparison: Preserve the ordered role expansion as Substance heading context rather than a new subtype or root.",
+      "operator_rules": [
+        "entity_vs_syntax_rules",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e004"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1736"
+      ],
+      "preserved_distinctions": [
+        "preserve the canonical role expansion and order separately from an individual role Atom or a newly inferred subtype",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Heading/grouping/alias context does not create an Entity or native Relation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Framework Identity",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact.Framework Identity",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Framework Identity: captured CA-R-1778 requires the Framework name to be CAPRMEDIO. No replacement, reduction, or native admission is proposed. Latest candidate comparison: Retain the Framework naming constraint as an Artifact-level identity property, separate from its instance and carrier.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e005"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1778"
+      ],
+      "preserved_distinctions": [
+        "preserve the Framework naming identity separately from a Project Framework Instance, carrier path, or editable configuration field",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Framework Instance",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Framework Instance: captured CA-R-850 gives the CAPRMEDIO Framework Instance a specific non-Actor boundary. No replacement, reduction, or native admission is proposed. Latest candidate comparison: The candidate's governed lifecycle unit is Artifact; retain the Framework Instance boundary without treating Actor participation or a carrier as the instance itself.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e006"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-317",
+        "CA-E-207",
+        "CA-E-520",
+        "CA-O-022",
+        "CA-R-1422",
+        "CA-R-1487",
+        "CA-R-1772",
+        "CA-R-1773",
+        "CA-R-1776",
+        "CA-R-1777",
+        "CA-R-850"
+      ],
+      "preserved_distinctions": [
+        "preserve the Framework Instance boundary separately from Actor participation and from the Project carrier that houses it",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Framework Instance/Carrier Root",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Framework Instance Root",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Framework Instance/Carrier Root: captured CA-D-317 requires each Project-serving Framework Instance to reside under that Project's framework Carrier root. No replacement, reduction, or native admission is proposed. Latest candidate comparison: Retain the placement constraint as a general Carrier delivery policy, separate from Framework Instance identity.",
+      "operator_rules": [
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_identity_model.carrier_identity",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e007"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-317"
+      ],
+      "preserved_distinctions": [
+        "preserve the Carrier-root placement constraint separately from the Framework Instance identity and its governed Methodology/Tool content",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Carrier identity remains distinct from filename/path, carried Entity and binding metadata; no per-Property Carrier edge or D Atom is introduced."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Graph",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Projection.CAPRMEDIO Graph",
+      "content_view": "P",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Graph: captured CA-R-1471 and CA-E-466 define secondary CAPRMEDIO Graphs as traceable derived Projections that retain source authority. No replacement, reduction, or native admission is proposed. Latest candidate comparison: Keep the graph as a derived, source-traceable view; connectivity preserves endpoint, direction and source identity without becoming a new native relation kind.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "projection_member_model",
+        "applicable_methodology",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e008",
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e009"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-382",
+        "CA-E-466",
+        "CA-M-120",
+        "CA-R-1246",
+        "CA-R-1248",
+        "CA-R-1281",
+        "CA-R-1335",
+        "CA-R-1406",
+        "CA-R-1408",
+        "CA-R-1409",
+        "CA-R-1410",
+        "CA-R-1437",
+        "CA-R-1438",
+        "CA-R-1471",
+        "CA-R-1472",
+        "CA-R-806",
+        "CAPRMEDIO-GOV-EVAL-005"
+      ],
+      "preserved_distinctions": [
+        "preserve the derived graph Projection boundary separately from authoritative source facts and independent graph authority",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Derived view membership and source authority remain distinct; source IDs, versions and provenance are not rewritten here."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Graph/Connectivity",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation.Graph Connectivity",
+      "content_view": "P",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Graph/Connectivity: captured CA-R-1410 and CA-R-1472 define graph connectivity through shared or referenced sources with graph-qualified endpoint and direction rules. No replacement, reduction, or native admission is proposed. Latest candidate comparison: Keep the graph as a derived, source-traceable view; connectivity preserves endpoint, direction and source identity without becoming a new native relation kind.",
+      "operator_rules": [
+        "root_entities[3]",
+        "graph_model",
+        "relation_type_model",
+        "projection_member_model",
+        "applicable_methodology",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e010",
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e011"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1410",
+        "CA-R-1472"
+      ],
+      "preserved_distinctions": [
+        "preserve graph connectivity endpoints, direction, and source identity separately from a copied native node or foreign relation kind",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Derived view membership and source authority remain distinct; source IDs, versions and provenance are not rewritten here."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Metamodel",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Metamodel",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured CA-R-917 directly constrains the named CAPRMEDIO Metamodel to apply the same Scope Unit governance pattern recursively at every Structural level. Retain the existing parent identity on that bounded meaning; do not turn its Fractality qualification into an independent universal parent definition or native taxonomy fact. Latest candidate comparison: Preserve recursive Scope Unit governance without promoting a display qualification into a new root or universal subtype.",
+      "operator_rules": [
+        "root_entities[1]",
+        "entity_identity_model.scope_unit"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1956::metamodel-recursive-governance"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-917"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CAPRMEDIO Metamodel/Fractality",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Metamodel.Fractality",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Retain CAPRMEDIO Metamodel/Fractality: captured CA-R-917 requires the CAPRMEDIO Metamodel to apply the same Scope Unit governance recursively at every Structural level. No replacement, reduction, or native admission is proposed. Latest candidate comparison: Preserve recursive Scope Unit governance without promoting a display qualification into a new root or universal subtype.",
+      "operator_rules": [
+        "root_entities[1]",
+        "entity_identity_model.scope_unit"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e012"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-917"
+      ],
+      "preserved_distinctions": [
+        "preserve recursive fractality separately from one concrete Scope Unit, graph instance, or structural-level carrier",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CARRIES",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/CARRIES",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Retain CARRIES: captured CA-D-256 defines CARRIES as the directed Carrier-to-non-ephemeral-Entity binding and identifies an exact carried Revision when applicable. No replacement, reduction, or native admission is proposed. Latest candidate comparison: Preserve the typed Relation meaning and endpoint direction; BEARS remains a derived inverse view and CARRIES remains distinct from Carrier and binding metadata.",
+      "operator_rules": [
+        "root_entities[3]",
+        "graph_model",
+        "relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1940::CA-P-1940-e013"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-256",
+        "CA-D-257"
+      ],
+      "preserved_distinctions": [
+        "preserve the Carrier-to-Entity direction and exact carried-Revision binding separately from the Carrier, Entity, and binding metadata",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE",
+      "content_view": "M",
+      "confidence_percent": 94,
+      "reason": "CA-M-113 makes the identified CCE version's controlled-English subset an authoring constraint for one Claim; CCE therefore has a meaningful shared language boundary in the captured snapshot. Latest candidate comparison: Retain the CCE authoring language/profile boundary as a reusable Method definition under the role-specific Substance headings.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-113-42"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-113"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE Claim and Projection Validation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE Claim and Projection Validation",
+      "content_view": "E",
+      "confidence_percent": 97,
+      "reason": "CA-E-241 directly requires one precise CCE Claim and source-faithful Summary for active or draft Atoms, and preservation of requested Projection meaning. Latest candidate comparison: Retain the CCE validation/evaluation boundary as an Execution-capable method definition, not as a new root.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-E-241-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-241"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE Condition Expression",
+      "prior_disposition": "retain",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 91,
+      "reason": "CA-M-122 gives one CCE condition expression a concrete semantic role: a Resolver evaluates its nested functions, governed properties, values, and logical functions under stated rules. Latest candidate comparison: No candidate owner is inferred from a generic label; keep this identity unresolved until an explicit candidate owner is established.",
+      "operator_rules": [],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-122-29"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-122"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": {
+        "kind": "technical_followup",
+        "text": "The latest candidate does not give CCE Condition Expression an explicit owner; choose a bounded display owner only after semantic review, and do not infer one from the label."
+      }
+    },
+    {
+      "identity": "CCE Condition Expression Evaluation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE Condition Expression Evaluation",
+      "content_view": "E",
+      "confidence_percent": 96,
+      "reason": "CA-M-122 directly defines the Resolver's required evaluation procedure for one CCE condition expression, including the permitted logical functions and their truth behavior. Latest candidate comparison: Retain the CCE validation/evaluation boundary as an Execution-capable method definition, not as a new root.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-122-29"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-122"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE Method",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE Method",
+      "content_view": "M",
+      "confidence_percent": 90,
+      "reason": "CA-M-230 assigns CCE Methods the distinct function of assigning a syntactic or logical function to a registered canonical CCE Operator. Latest candidate comparison: Retain the CCE authoring language/profile boundary as a reusable Method definition under the role-specific Substance headings.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-230-26"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-230"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE Operator",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE Operator",
+      "content_view": "M",
+      "confidence_percent": 98,
+      "reason": "CA-M-230 directly defines CCE Operator as a canonical lowercase word-form token or sequence, or canonical symbolic token, to which one active CCE Method assigns one syntactic or logical function. Latest candidate comparison: Retain the CCE authoring language/profile boundary as a reusable Method definition under the role-specific Substance headings.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-230-26"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-230"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE Operator Expression",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE Operator Expression",
+      "content_view": "M",
+      "confidence_percent": 92,
+      "reason": "CA-M-236 gives a noncanonical CCE Operator Expression a meaningful normalization boundary: it is the expression to which all applicable canonical rewrites are applied. Latest candidate comparison: Retain the CCE authoring language/profile boundary as a reusable Method definition under the role-specific Substance headings.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-236-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-236"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE Operator Expression Normalization",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE Operator Expression Normalization",
+      "content_view": "M",
+      "confidence_percent": 96,
+      "reason": "CA-M-236 directly requires all applicable rewrites from named noncanonical forms to canonical CCE Operator forms. Latest candidate comparison: Retain the CCE authoring language/profile boundary as a reusable Method definition under the role-specific Substance headings.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-236-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-236"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE Operator Registry",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE Operator Registry",
+      "content_view": "M",
+      "confidence_percent": 98,
+      "reason": "CA-M-234 directly requires the current canonical CCE Operator Registry to contain a typed expandable set and states the admission condition for another token. Latest candidate comparison: Retain the CCE authoring language/profile boundary as a reusable Method definition under the role-specific Substance headings.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-234-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-234"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE/Role Profile",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE.Role Profile",
+      "content_view": "M",
+      "confidence_percent": 98,
+      "reason": "CA-M-307 directly defines a CCE Role Profile as a restriction of shared CCE covering permitted primary contribution, operator uses, subordinate slots, and prohibited contributions for a Content Role, narrower Type, or content slot. Latest candidate comparison: Retain the CCE authoring language/profile boundary as a reusable Method definition under the role-specific Substance headings.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-307-37"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-307"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE/Role Profile/resolution",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE.Role Profile.resolution",
+      "content_view": "E",
+      "confidence_percent": 98,
+      "reason": "CA-M-308 directly specifies how to select the effective profile by Content Role, then apply narrower Type and content-slot restrictions, and report unresolved selection without conformance. Latest candidate comparison: Retain the CCE validation/evaluation boundary as an Execution-capable method definition, not as a new root.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-308-38"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-308"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE/Role Profile/validation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE.Role Profile.validation",
+      "content_view": "E",
+      "confidence_percent": 98,
+      "reason": "CA-M-315 directly requires a Validator to resolve the effective profile, identify Claim contribution and slots, check admitted boundaries and operator scope, and report unresolved classification without conformance. Latest candidate comparison: Retain the CCE validation/evaluation boundary as an Execution-capable method definition, not as a new root.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-315-37"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-315"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE/Role Profile: Delivery",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE.Role Profile: Delivery",
+      "content_view": "M",
+      "confidence_percent": 95,
+      "reason": "CA-M-313 gives the Delivery CCE Role Profile a distinct primary-contribution boundary: a Carrier contribution naming the governed Carrier or Entity/Carrier binding and its relevant definition, classification, or constraint. Latest candidate comparison: Retain the CCE authoring language/profile boundary as a reusable Method definition under the role-specific Substance headings.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-313-36"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-313"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE/Role Profile: Evaluation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE.Role Profile: Evaluation",
+      "content_view": "E",
+      "confidence_percent": 96,
+      "reason": "CA-M-312 gives the Evaluation CCE Role Profile a distinct primary-contribution boundary: a falsifiable check, acceptance criterion, or disposition rule against identified authority and Scope. Latest candidate comparison: Retain the CCE validation/evaluation boundary as an Execution-capable method definition, not as a new root.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-312-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-312"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE/Role Profile: Method",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE.Role Profile: Method",
+      "content_view": "M",
+      "confidence_percent": 96,
+      "reason": "CA-M-311 gives the Method CCE Role Profile a distinct primary-contribution boundary: a reusable authorship, construction, or Implementation choice or convention for satisfying accepted Spec authority. Latest candidate comparison: Retain the CCE authoring language/profile boundary as a reusable Method definition under the role-specific Substance headings.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-311-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-311"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE/Role Profile: Operations",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.CCE.Role Profile: Operations",
+      "content_view": "O",
+      "confidence_percent": 97,
+      "reason": "CA-M-314 gives the Operations CCE Role Profile a distinct primary-contribution boundary: one selected Action, Workflow, Step, or Actor primary Type profile with its corresponding operational contribution. Latest candidate comparison: Keep the Operations role profile distinct from an actual Operation Execution and from the shared Substance umbrella.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-314-41"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-314"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE/Role Profile: Plan",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE.Role Profile: Plan",
+      "content_view": "M",
+      "confidence_percent": 96,
+      "reason": "CA-M-309 gives the Plan CCE Role Profile a distinct primary-contribution boundary: intended work or outcome, its boundary, and a subordinate falsifying Definition of Done. Latest candidate comparison: Retain the CCE authoring language/profile boundary as a reusable Method definition under the role-specific Substance headings.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-309-36"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-309"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CCE/Role Profile: Requirement",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.CCE.Role Profile: Requirement",
+      "content_view": "M",
+      "confidence_percent": 96,
+      "reason": "CA-M-310 gives the Requirement CCE Role Profile a distinct primary-contribution boundary: a required Entity model or required result, with properties and observable boundaries. Latest candidate comparison: Retain the CCE authoring language/profile boundary as a reusable Method definition under the role-specific Substance headings.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1941::E-CA-M-310-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-310"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "CORE_META_MODEL",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 80,
+      "reason": "The captured Main Claim only requires a CORE_META_MODEL definition or storage rule while defining Project Settings validation; it does not define this identity. Latest candidate comparison: The latest candidate supplies a broad boundary but the assigned captured sources do not establish this exact identity's meaning; keep it unresolved.",
+      "operator_rules": [],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E01"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-459"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "No absence of checked meaning is treated as emptiness or permission to drop the identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Claim defines CORE_META_MODEL itself, rather than merely requiring a CORE_META_MODEL definition or storage rule for Project Settings? This is a captured-evidence gap, not a new Operator design question; keep the mapping unresolved until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "Canonical Scope Signature Derivation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Canonical Scope Signature Derivation",
+      "content_view": "M",
+      "confidence_percent": 99,
+      "reason": "A captured Method gives a bounded Tool derivation from one caller-selected Atom Carrier folder and expressly excludes source rewrite or authority change. Latest candidate comparison: Keep the reusable method/policy definition separate from any actual Execution; no automatic repeatability rule is inferred.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E02"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-241"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Canonical Scope Signature Derivation Validation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Canonical Scope Signature Derivation Validation",
+      "content_view": "E",
+      "confidence_percent": 99,
+      "reason": "A captured Evaluation rejects source rewrite, authority treatment, unsupported selectors/operators, and non-canonical operand handling for scope signatures. Latest candidate comparison: Keep the bounded checking/evaluation definition distinct from any actual Execution and preserve its qualified rejection constraints.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E03"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-407"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Canonical Signature Derivation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Canonical Signature Derivation",
+      "content_view": "M",
+      "confidence_percent": 99,
+      "reason": "A captured Method defines restricted Boolean-expression signature derivation without source Carrier rewrite, lifecycle change, Claim merge, or authority decision. Latest candidate comparison: Keep the reusable method/policy definition separate from any actual Execution; no automatic repeatability rule is inferred.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E04"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-240"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Canonical Signature Derivation Validation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Canonical Signature Derivation Validation",
+      "content_view": "E",
+      "confidence_percent": 99,
+      "reason": "A captured Evaluation defines the rejection boundary for restricted CCE canonical signatures. Latest candidate comparison: Keep the bounded checking/evaluation definition distinct from any actual Execution and preserve its qualified rejection constraints.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E05"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-405"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Cardinality Constraint",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.Cardinality Constraint",
+      "content_view": "R",
+      "confidence_percent": 96,
+      "reason": "The captured Method gives a concrete numeric Cardinality Constraint syntax: a canonical comparison operator followed immediately by a nonnegative integer literal before the counted target. Latest candidate comparison: Keep the qualified Claim/property constraint under the shared Artifact/Atom lifecycle, including its exact cardinality or allowed-value domain.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E06"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-235"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Cardinality Constraint Authoring",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Cardinality Constraint Authoring",
+      "content_view": "M",
+      "confidence_percent": 99,
+      "reason": "The same captured Method directly defines authoring of one numeric Cardinality Constraint. Latest candidate comparison: Keep the reusable method/policy definition separate from any actual Execution; no automatic repeatability rule is inferred.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E06"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-235"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Carrier",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 99,
+      "reason": "Captured Core classifies Carrier as a Primary Entity and gives Carrier-specific placement, representation, storage, symlink, and Journal-view rules; no carried Entity or binding metadata is substituted for the Carrier identity. Latest candidate comparison: Retain Carrier as a separate root Entity; its filename and path remain storage locations, not identity.",
+      "operator_rules": [
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_identity_model.carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E07",
+        "CA-P-1931/batch-3/CA-P-1942::E08",
+        "CA-P-1931/batch-3/CA-P-1942::E09",
+        "CA-P-1931/batch-3/CA-P-1942::E10",
+        "CA-P-1931/batch-3/CA-P-1942::E11",
+        "CA-P-1931/batch-3/CA-P-1942::E12"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-312",
+        "CA-D-394",
+        "CA-D-414",
+        "CA-D-434",
+        "CA-E-522",
+        "CA-E-523"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Carrier-Only Recoding",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Only Recoding",
+      "content_view": "D",
+      "confidence_percent": 99,
+      "reason": "Captured Delivery authority requires recoding to preserve identity, Claim, scopes, and authored direct semantic relations without semantic change. Latest candidate comparison: Keep the qualified Carrier representation/storage rule under general D policy; do not treat filename or path as Carrier identity or create a per-Property edge.",
+      "operator_rules": [
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_identity_model.carrier_identity",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E13"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-304"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Carrier identity remains distinct from filename/path, carried Entity and binding metadata; no per-Property Carrier edge or D Atom is introduced."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Carrier/Canonical Address",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Canonical Address",
+      "content_view": "D",
+      "confidence_percent": 97,
+      "reason": "Captured qualified prose defines a canonical Carrier address encoding as the sole Carrier encoding when it completely and unambiguously derives non-Atom Artifact Properties; this is binding/encoding metadata, not another Carrier. Latest candidate comparison: Keep the qualified Carrier representation/storage rule under general D policy; do not treat filename or path as Carrier identity or create a per-Property edge.",
+      "operator_rules": [
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_identity_model.carrier_identity",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E14"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-267"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Carrier identity remains distinct from filename/path, carried Entity and binding metadata; no per-Property Carrier edge or D Atom is introduced."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Carrier/Canonical Address/Segment",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Canonical Address.Segment",
+      "content_view": "D",
+      "confidence_percent": 99,
+      "reason": "Captured Delivery authority specifies portable-safe, sibling-unique Project-owned Carrier address segment rules. Latest candidate comparison: Keep the qualified Carrier representation/storage rule under general D policy; do not treat filename or path as Carrier identity or create a per-Property edge.",
+      "operator_rules": [
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_identity_model.carrier_identity",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E15"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-301"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Carrier identity remains distinct from filename/path, carried Entity and binding metadata; no per-Property Carrier edge or D Atom is introduced."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Carrier/Format",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Format",
+      "content_view": "D",
+      "confidence_percent": 98,
+      "reason": "Captured Core gives Carrier Format a specific identity-separation constraint: a format or file-extension change alone cannot establish or change Entity identity. Latest candidate comparison: Keep the qualified Carrier representation/storage rule under general D policy; do not treat filename or path as Carrier identity or create a per-Property edge.",
+      "operator_rules": [
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_identity_model.carrier_identity",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E16"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-507"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Carrier identity remains distinct from filename/path, carried Entity and binding metadata; no per-Property Carrier edge or D Atom is introduced."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Carrier/Ownership Class",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Ownership Class",
+      "content_view": "D",
+      "confidence_percent": 99,
+      "reason": "Captured Core requires exactly one Ownership Class for every internal CAPRMEDIO Carrier from a stated three-value domain. Latest candidate comparison: Keep the qualified Carrier representation/storage rule under general D policy; do not treat filename or path as Carrier identity or create a per-Property edge.",
+      "operator_rules": [
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_identity_model.carrier_identity",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E17"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-316"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Carrier identity remains distinct from filename/path, carried Entity and binding metadata; no per-Property Carrier edge or D Atom is introduced."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Carrier/Representation",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Representation",
+      "content_view": "D",
+      "confidence_percent": 99,
+      "reason": "Captured Core requires a governed Carrier to represent its carried Artifact Revision deterministically and human-readably without authoritative-content change; a scope_path is a separately constrained Carrier encoding. Latest candidate comparison: Keep the qualified Carrier representation/storage rule under general D policy; do not treat filename or path as Carrier identity or create a per-Property edge.",
+      "operator_rules": [
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_identity_model.carrier_identity",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E18",
+        "CA-P-1931/batch-3/CA-P-1942::E19"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-311",
+        "CA-D-395"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Carrier identity remains distinct from filename/path, carried Entity and binding metadata; no per-Property Carrier edge or D Atom is introduced."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Carrier/Storage Boundary",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier.Storage Boundary",
+      "content_view": "D",
+      "confidence_percent": 99,
+      "reason": "Captured Core requires persistent Framework-Owned and Project-Owned Carriers outside Runtime State to protect canonical authority and Journal history. Latest candidate comparison: Keep the qualified Carrier representation/storage rule under general D policy; do not treat filename or path as Carrier identity or create a per-Property edge.",
+      "operator_rules": [
+        "root_entities[5]",
+        "carrier_delivery_model",
+        "entity_identity_model.carrier_identity",
+        "entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1942::E20"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-341"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Carrier identity remains distinct from filename/path, carried Entity and binding metadata; no per-Property Carrier edge or D Atom is introduced."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Change Content Roles",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "R1549 defines CAPO as Concern, Analysis, Plan and Operations for identifying, investigating, organizing and performing governed work. Latest candidate comparison: Treat CAPO as role-grouping context for Substance headings, not as another Entity or lifecycle root.",
+      "operator_rules": [
+        "entity_vs_syntax_rules",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1943::CA-R-1549@4:33-33:131b44fa6486254964fcf2b1f77d1ed8427667b4fedd0841c9de8e86df01d6df"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1549"
+      ],
+      "preserved_distinctions": [
+        "The four-role change grouping is distinct from one Content Role value or an actual change execution.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Heading/grouping/alias context does not create an Entity or native Relation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Check Atoms",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Check Atoms",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "O087 defines a read-only programmatic Action that selects and mechanically checks Atoms, returns validity/coverage findings and never repairs sources. Latest candidate comparison: Preserve the reusable Operation/Workflow or Step definition separately from its actual Execution, Projection result and Journal record.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1943::CA-O-087@5:56-95:aa6de8aede337069c67a04956ed7e43b30cf9c07c0bf291ccec8db2a84b3bcb9"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-087"
+      ],
+      "preserved_distinctions": [
+        "Mechanical conformance assessment is explicitly distinct from semantic consistency review and mutation permission.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Check Atoms Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Check Atoms Step",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "O088 defines the Workflow node invoking exactly one O087 Action with bound inventory, selector, methodology, reference context and limits. Latest candidate comparison: Preserve the reusable Operation/Workflow or Step definition separately from its actual Execution, Projection result and Journal record.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1943::CA-O-088@3:30-33:ac1e1918892791dd8615c7c36218f85a0d30b6be8291849d664174746815d3cb"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-088"
+      ],
+      "preserved_distinctions": [
+        "The Step is an invocation node, not the Action definition, a Step Run or the check result.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Child Composition",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.Child Composition",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "R960 defines direct-child composition as none, LAYERS, FEATURES or MIXED. Latest candidate comparison: Keep the qualified Claim/property constraint under the shared Artifact/Atom lifecycle, including its exact cardinality or allowed-value domain.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1943::CA-R-960@14:30-30:84189dcf5683ceb46e40b942321bdc375da3bee06c073d57fa0250e685c90a17"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-960"
+      ],
+      "preserved_distinctions": [
+        "This classification concerns direct children, not recursive descendants or physical folder contents.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Claim Value Set",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.Claim Value Set",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "R1359 defines X: (A, B, C) as one finite unordered allowed-value set for exactly one Property, governed and retired together as one Claim. Latest candidate comparison: Keep the qualified Claim/property constraint under the shared Artifact/Atom lifecycle, including its exact cardinality or allowed-value domain.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1943::CA-R-1359@9:32-32:371752b8fc04696bf9b3c524ce1cb9099dc4bf9798de6a05d1e7c99f9a4ab2e2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1359"
+      ],
+      "preserved_distinctions": [
+        "The whole allowed-value set has one authority/lifecycle and no authoritative value order.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "The finite unordered allowed-value domain remains tied to one Property and governed as one qualified set."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Claim Value Set Authoring",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.Value Set Authoring",
+      "content_view": "M",
+      "confidence_percent": 95,
+      "reason": "M237 supplies the authoring procedure for a single-Property finite unordered unique value set with joint lifecycle and context-specific colon interpretation. Latest candidate comparison: Preserve one-Property finite allowed-value authoring as a reusable method, without turning values into separate roots.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1943::CA-M-237@10:35-41:d85e892c62530d148469e66b34efafe7c14ed5cbeff49d5638718e5e08c91799"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-237"
+      ],
+      "preserved_distinctions": [
+        "Colon inside a Claim is value-set syntax; only a Subject Expression uses it as IS_ALLOWED_VALUE_OF.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision.",
+        "The finite unordered allowed-value domain remains tied to one Property and governed as one qualified set."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Claim Value Set Consolidation Candidate Evaluation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Claim Value Set Consolidation Candidate Evaluation",
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "E403 limits a mechanical consolidation candidate to exact matching scope, Subject, target, qualifiers and Property, differing only by a proven allowed value. Latest candidate comparison: Keep the bounded checking/evaluation definition distinct from any actual Execution and preserve its qualified rejection constraints.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1943::CA-E-403@12:37-37:6fe34605ba104f54239a182fe29c071077568ccc95dece8fcbefb19a3183e562"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-403"
+      ],
+      "preserved_distinctions": [
+        "The Evaluation cannot mutate, merge or compile authority and cannot use semantic/LLM inference to supply missing equivalence.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision.",
+        "The finite unordered allowed-value domain remains tied to one Property and governed as one qualified set."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Claim Value Set Validation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Claim Value Set Validation",
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "E402 specifies rejection of invalid Property count, empty/duplicate/noncanonical values, ordered/nonfinite semantics and independent value lifecycle. Latest candidate comparison: Keep the bounded checking/evaluation definition distinct from any actual Execution and preserve its qualified rejection constraints.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1943::CA-E-402@10:36-36:4e4063ce276d711130d72c253edc8b4e5679b2be16ddcb681260da2516e1e26d"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-402"
+      ],
+      "preserved_distinctions": [
+        "Validation preserves allowed-by-Property and all-values-together semantics and rejects Subject colon parsing in a Claim.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision.",
+        "The finite unordered allowed-value domain remains tied to one Property and governed as one qualified set."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Compatible Lineage Impact Disposition",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Compatible Lineage Impact Disposition",
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "R1033 defines compatible as child validity against the parent Revision required by the gate, stopping traversal without a child update. Latest candidate comparison: Keep the bounded checking/evaluation definition distinct from any actual Execution and preserve its qualified rejection constraints.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1943::CA-R-1033@15:29-29:70f9d9976c610075f39c8a079039afbe0d1a57a96cfea82b5831bdbf7d38461b"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1033"
+      ],
+      "preserved_distinctions": [
+        "When the gate requires a revised parent, compatibility must be proved against that Revision, not an earlier permitted one.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Composite Claim",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.Composite Claim",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "R1270 requires a logically composite Claim to remain one Claim when every component must be accepted, replaced and retired together. Latest candidate comparison: Keep the qualified Claim/property constraint under the shared Artifact/Atom lifecycle, including its exact cardinality or allowed-value domain.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1943::CA-R-1270@11:28-28:f038a2039d08186053c658303b3b56befa59d8607c9fdea48769d4e40f7b802e"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1270"
+      ],
+      "preserved_distinctions": [
+        "Logical composition and independently replaceable authority units are distinct; this clause does not split by prose layout.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Concern",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "The five assigned captured Evaluations were checked. Their failure dispositions require Concerns naming affected facts, but none fixes the generic Concern identity's defining boundary. Latest candidate comparison: The latest candidate supplies a broad boundary but the assigned captured sources do not establish this exact identity's meaning; keep it unresolved.",
+      "operator_rules": [],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1943::CA-E-246@25:68-68:b46ceb27e8946eef1cc5d593d8e489a2a9ae5249d99ba090c4f30135f4f64d5d",
+        "CA-P-1931/batch-3/CA-P-1943::CA-E-246@25:98-98:7ee9deddf89bb81ac30b2f6ab5123380c24dc25552015bababdbd8090524934b",
+        "CA-P-1931/batch-3/CA-P-1943::CA-E-444@12:77-77:6437d654fbf0f3c15409c8d24e5c3da252e304a5f526a7a18209576241ce520d",
+        "CA-P-1931/batch-3/CA-P-1943::CA-E-510@3:73-73:48baf483d2dfac3aa9614bd91867003827e49e824b7f103248e50d61511c72ad",
+        "CA-P-1931/batch-3/CA-P-1943::CA-E-512@3:77-77:b76684f27dcf7b77f9c9d62ef6f8d50d99be93db9620dee51ec89e524d0ac3da"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-246",
+        "CA-E-443",
+        "CA-E-444",
+        "CA-E-510",
+        "CA-E-512"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "No absence of checked meaning is treated as emptiness or permission to drop the identity."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured defining statement fixes whether generic Concern denotes the issue, its governed Atom, or the recorded diagnostic invoked by these failure dispositions? The observed reporting use is preserved meanwhile. This is a captured-evidence gap, not a new Operator design question; keep the mapping unresolved until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "Concern About Relation",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/Concern About Relation",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "R1022 registers concern_about as a direct relation owned by a Concern Atom and directed to an Observation or directly affected governed entity. Latest candidate comparison: Preserve the typed Relation meaning and endpoint direction; BEARS remains a derived inverse view and CARRIES remains distinct from Carrier and binding metadata.",
+      "operator_rules": [
+        "root_entities[3]",
+        "graph_model",
+        "relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1943::CA-R-1022@15:29-29:2e1734a92b1694b07df78eef9164f24b47c5241b8bd7438db22d472df7fd35b2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1022"
+      ],
+      "preserved_distinctions": [
+        "Ownership by Concern and direction toward the affected entity are preserved; no inverse or native fact is emitted here.",
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Condition Expression",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Condition Expression",
+      "content_view": "E",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the falsifying condition used to evaluate a Plan Definition of Done; retain without semantic admission, source migration, or a replacement proposal. Latest candidate comparison: Keep the bounded checking/evaluation definition distinct from any actual Execution and preserve its qualified rejection constraints.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1944::CA-R-1581-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-312",
+        "CA-R-1581"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Confidence Threshold",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Confidence Threshold",
+      "content_view": "E",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the minimum integer confidence percentage for a specified decision or action; retain without semantic admission, source migration, or a replacement proposal. Latest candidate comparison: Keep the threshold/condition and its qualified source or resolution rules as named dependent constraints.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1944::CA-R-1427-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-368",
+        "CA-D-369",
+        "CA-E-241",
+        "CA-E-443",
+        "CA-E-448",
+        "CA-M-271",
+        "CA-M-276",
+        "CA-O-053",
+        "CA-R-1044",
+        "CA-R-1427",
+        "CA-R-1428",
+        "CA-R-1555",
+        "CA-R-1652",
+        "CA-R-380"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Confidence Threshold/resolution",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Confidence Threshold.resolution",
+      "content_view": "E",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the ordered selection of an effective Confidence Threshold source; retain without semantic admission, source migration, or a replacement proposal. Latest candidate comparison: Keep the threshold/condition and its qualified source or resolution rules as named dependent constraints.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1944::CA-M-271-33"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-271"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Confidence Threshold/resolution validation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Confidence Threshold.resolution validation",
+      "content_view": "E",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports evaluation of threshold-source precedence together with authorization gates; retain without semantic admission, source migration, or a replacement proposal. Latest candidate comparison: Keep the bounded checking/evaluation definition distinct from any actual Execution and preserve its qualified rejection constraints.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1944::CA-E-443-37"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-443"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Confidence Threshold/source",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Confidence Threshold.source",
+      "content_view": "E",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the admissible source chain for a Confidence Threshold value; retain without semantic admission, source migration, or a replacement proposal. Latest candidate comparison: Keep the threshold/condition and its qualified source or resolution rules as named dependent constraints.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1944::CA-R-1428-35"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1428"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Configuration Selection and Precedence",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Configuration Selection and Precedence",
+      "content_view": "M",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports Framework Instance Settings selection, activation, and explicit composition precedence; retain without semantic admission, source migration, or a replacement proposal. Latest candidate comparison: Keep the reusable method/policy definition separate from any actual Execution; no automatic repeatability rule is inferred.",
+      "operator_rules": [
+        "root_entities[1]",
+        "entity_identity_model.scope_unit",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1944::CA-R-1724-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1724"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Construct Entities Graph Projection",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Construct Entities Graph Projection",
+      "content_view": "O",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the bounded Action that constructs or confirms the selected derived Entities Graph; retain without semantic admission, source migration, or a replacement proposal. Latest candidate comparison: Preserve the reusable Operation/Workflow or Step definition separately from its actual Execution, Projection result and Journal record.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1944::CA-O-134-25"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-134"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Construct Terms Graph Projection",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Construct Terms Graph Projection",
+      "content_view": "O",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the bounded Action that constructs or confirms the selected derived Terms Graph; retain without semantic admission, source migration, or a replacement proposal. Latest candidate comparison: Preserve the reusable Operation/Workflow or Step definition separately from its actual Execution, Projection result and Journal record.",
+      "operator_rules": [
+        "root_entities[0]",
+        "dependent_entities",
+        "entity_identity_model.dependent_entity",
+        "execution_definition_policy",
+        "m_e_root_question",
+        "content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1944::CA-O-137-25"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-137"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only.",
+        "Reusable definition/method meaning remains distinct from an actual Execution; repeatability remains an Operator decision."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Consumer",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Actor",
+      "candidate_path": "Actor.Consumer",
+      "content_view": "R",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the consumer-side owner of a Demand Atom, bounded by an accepted Goal and exact Producer-result dependency; retain without semantic admission, source migration, or a replacement proposal. Latest candidate comparison: Keep the consumer-side Actor boundary and its Goal qualification distinct from the demanded Atom and any Execution.",
+      "operator_rules": [
+        "root_entities[2]",
+        "entity_identity_model.actor"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1944::CA-R-951-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-932",
+        "CA-R-933",
+        "CA-R-945",
+        "CA-R-951"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Consumer/Goal",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Actor",
+      "candidate_path": "Actor.Consumer.Goal",
+      "content_view": "R",
+      "confidence_percent": 90,
+      "reason": "Captured-snapshot Main Content directly supports the accepted Consumer Goal that authorizes an exact demanded Producer-result dependency; retain without semantic admission, source migration, or a replacement proposal. Latest candidate comparison: Keep the consumer-side Actor boundary and its Goal qualification distinct from the demanded Atom and any Execution.",
+      "operator_rules": [
+        "root_entities[2]",
+        "entity_identity_model.actor"
+      ],
+      "evidence_refs": [
+        "CA-P-1931/batch-3/CA-P-1944::CA-R-951-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-933",
+        "CA-R-951"
+      ],
+      "preserved_distinctions": [
+        "Original captured identity, qualifiers, allowed-value domains and constraints remain preserved; candidate_path is display-only."
+      ],
+      "question": null
+    }
+  ]
+}

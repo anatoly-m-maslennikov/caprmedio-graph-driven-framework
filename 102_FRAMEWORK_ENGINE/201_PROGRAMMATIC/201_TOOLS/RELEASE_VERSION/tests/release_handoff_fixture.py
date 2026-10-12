@@ -14,8 +14,8 @@ from pathlib import Path
 
 
 DOCKERFILE = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile"
-CANONICAL_SOURCE = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
-MATERIALIZED = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/_release_materialized"
+CANONICAL_SOURCE = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+MATERIALIZED = ".caprmedio_tmp/release_candidates"
 COMPILER = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py"
 
 
@@ -101,16 +101,35 @@ class ReleaseFixture:
                 "source_mode": path.stat().st_mode & 0o777,
                 "destination_path": destination,
             })
-        self.structure = self.write(".caprmedio_caprmedio/project_structure.toml", b"[paths]\ncontrol_root = '.caprmedio_caprmedio'\n")
-        settings_relative = f"{CANONICAL_SOURCE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"
+        self.write(".caprmedio_caprmedio/caprmedio_project_settings.toml", b"[paths]\ncontrol_root = '.caprmedio_caprmedio'\n")
+        self.structure = self.write(".caprmedio_caprmedio/project_structure.toml", (
+            '[[scope_units]]\nscope_unit_name = "FRAMEWORK_METHODOLOGY"\n'
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY"\n\n'
+            '[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\n'
+            'parent = "FRAMEWORK_METHODOLOGY"\n'
+            f'authority_path = "{CANONICAL_SOURCE}"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/sources"\n\n'
+            '[[scope_units]]\nscope_unit_name = "APPLICABLE_METHODOLOGY"\n'
+            'parent = "FRAMEWORK_METHODOLOGY"\n'
+            'delivery_path = "101_FRAMEWORK_METHODOLOGY/applicable_methodology"\n'
+        ).encode())
+        settings_relative = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
         self.settings = self.write(settings_relative, b"release_policy = 'sealed'\n")
         compiler = self.write(COMPILER, b"# declared compiler fixture, never invoked\n", 0o755)
         for resource, path, destination in (
-            ("METHODOLOGY", self.settings, "METHODOLOGY/sources/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml"),
             ("FRAMEWORK_ENGINE", compiler, "FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py"),
         ):
             self.rows.append({"resource": resource, "source_path": path.relative_to(root).as_posix(), "source_sha256": digest(path.read_bytes()), "source_mode": path.stat().st_mode & 0o777, "destination_path": destination})
         self.selection = self.write(".caprmedio_runtime/framework/current.toml", b"release = 'N'\n")
+        self.version_toml = self.write("version.toml", b'[framework]\nversion = "N+1"\n')
+        self.rows.append({
+            "resource": "PACKAGE_CONTROL",
+            "source_path": "version.toml",
+            "source_sha256": digest(self.version_toml.read_bytes()),
+            "source_mode": self.version_toml.stat().st_mode & 0o777,
+            "destination_path": "version.toml",
+        })
         self.write(".agents/skills/ca/SKILL.md", b"# prior N skill\n")
         self.write(".caprmedio_runtime/journal/evidence.jsonl", b'{"prior":"N"}\n')
         self.frontier = observed_tree_digest(root / CANONICAL_SOURCE)
@@ -121,6 +140,8 @@ class ReleaseFixture:
             "schema": "caprmedio.release_version.candidate.v2",
             "executing_release": "N",
             "candidate_release": "N+1",
+            "framework_version": "N+1",
+            "version_toml_sha256": digest(self.version_toml.read_bytes()),
             "canonical_source_snapshot_ref": CANONICAL_SOURCE,
             "canonical_source_snapshot_digest": self.source_digest,
             "project_structure_digest": digest(self.structure.read_bytes()),
@@ -162,7 +183,7 @@ class ReleaseFixture:
         }
 
     def deliver_copy(self) -> Path:
-        destination = self.root / "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources"
+        destination = self.root / "101_FRAMEWORK_METHODOLOGY/sources"
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(self.root / CANONICAL_SOURCE, destination)
         return destination

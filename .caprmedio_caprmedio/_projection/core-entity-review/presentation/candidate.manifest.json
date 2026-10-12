@@ -1,0 +1,157 @@
+{
+  "candidate_json": {
+    "canonical_encoding": "UTF-8 JSON sort_keys=true separators=(',', ':') without newline",
+    "canonical_sorted_compact_json_sha256": "0b26e7571ab4897f85e2b521255feb9f83e33c4f48ce86f02fd0a8f80c9303b1",
+    "file_sha256": "04f2b8d3606ac30b74850ab9ff53ebebfcbcffd1cda1e5ad2d948662c085e34b",
+    "path": "../nodes/candidate.structure.marked.json"
+  },
+  "captured_source_context": {
+    "ca_d_494": {
+      "atom_id": "CA-D-494",
+      "note": "revision 3 is outside this captured review",
+      "revision": 2
+    },
+    "captured_context": {
+      "bytes": 1102,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/snapshot.context.md",
+      "sha256": "bfd6a7d93745d69432111df37ca139ba727a1ad06e821d94d3c059e44169ee23"
+    },
+    "current_core_claimed": false,
+    "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "kind": "captured_snapshot",
+    "source_pins_checked": 951
+  },
+  "completion_receipts": {
+    "ca_p_1907": {
+      "atom_id": "CA-P-1907",
+      "locator_basis": "receipt commit, not a mutable current path",
+      "plan_carrier_sha256": "9ac74a857d8356db6e4a0f68890ca8e19babb6b3644a5f831fb681515046eedf",
+      "plan_version": 14,
+      "status": "Done"
+    },
+    "ca_p_1938": {
+      "acceptance_record_sha256": "c2576865efcd2cfcc10a7075ad546b1c2d288cdae9f285eeaeb61f858bbf2e9b",
+      "atom_id": "CA-P-1938",
+      "independent_verifier_sha256": "c56e4067c101a2c49375bfb952e783b5d9cf50da47f062a5321601f910416f41",
+      "plan_carrier_sha256": "b2bb487194a14212560e109a4c763d4f107611f033c7c7151335c534d50fa022",
+      "plan_version": 3,
+      "status": "Done"
+    },
+    "receipt_commit": "94776a14a368827a758534eb9c5c0109d649f309"
+  },
+  "counts": {
+    "before_literal_syntactic_roots": 346,
+    "before_standalone_roots": 293,
+    "broad_non_temporal_anchors": 4,
+    "continuant": 17,
+    "dispositions": {
+      "consolidate": 3,
+      "generalize": 2,
+      "question": 117,
+      "retain": 584
+    },
+    "inherited_constraints": 7,
+    "occurrent": 3,
+    "original_identity_count": 706,
+    "primary_inventory_identity_count": 706,
+    "rendered_top_level_display_labels": 359,
+    "rmed_depends_on_pointers": 2844,
+    "rmed_governs_pointers": 805,
+    "term_taxonomy_proposals": 10,
+    "unclassified": 682,
+    "unresolved_drop_annotations": 2
+  },
+  "input_pins": {
+    "candidate_structure_marked": {
+      "bytes": 2919984,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/candidate.structure.marked.json",
+      "sha256": "04f2b8d3606ac30b74850ab9ff53ebebfcbcffd1cda1e5ad2d948662c085e34b"
+    },
+    "nodes_acceptance": {
+      "bytes": 10598,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/nodes.acceptance.md",
+      "sha256": "c2576865efcd2cfcc10a7075ad546b1c2d288cdae9f285eeaeb61f858bbf2e9b"
+    },
+    "nodes_dispositions": {
+      "bytes": 3266185,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/nodes.dispositions.json",
+      "sha256": "1b9d751f95aa71486908b53b3d7f3f9825defae137be3d8792d45177587c48f8"
+    },
+    "relations_marked_ledger": {
+      "bytes": 14212112,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/relations.marked.ledger.json",
+      "sha256": "f6efdcaddfbbb4d9f4607084ee77ca83c75de2566fd9506da51dac2493e02371"
+    },
+    "rmed_text_views": [
+      {
+        "bytes": 122083,
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/rmed.roles.indented.txt",
+        "sha256": "69ff7f3155327fba146ef2974bcde12530520ea07ee2c55f19a6200b300a42be"
+      },
+      {
+        "bytes": 158884,
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/rmed.entities.indented.txt",
+        "sha256": "17a4d3661cb73702dded836cc3fad968e63faf57e29ba0eed8ffd8fe8eec9172"
+      }
+    ],
+    "rmed_views": {
+      "bytes": 6882626,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/rmed.views.json",
+      "sha256": "d7fd113a408c3bb70e17ab55cc86fd6746c3d5c74ff27a9a864632ec6de999aa"
+    },
+    "structure_design": {
+      "bytes": 65606,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/structure.design.json",
+      "sha256": "10733c9f1b6b8d5946acdc469e7cfe3ee710ed515f1de77eed765c2252652b9e"
+    }
+  },
+  "native_admission": "not_performed",
+  "non_authoritative": true,
+  "operator_acceptance": "not_performed",
+  "operator_directions": {
+    "rule": "Omit Substance Scope only for the full governed Subject AND full owning Scope Unit; otherwise show it explicitly.",
+    "scope_omission": {
+      "bytes": 1227,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/scope.omission.decision.md",
+      "sha256": "d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453"
+    },
+    "substance_content": {
+      "bytes": 2872,
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/operator.decisions.md",
+      "sha256": "53eeb7a3fdaa002cd05170fe185cfb5baeea72814a1f32567d8eea6f56ac65cb"
+    }
+  },
+  "presentation_status": "CANDIDATE",
+  "producer": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/support/render_candidate.py",
+    "sha256": "3b18039bbfe8292d012b1944d3567d055ae9874dfb64e457fbad15716ede4260"
+  },
+  "rendered_outputs": {
+    "candidate_entities_indented": {
+      "bytes": 64200,
+      "path": "candidate.entities.indented.txt",
+      "sha256": "f32588f6f9bc97e2180578c051bfbc73f39a7e80b7273bdf6702f9309778ed56"
+    },
+    "candidate_review": {
+      "bytes": 10836,
+      "path": "candidate.review.md",
+      "sha256": "8b0d9c9ff3f940f3bfb4456aabda7b808060424a9910a194ff85a50073bcf975"
+    }
+  },
+  "reproduction": {
+    "dry_run": "UV_CACHE_DIR=.caprmedio_tmp/cache/uv uv run --offline --no-project --no-env-file --python 3.14 python -B .caprmedio_caprmedio/_projection/core-entity-review/presentation/support/render_candidate.py",
+    "persistence": "--persist creates only missing files and rejects any byte mismatch",
+    "verify_output": "UV_CACHE_DIR=.caprmedio_tmp/cache/uv uv run --offline --no-project --no-env-file --python 3.14 python -B .caprmedio_caprmedio/_projection/core-entity-review/presentation/support/render_candidate.py --verify-output"
+  },
+  "schema_version": 1,
+  "semantic_admission": "not_performed",
+  "source_migration": "not_performed",
+  "source_task": "CA-P-1908",
+  "view_boundaries": {
+    "carrier_binding_display_only_when_evidenced": true,
+    "governs_and_depends_on_separate": true,
+    "med_pointers_not_proven_applicability": true,
+    "no_empty_med_slot_invented": true,
+    "presentation_nesting_is_not_native_relation": true
+  }
+}

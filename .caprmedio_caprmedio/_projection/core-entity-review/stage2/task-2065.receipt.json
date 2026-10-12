@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "task": "CA-P-2065",
+  "recorded_at": "2026-10-11 04:37:07 +0400",
+  "result": "PASS: two Operations contracts authored and independently accepted",
+  "effects": [
+    {
+      "atom_id": "CA-O-030",
+      "before": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/09_operations/CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers.md",
+        "version": 6,
+        "sha256": "19097af83287005dae4d55e4b4da2234acce9e9f92b0f70671afb831bd8b256b"
+      },
+      "after": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/09_operations/CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers.md",
+        "version": 7,
+        "sha256": "c2d70fa275a075d2fbc978cab246158cfd8413cec88716521336736d0bf060cc",
+        "updated_at": "2026-10-11 04:32:58 +0400"
+      },
+      "archive": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/09_operations/archive/CA-O-030-TOOLS-ACTION--update-sealed-caprmedio-atom-carriers@6.md",
+        "version": 6,
+        "sha256": "19097af83287005dae4d55e4b4da2234acce9e9f92b0f70671afb831bd8b256b"
+      }
+    },
+    {
+      "atom_id": "CA-O-046",
+      "before": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/09_operations/CA-O-046-ATOM_SEARCH-ACTION--search-caprmedio-atom-carriers.md",
+        "version": 4,
+        "sha256": "6e8194cc18c0377344b785d8bf89897c8c785aa83cd1eb51e32cf1d479a6bfe5"
+      },
+      "after": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/09_operations/CA-O-046-ATOM_SEARCH-ACTION--search-caprmedio-atom-carriers.md",
+        "version": 5,
+        "sha256": "6198c977e456a9c2c8457dd288a2a188231a37fe5420882d3f1378f57e009271",
+        "updated_at": "2026-10-11 04:32:58 +0400"
+      },
+      "archive": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/09_operations/archive/CA-O-046-ATOM_SEARCH-ACTION--search-caprmedio-atom-carriers@4.md",
+        "version": 4,
+        "sha256": "6e8194cc18c0377344b785d8bf89897c8c785aa83cd1eb51e32cf1d479a6bfe5"
+      }
+    }
+  ],
+  "checks": {
+    "unrelated_metadata_bytes": "PASS",
+    "Summary_and_Scope": "PASS",
+    "Version_plus_one": "PASS",
+    "exact_archives": "PASS",
+    "fixed_delivery_pins": "PASS",
+    "five_Core_grammar_pins": "PASS",
+    "project_structure": "PASS"
+  },
+  "independent_acceptance": {
+    "reviewer": "subject_review_006",
+    "result": "PASS",
+    "scope": "two current/history pins, primary content and preserved generic/preview/guard contract"
+  },
+  "journal": {
+    "path": ".caprmedio_caprmedio/_journal/anatoly-m-maslennikov-2026-10-11-part-5.ndjson",
+    "sha256": "86cb054292cc8dfbd9feb1238ed863b6554114ac189036f45d2c33fd41c4a6f6"
+  },
+  "journal_events": 4,
+  "limits": [
+    "No new code or live Subject migration.",
+    "Baseline 29 tests reported by author do not accept future grammar-aware implementation.",
+    "Ten-source combined gate remains open."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2090",
+  "recorded_at": "2026-10-11 06:53:10 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded reject unexpected source drift in the working ledger; not migration approval",
+  "verification": {
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/support/consolidate_reviewed_mappings.py",
+      "sha256": "be74ecee442a24f679780829b8fcca1efe3b86c2bc996986269f857f9cfd7b13"
+    },
+    "root_independent_code_review": "PASS: exact before/after source pins and restricted replacement; literal field/index/text equality",
+    "negative_probes_rejected": [
+      "unexpected_same_id_hash",
+      "unexpected_path_move",
+      "missing_current_source",
+      "unapproved_occurrence_rebind",
+      "changed_text_at_same_occurrence_id"
+    ],
+    "live_preview": {
+      "sources": 907,
+      "occurrences": 4534,
+      "proposed": 1453,
+      "unchanged": 1540,
+      "unresolved": 1541,
+      "grammar_nulls": 33
+    },
+    "draft_writes": "none"
+  },
+  "completion_scope": "The one-off consolidator admits only five exact declared grammar effects, rejects unexpected source/path/counterpart/text drift and preserves all unaccepted grammar rows as null. Existing derived drafts were not replaced.",
+  "registration_commit": "9c3573512d3d18d01de0d06f16f72ea73f16a1d6",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

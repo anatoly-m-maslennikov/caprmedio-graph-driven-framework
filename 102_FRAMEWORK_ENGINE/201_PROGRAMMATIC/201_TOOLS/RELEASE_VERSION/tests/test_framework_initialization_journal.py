@@ -43,9 +43,18 @@ from framework_initialization import (  # noqa: E402
 from release_image import DockerCommandResult, DockerSubprocessExecutor  # noqa: E402
 from bootstrap_image import produce_initial_framework_image  # noqa: E402
 from framework_compiler_currentness_fixture import ConfiguredCompilerFixture  # noqa: E402
+from direct_action_golden_fixture import action_fixture  # noqa: E402
 
 
 IMAGE_ID = "sha256:" + "a" * 64
+QUERY_DEFAULTS = (
+    b"[query]\n"
+    b"max_request_bytes = 4096\nmax_grammar_depth = 16\n"
+    b"max_filter_tokens = 128\nmax_in_members = 16\n"
+    b"max_selected_fields = 8\nmax_page_size = 8\n"
+    b"max_snapshot_members = 8\nmax_file_bytes = 65536\n"
+    b"max_total_read_bytes = 262144\ntimeout_seconds = 10\nmax_findings = 8\n"
+)
 AUTHORIZATION = {
     "operator": "Anatoly Maslennikov",
     "authorization_ref": "tmp/operator-authorizations/initialize-framework.md",
@@ -127,7 +136,7 @@ class FrameworkInitializationJournalTests(unittest.TestCase):
             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile",
             (RELEASE_ROOT.parents[1] / "203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile").read_bytes(),
         )
-        source = REPOSITORY_ROOT / ACTION_ATOM_RELATIVE
+        source = action_fixture(ACTION_ATOM_RELATIVE)
         target = self.root / ACTION_ATOM_RELATIVE
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
@@ -138,6 +147,12 @@ class FrameworkInitializationJournalTests(unittest.TestCase):
         # The Journal settings are part of the compiler's current input view;
         # rebuild the retained canonical projection after adding them.
         self.compiler_fixture.materialize_current_projection()
+        self._write(
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
+            "caprmedio_framework_default_settings.toml",
+            QUERY_DEFAULTS,
+        )
 
     def _write(self, relative: str, payload: bytes) -> Path:
         target = self.root / relative
@@ -148,7 +163,7 @@ class FrameworkInitializationJournalTests(unittest.TestCase):
     def _session(self) -> DirectActionSession:
         return DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization=AUTHORIZATION,
             now=lambda: dt.datetime(2026, 10, 5, 18, 0, tzinfo=dt.UTC),
         )

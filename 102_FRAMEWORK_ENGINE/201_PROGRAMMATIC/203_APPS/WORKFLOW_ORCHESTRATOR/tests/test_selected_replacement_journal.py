@@ -11,8 +11,8 @@ from unittest.mock import patch
 
 
 APP = Path(__file__).resolve().parents[1]
-TOOLS = APP.parents[2] / "201_TOOLS"
-TEST_TEMP_ROOT = APP.parents[2] / ".caprmedio_tmp/tests/selected-replacement-journal"
+TOOLS = APP.parents[1] / "201_TOOLS"
+TEST_TEMP_ROOT = APP.parents[3] / ".caprmedio_tmp/tests/selected-replacement-journal"
 for location in (APP, TOOLS):
     if str(location) not in sys.path:
         sys.path.insert(0, str(location))

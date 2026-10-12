@@ -58,7 +58,7 @@ from release_test_phases import (  # noqa: E402
     ReleaseTestPhaseMap,
     derive_test_phase_map_from_rows,
 )
-from release_suite_reference_context import capture_context  # noqa: E402
+from release_suite_reference_context import capture_context, copy_verified_bytes  # noqa: E402
 from full_suite_golden.control_fixture import copy_control_closure  # noqa: E402
 
 
@@ -98,7 +98,7 @@ class ReleaseSuiteGoldenCorpusTests(unittest.TestCase):
 
     def test_stored_payloads_are_not_declared_test_modules(self) -> None:
         self.assertEqual(list(GOLDEN_ROOT.rglob("test_*.py")), [])
-        self.assertEqual(len(list(GOLDEN_ROOT.rglob("fixture_test_*.py"))), 17)
+        self.assertEqual(len(list(GOLDEN_ROOT.rglob("fixture_test_*.py"))), 20)
 
 
 class ReleaseSuiteUnitPartitionTests(unittest.TestCase):
@@ -246,6 +246,21 @@ class ReleaseSuiteGoldenTests(unittest.TestCase):
             ]
 
         context = self._control_context()
+        # The actual owner copies every sealed D580 row into the driver's
+        # partial workspace.  The fixture starts as a host control tree, so
+        # materialize those exact rows (including virtual snapshot carriers)
+        # before exercising the public driver.
+        generated_snapshot = next(
+            row.source_path
+            for row in context.reference_rows
+            if row.source_path.endswith("/_projection/release_execution_snapshot.json")
+        )
+        generated_target = self.project_root / generated_snapshot
+        if generated_target.exists() or generated_target.is_symlink():
+            self.assertFalse(generated_target.is_symlink())
+            self.assertTrue(generated_target.is_file())
+            generated_target.unlink()
+        copy_verified_bytes(context, self.project_root)
         envelope: object = {
             "schema_version": 2,
             "candidate_snapshot_manifest_sha256": CANDIDATE_DIGEST,
@@ -584,6 +599,33 @@ class ReleaseSuiteGoldenTests(unittest.TestCase):
         result, _ = self._run(preserve_bindings=True)
         self._assert_non_passing(result)
 
+    def test_driver_accepts_copied_rows_without_unselected_tools_authoring_roots(self) -> None:
+        """The driver validates copied D580 rows; it does not rediscover host-only roots."""
+        _, envelope_path, _ = self._write_rules_and_envelope()
+        tools_root = self.project_root / (
+            ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/"
+            "201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS"
+        )
+        for directory in ("04_requirement", "05_method", "06_evaluation"):
+            shutil.rmtree(tools_root / directory)
+
+        envelope = json.loads(envelope_path.read_text(encoding="utf-8"))
+        rows = suite_driver._parse_reference_rows(
+            self.project_root,
+            envelope["reference_rows"],
+        )
+        self.assertEqual(
+            [row.source_path for row in rows],
+            [row["source_path"] for row in envelope["reference_rows"]],
+        )
+        for label, malformed in (
+            ("reordered", list(reversed(envelope["reference_rows"]))),
+            ("duplicated", [*envelope["reference_rows"], dict(envelope["reference_rows"][-1])]),
+        ):
+            with self.subTest(reference_rows=label):
+                with self.assertRaises(suite_driver.SuiteError):
+                    suite_driver._parse_reference_rows(self.project_root, malformed)
+
     def test_malformed_or_tampered_envelope_and_unsafe_or_unknown_probes_cannot_pass(self) -> None:
         _, envelope_path, _ = self._write_rules_and_envelope(envelope_override={"schema_version": 1})
         result, _ = self._run(envelope_sha256=_sha256(envelope_path), preserve_bindings=True)
@@ -615,17 +657,26 @@ class ReleaseSuiteGoldenTests(unittest.TestCase):
         result, _ = self._run(preserve_bindings=True)
         self._assert_non_passing(result)
 
-        # The public driver sees an opaque context digest.  It must still
-        # reject a missing or widened closed reference list rather than let a
-        # syntactically valid opaque SHA stand in for the source closure.
-        self.setUp()
-        _, envelope_path, _ = self._write_rules_and_envelope()
-        missing_reference = json.loads(envelope_path.read_text(encoding="utf-8"))
-        missing_reference["reference_rows"].pop()
-        missing_reference["control_context_digest"] = "f" * 64
-        envelope_path.write_bytes(_canonical_json(missing_reference))
-        result, _ = self._run(preserve_bindings=True)
-        self._assert_non_passing(result)
+        # The owner seals the complete closure into the envelope SHA.  The
+        # driver must reject a missing or widened list against that original
+        # expected digest before trusting copied rows.
+        for label in ("missing", "widened"):
+            with self.subTest(reference_rows=label):
+                self.setUp()
+                _, envelope_path, sealed_digest = self._write_rules_and_envelope()
+                mutated_reference = json.loads(envelope_path.read_text(encoding="utf-8"))
+                if label == "missing":
+                    mutated_reference["reference_rows"].pop()
+                else:
+                    mutated_reference["reference_rows"].append(
+                        dict(mutated_reference["reference_rows"][-1])
+                    )
+                envelope_path.write_bytes(_canonical_json(mutated_reference))
+                result, _ = self._run(
+                    preserve_bindings=True,
+                    envelope_sha256=sealed_digest,
+                )
+                self._assert_non_passing(result)
 
         self.setUp()
         _, envelope_path, _ = self._write_rules_and_envelope()

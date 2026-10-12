@@ -1,0 +1,2508 @@
+{
+  "schema_version": 1,
+  "batch": 4,
+  "kind": "Captured nodes against Operator candidate",
+  "non_authoritative": true,
+  "native_admission": "not_performed",
+  "source_migration": "not_performed",
+  "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "candidate_sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+  "input_sha256": "3ecb4f409fe5f3ebffdd503bb94739541a30f3dd0b2fc75b62f7a2185fc59546",
+  "baseline_sha256": "bc5d99e91fb7dd4dcb42e59ff33cc24cff1d0901c5904764394c769aaa0a9430",
+  "prior_review_sha256": "1b9d751f95aa71486908b53b3d7f3f9825defae137be3d8792d45177587c48f8",
+  "review_method": "Compared the accepted batch-4 row meanings from nodes.dispositions.json with the latest Operator candidate; reused only its global evidence keys and verified their quoted Main Content spans through nodes/support/snapshot_sources.py at the captured snapshot. This is a bounded batch review, not a fresh exhaustive audit of all 951 source pins; no live Core refresh, native admission, or source migration was performed.",
+  "nodes": [
+    {
+      "identity": "Containment Relation Pair",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/CONTAINS + Relation/IS_CONTAINED_BY",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is compared as a typed Relation; direction and endpoint meaning remain distinct, and the display path does not admit a native relation.",
+      "operator_rules": [
+        "/root_entities/3",
+        "/graph_model",
+        "/relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-264",
+        "CA-D-266",
+        "CA-R-1368"
+      ],
+      "preserved_distinctions": [
+        "Containment Relation Pair",
+        "Typed relation direction, endpoints and qualified meaning remain distinct.",
+        "Candidate display notation does not itself create or admit a native Relation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Content Role Naming",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-M-287"
+      ],
+      "preserved_distinctions": [
+        "Content Role Naming",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Content Role Naming and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Core Meta-Model",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-E-249",
+        "CA-E-464",
+        "CA-M-298",
+        "CA-O-054",
+        "CA-O-153",
+        "CA-O-154",
+        "CA-R-1217",
+        "CA-R-1228",
+        "CA-R-1261",
+        "CA-R-1375",
+        "CA-R-1434",
+        "CA-R-1466",
+        "CA-R-1722",
+        "CA-R-1748"
+      ],
+      "preserved_distinctions": [
+        "Core Meta-Model",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Core Meta-Model and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Corrective Method Acceptance",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Corrective Method Acceptance",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is compared as an Operation or method definition under the Artifact content model; no actual run is inferred.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy",
+        "/root_entities/6"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-090"
+      ],
+      "preserved_distinctions": [
+        "Corrective Method Acceptance",
+        "A reusable Operation or method definition remains distinct from an actual Execution; no Execution instance is inferred.",
+        "Substance Scope expresses applicability to the whole governed Subject and owning Scope Unit, not ownership of either."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Corrective Method Acceptance Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Corrective Method Acceptance Step",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is compared as an Operation or method definition under the Artifact content model; no actual run is inferred.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy",
+        "/root_entities/6"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e3"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-098"
+      ],
+      "preserved_distinctions": [
+        "Corrective Method Acceptance Step",
+        "A reusable Operation or method definition remains distinct from an actual Execution; no Execution instance is inferred.",
+        "Substance Scope expresses applicability to the whole governed Subject and owning Scope Unit, not ownership of either."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Current-scope Atom",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured qualification is retained on the candidate Atom kind; Current-scope Atom is not asserted to be a separate dependent Entity or Carrier identity.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e4"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-482",
+        "CA-E-511",
+        "CA-R-922"
+      ],
+      "preserved_distinctions": [
+        "Current-scope Atom",
+        "Scope Unit identity remains stable as (project prefix)-SU-(number); current-scope qualification is not a Carrier path or ownership rewrite.",
+        "Current-scope Atom is an Atom kind; the qualifier does not create another dependent Entity or a new root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "DEPENDS_ON",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/DEPENDS_ON",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is compared as a typed Relation; direction and endpoint meaning remain distinct, and the display path does not admit a native relation.",
+      "operator_rules": [
+        "/root_entities/3",
+        "/graph_model",
+        "/relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e5"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-269",
+        "CA-D-307",
+        "CA-E-246",
+        "CA-E-404",
+        "CA-M-228",
+        "CA-M-232",
+        "CA-M-239",
+        "CA-R-1198",
+        "CA-R-1200",
+        "CA-R-1202",
+        "CA-R-1275",
+        "CA-R-1276",
+        "CA-R-1278",
+        "CA-R-1280",
+        "CA-R-1281",
+        "CA-R-1459"
+      ],
+      "preserved_distinctions": [
+        "DEPENDS_ON",
+        "Typed relation direction, endpoints and qualified meaning remain distinct.",
+        "Candidate display notation does not itself create or admit a native Relation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "DERIVED_FROM",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/DERIVED_FROM",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is compared as a typed Relation; direction and endpoint meaning remain distinct, and the display path does not admit a native relation.",
+      "operator_rules": [
+        "/root_entities/3",
+        "/graph_model",
+        "/relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e6"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-404",
+        "CA-M-239",
+        "CA-R-1314",
+        "CA-R-1639"
+      ],
+      "preserved_distinctions": [
+        "DERIVED_FROM",
+        "Typed relation direction, endpoints and qualified meaning remain distinct.",
+        "Candidate display notation does not itself create or admit a native Relation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Default Settings",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Default Settings)",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: Captured Main Content identifies Default Settings as an Artifact; the comparison retains that exact kind without asserting an unsupported narrower or dependent path.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/entity_representation_rules",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e7"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-361",
+        "CA-D-407",
+        "CA-D-408",
+        "CA-D-447",
+        "CA-D-497",
+        "CA-E-450",
+        "CA-E-458",
+        "CA-E-473",
+        "CA-M-279",
+        "CA-M-295",
+        "CA-O-052",
+        "CA-R-1405",
+        "CA-R-1429",
+        "CA-R-1441",
+        "CA-R-1630",
+        "CA-R-1750"
+      ],
+      "preserved_distinctions": [
+        "Default Settings",
+        "Default Settings remains a distinct Artifact identity containing reusable baseline values, not Project initialization inputs or explicit selections.",
+        "Its Carrier and field conventions remain general D policy comparisons; the Artifact identity is not replaced by a storage path."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Default Settings/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 97,
+      "reason": "The Default Settings Artifact has exactly one authoritative TOML File Carrier at the named CORE_META_MODEL source-root location. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-1-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-407",
+        "CA-D-408"
+      ],
+      "preserved_distinctions": [
+        "Default Settings/Carrier",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as Default Settings.Carrier; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Default Settings/Carrier/Content",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 97,
+      "reason": "Every Default Settings TOML parameter value reuses the corresponding Framework Instance Settings registered section, field path, value type, and allowed domain, with no separate defaults schema. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-2-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-408"
+      ],
+      "preserved_distinctions": [
+        "Default Settings/Carrier/Content",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as Default Settings.Carrier.Content; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Definition Atom",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-E-382",
+        "CA-E-444",
+        "CA-M-114",
+        "CA-O-137",
+        "CA-R-126",
+        "CA-R-1279",
+        "CA-R-1319",
+        "CA-R-1435",
+        "CA-R-1454",
+        "CA-R-1455"
+      ],
+      "preserved_distinctions": [
+        "Definition Atom",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Definition Atom and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Delivery",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-D-312"
+      ],
+      "preserved_distinctions": [
+        "Delivery",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Delivery and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Delivery For Relation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-1019"
+      ],
+      "preserved_distinctions": [
+        "Delivery For Relation",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Delivery For Relation and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Dependency Order Derivation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-E-404",
+        "CA-M-239",
+        "CA-O-017"
+      ],
+      "preserved_distinctions": [
+        "Dependency Order Derivation",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Dependency Order Derivation and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Dependency Order Derivation Evaluation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-E-404"
+      ],
+      "preserved_distinctions": [
+        "Dependency Order Derivation Evaluation",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Dependency Order Derivation Evaluation and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Dependency Relation Pair",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-1026"
+      ],
+      "preserved_distinctions": [
+        "Dependency Relation Pair",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Dependency Relation Pair and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Dependent Entity",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact.Dependent Entity",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured dependent-entity meaning is displayed inside the Artifact model and inherits the owning Artifact lifecycle; it does not receive an independent lifecycle or Carrier.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e8"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-246",
+        "CA-E-383",
+        "CA-M-125",
+        "CA-R-1192",
+        "CA-R-1193",
+        "CA-R-1204",
+        "CA-R-1251",
+        "CA-R-1260",
+        "CA-R-1267"
+      ],
+      "preserved_distinctions": [
+        "Dependent Entity",
+        "Inheritance applies common Artifact obligations, not another Entity's concrete Carrier.",
+        "The dependent Entity keeps its immediate bearer requirement and does not become a separate root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Dependent Entity Occurrence",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-1247"
+      ],
+      "preserved_distinctions": [
+        "Dependent Entity Occurrence",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Dependent Entity Occurrence and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Directory Carrier",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Directory Carrier",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is retained as a Carrier kind under the separate Carrier root; its locator is not treated as its identity.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e9"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-259",
+        "CA-D-264",
+        "CA-D-266",
+        "CA-D-296",
+        "CA-D-297",
+        "CA-D-298",
+        "CA-D-299",
+        "CA-D-300",
+        "CA-D-352",
+        "CA-D-370",
+        "CA-D-451",
+        "CA-D-460",
+        "CA-D-464",
+        "CA-D-465",
+        "CA-D-467",
+        "CA-D-481",
+        "CA-E-500",
+        "CA-E-502",
+        "CA-E-507",
+        "CA-E-510",
+        "CA-M-273",
+        "CA-O-078"
+      ],
+      "preserved_distinctions": [
+        "Directory Carrier",
+        "Carrier ID is separate from filename or full path; a path is a storage locator, not Carrier identity.",
+        "Carrier remains a separate root Entity and is not reduced to a Property.",
+        "Scope Unit naming retains the permanent (project prefix)-SU-(number) prefix; Label and Name are changeable suffixes and project-root folders remain unchanged."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Directory Carrier/Name",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The default Scope Unit directory convention serializes specified structural components, with Ordered/Unordered and root-Delivery exceptions, while preserving declared native Carrier bindings. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-3-1",
+        "CA-P-1932/batch-4/r1953-3-2",
+        "CA-P-1932/batch-4/r1953-3-3"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-297",
+        "CA-D-298",
+        "CA-D-299"
+      ],
+      "preserved_distinctions": [
+        "Directory Carrier/Name",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as Directory Carrier.Name; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred.",
+        "Scope Unit naming retains the permanent (project prefix)-SU-(number) prefix; Label and Name are changeable suffixes and project-root folders remain unchanged."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Directory Carrier/Nesting",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "Canonical Carrier nesting derives one direct CONTAINS/IS_CONTAINED_BY pair to the nearest ancestor Directory Carrier's Structural Entity Revision, and the derived pair is not independently persisted. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-4-1",
+        "CA-P-1932/batch-4/r1953-4-2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-264",
+        "CA-D-266"
+      ],
+      "preserved_distinctions": [
+        "Directory Carrier/Nesting",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as Directory Carrier.Nesting; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred.",
+        "Scope Unit naming retains the permanent (project prefix)-SU-(number) prefix; Label and Name are changeable suffixes and project-root folders remain unchanged."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Directory Carrier/Numeric Prefix",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "The default numeric Scope Unit Directory Carrier prefix concatenates Structural Level and Navigational Order Number using actual source width and preserves declared native bindings. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-5-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-300",
+        "CA-E-510",
+        "CA-O-078"
+      ],
+      "preserved_distinctions": [
+        "Directory Carrier/Numeric Prefix",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as Directory Carrier.Numeric Prefix; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred.",
+        "Scope Unit naming retains the permanent (project prefix)-SU-(number) prefix; Label and Name are changeable suffixes and project-root folders remain unchanged."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Entities Graph",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-1243",
+        "CA-R-1260",
+        "CA-R-1436"
+      ],
+      "preserved_distinctions": [
+        "Entities Graph",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Entities Graph and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Entities Graph Construction Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Entities Graph Construction Step",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is compared as an Operation or method definition under the Artifact content model; no actual run is inferred.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy",
+        "/root_entities/6"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e10"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-135"
+      ],
+      "preserved_distinctions": [
+        "Entities Graph Construction Step",
+        "A reusable Operation or method definition remains distinct from an actual Execution; no Execution instance is inferred.",
+        "Substance Scope expresses applicability to the whole governed Subject and owning Scope Unit, not ownership of either."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Entity",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured generic Entity identity is retained as contextual vocabulary; the seven candidate roots are Entity kinds and Entity itself is not asserted to be Artifact-contained.",
+      "operator_rules": [
+        "/root_entities",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e11"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-256",
+        "CA-D-257",
+        "CA-D-505",
+        "CA-D-506",
+        "CA-D-507",
+        "CA-E-246",
+        "CA-E-249",
+        "CA-E-382",
+        "CA-E-387",
+        "CA-E-444",
+        "CA-E-449",
+        "CA-E-490",
+        "CA-E-505",
+        "CA-E-520",
+        "CA-E-521",
+        "CA-M-114",
+        "CA-M-125",
+        "CA-M-228",
+        "CA-M-313",
+        "CA-O-134",
+        "CA-R-1191",
+        "CA-R-1192",
+        "CA-R-1194",
+        "CA-R-1198",
+        "CA-R-1199",
+        "CA-R-1200",
+        "CA-R-1202",
+        "CA-R-1203",
+        "CA-R-1204",
+        "CA-R-1248",
+        "CA-R-1259",
+        "CA-R-1260",
+        "CA-R-1262",
+        "CA-R-1266",
+        "CA-R-1267",
+        "CA-R-1275",
+        "CA-R-1280",
+        "CA-R-1281",
+        "CA-R-1285",
+        "CA-R-1315",
+        "CA-R-1321",
+        "CA-R-1339",
+        "CA-R-1342",
+        "CA-R-1349",
+        "CA-R-1350",
+        "CA-R-1363",
+        "CA-R-1376",
+        "CA-R-1406",
+        "CA-R-1431",
+        "CA-R-1438",
+        "CA-R-1456",
+        "CA-R-1459",
+        "CA-R-1521",
+        "CA-R-1548",
+        "CA-R-1594",
+        "CA-R-1597",
+        "CA-R-1609",
+        "CA-R-1682",
+        "CA-R-1683",
+        "CA-R-1788",
+        "CA-R-659"
+      ],
+      "preserved_distinctions": [
+        "Entity",
+        "The seven-root candidate boundary is preserved; generic Entity vocabulary does not add another root or Artifact ownership.",
+        "A heading, alias or display grouping is not itself a new Entity or native relation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Entity Taxonomy",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-1261"
+      ],
+      "preserved_distinctions": [
+        "Entity Taxonomy",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Entity Taxonomy and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Entity/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 99,
+      "reason": "An Entity/Carrier Property is the binding to the Carrier that stores or represents the Entity; non-ephemeral Entities require at least one Carrier through that binding, which may be shared or a location within a shared Carrier. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-6-1",
+        "CA-P-1932/batch-4/r1953-6-2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-256",
+        "CA-D-257",
+        "CA-D-505",
+        "CA-D-506",
+        "CA-D-507",
+        "CA-M-313",
+        "CA-R-1342"
+      ],
+      "preserved_distinctions": [
+        "Entity/Carrier",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as Entity.Carrier; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Entity/Identity",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "R",
+      "confidence_percent": 93,
+      "reason": "A change limited to Carrier Format or File Carrier Extension does not establish or change Entity identity. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured Entity identity vocabulary is retained without asserting that Entity or its identity field is an Artifact-contained dependent Entity.",
+      "operator_rules": [
+        "/root_entities",
+        "/entity_vs_syntax_rules",
+        "/entity_identity_model/dependent_entity"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-7-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-507",
+        "CA-R-1406"
+      ],
+      "preserved_distinctions": [
+        "Entity/Identity",
+        "Entity vocabulary is contextual here; the seven candidate roots remain the only asserted root Entity kinds.",
+        "Changing Carrier format or extension does not establish an Entity identity change; that distinction remains captured without a native property path."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Entity/Type",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-E-387",
+        "CA-R-1285",
+        "CA-R-1315",
+        "CA-R-1349",
+        "CA-R-1350"
+      ],
+      "preserved_distinctions": [
+        "Entity/Type",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Entity/Type and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Entity/Type/Status",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-1315"
+      ],
+      "preserved_distinctions": [
+        "Entity/Type/Status",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Entity/Type/Status and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Evaluate RMED Review Batch",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Evaluate RMED Review Batch",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is compared as an Operation or method definition under the Artifact content model; no actual run is inferred.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy",
+        "/root_entities/6"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e12"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-106"
+      ],
+      "preserved_distinctions": [
+        "Evaluate RMED Review Batch",
+        "A reusable Operation or method definition remains distinct from an actual Execution; no Execution instance is inferred.",
+        "Substance Scope expresses applicability to the whole governed Subject and owning Scope Unit, not ownership of either."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Evaluation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-D-496",
+        "CA-E-510",
+        "CA-E-513",
+        "CA-E-521",
+        "CA-O-087",
+        "CA-O-104",
+        "CA-O-105",
+        "CA-O-106",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110",
+        "CA-O-123",
+        "CA-O-124",
+        "CA-O-126",
+        "CA-R-1611"
+      ],
+      "preserved_distinctions": [
+        "Evaluation",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Evaluation and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Evaluation For Relation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-E-246",
+        "CA-E-447",
+        "CA-M-125",
+        "CA-M-264",
+        "CA-M-265",
+        "CA-R-1018"
+      ],
+      "preserved_distinctions": [
+        "Evaluation For Relation",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Evaluation For Relation and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Evaluation Implementation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Evaluation Implementation",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is compared as an Operation or method definition under the Artifact content model; no actual run is inferred.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy",
+        "/root_entities/6"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e13"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-018"
+      ],
+      "preserved_distinctions": [
+        "Evaluation Implementation",
+        "A reusable Operation or method definition remains distinct from an actual Execution; no Execution instance is inferred.",
+        "Substance Scope expresses applicability to the whole governed Subject and owning Scope Unit, not ownership of either."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Evaluation Implementation Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Evaluation Implementation Step",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is compared as an Operation or method definition under the Artifact content model; no actual run is inferred.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy",
+        "/root_entities/6"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e14"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-092"
+      ],
+      "preserved_distinctions": [
+        "Evaluation Implementation Step",
+        "A reusable Operation or method definition remains distinct from an actual Execution; no Execution instance is inferred.",
+        "Substance Scope expresses applicability to the whole governed Subject and owning Scope Unit, not ownership of either."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Evaluation/Report",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-O-104",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110"
+      ],
+      "preserved_distinctions": [
+        "Evaluation/Report",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Evaluation/Report and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Evaluator Evidence Calibration",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Evaluator Evidence Calibration",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is compared as an Operation or method definition under the Artifact content model; no actual run is inferred.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy",
+        "/root_entities/6"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e15"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-123"
+      ],
+      "preserved_distinctions": [
+        "Evaluator Evidence Calibration",
+        "A reusable Operation or method definition remains distinct from an actual Execution; no Execution instance is inferred.",
+        "Substance Scope expresses applicability to the whole governed Subject and owning Scope Unit, not ownership of either."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Event",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-O-162",
+        "CA-O-163"
+      ],
+      "preserved_distinctions": [
+        "Event",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Event and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Evidence",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-1497",
+        "CA-R-1505",
+        "CA-R-1611",
+        "CA-R-1646"
+      ],
+      "preserved_distinctions": [
+        "Evidence",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Evidence and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Evidence For Relation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-1021"
+      ],
+      "preserved_distinctions": [
+        "Evidence For Relation",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Evidence For Relation and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Exploration Mode",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-1557",
+        "CA-R-1558"
+      ],
+      "preserved_distinctions": [
+        "Exploration Mode",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Exploration Mode and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Extension",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Applicable Methodology/Extension",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured Extension is compared within the derived Applicable Methodology view while preserving source authority and one-to-one projection provenance.",
+      "operator_rules": [
+        "/applicable_methodology",
+        "/projection_member_model",
+        "/entity_representation_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e16"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-262",
+        "CA-D-361",
+        "CA-D-373",
+        "CA-E-249",
+        "CA-E-379",
+        "CA-E-464",
+        "CA-M-298",
+        "CA-O-011",
+        "CA-O-054",
+        "CA-O-152",
+        "CA-O-154",
+        "CA-R-1206",
+        "CA-R-1207",
+        "CA-R-1217",
+        "CA-R-1218",
+        "CA-R-1220",
+        "CA-R-1228",
+        "CA-R-1286",
+        "CA-R-1313",
+        "CA-R-1375",
+        "CA-R-1434",
+        "CA-R-1466",
+        "CA-R-1722",
+        "CA-R-1723",
+        "CA-R-1724",
+        "CA-R-1748",
+        "CA-R-1773",
+        "CA-R-1874",
+        "CA-R-1875"
+      ],
+      "preserved_distinctions": [
+        "Extension",
+        "Extension source authority remains distinct from the derived Applicable Methodology Projection.",
+        "One projected Atom maps to one source Atom with its source ID, version and relative source link; no second authority is created."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Extension Installation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-1206"
+      ],
+      "preserved_distinctions": [
+        "Extension Installation",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Extension Installation and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Feature Realization Relation",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-R-1654"
+      ],
+      "preserved_distinctions": [
+        "Feature Realization Relation",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Feature Realization Relation and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "File Carrier",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/File Carrier",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is retained as a Carrier kind under the separate Carrier root; its locator is not treated as its identity.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e17"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-258",
+        "CA-D-262",
+        "CA-D-330",
+        "CA-D-359",
+        "CA-D-363",
+        "CA-D-407",
+        "CA-D-416",
+        "CA-D-452",
+        "CA-D-460",
+        "CA-D-470",
+        "CA-D-472",
+        "CA-D-473",
+        "CA-D-496",
+        "CA-D-507",
+        "CA-E-502",
+        "CA-E-507",
+        "CA-M-306",
+        "CA-R-1583"
+      ],
+      "preserved_distinctions": [
+        "File Carrier",
+        "Carrier ID is separate from filename or full path; a path is a storage locator, not Carrier identity.",
+        "Carrier remains a separate root Entity and is not reduced to a Property."
+      ],
+      "question": null
+    },
+    {
+      "identity": "File Carrier/Extension",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 92,
+      "reason": "File Carrier Extension is an independently constrained Carrier change dimension whose change alone cannot establish or alter Entity identity. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-8-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-507"
+      ],
+      "preserved_distinctions": [
+        "File Carrier/Extension",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as File Carrier.Extension; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "File Carrier/Format",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 93,
+      "reason": "The Core Meta-Model permits registered File Carrier Formats including Markdown, TOML, YAML, and JSON, with further registration by Extensions or Project Configuration. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-9-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-262",
+        "CA-D-359",
+        "CA-D-363"
+      ],
+      "preserved_distinctions": [
+        "File Carrier/Format",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as File Carrier.Format; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "File Carrier/GitHub Preview",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 94,
+      "reason": "CAPRMEDIO-owned Markdown, TOML, and YAML File Carriers must remain valid, legible, and navigable in GitHub preview without editor-only syntax for required content. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-10-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-330"
+      ],
+      "preserved_distinctions": [
+        "File Carrier/GitHub Preview",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as File Carrier.GitHub Preview; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Find and Fetch Artifacts",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-O-158"
+      ],
+      "preserved_distinctions": [
+        "Find and Fetch Artifacts",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Find and Fetch Artifacts and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Find and Fetch Journal Events",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-O-161",
+        "CA-O-163"
+      ],
+      "preserved_distinctions": [
+        "Find and Fetch Journal Events",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Find and Fetch Journal Events and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Find and Fetch Journal Events/Step",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-O-163"
+      ],
+      "preserved_distinctions": [
+        "Find and Fetch Journal Events/Step",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Find and Fetch Journal Events/Step and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Find and Fetch Journal Events/Step: query",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Checked captured-snapshot Main Content has no exact defining assertion for this preserved identity. It remains preserved and unresolved; no drop, consolidation, generalization, ownership, or native fact is inferred. Latest candidate rules were checked for a seven-root comparison, but the missing captured definition leaves this identity in review backlog; no mapping is committed.",
+      "operator_rules": [],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-O-163"
+      ],
+      "preserved_distinctions": [
+        "Find and Fetch Journal Events/Step: query",
+        "Original identity is preserved; missing source evidence is not treated as deletion, duplication, or permission to invent a root kind."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Which captured Core Main Content assertion defines the distinct meaning of Find and Fetch Journal Events/Step: query and, if applicable, its property, allowed-value, root-kind, or ownership status? This is a captured-evidence gap, not a new Operator design question; provide a qualifying Main Content assertion before assigning a candidate mapping."
+      }
+    },
+    {
+      "identity": "Framework Instance Settings",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings)",
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: Captured Main Content identifies Framework Instance Settings as an authoritative Artifact; the comparison retains that kind without asserting an unsupported narrower or dependent path.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/entity_representation_rules",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e18"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-333",
+        "CA-D-358",
+        "CA-D-359",
+        "CA-D-360",
+        "CA-D-361",
+        "CA-D-366",
+        "CA-D-368",
+        "CA-D-369",
+        "CA-D-370",
+        "CA-D-371",
+        "CA-D-372",
+        "CA-D-373",
+        "CA-D-374",
+        "CA-D-377",
+        "CA-D-383",
+        "CA-D-387",
+        "CA-D-390",
+        "CA-D-391",
+        "CA-D-408",
+        "CA-D-442",
+        "CA-D-447",
+        "CA-D-497",
+        "CA-E-241",
+        "CA-E-379",
+        "CA-E-443",
+        "CA-E-446",
+        "CA-E-447",
+        "CA-E-450",
+        "CA-E-458",
+        "CA-E-459",
+        "CA-E-469",
+        "CA-E-473",
+        "CA-M-271",
+        "CA-M-277",
+        "CA-M-278",
+        "CA-M-279",
+        "CA-M-291",
+        "CA-M-295",
+        "CA-O-008",
+        "CA-O-011",
+        "CA-O-052",
+        "CA-O-105",
+        "CA-O-152",
+        "CA-R-1052",
+        "CA-R-1207",
+        "CA-R-1218",
+        "CA-R-1228",
+        "CA-R-1375",
+        "CA-R-1402",
+        "CA-R-1404",
+        "CA-R-1428",
+        "CA-R-1429",
+        "CA-R-1430",
+        "CA-R-1439",
+        "CA-R-1440",
+        "CA-R-1441",
+        "CA-R-1489",
+        "CA-R-1587",
+        "CA-R-1628",
+        "CA-R-1629",
+        "CA-R-1630",
+        "CA-R-1631",
+        "CA-R-1652",
+        "CA-R-1724",
+        "CA-R-1733",
+        "CA-R-1739",
+        "CA-R-1740",
+        "CA-R-1750",
+        "CA-R-380",
+        "CA-R-626",
+        "CAPRMEDIO-GOV-EVAL-002"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings",
+        "Framework Instance Settings remains an authoritative Artifact for explicit instance choices, distinct from Project initialization inputs and Project Structure.",
+        "Its Carrier and field conventions remain general D policy comparisons; the Artifact identity is not replaced by a storage path."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings Validation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Framework Instance Settings Validation",
+      "content_view": "E",
+      "confidence_percent": 97,
+      "reason": "The Evaluation rejects Framework Instance Settings that are treated as Atom or Projection, have Atom metadata, lack exactly one authoritative TOML Carrier, cross Project boundaries, violate content/field constraints, or lack revision/digest/journal evidence. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured identity is compared as an Operation or method definition under the Artifact content model; no actual run is inferred.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy",
+        "/root_entities/6"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-11-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-458"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings Validation",
+        "A reusable Operation or method definition remains distinct from an actual Execution; no Execution instance is inferred.",
+        "Substance Scope expresses applicability to the whole governed Subject and owning Scope Unit, not ownership of either."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Artifact Timestamp Timezone",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.Artifact Timestamp Timezone)",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Framework Instance Settings may set artifact timestamp timezone to local, UTC, or an IANA name, defaulting to local, and this setting interprets emitted updated_at values. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-12-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-390"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Artifact Timestamp Timezone",
+        "The owner and field remain distinct as Framework Instance Settings.Artifact Timestamp Timezone; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Authoritative Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 98,
+      "reason": "Each Project's Framework Instance Settings Artifact uses exactly one authoritative TOML File Carrier at the stated Project-specific path. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-13-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-359",
+        "CA-D-361",
+        "CA-D-383",
+        "CA-D-387",
+        "CA-E-458"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Authoritative Carrier",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as Framework Instance Settings.Authoritative Carrier; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Authoritative Carrier/Content",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 96,
+      "reason": "The Framework Instance Settings TOML Carrier encodes explicit Operator-selected instance choices within specified Core, General, and Standard boundaries and excludes independently editable initialization, Project Structure, and derived values. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-14-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-361",
+        "CA-D-383",
+        "CA-D-387"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Authoritative Carrier/Content",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as Framework Instance Settings.Authoritative Carrier.Content; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Authority Modes",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.Authority Modes)",
+      "content_view": "R",
+      "confidence_percent": 96,
+      "reason": "Framework Instance Settings selects Project and default Scope Unit Authority Modes, while any Scope Unit override belongs only to its Project Structure declaration; permitted values are strict and casual. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-15-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1430"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Authority Modes",
+        "The owner and field remain distinct as Framework Instance Settings.Authority Modes; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 92,
+      "reason": "The Framework Instance Settings TOML Carrier has a bounded exclusion: it must not contain Atom metadata or provenance and follows the named Revision binding rule. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-16-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-377"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Carrier",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as Framework Instance Settings.Carrier; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Carrier/Atom metadata exclusion",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 98,
+      "reason": "The Framework Instance Settings TOML Carrier must exclude Atom Frontmatter, ID, Revision metadata, relations, rationale, and provenance. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-17-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-377"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Carrier/Atom metadata exclusion",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as Framework Instance Settings.Carrier.Atom metadata exclusion; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Confidence",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.Confidence)",
+      "content_view": "mixed",
+      "confidence_percent": 94,
+      "reason": "Necessary-information and semantic-resolution Confidence Thresholds each have an Operator-configurable instance default. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-18-1",
+        "CA-P-1932/batch-4/r1953-18-2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-368",
+        "CA-D-369",
+        "CA-R-1652",
+        "CA-R-380"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Confidence",
+        "The owner and field remain distinct as Framework Instance Settings.Confidence; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Confidence/Necessary Information Threshold",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.Confidence.Necessary Information Threshold)",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "The necessary-information Confidence Threshold has an Operator-configurable integer-percentage instance default. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-19-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-368",
+        "CA-R-1652"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Confidence/Necessary Information Threshold",
+        "The owner and field remain distinct as Framework Instance Settings.Confidence.Necessary Information Threshold; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 96,
+      "reason": "A necessary-information confidence default in the Settings TOML Carrier uses the integer-percentage field confidence.necessary_information_threshold_percent. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-20-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-368"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Confidence/Necessary Information Threshold/Carrier",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as Framework Instance Settings.Confidence.Necessary Information Threshold.Carrier; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Confidence/Semantic Resolution Threshold",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.Confidence.Semantic Resolution Threshold)",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "The semantic-resolution Confidence Threshold has an Operator-configurable instance default. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-21-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-369",
+        "CA-R-380"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Confidence/Semantic Resolution Threshold",
+        "The owner and field remain distinct as Framework Instance Settings.Confidence.Semantic Resolution Threshold; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier",
+      "content_view": "D",
+      "confidence_percent": 96,
+      "reason": "A semantic-resolution confidence default in the Settings TOML Carrier uses the integer-percentage field confidence.semantic_resolution_threshold_percent. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured field or binding meaning is compared as a general Core D delivery policy; no per-Property Carrier registration is carried into the candidate display.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-22-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-369"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Confidence/Semantic Resolution Threshold/Carrier",
+        "Carrier ID remains separate from filename or full path; the locator is not Carrier identity.",
+        "The captured owner and field remain distinct as Framework Instance Settings.Confidence.Semantic Resolution Threshold.Carrier; the general policy comparison does not erase that owner/field qualification.",
+        "General Core D field mappings may cover multiple Entities; no per-property Carrier Relation Type, Carrier edge registry, or D Atom is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Extension selections",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.Extension selections)",
+      "content_view": "D",
+      "confidence_percent": 96,
+      "reason": "The Settings TOML Carrier encodes enabled or disabled Extensions, selected revisions where applicable, and retained per-Extension settings without activating a disabled Extension. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-23-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-373"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Extension selections",
+        "The owner and field remain distinct as Framework Instance Settings.Extension selections; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Identifier",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.Identifier)",
+      "content_view": "D",
+      "confidence_percent": 98,
+      "reason": "The authoritative Framework Instance Settings Artifact Identifier is caprmedio_framework_settings. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-24-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-358"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Identifier",
+        "The owner and field remain distinct as Framework Instance Settings.Identifier; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/Tool selections",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.Tool selections)",
+      "content_view": "D",
+      "confidence_percent": 96,
+      "reason": "The Settings TOML Carrier encodes selected active and background Tools with per-Tool settings. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-25-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-372"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/Tool selections",
+        "The owner and field remain distinct as Framework Instance Settings.Tool selections; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/code-root locators",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.code-root locators)",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "The Settings TOML Carrier encodes at least one code-root locator for the instance. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-26-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-371"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/code-root locators",
+        "The owner and field remain distinct as Framework Instance Settings.code-root locators; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/framework control-root locator",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.framework control-root locator)",
+      "content_view": "D",
+      "confidence_percent": 96,
+      "reason": "The Settings TOML Carrier encodes its Project's framework control-root locator and resolves it to CA-D-317's prescribed Directory Carrier without selecting a different authority root. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-27-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-370"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/framework control-root locator",
+        "The owner and field remain distinct as Framework Instance Settings.framework control-root locator; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/interaction",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.interaction)",
+      "content_view": "mixed",
+      "confidence_percent": 94,
+      "reason": "The Settings Carrier represents one interaction reporting default through interaction.reporting_mode with allowed silent or verbose values. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-28-1",
+        "CA-P-1932/batch-4/r1953-28-2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-383",
+        "CA-M-277",
+        "CA-M-278",
+        "CA-R-1439",
+        "CA-R-1440",
+        "CA-R-1628"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/interaction",
+        "The owner and field remain distinct as Framework Instance Settings.interaction; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/interaction/reporting mode",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.interaction.reporting mode)",
+      "content_view": "R",
+      "confidence_percent": 96,
+      "reason": "The reporting-mode setting uses reporting_mode in the interaction section and has exactly one allowed value in silent or verbose. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-29-1",
+        "CA-P-1932/batch-4/r1953-29-2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-383",
+        "CA-M-277",
+        "CA-M-278",
+        "CA-R-1439",
+        "CA-R-1440",
+        "CA-R-1628"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/interaction/reporting mode",
+        "The owner and field remain distinct as Framework Instance Settings.interaction.reporting mode; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/interaction/reporting mode/effects",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.interaction.reporting mode.effects)",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Interaction reporting mode affects presentation only and does not change authorization, Artifact creation, workflow routing, validation, or safety behavior. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-30-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-277",
+        "CA-M-278",
+        "CA-R-1439"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/interaction/reporting mode/effects",
+        "The owner and field remain distinct as Framework Instance Settings.interaction.reporting mode.effects; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/interaction/reporting mode/mandatory information",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.interaction.reporting mode.mandatory information)",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Every interaction reporting mode must report blockers, ambiguity requiring Operator input, approval requests, safety-critical information, and material deviations. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-31-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-277",
+        "CA-M-278",
+        "CA-R-1440"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/interaction/reporting mode/mandatory information",
+        "The owner and field remain distinct as Framework Instance Settings.interaction.reporting mode.mandatory information; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/interaction/reporting mode: silent",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.interaction.reporting mode: silent)",
+      "content_view": "M",
+      "confidence_percent": 96,
+      "reason": "Silent-mode reporting retains mandatory information while reporting only durable changed Artifacts or Project state beyond exploratory input. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-32-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-277"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/interaction/reporting mode: silent",
+        "The owner and field remain distinct as Framework Instance Settings.interaction.reporting mode: silent; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred.",
+        "The reporting-mode allowed domain remains qualified as silent or verbose; reporting mode changes presentation only, not authorization or safety behavior."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/interaction/reporting mode: verbose",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact (Framework Instance Settings.interaction.reporting mode: verbose)",
+      "content_view": "M",
+      "confidence_percent": 96,
+      "reason": "Verbose-mode reporting explicitly reports relevant workflow modes, transitions, Skills, gates, and planned or completed Artifact operations with mandatory information. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured settings field is compared with dot notation as a dependent field of the named Framework Instance Settings Artifact; slash hierarchy is not treated as narrower-than here.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/entity_vs_syntax_rules",
+        "/content_direction/details"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-33-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-278"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/interaction/reporting mode: verbose",
+        "The owner and field remain distinct as Framework Instance Settings.interaction.reporting mode: verbose; dot notation indicates bearer-to-property presentation, not a new root or subtype admission.",
+        "Qualified allowed values and field-specific constraints remain preserved; no separate lifecycle or per-property Carrier registration is inferred.",
+        "The reporting-mode allowed domain remains qualified as silent or verbose; reporting mode changes presentation only, not authorization or safety behavior."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/parameter resolution",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Framework Instance Settings.parameter resolution",
+      "content_view": "M",
+      "confidence_percent": 98,
+      "reason": "Parameter resolution uses an explicit current-Project Settings value when present, otherwise the Default Settings value, preserves false/zero/empty values, validates against governing authority, and leaves unsupplied required parameters unresolved. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured identity is compared as an Operation or method definition under the Artifact content model; no actual run is inferred.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy",
+        "/root_entities/6"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-34-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-279"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/parameter resolution",
+        "A reusable Operation or method definition remains distinct from an actual Execution; no Execution instance is inferred.",
+        "Substance Scope expresses applicability to the whole governed Subject and owning Scope Unit, not ownership of either.",
+        "Parameter resolution remains per-parameter: explicit values win, valid false/0/empty values stay explicit, and inherited defaults are not copied back as authored selections."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework Instance Settings/parameter resolution validation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Framework Instance Settings.parameter resolution validation",
+      "content_view": "E",
+      "confidence_percent": 97,
+      "reason": "The Evaluation rejects specified precedence, absence, invalid-value, cross-Project, Carrier-location, and representation failures in framework parameter resolution. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured identity is compared as an Operation or method definition under the Artifact content model; no actual run is inferred.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/content_direction/role_labels/Operations",
+        "/execution_definition_policy",
+        "/root_entities/6"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-35-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-450"
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings/parameter resolution validation",
+        "A reusable Operation or method definition remains distinct from an actual Execution; no Execution instance is inferred.",
+        "Substance Scope expresses applicability to the whole governed Subject and owning Scope Unit, not ownership of either.",
+        "Parameter resolution remains per-parameter: explicit values win, valid false/0/empty values stay explicit, and inherited defaults are not copied back as authored selections."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Framework-Owned Carrier",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier/Framework-Owned Carrier",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "Framework-Owned and Project-Owned persistent Carriers remain outside Runtime State so cleanup cannot remove canonical authority or Journal history. Retained as a bounded captured-snapshot identity; no native admission, replacement, or source migration is performed. Candidate comparison: The captured identity is retained as a Carrier kind under the separate Carrier root; its locator is not treated as its identity.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/entity_identity_model/carrier_identity",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/r1953-36-1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-341"
+      ],
+      "preserved_distinctions": [
+        "Framework-Owned Carrier",
+        "Carrier ID is separate from filename or full path; a path is a storage locator, not Carrier identity.",
+        "Carrier remains a separate root Entity and is not reduced to a Property."
+      ],
+      "question": null
+    },
+    {
+      "identity": "GOVERNS",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation/GOVERNS",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "Captured pinned Main Content directly defines this preserved identity; retain it without admitting a new native Property, allowed-value assignment, root kind, or relation. Candidate comparison: The captured identity is compared as a typed Relation; direction and endpoint meaning remain distinct, and the display path does not admit a native relation.",
+      "operator_rules": [
+        "/root_entities/3",
+        "/graph_model",
+        "/relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1932/batch-4/e19"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-269",
+        "CA-D-307",
+        "CA-E-246",
+        "CA-M-228",
+        "CA-M-232",
+        "CA-R-1198",
+        "CA-R-1199",
+        "CA-R-1201",
+        "CA-R-1202",
+        "CA-R-1203",
+        "CA-R-1275",
+        "CA-R-1276",
+        "CA-R-1279",
+        "CA-R-1281",
+        "CA-R-1363",
+        "CA-R-1459"
+      ],
+      "preserved_distinctions": [
+        "GOVERNS",
+        "Typed relation direction, endpoints and qualified meaning remain distinct.",
+        "Candidate display notation does not itself create or admit a native Relation."
+      ],
+      "question": null
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2165",
+  "recorded_at": "2026-10-11 18:29:23 +0400",
+  "non_authoritative": true,
+  "source_migration": "timestamp_policy_and_two_metadata_repairs_only",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded use explicit offsets for atom timestamps; not migration approval",
+  "verification": {
+    "source_migration": "timestamp_policy_and_two_metadata_repairs_only",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/approved-implementation/task-2165.implementation-verification.json",
+      "sha256": "ab12c7017c88fdb32c3ac01d68056933505bffcecd76d0c5c71d9be93f80f003"
+    },
+    "independent_review": {
+      "reviewer": "domain_semantic_acceptance",
+      "result": "PASS",
+      "independently_executed_tests": false,
+      "findings_resolved": [
+        "present invalid Settings cannot become absent fallback",
+        "alternative selected Settings use their own timezone",
+        "bound Project selection retained"
+      ],
+      "accepted": [
+        "offset formatting",
+        "updated_at-only YAML quoting",
+        "configured local UTC IANA retained",
+        "operative revision and lifecycle root binding",
+        "standalone graph absent-Settings local aware retained"
+      ]
+    },
+    "root_tests": {
+      "result": "PASS",
+      "count": 171,
+      "suites": [
+        {
+          "name": "atom-search",
+          "count": 49,
+          "exit": 0
+        },
+        {
+          "name": "artifact-metadata",
+          "count": 8,
+          "exit": 0
+        },
+        {
+          "name": "journal-project-isolation",
+          "count": 11,
+          "exit": 0
+        },
+        {
+          "name": "selected-atom-lifecycle",
+          "count": 30,
+          "exit": 0
+        },
+        {
+          "name": "schema-quotation",
+          "count": 40,
+          "exit": 0
+        },
+        {
+          "name": "authority-checks",
+          "count": 15,
+          "exit": 0
+        },
+        {
+          "name": "graph-timestamp",
+          "count": 18,
+          "exit": 0
+        }
+      ]
+    },
+    "journal": {
+      "path": ".caprmedio_caprmedio/_journal/anatoly-m-maslennikov-2026-10-11-part-8.ndjson",
+      "sha256": "3697a5bd708d4c989d744ffb752d3eb503b567a3723eb3fbf957b8199955a0e9",
+      "count": 9
+    },
+    "limits": [
+      "Exact approved timestamp-policy revision and two current metadata repairs only; original Subjects and unrelated content unchanged.",
+      "Formatter/projection code plus direct tests only; old versions/history unchanged; no guessed historic offsets.",
+      "No native admission, new apply route, MCP/runtime activation or full Epic completion. Selector graph alignment remains CA-P-2163."
+    ]
+  },
+  "independent_review": {
+    "reviewer": "domain_semantic_acceptance",
+    "result": "PASS",
+    "independently_executed_tests": false,
+    "findings_resolved": [
+      "present invalid Settings cannot become absent fallback",
+      "alternative selected Settings use their own timezone",
+      "bound Project selection retained"
+    ],
+    "accepted": [
+      "offset formatting",
+      "updated_at-only YAML quoting",
+      "configured local UTC IANA retained",
+      "operative revision and lifecycle root binding",
+      "standalone graph absent-Settings local aware retained"
+    ]
+  },
+  "completion_scope": "Completed the3 approved source revisions, exact predecessors and9 actual Journal records, and the configured offset/quotation emitters. Independent source/static code checks and Root's171 targeted tests passed, including graph Settings and carrier edge cases.",
+  "registration_commit": "cd5ea856823d565c285d767209e64297ba680749",
+  "limits": [
+    "Exact approved timestamp-policy revision and two current metadata repairs only; original Subjects and unrelated content unchanged.",
+    "Formatter/projection code plus direct tests only; old versions/history unchanged; no guessed historic offsets.",
+    "No native admission, new apply route, MCP/runtime activation or full Epic completion. Selector graph alignment remains CA-P-2163."
+  ]
+}

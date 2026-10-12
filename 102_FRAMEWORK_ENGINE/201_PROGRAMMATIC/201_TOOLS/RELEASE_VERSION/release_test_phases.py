@@ -35,7 +35,10 @@ def _error(code: str, message: str) -> ReleaseContractError:
 
 
 def _is_test_module(path: object) -> bool:
-    return isinstance(path, str) and PurePosixPath(path).name.startswith("test_") and path.endswith(".py")
+    return (
+        isinstance(path, str)
+        and re.fullmatch(r"test_[A-Za-z0-9_]+\.py", PurePosixPath(path).name) is not None
+    )
 
 
 def _row_value(row: object, name: str) -> object:

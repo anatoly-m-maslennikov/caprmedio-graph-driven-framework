@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2132",
+  "recorded_at": "2026-10-11 10:48:31 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining atom and artifact policy subjects; not migration approval",
+  "verification": {
+    "task": "CA-P-2132",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2132.research.json",
+      "sha256": "2c79d4e3114f6db167acda343fecd0762eab6a78988e43f534f575661ffc35d2"
+    },
+    "rows": 22,
+    "counts": {
+      "unresolved": 20,
+      "proposed": 2
+    },
+    "exact_evidence_spans": 24,
+    "exact_supporting_definition_spans": 0,
+    "exact_input_pins": 11,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/domain_semantic_acceptance",
+      "final_report_sha256": "2c79d4e3114f6db167acda343fecd0762eab6a78988e43f534f575661ffc35d2",
+      "result": "PASS: two Structural Parent proposals and twenty meaning-specific nulls",
+      "meaning_checks": [
+        "Current R1657 active structural_parent and R1659 derived structural_children definitions support the sole direct Structural Parent kind in R1660.",
+        "Kind-independent preserves applicability across structural kinds; it does not create an inverse or negate named Relation Type membership.",
+        "Actual candidate relation_type_model equates Type and Kind; colon is allowed-value notation.",
+        "All twenty nulls preserve missing type/value identity, multi-root history/projection or multi-axis qualifier policies rather than generic root guesses.",
+        "Structural Children remains derived inverse, not a second direct Kind."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/domain_semantic_acceptance",
+    "final_report_sha256": "2c79d4e3114f6db167acda343fecd0762eab6a78988e43f534f575661ffc35d2",
+    "result": "PASS: two Structural Parent proposals and twenty meaning-specific nulls",
+    "meaning_checks": [
+      "Current R1657 active structural_parent and R1659 derived structural_children definitions support the sole direct Structural Parent kind in R1660.",
+      "Kind-independent preserves applicability across structural kinds; it does not create an inverse or negate named Relation Type membership.",
+      "Actual candidate relation_type_model equates Type and Kind; colon is allowed-value notation.",
+      "All twenty nulls preserve missing type/value identity, multi-root history/projection or multi-axis qualifier policies rather than generic root guesses.",
+      "Structural Children remains derived inverse, not a second direct Kind."
+    ]
+  },
+  "completion_scope": "All22 selected origins passed exact live pin/span/coverage controls and independent semantic acceptance: two Structural Parent kind proposals and twenty explicit nulls. Kind-independent structural endpoints and the non-persistent inverse remain distinct; original Core is unchanged.",
+  "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

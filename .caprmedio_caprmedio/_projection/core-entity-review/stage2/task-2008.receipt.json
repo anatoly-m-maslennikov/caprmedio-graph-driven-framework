@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2008",
+  "recorded_at": "2026-10-11 02:27:26 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-017.review.json",
+    "sha256": "ec37ee417b97752e3ab3dc896395507bcc297788ee74ac4932a439abdfec5a8d"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-017.json",
+    "sha256": "44c4e7f67dd1c8df5b13d29a77b58538b05a0e1ebc6dbe377d2ab0b5186721e6"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 20,
+    "occurrences": 80,
+    "proposed": 23,
+    "unchanged": 52,
+    "unresolved": 5,
+    "meaning_review": "Independent meaning review checked proposed mappings and high-risk unchanged rows; the CA-R-1634 Claim-to-bare-Substance mapping was corrected to unresolved.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "5 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}

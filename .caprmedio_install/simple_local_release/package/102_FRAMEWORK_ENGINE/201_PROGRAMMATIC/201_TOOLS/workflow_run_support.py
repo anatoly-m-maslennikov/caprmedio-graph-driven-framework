@@ -1,0 +1,1364 @@
+"""Shared, non-executable admission and evidence support for selected runs.
+
+Route-specific policy and effects stay with injected callers.  This module only
+seals the common request, rechecks declared currentness, shapes actual Run
+provenance, and records it through :mod:`work_journal`.
+"""
+
+from __future__ import annotations
+
+import datetime as dt
+import hashlib
+import os
+import stat
+import uuid
+from collections.abc import Callable, Iterable, Mapping
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+
+import work_journal
+
+
+SHA256 = "0123456789abcdef"
+MODES = frozenset({"preview", "execute"})
+OUTCOMES = frozenset({"completed", "no_op", "failed", "cancelled", "partial", "interrupted_pending"})
+RUN_KINDS = frozenset({"workflow", "step", "action"})
+_COMMON_FIELDS = frozenset(
+    {
+        "mode",
+        "request_id",
+        "operation_route",
+        "parameters",
+        "parameters_digest",
+        "target_frontier",
+        "target_frontier_digest",
+        "effects",
+        "effects_digest",
+        "definition_manifest",
+        "source_freshness",
+        "initiative",
+        "lineage",
+        "expected_definition_revisions",
+        "requested_runs",
+    }
+)
+_EXECUTE_FIELDS = _COMMON_FIELDS | frozenset(
+    {
+        "proposal_receipt",
+        "proposal_receipt_digest",
+        "assigned_action_id",
+        "operator_authorization",
+    }
+)
+_SOURCE_FIELDS = frozenset(
+    {
+        "selected_source_registry_ref",
+        "selected_source_registry_version",
+        "selected_source_registry_digest",
+        "selected_binding_ref",
+        "selected_binding_digest",
+    }
+)
+
+
+class SelectedRunError(ValueError):
+    """Stable, pre-effect selected-run refusal."""
+
+    def __init__(self, code: str, message: str) -> None:
+        self.code = code
+        super().__init__(f"{code}: {message}")
+
+
+@dataclass(frozen=True)
+class RecordedActionStartProvenance:
+    """Read-only facts from one sealed, already-recorded Action start.
+
+    This carrier intentionally exposes the author and actual Run lineage, not
+    an assigned Action identifier, caller identity, authorization, outcome, or
+    any admission decision.
+    """
+
+    author: str
+    event_id: str
+    action_run_id: str
+    parent_lineage: tuple[str, ...]
+
+
+def _require_string(value: Mapping[str, Any], key: str) -> str:
+    item = value.get(key)
+    if not isinstance(item, str) or not item:
+        raise SelectedRunError("invalid-request", f"{key} must be a non-empty string")
+    return item
+
+
+def _require_digest(value: object, key: str) -> str:
+    if not isinstance(value, str) or len(value) != 64 or any(character not in SHA256 for character in value):
+        raise SelectedRunError("invalid-request", f"{key} must be a lowercase SHA-256 digest")
+    return value
+
+
+def _safe_ref(value: object, key: str) -> str:
+    if not isinstance(value, str) or not value:
+        raise SelectedRunError("invalid-request", f"{key} must be a non-empty safe reference")
+    path = Path(value)
+    if path.is_absolute() or ".." in path.parts:
+        raise SelectedRunError("invalid-request", f"{key} must be repository-relative")
+    return value
+
+
+def _reject_secrets(value: object, location: str = "parameters") -> None:
+    if isinstance(value, Mapping):
+        for key, item in value.items():
+            if not isinstance(key, str):
+                raise SelectedRunError("invalid-request", f"{location} keys must be strings")
+            if any(word in key.lower() for word in ("secret", "password", "token", "credential")):
+                raise SelectedRunError("secret-input", f"{location}.{key} is not admitted in selected-run input")
+            _reject_secrets(item, f"{location}.{key}")
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            _reject_secrets(item, f"{location}[{index}]")
+
+
+def _definition(value: object, *, location: str = "definition") -> dict[str, Any]:
+    if not isinstance(value, Mapping) or set(value) != {"atom_id", "version", "path", "digest"}:
+        raise SelectedRunError("invalid-request", f"{location} must contain atom_id, version, path, and digest")
+    atom_id = _require_string(value, "atom_id")
+    version = value.get("version")
+    if type(version) is not int or version < 1:
+        raise SelectedRunError("invalid-request", f"{location}.version must be a positive integer")
+    return {"atom_id": atom_id, "version": version, "path": _safe_ref(value.get("path"), f"{location}.path"), "digest": _require_digest(value.get("digest"), f"{location}.digest")}
+
+
+def _canonical_digest(value: object) -> str:
+    return work_journal.canonical_json_digest(value)
+
+
+def _validate_common(request: Mapping[str, Any]) -> dict[str, Any]:
+    if not isinstance(request, Mapping):
+        raise SelectedRunError("invalid-request", "request must be an object")
+    mode = request.get("mode", "preview")
+    if mode not in MODES:
+        raise SelectedRunError("invalid-mode", "mode must be literal preview or execute")
+    allowed = _EXECUTE_FIELDS if mode == "execute" else _COMMON_FIELDS
+    unknown = set(request) - allowed
+    if unknown:
+        raise SelectedRunError("unknown-field", f"request contains unknown field(s): {', '.join(sorted(unknown))}")
+    required = {
+        "request_id", "operation_route", "parameters", "parameters_digest", "target_frontier",
+        "target_frontier_digest", "effects", "effects_digest", "definition_manifest", "source_freshness", "initiative",
+    }
+    if mode == "execute":
+        required |= {"proposal_receipt", "proposal_receipt_digest", "assigned_action_id", "operator_authorization", "requested_runs"}
+    missing = required - set(request)
+    if missing:
+        raise SelectedRunError("invalid-request", f"request is missing: {', '.join(sorted(missing))}")
+    result = dict(request)
+    result["mode"] = mode
+    _require_string(result, "request_id")
+    _require_string(result, "operation_route")
+    if not isinstance(result["parameters"], Mapping):
+        raise SelectedRunError("invalid-request", "parameters must be a typed object")
+    _reject_secrets(result["parameters"])
+    if _canonical_digest(result["parameters"]) != _require_digest(result.get("parameters_digest"), "parameters_digest"):
+        raise SelectedRunError("digest-mismatch", "parameters_digest does not bind parameters")
+    if not isinstance(result["target_frontier"], list) or not result["target_frontier"]:
+        raise SelectedRunError("invalid-request", "target_frontier must be a non-empty ordered list")
+    if any(_safe_ref(item, "target_frontier item") != item for item in result["target_frontier"]):
+        raise AssertionError("safe reference normalization must preserve its input")
+    if len(set(result["target_frontier"])) != len(result["target_frontier"]):
+        raise SelectedRunError("invalid-request", "target_frontier must not contain duplicate references")
+    if _canonical_digest(result["target_frontier"]) != _require_digest(result.get("target_frontier_digest"), "target_frontier_digest"):
+        raise SelectedRunError("digest-mismatch", "target_frontier_digest does not bind target_frontier")
+    if not isinstance(result["effects"], list):
+        raise SelectedRunError("invalid-request", "effects must be an ordered typed list")
+    for effect in result["effects"]:
+        if not isinstance(effect, Mapping) or not isinstance(effect.get("type"), str) or not effect["type"]:
+            raise SelectedRunError("invalid-request", "each effect must include a non-empty type")
+    _reject_secrets(result["effects"], "effects")
+    if _canonical_digest(result["effects"]) != _require_digest(result.get("effects_digest"), "effects_digest"):
+        raise SelectedRunError("digest-mismatch", "effects_digest does not bind effects")
+    manifest = result["definition_manifest"]
+    if not isinstance(manifest, Mapping) or set(manifest) != {"manifest_ref", "manifest_digest"}:
+        raise SelectedRunError("invalid-request", "definition_manifest must contain only manifest_ref and manifest_digest")
+    result["definition_manifest"] = {"manifest_ref": _safe_ref(manifest["manifest_ref"], "definition_manifest.manifest_ref"), "manifest_digest": _require_digest(manifest["manifest_digest"], "definition_manifest.manifest_digest")}
+    source = result["source_freshness"]
+    if not isinstance(source, Mapping):
+        raise SelectedRunError("invalid-request", "source_freshness must be an object")
+    unknown_source = set(source) - _SOURCE_FIELDS
+    if unknown_source:
+        raise SelectedRunError("unknown-field", "source_freshness contains an unknown field")
+    if set(source) != _SOURCE_FIELDS:
+        raise SelectedRunError("invalid-request", "source_freshness has missing required fields")
+    registry_version = source["selected_source_registry_version"]
+    if type(registry_version) is not int or registry_version < 1:
+        raise SelectedRunError("invalid-request", "selected_source_registry_version must be a positive integer")
+    result["source_freshness"] = {
+        "selected_source_registry_ref": _safe_ref(source["selected_source_registry_ref"], "selected_source_registry_ref"),
+        "selected_source_registry_version": registry_version,
+        "selected_source_registry_digest": _require_digest(source["selected_source_registry_digest"], "selected_source_registry_digest"),
+        "selected_binding_ref": _safe_ref(source["selected_binding_ref"], "selected_binding_ref"),
+        "selected_binding_digest": _require_digest(source["selected_binding_digest"], "selected_binding_digest"),
+    }
+    initiative = result["initiative"]
+    if not isinstance(initiative, Mapping) or set(initiative) - {"initiative_id", "instruction_summary", "initiative_ref"}:
+        raise SelectedRunError("invalid-request", "initiative has unsupported fields")
+    result["initiative"] = {
+        "initiative_id": _require_string(initiative, "initiative_id"),
+        "instruction_summary": _require_string(initiative, "instruction_summary"),
+        **({"initiative_ref": _safe_ref(initiative["initiative_ref"], "initiative.initiative_ref")} if "initiative_ref" in initiative else {}),
+    }
+    if "lineage" in result:
+        if not isinstance(result["lineage"], list) or any(not isinstance(item, str) or not item for item in result["lineage"]):
+            raise SelectedRunError("invalid-request", "lineage must contain only actual non-empty references")
+    if "expected_definition_revisions" in result:
+        expected = result["expected_definition_revisions"]
+        if not isinstance(expected, list) or not expected:
+            raise SelectedRunError("invalid-request", "expected_definition_revisions must be a non-empty ordered list when supplied")
+        normalized: list[dict[str, Any]] = []
+        prior: tuple[str, str, int, str] | None = None
+        for item in expected:
+            if not isinstance(item, Mapping) or set(item) != {"atom_id", "kind", "version", "path", "digest"}:
+                raise SelectedRunError("invalid-request", "expected definition revision has invalid fields")
+            if item["kind"] not in RUN_KINDS:
+                raise SelectedRunError("invalid-request", "expected definition kind is invalid")
+            definition = _definition(item, location="expected definition")
+            normalized_item = {"kind": item["kind"], **definition}
+            sort_key = (normalized_item["kind"], normalized_item["atom_id"], normalized_item["version"], normalized_item["path"])
+            if prior is not None and sort_key <= prior:
+                raise SelectedRunError("invalid-request", "expected_definition_revisions must be uniquely canonical")
+            normalized.append(normalized_item)
+            prior = sort_key
+        result["expected_definition_revisions"] = normalized
+    if "requested_runs" in result:
+        result["requested_runs"] = _validate_requested_runs(result["requested_runs"])
+    return result
+
+
+def _validate_requested_runs(value: object) -> list[dict[str, Any]]:
+    if not isinstance(value, list) or not value:
+        raise SelectedRunError("invalid-request", "requested_runs must be a non-empty ordered list")
+    normalized: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for item in value:
+        if not isinstance(item, Mapping) or set(item) - {"requested_run_id", "kind", "definition", "parent_requested_run_id", "predecessor_requested_run_id", "successor_requested_run_ids"}:
+            raise SelectedRunError("invalid-request", "requested run has unsupported fields")
+        requested_id = _require_string(item, "requested_run_id")
+        if requested_id in seen:
+            raise SelectedRunError("invalid-request", "requested run IDs must be distinct")
+        if item.get("kind") not in RUN_KINDS:
+            raise SelectedRunError("invalid-request", "requested run kind is invalid")
+        record = {"requested_run_id": requested_id, "kind": item["kind"], "definition": _definition(item.get("definition"), location="requested run definition")}
+        for field in ("parent_requested_run_id", "predecessor_requested_run_id"):
+            if field in item:
+                record[field] = _require_string(item, field)
+        if "successor_requested_run_ids" in item:
+            successors = item["successor_requested_run_ids"]
+            if not isinstance(successors, list) or any(not isinstance(value, str) or not value for value in successors) or len(set(successors)) != len(successors):
+                raise SelectedRunError("invalid-request", "successor_requested_run_ids must be unique non-empty strings")
+            record["successor_requested_run_ids"] = list(successors)
+        normalized.append(record)
+        seen.add(requested_id)
+    for record in normalized:
+        if record.get("parent_requested_run_id") == record["requested_run_id"]:
+            raise SelectedRunError("invalid-request", "a requested run cannot parent itself")
+    return normalized
+
+
+def _common_bytes(request: Mapping[str, Any]) -> bytes:
+    # Requested Run identities are execute-only. A valid preview can omit them
+    # while its later execute supplies them without changing the preview seal.
+    fields = {key: request[key] for key in _COMMON_FIELDS - {"mode", "requested_runs"} if key in request}
+    return work_journal.canonical_json_bytes(fields)
+
+
+def _proposal(request: Mapping[str, Any], observation: Mapping[str, Any]) -> dict[str, Any]:
+    receipt = {
+        "request_id": request["request_id"],
+        "operation_route": request["operation_route"],
+        "initiative_ref": request["initiative"].get("initiative_ref"),
+        "source_freshness": {
+            "declared": request["source_freshness"],
+            "observed": observation.get("observed", {}),
+            "selected": observation.get("selected"),
+            "current": observation.get("current"),
+        },
+        "parameters_digest": request["parameters_digest"],
+        "target_frontier_digest": request["target_frontier_digest"],
+        "effects_digest": request["effects_digest"],
+        "definition_manifest": request["definition_manifest"],
+    }
+    return receipt
+
+
+class RunTracker:
+    """Shared selected-run service with injected currentness and route effects.
+
+    ``source_observer`` returns ``selected`` and ``current`` booleans plus a
+    safe ``observed`` comparison. ``executor`` is invoked only after an exact
+    execute admission and receives generated actual Runs.
+    """
+
+    def __init__(
+        self,
+        root: Path,
+        *,
+        source_observer: Callable[[dict[str, Any]], Mapping[str, Any]],
+        executor: Callable[[dict[str, Any], list[dict[str, Any]]], Mapping[str, Any]],
+        journal_context: Mapping[str, str] | None = None,
+    ) -> None:
+        self.root = Path(root)
+        self.source_observer = source_observer
+        self.executor = executor
+        self.journal_context = dict(journal_context or {"author": "run-support", "timezone": "UTC"})
+        self._requests: dict[str, bytes] = {}
+
+    def run_selected_operation(self, request: Mapping[str, Any]) -> dict[str, Any]:
+        parsed = _validate_common(request)
+        fingerprint = _common_bytes(parsed)
+        request_id = parsed["request_id"]
+        recorded = self._requests.get(request_id)
+        if recorded is not None and recorded != fingerprint:
+            raise SelectedRunError("request-id-conflict", "request_id was already used with different canonical request bytes")
+        self._requests.setdefault(request_id, fingerprint)
+        observation = self._observe(parsed)
+        proposal = _proposal(parsed, observation)
+        proposal_digest = _canonical_digest(proposal)
+        if parsed["mode"] == "preview":
+            return {
+                "request_id": request_id,
+                "disposition": "preview" if observation["selected"] and observation["current"] else "blocked",
+                "proposal_receipt": proposal,
+                "proposal_receipt_digest": proposal_digest,
+                "source_freshness": proposal["source_freshness"],
+                "retry_disposition": "not-applicable",
+            }
+        if not observation["selected"] or not observation["current"]:
+            return self._nonstart(parsed, observation, "blocked", "revalidation-required")
+        self._validate_execute(parsed, proposal, proposal_digest)
+        actual_runs = self._actual_runs(parsed["requested_runs"])
+        try:
+            start_receipts = self._append_events(parsed, actual_runs, "started", None, None, [], None)
+        except OSError as error:
+            return self._recording_pending(parsed, actual_runs, None, [], f"start evidence append failed: {error}")
+        execution = self.executor(parsed, actual_runs)
+        terminal = self._validate_execution(execution, actual_runs)
+        event_name = {"completed": "completed", "no_op": "completed", "failed": "failed", "partial": "failed", "cancelled": "abandoned", "interrupted_pending": "interrupted"}[terminal["outcome"]]
+        try:
+            terminal_receipts = self._append_events(
+                parsed, actual_runs, event_name, terminal["outcome"], terminal["result_ref"], terminal["effect_refs"], terminal.get("report_ref")
+            )
+        except OSError as error:
+            return self._recording_pending(parsed, actual_runs, terminal["outcome"], terminal["effect_refs"], f"terminal evidence append failed: {error}", terminal.get("result_ref"))
+        disposition = "terminal" if terminal["outcome"] != "interrupted_pending" else "started"
+        return {
+            "request_id": request_id,
+            "disposition": disposition,
+            "source_freshness": proposal["source_freshness"],
+            "retry_disposition": "none",
+            "run_ids": [run["run_id"] for run in actual_runs],
+            "definition_bindings": [run["definition"] | {"kind": run["kind"]} for run in actual_runs],
+            "outcome": terminal["outcome"],
+            "result_ref": terminal["result_ref"],
+            "effect_refs": terminal["effect_refs"],
+            "report_ref": terminal.get("report_ref"),
+            "event_receipts": [*start_receipts, *terminal_receipts],
+        }
+
+    def recover_recording(self, event_id: str) -> dict[str, Any]:
+        """Retry only the stored Journal bytes; this never invokes ``executor``."""
+        return work_journal.recover_pending_event(self.root, event_id)
+
+    def _observe(self, request: dict[str, Any]) -> dict[str, Any]:
+        observed = self.source_observer(request)
+        if not isinstance(observed, Mapping) or type(observed.get("selected")) is not bool or type(observed.get("current")) is not bool:
+            raise SelectedRunError("invalid-currentness", "source observer must return selected/current booleans")
+        comparison = observed.get("observed", {})
+        if not isinstance(comparison, Mapping):
+            raise SelectedRunError("invalid-currentness", "source observer observed comparison must be an object")
+        _reject_secrets(comparison, "source observer observed")
+        return {"selected": observed["selected"], "current": observed["current"], "observed": dict(comparison)}
+
+    def _validate_execute(self, request: dict[str, Any], proposal: dict[str, Any], proposal_digest: str) -> None:
+        receipt = request["proposal_receipt"]
+        if not isinstance(receipt, Mapping) or dict(receipt) != proposal:
+            raise SelectedRunError("stale-preview", "proposal_receipt does not match current declared sources")
+        if request["proposal_receipt_digest"] != proposal_digest:
+            raise SelectedRunError("stale-preview", "proposal_receipt_digest does not match proposal_receipt")
+        _require_string(request, "assigned_action_id")
+        auth = request["operator_authorization"]
+        required = {"authorization_ref", "authorization_freshness", "request_id", "operation_route", "proposal_receipt_digest", "parameters_digest", "target_frontier_digest", "effects_digest", "definition_manifest", "source_freshness"}
+        if not isinstance(auth, Mapping) or set(auth) != required:
+            raise SelectedRunError("invalid-authorization", "operator_authorization has missing or unsupported fields")
+        _safe_ref(auth["authorization_ref"], "authorization_ref")
+        freshness = auth["authorization_freshness"]
+        if not isinstance(freshness, Mapping) or set(freshness) != {"state", "digest"} or freshness.get("state") != "current":
+            raise SelectedRunError("stale-authorization", "operator authorization freshness is not current")
+        _require_digest(freshness.get("digest"), "authorization_freshness.digest")
+        for key in ("request_id", "operation_route", "proposal_receipt_digest", "parameters_digest", "target_frontier_digest", "effects_digest"):
+            if auth[key] != request[key]:
+                raise SelectedRunError("invalid-authorization", f"operator authorization does not bind {key}")
+        if dict(auth["definition_manifest"]) != request["definition_manifest"] or dict(auth["source_freshness"]) != request["source_freshness"]:
+            raise SelectedRunError("invalid-authorization", "operator authorization does not bind manifest/currentness")
+
+    def _nonstart(self, request: Mapping[str, Any], observation: Mapping[str, Any], disposition: str, retry: str) -> dict[str, Any]:
+        return {
+            "request_id": request["request_id"],
+            "disposition": disposition,
+            "source_freshness": _proposal(request, observation)["source_freshness"],
+            "retry_disposition": retry,
+        }
+
+    def _actual_runs(self, requested: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        identifiers = {item["requested_run_id"]: f"run-{uuid.uuid4()}" for item in requested}
+        actual: list[dict[str, Any]] = []
+        for item in requested:
+            record = {"run_id": identifiers[item["requested_run_id"]], "kind": item["kind"], "definition": item["definition"]}
+            if "parent_requested_run_id" in item:
+                parent = item["parent_requested_run_id"]
+                if parent not in identifiers:
+                    raise SelectedRunError("invalid-request", "requested run parent is not in the requested run set")
+                record["parent_run_id"] = identifiers[parent]
+            if "predecessor_requested_run_id" in item:
+                predecessor = item["predecessor_requested_run_id"]
+                if predecessor not in identifiers:
+                    raise SelectedRunError("invalid-request", "requested run predecessor is not in the requested run set")
+                record["predecessor_run_id"] = identifiers[predecessor]
+            if "successor_requested_run_ids" in item:
+                if any(successor not in identifiers for successor in item["successor_requested_run_ids"]):
+                    raise SelectedRunError("invalid-request", "requested run successor is not in the requested run set")
+                record["successor_run_ids"] = [identifiers[successor] for successor in item["successor_requested_run_ids"]]
+            actual.append(record)
+        return actual
+
+    def _validate_execution(self, value: Mapping[str, Any], actual_runs: list[dict[str, Any]]) -> dict[str, Any]:
+        if not isinstance(value, Mapping) or set(value) - {"outcome", "result_ref", "effect_refs", "report_ref", "actual_runs"}:
+            raise SelectedRunError("invalid-executor-result", "route executor returned unsupported fields")
+        outcome = value.get("outcome")
+        if outcome not in OUTCOMES:
+            raise SelectedRunError("invalid-executor-result", "route executor outcome is invalid")
+        result_ref = value.get("result_ref")
+        if outcome != "interrupted_pending":
+            result_ref = _safe_ref(result_ref, "executor result_ref")
+        elif result_ref is not None:
+            result_ref = _safe_ref(result_ref, "executor result_ref")
+        effects = value.get("effect_refs")
+        if not isinstance(effects, list) or any(_safe_ref(effect, "executor effect_ref") != effect for effect in effects) or len(set(effects)) != len(effects):
+            raise SelectedRunError("invalid-executor-result", "effect_refs must be unique safe references")
+        if outcome == "no_op" and effects:
+            raise SelectedRunError("invalid-executor-result", "no_op must not invent an effect reference")
+        report = value.get("report_ref")
+        if report is not None:
+            report = _safe_ref(report, "executor report_ref")
+        supplied_runs = value.get("actual_runs")
+        if supplied_runs != actual_runs:
+            raise SelectedRunError("invalid-executor-result", "route executor must retain generated actual Run provenance")
+        return {"outcome": outcome, "result_ref": result_ref, "effect_refs": list(effects), **({"report_ref": report} if report else {})}
+
+    def _append_events(self, request: Mapping[str, Any], runs: list[dict[str, Any]], event: str, outcome: str | None, result_ref: str | None, effect_refs: list[str], report_ref: str | None) -> list[dict[str, Any]]:
+        receipts: list[dict[str, Any]] = []
+        for run in runs:
+            journal_event = self._journal_event(request, run, event, outcome, result_ref, effect_refs, report_ref)
+            context = self._context(journal_event)
+            try:
+                receipts.extend(work_journal.append_sealed_events(self.root, [journal_event], append_context=context, **self._partition_kwargs(context)))
+            except OSError:
+                work_journal.store_pending_event(self.root, journal_event, context, result_ref=result_ref, effect_refs=effect_refs, diagnostic="append failure")
+                raise
+        return receipts
+
+    def _recording_pending(self, request: Mapping[str, Any], runs: list[dict[str, Any]], outcome: str | None, effects: list[str], diagnostic: str, result_ref: str | None = None) -> dict[str, Any]:
+        return {
+            "request_id": request["request_id"],
+            "disposition": "recording_pending",
+            "source_freshness": {"declared": request["source_freshness"]},
+            "retry_disposition": "retry-recording-only",
+            "run_ids": [run["run_id"] for run in runs],
+            "outcome": outcome,
+            "result_ref": result_ref,
+            "effect_refs": effects,
+            "recording_blocker": diagnostic,
+        }
+
+    def _context(self, event: Mapping[str, Any]) -> dict[str, Any]:
+        author = self.journal_context.get("author", "run-support")
+        timezone = self.journal_context.get("timezone", "UTC")
+        occurred = dt.datetime.fromisoformat(str(event["occurred_at"]))
+        local_date = occurred.date().isoformat()
+        return work_journal.seal_append_context(self.root, event, author=author, local_date=local_date, timezone=timezone)
+
+    @staticmethod
+    def _partition_kwargs(context: Mapping[str, Any]) -> dict[str, str]:
+        return {"author": str(context["author"]), "local_date": str(context["local_date"]), "timezone": str(context["timezone"])}
+
+    def _journal_event(self, request: Mapping[str, Any], run: Mapping[str, Any], event: str, outcome: str | None, result_ref: str | None, effect_refs: list[str], report_ref: str | None) -> dict[str, Any]:
+        author = self.journal_context.get("author", "run-support")
+        timezone = self.journal_context.get("timezone", "UTC")
+        now = dt.datetime.now(dt.UTC).astimezone(dt.timezone.utc if timezone == "UTC" else dt.timezone.utc).isoformat(timespec="seconds")
+        payload: dict[str, Any] = {
+            "schema_version": 5,
+            "kind": "workflow_execution",
+            "event_id": f"event-{uuid.uuid4()}",
+            "action_id": request["assigned_action_id"],
+            "event": event,
+            "author": author,
+            "occurred_at": now,
+            "llm_session": {"app": "run-support", "uuid": request["request_id"]},
+            "structural_scope": "TOOLS",
+            "initiative": request["initiative"],
+            "run": dict(run),
+            "definition_bindings": [{"kind": item["kind"], **item["definition"]} for item in [run]],
+            "input_ref": request["initiative"].get("initiative_ref", "selected-run-input"),
+            "outcome": outcome,
+            "result_ref": result_ref,
+            "effect_refs": list(effect_refs),
+            "report_ref": report_ref,
+            "redaction": {"redacted": False, "fields": []},
+        }
+        return work_journal.with_event_digest(payload)
+
+
+class RunExecutionSession:
+    """Lazy, injected lifecycle recorder for one already-admitted execution.
+
+    Route executors call ``start_run`` only when a node is actually invoked,
+    then ``finish_run`` only for that invoked Run.  It deliberately never
+    follows requested successor edges or executes an effect itself.
+    """
+
+    def __init__(self, tracker: "LazyRunTracker", request: dict[str, Any]) -> None:
+        self.tracker = tracker
+        self.request = request
+        self.requested = {item["requested_run_id"]: item for item in request["requested_runs"]}
+        self.workflow_definition_bindings = self.canonical_requested_definition_bindings(
+            request["requested_runs"],
+        )
+        self.actual: dict[str, dict[str, Any]] = {}
+        self.terminal: dict[str, dict[str, Any]] = {}
+        self.interrupted: dict[str, dict[str, Any]] = {}
+        self.observed_effects: dict[str, dict[str, Any]] = {}
+        self.receipts: list[dict[str, Any]] = []
+        self._started_receipts: dict[str, dict[str, Any]] = {}
+        self.pending: list[str] = []
+
+    @classmethod
+    def restore(
+        cls,
+        tracker: "LazyRunTracker",
+        request: Mapping[str, Any],
+        evidence: Iterable[Mapping[str, Any]],
+    ) -> "RunExecutionSession":
+        """Rebuild a Session from sealed, already-recorded Journal evidence.
+
+        This is deliberately a state reconstruction boundary: it neither
+        appends Journal data nor invokes an executor.  Callers must therefore
+        decide explicitly whether a restored non-terminal Run needs an
+        Operator-directed recovery path; this method never turns uncertainty
+        into a replay.
+        """
+        parsed = _validate_common(request)
+        if parsed["mode"] != "execute":
+            raise SelectedRunError("invalid-recovery", "only an execute request can restore selected Run evidence")
+        session = cls(tracker, parsed)
+        expected_receipt = {
+            "event_id", "action_id", "event_digest", "carrier", "line",
+            "previous_carrier_digest", "appended_carrier_digest",
+        }
+        sealed_items: list[tuple[dict[str, Any], dict[str, Any]]] = []
+        seen_event_ids: set[str] = set()
+        for item in evidence:
+            if not isinstance(item, Mapping) or set(item) != {"event", "receipt"}:
+                raise SelectedRunError("invalid-recovery", "recovery evidence must contain exactly event and receipt")
+            try:
+                event = work_journal.validate_sealed_event(item["event"])
+            except work_journal.WorkJournalError as error:
+                raise SelectedRunError("invalid-recovery", f"invalid sealed Journal event: {error}") from error
+            receipt = item["receipt"]
+            if not isinstance(receipt, Mapping) or set(receipt) != expected_receipt:
+                raise SelectedRunError("invalid-recovery", "recovery receipt has invalid fields")
+            if (
+                receipt["event_id"] != event["event_id"]
+                or receipt["action_id"] != event["action_id"]
+                or receipt["event_digest"] != event["event_digest"]
+            ):
+                raise SelectedRunError("invalid-recovery", "recovery receipt does not bind its sealed event")
+            if (
+                not isinstance(receipt["carrier"], str)
+                or not receipt["carrier"]
+                or Path(receipt["carrier"]).is_absolute()
+                or ".." in Path(receipt["carrier"]).parts
+                or type(receipt["line"]) is not int
+                or receipt["line"] < 1
+                or any(not isinstance(receipt[key], str) or len(receipt[key]) != 64 for key in (
+                    "event_digest", "previous_carrier_digest", "appended_carrier_digest",
+                ))
+            ):
+                raise SelectedRunError("invalid-recovery", "recovery receipt has invalid carrier evidence")
+            if event["event_id"] in seen_event_ids:
+                raise SelectedRunError("duplicate-recovery-evidence", "one Journal event appears more than once")
+            seen_event_ids.add(event["event_id"])
+            if event["schema_version"] != 5 or event["kind"] != "workflow_execution":
+                raise SelectedRunError("invalid-recovery", "recovery accepts only schema-v5 workflow execution evidence")
+            if event["action_id"] != parsed["assigned_action_id"] or event["llm_session"]["uuid"] != parsed["request_id"]:
+                raise SelectedRunError("recovery-request-mismatch", "Journal evidence belongs to a different selected request")
+            if event["initiative"] != parsed["initiative"]:
+                raise SelectedRunError("recovery-request-mismatch", "Journal evidence has different initiative binding")
+            expected_input_ref = parsed["initiative"].get("initiative_ref", "selected-run-input")
+            if (
+                event["llm_session"]["app"] != "run-support"
+                or event["structural_scope"] != "TOOLS"
+                or event["input_ref"] != expected_input_ref
+            ):
+                raise SelectedRunError("recovery-request-mismatch", "Journal evidence has different selected Run source bindings")
+            if event["event"] not in {"started", "completed", "failed", "abandoned", "interrupted", "recovered"}:
+                raise SelectedRunError("invalid-recovery", "recovery accepts only canonical started or terminal Run evidence")
+            sealed_items.append((dict(event), dict(receipt)))
+
+        starts = [(event, receipt) for event, receipt in sealed_items if event["event"] == "started"]
+        nonstarts = [(event, receipt) for event, receipt in sealed_items if event["event"] != "started"]
+        start_by_run_id: dict[str, tuple[dict[str, Any], dict[str, Any]]] = {}
+        for event, receipt in starts:
+            run_id = event["run"]["run_id"]
+            if run_id in start_by_run_id:
+                raise SelectedRunError("duplicate-recovery-evidence", "one actual Run has multiple start events")
+            start_by_run_id[run_id] = (event, receipt)
+
+        assigned: dict[str, str] = {}
+        unassigned = set(session.requested)
+        while len(assigned) < len(starts):
+            progress = False
+            for event, _ in starts:
+                run = event["run"]
+                actual_id = run["run_id"]
+                if actual_id in assigned:
+                    continue
+                candidates: list[str] = []
+                for requested_id in unassigned:
+                    requested = session.requested[requested_id]
+                    if run["kind"] != requested["kind"] or run["definition"] != requested["definition"]:
+                        continue
+                    parent_requested = requested.get("parent_requested_run_id")
+                    predecessor_requested = requested.get("predecessor_requested_run_id")
+                    if ("parent_run_id" in run) != (parent_requested is not None):
+                        continue
+                    if ("predecessor_run_id" in run) != (predecessor_requested is not None):
+                        continue
+                    if parent_requested is not None:
+                        parent_actual = assigned.get(run["parent_run_id"])
+                        if parent_actual != parent_requested:
+                            continue
+                    if predecessor_requested is not None:
+                        predecessor_actual = assigned.get(run["predecessor_run_id"])
+                        if predecessor_actual != predecessor_requested:
+                            continue
+                    candidates.append(requested_id)
+                if len(candidates) > 1:
+                    raise SelectedRunError("ambiguous-recovery-evidence", "Journal evidence cannot identify one requested Run")
+                if len(candidates) == 1:
+                    requested_id = candidates[0]
+                    assigned[actual_id] = requested_id
+                    unassigned.remove(requested_id)
+                    progress = True
+            if not progress:
+                unresolved = [event["run"]["run_id"] for event, _ in starts if event["run"]["run_id"] not in assigned]
+                if unresolved:
+                    raise SelectedRunError("invalid-recovery-lineage", "Journal starts do not match declared requested Run lineage")
+                break
+
+        for actual_id, requested_id in assigned.items():
+            event, receipt = start_by_run_id[actual_id]
+            run = dict(event["run"])
+            if "successor_run_ids" in run:
+                raise SelectedRunError("invalid-recovery-lineage", "selected Run recovery does not admit derived successor evidence")
+            expected_bindings = session._bindings_for(run)
+            if event["definition_bindings"] != expected_bindings:
+                raise SelectedRunError("recovery-definition-mismatch", "Journal start has mismatched definition bindings")
+            session.actual[requested_id] = run
+            session._started_receipts[requested_id] = dict(receipt)
+
+        # Preserve Journal order.  Separating interruptions from finals first
+        # would make a later ``interrupted`` fact appear to precede an earlier
+        # ``recovered`` fact, inventing a legal recovery history.  One Run may
+        # therefore move only through this small state machine:
+        #
+        #   unseen -> running -> interrupted -> terminal
+        #                              ^
+        #                    recovered/interrupted_pending
+        #
+        # A recovered pending observation is deliberately still resumable.  A
+        # recovered final observation is immutable like every other terminal
+        # fact.  The state machine also prevents a second started event from
+        # being mistaken for a restart of the same actual Run.
+        lifecycle: dict[str, str] = {requested_id: "unseen" for requested_id in session.requested}
+        expected_terminal_events = {
+            "completed": {"completed", "no_op"},
+            "failed": {"failed", "partial"},
+            "abandoned": {"cancelled"},
+        }
+
+        def _record_interruption(
+            requested_id: str,
+            event: Mapping[str, Any],
+            receipt: Mapping[str, Any],
+            *,
+            recovered: bool,
+        ) -> None:
+            session.interrupted[requested_id] = {
+                "event_id": event["event_id"],
+                "event_receipt": dict(receipt),
+                "run_id": event["run"]["run_id"],
+                "disposition": "interrupted",
+                "outcome": "interrupted_pending",
+                "result_ref": event["result_ref"],
+                "effect_refs": list(event["effect_refs"]),
+                "report_ref": event["report_ref"],
+                "recovered": recovered,
+            }
+
+        for event, receipt in sealed_items:
+            run = event["run"]
+            actual_id = run["run_id"]
+            requested_id = assigned.get(actual_id)
+            if requested_id is None:
+                raise SelectedRunError("invalid-recovery-lineage", "Run evidence has no matching start evidence")
+            if run != session.actual[requested_id]:
+                raise SelectedRunError("recovery-run-mismatch", "Run evidence changes the started Run identity")
+            if event["definition_bindings"] != session._bindings_for(run):
+                raise SelectedRunError("recovery-definition-mismatch", "Journal Run evidence has mismatched definition bindings")
+
+            event_name = event["event"]
+            state = lifecycle[requested_id]
+            if event_name == "started":
+                if state != "unseen":
+                    raise SelectedRunError("duplicate-recovery-evidence", "one actual Run has multiple start events")
+                parent_requested = session.requested[requested_id].get("parent_requested_run_id")
+                predecessor_requested = session.requested[requested_id].get("predecessor_requested_run_id")
+                for dependency in (parent_requested, predecessor_requested):
+                    if dependency is not None and lifecycle[dependency] == "unseen":
+                        raise SelectedRunError("invalid-recovery-lineage", "Run evidence starts a child before its declared lineage")
+                lifecycle[requested_id] = "running"
+                continue
+
+            if state == "unseen":
+                raise SelectedRunError("invalid-recovery-order", "Run terminal evidence occurs before its start evidence")
+            if state == "terminal":
+                raise SelectedRunError("duplicate-terminal", "an actual Run already has terminal evidence")
+
+            if event_name == "interrupted":
+                if state != "running":
+                    raise SelectedRunError("invalid-recovery-order", "interruption must follow a running Run")
+                if event["outcome"] != "interrupted_pending":
+                    raise SelectedRunError("invalid-recovery", "interruption evidence must retain interrupted_pending outcome")
+                _record_interruption(requested_id, event, receipt, recovered=False)
+                lifecycle[requested_id] = "interrupted"
+                continue
+
+            if event_name == "recovered":
+                if state != "interrupted":
+                    raise SelectedRunError("invalid-recovery-order", "recovered evidence requires a prior interruption")
+                outcome = event["outcome"]
+                if outcome == "interrupted_pending":
+                    _record_interruption(requested_id, event, receipt, recovered=True)
+                    continue
+                if outcome not in {"completed", "no_op", "failed", "cancelled", "partial"}:
+                    raise SelectedRunError("invalid-recovery", "recovered evidence has an unsupported outcome")
+            else:
+                if state != "running":
+                    raise SelectedRunError("recovery-required", "an interrupted Run requires recovered final evidence")
+                outcome = event["outcome"]
+                if outcome not in expected_terminal_events[event_name]:
+                    raise SelectedRunError("invalid-recovery", "terminal evidence has an unsupported event/outcome mapping")
+
+            session.terminal[requested_id] = {
+                "event_id": event["event_id"],
+                "event_receipt": dict(receipt),
+                "run_id": actual_id,
+                "disposition": "terminal",
+                "outcome": outcome,
+                "result_ref": event["result_ref"],
+                "effect_refs": list(event["effect_refs"]),
+                "report_ref": event["report_ref"],
+            }
+            # ``interrupted`` holds only the unresolved, resumable state.  The
+            # immutable recovered final remains available through receipts and
+            # terminal state, but cannot make a completed Run look resumable.
+            session.interrupted.pop(requested_id, None)
+            lifecycle[requested_id] = "terminal"
+        session.receipts = [receipt for _, receipt in sealed_items]
+        return session
+
+    def start_run(self, requested_run_id: str, *, run_id: str | None = None) -> dict[str, Any]:
+        """Record one actual invocation, preserving a requested Workflow ID."""
+        if requested_run_id not in self.requested:
+            raise SelectedRunError("invalid-run", "route attempted to start an unrequested Run")
+        existing = self.actual.get(requested_run_id)
+        if existing is not None:
+            return dict(existing)
+        requested = self.requested[requested_run_id]
+        actual_id = run_id or requested_run_id
+        if not isinstance(actual_id, str) or not actual_id:
+            raise SelectedRunError("invalid-run", "actual run_id must be non-empty")
+        if any(item["run_id"] == actual_id for item in self.actual.values()):
+            raise SelectedRunError("invalid-run", "actual run_id must remain distinct")
+        record: dict[str, Any] = {"run_id": actual_id, "kind": requested["kind"], "definition": requested["definition"]}
+        if "parent_requested_run_id" in requested:
+            parent = self.actual.get(requested["parent_requested_run_id"])
+            if parent is None:
+                raise SelectedRunError("invalid-run", "an actual child Run requires its actual parent first")
+            record["parent_run_id"] = parent["run_id"]
+        if "predecessor_requested_run_id" in requested:
+            predecessor = self.actual.get(requested["predecessor_requested_run_id"])
+            if predecessor is None:
+                raise SelectedRunError("invalid-run", "an actual successor requires its actual predecessor first")
+            record["predecessor_run_id"] = predecessor["run_id"]
+        event = self.tracker._lazy_journal_event(self.request, record, "started", None, None, [], None, self._bindings_for(record))
+        try:
+            receipt = self.tracker._append_one(event, None, [])
+        except OSError as error:
+            self.pending.append(str(event["event_id"]))
+            raise SelectedRunError("recording-pending", f"Run start evidence could not be durably recorded: {error}") from error
+        self.actual[requested_run_id] = record
+        self._started_receipts[requested_run_id] = dict(receipt)
+        self.receipts.append(receipt)
+        return dict(record)
+
+    def finish_run(
+        self,
+        run_id: str,
+        *,
+        outcome: str,
+        result_ref: str | None,
+        effect_refs: list[str],
+        report_ref: str | None = None,
+    ) -> dict[str, Any]:
+        """Record the one truthful terminal fact for an actual Run."""
+        requested_id, record = self._actual_by_id(run_id)
+        if requested_id in self.terminal:
+            raise SelectedRunError("duplicate-terminal", "an actual Run already has terminal evidence")
+        if requested_id in self.interrupted:
+            raise SelectedRunError("recovery-required", "an interrupted Run requires Release recovery evidence")
+        observed = self.observed_effects.get(requested_id)
+        if observed is not None and (result_ref != observed["result_ref"] or effect_refs != observed["effect_refs"]):
+            raise SelectedRunError("effect-observation-mismatch", "terminal evidence must retain previously observed effects")
+        if outcome not in OUTCOMES:
+            raise SelectedRunError("invalid-outcome", "outcome is invalid")
+        if outcome != "interrupted_pending":
+            result_ref = _safe_ref(result_ref, "result_ref")
+        elif result_ref is not None:
+            result_ref = _safe_ref(result_ref, "result_ref")
+        if not isinstance(effect_refs, list) or len(set(effect_refs)) != len(effect_refs):
+            raise SelectedRunError("invalid-outcome", "effect_refs must be unique")
+        for effect_ref in effect_refs:
+            _safe_ref(effect_ref, "effect_ref")
+        if outcome == "no_op" and effect_refs:
+            raise SelectedRunError("invalid-outcome", "no_op cannot invent an effect reference")
+        if report_ref is not None:
+            report_ref = _safe_ref(report_ref, "report_ref")
+        event_name = {"completed": "completed", "no_op": "completed", "failed": "failed", "partial": "failed", "cancelled": "abandoned", "interrupted_pending": "interrupted"}[outcome]
+        event = self.tracker._lazy_journal_event(self.request, record, event_name, outcome, result_ref, effect_refs, report_ref, self._bindings_for(record))
+        try:
+            receipt = self.tracker._append_one(event, result_ref, effect_refs)
+            self.receipts.append(receipt)
+            result = {"event_id": event["event_id"], "event_receipt": dict(receipt), "run_id": run_id, "disposition": "terminal", "outcome": outcome, "result_ref": result_ref, "effect_refs": list(effect_refs), "report_ref": report_ref}
+        except OSError as error:
+            self.pending.append(str(event["event_id"]))
+            result = {"run_id": run_id, "disposition": "recording_pending", "outcome": outcome, "result_ref": result_ref, "effect_refs": list(effect_refs), "report_ref": report_ref, "recording_blocker": str(error)}
+        if outcome == "interrupted_pending":
+            if result["disposition"] == "terminal":
+                result["disposition"] = "interrupted"
+                self.interrupted[requested_id] = result
+        else:
+            self.terminal[requested_id] = result
+        return dict(result)
+
+    def recover_run(
+        self,
+        run_id: str,
+        *,
+        outcome: str,
+        result_ref: str | None,
+        effect_refs: list[str],
+        report_ref: str | None = None,
+    ) -> dict[str, Any]:
+        """Record one Release-only recovery observation after interruption.
+
+        This is not an executor and cannot replay an effect.  It records only
+        sealed ``recovered`` evidence for an already-started, canonically
+        interrupted Run.  A recovered ``interrupted_pending`` observation
+        remains resumable; every other recovered outcome is final and cannot
+        be replaced.
+        """
+        if self.request["operation_route"] != "release_version":
+            raise SelectedRunError("recovery-not-supported", "only release_version admits selected Run recovery")
+        requested_id, record = self._actual_by_id(run_id)
+        if requested_id in self.terminal:
+            raise SelectedRunError("duplicate-terminal", "an actual Run already has terminal evidence")
+        if requested_id not in self.interrupted:
+            raise SelectedRunError("recovery-prerequisite-missing", "recovery requires prior canonical interruption evidence")
+        if outcome not in OUTCOMES:
+            raise SelectedRunError("invalid-outcome", "recovery outcome is invalid")
+        if outcome != "interrupted_pending":
+            result_ref = _safe_ref(result_ref, "result_ref")
+        elif result_ref is not None:
+            result_ref = _safe_ref(result_ref, "result_ref")
+        if not isinstance(effect_refs, list) or len(set(effect_refs)) != len(effect_refs):
+            raise SelectedRunError("invalid-outcome", "effect_refs must be unique")
+        for effect_ref in effect_refs:
+            _safe_ref(effect_ref, "effect_ref")
+        if outcome == "no_op" and effect_refs:
+            raise SelectedRunError("invalid-outcome", "no_op cannot invent an effect reference")
+        if report_ref is not None:
+            report_ref = _safe_ref(report_ref, "report_ref")
+        event = self.tracker._lazy_journal_event(
+            self.request,
+            record,
+            "recovered",
+            outcome,
+            result_ref,
+            effect_refs,
+            report_ref,
+            self._bindings_for(record),
+        )
+        try:
+            receipt = self.tracker._append_one(event, result_ref, effect_refs)
+            self.receipts.append(receipt)
+            result = {
+                "event_id": event["event_id"],
+                "event_receipt": dict(receipt),
+                "run_id": run_id,
+                "disposition": "terminal",
+                "outcome": outcome,
+                "result_ref": result_ref,
+                "effect_refs": list(effect_refs),
+                "report_ref": report_ref,
+            }
+        except OSError as error:
+            self.pending.append(str(event["event_id"]))
+            result = {
+                "event_id": event["event_id"],
+                "run_id": run_id,
+                "disposition": "recording_pending",
+                "outcome": outcome,
+                "result_ref": result_ref,
+                "effect_refs": list(effect_refs),
+                "report_ref": report_ref,
+                "recording_blocker": str(error),
+            }
+        if outcome == "interrupted_pending" and result["disposition"] == "terminal":
+            self.interrupted[requested_id] = {
+                **result,
+                "disposition": "interrupted",
+                "recovered": True,
+            }
+            result["disposition"] = "interrupted"
+        else:
+            # A failed Journal append remains a recording-only retry: keeping
+            # the attempted event as locally terminal prevents creation of a
+            # competing recovered event.  ``recover(event_id)`` is the only
+            # admitted way to append those exact already-sealed bytes.
+            self.terminal[requested_id] = result
+            if result["disposition"] == "terminal":
+                self.interrupted.pop(requested_id, None)
+        return dict(result)
+
+    def note_effects(self, run_id: str, *, result_ref: str, effect_refs: list[str]) -> None:
+        """Retain known effects so an interrupted executor cannot erase them."""
+        requested_id, _ = self._actual_by_id(run_id)
+        if requested_id in self.terminal or requested_id in self.interrupted or requested_id in self.observed_effects:
+            raise SelectedRunError("invalid-effect-observation", "effects may be observed once before terminal evidence")
+        result_ref = _safe_ref(result_ref, "result_ref")
+        if not isinstance(effect_refs, list) or not effect_refs or len(set(effect_refs)) != len(effect_refs):
+            raise SelectedRunError("invalid-effect-observation", "effect_refs must be a non-empty unique list")
+        for effect_ref in effect_refs:
+            _safe_ref(effect_ref, "effect_ref")
+        self.observed_effects[requested_id] = {"result_ref": result_ref, "effect_refs": list(effect_refs)}
+
+    def read_recorded_action_start(self, action_run_id: str) -> RecordedActionStartProvenance:
+        """Reopen this Session's exact, already-recorded Action start.
+
+        The lookup is receipt-addressed and read-only.  It validates the
+        canonical Journal line again instead of trusting caller-supplied
+        identity, the request's assigned Action ID, or a reconstructed event.
+        """
+
+        requested_id, record = self._actual_by_id(action_run_id)
+        if record.get("kind") != "action":
+            raise SelectedRunError("action-start-run-invalid", "recorded Action provenance requires an actual Action Run")
+        receipt = self._started_receipts.get(requested_id)
+        if receipt is None:
+            raise SelectedRunError("action-start-evidence-missing", "actual Action Run has no retained start receipt")
+        event = self._reopen_started_event(receipt)
+        if (
+            event.get("schema_version") != 5
+            or event.get("kind") != "workflow_execution"
+            or event.get("event") != "started"
+            or event.get("run") != record
+        ):
+            raise SelectedRunError("action-start-evidence-mismatch", "reopened Journal event differs from this actual Action Run")
+        lineage = self._parent_lineage(record)
+        return RecordedActionStartProvenance(
+            author=event["author"],
+            event_id=event["event_id"],
+            action_run_id=action_run_id,
+            parent_lineage=lineage,
+        )
+
+    def _reopen_started_event(self, receipt: Mapping[str, Any]) -> dict[str, Any]:
+        """Read one canonical receipt-addressed Journal event without effects."""
+
+        carrier, line = self._validated_started_receipt(receipt)
+        root = Path(self.tracker.root).resolve()
+        self._assert_regular_journal_control(root)
+        try:
+            journal_root = root / work_journal.configured_journal_root(root)
+        except (OSError, RuntimeError) as error:
+            raise SelectedRunError("action-start-evidence-missing", "canonical Work Journal is unavailable") from error
+        path = root / carrier
+        try:
+            path.relative_to(journal_root)
+        except ValueError as error:
+            raise SelectedRunError("action-start-evidence-invalid", "retained start receipt escapes the canonical Journal") from error
+        self._assert_regular_receipt_carrier(root, journal_root, path)
+        return self._read_receipted_event(root, path, line, receipt)
+
+    def read_recorded_action_start_receipt(self, action_run_id: str) -> dict[str, Any]:
+        """Return this already-recorded Action's exact, reread start receipt.
+
+        This is an effect-free copy of the existing Work Journal receipt, not
+        a second provenance schema, event or caller-authorized start.
+        """
+
+        self.read_recorded_action_start(action_run_id)
+        requested_id, _record = self._actual_by_id(action_run_id)
+        return dict(self._started_receipts[requested_id])
+
+    @staticmethod
+    def _assert_regular_journal_control(root: Path) -> None:
+        """Reject aliases before Project Settings can redirect the Journal read."""
+
+        try:
+            settings = work_journal.resolve_settings_path(root)
+        except (OSError, ValueError, RuntimeError) as error:
+            raise SelectedRunError("action-start-evidence-invalid", "canonical Project Journal settings cannot be safely resolved") from error
+        control = settings.parent
+        for path, expected_mode in ((control, stat.S_ISDIR), (settings, stat.S_ISREG)):
+            try:
+                metadata = os.lstat(path)
+            except OSError as error:
+                raise SelectedRunError("action-start-evidence-missing", "canonical Work Journal control carrier is unavailable") from error
+            if stat.S_ISLNK(metadata.st_mode) or not expected_mode(metadata.st_mode):
+                raise SelectedRunError("action-start-evidence-invalid", "canonical Work Journal control carrier is aliased")
+
+    @staticmethod
+    def _assert_regular_receipt_carrier(root: Path, journal_root: Path, path: Path) -> None:
+        """Refuse alias hops and physical escapes before reopening carrier bytes."""
+
+        try:
+            journal_relative = journal_root.relative_to(root)
+            carrier_relative = path.relative_to(journal_root)
+        except ValueError as error:  # pragma: no cover - caller checks both lexical relations.
+            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed carrier escapes the canonical Journal") from error
+        current = root
+        for component in (*journal_relative.parts, *carrier_relative.parts[:-1]):
+            current = current / component
+            try:
+                metadata = os.lstat(current)
+            except OSError as error:
+                raise SelectedRunError("action-start-evidence-missing", "receipt-addressed Journal directory is unavailable") from error
+            if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISDIR(metadata.st_mode):
+                raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal directory is aliased")
+        try:
+            metadata = os.lstat(path)
+        except OSError as error:
+            raise SelectedRunError("action-start-evidence-missing", "receipt-addressed Journal carrier is unavailable") from error
+        if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISREG(metadata.st_mode):
+            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal carrier is aliased")
+        try:
+            path.resolve(strict=True).relative_to(journal_root.resolve(strict=True))
+        except (OSError, ValueError) as error:
+            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal carrier physically escapes its root") from error
+
+    @staticmethod
+    def _validated_started_receipt(receipt: Mapping[str, Any]) -> tuple[str, int]:
+        expected = {
+            "event_id", "action_id", "event_digest", "carrier", "line",
+            "previous_carrier_digest", "appended_carrier_digest",
+        }
+        if not isinstance(receipt, Mapping) or set(receipt) != expected:
+            raise SelectedRunError("action-start-evidence-invalid", "retained start receipt has an invalid closed shape")
+        carrier = receipt.get("carrier")
+        line = receipt.get("line")
+        if (
+            not isinstance(carrier, str)
+            or not carrier
+            or Path(carrier).is_absolute()
+            or ".." in Path(carrier).parts
+            or type(line) is not int
+            or line < 1
+            or any(not isinstance(receipt[key], str) or len(receipt[key]) != 64 for key in (
+                "event_digest", "previous_carrier_digest", "appended_carrier_digest",
+            ))
+        ):
+            raise SelectedRunError("action-start-evidence-invalid", "retained start receipt is malformed")
+        return carrier, line
+
+    @staticmethod
+    def _read_receipted_event(
+        root: Path,
+        path: Path,
+        line: int,
+        receipt: Mapping[str, Any],
+    ) -> dict[str, Any]:
+        try:
+            data, records = work_journal._carrier_records(path)
+        except (OSError, work_journal.WorkJournalError) as error:
+            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal carrier is unreadable") from error
+        if line > len(records):
+            raise SelectedRunError("action-start-evidence-missing", "receipt-addressed Journal line is unavailable")
+        try:
+            event = work_journal.validate_sealed_event(records[line - 1])
+        except work_journal.WorkJournalError as error:
+            raise SelectedRunError("action-start-evidence-invalid", "receipt-addressed Journal event is not sealed") from error
+        if event.get("event_id") != receipt["event_id"] or event.get("event_digest") != receipt["event_digest"]:
+            raise SelectedRunError("action-start-evidence-mismatch", "receipt does not bind the reopened Journal event")
+        try:
+            observed_receipt = work_journal._receipt(root, path, data, line, event)
+        except work_journal.WorkJournalError as error:
+            raise SelectedRunError("action-start-evidence-invalid", "Journal receipt cannot be reconstructed") from error
+        if observed_receipt != dict(receipt):
+            raise SelectedRunError("action-start-evidence-mismatch", "reopened Journal bytes differ from the retained receipt")
+        return event
+
+    def _parent_lineage(self, record: Mapping[str, Any]) -> tuple[str, ...]:
+        """Return the actual parent chain, refusing gaps, aliases, and loops."""
+
+        by_actual_id = {item.get("run_id"): item for item in self.actual.values()}
+        lineage: list[str] = []
+        seen = {record.get("run_id")}
+        current = record
+        while "parent_run_id" in current:
+            parent_id = current["parent_run_id"]
+            if not isinstance(parent_id, str) or not parent_id or parent_id in seen:
+                raise SelectedRunError("action-start-lineage-invalid", "actual Action parent lineage is invalid")
+            parent = by_actual_id.get(parent_id)
+            if not isinstance(parent, Mapping):
+                raise SelectedRunError("action-start-lineage-invalid", "actual Action parent lineage is incomplete")
+            lineage.append(parent_id)
+            seen.add(parent_id)
+            current = parent
+        return tuple(lineage)
+
+    # Small aliases make the lifecycle injection concise for queue and adapter callers.
+    start = start_run
+    finish = finish_run
+    record_effects = note_effects
+
+    def recover(self, event_id: str) -> dict[str, Any]:
+        return self.tracker.recover_recording(event_id)
+
+    def interrupt_open_runs(self) -> None:
+        """Retain uncertainty after an executor exception without declaring completion."""
+        for requested_id, record in list(self.actual.items()):
+            if requested_id not in self.terminal and requested_id not in self.interrupted:
+                observed = self.observed_effects.get(requested_id)
+                if observed is None:
+                    self.finish_run(record["run_id"], outcome="interrupted_pending", result_ref=None, effect_refs=[])
+                else:
+                    self.finish_run(record["run_id"], outcome="partial", **observed)
+
+    def _actual_by_id(self, run_id: str) -> tuple[str, dict[str, Any]]:
+        for requested_id, record in self.actual.items():
+            if record["run_id"] == run_id:
+                return requested_id, record
+        raise SelectedRunError("unknown-run", "route attempted to finish a Run that was not actually started")
+
+    def _bindings_for(self, run: Mapping[str, Any]) -> list[dict[str, Any]]:
+        if run["kind"] == "workflow":
+            bindings = self.workflow_definition_bindings
+        else:
+            bindings = [{"kind": run["kind"], **run["definition"]}]
+        return sorted(bindings, key=lambda item: (item["kind"], item["atom_id"], item["version"], item["path"]))
+
+    @staticmethod
+    def canonical_requested_definition_bindings(
+        requested_runs: Iterable[Mapping[str, Any]],
+    ) -> list[dict[str, Any]]:
+        return RunExecutionSession._canonical_definition_bindings(
+            {"kind": item["kind"], **item["definition"]}
+            for item in requested_runs
+        )
+
+    @staticmethod
+    def _canonical_definition_bindings(
+        bindings: Iterable[dict[str, Any]],
+    ) -> list[dict[str, Any]]:
+        """Retain one exact Workflow definition binding per reusable revision.
+
+        Several requested Runs may visit one Step or Action definition.  Those
+        Runs remain distinct in ``actual`` and their parent lineage, while the
+        Workflow event names the reusable definition revision once.  A shared
+        identity with different exact bytes is an integrity conflict, not a
+        candidate for lossy collapsing.
+        """
+        canonical: dict[tuple[str, str, int, str], dict[str, Any]] = {}
+        for binding in bindings:
+            key = (
+                binding["kind"], binding["atom_id"], binding["version"], binding["path"],
+            )
+            previous = canonical.get(key)
+            if previous is None:
+                canonical[key] = binding
+            elif previous != binding:
+                raise SelectedRunError(
+                    "conflicting-definition-binding",
+                    "one definition identity has conflicting exact Workflow bindings",
+                )
+        return list(canonical.values())
+
+
+class LazyRunTracker(RunTracker):
+    """The P1510 tracker: admission is eager; Run creation is deliberately lazy."""
+
+    def run_selected_operation(self, request: Mapping[str, Any]) -> dict[str, Any]:
+        parsed = _validate_common(request)
+        fingerprint = _common_bytes(parsed)
+        request_id = parsed["request_id"]
+        recorded = self._requests.get(request_id)
+        if recorded is not None and recorded != fingerprint:
+            raise SelectedRunError("request-id-conflict", "request_id was already used with different canonical request bytes")
+        self._requests.setdefault(request_id, fingerprint)
+        observation = self._observe(parsed)
+        proposal = _proposal(parsed, observation)
+        proposal_digest = _canonical_digest(proposal)
+        if parsed["mode"] == "preview":
+            return {
+                "request_id": request_id,
+                "disposition": "preview" if observation["selected"] and observation["current"] else "blocked",
+                "proposal_receipt": proposal,
+                "proposal_receipt_digest": proposal_digest,
+                "source_freshness": proposal["source_freshness"],
+                "retry_disposition": "not-applicable",
+            }
+        if not observation["selected"] or not observation["current"]:
+            return self._nonstart(parsed, observation, "blocked", "revalidation-required")
+        self._validate_execute(parsed, proposal, proposal_digest)
+        RunExecutionSession.canonical_requested_definition_bindings(parsed["requested_runs"])
+        try:
+            dispatch, created = work_journal.register_selected_run_dispatch(
+                self.root,
+                request_id=request_id,
+                canonical_request_bytes=self._dispatch_bytes(parsed),
+            )
+        except work_journal.WorkJournalError as error:
+            if error.code == "request-id-conflict":
+                raise SelectedRunError(error.code, str(error)) from error
+            raise
+        if not created:
+            return {
+                "request_id": request_id,
+                "disposition": "blocked",
+                "source_freshness": proposal["source_freshness"],
+                "retry_disposition": "inspect-or-recover-only",
+                "dispatch_state": dispatch["state"],
+            }
+        session = RunExecutionSession(self, parsed)
+        try:
+            self.executor(parsed, session)
+        except Exception as error:
+            try:
+                session.interrupt_open_runs()
+            except OSError:
+                pass
+            return self._session_result(parsed, proposal, session, execution_error=type(error).__name__)
+        if not session.actual:
+            return {**self._nonstart(parsed, observation, "declined", "executor-start-required"), "executor_result": "no actual Run was started"}
+        session.interrupt_open_runs()
+        return self._session_result(parsed, proposal, session)
+
+    def _session_result(self, request: Mapping[str, Any], proposal: Mapping[str, Any], session: RunExecutionSession, *, execution_error: str | None = None) -> dict[str, Any]:
+        terminal = list(session.terminal.values())
+        interrupted = list(session.interrupted.values())
+        # ``terminal_runs`` is the established public run-result field.  Keep
+        # its complete observed lifecycle surface for callers while using the
+        # separate in-memory ``terminal`` map only for final facts.
+        reported_runs = [*terminal, *interrupted]
+        if session.pending or any(item["disposition"] == "recording_pending" for item in terminal):
+            disposition = "recording_pending"
+        elif interrupted:
+            disposition = "started"
+        else:
+            disposition = "terminal"
+        result: dict[str, Any] = {
+            "request_id": request["request_id"],
+            "disposition": disposition,
+            "source_freshness": proposal["source_freshness"],
+            "retry_disposition": "retry-recording-only" if disposition == "recording_pending" else "none",
+            "run_ids": [record["run_id"] for record in session.actual.values()],
+            "terminal_runs": reported_runs,
+            "event_receipts": list(session.receipts),
+        }
+        if interrupted:
+            result["interrupted_runs"] = interrupted
+            result["retry_disposition"] = "inspect-or-recover-only"
+        if session.pending:
+            result["pending_event_ids"] = list(session.pending)
+        if execution_error is not None:
+            result["execution_error"] = execution_error
+        return result
+
+    @staticmethod
+    def _dispatch_bytes(request: Mapping[str, Any]) -> bytes:
+        """Bind the accepted execute request, not only its preview common part."""
+        return work_journal.canonical_json_bytes({key: request[key] for key in sorted(request) if key != "mode"})
+
+    def _append_one(self, event: Mapping[str, Any], result_ref: str | None, effect_refs: list[str]) -> dict[str, Any]:
+        context = self._context(event)
+        try:
+            return work_journal.append_sealed_events(self.root, [event], append_context=context, **self._partition_kwargs(context))[0]
+        except OSError:
+            work_journal.store_pending_event(self.root, event, context, result_ref=result_ref, effect_refs=effect_refs, diagnostic="append failure")
+            raise
+
+    def _lazy_journal_event(self, request: Mapping[str, Any], run: Mapping[str, Any], event: str, outcome: str | None, result_ref: str | None, effect_refs: list[str], report_ref: str | None, bindings: list[dict[str, Any]]) -> dict[str, Any]:
+        author = self.journal_context.get("author", "run-support")
+        timezone = self.journal_context.get("timezone", "UTC")
+        try:
+            now = dt.datetime.now(dt.UTC if timezone == "UTC" else ZoneInfo(timezone)).isoformat(timespec="seconds")
+        except ZoneInfoNotFoundError as error:
+            raise SelectedRunError("invalid-journal-context", "journal_context timezone is unknown") from error
+        payload: dict[str, Any] = {
+            "schema_version": 5,
+            "kind": "workflow_execution",
+            "event_id": f"event-{uuid.uuid4()}",
+            "action_id": request["assigned_action_id"],
+            "event": event,
+            "author": author,
+            "occurred_at": now,
+            "llm_session": {"app": "run-support", "uuid": request["request_id"]},
+            "structural_scope": "TOOLS",
+            "initiative": request["initiative"],
+            "run": dict(run),
+            "definition_bindings": bindings,
+            "input_ref": request["initiative"].get("initiative_ref", "selected-run-input"),
+            "outcome": outcome,
+            "result_ref": result_ref,
+            "effect_refs": list(effect_refs),
+            "report_ref": report_ref,
+            "redaction": {"redacted": False, "fields": []},
+        }
+        return work_journal.with_event_digest(payload)
+
+
+# Keep the public name stable for MCP, queue, and reversal consumers.
+RunTracker = LazyRunTracker
+
+
+def run_selected_operation(request: Mapping[str, Any]) -> dict[str, Any]:
+    """Default-safe module entry point: no implicit route is admitted or started."""
+    tracker = RunTracker(
+        Path.cwd(),
+        source_observer=lambda _: {"selected": False, "current": False, "observed": {"reason": "no route service injected"}},
+        executor=lambda _request, _runs: (_ for _ in ()).throw(SelectedRunError("no-executor", "no selected route executor was injected")),
+    )
+    return tracker.run_selected_operation(request)

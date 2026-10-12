@@ -188,6 +188,7 @@ def _write_engine_seed(root: Path) -> None:
         "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca/agents/openai.yaml": b"name: mock-ca\n",
         "pyproject.toml": b"[project]\nname = 'release-e2e-golden'\nversion = '0'\n",
         "uv.lock": b"version = 1\n",
+        "version.toml": b'[framework]\nversion = "N+1"\n',
         "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile": b"FROM scratch\nCOPY pyproject.toml uv.lock ./\n",
     }
     for relative, payload in content.items():
@@ -266,15 +267,25 @@ def _selector_bytes(release: str) -> bytes:
 def _seed_active_n(root: Path, candidate: ValidatedCandidate, compilation: SealedCandidateCompilation) -> None:
     """Retain N and candidate byte carriers without calling the staging producer."""
 
+    legacy_rows = [row for row in compilation.package_rows if row.resource != "PACKAGE_CONTROL"]
     for identity in (candidate.authority.executing_release, candidate.manifest.sha256):
         package = root / RUNTIME_ROOT / "releases" / identity
-        for row in compilation.package_rows:
+        rows = legacy_rows if identity == candidate.authority.executing_release else compilation.package_rows
+        for row in rows:
             source = root / row.source_path
             _write_new(package / row.destination_path, source.read_bytes(), row.mode)
             if identity == candidate.authority.executing_release and row.resource == "SKILL":
                 public = root / ".agents/skills/ca" / row.destination_path.removeprefix("SKILLS/ca/")
                 _write_new(public, source.read_bytes(), row.mode)
-        _write_new(package / "manifest.toml", _render_manifest(identity, compilation.package_rows).encode())
+        if identity == candidate.authority.executing_release:
+            manifest = _render_manifest(identity, rows)
+        else:
+            manifest = _render_manifest(
+                identity, rows,
+                framework_version=compilation.framework_version,
+                version_toml_sha256=compilation.version_toml_sha256,
+            )
+        _write_new(package / "manifest.toml", manifest.encode())
     selector_path = root / ".caprmedio_runtime/framework/current.toml"
     if not selector_path.is_file() or selector_path.read_bytes() != _selector_bytes(candidate.authority.executing_release):
         raise RuntimeError("fixture selector must be presealed before candidate construction")

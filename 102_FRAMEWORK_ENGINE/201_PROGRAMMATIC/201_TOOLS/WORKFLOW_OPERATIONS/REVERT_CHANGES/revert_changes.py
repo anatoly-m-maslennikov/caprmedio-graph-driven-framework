@@ -10,7 +10,23 @@ import json
 import re
 import time
 from collections.abc import Callable, Mapping
-from typing import Any
+from pathlib import Path
+import sys
+from typing import Annotated, Any, Literal
+
+from pydantic import BaseModel, ConfigDict, Field, JsonValue, RootModel
+
+
+_TOOLS_ROOT = Path(__file__).resolve().parents[2]
+if str(_TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(_TOOLS_ROOT))
+from tool_description import binding_matches, make_tool_description
+
+
+TOOL_NAME = "REVERT_CHANGES"
+DELIVERY_ID = "CA-D-536"
+ENTRYPOINT = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/WORKFLOW_OPERATIONS/REVERT_CHANGES/revert_changes.py"
+ACTION_IDS = ("CA-O-131",)
 
 
 class RevertChangesError(ValueError):
@@ -22,6 +38,100 @@ _CAPABILITY_BINDING_FIELDS = {
     "capability_id", "parameters", "target", "permission_evidence", "evidence_refs",
 }
 _CAPABILITY_PERMISSION_FIELDS = {"capability_id", "granted", "evidence_ref", "evidence_hash"}
+
+
+class _ClosedRevertRequest(BaseModel):
+    """Only the established operation envelope is typed here."""
+
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+
+class AdmitRevertChangesRequest(_ClosedRevertRequest):
+    operation: Literal["admit"]
+    reversal_request: dict[str, JsonValue] | None = None
+
+
+class ExecuteRevertChangesRequest(_ClosedRevertRequest):
+    operation: Literal["execute"]
+    approved_reversal_manifest: dict[str, JsonValue] | None = None
+    cancel_after_effect_id: JsonValue | None = None
+
+
+class RecoverRevertChangesRequest(_ClosedRevertRequest):
+    operation: Literal["recover_recording"]
+    pending_recording_event: dict[str, JsonValue] | None = None
+
+
+RevertChangesOperation = Annotated[
+    AdmitRevertChangesRequest | ExecuteRevertChangesRequest | RecoverRevertChangesRequest,
+    Field(discriminator="operation"),
+]
+
+
+class RevertChangesRequest(RootModel[RevertChangesOperation]):
+    """Canonical descriptor request for the existing CA-O-131 service."""
+
+
+class RevertChangesResult(RootModel[dict[str, JsonValue]]):
+    """The existing Revert Changes service retains its open result carrier."""
+
+
+class RevertChangesAdapter:
+    """Descriptor invoker that requires the existing injected selected-run service.
+
+    This adapter deliberately has no filesystem/Git fallback.  The selected
+    Workflow remains responsible for injecting the native provider and shared
+    Action Run session before a reversal can execute.
+    """
+
+    def __init__(self, root: str | Path, *, service: "RevertChangesService | None" = None) -> None:
+        self.root = Path(root).resolve()
+        self._service = service
+
+    def invoke(self, request: RevertChangesRequest) -> dict[str, object]:
+        if not isinstance(request, RevertChangesRequest):
+            raise RevertChangesError("descriptor invocation requires the canonical revert request model")
+        if self._service is None:
+            raise RevertChangesError(
+                "revert descriptor invocation is unavailable without the selected native provider and shared Action Run"
+            )
+        return self._service.handle(request.root.model_dump(mode="json", exclude_unset=True))
+
+
+def create_adapter(root: str | Path) -> RevertChangesAdapter:
+    """Create a root-bound adapter; selected execution supplies native capabilities."""
+
+    return RevertChangesAdapter(root)
+
+
+def describe_tool() -> dict[str, Any]:
+    """Describe D536 without observing evidence, admitting, or reverting anything."""
+
+    return make_tool_description(
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=ACTION_IDS,
+        input_symbol="RevertChangesRequest",
+        output_symbol="RevertChangesResult",
+        title="Revert approved changes",
+        description="Admit or execute the existing source-bound CA-O-131 reversal only through its selected native provider.",
+        purpose="Expose the governed reversal contract without introducing generic mutation, Git reset, or a second Run and Journal path.",
+        read_only=False,
+        destructive=True,
+    )
+
+
+def binding_is_admitted(binding: Mapping[str, object] | None) -> bool:
+    """Accept only the exact D536 Tool binding and its selected Action."""
+
+    return binding_matches(
+        binding,
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=ACTION_IDS,
+    )
 
 
 class RecordingPendingError(OSError):

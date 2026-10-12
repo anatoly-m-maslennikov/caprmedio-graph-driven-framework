@@ -57,9 +57,8 @@ def current_atom(
     *,
     governs: str | tuple[str, ...],
     depends_on: tuple[str, ...] = (),
-    atom_type: str = "Definition",
     status: str = "Active",
-    claim: str = "claim.",
+    claim: str = "Entity MEANS a canonical graph identity.",
 ) -> str:
     """A current source carrier: scalar/list Subjects and no retired CCE fields."""
 
@@ -68,7 +67,6 @@ def current_atom(
         "---\n"
         f"atom_id: {atom_id}\n"
         "content_role: Requirement\n"
-        f"type: {atom_type}\n"
         "current_scope_unit: TOOLS\n"
         "claim_target_scope_unit: TOOLS\n"
         f"status: {status}\n"
@@ -81,7 +79,10 @@ def current_atom(
         "relations:\n"
         "  relates_to: []\n"
         "---\n"
-        f"# {atom_id}\n\n{claim}\n"
+        "# Summary\n\nA current test source.\n\n"
+        "## Scope\n\nTOOLS.\n\n"
+        f"## Claim\n\n{claim}\n\n"
+        "## Details\n\nBounded test details.\n"
     )
 
 
@@ -106,25 +107,23 @@ class SelectedGraphTests(unittest.TestCase):
         )
         self.write(
             "CA-R-001.md",
-            atom("CA-R-001", cce_form="definition", governs="Entity"),
+            current_atom("CA-R-001", governs="Entity"),
         )
         self.write(
             "CA-R-002.md",
-            atom("CA-R-002", cce_form="definition", governs="Property"),
+            current_atom("CA-R-002", governs="Property"),
         )
         self.write(
             "CA-R-003.md",
-            atom(
-                "CA-R-003",
-                cce_form="classification",
-                governs="Property",
+            current_atom(
+                "CA-R-003", governs="Property",
                 depends_on=("Entity",),
                 claim="Property SUBKIND_OF Entity.",
             ),
         )
         self.write(
             "CA-R-004.md",
-            atom("CA-R-004", cce_form="definition", governs="Entity/Property: Label"),
+            current_atom("CA-R-004", governs="Entity/Property: Label"),
         )
 
     def tearDown(self) -> None:
@@ -136,28 +135,43 @@ class SelectedGraphTests(unittest.TestCase):
         path.write_text(content, encoding="utf-8", newline="\n")
         return path
 
+    def test_declared_frontier_exclusions_are_not_unassessed_source_failures(self) -> None:
+        self.write("README.md", "Selected source documentation.\n")
+        self.write("CA-R-099.md", current_atom("CA-R-099", governs="Retired", status="Canceled"))
+        result = graph.build_graph(self.root, self.request("terms"))
+        self.assertEqual("incomplete", result["outcome"])
+        codes = {row["code"] for row in result["diagnostics"]}
+        self.assertIn("non-atom-markdown-skipped", codes)
+        self.assertIn("inactive-status-skipped", codes)
+        self.assertNotIn("source-selection-incomplete", codes)
+        self.assertNotIn("Canceled", json.dumps(result["diagnostics"]))
+
     def request(self, graph_kind: str, **overrides: object) -> dict[str, object]:
-        start_receipt = {
-            "event_id": "test-action-start",
-            "action_id": "test-action",
-            "event_digest": "0" * 64,
-            "carrier": ".caprmedio_selected_graphs/_journal/events.ndjson",
-            "line": 1,
-            "previous_carrier_digest": "0" * 64,
-            "appended_carrier_digest": "1" * 64,
-        }
         request: dict[str, object] = {
             "graph_kind": graph_kind,
             "source_frontier": graph.source_frontier_for(self.root, self.selected),
-            "selection": {"atom_ids": ["CA-R-001", "CA-R-002", "CA-R-003", "CA-R-004"]},
+            "selection": {"atom_ids": ["CA-R-001", "CA-R-002", "CA-R-003", "CA-R-004"], "scope_unit_names": []},
             "representation_configuration": {"format": "canonical-json"},
             "capability_permission_evidence": {"authorized": True},
-            "run_recording_context": graph.actual_run_recording_context(
-                "test-workflow-run", "test-step-run", "test-action-run", start_receipt,
-            ),
         }
         request.update(overrides)
         return request
+
+    def authorized_start(self, graph_kind: str):
+        action = "CA-O-134" if graph_kind == "entities" else "CA-O-137"
+        route = "build_entities_graph" if graph_kind == "entities" else "build_terms_graph"
+        return graph.actual_run_recording_context(
+            "test-workflow-run", "test-step-run", "test-action-run",
+            {"event_id": "test-action-start", "action_id": action, "event_digest": "0" * 64,
+             "carrier": ".caprmedio_selected_graphs/_journal/events.ndjson", "line": 1,
+             "previous_carrier_digest": "0" * 64, "appended_carrier_digest": "1" * 64},
+            execution_authorization={
+                "authorization_ref": "test-authorization", "authorization_freshness": {"state": "current", "digest": "0" * 64},
+                "request_id": "test-request", "operation_route": route, "proposal_receipt_digest": "0" * 64,
+                "parameters_digest": "0" * 64, "target_frontier_digest": "0" * 64, "effects_digest": "0" * 64,
+                "definition_manifest": {}, "source_freshness": {},
+            },
+        )
 
     def test_caller_supplied_recording_claim_cannot_publish(self) -> None:
         result = graph.build_graph(
@@ -195,12 +209,24 @@ class SelectedGraphTests(unittest.TestCase):
         self.assertNotIn(secret, serialized)
         self.assertFalse((self.root / self.projection_root / "entities_graph.json").exists())
 
-    def test_complete_entities_and_terms_graphs_are_separate_and_traceable(self) -> None:
+    def test_malformed_source_scalar_is_not_copied_into_error_details(self) -> None:
+        request = self.request("entities")
+        private_value = "private-credential-do-not-disclose"
+        self.write("CA-R-001.md", current_atom("CA-R-001", governs="Entity").replace(
+            "version: 1\n", f"version: {private_value}\n",
+        ))
+        result = graph.build_graph(self.root, request)
+        self.assertEqual("failed", result["outcome"])
+        self.assertEqual("atom-version-invalid", result["diagnostics"][0]["code"])
+        self.assertNotIn(private_value, json.dumps(result))
+        self.assertEqual("none", result["output_effects"]["state"])
+
+    def test_partial_entities_and_terms_graphs_are_separate_and_traceable(self) -> None:
         entities = graph.build_graph(self.root, self.request("entities"))
         terms = graph.build_graph(self.root, self.request("terms"))
 
-        self.assertEqual("built", entities["outcome"])
-        self.assertEqual("built", terms["outcome"])
+        self.assertEqual("incomplete", entities["outcome"])
+        self.assertEqual("incomplete", terms["outcome"])
         self.assertIn("entities_graph", entities)
         self.assertNotIn("terms_graph", entities)
         self.assertIn("terms_graph", terms)
@@ -208,42 +234,23 @@ class SelectedGraphTests(unittest.TestCase):
         self.assertTrue(entities["non_authoritative"])
         self.assertTrue(terms["non_authoritative"])
 
-        entity_nodes = entities["entities_graph"]["entities"]
-        self.assertEqual(["Entity", "Entity/Property: Label", "Property"], [row["identity"] for row in entity_nodes])
+        self.assertEqual([], entities["entities_graph"]["entities"])
+        self.assertEqual([], entities["entities_graph"]["native_relations"])
         source_atoms = entities["entities_graph"]["source_atoms"]
-        self.assertEqual(["CA-R-001", "CA-R-002", "CA-R-003", "CA-R-004"], [row["atom_id"] for row in source_atoms])
-        self.assertEqual(1, source_atoms[0]["properties"]["atom_revision"])
+        self.assertEqual(["CA-R-001", "CA-R-002", "CA-R-003", "CA-R-004"], [row["source"]["atom_id"] for row in source_atoms])
         self.assertEqual("selected/CA-R-001.md", source_atoms[0]["source"]["carrier_path"])
-        self.assertIn("carrier_sha256", source_atoms[0]["source"])
-        self.assertEqual(
-            {"GOVERNS", "DEPENDS_ON"},
-            {row["relation"] for row in entities["entities_graph"]["relations"]},
-        )
-        self.assertEqual(
-            {"IS_ALLOWED_VALUE_OF", "IS_BORNE_BY"},
-            {row["relation"] for row in entities["entities_graph"]["structural_relations"]},
-        )
-
-        terms_graph = terms["terms_graph"]
-        self.assertEqual(["Entity", "Label", "Property"], [row["identity"] for row in terms_graph["terms"]])
-        self.assertEqual(["Entity"], terms_graph["parents_by_term"]["Property"])
-        self.assertEqual(["Entity"], terms_graph["ancestors_by_term"]["Property"])
-        self.assertEqual(["Entity"], terms_graph["dependencies_by_term"]["Property"])
-        self.assertEqual(
-            {"DEPENDS_ON", "SUBKIND_OF"},
-            {row["relation"] for row in terms_graph["relations"]},
-        )
-        self.assertEqual([], terms_graph["unresolved_terms"])
-        self.assertEqual([], terms_graph["cycles"])
+        self.assertEqual([], terms["terms_graph"]["terms"])
 
         self.assertEqual(
             entities["source_frontier_evidence"]["source_frontier_sha256"],
             terms["source_frontier_evidence"]["source_frontier_sha256"],
         )
-        self.assertEqual("pass", entities["quality_dispositions"]["currentness"])
-        self.assertEqual("pass", terms["quality_dispositions"]["validity"])
+        self.assertEqual("unresolved", entities["quality_dispositions"]["coverage"])
+        self.assertEqual({"state": "construction_only"}, entities["completion"])
+        self.assertEqual({"state": "none", "paths": [], "before": None, "after": None}, entities["output_effects"])
+        self.assertNotIn("settings_sha256", entities)
 
-    def test_current_scalar_and_list_subject_schema_builds_expanded_entities_and_terms(self) -> None:
+    def test_current_subject_schema_preserves_incidence_without_native_admission(self) -> None:
         self.write(
             "CA-R-101.md",
             current_atom("CA-R-101", governs="Entity", depends_on=("Property",)),
@@ -256,30 +263,19 @@ class SelectedGraphTests(unittest.TestCase):
             "CA-R-103.md",
             current_atom("CA-R-103", governs="Entity/Property: Label", depends_on=("Property",)),
         )
-        selection = {"atom_ids": ["CA-R-101", "CA-R-102", "CA-R-103"]}
+        selection = {"atom_ids": ["CA-R-101", "CA-R-102", "CA-R-103"], "scope_unit_names": []}
         entities = graph.build_graph(self.root, self.request("entities", selection=selection))
         terms = graph.build_graph(self.root, self.request("terms", selection=selection))
 
-        self.assertEqual("built", entities["outcome"])
-        self.assertEqual("built", terms["outcome"])
-        self.assertEqual(
-            ["Entity", "Entity/Property: Label", "Property"],
-            [row["identity"] for row in entities["entities_graph"]["entities"]],
-        )
+        self.assertEqual("incomplete", entities["outcome"])
+        self.assertEqual("incomplete", terms["outcome"])
+        self.assertEqual([], entities["entities_graph"]["entities"])
         self.assertEqual(
             ["CA-R-101", "CA-R-102", "CA-R-103"],
-            [row["atom_id"] for row in entities["entities_graph"]["source_atoms"]],
+            [row["source"]["atom_id"] for row in entities["entities_graph"]["source_atoms"]],
         )
-        self.assertIn(
-            "status",
-            {row["name"] for row in entities["entities_graph"]["properties"]},
-        )
-        self.assertEqual(
-            {"GOVERNS", "DEPENDS_ON"},
-            {row["relation"] for row in entities["entities_graph"]["relations"]},
-        )
-        self.assertEqual(["Entity", "Label", "Property"], [row["identity"] for row in terms["terms_graph"]["terms"]])
-        self.assertEqual(["Property"], terms["terms_graph"]["dependencies_by_term"]["Entity"])
+        self.assertEqual([], entities["entities_graph"]["native_properties"])
+        self.assertEqual([], terms["terms_graph"]["terms"])
 
     def test_current_status_excludes_non_active_carriers_without_dropping_active_frontier(self) -> None:
         self.write("CA-R-110.md", current_atom("CA-R-110", governs="Active Entity"))
@@ -327,15 +323,15 @@ class SelectedGraphTests(unittest.TestCase):
         handlers = graph.queue_action_handlers(self.root)
         output = handlers["CA-O-134"]({"parameters": self.request("entities")})
 
-        self.assertEqual("built", output["result"])
-        self.assertEqual([f"{self.projection_root}/entities_graph.json"], output["effect_refs"])
-        self.assertEqual("built", output["graph_result"]["outcome"])
+        self.assertEqual("incomplete", output["result"])
+        self.assertEqual([], output["effect_refs"])
+        self.assertEqual("incomplete", output["graph_result"]["outcome"])
         self.assertIn("entities_graph", output["graph_result"])
 
     def test_quality_failures_never_return_built_or_no_op(self) -> None:
         self.write(
             "CA-R-005.md",
-            atom("CA-R-005", cce_form="definition", governs="Cycle", depends_on=("Cycle",)),
+            current_atom("CA-R-005", governs="Cycle", depends_on=("Cycle",)),
         )
         frontier = graph.source_frontier_for(self.root, self.selected)
         result = graph.build_graph(
@@ -343,13 +339,13 @@ class SelectedGraphTests(unittest.TestCase):
             self.request(
                 "terms",
                 source_frontier=frontier,
-                selection={"atom_ids": ["CA-R-005"]},
+                selection={"atom_ids": ["CA-R-005"], "scope_unit_names": []},
             ),
         )
         self.assertIn(result["outcome"], {"incomplete", "conflicting", "stale", "blocked", "failed"})
         self.assertNotIn(result["outcome"], {"built", "no_op"})
-        self.assertIn("self-reference", {row["code"] for row in result["diagnostics"]})
-        self.assertEqual("fail", result["quality_dispositions"]["validity"])
+        self.assertIn("fact-coverage-unresolved", {row["code"] for row in result["diagnostics"]})
+        self.assertEqual("unresolved", result["quality_dispositions"]["validity"])
 
     def test_selected_project_structure_is_traced_from_the_authoritative_toml(self) -> None:
         structure = self.root / self.control_root / "project_structure.toml"
@@ -373,48 +369,42 @@ class SelectedGraphTests(unittest.TestCase):
             self.root,
             self.request("entities", selection={"atom_ids": ["CA-R-001"], "scope_unit_names": ["TOOLS"]}),
         )
-        self.assertEqual("built", result["outcome"])
+        self.assertEqual("incomplete", result["outcome"])
         row = result["entities_graph"]["project_structure"][0]
         self.assertEqual("TOOLS", row["scope_unit_name"])
         self.assertEqual("PROGRAMMATIC", row["parent"])
         self.assertEqual(f"{self.control_root}/project_structure.toml", row["source"]["carrier_path"])
         self.assertIn("carrier_sha256", row["source"])
 
-    def test_canonical_atomic_publication_no_op_and_stale_frontier_are_truthful(self) -> None:
+    def test_nonempty_unsupported_context_never_publishes_and_stale_frontier_is_truthful(self) -> None:
         destination = f"{self.projection_root}/terms-checkpoint.json"
         first = graph.build_graph(self.root, self.request("terms", output_destination=destination))
         output = self.root / destination
-        first_bytes = output.read_bytes()
-        second = graph.build_graph(
-            self.root,
-            self.request(
-                "terms",
-                output_destination=destination,
-                existing_projection_evidence={"sha256": hashlib.sha256(first_bytes).hexdigest()},
-            ),
-        )
-        self.assertEqual("built", first["outcome"])
-        self.assertEqual("no_op", second["outcome"])
-        self.assertEqual(first_bytes, output.read_bytes())
+        self.assertEqual("blocked", first["outcome"])
+        self.assertFalse(output.exists())
+        self.assertEqual("none", first["output_effects"]["state"])
         stale_frontier = self.request("entities")["source_frontier"]
-        self.write("CA-R-001.md", atom("CA-R-001", cce_form="definition", governs="Entity", claim="changed."))
+        self.write("CA-R-001.md", current_atom("CA-R-001", governs="Entity", claim="Entity MEANS changed."))
         stale = graph.build_graph(self.root, self.request("entities", source_frontier=stale_frontier))
         self.assertEqual("stale", stale["outcome"])
         self.assertEqual([], stale["output_effects"]["paths"])
 
-    def test_default_publication_uses_the_configured_project_projection_root(self) -> None:
-        entities = graph.build_graph(self.root, self.request("entities"))
-        terms = graph.build_graph(self.root, self.request("terms"))
+    def test_empty_selection_can_publish_only_with_actual_authorization_and_awaits_terminal_recording(self) -> None:
+        destination = f"{self.projection_root}/entities-empty.json"
+        blocked = graph.build_graph(self.root, self.request(
+            "entities", selection={"atom_ids": [], "scope_unit_names": []}, output_destination=destination,
+        ))
+        self.assertEqual("blocked", blocked["outcome"])
+        self.assertFalse((self.root / destination).exists())
 
-        entity_destination = f"{self.projection_root}/entities_graph.json"
-        term_destination = f"{self.projection_root}/terms_graph.json"
-        self.assertEqual("built", entities["outcome"])
-        self.assertEqual({"state": "created", "paths": [entity_destination]}, entities["output_effects"])
-        self.assertEqual("built", terms["outcome"])
-        self.assertEqual({"state": "created", "paths": [term_destination]}, terms["output_effects"])
-        self.assertTrue((self.root / entity_destination).is_file())
-        self.assertTrue((self.root / term_destination).is_file())
-        self.assertFalse((self.root / ".caprmedio_runtime" / "graph_projections").exists())
+        result = graph.build_graph(self.root, self.request(
+            "entities", selection={"atom_ids": [], "scope_unit_names": []}, output_destination=destination,
+            run_recording_context=self.authorized_start("entities"),
+        ))
+        self.assertEqual("incomplete", result["outcome"])
+        self.assertEqual("created", result["output_effects"]["state"])
+        self.assertEqual({"state": "awaiting_terminal_recording"}, result["completion"])
+        self.assertTrue((self.root / destination).is_file())
 
         rejected = graph.build_graph(
             self.root,

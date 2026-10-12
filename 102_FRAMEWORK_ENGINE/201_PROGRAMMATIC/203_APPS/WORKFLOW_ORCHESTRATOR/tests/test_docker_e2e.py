@@ -8,7 +8,6 @@ import asyncio
 import json
 import os
 from pathlib import Path
-import secrets
 import socket
 import sys
 import tempfile
@@ -87,14 +86,13 @@ class DockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.temporary.cleanup()
 
     def http_environment(self):
-        token = secrets.token_urlsafe(32)
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
             probe.bind(("127.0.0.1", 0))
             port = probe.getsockname()[1]
-        return token, port
+        return port
 
-    async def http_session(self, url, token):
-        client = httpx2.AsyncClient(headers={"Authorization": f"Bearer {token}"})
+    async def http_session(self, url, _token=None):
+        client = httpx2.AsyncClient()
         transport = streamable_http_client(url, http_client=client)
         streams = await transport.__aenter__()
         session = ClientSession(*streams)
@@ -334,11 +332,9 @@ class DockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(await self.agent_calls(), 1)
         self.assertIn("SLOW_MOCK", self.atom.read_text())
 
-    async def test_authenticated_http_mcp_isolated_from_worker_and_agent(self):
-        token, port = self.http_environment()
-        previous = {key: os.environ.get(key) for key in
-                    ("CAPRMEDIO_MCP_HTTP_SECRET_TOKEN", "CAPRMEDIO_MCP_HTTP_PORT")}
-        os.environ["CAPRMEDIO_MCP_HTTP_SECRET_TOKEN"] = token
+    async def test_anonymous_http_mcp_isolated_from_worker_and_agent(self):
+        port = self.http_environment()
+        previous = {"CAPRMEDIO_MCP_HTTP_PORT": os.environ.get("CAPRMEDIO_MCP_HTTP_PORT")}
         os.environ["CAPRMEDIO_MCP_HTTP_PORT"] = str(port)
         self.addCleanup(self.restore_http_environment, previous)
         self.http_started = True
@@ -348,7 +344,7 @@ class DockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         services = {row.get("Service") for row in status["services"]}
         self.assertEqual({"mcp-http"}, services)
         url = started["url"]
-        client, transport, session = await self.http_session(url, token)
+        client, transport, session = await self.http_session(url)
         try:
             names = {tool.name for tool in (await session.list_tools()).tools}
             self.assertIn("get_mcp_reload_status", names)
@@ -357,14 +353,11 @@ class DockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         finally:
             await self.close_http_session(client, transport, session)
         async with httpx2.AsyncClient() as raw:
-            health = await raw.get(f"http://127.0.0.1:{port}/health",
-                                   headers={"Authorization": f"Bearer {token}"})
+            health = await raw.get(f"http://127.0.0.1:{port}/health")
             self.assertEqual(200, health.status_code)
             for headers, expected in (
-                ({}, 401),
-                ({"Authorization": "Bearer wrong"}, 401),
-                ({"Authorization": f"Bearer {token}", "Host": "attacker.invalid"}, 421),
-                ({"Authorization": f"Bearer {token}", "Origin": "https://attacker.invalid"}, 403),
+                ({"Host": "attacker.invalid"}, 421),
+                ({"Origin": "https://attacker.invalid"}, 403),
             ):
                 response = await raw.get(f"http://127.0.0.1:{port}/health", headers=headers)
                 self.assertEqual(expected, response.status_code)

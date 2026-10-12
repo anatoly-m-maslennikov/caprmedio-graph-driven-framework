@@ -1,0 +1,1277 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2098",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2094-2099.inputs.json",
+      "sha256": "5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2094-2099.contract.md",
+        "sha256": "cf24b036a6dfaf27281f7b67e5cf2f70cff1c147c9edbabf791bb8fc12bf72ff"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/77-CA-P-2098-TASK--review-journal-and-actor-targets.md",
+      "sha256": "fb036eb3c2cb8f4931212ced366b6f27df270ad4b8b419c0461015f5d6458ae1"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1427-CORE_META_MODEL-CORE--define-confidence-threshold.md",
+        "sha256": "347fc5921d406adf14de0dcc680f41861c8bb19f416e4002f272fa6876241e7a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md",
+        "sha256": "8bf145b5175d143954ac403bb11247fc8d2a74168881ed607260b1fb66c2c075"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-GENERAL-REQUIREMENT--derive-log-views-from-the-shared-journal.md",
+        "sha256": "0e392839c13a6ecf15daa3524edf8649ea8b942d2f2da69169605fe72ffad47b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1467-CORE_META_MODEL--define-artifact-change-log-projection.md",
+        "sha256": "229bf6c03e338faadbcebd11e7af6f503ee81857fedd87a362a321172560ef52"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1497-CORE_META_MODEL-CORE-REQUIREMENT--keep-lineage-analysis-distinct-from-evidence-of-its-correctness.md",
+        "sha256": "7aa5551e9ab639629c70a99d683426bae259b36a8993e159c4cba28943bc11f8"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1505-CORE_META_MODEL-CORE-REQUIREMENT--keep-evaluation-realization-chains-distinct.md",
+        "sha256": "3d0b0390c63292654cb184d97df2cbf1065d129a848c24e6f005946e1ffd8876"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+        "sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+        "sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+        "sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+        "sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md",
+        "sha256": "430b66d1c976adec032d6f9e13551c9019abe0df3f7794110436640acf3b5d79"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+        "sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+        "sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+        "sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+        "sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-CORE--require-an-effective-confidence-threshold-for-plan-execution.md",
+        "sha256": "e2c13e07ba539b05959868169d761d18746b26e583abbccde1d55b1ee64b4523"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1591-CORE_META_MODEL-GENERAL-REQUIREMENT--apply-autonomous-confidence-thresholds-to-plan-execution.md",
+        "sha256": "3f42557e69c77dd597d05da1506c42ee86799e97e61128c2c06ad586f9f27e79"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1611-CORE_META_MODEL--separate-legacy-observations-from-refactoring-decisions.md",
+        "sha256": "fb085c82756757845314bbdaf48b2039afeeddc0afe70fed2c402db5980a8584"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md",
+        "sha256": "996e199076e7e039b094cec23394cdfa22412dd12f69676585ba008c7713dac5"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+        "sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+        "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md",
+        "sha256": "b2e38a54c68d7e5f75e1905de7c1e095d9aa15da83d0810bde5e0a2833bff198"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+        "sha256": "14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-governing-atom-change-approval.md",
+        "sha256": "04cf2c957d5cba0f777d0d9c4ecab39e816bed26bce872a9a5eae74224e10a4a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-EVALUATION_APPROACH--validate-atom-replacement-event-evidence.md",
+        "sha256": "e1b8a1f6f8c8a64966578f24f74f153ffc6f7bffd60ae9b252a3ff8bbd701dcb"
+      }
+    ]
+  },
+  "selection": {
+    "family": "journals_and_actors",
+    "occurrence_id_set_sha256": "3d98c54c3626c4ecc5e38c3d1cbc90e1e988eca75f3d74cba07373d0f603a040",
+    "assigned_sources": 25,
+    "assigned_occurrences": 32
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1427-CORE_META_MODEL-CORE--define-confidence-threshold.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1427-CORE_META_MODEL-CORE--define-confidence-threshold.md",
+      "source_atom_id": "CA-R-1427",
+      "source_version": 7,
+      "source_sha256": "347fc5921d406adf14de0dcc680f41861c8bb19f416e4002f272fa6876241e7a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines a context- and source-resolved policy threshold; the candidate confirms no threshold Entity or Property with its required source-precedence and authority qualifications. It must not become an Actor field merely from nearby AI-Agent language.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1427-CORE_META_MODEL-CORE--define-confidence-threshold.md",
+          "sha256": "347fc5921d406adf14de0dcc680f41861c8bb19f416e4002f272fa6876241e7a",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "3100f7e01cdae63fed221710f9e1c8bc6d8bf0a605292434e411bbe71255ddc9",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Threshold source precedence, applicable context, and existing authority remain explicit",
+        "An autonomy threshold does not itself grant authority",
+        "No Actor confidence field, Plan-property syntax, selector, or policy Entity is invented"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md",
+      "source_atom_id": "CA-R-1428",
+      "source_version": 9,
+      "source_sha256": "8bf145b5175d143954ac403bb11247fc8d2a74168881ed607260b1fb66c2c075",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines a context- and source-resolved policy threshold; the candidate confirms no threshold Entity or Property with its required source-precedence and authority qualifications. It must not become an Actor field merely from nearby AI-Agent language.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md",
+          "sha256": "8bf145b5175d143954ac403bb11247fc8d2a74168881ed607260b1fb66c2c075",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "56a79fb9645f7ec4a31f4153641bd99b3a26b702df06d456b1084944e4e829ee",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Threshold source precedence, applicable context, and existing authority remain explicit",
+        "An autonomy threshold does not itself grant authority",
+        "No Actor confidence field, Plan-property syntax, selector, or policy Entity is invented"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-GENERAL-REQUIREMENT--derive-log-views-from-the-shared-journal.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-GENERAL-REQUIREMENT--derive-log-views-from-the-shared-journal.md",
+      "source_atom_id": "CA-R-1463",
+      "source_version": 7,
+      "source_sha256": "0e392839c13a6ecf15daa3524edf8649ea8b942d2f2da69169605fe72ffad47b",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Work Journal/Event",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body distinguishes an event identity from its Journal record or describes an event-type domain, while the candidate states that a Journal record is not the event itself. It confirms no Event identity or Record.Type target that preserves that distinction, so Journal.Record would be a lossy substitution.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-GENERAL-REQUIREMENT--derive-log-views-from-the-shared-journal.md",
+          "sha256": "0e392839c13a6ecf15daa3524edf8649ea8b942d2f2da69169605fe72ffad47b",
+          "start_line": 26,
+          "end_line": 40,
+          "span_sha256": "2078e1662d619f858465fc1aa6bfc8383569857ecb3013a61cb6217b1d035896",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Event identity remains distinct from the record that documents it",
+        "No Journal.Record or Journal.Record.Type target is inferred from an old display path",
+        "No Journal serialization, carrier, native relation, or Event kind is admitted"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1467-CORE_META_MODEL--define-artifact-change-log-projection.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1467-CORE_META_MODEL--define-artifact-change-log-projection.md",
+      "source_atom_id": "CA-R-1467",
+      "source_version": 5,
+      "source_sha256": "229bf6c03e338faadbcebd11e7af6f503ee81857fedd87a362a321172560ef52",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Work Journal/Event",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body distinguishes an event identity from its Journal record or describes an event-type domain, while the candidate states that a Journal record is not the event itself. It confirms no Event identity or Record.Type target that preserves that distinction, so Journal.Record would be a lossy substitution.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1467-CORE_META_MODEL--define-artifact-change-log-projection.md",
+          "sha256": "229bf6c03e338faadbcebd11e7af6f503ee81857fedd87a362a321172560ef52",
+          "start_line": 22,
+          "end_line": 32,
+          "span_sha256": "88069ce8cc7cff2f90a3a5f082931467f59324d5946e287a3a9b4f04e8886dae",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Event identity remains distinct from the record that documents it",
+        "No Journal.Record or Journal.Record.Type target is inferred from an old display path",
+        "No Journal serialization, carrier, native relation, or Event kind is admitted"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1497-CORE_META_MODEL-CORE-REQUIREMENT--keep-lineage-analysis-distinct-from-evidence-of-its-correctness.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1497-CORE_META_MODEL-CORE-REQUIREMENT--keep-lineage-analysis-distinct-from-evidence-of-its-correctness.md",
+      "source_atom_id": "CA-R-1497",
+      "source_version": 5,
+      "source_sha256": "7aa5551e9ab639629c70a99d683426bae259b36a8993e159c4cba28943bc11f8",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Evidence",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body gives Evidence a concrete evidential role, but the candidate confirms no Evidence root, dependent Property, or admitted relation target. A generic lexical replacement would create an unsupported identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1497-CORE_META_MODEL-CORE-REQUIREMENT--keep-lineage-analysis-distinct-from-evidence-of-its-correctness.md",
+          "sha256": "7aa5551e9ab639629c70a99d683426bae259b36a8993e159c4cba28943bc11f8",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "ff45c0087d89b7aa0dc679592fed1781f35d8bdba95000adb234ecddc5d3fbdc",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Evidence remains distinct from analysis, verification, execution facts, and Journal Records where the source says so",
+        "No new Evidence root, Property, selector, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1505-CORE_META_MODEL-CORE-REQUIREMENT--keep-evaluation-realization-chains-distinct.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1505-CORE_META_MODEL-CORE-REQUIREMENT--keep-evaluation-realization-chains-distinct.md",
+      "source_atom_id": "CA-R-1505",
+      "source_version": 6,
+      "source_sha256": "3d0b0390c63292654cb184d97df2cbf1065d129a848c24e6f005946e1ffd8876",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Evidence",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body gives Evidence a concrete evidential role, but the candidate confirms no Evidence root, dependent Property, or admitted relation target. A generic lexical replacement would create an unsupported identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1505-CORE_META_MODEL-CORE-REQUIREMENT--keep-evaluation-realization-chains-distinct.md",
+          "sha256": "3d0b0390c63292654cb184d97df2cbf1065d129a848c24e6f005946e1ffd8876",
+          "start_line": 23,
+          "end_line": 45,
+          "span_sha256": "721f4eb7f6fe6caf3f4d238439af8cb7bcc8139b756dfb1ec4feea43a81d377f",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Evidence remains distinct from analysis, verification, execution facts, and Journal Records where the source says so",
+        "No new Evidence root, Property, selector, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+      "source_atom_id": "CA-R-1551",
+      "source_version": 4,
+      "source_sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "AI Agent Delegation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines delegation as an Operator-issued policy with identified agent, actions, scopes, constraints, validity, and revocation. The candidate confirms only generic Actor meaning, not a Delegation Entity or property; Actor.Type would discard the policy qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1551-CORE_META_MODEL-CORE-REQUIREMENT--reserve-principle-conflict-resolution-to-the-operator.md",
+          "sha256": "791f505d8bfa5af63b43e5f08d6543a67cd8a34b3558b6c215a767a208d1f025",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "bd7e3043126cb3e5b3e459995580cd14a86ca8258bd2876428495ed291a2177c",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Delegation remains issued by an Operator and bound to an identified AI Agent",
+        "Allowed actions, scopes, constraints, validity, and revocation remain required",
+        "No Actor subtype, authorization relation, or singleton Delegation identity is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+      "source_atom_id": "CA-R-1552",
+      "source_version": 4,
+      "source_sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "AI Agent Delegation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines delegation as an Operator-issued policy with identified agent, actions, scopes, constraints, validity, and revocation. The candidate confirms only generic Actor meaning, not a Delegation Entity or property; Actor.Type would discard the policy qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+          "sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "c1fadb18dbd7196ea9ee6eb28ddbe378014588eb672dee63407b4ea3fcb1020b",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Delegation remains issued by an Operator and bound to an identified AI Agent",
+        "Allowed actions, scopes, constraints, validity, and revocation remain required",
+        "No Actor subtype, authorization relation, or singleton Delegation identity is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+      "source_atom_id": "CA-R-1552",
+      "source_version": 4,
+      "source_sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961",
+      "field": "governs",
+      "index": null,
+      "old_value": "AI Agent/authorization",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body is an Actor participation or authorization policy, not merely the identity or type of an AI Agent. The candidate supplies no confirmed authorization Entity, dependent Property, or relation target; mapping it to Actor or Actor.Type would lose required authority conditions.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-CORE-REQUIREMENT--require-active-delegation-for-ai-agent-actions.md",
+          "sha256": "9c8bf376935993dd5ad8f8d42f38d5a63de1b4b47a0681b5d856ac6e77036961",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "c1fadb18dbd7196ea9ee6eb28ddbe378014588eb672dee63407b4ea3fcb1020b",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Identified-agent, Operator authority, scope, action, and constraint conditions remain distinct",
+        "AI authorship or confidence never independently creates authority",
+        "No Actor subtype, authorization field, selector, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+      "source_atom_id": "CA-R-1554",
+      "source_version": 4,
+      "source_sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd",
+      "field": "governs",
+      "index": null,
+      "old_value": "AI Agent/authorization",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body is an Actor participation or authorization policy, not merely the identity or type of an AI Agent. The candidate supplies no confirmed authorization Entity, dependent Property, or relation target; mapping it to Actor or Actor.Type would lose required authority conditions.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+          "sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd",
+          "start_line": 21,
+          "end_line": 39,
+          "span_sha256": "97ff6485edbe1bd8fb1676d50b2f2de7a078edcabaaabc6fbc0c87c999ecf11a",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Identified-agent, Operator authority, scope, action, and constraint conditions remain distinct",
+        "AI authorship or confidence never independently creates authority",
+        "No Actor subtype, authorization field, selector, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+      "source_atom_id": "CA-R-1555",
+      "source_version": 5,
+      "source_sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "AI Agent Delegation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines delegation as an Operator-issued policy with identified agent, actions, scopes, constraints, validity, and revocation. The candidate confirms only generic Actor meaning, not a Delegation Entity or property; Actor.Type would discard the policy qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+          "sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563",
+          "start_line": 21,
+          "end_line": 38,
+          "span_sha256": "03473b806c8b484905920a69ff6d10e7420cf908f32f589d34ff1d369dd9b084",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Delegation remains issued by an Operator and bound to an identified AI Agent",
+        "Allowed actions, scopes, constraints, validity, and revocation remain required",
+        "No Actor subtype, authorization relation, or singleton Delegation identity is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+      "source_atom_id": "CA-R-1555",
+      "source_version": 5,
+      "source_sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563",
+      "field": "governs",
+      "index": null,
+      "old_value": "AI Agent/authorization",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body is an Actor participation or authorization policy, not merely the identity or type of an AI Agent. The candidate supplies no confirmed authorization Entity, dependent Property, or relation target; mapping it to Actor or Actor.Type would lose required authority conditions.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1555-CORE_META_MODEL-GENERAL--govern-ca-execution-gates.md",
+          "sha256": "301abf1fe8a6e53532ebcefabd15caab37273da588b32525e2ca815b694eb563",
+          "start_line": 21,
+          "end_line": 38,
+          "span_sha256": "03473b806c8b484905920a69ff6d10e7420cf908f32f589d34ff1d369dd9b084",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Identified-agent, Operator authority, scope, action, and constraint conditions remain distinct",
+        "AI authorship or confidence never independently creates authority",
+        "No Actor subtype, authorization field, selector, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md",
+      "source_atom_id": "CA-R-1556",
+      "source_version": 5,
+      "source_sha256": "430b66d1c976adec032d6f9e13551c9019abe0df3f7794110436640acf3b5d79",
+      "field": "governs",
+      "index": null,
+      "old_value": "AI Agent/authorization",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body is an Actor participation or authorization policy, not merely the identity or type of an AI Agent. The candidate supplies no confirmed authorization Entity, dependent Property, or relation target; mapping it to Actor or Actor.Type would lose required authority conditions.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1556-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-analysis-optional-before-specification.md",
+          "sha256": "430b66d1c976adec032d6f9e13551c9019abe0df3f7794110436640acf3b5d79",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "c477a8b08401b349851206d8f096c3a98bb0d8a2a6976ce8698cf93ff99dba8f",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Identified-agent, Operator authority, scope, action, and constraint conditions remain distinct",
+        "AI authorship or confidence never independently creates authority",
+        "No Actor subtype, authorization field, selector, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+      "source_atom_id": "CA-R-1557",
+      "source_version": 5,
+      "source_sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416",
+      "field": "governs",
+      "index": null,
+      "old_value": "AI Agent/authorization",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body is an Actor participation or authorization policy, not merely the identity or type of an AI Agent. The candidate supplies no confirmed authorization Entity, dependent Property, or relation target; mapping it to Actor or Actor.Type would lose required authority conditions.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+          "sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "ca535e5b7a1eb7e3692bb66d789b378fca2fff5c2bdd90481f0719bcd59438fc",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Identified-agent, Operator authority, scope, action, and constraint conditions remain distinct",
+        "AI authorship or confidence never independently creates authority",
+        "No Actor subtype, authorization field, selector, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+      "source_atom_id": "CA-R-1558",
+      "source_version": 4,
+      "source_sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5",
+      "field": "governs",
+      "index": null,
+      "old_value": "AI Agent/authorization",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body is an Actor participation or authorization policy, not merely the identity or type of an AI Agent. The candidate supplies no confirmed authorization Entity, dependent Property, or relation target; mapping it to Actor or Actor.Type would lose required authority conditions.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+          "sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5",
+          "start_line": 22,
+          "end_line": 40,
+          "span_sha256": "9fb05c733ac5158f59fabc6b3dc67ee04963fdac896996ede32b44fdb47ebf97",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Identified-agent, Operator authority, scope, action, and constraint conditions remain distinct",
+        "AI authorship or confidence never independently creates authority",
+        "No Actor subtype, authorization field, selector, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+      "source_atom_id": "CA-R-1559",
+      "source_version": 5,
+      "source_sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "AI Agent/Confidence",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body uses confidence as a policy gate for a specific change or decision, not an inherent AI-Agent field. The candidate supplies no qualified Actor confidence Property or authorization relation, so a type or field target would be unsupported.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+          "sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+          "start_line": 31,
+          "end_line": 51,
+          "span_sha256": "5574224837c2a96253d87cdffa0886f5b3e8f020d6969e264e5cdac5da44f919",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Confidence remains tied to the applicable threshold, permissions, and Operator rules",
+        "A missing or unresolved Author is not treated as AI authorship",
+        "No Actor field, selector, policy Entity, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+      "source_atom_id": "CA-R-1559",
+      "source_version": 5,
+      "source_sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+      "field": "governs",
+      "index": null,
+      "old_value": "AI Agent/authorization",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body is an Actor participation or authorization policy, not merely the identity or type of an AI Agent. The candidate supplies no confirmed authorization Entity, dependent Property, or relation target; mapping it to Actor or Actor.Type would lose required authority conditions.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-GENERAL-REQUIREMENT--gate-governing-atom-changes-during-implementation.md",
+          "sha256": "6b93c0d6ecdc0820018f9debc4f0b24b1d8f2e6794dc741c9f1c66b58c6952cd",
+          "start_line": 31,
+          "end_line": 51,
+          "span_sha256": "5574224837c2a96253d87cdffa0886f5b3e8f020d6969e264e5cdac5da44f919",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Identified-agent, Operator authority, scope, action, and constraint conditions remain distinct",
+        "AI authorship or confidence never independently creates authority",
+        "No Actor subtype, authorization field, selector, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+      "source_atom_id": "CA-R-1561",
+      "source_version": 4,
+      "source_sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "AI Agent Delegation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines delegation as an Operator-issued policy with identified agent, actions, scopes, constraints, validity, and revocation. The candidate confirms only generic Actor meaning, not a Delegation Entity or property; Actor.Type would discard the policy qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+          "sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "df41502d38e28cb0f78c9c542f84587024f922816e2b8870d9e79f15883ef468",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Delegation remains issued by an Operator and bound to an identified AI Agent",
+        "Allowed actions, scopes, constraints, validity, and revocation remain required",
+        "No Actor subtype, authorization relation, or singleton Delegation identity is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+      "source_atom_id": "CA-R-1561",
+      "source_version": 4,
+      "source_sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "AI Agent/Confidence",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body uses confidence as a policy gate for a specific change or decision, not an inherent AI-Agent field. The candidate supplies no qualified Actor confidence Property or authorization relation, so a type or field target would be unsupported.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+          "sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "df41502d38e28cb0f78c9c542f84587024f922816e2b8870d9e79f15883ef468",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Confidence remains tied to the applicable threshold, permissions, and Operator rules",
+        "A missing or unresolved Author is not treated as AI authorship",
+        "No Actor field, selector, policy Entity, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+      "source_atom_id": "CA-R-1561",
+      "source_version": 4,
+      "source_sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+      "field": "governs",
+      "index": null,
+      "old_value": "AI Agent/authorization",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body is an Actor participation or authorization policy, not merely the identity or type of an AI Agent. The candidate supplies no confirmed authorization Entity, dependent Property, or relation target; mapping it to Actor or Actor.Type would lose required authority conditions.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-GENERAL-REQUIREMENT--let-ai-agents-resolve-concerns-under-bounded-authority.md",
+          "sha256": "c59c8fffc4b6a895cb16cbd8af97babed7a7b11d462e6e18c37715508de9da0a",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "df41502d38e28cb0f78c9c542f84587024f922816e2b8870d9e79f15883ef468",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Identified-agent, Operator authority, scope, action, and constraint conditions remain distinct",
+        "AI authorship or confidence never independently creates authority",
+        "No Actor subtype, authorization field, selector, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-CORE--require-an-effective-confidence-threshold-for-plan-execution.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-CORE--require-an-effective-confidence-threshold-for-plan-execution.md",
+      "source_atom_id": "CA-R-1587",
+      "source_version": 4,
+      "source_sha256": "e2c13e07ba539b05959868169d761d18746b26e583abbccde1d55b1ee64b4523",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines a context- and source-resolved policy threshold; the candidate confirms no threshold Entity or Property with its required source-precedence and authority qualifications. It must not become an Actor field merely from nearby AI-Agent language.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1587-CORE_META_MODEL-CORE--require-an-effective-confidence-threshold-for-plan-execution.md",
+          "sha256": "e2c13e07ba539b05959868169d761d18746b26e583abbccde1d55b1ee64b4523",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "9ede78cc7dcf53c9446bb6a98cb224d6d016055b7be2976fa57f2eaa87fe0d6c",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Threshold source precedence, applicable context, and existing authority remain explicit",
+        "An autonomy threshold does not itself grant authority",
+        "No Actor confidence field, Plan-property syntax, selector, or policy Entity is invented"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1591-CORE_META_MODEL-GENERAL-REQUIREMENT--apply-autonomous-confidence-thresholds-to-plan-execution.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1591-CORE_META_MODEL-GENERAL-REQUIREMENT--apply-autonomous-confidence-thresholds-to-plan-execution.md",
+      "source_atom_id": "CA-R-1591",
+      "source_version": 4,
+      "source_sha256": "3f42557e69c77dd597d05da1506c42ee86799e97e61128c2c06ad586f9f27e79",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Autonomous Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines a context- and source-resolved policy threshold; the candidate confirms no threshold Entity or Property with its required source-precedence and authority qualifications. It must not become an Actor field merely from nearby AI-Agent language.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1591-CORE_META_MODEL-GENERAL-REQUIREMENT--apply-autonomous-confidence-thresholds-to-plan-execution.md",
+          "sha256": "3f42557e69c77dd597d05da1506c42ee86799e97e61128c2c06ad586f9f27e79",
+          "start_line": 21,
+          "end_line": 37,
+          "span_sha256": "b0023a5ce7d2f6255c8abc31cbfa2b98d4af031491ff2922cc559422c8b1679c",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Threshold source precedence, applicable context, and existing authority remain explicit",
+        "An autonomy threshold does not itself grant authority",
+        "No Actor confidence field, Plan-property syntax, selector, or policy Entity is invented"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1611-CORE_META_MODEL--separate-legacy-observations-from-refactoring-decisions.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1611-CORE_META_MODEL--separate-legacy-observations-from-refactoring-decisions.md",
+      "source_atom_id": "CA-R-1611",
+      "source_version": 4,
+      "source_sha256": "fb085c82756757845314bbdaf48b2039afeeddc0afe70fed2c402db5980a8584",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Evidence",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body gives Evidence a concrete evidential role, but the candidate confirms no Evidence root, dependent Property, or admitted relation target. A generic lexical replacement would create an unsupported identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1611-CORE_META_MODEL--separate-legacy-observations-from-refactoring-decisions.md",
+          "sha256": "fb085c82756757845314bbdaf48b2039afeeddc0afe70fed2c402db5980a8584",
+          "start_line": 26,
+          "end_line": 44,
+          "span_sha256": "8a78eb7722ab4861a316141f84df53f5cad2b85d90e628f87ceb28c08d90e4af",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Evidence remains distinct from analysis, verification, execution facts, and Journal Records where the source says so",
+        "No new Evidence root, Property, selector, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md",
+      "source_atom_id": "CA-R-1643",
+      "source_version": 22,
+      "source_sha256": "996e199076e7e039b094cec23394cdfa22412dd12f69676585ba008c7713dac5",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Work Journal/Event",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body distinguishes an event identity from its Journal record or describes an event-type domain, while the candidate states that a Journal record is not the event itself. It confirms no Event identity or Record.Type target that preserves that distinction, so Journal.Record would be a lossy substitution.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md",
+          "sha256": "996e199076e7e039b094cec23394cdfa22412dd12f69676585ba008c7713dac5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "d817ffb934b841230769d93273badd3de364eed297f8f4f6e464f25f0d075268",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Event identity remains distinct from the record that documents it",
+        "No Journal.Record or Journal.Record.Type target is inferred from an old display path",
+        "No Journal serialization, carrier, native relation, or Event kind is admitted"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md",
+      "source_atom_id": "CA-R-1643",
+      "source_version": 22,
+      "source_sha256": "996e199076e7e039b094cec23394cdfa22412dd12f69676585ba008c7713dac5",
+      "field": "governs",
+      "index": null,
+      "old_value": "Work Journal/Event/Type",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body distinguishes an event identity from its Journal record or describes an event-type domain, while the candidate states that a Journal record is not the event itself. It confirms no Event identity or Record.Type target that preserves that distinction, so Journal.Record would be a lossy substitution.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1643-CORE_META_MODEL-GENERAL-REQUIREMENT--register-type-values-for-work-journal-events.md",
+          "sha256": "996e199076e7e039b094cec23394cdfa22412dd12f69676585ba008c7713dac5",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "d817ffb934b841230769d93273badd3de364eed297f8f4f6e464f25f0d075268",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Event identity remains distinct from the record that documents it",
+        "No Journal.Record or Journal.Record.Type target is inferred from an old display path",
+        "No Journal serialization, carrier, native relation, or Event kind is admitted"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+      "source_atom_id": "CA-R-1695",
+      "source_version": 19,
+      "source_sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Work Journal",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Journal",
+      "confidence": 0.91,
+      "reason": "The current body expressly defines the shared Project Work Journal as the authority that records Implementation Bindings, while retaining native realization, Operations evidence, and Verification as distinct authorities. The candidate independently confirms Journal as a history-model part and defines its recording role. Generic Journal preserves this identity; the shared-Project and record-sequence qualifications remain in current source meaning.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-REQUIREMENT--preserve-implementation-traceability-in-the-shared-project-journal.md",
+          "sha256": "38202a4427b887b5827f76a19d067783f93e5b47d686e28336db604fbf159c5e",
+          "start_line": 27,
+          "end_line": 49,
+          "span_sha256": "485024d7b7859e6ec270e5f3e7d1cffc11fb8cd4d5530a5b3d3b852ce3883f5b",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/history_model/confirmed_parts/1",
+          "reason": "Explicitly names Journal as a confirmed history-model part."
+        },
+        {
+          "pointer": "/history_model/journal_role",
+          "reason": "Defines Journal as recording what happened, including changes, Executions, and observed outcomes, while keeping a record distinct from the event itself."
+        },
+        {
+          "pointer": "/snapshot_and_history_rules/7",
+          "reason": "Confirms that Journal records changes and applicability decisions while Git preserves Atom contents and versions."
+        }
+      ],
+      "preserved_distinctions": [
+        "The shared Project scope, accepted-record ordering, and effective implementation frontier remain source-qualified",
+        "Implementation relationship recording stays distinct from native realization, Operations evidence, and Verification",
+        "No Event target, Journal.Record relation, serialization, Carrier, or native admission is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+      "source_atom_id": "CA-R-1720",
+      "source_version": 18,
+      "source_sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Work Journal/Event",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body distinguishes an event identity from its Journal record or describes an event-type domain, while the candidate states that a Journal record is not the event itself. It confirms no Event identity or Record.Type target that preserves that distinction, so Journal.Record would be a lossy substitution.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md",
+          "sha256": "dcec820250ae672f8557f3b0b5c9dad247c1fd1166e51905d3cf9b7fe401501f",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "72020f67058b52712db13251bf2998f949b86b26a61015832d4f19ac7481d9d5",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Event identity remains distinct from the record that documents it",
+        "No Journal.Record or Journal.Record.Type target is inferred from an old display path",
+        "No Journal serialization, carrier, native relation, or Event kind is admitted"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md",
+      "source_atom_id": "CA-R-852",
+      "source_version": 16,
+      "source_sha256": "b2e38a54c68d7e5f75e1905de7c1e095d9aa15da83d0810bde5e0a2833bff198",
+      "field": "governs",
+      "index": null,
+      "old_value": "AI Agent Delegation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines delegation as an Operator-issued policy with identified agent, actions, scopes, constraints, validity, and revocation. The candidate confirms only generic Actor meaning, not a Delegation Entity or property; Actor.Type would discard the policy qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-852-CORE_META_MODEL-GENERAL-REQUIREMENT--encode-bounded-ai-agent-delegation.md",
+          "sha256": "b2e38a54c68d7e5f75e1905de7c1e095d9aa15da83d0810bde5e0a2833bff198",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "17abcbb5f79cbe00ff33ae922efb1ff077a56f1644a05551d6dbc8e2a15076b5",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Delegation remains issued by an Operator and bound to an identified AI Agent",
+        "Allowed actions, scopes, constraints, validity, and revocation remain required",
+        "No Actor subtype, authorization relation, or singleton Delegation identity is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+      "source_atom_id": "CA-E-241",
+      "source_version": 22,
+      "source_sha256": "14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Confidence Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body defines a context- and source-resolved policy threshold; the candidate confirms no threshold Entity or Property with its required source-precedence and authority qualifications. It must not become an Actor field merely from nearby AI-Agent language.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-QA_CASE--validate-cce-claims-and-derived-projections.md",
+          "sha256": "14db0fb0858f91896dabebfb63f9b58e34582357ddd1511a71dbf8c08c61a955",
+          "start_line": 26,
+          "end_line": 50,
+          "span_sha256": "5b885dae23d4631e435557bce76f1c0d4383ba11c7de27c789c5b712cf09aab6",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Threshold source precedence, applicable context, and existing authority remain explicit",
+        "An autonomy threshold does not itself grant authority",
+        "No Actor confidence field, Plan-property syntax, selector, or policy Entity is invented"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-governing-atom-change-approval.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-governing-atom-change-approval.md",
+      "source_atom_id": "CA-E-440",
+      "source_version": 14,
+      "source_sha256": "04cf2c957d5cba0f777d0d9c4ecab39e816bed26bce872a9a5eae74224e10a4a",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "AI Agent/Confidence",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body uses confidence as a policy gate for a specific change or decision, not an inherent AI-Agent field. The candidate supplies no qualified Actor confidence Property or authorization relation, so a type or field target would be unsupported.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-governing-atom-change-approval.md",
+          "sha256": "04cf2c957d5cba0f777d0d9c4ecab39e816bed26bce872a9a5eae74224e10a4a",
+          "start_line": 31,
+          "end_line": 43,
+          "span_sha256": "6a538e0955fb0951b747dda18d16be64bd08746da6d943c34c305eb29197d036",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Confidence remains tied to the applicable threshold, permissions, and Operator rules",
+        "A missing or unresolved Author is not treated as AI authorship",
+        "No Actor field, selector, policy Entity, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-governing-atom-change-approval.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-governing-atom-change-approval.md",
+      "source_atom_id": "CA-E-440",
+      "source_version": 14,
+      "source_sha256": "04cf2c957d5cba0f777d0d9c4ecab39e816bed26bce872a9a5eae74224e10a4a",
+      "field": "governs",
+      "index": null,
+      "old_value": "AI Agent/authorization",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body is an Actor participation or authorization policy, not merely the identity or type of an AI Agent. The candidate supplies no confirmed authorization Entity, dependent Property, or relation target; mapping it to Actor or Actor.Type would lose required authority conditions.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-GENERAL-EVALUATION_APPROACH--evaluate-governing-atom-change-approval.md",
+          "sha256": "04cf2c957d5cba0f777d0d9c4ecab39e816bed26bce872a9a5eae74224e10a4a",
+          "start_line": 31,
+          "end_line": 43,
+          "span_sha256": "6a538e0955fb0951b747dda18d16be64bd08746da6d943c34c305eb29197d036",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Identified-agent, Operator authority, scope, action, and constraint conditions remain distinct",
+        "AI authorship or confidence never independently creates authority",
+        "No Actor subtype, authorization field, selector, or native relation is inferred"
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-EVALUATION_APPROACH--validate-atom-replacement-event-evidence.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-EVALUATION_APPROACH--validate-atom-replacement-event-evidence.md",
+      "source_atom_id": "CA-E-462",
+      "source_version": 12,
+      "source_sha256": "e1b8a1f6f8c8a64966578f24f74f153ffc6f7bffd60ae9b252a3ff8bbd701dcb",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Work Journal/Event",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The current body distinguishes an event identity from its Journal record or describes an event-type domain, while the candidate states that a Journal record is not the event itself. It confirms no Event identity or Record.Type target that preserves that distinction, so Journal.Record would be a lossy substitution.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-462-CORE_META_MODEL-EVALUATION_APPROACH--validate-atom-replacement-event-evidence.md",
+          "sha256": "e1b8a1f6f8c8a64966578f24f74f153ffc6f7bffd60ae9b252a3ff8bbd701dcb",
+          "start_line": 31,
+          "end_line": 56,
+          "span_sha256": "63f45df62e919afde2d3422f46f7a396feab29915fc1affba053b452074d6b61",
+          "reason": "Complete current owning Main Content was read and its exact body span was freshly hash-verified for this occurrence."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Event identity remains distinct from the record that documents it",
+        "No Journal.Record or Journal.Record.Type target is inferred from an old display path",
+        "No Journal serialization, carrier, native relation, or Event kind is admitted"
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned": 32,
+    "covered": 32,
+    "proposed": 1,
+    "unresolved": 31,
+    "current_sources": 25,
+    "current_evidence_spans": 32
+  },
+  "limits": [
+    "Research only; proposals need independent semantic acceptance before working-ledger use.",
+    "No source migration, native admission, selector, @ operator, new root, singleton narrower kind, Artifact.Revision, Carrier registry, or runtime action is authorized.",
+    "Journal records are not Events; policy thresholds and authorization remain distinct from Actor identity or type unless current evidence and a confirmed candidate rule prove otherwise.",
+    "Every unresolved value remains null with current owning-source evidence; it is not a completed mapping decision."
+  ]
+}

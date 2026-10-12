@@ -8,8 +8,8 @@ import hashlib
 import json
 import re
 import sys
-import tomllib
 from collections import deque
+from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -18,12 +18,17 @@ TOOLS_ROOT = Path(__file__).resolve().parents[1]
 if str(TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(TOOLS_ROOT))
 
-from artifact_metadata import SETTINGS_PATH, project_identity  # noqa: E402
+from artifact_metadata import SETTINGS_PATH  # noqa: E402
+from project_selection import ProjectSelection, ProjectSelectionError, active_selection  # noqa: E402
 
 # Sources remain framework authority; only the published Applicable Methodology
 # tree is a Project-local Projection.
-SOURCES_RELATIVE = Path(".caprmedio_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources")
-APPLICABLE_RELATIVE = SETTINGS_PATH.parent / "_projection/APPLICABLE_METHODOLOGY"
+FRAMEWORK_RELATIVE = Path("000_CAPRMEDIO_framework")
+SOURCES_WITHIN_FRAMEWORK = Path("00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources")
+# Compatibility constant for callers that have not yet supplied a Project
+# selection.  Retrieval itself never uses this fixed default-control path.
+SOURCES_RELATIVE = SETTINGS_PATH.parent / FRAMEWORK_RELATIVE / SOURCES_WITHIN_FRAMEWORK
+APPLICABLE_RELATIVE = SETTINGS_PATH.parent / FRAMEWORK_RELATIVE / "00_APPLICABLE_METHODOLOGY"
 ROLES = ("04_requirement", "05_method", "06_evaluation", "07_delivery", "09_operations")
 SCHEMA = "caprmedio.retrieve_applicable_methodology.v1"
 TEMPORAL_FORMS = ("continuant", "occurrent")
@@ -237,41 +242,64 @@ def repo_relative(root: Path, path: Path) -> str:
         raise RetrievalError("path-outside-project", "Carrier is outside the Project root", path=path.as_posix()) from error
 
 
-def find_project_root(start: Path) -> Path:
-    resolved = start.resolve()
-    for candidate in (resolved, *resolved.parents):
-        if (candidate / SOURCES_RELATIVE).is_dir():
-            return candidate
-    raise RetrievalError("project-root-not-found", "Cannot find the Applicable Methodology root", start=resolved.as_posix())
+def selected_project(root: Path) -> ProjectSelection:
+    """Resolve exactly the supplied Project; never search an ancestor."""
+    try:
+        return active_selection(root)
+    except ProjectSelectionError as error:
+        raise RetrievalError("project-settings-invalid", str(error), root=root.as_posix()) from error
+
+
+def _declared_methodology_relative(selection: ProjectSelection, field: str) -> Path:
+    """Read one Project-Structure path without accepting an alias or fallback."""
+    rows = selection.structure.get("scope_units", ())
+    declared = [
+        row.get(field)
+        for row in rows
+        if isinstance(row, Mapping) and row.get("scope_unit_name") == "METHODOLOGY_SOURCES"
+    ]
+    if len(declared) != 1 or not isinstance(declared[0], str):
+        raise RetrievalError(
+            "methodology-source-authority-invalid",
+            "Project Structure must declare exactly one Methodology Sources path",
+            field=field,
+            declared=declared,
+        )
+    relative = Path(declared[0])
+    candidate = selection.root / relative
+    try:
+        if (relative.is_absolute() or ".." in relative.parts or relative.as_posix() != declared[0]
+                or candidate.resolve() != candidate or not candidate.is_relative_to(selection.control_root)):
+            raise ValueError
+    except (OSError, RuntimeError, ValueError) as error:
+        raise RetrievalError(
+            "methodology-source-authority-invalid",
+            "Project Structure Methodology Sources path must be a non-aliased path under the selected control root",
+            field=field,
+            declared=declared[0],
+        ) from error
+    return relative
+
+
+def methodology_sources_relative(selection: ProjectSelection) -> Path:
+    """Return the exact authoring authority declared by Project Structure."""
+    return _declared_methodology_relative(selection, "authority_path")
 
 
 def applicable_projection_relative(root: Path) -> Path:
-    """Bind published output to the configured Project control root."""
-    try:
-        # Keep Project identity validation authoritative before reading its
-        # routing configuration; a graph Projection cannot choose this root.
-        project_identity(root)
-        settings = tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
-    except (OSError, UnicodeDecodeError, ValueError, tomllib.TOMLDecodeError) as error:
-        raise RetrievalError("project-settings-invalid", str(error), path=SETTINGS_PATH.as_posix()) from error
-    paths = settings.get("paths", {})
-    if not isinstance(paths, dict):
-        raise RetrievalError("project-control-root-invalid", "Project Settings paths must be a table", path=SETTINGS_PATH.as_posix())
-    value = paths.get("control_root", SETTINGS_PATH.parent.as_posix())
-    if not isinstance(value, str) or not value:
-        raise RetrievalError("project-control-root-invalid", "Project Settings control root is invalid", path=SETTINGS_PATH.as_posix())
-    control = Path(value)
-    if control.is_absolute() or ".." in control.parts or control.as_posix() in {"", "."}:
-        raise RetrievalError("project-control-root-invalid", "Project Settings control root must be repository-relative", value=value)
-    resolved = (root / control).resolve()
-    if not resolved.is_relative_to(root.resolve()) or (root / control).is_symlink():
-        raise RetrievalError("project-control-root-invalid", "Project Settings control root is unsafe", value=value)
-    return control / "_projection/APPLICABLE_METHODOLOGY"
+    """Bind published output to the declared D561 delivery path."""
+    return _declared_methodology_relative(selected_project(root), "delivery_path")
+
+
+def find_project_root(start: Path) -> Path:
+    return selected_project(start).root
 
 
 def discover(root: Path) -> list[Carrier]:
-    applicable = (root / applicable_projection_relative(root)).resolve()
-    sources = (root / SOURCES_RELATIVE).resolve()
+    selection = selected_project(root)
+    root = selection.root
+    applicable = (root / _declared_methodology_relative(selection, "delivery_path")).resolve()
+    sources = (root / methodology_sources_relative(selection)).resolve()
     if not sources.is_dir():
         raise RetrievalError("source-root-missing", "Applicable Methodology Source root is missing", path=repo_relative(root, sources))
     carriers: list[Carrier] = []
@@ -353,8 +381,11 @@ def discover(root: Path) -> list[Carrier]:
 def project_scope_name(root: Path) -> str:
     """Read the Project name from authoritative Project Settings, never a Projection."""
     try:
-        return str(project_identity(root)["project"]["name"])
-    except ValueError as error:
+        name = str(selected_project(root).settings["project"]["name"])
+        if name != name.strip().lower():
+            raise ValueError("Project Settings project.name must be lowercase without surrounding whitespace")
+        return name
+    except (KeyError, TypeError, ValueError, RetrievalError) as error:
         raise RetrievalError(
             "project-settings-invalid", str(error), path=SETTINGS_PATH.as_posix()
         ) from error
@@ -368,11 +399,12 @@ def resolve_scope_unit(root: Path, subject_path: str) -> ScopeResolution | None:
         return None
     if scope_unit == "PROJECT":
         project_name = project_scope_name(root)
+        project_settings = selected_project(root).control_relative / "caprmedio_project_settings.toml"
         return ScopeResolution(
             subject_path=subject_path,
             scope_unit=project_name,
             current_scope=project_name,
-            project_settings_carrier=SETTINGS_PATH.as_posix(),
+            project_settings_carrier=project_settings.as_posix(),
             source="project_settings",
         )
     return ScopeResolution(

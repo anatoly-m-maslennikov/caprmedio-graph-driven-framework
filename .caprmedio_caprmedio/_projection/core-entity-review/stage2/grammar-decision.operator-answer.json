@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-1977",
+  "non_authoritative": true,
+  "recorded_at": "2026-10-11 03:25:53 +0400",
+  "source": {
+    "kind": "actual_operator_reply",
+    "thread_id": "01a0263a-7510-7672-bce4-58830bc4d184",
+    "question_item_id": [
+      "request_user_input_async",
+      "call_9f1a2fcb88be474f9297437f5f9451b3",
+      0
+    ],
+    "question": "Your chosen notation conflicts with five current grammar atoms. May I update those definitions during Step 1—`/` broader → narrower, `.` bearer → dependent, `:` allowed value, `@` display-only—while leaving all other summaries, Substance, scopes and details for Step 2? This is the five-change candidate in `stage2/grammar-decision.packet.md`; the old slash-only rule would get a new-ID replacement. This does not approve the later live migration.",
+    "answer": "Yes, update the five grammar definitions"
+  },
+  "packet": {
+    "json": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-decision.packet.json",
+      "sha256": "4e3636cc01e40801c8f6b8beec9632e80fee3187524bf052656cec9a4e6035ab"
+    },
+    "markdown": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-decision.packet.md",
+      "sha256": "06eea91d64c206ac438d1f8c0150b282027c04923f9aec7dbc2e6bdeae42c85d"
+    },
+    "binding": "Actual question names the unchanged five-change Markdown candidate; both packet hashes were rechecked immediately after the answer."
+  },
+  "decision": "approved_five_definition_grammar_exception_in_step_1",
+  "admitted_definition_changes": [
+    {
+      "predecessor": "CA-R-1204",
+      "predecessor_version": 14,
+      "change": "New-ID replacement of slash-only bearer rule; preserve predecessor/history",
+      "successor_id": null
+    },
+    {
+      "atom_id": "CA-R-1321",
+      "from_version": 12,
+      "to_version": 13
+    },
+    {
+      "atom_id": "CA-R-1324",
+      "from_version": 10,
+      "to_version": 11
+    },
+    {
+      "atom_id": "CA-M-228",
+      "from_version": 14,
+      "to_version": 15
+    },
+    {
+      "atom_id": "CA-E-383",
+      "from_version": 13,
+      "to_version": 14
+    }
+  ],
+  "notation": {
+    "/": "broader_to_narrower",
+    ".": "bearer_to_dependent",
+    ":": "property_to_allowed_value",
+    "@": "display_or_carrier_only_not_subject_syntax"
+  },
+  "limits": [
+    "All other Summary/Substance/Scope/Details changes remain Step 2",
+    "Preserve native Dependent IS_BORNE_BY Bearer and AllowedValue IS_ALLOWED_VALUE_OF Property",
+    "No new Entity-native slash relation or extension of Terms-Graph-only NARROWER_THAN",
+    "This record is not grammar implementation, native admission, accepted graph or live migration approval"
+  ],
+  "source_migration": "not_performed",
+  "grammar_changes_applied": false
+}

@@ -58,6 +58,26 @@ sets its namespace only for itself and does not change the MCP process environme
 
 ## Enqueue through MCP
 
+Release numbering uses non-rolling counters:
+
+- Internal release: increment the fourth component (`0.4.2` → `0.4.2.1`,
+  `0.4.2.9` → `0.4.2.10`). An omitted fourth component means zero.
+- Public release: increment the third component and remove the internal suffix
+  (`0.4.2.10` → `0.4.3`, `0.4.9` → `0.4.10`). Freeze the selected version before
+  candidate preparation and retain the full test gates for that exact version.
+
+For the local `release_version` route, preview accepts native parameters with
+only `operation` (`prepare` or `apply`) and `project_root`. An optional
+`candidate_version` must match root `version.toml`. The existing selected-route
+envelope and source bindings remain required.
+
+Preview derives the complete candidate boundary from current active sources and
+returns `resolved_parameters` and `resolved_parameters_digest`. Use those exact
+values with its sealed proposal for execution. Do not construct a candidate
+manifest or invent Run receipts: pre-Run `run_receipt_refs` is empty, while actual
+execution receipts are recorded and returned by the shared Run recorder. Source
+changes after preview block execution and require a fresh preview.
+
 Restart the MCP connection after updating the server. `workflow_orchestrator`
 accepts this request shape:
 

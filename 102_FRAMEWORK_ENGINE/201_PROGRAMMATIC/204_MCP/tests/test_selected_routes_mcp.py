@@ -177,21 +177,9 @@ class SelectedRoutesMCPTest(unittest.TestCase):
 
     @staticmethod
     def _queue_requested_runs(graph: dict, run_id: str) -> list[dict]:
-        def definition(pin: dict) -> dict:
-            return {"atom_id": pin["atom_id"], "version": pin["version"],
-                    "path": pin["path"], "digest": pin["sha256"]}
-
-        requested = [{"requested_run_id": run_id, "kind": "workflow",
-                      "definition": definition(graph["workflow"])}]
-        for ordinal, step in enumerate(graph["steps"], start=1):
-            step_run_id = f"{run_id}:step:{ordinal}"
-            requested.append({"requested_run_id": step_run_id, "kind": "step",
-                              "definition": definition(step), "parent_requested_run_id": run_id})
-            for action_ordinal, action in enumerate(step["actions"], start=1):
-                requested.append({"requested_run_id": f"{step_run_id}:action:{action_ordinal}",
-                                  "kind": "action", "definition": definition(action),
-                                  "parent_requested_run_id": step_run_id})
-        return requested
+        sys.path.insert(0, str(ORCHESTRATOR))
+        from selected_execution import SelectedExecution
+        return SelectedExecution.build_requested_runs(graph, run_id)
 
     def _copy_status_bindings(self, project: Path) -> dict:
         """Copy the real disposable Atom, model sources, and Project Structure."""

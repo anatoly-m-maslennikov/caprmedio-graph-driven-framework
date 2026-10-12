@@ -23,12 +23,22 @@ from typing import TYPE_CHECKING, Literal, Protocol
 from release_contract import (IMAGE_DOCKERFILE, PROJECT_SKILL_TARGET, CandidateSnapshotManifest,
                               ReleaseContractError, SealedAuthority, ValidatedCandidate, canonical_json)
 from release_handoff import (COMPILER_ENTRYPOINT_RELATIVE, CURRENT_SELECTOR_RELATIVE,
-                             DERIVED_SOURCE_COPY_RELATIVE, FRAMEWORK_SETTINGS_RELATIVE, MATERIALIZED_RELATIVE,
-                             SealedCandidateCompilation, _file)
+                             FRAMEWORK_SETTINGS_RELATIVE,
+                             SealedCandidateCompilation, _file, NATIVE_CURRENT_SELECTOR_RELATIVE,
+                             selected_n_identity, reopen_native_installed_n)
 from release_packaging import RUNTIME_ROOT, _complete_rows, _render_manifest, _verify_release
-from release_suite import (EVIDENCE_ROOT as SUITE_ROOT, SUPPORTED_RUNNER, SuiteGateEvidence,
-                           _observe_report, _safe_path, verify_bound_suite_evidence)
+from release_suite import (EVIDENCE_ROOT as SUITE_ROOT, SUPPORTED_RUNNER, PortableSuiteGateEvidence,
+                           SuiteGateEvidence, _observe_report, _safe_path, verify_bound_suite_evidence)
 from release_suite_reference_context import ReferenceRow, ReleaseSuiteReferenceContext
+from release_package_evidence import PackageEvidenceView, bind_package_evidence, verify_bound_package_evidence
+from release_portable_contract import SealedPortableCandidateCompilation
+from release_portable_package import PreparedPortableReleasePackage
+from release_retained_package import (
+    RetainedNativePackageEvidence,
+    read_retained_native_package_evidence,
+    retain_native_package_evidence,
+)
+from release_retained_candidate import RetainedCandidateIdentity, reopen_retained_candidate_identity
 
 if TYPE_CHECKING:
     from release_e2e_gate import CandidateE2EGateEvidence
@@ -93,6 +103,20 @@ class ImageBuildEvidence:
     receipt_sha256: str | None = None
 
 
+@dataclass(frozen=True, kw_only=True)
+class PortableImageBuildEvidence(ImageBuildEvidence):
+    """Schema-1 build receipt; legacy receipt bytes remain unchanged."""
+
+    package_schema: Literal["portable-1"] = "portable-1"
+    source_catalog_sha256: str
+    candidate_run_id: str
+    input_manifest_sha256: str
+    framework_version: str
+    version_toml_sha256: str
+    package_evidence_sha256: str
+    package_evidence_relpath: str
+
+
 @dataclass(frozen=True)
 class ImageVerificationEvidence:
     candidate_snapshot_manifest_sha256: str
@@ -104,6 +128,21 @@ class ImageVerificationEvidence:
     commands_sha256: str
     execution_kind: Literal["docker-subprocess", "test-double"]
     receipt_sha256: str | None = None
+
+
+@dataclass(frozen=True, kw_only=True)
+class PortableImageVerificationEvidence(ImageVerificationEvidence):
+    """Schema-1 canary receipt; it cannot be read as legacy evidence."""
+
+    package_schema: Literal["portable-1"] = "portable-1"
+    package_manifest_sha256: str
+    source_catalog_sha256: str
+    candidate_run_id: str
+    input_manifest_sha256: str
+    framework_version: str
+    version_toml_sha256: str
+    package_evidence_sha256: str
+    package_evidence_relpath: str
 
 
 @dataclass(frozen=True)
@@ -125,6 +164,16 @@ class ImageRetirementEvidence:
     evidence_root: str
     commands_sha256: str
     execution_kind: Literal["docker-subprocess", "test-double"]
+    receipt_sha256: str | None = None
+
+
+@dataclass(frozen=True)
+class SupersededImageCleanupEvidence:
+    """Observed post-startup cleanup; deliberately separate from one-prior retirement."""
+    candidate_snapshot_manifest_sha256: str
+    outcome: Literal["cleaned", "incomplete", "effect_uncertain", "recording_uncertain"]
+    reason: str
+    report_ref: str
     receipt_sha256: str | None = None
 
 
@@ -156,7 +205,9 @@ def _tree(root: Path) -> str:
 
 
 def _freeze(root: Path) -> tuple[bytes, str | None]:
-    selector = _file(root, CURRENT_SELECTOR_RELATIVE).read_bytes()
+    native = root / NATIVE_CURRENT_SELECTOR_RELATIVE
+    relative = NATIVE_CURRENT_SELECTOR_RELATIVE if native.exists() or native.is_symlink() else CURRENT_SELECTOR_RELATIVE
+    selector = _file(root, relative).read_bytes()
     skill = root / PROJECT_SKILL_TARGET
     for ancestor in (root / ".agents", root / ".agents/skills", skill):
         if ancestor.is_symlink():
@@ -164,14 +215,147 @@ def _freeze(root: Path) -> tuple[bytes, str | None]:
     return selector, _tree(skill) if skill.exists() else None
 
 
-def _bound(candidate: ValidatedCandidate, compilation: SealedCandidateCompilation, suite: SuiteGateEvidence) -> Path:
+def _bound(
+    candidate: ValidatedCandidate,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+    suite: SuiteGateEvidence | PortableSuiteGateEvidence,
+    *,
+    prepared_package: PreparedPortableReleasePackage | None = None,
+) -> Path:
+    """Reopen the Unit receipt and, for schema-1, exact package evidence."""
+
+    if isinstance(compilation, SealedPortableCandidateCompilation):
+        verify_bound_package_evidence(candidate, compilation, _portable_package_view(
+            candidate, compilation, prepared_package,
+        ), prepared_package=prepared_package)
+        try:
+            return verify_bound_suite_evidence(candidate, compilation, suite)
+        except TypeError as error:
+            raise ReleaseContractError(
+                "release-image-portable-unit-unavailable",
+                "schema-1 image proof requires the native Unit receipt reader",
+            ) from error
+    if prepared_package is not None:
+        raise ReleaseContractError(
+            "release-image-package-schema-mismatch",
+            "schema-2 image proof does not accept a schema-1 prepared package",
+        )
     return verify_bound_suite_evidence(candidate, compilation, suite)
 
 
-def _post_bound(candidate, compilation, suite, root, frozen):
+def _portable_package_view(
+    candidate: ValidatedCandidate,
+    compilation: SealedPortableCandidateCompilation,
+    prepared_package: PreparedPortableReleasePackage | None,
+) -> PackageEvidenceView:
+    """Return only a physically reopened schema-1 package binding."""
+
+    if prepared_package is None:
+        raise ReleaseContractError(
+            "release-image-portable-package-required",
+            "schema-1 image proof requires an actual prepared package receipt",
+        )
+    view = verify_bound_package_evidence(
+        candidate,
+        compilation,
+        bind_package_evidence(candidate, compilation, prepared_package=prepared_package),
+        prepared_package=prepared_package,
+    )
+    if view.package_schema != "portable-1":
+        raise ReleaseContractError("release-image-package-schema-mismatch", "schema-1 image proof requires schema-1 package evidence")
+    return view
+
+
+def _portable_sidecar_relative(root: Path, retained: RetainedNativePackageEvidence) -> str:
+    """Return the immutable receipt path only when it remains in this Project."""
+
+    try:
+        relative = retained.receipt_path.relative_to(root).as_posix()
+    except ValueError as error:
+        raise ReleaseContractError(
+            "release-image-package-evidence-path-invalid",
+            "retained package evidence is outside the Project",
+        ) from error
+    path = PurePosixPath(relative)
+    if path.is_absolute() or not path.parts or any(part in {"", ".", ".."} for part in path.parts):
+        raise ReleaseContractError(
+            "release-image-package-evidence-path-invalid",
+            "retained package evidence path is unsafe",
+        )
+    return relative
+
+
+def _portable_sidecar_path(root: Path, relative: str) -> Path:
+    """Resolve one recorded sidecar path without permitting traversal or links."""
+
+    if not isinstance(relative, str) or not relative or "\\" in relative:
+        raise ReleaseContractError("release-image-package-evidence-path-invalid", "retained package evidence path is invalid")
+    path = PurePosixPath(relative)
+    if path.is_absolute() or any(part in {"", ".", ".."} for part in path.parts):
+        raise ReleaseContractError("release-image-package-evidence-path-invalid", "retained package evidence path is unsafe")
+    candidate = root.joinpath(*path.parts)
+    cursor = root
+    for part in path.parts:
+        cursor = cursor / part
+        if cursor.is_symlink():
+            raise ReleaseContractError("release-image-package-evidence-path-invalid", "retained package evidence path contains a symlink")
+        if cursor != candidate and cursor.exists() and not cursor.is_dir():
+            raise ReleaseContractError("release-image-package-evidence-path-invalid", "retained package evidence path has a file parent")
+    return candidate
+
+
+def _read_portable_context_evidence(
+    root: Path,
+    build: PortableImageBuildEvidence,
+) -> RetainedNativePackageEvidence:
+    """Reopen only the retained source package and immutable sidecar.
+
+    This intentionally does not call a current selector or package binder.
+    The package reader requires the actual content-addressed private package,
+    rather than the Docker-context copy whose leaf name is ``PACKAGE``.
+    """
+
+    if (
+        not _SHA256.fullmatch(build.package_evidence_sha256)
+        or not _SHA256.fullmatch(build.package_manifest_sha256)
+        or not isinstance(build.candidate_run_id, str)
+        or not build.candidate_run_id
+        or Path(build.candidate_run_id).name != build.candidate_run_id
+        or build.candidate_run_id in {".", ".."}
+    ):
+        raise ReleaseContractError("release-image-package-evidence-untrusted", "native build lacks a sidecar digest")
+    sidecar = _portable_sidecar_path(root, build.package_evidence_relpath)
+    expected_sidecar = (
+        root / ".caprmedio_tmp" / "release_candidates" / build.candidate_run_id
+        / "package_evidence" / f"{build.package_evidence_sha256}.json"
+    )
+    if sidecar != expected_sidecar:
+        raise ReleaseContractError(
+            "release-image-package-evidence-path-invalid",
+            "native build sidecar is outside its fixed private candidate location",
+        )
+    package_root = expected_sidecar.parent.parent / "package" / build.package_manifest_sha256
+    retained = read_retained_native_package_evidence(
+        package_root,
+        sidecar,
+        expected_sha256=build.package_evidence_sha256,
+    )
+    if (
+        retained.receipt_sha256 != build.package_evidence_sha256
+        or retained.receipt_path != sidecar
+        or _portable_sidecar_relative(root, retained) != build.package_evidence_relpath
+    ):
+        raise ReleaseContractError(
+            "release-image-package-evidence-untrusted",
+            "native build sidecar does not match its retained package evidence",
+        )
+    return retained
+
+
+def _post_bound(candidate, compilation, suite: SuiteGateEvidence | PortableSuiteGateEvidence, root, frozen, *, prepared_package=None):
     if _freeze(root) != frozen:
         raise ReleaseContractError("release-image-selection-stale", "executing N or public Skill changed during image phase")
-    _bound(candidate, compilation, suite)
+    _bound(candidate, compilation, suite, prepared_package=prepared_package)
 
 
 def _attempt(root: Path, candidate_sha: str, phase: str) -> Path:
@@ -263,10 +447,10 @@ engine = Path('/workspace/102_FRAMEWORK_ENGINE')
 assert {p.relative_to(Path('/workspace')).as_posix() for p in engine.rglob('*') if p.is_file() and p.name != '.DS_Store'} == {row['path'] for row in spec['engine_rows']}
 project = Path('/tmp/release-canary-project')
 project.mkdir()
-source = project / '.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources'
+source = project / '.caprmedio_caprmedio/methodology_sources'
 shutil.copytree(base / 'METHODOLOGY/sources', source)
 shutil.copytree(base / 'METHODOLOGY/compiled', project / '.caprmedio_caprmedio/_projection/APPLICABLE_METHODOLOGY')
-(project / '.caprmedio_caprmedio/project_structure.toml').write_text('[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\nauthority_path = ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"\n')
+(project / '.caprmedio_caprmedio/project_structure.toml').write_text('[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\nauthority_path = ".caprmedio_caprmedio/methodology_sources"\n')
 async def probe():
     params = StdioServerParameters(command=sys.executable, args=['/workspace/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py', '--project-root', str(project)])
     async with Client(params, cache=None) as client:
@@ -284,19 +468,74 @@ print(json.dumps({'schema': 'caprmedio.release_version.image_canary.v1', 'candid
 '''
 
 
+PORTABLE_CANARY = r'''import asyncio, hashlib, json, shutil, sys, tomllib
+from pathlib import Path
+from mcp import Client, StdioServerParameters
+def digest(value):
+    return hashlib.sha256(value).hexdigest()
+base = Path('/opt/caprmedio-framework')
+spec = json.loads(Path('/opt/caprmedio-release-canary.json').read_bytes())
+manifest_bytes = (base / 'manifest.toml').read_bytes()
+assert digest(manifest_bytes) == spec['package_manifest_sha256']
+manifest = tomllib.loads(manifest_bytes.decode())
+assert manifest['schema_version'] == 1
+assert manifest['source_catalog_sha256'] == spec['source_catalog_sha256']
+assert manifest['framework_version'] == spec['framework_version']
+assert manifest['version_toml_sha256'] == spec['version_toml_sha256']
+rows = spec['package_rows']
+assert manifest['files'] == rows
+expected = {'manifest.toml'} | {row['path'] for row in rows}
+assert {p.relative_to(base).as_posix() for p in base.rglob('*') if p.is_file() and p.name != '.DS_Store'} == expected
+for row in rows:
+    p = base / row['path']
+    assert p.is_file() and not p.is_symlink()
+    assert digest(p.read_bytes()) == row['sha256'] and p.stat().st_mode & 511 == row['mode']
+assert any(row['role'] == 'source-admission' for row in rows)
+project = Path('/tmp/release-canary-project')
+project.mkdir()
+source = project / '.caprmedio_caprmedio/methodology_sources'
+shutil.copytree(base / 'methodology/active', source)
+(project / '.caprmedio_caprmedio/project_structure.toml').write_text('[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\nauthority_path = ".caprmedio_caprmedio/methodology_sources"\n')
+async def probe():
+    params = StdioServerParameters(command=sys.executable, args=['/workspace/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py', '--project-root', str(project)])
+    async with Client(params, cache=None) as client:
+        page = await client.list_tools()
+        names = [tool.name for tool in page.tools]
+        while page.next_cursor:
+            page = await client.list_tools(cursor=page.next_cursor)
+            names.extend(tool.name for tool in page.tools)
+        assert names and len(names) == len(set(names))
+        result = await client.call_tool('get_mcp_reload_status', {'request': {}})
+        assert not result.is_error
+        return sorted(names)
+names = asyncio.run(asyncio.wait_for(probe(), 60))
+print(json.dumps({'schema': 'caprmedio.release_version.portable_image_canary.v1', 'candidate_snapshot_manifest_sha256': spec['candidate_snapshot_manifest_sha256'], 'package_schema': spec['package_schema'], 'package_manifest_sha256': digest(manifest_bytes), 'source_catalog_sha256': spec['source_catalog_sha256'], 'candidate_run_id': spec['candidate_run_id'], 'input_manifest_sha256': spec['input_manifest_sha256'], 'framework_version': spec['framework_version'], 'version_toml_sha256': spec['version_toml_sha256'], 'verified_files': len(rows), 'mcp_tools': names}, sort_keys=True))
+'''
+
+
 def _known_canary(payload: bytes) -> bool:
     """Accept only the retained pre-metadata probe or the current fixed probe."""
     return type(payload) is bytes and _digest(payload) in {
         _LEGACY_CANARY_SHA256,
         _METADATA_CANARY_SHA256,
+        _digest(CANARY.encode()),
+        _digest(PORTABLE_CANARY.encode()),
     }
 
 
 def _context(root, candidate, compilation, attempt):
     identity, rows, _selector = _complete_rows(root, compilation)
     package = _safe_path(root, (RUNTIME_ROOT / "releases" / identity).as_posix())
-    manifest = _render_manifest(identity, rows)
-    _verify_release(package, manifest, rows)
+    manifest = _render_manifest(
+        identity, rows,
+        framework_version=compilation.framework_version,
+        version_toml_sha256=compilation.version_toml_sha256,
+    )
+    _verify_release(
+        package, manifest, rows,
+        framework_version=compilation.framework_version,
+        version_toml_sha256=compilation.version_toml_sha256,
+    )
     inputs = {row.source_path: row for row in candidate.manifest.source_inventory_rows if row.resource == "IMAGE_INPUT"}
     if not {IMAGE_DOCKERFILE, "pyproject.toml", "uv.lock"} <= inputs.keys():
         raise ReleaseContractError("release-image-input-incomplete", "Dockerfile, pyproject.toml and uv.lock must all be sealed image inputs")
@@ -338,20 +577,117 @@ def _context(root, candidate, compilation, attempt):
     return context, _digest(manifest.encode())
 
 
-def build_candidate_image(candidate: ValidatedCandidate, compilation: SealedCandidateCompilation,
-                          suite: SuiteGateEvidence, *, executor: DockerExecutor, timeout_seconds: float = 900) -> ImageBuildEvidence:
+def _portable_context(root: Path, candidate: ValidatedCandidate, view: PackageEvidenceView, attempt: Path) -> tuple[Path, str]:
+    """Copy the complete reopened schema-1 package into one private context."""
+
+    if view.package_schema != "portable-1":
+        raise ReleaseContractError("release-image-package-schema-mismatch", "portable image context requires schema-1 package evidence")
+    inputs = {row.source_path: row for row in candidate.manifest.source_inventory_rows if row.resource == "IMAGE_INPUT"}
+    if not {IMAGE_DOCKERFILE, "pyproject.toml", "uv.lock"} <= inputs.keys():
+        raise ReleaseContractError("release-image-input-incomplete", "Dockerfile, pyproject.toml and uv.lock must all be sealed image inputs")
+    context = attempt / "context"
+    context.mkdir()
+    manifest = view.package_root / "manifest.toml"
+    if manifest.is_symlink() or not manifest.is_file() or _digest(manifest.read_bytes()) != view.actual_package_manifest_sha256:
+        raise ReleaseContractError("release-image-package-stale", "reopened portable package manifest changed")
+    _write(context / "PACKAGE/manifest.toml", manifest.read_bytes())
+    engine_rows: list[dict[str, object]] = []
+    for member in view.member_inventory:
+        relative = PurePosixPath(member.path)
+        if relative.is_absolute() or any(part in {"", ".", ".."} for part in relative.parts):
+            raise ReleaseContractError("release-image-package-invalid", "portable inventory path is unsafe")
+        source = view.package_root.joinpath(*relative.parts)
+        if source.is_symlink() or not source.is_file():
+            raise ReleaseContractError("release-image-package-stale", "portable package member is unavailable")
+        payload = source.read_bytes()
+        if _digest(payload) != member.sha256 or source.stat().st_mode & 0o777 != member.mode:
+            raise ReleaseContractError("release-image-package-stale", "portable package member changed while context was assembled")
+        _write(context / "PACKAGE" / member.path, payload, member.mode)
+        if member.role == "engine":
+            _write(context / member.path, payload, member.mode)
+            engine_rows.append({"path": member.path, "sha256": member.sha256, "mode": member.mode})
+    for source_relative, row in sorted(inputs.items()):
+        source = _file(root, source_relative)
+        payload = source.read_bytes()
+        if _digest(payload) != row.source_sha256 or source.stat().st_mode & 0o777 != row.source_mode:
+            raise ReleaseContractError("release-image-input-stale", "sealed image input changed during context assembly")
+        target = context / source_relative
+        if target.exists():
+            if (
+                target.is_symlink()
+                or not target.is_file()
+                or target.read_bytes() != payload
+                or target.stat().st_mode & 0o777 != row.source_mode
+            ):
+                raise ReleaseContractError("release-image-input-stale", "sealed image input conflicts with the complete package")
+        else:
+            _write(target, payload, row.source_mode)
+    pinned = (context / IMAGE_DOCKERFILE).read_bytes()
+    if _digest(pinned) != candidate.manifest.candidate_image.dockerfile_sha256:
+        raise ReleaseContractError("release-image-dockerfile-stale", "pinned Dockerfile digest differs")
+    _write(context / "Dockerfile", pinned + b"\nCOPY --chown=${RUNTIME_UID}:${RUNTIME_GID} PACKAGE /opt/caprmedio-framework\nCOPY canary.py /opt/caprmedio-release-canary.py\nCOPY canary.json /opt/caprmedio-release-canary.json\n")
+    _write(context / "canary.py", PORTABLE_CANARY.encode())
+    package_rows = [
+        {"path": member.path, "sha256": member.sha256, "mode": member.mode, "role": member.role}
+        for member in view.member_inventory
+    ]
+    engine_rows = [
+        {"path": member.path, "sha256": member.sha256, "mode": member.mode}
+        for member in view.member_inventory
+        if member.role == "engine"
+    ]
+    spec = {
+        "candidate_snapshot_manifest_sha256": view.candidate_snapshot_manifest_sha256,
+        "package_schema": view.package_schema,
+        "package_manifest_sha256": view.actual_package_manifest_sha256,
+        "source_catalog_sha256": view.source_catalog_sha256,
+        "candidate_run_id": view.candidate_run_id,
+        "input_manifest_sha256": view.input_manifest_sha256,
+        "framework_version": view.framework_version,
+        "version_toml_sha256": view.version_toml_sha256,
+        "package_rows": package_rows,
+        "engine_rows": engine_rows,
+    }
+    _write(context / "canary.json", canonical_json(spec))
+    return context, view.actual_package_manifest_sha256
+
+
+def build_candidate_image(
+    candidate: ValidatedCandidate,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+    suite: SuiteGateEvidence | PortableSuiteGateEvidence,
+    *,
+    executor: DockerExecutor,
+    timeout_seconds: float = 900,
+    prepared_package: PreparedPortableReleasePackage | None = None,
+) -> ImageBuildEvidence:
     """One admitted build attempt, retaining its exact context and output evidence."""
     if isinstance(timeout_seconds, bool) or not 0 < timeout_seconds <= 900:
         raise ReleaseContractError("release-image-timeout-invalid", "image timeout must be within (0, 900]")
-    root = _bound(candidate, compilation, suite)
+    root = _bound(candidate, compilation, suite, prepared_package=prepared_package)
     frozen = _freeze(root)
     attempt = _attempt(root, candidate.manifest.sha256, "build")
-    context, package_sha = _context(root, candidate, compilation, attempt)
+    package_view = None
+    retained_package = None
+    if isinstance(compilation, SealedPortableCandidateCompilation):
+        # The native Unit receipt was reopened by _bound above.  Retain the
+        # package proof before the first Docker effect, then use its returned
+        # view for the private context so later readers never need a live bind.
+        if prepared_package is None:
+            raise ReleaseContractError(
+                "release-image-portable-package-required",
+                "schema-1 image proof requires an actual prepared package receipt",
+            )
+        retained_package = retain_native_package_evidence(candidate, compilation, prepared_package)
+        package_view = retained_package.view
+        context, package_sha = _portable_context(root, candidate, package_view, attempt)
+    else:
+        context, package_sha = _context(root, candidate, compilation, attempt)
     context_sha = _tree(context)
     records = []
     image, outcome, reason = None, "incomplete", "immutable image identity is unverified"
     try:
-        _post_bound(candidate, compilation, suite, root, frozen)
+        _post_bound(candidate, compilation, suite, root, frozen, prepared_package=prepared_package)
         result = _command(executor, ("docker", "build", "--iidfile", str(attempt / "image.id"),
                           "--label", f"{CANDIDATE_LABEL}={candidate.manifest.sha256}",
                           "--label", f"{CONTEXT_LABEL}={context_sha}", "--file", str(context / "Dockerfile"), str(context)),
@@ -367,7 +703,7 @@ def build_candidate_image(candidate: ValidatedCandidate, compilation: SealedCand
                 image = value
                 if _inspect(executor, image, context_sha, candidate.manifest.sha256, root, attempt, records, timeout_seconds):
                     outcome, reason = "built", "bound immutable image built; executable verification is still required"
-        _post_bound(candidate, compilation, suite, root, frozen)
+        _post_bound(candidate, compilation, suite, root, frozen, prepared_package=prepared_package)
         if _tree(context) != context_sha:
             raise ReleaseContractError("release-image-context-stale", "private build context changed during execution")
     except (ValueError, OSError, RuntimeError) as error:
@@ -377,10 +713,37 @@ def build_candidate_image(candidate: ValidatedCandidate, compilation: SealedCand
         _write(attempt / "commands.json", commands)
     except OSError:
         outcome, reason = "recording_uncertain", "captured image command recording is uncertain"
-    evidence = ImageBuildEvidence(candidate.manifest.sha256, outcome, reason, image,
-               context.relative_to(root).as_posix(), context_sha, package_sha, suite.receipt_sha256,
-               attempt.relative_to(root).as_posix(), _digest(commands),
-               "docker-subprocess" if type(executor) is DockerSubprocessExecutor else "test-double")
+    if package_view is None:
+        evidence = ImageBuildEvidence(
+            candidate.manifest.sha256, outcome, reason, image,
+            context.relative_to(root).as_posix(), context_sha, package_sha, suite.receipt_sha256,
+            attempt.relative_to(root).as_posix(), _digest(commands),
+            "docker-subprocess" if type(executor) is DockerSubprocessExecutor else "test-double",
+        )
+    else:
+        # Schema-1 uses a distinct receipt type so historical schema-2 receipt
+        # bytes stay stable.  A retained package-evidence sidecar is bound by
+        # this receipt in the next integration step.
+        evidence = PortableImageBuildEvidence(
+            candidate_snapshot_manifest_sha256=candidate.manifest.sha256,
+            outcome=outcome,
+            reason=reason,
+            candidate_image_digest=image,
+            context_root=context.relative_to(root).as_posix(),
+            context_sha256=context_sha,
+            package_manifest_sha256=package_sha,
+            suite_receipt_sha256=suite.receipt_sha256,
+            evidence_root=attempt.relative_to(root).as_posix(),
+            commands_sha256=_digest(commands),
+            execution_kind="docker-subprocess" if type(executor) is DockerSubprocessExecutor else "test-double",
+            source_catalog_sha256=package_view.source_catalog_sha256,
+            candidate_run_id=package_view.candidate_run_id,
+            input_manifest_sha256=package_view.input_manifest_sha256,
+            framework_version=package_view.framework_version,
+            version_toml_sha256=package_view.version_toml_sha256,
+            package_evidence_sha256=retained_package.receipt_sha256,
+            package_evidence_relpath=_portable_sidecar_relative(root, retained_package),
+        )
     return _record(attempt, evidence)
 
 
@@ -430,10 +793,18 @@ def _verify_build_artifacts(root, candidate, compilation, suite, build):
     if not valid_inspect:
         raise ReleaseContractError("release-image-build-untrusted", "retained build inspection differs from the exact immutable image")
     identity, rows = compilation.candidate_snapshot_manifest_sha256, list(compilation.package_rows)
-    manifest = _render_manifest(identity, rows)
+    manifest = _render_manifest(
+        identity, rows,
+        framework_version=compilation.framework_version,
+        version_toml_sha256=compilation.version_toml_sha256,
+    )
     if build.package_manifest_sha256 != _digest(manifest.encode()):
         raise ReleaseContractError("release-image-build-untrusted", "build package identity differs from the complete current package")
-    _verify_release(context / "PACKAGE", manifest, rows)
+    _verify_release(
+        context / "PACKAGE", manifest, rows,
+        framework_version=compilation.framework_version,
+        version_toml_sha256=compilation.version_toml_sha256,
+    )
     expected_paths = {"PACKAGE/manifest.toml", "Dockerfile", "canary.py", "canary.json"}
     engine_rows = []
     for row in rows:
@@ -469,7 +840,201 @@ def _verify_build_artifacts(root, candidate, compilation, suite, build):
     return attempt
 
 
-def _verify_build(root, candidate, compilation, suite, build):
+def _portable_build_command_matches(
+    commands: object,
+    *,
+    attempt: Path,
+    context: Path,
+    manifest: CandidateSnapshotManifest,
+    build: PortableImageBuildEvidence,
+    allow_relocated_paths: bool,
+) -> bool:
+    """Validate a build command record without treating its work paths as identity.
+
+    A detached copy preserves the original executor's absolute work paths in
+    ``commands.json``.  Those paths cannot be rebuilt from a relocated archive,
+    but their fixed argv shape, label bindings, and package context are still
+    independently sealed below.  Live readers retain full path equality.
+    """
+
+    expected = [
+        "docker", "build", "--iidfile", str(attempt / "image.id"),
+        "--label", f"{CANDIDATE_LABEL}={manifest.sha256}",
+        "--label", f"{CONTEXT_LABEL}={build.context_sha256}",
+        "--file", str(context / "Dockerfile"), str(context),
+    ]
+    if not isinstance(commands, list) or len(commands) != 2:
+        return False
+    first, second = commands
+    if not isinstance(first, dict) or not isinstance(second, dict):
+        return False
+    argv = first.get("argv")
+    if not isinstance(argv, list):
+        return False
+    if allow_relocated_paths:
+        if (
+            len(argv) != len(expected)
+            or argv[:3] != expected[:3]
+            or argv[4:9] != expected[4:9]
+            or not all(isinstance(value, str) for value in (argv[3], argv[9], argv[10]))
+        ):
+            return False
+        recorded_attempt = Path(argv[3])
+        recorded_dockerfile = Path(argv[9])
+        recorded_context = Path(argv[10])
+        if (
+            not recorded_attempt.is_absolute()
+            or not recorded_dockerfile.is_absolute()
+            or not recorded_context.is_absolute()
+            or recorded_attempt.name != "image.id"
+            or recorded_dockerfile != recorded_context / "Dockerfile"
+        ):
+            return False
+    elif argv != expected:
+        return False
+    return (
+        second.get("argv") == ["docker", "image", "inspect", build.candidate_image_digest]
+        and all(
+            type(command.get("exit_code")) is int
+            and command["exit_code"] == 0
+            and command.get("timed_out") is False
+            for command in commands
+        )
+    )
+
+
+def _verify_portable_build_artifacts_for_view(
+    root: Path,
+    manifest: CandidateSnapshotManifest,
+    view: PackageEvidenceView,
+    suite: SuiteGateEvidence | PortableSuiteGateEvidence,
+    build: PortableImageBuildEvidence,
+    *,
+    allow_relocated_paths: bool,
+) -> Path:
+    """Validate one retained native build against a physical package view."""
+
+    if (
+        not isinstance(build, PortableImageBuildEvidence)
+        or build.outcome != "built"
+        or not build.receipt_sha256
+        or not IMAGE_ID.fullmatch(build.candidate_image_digest or "")
+        or build.candidate_snapshot_manifest_sha256 != manifest.sha256
+        or build.suite_receipt_sha256 != suite.receipt_sha256
+        or build.package_schema != view.package_schema
+        or build.package_manifest_sha256 != view.actual_package_manifest_sha256
+        or build.source_catalog_sha256 != view.source_catalog_sha256
+        or build.candidate_run_id != view.candidate_run_id
+        or build.input_manifest_sha256 != view.input_manifest_sha256
+        or build.framework_version != view.framework_version
+        or build.version_toml_sha256 != view.version_toml_sha256
+    ):
+        raise ReleaseContractError("release-image-build-untrusted", "native build does not bind the reopened package evidence")
+    prefix = f"{IMAGE_ROOT}/{manifest.sha256}/build/"
+    if (
+        not build.evidence_root.startswith(prefix)
+        or not build.evidence_root.removeprefix(prefix).startswith("attempt-")
+        or "/" in build.evidence_root.removeprefix(prefix)
+        or build.context_root != f"{build.evidence_root}/context"
+    ):
+        raise ReleaseContractError("release-image-build-path-invalid", "native build carrier is outside the fixed attempt root")
+    attempt = _safe_path(root, build.evidence_root)
+    receipt = _file(root, f"{build.evidence_root}/receipt.json").read_bytes()
+    if _digest(receipt) != build.receipt_sha256 or receipt != canonical_json(asdict(replace(build, receipt_sha256=None))):
+        raise ReleaseContractError("release-image-build-untrusted", "native build receipt does not match retained evidence")
+    commands = _file(root, f"{build.evidence_root}/commands.json").read_bytes()
+    if _digest(commands) != build.commands_sha256:
+        raise ReleaseContractError("release-image-build-untrusted", "native build command evidence changed")
+    context = _safe_path(root, build.context_root)
+    try:
+        parsed = json.loads(commands)
+        if (
+            not _portable_build_command_matches(
+                parsed,
+                attempt=attempt,
+                context=context,
+                manifest=manifest,
+                build=build,
+                allow_relocated_paths=allow_relocated_paths,
+            )
+        ):
+            raise ValueError("build commands differ")
+        labels = json.loads(_file(root, f"{build.evidence_root}/command-1.stdout").read_bytes())[0]["Config"]["Labels"]
+        if labels.get(CANDIDATE_LABEL) != manifest.sha256 or labels.get(CONTEXT_LABEL) != build.context_sha256:
+            raise ValueError("inspect labels differ")
+    except (KeyError, TypeError, ValueError, IndexError, json.JSONDecodeError) as error:
+        raise ReleaseContractError("release-image-build-untrusted", "native build evidence is malformed") from error
+    package_rows = [
+        {"path": member.path, "sha256": member.sha256, "mode": member.mode, "role": member.role}
+        for member in view.member_inventory
+    ]
+    engine_rows = [
+        {"path": member.path, "sha256": member.sha256, "mode": member.mode}
+        for member in view.member_inventory
+        if member.role == "engine"
+    ]
+    spec = {
+        "candidate_snapshot_manifest_sha256": view.candidate_snapshot_manifest_sha256,
+        "package_schema": view.package_schema,
+        "package_manifest_sha256": view.actual_package_manifest_sha256,
+        "source_catalog_sha256": view.source_catalog_sha256,
+        "candidate_run_id": view.candidate_run_id,
+        "input_manifest_sha256": view.input_manifest_sha256,
+        "framework_version": view.framework_version,
+        "version_toml_sha256": view.version_toml_sha256,
+        "package_rows": package_rows,
+        "engine_rows": engine_rows,
+    }
+    expected_paths = {"PACKAGE/manifest.toml", "Dockerfile", "canary.py", "canary.json"}
+    expected_paths.update(f"PACKAGE/{member.path}" for member in view.member_inventory)
+    expected_paths.update(member.path for member in view.member_inventory if member.role == "engine")
+    expected_paths.update(
+        row.source_path
+        for row in manifest.source_inventory_rows
+        if row.resource == "IMAGE_INPUT"
+    )
+    if (
+        _tree(context) != build.context_sha256
+        or not _known_canary(_file(root, f"{build.context_root}/canary.py").read_bytes())
+        or _file(root, f"{build.context_root}/canary.json").read_bytes() != canonical_json(spec)
+        or {
+            path.relative_to(context).as_posix()
+            for path in context.rglob("*")
+            if path.is_file() and not _ignored_metadata(path)
+        } != expected_paths
+    ):
+        raise ReleaseContractError("release-image-context-stale", "native private context changed")
+    for member in view.member_inventory:
+        path = context / "PACKAGE" / member.path
+        if path.is_symlink() or not path.is_file() or _digest(path.read_bytes()) != member.sha256 or path.stat().st_mode & 0o777 != member.mode:
+            raise ReleaseContractError("release-image-context-stale", "native package copy differs from reopened inventory")
+    return attempt
+
+
+def _verify_portable_build_artifacts(
+    root: Path,
+    candidate: ValidatedCandidate,
+    suite: SuiteGateEvidence | PortableSuiteGateEvidence,
+    build: PortableImageBuildEvidence,
+) -> Path:
+    """Reopen a native build through its immutable package sidecar."""
+
+    retained = _read_portable_context_evidence(root, build)
+    return _verify_portable_build_artifacts_for_view(
+        root,
+        candidate.manifest,
+        retained.view,
+        suite,
+        build,
+        allow_relocated_paths=False,
+    )
+
+
+def _verify_build(root, candidate, compilation, suite, build, *, prepared_package=None):
+    if isinstance(compilation, SealedPortableCandidateCompilation):
+        if not isinstance(build, PortableImageBuildEvidence):
+            raise ReleaseContractError("release-image-build-untrusted", "schema-1 image proof requires a native build receipt")
+        return _verify_portable_build_artifacts(root, candidate, suite, build)
     _complete_rows(root, compilation)
     return _verify_build_artifacts(root, candidate, compilation, suite, build)
 
@@ -495,7 +1060,7 @@ def _retained_suite_context(payload: bytes, candidate, compilation, suite) -> Re
         if value["compiled_candidate_root"] != compilation.child_materialization_root:
             raise ValueError("context receipt binds a different compilation")
         authority = getattr(candidate, "authority", None)
-        if value["selected_n_identity"] != getattr(authority, "executing_release", None):
+        if value["selected_n_identity"] != selected_n_identity(candidate):
             raise ValueError("context receipt binds a different retained release")
         if _SHA256.fullmatch(value["selected_n_image_context"]) is None:
             raise ValueError("context receipt image context is invalid")
@@ -582,7 +1147,11 @@ def _artifact_inputs(candidate, compilation):
         sealed = SealedCandidateCompilation.model_validate(compilation.model_dump(mode="json"))
     except (ValueError, AttributeError) as error:
         raise ReleaseContractError("release-image-handoff-untrusted", "artifact inputs fail canonical typed validation") from error
+    root = Path(candidate.project_root).resolve()
+    if not root.is_dir():
+        raise ReleaseContractError("release-image-project-missing", "artifact Project root is missing")
     if (authority != sealed.authority or authority.expected_candidate_snapshot_manifest_sha256 != manifest.sha256
+        or compilation.native_installed_n != candidate.native_installed_n
         or any(getattr(authority, field) != getattr(manifest, field) for field in (
             "executing_release", "candidate_release", "canonical_source_snapshot_digest", "project_structure_digest",
             "framework_settings_digest", "source_frontier_digest", "nested_source_recursive_sha256_before"))
@@ -593,24 +1162,31 @@ def _artifact_inputs(candidate, compilation):
         or sealed.actual_compiled_output_sha256 != manifest.expected_compiled_output_sha256
         or sealed.compiler_frontier_digest != manifest.source_frontier_digest
         or sealed.compiler_entrypoint.path != COMPILER_ENTRYPOINT_RELATIVE
-        or sealed.source_copy_root != DERIVED_SOURCE_COPY_RELATIVE
-        or sealed.child_materialization_root != f"{MATERIALIZED_RELATIVE}/{manifest.sha256}"
         or list(sealed.package_rows) != sorted(sealed.package_rows, key=lambda row: (row.destination_path, row.source_path, row.sha256))):
         raise ReleaseContractError("release-image-handoff-untrusted", "artifact inputs identify mismatching sealed candidate facts")
-    root = Path(candidate.project_root).resolve()
-    if not root.is_dir():
-        raise ReleaseContractError("release-image-project-missing", "artifact Project root is missing")
     return root
 
 
-def verify_candidate_image(candidate: ValidatedCandidate, compilation: SealedCandidateCompilation,
-                           suite: SuiteGateEvidence, build: ImageBuildEvidence, *, executor: DockerExecutor,
-                           timeout_seconds: float = 120) -> ImageVerificationEvidence:
+def verify_candidate_image(
+    candidate: ValidatedCandidate,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+    suite: SuiteGateEvidence | PortableSuiteGateEvidence,
+    build: ImageBuildEvidence,
+    *,
+    executor: DockerExecutor,
+    timeout_seconds: float = 120,
+    prepared_package: PreparedPortableReleasePackage | None = None,
+) -> ImageVerificationEvidence:
     """Inspect exact ID and execute fixed complete-package/MCP canary in isolation."""
     if isinstance(timeout_seconds, bool) or not 0 < timeout_seconds <= 120:
         raise ReleaseContractError("release-image-timeout-invalid", "canary timeout must be within (0, 120]")
-    root = _bound(candidate, compilation, suite)
-    _verify_build(root, candidate, compilation, suite, build)
+    root = _bound(candidate, compilation, suite, prepared_package=prepared_package)
+    _verify_build(root, candidate, compilation, suite, build, prepared_package=prepared_package)
+    portable_view = (
+        _read_portable_context_evidence(root, build).view
+        if isinstance(compilation, SealedPortableCandidateCompilation) and isinstance(build, PortableImageBuildEvidence)
+        else None
+    )
     frozen = _freeze(root)
     attempt = _attempt(root, candidate.manifest.sha256, "verify")
     records = []
@@ -629,19 +1205,37 @@ def verify_candidate_image(candidate: ValidatedCandidate, compilation: SealedCan
             else:
                 try:
                     report = json.loads(result.stdout)
-                    exact = {"schema", "candidate_snapshot_manifest_sha256", "package_manifest_sha256", "verified_files", "mcp_tools"}
+                    portable = isinstance(compilation, SealedPortableCandidateCompilation)
+                    exact = (
+                        {"schema", "candidate_snapshot_manifest_sha256", "package_schema", "package_manifest_sha256",
+                         "source_catalog_sha256", "candidate_run_id", "input_manifest_sha256", "framework_version",
+                         "version_toml_sha256", "verified_files", "mcp_tools"}
+                        if portable
+                        else {"schema", "candidate_snapshot_manifest_sha256", "package_manifest_sha256", "verified_files", "mcp_tools"}
+                    )
                     tools = report.get("mcp_tools")
-                    if (set(report) == exact and report["schema"] == "caprmedio.release_version.image_canary.v1"
+                    if (set(report) == exact
+                        and report["schema"] == ("caprmedio.release_version.portable_image_canary.v1" if portable else "caprmedio.release_version.image_canary.v1")
                         and report["candidate_snapshot_manifest_sha256"] == candidate.manifest.sha256
                         and report["package_manifest_sha256"] == build.package_manifest_sha256
-                        and type(report["verified_files"]) is int and report["verified_files"] == len(compilation.package_rows)
+                        and (not portable or (
+                            portable_view is not None
+                            and report["package_schema"] == portable_view.package_schema
+                            and report["source_catalog_sha256"] == portable_view.source_catalog_sha256
+                            and report["candidate_run_id"] == portable_view.candidate_run_id
+                            and report["input_manifest_sha256"] == portable_view.input_manifest_sha256
+                            and report["framework_version"] == portable_view.framework_version
+                            and report["version_toml_sha256"] == portable_view.version_toml_sha256
+                        ))
+                        and type(report["verified_files"]) is int
+                        and report["verified_files"] == (len(portable_view.member_inventory) if portable and portable_view is not None else len(compilation.package_rows))
                         and isinstance(tools, list) and tools and all(isinstance(tool, str) and tool for tool in tools)
                         and len(tools) == len(set(tools)) and "get_mcp_reload_status" in tools):
                         outcome, reason = "verified", "complete bound package and executable MCP canary observed"
                 except (ValueError, TypeError, AttributeError):
                     pass
-        _post_bound(candidate, compilation, suite, root, frozen)
-        _verify_build(root, candidate, compilation, suite, build)
+        _post_bound(candidate, compilation, suite, root, frozen, prepared_package=prepared_package)
+        _verify_build(root, candidate, compilation, suite, build, prepared_package=prepared_package)
     except (ValueError, OSError, RuntimeError) as error:
         outcome, reason = "stale" if isinstance(error, ReleaseContractError) and "stale" in error.code else "recording_uncertain", str(error)
     commands = canonical_json(records)
@@ -649,27 +1243,331 @@ def verify_candidate_image(candidate: ValidatedCandidate, compilation: SealedCan
         _write(attempt / "commands.json", commands)
     except OSError:
         outcome, reason = "recording_uncertain", "canary output recording is uncertain"
-    evidence = ImageVerificationEvidence(candidate.manifest.sha256, outcome, reason, build.candidate_image_digest,
-               build.receipt_sha256, attempt.relative_to(root).as_posix(), _digest(commands),
-               "docker-subprocess" if type(executor) is DockerSubprocessExecutor else "test-double")
+    if isinstance(build, PortableImageBuildEvidence):
+        evidence = PortableImageVerificationEvidence(
+            candidate_snapshot_manifest_sha256=candidate.manifest.sha256,
+            outcome=outcome,
+            reason=reason,
+            candidate_image_digest=build.candidate_image_digest,
+            build_receipt_sha256=build.receipt_sha256,
+            evidence_root=attempt.relative_to(root).as_posix(),
+            commands_sha256=_digest(commands),
+            execution_kind="docker-subprocess" if type(executor) is DockerSubprocessExecutor else "test-double",
+            package_manifest_sha256=build.package_manifest_sha256,
+            source_catalog_sha256=build.source_catalog_sha256,
+            candidate_run_id=build.candidate_run_id,
+            input_manifest_sha256=build.input_manifest_sha256,
+            framework_version=build.framework_version,
+            version_toml_sha256=build.version_toml_sha256,
+            package_evidence_sha256=build.package_evidence_sha256,
+            package_evidence_relpath=build.package_evidence_relpath,
+        )
+    else:
+        evidence = ImageVerificationEvidence(
+            candidate.manifest.sha256, outcome, reason, build.candidate_image_digest,
+            build.receipt_sha256, attempt.relative_to(root).as_posix(), _digest(commands),
+            "docker-subprocess" if type(executor) is DockerSubprocessExecutor else "test-double",
+        )
     return _record(attempt, evidence)
 
 
-def verify_bound_image_evidence(candidate: ValidatedCandidate, compilation: SealedCandidateCompilation,
-                                suite: SuiteGateEvidence, build: ImageBuildEvidence,
-                                evidence: ImageVerificationEvidence) -> Path:
+def verify_bound_image_evidence(
+    candidate: ValidatedCandidate,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+    suite: SuiteGateEvidence | PortableSuiteGateEvidence,
+    build: ImageBuildEvidence,
+    evidence: ImageVerificationEvidence,
+    *,
+    prepared_package: PreparedPortableReleasePackage | None = None,
+) -> Path:
     """Reopen actual Docker evidence for the future promotion producer.
 
     A test double cannot create promotion evidence. This reader has no Docker
     effect and requires current sealed N before the separate promotion effect.
     """
-    _bound(candidate, compilation, suite)
-    return read_image_execution_artifacts(candidate, compilation, suite, build, evidence)
+    _bound(candidate, compilation, suite, prepared_package=prepared_package)
+    return read_image_execution_artifacts(
+        candidate, compilation, suite, build, evidence, prepared_package=prepared_package,
+    )
 
 
-def read_image_execution_artifacts(candidate: ValidatedCandidate, compilation: SealedCandidateCompilation,
-                                   suite: SuiteGateEvidence, build: ImageBuildEvidence,
-                                   evidence: ImageVerificationEvidence) -> Path:
+def _verify_portable_verification_artifacts(
+    root: Path,
+    manifest: CandidateSnapshotManifest,
+    view: PackageEvidenceView,
+    build: PortableImageBuildEvidence,
+    evidence: PortableImageVerificationEvidence,
+) -> Path:
+    """Read immutable native canary bytes after the build receipt is bound."""
+
+    if (
+        not isinstance(evidence, PortableImageVerificationEvidence)
+        or evidence.outcome != "verified"
+        or evidence.execution_kind != "docker-subprocess"
+        or build.execution_kind != "docker-subprocess"
+        or not evidence.receipt_sha256
+        or evidence.candidate_snapshot_manifest_sha256 != manifest.sha256
+        or evidence.build_receipt_sha256 != build.receipt_sha256
+        or evidence.candidate_image_digest != build.candidate_image_digest
+        or evidence.package_schema != view.package_schema
+        or evidence.package_manifest_sha256 != view.actual_package_manifest_sha256
+        or evidence.source_catalog_sha256 != view.source_catalog_sha256
+        or evidence.candidate_run_id != view.candidate_run_id
+        or evidence.input_manifest_sha256 != view.input_manifest_sha256
+        or evidence.framework_version != view.framework_version
+        or evidence.version_toml_sha256 != view.version_toml_sha256
+        or evidence.package_evidence_sha256 != build.package_evidence_sha256
+        or evidence.package_evidence_relpath != build.package_evidence_relpath
+    ):
+        raise ReleaseContractError("release-image-evidence-untrusted", "native verification does not bind the reopened package")
+    prefix = f"{IMAGE_ROOT}/{manifest.sha256}/verify/"
+    if (
+        not evidence.evidence_root.startswith(prefix)
+        or not evidence.evidence_root.removeprefix(prefix).startswith("attempt-")
+        or "/" in evidence.evidence_root.removeprefix(prefix)
+    ):
+        raise ReleaseContractError("release-image-evidence-path-invalid", "native verification carrier is outside the fixed attempt root")
+    attempt = _safe_path(root, evidence.evidence_root)
+    receipt = _file(root, f"{evidence.evidence_root}/receipt.json").read_bytes()
+    if _digest(receipt) != evidence.receipt_sha256 or receipt != canonical_json(asdict(replace(evidence, receipt_sha256=None))):
+        raise ReleaseContractError("release-image-evidence-untrusted", "native verification receipt changed")
+    payload = _file(root, f"{evidence.evidence_root}/commands.json").read_bytes()
+    if _digest(payload) != evidence.commands_sha256:
+        raise ReleaseContractError("release-image-evidence-untrusted", "native verification command evidence changed")
+    expected_run = [
+        "docker", "run", "--rm", "--network=none", "--read-only", "--cap-drop=ALL",
+        "--security-opt=no-new-privileges", "--pids-limit=128", "--tmpfs", "/tmp:rw,nosuid,nodev,size=128m",
+        "--entrypoint", "python", build.candidate_image_digest, "/opt/caprmedio-release-canary.py",
+    ]
+    try:
+        commands = json.loads(payload)
+        if (
+            not isinstance(commands, list)
+            or len(commands) != 2
+            or commands[0].get("argv") != ["docker", "image", "inspect", build.candidate_image_digest]
+            or commands[1].get("argv") != expected_run
+            or any(
+                type(command.get("exit_code")) is not int
+                or command["exit_code"] != 0
+                or command.get("timed_out") is not False
+                for command in commands
+            )
+        ):
+            raise ValueError("native verification commands differ")
+        inspected = json.loads(_file(root, f"{evidence.evidence_root}/command-0.stdout").read_bytes())
+        labels = inspected[0]["Config"]["Labels"]
+        report = json.loads(_file(root, f"{evidence.evidence_root}/command-1.stdout").read_bytes())
+        expected_report = {
+            "schema": "caprmedio.release_version.portable_image_canary.v1",
+            "candidate_snapshot_manifest_sha256": manifest.sha256,
+            "package_schema": view.package_schema,
+            "package_manifest_sha256": view.actual_package_manifest_sha256,
+            "source_catalog_sha256": view.source_catalog_sha256,
+            "candidate_run_id": view.candidate_run_id,
+            "input_manifest_sha256": view.input_manifest_sha256,
+            "framework_version": view.framework_version,
+            "version_toml_sha256": view.version_toml_sha256,
+            "verified_files": len(view.member_inventory),
+        }
+        tools = report.pop("mcp_tools")
+        if (
+            labels.get(CANDIDATE_LABEL) != manifest.sha256
+            or labels.get(CONTEXT_LABEL) != build.context_sha256
+            or report != expected_report
+            or not isinstance(tools, list)
+            or not tools
+            or any(not isinstance(tool, str) or not tool for tool in tools)
+            or len(tools) != len(set(tools))
+            or "get_mcp_reload_status" not in tools
+        ):
+            raise ValueError("native inspection or canary differs")
+    except (KeyError, TypeError, ValueError, IndexError, json.JSONDecodeError) as error:
+        raise ReleaseContractError("release-image-evidence-untrusted", "native image inspection or canary is incomplete") from error
+    return attempt
+
+
+def _read_portable_image_execution_artifacts(
+    candidate: ValidatedCandidate,
+    compilation: SealedPortableCandidateCompilation,
+    suite: SuiteGateEvidence | PortableSuiteGateEvidence,
+    build: PortableImageBuildEvidence,
+    evidence: PortableImageVerificationEvidence,
+    prepared_package: PreparedPortableReleasePackage | None,
+) -> Path:
+    """Read native Docker proof without current selector/package revalidation."""
+
+    if not isinstance(candidate, ValidatedCandidate) or not isinstance(compilation, SealedPortableCandidateCompilation):
+        raise ReleaseContractError("release-image-handoff-untrusted", "native artifact reader requires typed original inputs")
+    if not isinstance(build, PortableImageBuildEvidence) or not isinstance(evidence, PortableImageVerificationEvidence):
+        raise ReleaseContractError("release-image-evidence-untrusted", "native artifact reader requires native image receipts")
+    try:
+        root = Path(candidate.project_root).resolve(strict=True)
+    except OSError as error:
+        raise ReleaseContractError("release-image-project-missing", "native artifact Project root is unavailable") from error
+    if root.is_symlink() or not root.is_dir():
+        raise ReleaseContractError("release-image-project-missing", "native artifact Project root is invalid")
+    # A prepared receipt would invoke the current live binder.  Original image
+    # artifacts deliberately ignore it and reopen only retained bytes.
+    del prepared_package
+    _verify_portable_build_artifacts(root, candidate, suite, build)
+    view = _read_portable_context_evidence(root, build).view
+    return _verify_portable_verification_artifacts(root, candidate.manifest, view, build, evidence)
+
+
+def _detached_artifact_root(artifact_root: Path) -> Path:
+    """Return the explicit archive root; detached reads never derive a Project root."""
+
+    if not isinstance(artifact_root, Path) or not artifact_root.is_absolute():
+        raise ReleaseContractError("release-image-detached-root-invalid", "detached image artifacts require an absolute archive root")
+    try:
+        if artifact_root.is_symlink() or not artifact_root.is_dir():
+            raise ValueError("unsafe archive root")
+        return artifact_root.resolve(strict=True)
+    except (OSError, ValueError) as error:
+        raise ReleaseContractError("release-image-detached-root-invalid", "detached image archive root is unavailable") from error
+
+
+def _require_detached_candidate_under_root(root: Path, retained: RetainedCandidateIdentity) -> None:
+    """Keep every caller-provided retained reference inside the supplied archive."""
+
+    if not isinstance(retained, RetainedCandidateIdentity):
+        raise ReleaseContractError("release-image-detached-candidate-untrusted", "detached image reader requires a retained candidate identity")
+    if (
+        not isinstance(retained.package_evidence, RetainedNativePackageEvidence)
+        or not isinstance(retained.package_evidence.view, PackageEvidenceView)
+    ):
+        raise ReleaseContractError("release-image-detached-candidate-untrusted", "detached package evidence is not a typed retained carrier")
+    for label, path in (
+        ("descriptor", retained.descriptor_path),
+        ("package evidence", retained.package_evidence.receipt_path),
+        ("package", retained.package_evidence.view.package_root),
+    ):
+        if not isinstance(path, Path) or not path.is_absolute() or path.is_symlink():
+            raise ReleaseContractError("release-image-detached-candidate-untrusted", f"detached {label} reference is unsafe")
+        try:
+            path.relative_to(root)
+        except ValueError as error:
+            raise ReleaseContractError(
+                "release-image-detached-candidate-untrusted",
+                f"detached {label} reference is outside the supplied archive",
+            ) from error
+
+
+def _read_detached_portable_suite(
+    root: Path,
+    manifest: CandidateSnapshotManifest,
+    view: PackageEvidenceView,
+    suite: PortableSuiteGateEvidence,
+) -> Path:
+    """Reopen the durable native Unit receipt without a current checkout.
+
+    This is deliberately narrower than ``verify_bound_suite_evidence``: the
+    latter correctly revalidates current source and selected-N control state,
+    neither of which exists at the retained-original-artifact boundary.
+    """
+
+    environment = manifest.full_suite_environment
+    if (
+        not isinstance(suite, PortableSuiteGateEvidence)
+        or not suite.passed
+        or suite.input_schema != "portable-1"
+        or suite.candidate_snapshot_manifest_sha256 != manifest.sha256
+        or suite.candidate_run_id != view.candidate_run_id
+        or suite.input_manifest_sha256 != view.input_manifest_sha256
+        or suite.source_catalog_sha256 != view.source_catalog_sha256
+        or suite.framework_version != view.framework_version
+        or suite.version_toml_sha256 != view.version_toml_sha256
+        or suite.phase_map_sha256 != view.phase_map.sha256
+        or suite.runner != environment.runner
+        or suite.command != tuple(environment.command)
+        or suite.working_directory != environment.working_directory
+        or suite.exit_code != 0
+        or not suite.receipt_sha256
+    ):
+        raise ReleaseContractError("release-image-detached-suite-untrusted", "native Unit receipt does not bind the reopened retained package")
+    prefix = f"{SUITE_ROOT}/{manifest.sha256}/"
+    if (
+        not suite.evidence_root.startswith(prefix)
+        or not suite.evidence_root.removeprefix(prefix).startswith("attempt-")
+        or "/" in suite.evidence_root.removeprefix(prefix)
+    ):
+        raise ReleaseContractError("release-image-detached-suite-path-invalid", "native Unit receipt is outside the fixed attempt root")
+    attempt = _safe_path(root, suite.evidence_root)
+    try:
+        files = {}
+        for name in ("receipt.json", "stdout.bin", "stderr.bin", "coverage.xml"):
+            path = attempt / name
+            if path.is_symlink() or not path.is_file():
+                raise ValueError("native Unit artifact is missing or unsafe")
+            files[name] = path.read_bytes()
+        if (
+            _digest(files["receipt.json"]) != suite.receipt_sha256
+            or files["receipt.json"] != canonical_json(asdict(replace(suite, receipt_sha256=None)))
+            or _digest(files["stdout.bin"]) != suite.stdout_sha256
+            or _digest(files["stderr.bin"]) != suite.stderr_sha256
+            or _digest(files["coverage.xml"]) != suite.report_sha256
+        ):
+            raise ValueError("native Unit bytes differ from its receipt")
+    except (OSError, ValueError) as error:
+        raise ReleaseContractError("release-image-detached-suite-untrusted", "native Unit receipt changed or is incomplete") from error
+    return attempt
+
+
+def read_detached_image_execution_artifacts(
+    artifact_root: Path,
+    retained_candidate: RetainedCandidateIdentity,
+    suite: PortableSuiteGateEvidence,
+    build: PortableImageBuildEvidence,
+    verification: PortableImageVerificationEvidence,
+) -> Path:
+    """Read retained native Image artifacts from an explicitly anchored archive.
+
+    The archive may have moved after the source checkout was removed or
+    changed.  This reader therefore has no live candidate, compilation,
+    selector, package binder, admission, execution, or promotion input.  It
+    only reopens the retained descriptor and sidecar, then validates original
+    Unit/Image receipts and copied bytes.
+    """
+
+    root = _detached_artifact_root(artifact_root)
+    _require_detached_candidate_under_root(root, retained_candidate)
+    try:
+        retained = reopen_retained_candidate_identity(retained_candidate)
+    except ReleaseContractError as error:
+        raise ReleaseContractError("release-image-detached-candidate-untrusted", "retained candidate cannot be physically reopened") from error
+    _require_detached_candidate_under_root(root, retained)
+    if not isinstance(build, PortableImageBuildEvidence) or not isinstance(verification, PortableImageVerificationEvidence):
+        raise ReleaseContractError("release-image-detached-evidence-untrusted", "detached image reader requires native image receipts")
+    sidecar = _read_portable_context_evidence(root, build)
+    if sidecar != retained.package_evidence:
+        raise ReleaseContractError("release-image-detached-candidate-untrusted", "image build binds a different retained package sidecar")
+    _read_detached_portable_suite(root, retained.descriptor, retained.package_evidence.view, suite)
+    _verify_portable_build_artifacts_for_view(
+        root,
+        retained.descriptor,
+        retained.package_evidence.view,
+        suite,
+        build,
+        allow_relocated_paths=True,
+    )
+    return _verify_portable_verification_artifacts(
+        root,
+        retained.descriptor,
+        retained.package_evidence.view,
+        build,
+        verification,
+    )
+
+
+def read_image_execution_artifacts(
+    candidate: ValidatedCandidate,
+    compilation: SealedCandidateCompilation | SealedPortableCandidateCompilation,
+    suite: SuiteGateEvidence | PortableSuiteGateEvidence,
+    build: ImageBuildEvidence,
+    evidence: ImageVerificationEvidence,
+    *,
+    prepared_package: PreparedPortableReleasePackage | None = None,
+) -> Path:
     """Read exact original execution artifacts independently of active selection.
 
     This is not effect admission, current source/package proof, or promotion
@@ -677,6 +1575,10 @@ def read_image_execution_artifacts(candidate: ValidatedCandidate, compilation: S
     validate its admitted intent, current source/package, selector and Skill.
     This reader has no selector override flag, Docker effect or promotion import.
     """
+    if isinstance(compilation, SealedPortableCandidateCompilation):
+        return _read_portable_image_execution_artifacts(
+            candidate, compilation, suite, build, evidence, prepared_package,
+        )
     root = _artifact_inputs(candidate, compilation)
     if not isinstance(build, ImageBuildEvidence):
         raise ReleaseContractError("release-image-build-untrusted", "image artifacts require typed recorded build evidence")
@@ -760,7 +1662,8 @@ def _observed_rollback_references(root: Path, prior_image: str) -> tuple[str, ..
     """
     from release_promotion import PROMOTION_ROOT
 
-    paths = [CURRENT_SELECTOR_RELATIVE]
+    native = root / NATIVE_CURRENT_SELECTOR_RELATIVE
+    paths = [NATIVE_CURRENT_SELECTOR_RELATIVE if native.exists() or native.is_symlink() else CURRENT_SELECTOR_RELATIVE]
     parent = _safe_path(root, PROMOTION_ROOT)
     for directory in sorted(parent.iterdir()):
         if _ignored_metadata(directory):
@@ -777,6 +1680,12 @@ def _observed_rollback_references(root: Path, prior_image: str) -> tuple[str, ..
             parsed = tomllib.loads(_file(root, relative).read_text())
             images = {mapping[key] for mapping in (parsed, parsed.get("selection", {})) if isinstance(mapping, dict)
                       for key in ("candidate_image_digest", "image_digest") if isinstance(mapping.get(key), str)}
+            native_keys = {"schema_version", "package_manifest_sha256", "target_project_context_sha256",
+                           "state_generation", "installation_lock_generation", "image_digest"}
+            if (set(parsed) == native_keys and type(parsed.get("schema_version")) is int
+                    and parsed["schema_version"] == 1 and isinstance(parsed.get("image_digest"), str)
+                    and _SHA256.fullmatch(parsed["image_digest"])):
+                images = {"sha256:" + parsed["image_digest"]}
         except (OSError, ValueError) as error:
             raise ReleaseContractError("release-image-rollback-unknown", "rollback selector evidence cannot be safely observed") from error
         if prior_image in images:
@@ -868,12 +1777,165 @@ def _prove_prior_absence(executor, prior_image, root, attempt, records, timeout)
     return prior_image not in images
 
 
+def _retained_owned_images(root: Path) -> dict[str, tuple[str, str]]:
+    """Read only exact immutable IDs backed by this Project's completed builds."""
+    owned: dict[str, tuple[str, str]] = {}
+    conflicted: set[str] = set()
+    base = root / IMAGE_ROOT
+    if base.is_symlink() or not base.is_dir():
+        return owned
+    for candidate_dir in base.iterdir():
+        if (candidate_dir.is_symlink() or not candidate_dir.is_dir()
+                or _SHA256.fullmatch(candidate_dir.name) is None):
+            continue
+        build_dir = candidate_dir / "build"
+        if build_dir.is_symlink() or not build_dir.is_dir():
+            continue
+        for receipt_path in build_dir.glob("attempt-*/receipt.json"):
+            try:
+                if receipt_path.parent.is_symlink() or receipt_path.is_symlink() or not receipt_path.is_file():
+                    continue
+                raw = receipt_path.read_bytes()
+                payload = json.loads(raw)
+                if not isinstance(payload, dict):
+                    continue
+                image = payload.get("candidate_image_digest")
+                context = payload.get("context_sha256")
+                fields = set(payload) if isinstance(payload, dict) else set()
+                portable = fields == set(PortableImageBuildEvidence.__dataclass_fields__)
+                legacy = fields == set(ImageBuildEvidence.__dataclass_fields__)
+                if (not (portable or legacy)
+                        or raw != canonical_json(payload)
+                        or payload.get("receipt_sha256") is not None
+                        or payload.get("outcome") != "built"
+                        or payload.get("execution_kind") != "docker-subprocess"
+                        or not isinstance(payload.get("reason"), str)
+                        or not isinstance(image, str) or IMAGE_ID.fullmatch(image) is None
+                        or not isinstance(context, str) or _SHA256.fullmatch(context) is None
+                        or payload.get("candidate_snapshot_manifest_sha256") != candidate_dir.name
+                        or any(not isinstance(payload.get(name), str) or _SHA256.fullmatch(payload[name]) is None
+                               for name in ("package_manifest_sha256", "suite_receipt_sha256", "commands_sha256"))
+                        or not isinstance(payload.get("context_root"), str)
+                        or not isinstance(payload.get("evidence_root"), str)):
+                    continue
+                if portable and (payload.get("package_schema") != "portable-1"
+                                 or any(not isinstance(payload.get(name), str) or not payload[name]
+                                        for name in ("source_catalog_sha256", "candidate_run_id",
+                                                     "input_manifest_sha256", "framework_version",
+                                                     "version_toml_sha256", "package_evidence_sha256",
+                                                     "package_evidence_relpath"))):
+                    continue
+                prior = owned.get(image)
+                binding = (candidate_dir.name, context)
+                if image in conflicted:
+                    continue
+                if prior is None:
+                    owned[image] = binding
+                elif prior != binding:
+                    owned.pop(image)
+                    conflicted.add(image)
+            except (OSError, ValueError, TypeError):
+                continue
+    return owned
+
+
+def cleanup_superseded_release_images(candidate: ValidatedCandidate, compilation: SealedCandidateCompilation,
+                                      suite: SuiteGateEvidence, build: ImageBuildEvidence,
+                                      verification: ImageVerificationEvidence, promotion, *,
+                                      e2e: CandidateE2EGateEvidence, full_gate: FullGateEvidence,
+                                      executor: DockerExecutor, timeout_seconds: float = 120,
+                                      prepared_package: PreparedPortableReleasePackage | None = None) -> SupersededImageCleanupEvidence:
+    """Remove only receipt-proven Project images after the exact promotion remains valid."""
+    from release_promotion import PromotionEvidence, verify_bound_promotion_evidence
+    import release_promotion as promotion_module
+
+    native_type = getattr(promotion_module, "NativePromotionEvidence", None)
+    native_promotion = native_type is not None and isinstance(promotion, native_type)
+    def verify_promotion():
+        if native_promotion:
+            return promotion_module.verify_native_promotion_evidence(
+                candidate, compilation, suite, build, verification, promotion,
+                e2e=e2e, full_gate=full_gate, prepared_package=prepared_package,
+            )
+        if not isinstance(promotion, PromotionEvidence):
+            raise ReleaseContractError("release-image-cleanup-promotion-untrusted", "cleanup requires observed bound promotion")
+        return verify_bound_promotion_evidence(candidate, compilation, suite, build, verification, promotion,
+                                               e2e=e2e, full_gate=full_gate)
+
+    root = verify_promotion()
+    if isinstance(timeout_seconds, bool) or not isinstance(timeout_seconds, (int, float)) or not 0 < timeout_seconds <= 120:
+        raise ReleaseContractError("release-image-timeout-invalid", "cleanup timeout must be within (0, 120]")
+    attempt = _attempt(root, candidate.manifest.sha256, "cleanup")
+    records: list[dict] = []
+    report: list[dict] = []
+    try:
+        inventory = _command(executor, ("docker", "image", "ls", "--all", "--quiet", "--no-trunc"), root, attempt, records, timeout_seconds)
+        if inventory.timed_out or inventory.exit_code != 0:
+            raise ReleaseContractError("release-image-cleanup-inventory-unavailable", "immutable image inventory is unavailable")
+        listed = sorted(set(inventory.stdout.decode("ascii").splitlines()))
+        if any(IMAGE_ID.fullmatch(image) is None for image in listed):
+            raise ReleaseContractError("release-image-cleanup-inventory-invalid", "immutable image inventory is malformed")
+        owned = _retained_owned_images(root)
+        for image in listed:
+            if image == promotion.candidate_image_digest:
+                report.append({"image": image, "outcome": "candidate_protected"})
+                continue
+            binding = owned.get(image)
+            if binding is None:
+                report.append({"image": image, "outcome": "excluded_unproven"})
+                continue
+            candidate_sha, context_sha = binding
+            inspected = _command(executor, ("docker", "image", "inspect", image), root, attempt, records, timeout_seconds)
+            try:
+                rows = json.loads(inspected.stdout)
+                labels = rows[0]["Config"]["Labels"]
+                if not isinstance(labels, dict):
+                    raise ValueError("image labels are not a mapping")
+                proven = (inspected.exit_code == 0 and not inspected.timed_out and len(rows) == 1
+                          and rows[0]["Id"] == image and labels.get(CANDIDATE_LABEL) == candidate_sha
+                          and labels.get(CONTEXT_LABEL) == context_sha)
+            except (ValueError, TypeError, KeyError, IndexError):
+                proven = False
+            if not proven:
+                report.append({"image": image, "outcome": "unproven"})
+                continue
+            condition, required_images, required_refs = _retention_settings(root, candidate, image)
+            if image in required_images or (condition == "retain_prior" and image == promotion.prior_image_digest):
+                report.append({"image": image, "outcome": "protected", "references": list(required_refs)})
+                continue
+            containers = _retaining_containers(executor, image, root, attempt, records, timeout_seconds)
+            if containers:
+                report.append({"image": image, "outcome": "in_use", "containers": list(containers)})
+                continue
+            claim = attempt / f"removal-{image.removeprefix('sha256:')}.json"
+            _write(claim, canonical_json({"schema": "caprmedio.release_version.image_cleanup_intent.v1", "image": image,
+                                          "candidate": candidate.manifest.sha256, "promotion": promotion.receipt_sha256}))
+            removal = _command(executor, ("docker", "image", "rm", image), root, attempt, records, timeout_seconds)
+            absent = _prove_prior_absence(executor, image, root, attempt, records, timeout_seconds)
+            report.append({"image": image, "outcome": "removed" if not removal.timed_out and removal.exit_code == 0 and absent is True else "uncertain"})
+        verify_promotion()
+        outcome = ("effect_uncertain" if any(row["outcome"] == "uncertain" for row in report) else
+                   "cleaned" if all(row["outcome"] in {"removed", "candidate_protected", "excluded_unproven"} for row in report) else "incomplete")
+        reason = "all receipt-proven superseded images were removed" if outcome == "cleaned" else "some receipt-proven images were protected, unproven, in use, or uncertain"
+    except (OSError, ValueError, RuntimeError, ReleaseContractError) as error:
+        outcome = "effect_uncertain" if any(row.get("outcome") == "uncertain" for row in report) else "incomplete"
+        reason = f"cleanup observation is incomplete: {getattr(error, 'code', type(error).__name__)}"
+    payload = canonical_json({"candidate_snapshot_manifest_sha256": candidate.manifest.sha256, "outcome": outcome,
+                              "reason": reason, "items": report, "commands": records})
+    report_path = attempt / "cleanup-report.json"
+    _write(report_path, payload)
+    evidence = SupersededImageCleanupEvidence(candidate.manifest.sha256, outcome, reason,
+                                               report_path.relative_to(root).as_posix())
+    return _record(attempt, evidence)
+
+
 def retire_prior_image(candidate: ValidatedCandidate, compilation: SealedCandidateCompilation,
                        suite: SuiteGateEvidence, build: ImageBuildEvidence,
                        verification: ImageVerificationEvidence, promotion: PromotionEvidence, *,
                        e2e: CandidateE2EGateEvidence, full_gate: FullGateEvidence,
                        executor: DockerExecutor,
-                       timeout_seconds: float = 120) -> ImageRetirementEvidence:
+                       timeout_seconds: float = 120,
+                       prepared_package: PreparedPortableReleasePackage | None = None) -> ImageRetirementEvidence:
     """Retire only exact prior identity under D573's sealed settings condition.
 
     There are no caller image overrides or retention-success flags. The exact
@@ -885,16 +1947,28 @@ def retire_prior_image(candidate: ValidatedCandidate, compilation: SealedCandida
     requires exact post-removal absence and still-current promotion/settings.
     """
     from release_promotion import PromotionEvidence, verify_bound_promotion_evidence
+    import release_promotion as promotion_module
+
+    native_type = getattr(promotion_module, "NativePromotionEvidence", None)
+    native_promotion = native_type is not None and isinstance(promotion, native_type)
+
+    def verify_promotion() -> Path:
+        if native_promotion:
+            return promotion_module.verify_native_promotion_evidence(
+                candidate, compilation, suite, build, verification, promotion,
+                e2e=e2e, full_gate=full_gate, prepared_package=prepared_package,
+            )
+        return verify_bound_promotion_evidence(
+            candidate, compilation, suite, build, verification, promotion, e2e=e2e, full_gate=full_gate,
+        )
 
     if isinstance(timeout_seconds, bool) or not isinstance(timeout_seconds, (int, float)) or not 0 < timeout_seconds <= 120:
         raise ReleaseContractError("release-image-timeout-invalid", "retirement timeout must be within (0, 120]")
     admission_error = None
     try:
-        root = verify_bound_promotion_evidence(
-            candidate, compilation, suite, build, verification, promotion, e2e=e2e, full_gate=full_gate
-        )
+        root = verify_promotion()
     except ReleaseContractError as error:
-        if not isinstance(promotion, PromotionEvidence) or "stale" not in error.code:
+        if native_promotion or not isinstance(promotion, PromotionEvidence) or "stale" not in error.code:
             raise
         root = _artifact_inputs(candidate, compilation)
         admission_error = error
@@ -941,10 +2015,7 @@ def retire_prior_image(candidate: ValidatedCandidate, compilation: SealedCandida
                     else:
                         if _retention_settings(root, candidate, prior_image) != (condition, required_images, required):
                             raise ReleaseContractError("release-image-retention-stale", "retention settings changed before removal")
-                        verify_bound_promotion_evidence(
-                            candidate, compilation, suite, build, verification, promotion,
-                            e2e=e2e, full_gate=full_gate,
-                        )
+                        verify_promotion()
                         if _freeze(root) != frozen:
                             raise ReleaseContractError("release-image-retirement-stale", "promotion or retention changed before removal")
                         claim = attempt.parent / f"removal-{prior_image.removeprefix('sha256:')}.json"
@@ -982,9 +2053,7 @@ def retire_prior_image(candidate: ValidatedCandidate, compilation: SealedCandida
                                     outcome, reason = "failed", "non-forced exact removal failed and the prior image remains"
                                 else:
                                     outcome, reason = "effect_uncertain", "removal effect or exact prior-image absence is unproven"
-        verify_bound_promotion_evidence(
-            candidate, compilation, suite, build, verification, promotion, e2e=e2e, full_gate=full_gate
-        )
+        verify_promotion()
         if _freeze(root) != frozen:
             raise ReleaseContractError("release-image-retirement-stale", "selected N+1 or public Skill changed during retirement observation")
         if condition is not None and _retention_settings(root, candidate, prior_image) != (condition, required_images, required):
@@ -1013,5 +2082,7 @@ def retire_prior_image(candidate: ValidatedCandidate, compilation: SealedCandida
 
 
 __all__ = ["DockerCommandResult", "DockerExecutor", "DockerSubprocessExecutor", "ImageBuildEvidence",
-           "ImageVerificationEvidence", "ImageRetirementEvidence", "build_candidate_image", "verify_candidate_image", "verify_bound_image_evidence",
-           "read_image_execution_artifacts", "retire_prior_image"]
+           "PortableImageBuildEvidence", "ImageVerificationEvidence", "PortableImageVerificationEvidence",
+           "ImageRetirementEvidence", "build_candidate_image", "verify_candidate_image", "verify_bound_image_evidence",
+           "SupersededImageCleanupEvidence", "read_image_execution_artifacts", "read_detached_image_execution_artifacts",
+           "retire_prior_image", "cleanup_superseded_release_images"]

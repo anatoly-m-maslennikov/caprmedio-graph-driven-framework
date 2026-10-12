@@ -52,6 +52,22 @@ def _derive(project_root: Path) -> tuple[dict[str, Any], dict[str, Any]]:
     return route, admission
 
 
+def _derive_public(project_root: Path) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Use D613's closed current source derivation only."""
+    from selected_routes import _derive_current_public_release_graph_admission
+    try:
+        value = _derive_current_public_release_graph_admission(project_root)
+    except (ImportError, OSError, ValueError, TypeError, SelectedRouteError) as error:
+        raise ReleaseManifestPublishError(f"public Release graph admission is not current: {error}") from error
+    if (not isinstance(value, tuple) or len(value) != 2
+            or not isinstance(value[0], Mapping) or not isinstance(value[1], Mapping)):
+        raise ReleaseManifestPublishError("public Release graph admission returned an invalid contract")
+    route, admission = (copy.deepcopy(dict(item)) for item in value)
+    if route.get("route") != "public.release" or admission.get("route") != "public.release":
+        raise ReleaseManifestPublishError("accepted public Release graph admission is not public.release")
+    return route, admission
+
+
 def _candidate(project_root: Path) -> tuple[dict[str, Any], dict[str, Any], bytes, Path]:
     """Validate current15, then construct—not publish—its exact successor."""
     try:
@@ -144,33 +160,86 @@ def _refresh_candidate(
     if not isinstance(current, Mapping):
         raise ReleaseManifestPublishError("refresh input manifest returned an invalid contract")
     current = copy.deepcopy(dict(current))
-    expected_names = [*SELECTED_ROUTE_NAMES, "release_version"]
+    expected_sixteen = [*SELECTED_ROUTE_NAMES, "release_version"]
+    expected_seventeen = [*expected_sixteen, "public.release"]
     routes = current.get("routes")
+    route_names = [row.get("route") for row in routes if isinstance(row, Mapping)] if isinstance(routes, list) else []
     if (not isinstance(routes, list)
-            or [row.get("route") for row in routes if isinstance(row, Mapping)] != expected_names
-            or len(routes) != len(expected_names)):
-        raise ReleaseManifestPublishError("refresh requires the exact admitted sixteen-route manifest")
+            or route_names not in (expected_sixteen, expected_seventeen)
+            or len(routes) not in {len(expected_sixteen), len(expected_seventeen)}):
+        raise ReleaseManifestPublishError("refresh requires the exact admitted sixteen- or seventeen-route manifest")
+    has_public = len(routes) == len(expected_seventeen)
     admissions = current.get("release_source_admissions")
     if not isinstance(admissions, list) or len(admissions) != 1 or not isinstance(admissions[0], Mapping):
         raise ReleaseManifestPublishError("refresh requires exactly one existing Release admission")
-    release_route = routes[-1]
+    release_route = routes[len(SELECTED_ROUTE_NAMES)]
     old_admission = admissions[0]
     route, admission = _derive(project_root)
-    if release_route != route:
-        raise ReleaseManifestPublishError("refresh cannot replace the current Release route")
+    # D572 rederives the complete route with the same pin-bearing Workflow,
+    # Step and Action carriers as its admission.  A stale pin may advance only
+    # its Version and digest; route identity, occurrence order, parsed graph
+    # and typed metadata remain closed.
+    if not _refresh_admission_structure_matches(release_route, route):
+        raise ReleaseManifestPublishError("refresh Release route identities or structure differ from current D572")
     if not _refresh_admission_structure_matches(old_admission, admission):
         raise ReleaseManifestPublishError("refresh Release admission identities or structure differ from current D572")
-    if require_drift and old_admission == admission:
+    public_route: dict[str, Any] | None = None
+    public_admission: dict[str, Any] | None = None
+    old_public_admission: Any = None
+    if has_public:
+        public_admissions = current.get("public_release_source_admissions")
+        if (not isinstance(public_admissions, list) or len(public_admissions) != 1
+                or not isinstance(public_admissions[0], Mapping)):
+            raise ReleaseManifestPublishError("refresh requires exactly one existing public Release admission")
+        old_public_admission = public_admissions[0]
+        public_route, public_admission = _derive_public(project_root)
+        if not _refresh_admission_structure_matches(routes[-1], public_route):
+            raise ReleaseManifestPublishError("refresh public Release route identities or structure differ from current D613")
+        if not _refresh_admission_structure_matches(old_public_admission, public_admission):
+            raise ReleaseManifestPublishError("refresh public Release admission identities or structure differ from current D613")
+    if require_drift and old_admission == admission and old_public_admission == public_admission:
         raise ReleaseManifestPublishError("refresh requires stale Release admission input")
     candidate = copy.deepcopy(current)
     candidate.pop("manifest_ref", None)
+    candidate["routes"][len(SELECTED_ROUTE_NAMES)] = copy.deepcopy(route)
     candidate["release_source_admissions"] = [copy.deepcopy(admission)]
+    if has_public:
+        assert public_route is not None and public_admission is not None
+        candidate["routes"][-1] = copy.deepcopy(public_route)
+        candidate["public_release_source_admissions"] = [copy.deepcopy(public_admission)]
     candidate["source_freshness"]["selected_binding_digest"] = canonical_digest(candidate["routes"])
     candidate.pop("canonical_manifest_sha256", None)
     candidate["canonical_manifest_sha256"] = canonical_digest(candidate)
     path = project_root / selected_manifest_ref(project_root)
     payload = (canonical_json(candidate) + "\n").encode("utf-8")
     return current, candidate, payload, path, admission
+
+
+def _registered_source_refresh_plan_metadata(
+    project_root: Path, current: Mapping[str, Any], candidate: Mapping[str, Any], payload: bytes, path: Path,
+) -> dict[str, Any]:
+    """Expose registered schema-4/5 provenance for its exact sealed successor.
+
+    This deliberately reopens the private reader instead of accepting a caller
+    marker or inferring provenance from a seventeen-route shape. Normal D572
+    refresh plans retain their existing plan contract.
+    """
+    try:
+        from selected_source_refresh import derive_registered_source_refresh, registered_source_refresh
+
+        registration = registered_source_refresh(project_root)
+        if registration["schema_version"] not in {4, 5}:
+            return {}
+        source_current, source_candidate, source_payload, source_path = derive_registered_source_refresh(project_root)
+    except (ImportError, OSError, TypeError, ValueError, RuntimeError):
+        return {}
+    if (source_current != current or source_candidate != candidate
+            or source_payload != payload or source_path != path):
+        return {}
+    return {
+        "source_refresh_schema_version": registration["schema_version"],
+        "source_refresh_registration_id": registration["registration_id"],
+    }
 
 
 def _refresh_parts(
@@ -192,6 +261,7 @@ def _refresh_parts(
         "added_admission_route": "release_version",
         "candidate_byte_count": len(payload),
     }
+    plan.update(_registered_source_refresh_plan_metadata(project_root, current, candidate, payload, path))
     return plan, observed, current, payload, path, admission, candidate
 
 
@@ -379,10 +449,11 @@ def refresh_release_manifest(
         return {"mode": "execute", "published": True, "disposition": "readback_required",
                 "pending_event_id": pending_event_id, "readback_requirement": str(error), **plan}
     names = [row["route"] for row in loaded["routes"]]
-    if names != [*SELECTED_ROUTE_NAMES, "release_version"]:
+    expected_names = [row["route"] for row in candidate["routes"]]
+    if names != expected_names:
         return {"mode": "execute", "published": True, "disposition": "readback_required",
                 "pending_event_id": pending_event_id,
-                "readback_requirement": "refreshed manifest does not retain the exact sixteen-route projection", **plan}
+                "readback_requirement": "refreshed manifest does not retain the exact guarded route projection", **plan}
     try:
         validate_refresh_context(context, root, sealed_plan, manifest_state="candidate")
     except (TypeError, ValueError) as error:

@@ -9,6 +9,7 @@ import tomllib
 from typing import Any
 
 from FIND_AND_FETCH_ARTIFACTS.find_and_fetch_artifacts import _load_frontmatter
+from project_selection import bound_selection
 
 _DEFAULT_CONTROL_ROOT = Path(".caprmedio_caprmedio")
 _SOURCE_TAIL = Path(
@@ -31,6 +32,9 @@ class StatusModelError(ValueError):
 
 def _configured_control_root(root: Path) -> Path:
     """Resolve the one Project-declared control root without following links."""
+    selection = bound_selection(root)
+    if selection is not None:
+        return selection.control_root
     settings_paths = sorted(
         path for path in root.glob(".caprmedio_*/caprmedio_project_settings.toml")
         if path.is_file() and not path.is_symlink() and not path.parent.is_symlink()
@@ -70,14 +74,15 @@ def _methodology_source_root(root: Path) -> Path:
     if structure_path.is_symlink() or not structure_path.is_file():
         raise StatusModelError("source-invalid", "Project Structure authority is unavailable")
     try:
-        structure = tomllib.loads(structure_path.read_text(encoding="utf-8"))
+        selection = bound_selection(root)
+        structure = selection.structure if selection is not None else tomllib.loads(structure_path.read_text(encoding="utf-8"))
     except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
         raise StatusModelError("source-invalid", "Project Structure authority is invalid") from error
     scope_units = structure.get("scope_units")
     matches = [
         row for row in scope_units if isinstance(row, Mapping)
         and row.get("scope_unit_name") == "METHODOLOGY_SOURCES"
-    ] if isinstance(scope_units, list) else []
+    ] if isinstance(scope_units, (list, tuple)) else []
     if not matches:
         return control / _SOURCE_TAIL
     if len(matches) != 1 or not isinstance(matches[0].get("authority_path"), str):

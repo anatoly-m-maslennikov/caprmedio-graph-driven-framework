@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
+import hashlib
+import importlib
 from pathlib import Path
 import shutil
 import sys
@@ -17,7 +19,6 @@ for location in (MCP, MCP / "tests", APP_TESTS):
     if str(location) not in sys.path:
         sys.path.insert(0, str(location))
 
-import test_release_source_admission as source_goldens  # noqa: E402
 from release_manifest_authorization import (  # noqa: E402
     PublicationAuthorizationContext, authorize_operator_publication, authorize_operator_publication_recovery,
 )
@@ -27,10 +28,10 @@ from release_manifest_publisher import (  # noqa: E402
     recover_release_manifest_publish,
 )
 from release_source_admission import derive_release_graph_admission  # noqa: E402
+import release_source_admission  # noqa: E402
 from selected_routes import (  # noqa: E402
     SELECTED_ROUTE_NAMES, SelectedRouteError, load_selected_manifest, register_selected_routes, selected_manifest_ref,
 )
-from selected_workflows_docker_fixture import GoldenCase, GoldenProject  # noqa: E402
 import work_journal  # noqa: E402
 
 
@@ -53,17 +54,23 @@ class _Annotations:
 class ReleaseManifestPublisherTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
+        source_goldens = importlib.import_module("test_release_source_admission")
+        authority = REPOSITORY / source_goldens.AUTHORITY_REF
+        if source_goldens.AUTHORITY_REF != release_source_admission.AUTHORITY_PIN["source_path"]:
+            raise AssertionError("publisher fixture authority path differs from the production D572 pin")
+        if hashlib.sha256(authority.read_bytes()).hexdigest() != release_source_admission.AUTHORITY_PIN["digest"]:
+            raise AssertionError("publisher fixture authority bytes differ from the production D572 pin")
         source_goldens.ReleaseSourceAdmissionTest.setUpClass()
 
     def setUp(self) -> None:
         self.root, self.path, self.before, self.original = self._fresh_project()
 
     def _fresh_project(self) -> tuple[Path, Path, bytes, dict]:
-        self.fixture = source_goldens.ReleaseSourceAdmissionTest()
+        fixture_type = importlib.import_module("test_release_manifest_admission").ReleaseManifestAdmissionTest
+        self.fixture = fixture_type()
         self.fixture.setUp()
         self.addCleanup(self.fixture.doCleanups)
         root = self.fixture.root
-        GoldenProject(REPOSITORY, root, GoldenCase("W04", "change_atom_status"))._copy_reviewed_manifest()
         for relative in (
             Path(".caprmedio_caprmedio/operators_registry.toml"),
             Path(".caprmedio_caprmedio/caprmedio_project_settings.toml"),

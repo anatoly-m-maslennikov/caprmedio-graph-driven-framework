@@ -50,7 +50,7 @@ class ReleaseInventoryTests(unittest.TestCase):
         self.fixture.copy_source()
         self.assertEqual(
             tree_sha256(self.fixture.root, CANONICAL_SOURCE_RELATIVE),
-            tree_sha256(self.fixture.root, "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources"),
+            tree_sha256(self.fixture.root, self.fixture.layout.source_copy_root),
         )
         handoff = render_release_candidate(cached, _cached_preflight)
         materialized = self.fixture.root / handoff.child_materialization_root
@@ -61,10 +61,10 @@ class ReleaseInventoryTests(unittest.TestCase):
         result = stage_framework_package(self.fixture.root, handoff)
         released = self.fixture.root / result["release_root"]
         self.assertTrue(result["staged"])
-        self.assertFalse(any(".caprmedio_tmp" in row.source_path for row in handoff.package_rows))
-        self.assertFalse(any("__pycache__" in row.source_path for row in handoff.package_rows))
-        self.assertFalse(any(".pytest_cache" in row.source_path for row in handoff.package_rows))
-        self.assertFalse(any(".venv" in row.source_path for row in handoff.package_rows))
+        self.assertFalse(any(".caprmedio_tmp" in row.destination_path for row in handoff.package_rows))
+        self.assertFalse(any("__pycache__" in row.destination_path for row in handoff.package_rows))
+        self.assertFalse(any(".pytest_cache" in row.destination_path for row in handoff.package_rows))
+        self.assertFalse(any(".venv" in row.destination_path for row in handoff.package_rows))
         self.assertFalse(any(path.name == ".DS_Store" for path in released.rglob("*")))
 
     def test_unknown_persistent_resource_is_sealed_and_delivered(self) -> None:
@@ -84,7 +84,10 @@ class ReleaseInventoryTests(unittest.TestCase):
         self.assertEqual(delivered.stat().st_mode & 0o777, 0o600)
 
     def test_secret_shaped_names_refuse_before_any_byte_read(self) -> None:
-        sentinel_names = (".env", ".env.release-sentinel", "release-sentinel.env")
+        sentinel_names = (
+            ".env", ".env.release-sentinel", ".envrc", ".environment",
+            ".envrc/nested-carrier", "release-sentinel.env",
+        )
         with patch.object(Path, "read_bytes", side_effect=AssertionError("secret bytes must not be read")) as read_bytes:
             for sentinel in sentinel_names:
                 with self.subTest(sentinel=sentinel):

@@ -4,38 +4,46 @@ Exposes caller-coordinated **RMED Atoms Base Revise** through
 `rmed_atoms_base_revise`, plus discovery, context, status/results and notification helpers.
 `workflow_orchestrator` enqueues explicitly authorized independent Runs through
 a separately started DBOS worker and Codex CLI adapter.
-The selected-workflow first cut also admits Create Atom, Update Atom, Replace
-Atom, Change Status Atom, Implementation Workflow, and Build Applicable
-Methodology through the current source-bound route manifest.
+The selected-workflow first cut contains implementations for Create Atom, Update
+Atom, Replace Atom, Change Status Atom, Implementation Workflow, and Build
+Applicable Methodology. They are admitted only when the source-bound route
+manifest reopens with current pins.
 It uses the official [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk).
 
 ## Run
 
-From the repository root, using Python 3.14:
+For development from the repository source checkout, use only the project-local
+uv environment; no system Python or `.env` file is required. This stdio command
+does not activate a selected installed package:
 
 ```sh
-uv run --group rmed-workflow-mcp python 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py --project-root "$PWD"
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --group rmed-workflow-mcp python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py --project-root "$PWD"
 ```
 
 The default transport is local **stdio**; the MCP host owns that process lifetime.
 This does not register the server with Codex or any other host. The current
 file-lock implementation supports macOS and Linux. The server is bound to one
 Project root at startup, not a client-supplied root on each request. Project
-Settings must register the shared Journal. An explicitly started, authenticated
+Settings must register the shared Journal. An explicitly started, password-free
 localhost HTTP transport is available only through the isolated Docker runtime;
 it is documented in the [Docker runtime README](../203_APPS/WORKFLOW_ORCHESTRATOR/docker/README.md).
 
-For independent execution, also include `--group workflow-orchestrator` in the
-runtime invocation. Start the worker explicitly using its
+For independent execution, also include `--group workflow-orchestrator` before
+`python` in the runtime invocation. Start the worker explicitly using its
 [README](../203_APPS/WORKFLOW_ORCHESTRATOR/README.md). The worker's lifetime is
 independent of this stdio adapter. The MCP does not start it implicitly.
 
 ## Selected-workflow first cut
 
-The six retained Workflow routes are Create Atom, Update Atom, Replace Atom,
-Change Status Atom, Implementation Workflow, and Build Applicable Methodology.
-Admission remains source-pinned and currentness-checked; it requires the existing
-identity, permission, status-model, and shared-Journal evidence boundaries.
+The six retained Workflow route implementations are Create Atom, Update Atom,
+Replace Atom, Change Status Atom, Implementation Workflow, and Build Applicable
+Methodology. Admission remains source-pinned and currentness-checked: a route is
+not discoverable or executable unless its selected manifest reopens with the
+existing identity, permission, status-model, and shared-Journal evidence
+boundaries.
 Public status is derived from the matching recorded Workflow terminal run, not
 from scheduler completion or a nested Action result. W09 Implementation Workflow
 coverage uses a golden mock Agent and does not establish a live-LLM result.
@@ -43,6 +51,29 @@ coverage uses a golden mock Agent and does not establish a live-LLM result.
 Scope mutations, Revert, graph builders, standalone advanced Artifact/Journal
 queries, and formal Release/promotion remain outside this first cut. A transport,
 manifest route, or completed scheduler call is not execution authority.
+
+## Conditional release-preparation Actions
+
+The implementation also supports two separately admitted direct Actions:
+
+- `restore_framework_image` (CA-O-187): preview or explicitly execute restoration
+  of the exact retained Framework image; `record_terminal` retries result
+  recording only, without rebuilding or replaying the restoration.
+- `admit_package_sources` (CA-O-199): preview or explicitly execute source
+  admission for the exact retained Release boundary and current checkpoint.
+
+Each Tool is registered only when the Project's current Service catalog contains
+its exact source-bound executable binding. Source definitions alone do not expose
+either Tool. Use discovery and the advertised input schema; execution validates
+the current registered Operator and the exact retained command and records the
+Action in the shared Journal. Neither Action starts or promotes a Release.
+
+An older installed gateway may not advertise these bindings. Hot reload reads
+the gateway's own installed code tree, not an unrelated development checkout;
+an unchanged generation does not establish that new checkout code was activated.
+The native package must be admitted and installed before its activation path can
+expose the new bindings. Do not substitute a raw restoration or admission script
+for an unavailable binding.
 
 ## Hot reload
 
@@ -132,7 +163,9 @@ while an admitted fix is in progress.
 ## Tests
 
 ```sh
-uv run --group rmed-workflow-mcp python -m unittest discover -s 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --group rmed-workflow-mcp python -m unittest discover -s 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests
 ```
 
 The test client uses the real stdio MCP protocol and a temporary mock Project.

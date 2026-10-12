@@ -1,0 +1,2218 @@
+{
+  "source_task": "CA-P-1948",
+  "batch": 7,
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "input_file_sha256": "a1f16b5bf13870719fb77ea3d627f158e5bf41b7bc2e30ccdb9982e5128132db",
+  "partition_sha256": "dd3dd2e6ed89877d2d66e2ebdc6af418b3e2e3a9df1b5c76c75184d495312a7f",
+  "non_authoritative": true,
+  "semantic_admission": "not_performed",
+  "source_migration": "not_performed",
+  "evidence_catalogue": {
+    "CA-E-240-36": {
+      "evidence_ref": "CA-E-240-36",
+      "atom_id": "CA-E-240",
+      "atom_revision": 30,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+      "carrier_sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498",
+      "start_line": 36,
+      "end_line": 40,
+      "quote": "\n### Claim checked\n\n**every** Atom resolves its ownership, **`=1`** GOVERNS Relation, **and** **`=1`** Claim Target Scope Unit independently of **any** applicability restrictions **in** its Main Content.\n",
+      "text_sha256": "e612a494aed0e0fd04bb89aafb9b143123b8de469cb2d04c53203c1190ec6d93"
+    },
+    "CA-D-445-35": {
+      "evidence_ref": "CA-D-445-35",
+      "atom_id": "CA-D-445",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-445-CORE_META_MODEL-GENERAL--admit-explicit-scope-unit-carrier-bindings.md",
+      "carrier_sha256": "2e5463aa7889e20e6ef7bfe77eb2d596bc7cc41e740b6fa05e3e82ce19e2b253",
+      "start_line": 35,
+      "end_line": 37,
+      "quote": "\nan explicit Scope Unit authority **or** Implementation Folder binding **in** Project Structure **may** select a native directory layout instead of the default Scope Unit directory convention. the binding **must** remain unambiguous, inside authorized path boundaries, distinct from another unit's exact authority binding, **and** explicit about its owning unit. a selected native layout **must not** change declared parentage, Structural Level, Type, Local Order, **or** Name merely because its path has different nesting **or** numeric tokens. ordinary physical containment remains observable **without** becoming a second declaration of structural parentage.\n",
+      "text_sha256": "0280e928661e0f98cd9767518cc7a4eebfefa274c720e0891b99ccc8a4cc0441"
+    },
+    "CA-R-1655-35": {
+      "evidence_ref": "CA-R-1655-35",
+      "atom_id": "CA-R-1655",
+      "atom_revision": 25,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "carrier_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "start_line": 35,
+      "end_line": 44,
+      "quote": "\nCAPRMEDIO **must** resolve **every** Artifact's applicable classification from Applicable Methodology **and** Project Configuration, with structural context from authoritative Project Structure:\n\n- resolve Artifact Type under the applicable Type authority.\n- resolve Content Role **only** for an Atom; do **not** require a Journal **or** Projection **to** have an Atom Content Role.\n- resolve a semantic route **only** **where** the applicable authority defines that classification.\n- classify an unknown, disabled, stale, multiply mapped, **or** ambiguous value as an unresolved **or** failed classification, **not** as an accepted one.\n\na derived Scope Unit Graph **must not** replace Project Structure as structural authority. reporting a classification failure does **not** itself impose a universal mutation **or** execution prohibition; the applicable Authority Mode **and** admission rules govern that consequence.\n",
+      "text_sha256": "d4fdf3a2be9039f75d87ce7f3d6bec71f2a9050a89d13fc2e0aa3facc6593bca"
+    },
+    "CA-D-505-33": {
+      "evidence_ref": "CA-D-505-33",
+      "atom_id": "CA-D-505",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+      "carrier_sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+      "start_line": 33,
+      "end_line": 35,
+      "quote": "\nthe Carrier Property of an Entity **means** its binding **to** the Carrier that stores **or** represents it.\n",
+      "text_sha256": "dd50b77bab2da9b0aa99053ffa8a1c8f0e6844f513505a9dad67ed34a02e2358"
+    },
+    "CA-R-1382-27": {
+      "evidence_ref": "CA-R-1382-27",
+      "atom_id": "CA-R-1382",
+      "atom_revision": 9,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md",
+      "carrier_sha256": "c3e84e0a0b438d149ebefc0a645e0ac92f0d5dea5c764d39748b4c01af16500a",
+      "start_line": 27,
+      "end_line": 29,
+      "quote": "\n**every** Ordered Scope Unit **must** use Layer as its default Label.\n",
+      "text_sha256": "3d313139267fc5374cffdb8c15c60e06c85829ba7ab2ebc4bd52f3066bd5e73a"
+    },
+    "CA-D-442-40": {
+      "evidence_ref": "CA-D-442-40",
+      "atom_id": "CA-D-442",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL--encode-scope-unit-declaration-fields.md",
+      "carrier_sha256": "caa3df94215a7ae1e3e516c0bf94cae1295c79270f0f521e6f75a1eb51d70a2f",
+      "start_line": 40,
+      "end_line": 57,
+      "quote": "\n**every** `[[scope_units]]` table **must** use the following field signatures **and** field order for readable serialization. omission is permitted **only** **where** stated; an empty string **or** copied default **must not** substitute for omission.\n\n| Field | TOML value **and** responsibility |\n|---|---|\n| `scope_unit_name` | required nonempty canonical Scope Unit Name string |\n| `parent` | required string: `PROJECT` for the owning root, **otherwise** a declared Scope Unit Name **in** the same Project |\n| `scope_unit_type` | required string **in** (`Ordered`, `Unordered`) |\n| `scope_unit_label` | required nonempty canonical Label string, independent of Type |\n| `structural_level` | required integer equal **to** declared parent depth from Project level 0 |\n| `local_order` | required integer **only** for Ordered units; absent for Unordered units |\n| `navigational_order_number` | required nonnegative integer, independent of structural Local Order |\n| `authority_path` | required nonempty repository-relative directory path string |\n| `delivery_path` | required nonempty repository-relative Implementation Folder path string |\n| `authority_mode` | optional explicit string **in** (`strict`, `casual`); absence inherits Framework Instance Settings |\n\nboth path fields use forward slashes **and** resolve from the repository root, **not** the TOML directory; a trailing slash does **not** establish another binding. absolute paths, parent traversal, escaping symlinks **and** paths resolving **to** another Project's control root are invalid. a native Carrier binding under admitted Delivery authority **may** differ from ordinary physical nesting. `node_id`, `structural_parent`, `child_composition`, `project_boundary_position`, `authority_materialized`, **and** `numeric_prefix` are **not** authored row fields.\n",
+      "text_sha256": "87fbf59d50368f3d9977e7fda7e6c3fc954af85c4b14e229d500e6846c921751"
+    },
+    "CA-M-275-29": {
+      "evidence_ref": "CA-M-275-29",
+      "atom_id": "CA-M-275",
+      "atom_revision": 7,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-275-CORE_META_MODEL-METHOD--format-scope-unit-names.md",
+      "carrier_sha256": "8f594812eb0ff5144de3b84bca79ec243f40c4636ba10e1006fc7a784999e042",
+      "start_line": 29,
+      "end_line": 31,
+      "quote": "\n**to** write a Scope Unit Name, join nonempty uppercase letter-or-digit word tokens with single underscores.\n",
+      "text_sha256": "fd149e021e34ec185381c0dce5e1ffb015bf2fa6afd8f37de77b745441fda5cb"
+    },
+    "CA-R-983-27": {
+      "evidence_ref": "CA-R-983-27",
+      "atom_id": "CA-R-983",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+      "carrier_sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4",
+      "start_line": 27,
+      "end_line": 29,
+      "quote": "\nthe Operator **may** replace the default Navigational Order Number independently for **every** non-Project Scope Unit.\n",
+      "text_sha256": "32bfb005f573c7d10bb999aa16aecf17c6c441596f77d4eb6df098026e87aeef"
+    },
+    "CA-R-1014-33": {
+      "evidence_ref": "CA-R-1014-33",
+      "atom_id": "CA-R-1014",
+      "atom_revision": 18,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+      "carrier_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+      "start_line": 33,
+      "end_line": 35,
+      "quote": "\nan Atom Scope **must** include its current Scope Unit Scope **or** its Author's registered Operator fallback under CA-D-276-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim.\n",
+      "text_sha256": "8f32dce8568658fbd695d1ebc3ae4c681257f5594daedf5c931638d13ae3e8a5"
+    },
+    "CA-E-510-44": {
+      "evidence_ref": "CA-E-510-44",
+      "atom_id": "CA-E-510",
+      "atom_revision": 3,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+      "carrier_sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+      "start_line": 44,
+      "end_line": 46,
+      "quote": "\nthe Evaluation accepts a navigation-migration result **only** **if** it conforms **to** CA-O-078 **and** the identified Project Structure authority, preserves declared values **unless** an authorized change selects replacements, **and** distinguishes a ready candidate from unresolved **or** failed preparation.\n",
+      "text_sha256": "b3cae03a92d224c8cd0ab160a6e95d42c66bfe8b2fe3e57146a98faaf0adb0e6"
+    },
+    "CA-R-1758-28": {
+      "evidence_ref": "CA-R-1758-28",
+      "atom_id": "CA-R-1758",
+      "atom_revision": 20,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md",
+      "carrier_sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b",
+      "start_line": 28,
+      "end_line": 30,
+      "quote": "\n**every** Scope Unit **must** have **`=1`** Type value **in** (Ordered, Unordered).\n",
+      "text_sha256": "6ff841e1667c4b8b3da27e922f552fb77e5b68458bb74e3806f5a9bd18d37176"
+    },
+    "CA-R-1760-27": {
+      "evidence_ref": "CA-R-1760-27",
+      "atom_id": "CA-R-1760",
+      "atom_revision": 20,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md",
+      "carrier_sha256": "24fadc44278ab8a451f9f380b16ad0585e64a7aff5bd6ca61726dcdf61b20094",
+      "start_line": 27,
+      "end_line": 29,
+      "quote": "\nthe Scope Unit Type value Ordered **means** the value whose bearer participates **in** **`=1`** Local Order among sibling Scope Units.\n",
+      "text_sha256": "3cc2396661cb330f185702877f49808cc0e875708beb71b11b07bd5f0a7e3d96"
+    },
+    "CA-R-1761-26": {
+      "evidence_ref": "CA-R-1761-26",
+      "atom_id": "CA-R-1761",
+      "atom_revision": 20,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md",
+      "carrier_sha256": "6a6ce6060d358af61ecbca6bafb510ab7a6d9bc97585ec5cb31a6008e97964d0",
+      "start_line": 26,
+      "end_line": 28,
+      "quote": "\nthe Scope Unit Type value Unordered **means** the value whose bearer does **not** participate **in** a Local Order among sibling Scope Units.\n",
+      "text_sha256": "40d0ad33bf02450674cdfa4d3344939e725b904de5ae3dde44cd8a7ff80fd5d4"
+    },
+    "CA-O-125-24": {
+      "evidence_ref": "CA-O-125-24",
+      "atom_id": "CA-O-125",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-125-CORE_META_MODEL-ACTION--assess-scoped-operator-choice-applicability.md",
+      "carrier_sha256": "384d40a5248d902591563bd494cb92c492d4bbf3ae586523a201b8bb704337ff",
+      "start_line": 24,
+      "end_line": 45,
+      "quote": "\nScoped Operator-choice Applicability Assessment **means** the optional read-only Action that matches supplied literal Operator input to its supported antecedent and returns its prospective choice boundaries and the still-independent choices within a caller-declared packet. An Operator or an AI Agent acting within existing permission may perform the assessment; invoking it does **not** grant permission for any selected effect.\n\n### Inputs\n\n- literal Operator input or annotation with actual provenance, its applicable target and prospective scope; distinguish it from assistant reports, copied wrappers and inferred approval.\n- exact question, proposal and alternative versions, including later explicit corrections and the current relevant source state.\n- the caller-bounded independent-choice list and its declared completeness, existing settled decisions and delegation, and current applicable Goal, Project Principles, authority and effective confidence requirements. Unknown antecedent or list completeness remains unknown.\n\n### Assessment\n\n1. Check existing settled decisions and complete applicable delegation before identifying a missing Operator choice. Do **not** manufacture a redundant question when existing authority already settles the allowed action; its execution owner still validates the complete bounds.\n2. Match the literal input only to an evidence-supported antecedent and alternative. A short answer to one question does **not** settle another independent question. Preserve the actual answer and references rather than substituting an assistant's interpretation for human provenance.\n3. Check applicability against the exact proposal, target, scope and current source/context frontier. Preserve later explicit corrections and their prospective bounds. Added benchmark, implementation or other effects are **not** covered by a research-only answer; a changed proposal or frontier does **not** inherit renewed approval. Distinguish the choice, permission, planned effect, actual effect and evidence for each.\n4. Return the supported match and its exact applicable boundaries with evidence references, or identify missing, ambiguous, mismatched, superseded or changed applicability and the precise unresolved point. Return the still-independent unanswered choices within the declared list; do **not** claim that all Project choices are known. If required input is unavailable or a check fails, return that limitation and any partial assessment without claiming a complete result.\n\n### Outcome and handoff\n\nThe result is an evidence-bound assessment, **not** approval or execution readiness. It identifies the assessed input and antecedent versions, applicable choice/bounds, corrections or currentness limitations, unresolved points and remaining independent choices. Required authoritative decision records are referenced, **not** copied. If the calling domain requires a record or prerequisite that is absent, return the absence; do **not** fabricate it or impose Journal recording on every generic question.\n\nAn unresolved result **may** supply one consequential question for the caller, with the relevant Concern, affected Atom, Goal, proposal/alternatives and evidence needed to understand the choice. This Action does **not** ask repeatedly, run a question loop or force another approval. The caller retains invocation, communication, persistence, permission and readiness gates.\n",
+      "text_sha256": "7b42a44834b7f10a6487e20745dea1c836ae87d02e3ceea4d841f4ed36653928"
+    },
+    "CA-O-065-26": {
+      "evidence_ref": "CA-O-065-26",
+      "atom_id": "CA-O-065",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-065-CORE_META_MODEL-ACTION--screen-short-names-for-unintended-readings.md",
+      "carrier_sha256": "3629a7a79d844cca473130fcf02d15b8597d2ef3c5f4c1eb503d381ea109f084",
+      "start_line": 26,
+      "end_line": 34,
+      "quote": "\nScreen Short Names **means** the Action that screens a proposed short name, abbreviation, **or** prefix **before** admission:\n\n- inspect the candidate's case-insensitive tokens **and** joined form for unintended obscene, insulting, deceptive, **or** distracting readings **in** the Operator's languages.\n- **if** such a reading is found, **then** present a concise warning that explains it **and** offers readable alternatives preserving the canonical meaning, preferring the shortest suitable alternative.\n- do **not** automatically reject the candidate on that basis; allow the Operator **to** accept the warned name explicitly.\n\nthis Action defines screening behavior; it does **not** record a particular execution **or** automatically change a registered name.\n",
+      "text_sha256": "7493cab1d7ce0154be662ef23cfe94fe9f443a285b3c6b56c5e090716b5b5f63"
+    },
+    "CA-R-1554-30": {
+      "evidence_ref": "CA-R-1554-30",
+      "atom_id": "CA-R-1554",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+      "carrier_sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd",
+      "start_line": 30,
+      "end_line": 38,
+      "quote": "\nan AI Agent that performs a Scripted Migration **must** satisfy **all** of these participation conditions:\n\n- bind the migration **to** an exact governed Target Set;\n- fail **when** an expected target is absent;\n- produce a reviewable change set.\n\nthese conditions constrain the AI Agent's participation; they do **not** define the migration's Steps **or** Workflow control flow **or** grant additional mutation authority.\n",
+      "text_sha256": "51bbf73317bf5e7bb6c608d82c814808419a29fba3eb942d7972834fadef08c5"
+    },
+    "CA-O-023-33": {
+      "evidence_ref": "CA-O-023-33",
+      "atom_id": "CA-O-023",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+      "carrier_sha256": "0e5d328151a63a0fffa4d247f7149924460323bcf670a58c6de8629f7d92b403",
+      "start_line": 33,
+      "end_line": 38,
+      "quote": "\n1. obtain the effective priorities resolved under CA-O-022 for the affected context. unresolved priorities do **not** authorize selection.\n2. reject **every** candidate that violates applicable authority **or** a non-negotiable constraint.\n3. apply the selected model **to** the remaining alternatives using the available evidence. use CA-M-297 **only** for Operator-selected comparison by priority order; use the selected technique for another model.\n4. return a selected alternative **only** **when** that model justifies the choice. retain the constraints, criterion evidence, **and** comparison result that justify it.\n",
+      "text_sha256": "d8bb7f83a771f9dc11da22b601ecbf9c72505a5e8127add41a343edaf3597f41"
+    },
+    "CA-O-105-30": {
+      "evidence_ref": "CA-O-105-30",
+      "atom_id": "CA-O-105",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-105-CORE_META_MODEL-ACTION--select-a-bounded-rmed-review-batch.md",
+      "carrier_sha256": "d2b70d597eea1c6a143f84bf78dd415472f52a9f3f39eb22b701015511357b4f",
+      "start_line": 30,
+      "end_line": 37,
+      "quote": "\nSelect RMED Review Batch **means** the read-only Action that resolves a requested selection into a bounded, reproducible local-review queue.\n\n1. resolve the requested Scope Unit locally **or** with descendants, Global **or** Local Tiers, **or** explicit Carrier list from carried Properties **and** authoritative selection data; select active RMED source Atoms.\n2. gather the relevant `atom_local` rules once: CCE, local Property encoding **and** domains, body structure, **and** Scope/Claim/Details/Summary coherence. supply their actual content **and** the vocabulary needed for case checks.\n3. record the original selection **in** the CA-D-496 progress list, ordered by Atom ID, Revision, **then** path. retain malformed **or** missing identifiers as inspectable candidates sorted by path.\n4. return the full selected queue **and** shared rules **to** the caller: `ready`, `empty` for a genuinely empty selection, **or** `blocked` for unresolved selection.\n",
+      "text_sha256": "ff47062a9c6a18d301611f82f20fdad72bf7eb30b7bf5d500fff649c28e778bd"
+    },
+    "CA-O-004-27": {
+      "evidence_ref": "CA-O-004-27",
+      "atom_id": "CA-O-004",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-004-CORE_META_MODEL-ACTION--select-reconciliation-sources.md",
+      "carrier_sha256": "c707d01c61cd00b811260a1e144b811b61f9f42778eddbc5368263aeb4723f4d",
+      "start_line": 27,
+      "end_line": 29,
+      "quote": "\nSelect Reconciliation Sources **means** the reusable Action that resolves the complete source selection required by applicable governing authority **and** returns the exact selected source identities **and** Revisions as one source frontier. it **must** preserve source-selection constraints, include **every** eligible source, **and** retain unresolved selection ambiguity as a reported failure rather than silently choosing **or** discarding a source. selection does **not** change source authority **or** publish a Projection.\n",
+      "text_sha256": "f6fc2346889a623d58e191e5b659246f10fb17e14e9975b182c026bbc130dc3e"
+    },
+    "CA-R-1650-27": {
+      "evidence_ref": "CA-R-1650-27",
+      "atom_id": "CA-R-1650",
+      "atom_revision": 19,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-GENERAL-REQUIREMENT--define-the-bounded-session-state-envelope.md",
+      "carrier_sha256": "600a62b7febd9ee2e57e8366747a1e03d6df6047e4d7627eef4583b7182c0795",
+      "start_line": 27,
+      "end_line": 29,
+      "quote": "\nthe bounded session-state envelope **must** contain **only** routing invariants, current scope, applicable settings, compact session state, **and** references needed **to** load active authority on demand.\n",
+      "text_sha256": "4ae8549e722baa77e1f8b3101164aaeaacfd8fe9592d0d52393343988bc9cad6"
+    },
+    "CA-E-240@30:39-39:a89fffadfab566a48ba2eac604a6c94e55662b01744acf6ad7a5e5a7c411cc69": {
+      "evidence_ref": "CA-E-240@30:39-39:a89fffadfab566a48ba2eac604a6c94e55662b01744acf6ad7a5e5a7c411cc69",
+      "atom_id": "CA-E-240",
+      "atom_revision": 30,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+      "carrier_sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498",
+      "start_line": 39,
+      "end_line": 39,
+      "quote": "**every** Atom resolves its ownership, **`=1`** GOVERNS Relation, **and** **`=1`** Claim Target Scope Unit independently of **any** applicability restrictions **in** its Main Content.",
+      "text_sha256": "a89fffadfab566a48ba2eac604a6c94e55662b01744acf6ad7a5e5a7c411cc69"
+    },
+    "CA-E-240@30:45-55:5f158da683ea4a65fdcfaf966dd8324c0dbe71bf9b84661b5488f6694491d93a": {
+      "evidence_ref": "CA-E-240@30:45-55:5f158da683ea4a65fdcfaf966dd8324c0dbe71bf9b84661b5488f6694491d93a",
+      "atom_id": "CA-E-240",
+      "atom_revision": 30,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-QA_CASE--validate-atom-scope-and-claim-scope.md",
+      "carrier_sha256": "861e6591dc33e2ab0a687609748251cd15767fc853defa0fce98fe4e78235498",
+      "start_line": 45,
+      "end_line": 55,
+      "quote": "create a Current-scope Atom with its own Scope Unit carried as the target; repeat with a narrower restriction **and** a composite restriction **in** its Scope section for RMED **or** the registered primary content for other roles. create a parent-owned Goal for a declared direct child, an external Project Goal with its Author's registered Operator name **and** an explicit Project target, **and** a permitted Demand. include a Plan **in** a nested Hub whose carried target is its owning Scope Unit.\n\n**then** omit a required target, provide two target values, supply a Hub **or** another non-Scope-Unit target, leave a reference unresolved, infer a different target merely from textual restrictions, change ownership from the target, make the referenced Scope Unit bearer-dependent, reorder Subject declarations, **or** use a forbidden Goal **or** Demand target.\n\n### Acceptance criteria\n\n**every** valid fixture retains its ownership, resolves **`=1`** canonical GOVERNS target **and** **`=1`** Claim Target Scope Unit, **and** preserves its applicability restrictions **in** the body sections registered by CA-D-495-CORE_META_MODEL-CORE-DELIVERY--carry-applicability-in-the-registered-body-sections. a Current-scope target is selected from the owning Scope Unit during authoring **and** carried explicitly; an external Goal requires its explicit Project target. narrower **or** composite Claim Scope alone does **not** make an Atom Relational. a different permitted target does **not** transfer ownership **or** create Scope Unit ancestry. Subject ordering **and** Hub nesting do **not** change these facts. **every** invalid fixture fails with the exact affected fact identified.\n\n### Failure disposition\n\nreport the invalid Atom **and** ownership, target, textual restriction, **or** Subject fact; do **not** repair unresolved references by guessing.",
+      "text_sha256": "5f158da683ea4a65fdcfaf966dd8324c0dbe71bf9b84661b5488f6694491d93a"
+    },
+    "CA-R-1757@17:29-29:70ee1c6b935426e19fc94dd08e484bf4a6738cd6457601619db97e85e627eafc": {
+      "evidence_ref": "CA-R-1757@17:29-29:70ee1c6b935426e19fc94dd08e484bf4a6738cd6457601619db97e85e627eafc",
+      "atom_id": "CA-R-1757",
+      "atom_revision": 17,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+      "carrier_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+      "start_line": 29,
+      "end_line": 29,
+      "quote": "a Scope Unit **means** a Structural Entity that provides an ownership boundary for Atoms **and** **may** contain child Scope Units.",
+      "text_sha256": "70ee1c6b935426e19fc94dd08e484bf4a6738cd6457601619db97e85e627eafc"
+    },
+    "CA-R-1484@5:32-32:3903a6ebf9f8cb3084554f4e9284f1ed421eab1c1137040569199de3cbb6e5a3": {
+      "evidence_ref": "CA-R-1484@5:32-32:3903a6ebf9f8cb3084554f4e9284f1ed421eab1c1137040569199de3cbb6e5a3",
+      "atom_id": "CA-R-1484",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1484-CORE_META_MODEL-GENERAL-REQUIREMENT--establish-scope-units-through-project-structure-declarations.md",
+      "carrier_sha256": "968be06ce2fd2645b1071b6125492cef58ee789f15e96d44c15991c685e279c5",
+      "start_line": 32,
+      "end_line": 32,
+      "quote": "**every** non-Project Scope Unit **must** have **`=1`** declaration **in** its owning Project Structure that supplies its unique Name, direct parent, Type, Label, applicable Local Order, navigation number, **and** authority/Implementation Folder bindings. the declaration establishes the unit independently of Goal coverage **and** Carrier materialization; these remain separately evaluated conditions. Project Settings establishes the root identity, **and** Project Structure **must not** redeclare it as a child. Name/Order Atoms **and** concrete binding Atoms **must not** coexist as independent authorities for the same declared values.",
+      "text_sha256": "3903a6ebf9f8cb3084554f4e9284f1ed421eab1c1137040569199de3cbb6e5a3"
+    },
+    "CA-D-445@5:36-36:468392488f13e0c69dd88eb2329d0e857bf04ada7a273bc50fa936bfcbe0ab05": {
+      "evidence_ref": "CA-D-445@5:36-36:468392488f13e0c69dd88eb2329d0e857bf04ada7a273bc50fa936bfcbe0ab05",
+      "atom_id": "CA-D-445",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-445-CORE_META_MODEL-GENERAL--admit-explicit-scope-unit-carrier-bindings.md",
+      "carrier_sha256": "2e5463aa7889e20e6ef7bfe77eb2d596bc7cc41e740b6fa05e3e82ce19e2b253",
+      "start_line": 36,
+      "end_line": 36,
+      "quote": "an explicit Scope Unit authority **or** Implementation Folder binding **in** Project Structure **may** select a native directory layout instead of the default Scope Unit directory convention. the binding **must** remain unambiguous, inside authorized path boundaries, distinct from another unit's exact authority binding, **and** explicit about its owning unit. a selected native layout **must not** change declared parentage, Structural Level, Type, Local Order, **or** Name merely because its path has different nesting **or** numeric tokens. ordinary physical containment remains observable **without** becoming a second declaration of structural parentage.",
+      "text_sha256": "468392488f13e0c69dd88eb2329d0e857bf04ada7a273bc50fa936bfcbe0ab05"
+    },
+    "CA-R-1655@25:43-43:1289e3656b7b48457e9cc7be6057569843b86d83ec7eb18c6010e8f32b03f9cc": {
+      "evidence_ref": "CA-R-1655@25:43-43:1289e3656b7b48457e9cc7be6057569843b86d83ec7eb18c6010e8f32b03f9cc",
+      "atom_id": "CA-R-1655",
+      "atom_revision": 25,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1655-CORE_META_MODEL-GENERAL-REQUIREMENT--resolve-artifact-classification-from-authority-and-configuration.md",
+      "carrier_sha256": "b7760e3c573ae634cdf1a68ae8dbd290cc7d54f66cb8d04fb2eab16fba6b4da1",
+      "start_line": 43,
+      "end_line": 43,
+      "quote": "a derived Scope Unit Graph **must not** replace Project Structure as structural authority. reporting a classification failure does **not** itself impose a universal mutation **or** execution prohibition; the applicable Authority Mode **and** admission rules govern that consequence.",
+      "text_sha256": "1289e3656b7b48457e9cc7be6057569843b86d83ec7eb18c6010e8f32b03f9cc"
+    },
+    "CA-D-505@1:34-40:b1ed496b1ba46aa1125105d2c1823b1b3245139ff55953c5611e2e9b8775cdc1": {
+      "evidence_ref": "CA-D-505@1:34-40:b1ed496b1ba46aa1125105d2c1823b1b3245139ff55953c5611e2e9b8775cdc1",
+      "atom_id": "CA-D-505",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-505-CORE_META_MODEL-CORE--define-the-entity-carrier-binding.md",
+      "carrier_sha256": "a8cea8b0ee7e5d0a1030c8871b110164eb6f7cc96425b7d1e2dcd935edef5ab3",
+      "start_line": 34,
+      "end_line": 40,
+      "quote": "the Carrier Property of an Entity **means** its binding **to** the Carrier that stores **or** represents it.\n\n## Details\n\n- write this Property as `(Entity)/Carrier`, using the actual Entity path, such as `Atom/Carrier` **or** `Scope Unit/Carrier`.\n- the binding follows IS_CARRIED_BY.\n- the Property refers **to** a Carrier; the referenced Carrier remains a Primary Entity.",
+      "text_sha256": "b1ed496b1ba46aa1125105d2c1823b1b3245139ff55953c5611e2e9b8775cdc1"
+    },
+    "CA-R-972@18:31-31:e60d6c2e350d8abd63949263a5bd73ebed255de554e2552d53f07d33f44bee75": {
+      "evidence_ref": "CA-R-972@18:31-31:e60d6c2e350d8abd63949263a5bd73ebed255de554e2552d53f07d33f44bee75",
+      "atom_id": "CA-R-972",
+      "atom_revision": 18,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+      "carrier_sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+      "start_line": 31,
+      "end_line": 31,
+      "quote": "`Scope Unit/Label` **means** the Label Property borne by a Scope Unit, using the shared Label definition under CA-R-1594; its Scope Unit-specific defaults **and** Operator override authority remain separately governed.",
+      "text_sha256": "e60d6c2e350d8abd63949263a5bd73ebed255de554e2552d53f07d33f44bee75"
+    },
+    "CA-R-1382@9:28-28:aa555399d09addab2b4b95c8479f0f78e3279d7fe63316873079dbee551a636d": {
+      "evidence_ref": "CA-R-1382@9:28-28:aa555399d09addab2b4b95c8479f0f78e3279d7fe63316873079dbee551a636d",
+      "atom_id": "CA-R-1382",
+      "atom_revision": 9,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md",
+      "carrier_sha256": "c3e84e0a0b438d149ebefc0a645e0ac92f0d5dea5c764d39748b4c01af16500a",
+      "start_line": 28,
+      "end_line": 28,
+      "quote": "**every** Ordered Scope Unit **must** use Layer as its default Label.",
+      "text_sha256": "aa555399d09addab2b4b95c8479f0f78e3279d7fe63316873079dbee551a636d"
+    },
+    "CA-R-980@15:30-30:6ddf4246dd0566a776139da7598a63ed4b32558f2b47d58984eec18c9e5d91fe": {
+      "evidence_ref": "CA-R-980@15:30-30:6ddf4246dd0566a776139da7598a63ed4b32558f2b47d58984eec18c9e5d91fe",
+      "atom_id": "CA-R-980",
+      "atom_revision": 15,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-980-CORE_META_MODEL-REQUIREMENT--default-unordered-scope-unit-label-to-feature.md",
+      "carrier_sha256": "7cf1579c1f5c3f87514fdd51239532b34ff39857919588bce64c8f7206600dce",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "**every** Unordered Scope Unit **must** use Feature as its default Label.",
+      "text_sha256": "6ddf4246dd0566a776139da7598a63ed4b32558f2b47d58984eec18c9e5d91fe"
+    },
+    "CA-R-982@15:31-31:e5e0511a1a85529e837ada1db1295c2c1c636bea462ea87273fc8049f533c31c": {
+      "evidence_ref": "CA-R-982@15:31-31:e5e0511a1a85529e837ada1db1295c2c1c636bea462ea87273fc8049f533c31c",
+      "atom_id": "CA-R-982",
+      "atom_revision": 15,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+      "carrier_sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+      "start_line": 31,
+      "end_line": 31,
+      "quote": "the Operator **may** replace the default Label independently for **every** Scope Unit **without** changing its Type.",
+      "text_sha256": "e5e0511a1a85529e837ada1db1295c2c1c636bea462ea87273fc8049f533c31c"
+    },
+    "CA-D-442@6:50-51:461c9200eaca077c1e9d03ee7ff746bbe4d8d96167b22baf8e2ce11727668578": {
+      "evidence_ref": "CA-D-442@6:50-51:461c9200eaca077c1e9d03ee7ff746bbe4d8d96167b22baf8e2ce11727668578",
+      "atom_id": "CA-D-442",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL--encode-scope-unit-declaration-fields.md",
+      "carrier_sha256": "caa3df94215a7ae1e3e516c0bf94cae1295c79270f0f521e6f75a1eb51d70a2f",
+      "start_line": 50,
+      "end_line": 51,
+      "quote": "| `local_order` | required integer **only** for Ordered units; absent for Unordered units |\n| `navigational_order_number` | required nonnegative integer, independent of structural Local Order |",
+      "text_sha256": "461c9200eaca077c1e9d03ee7ff746bbe4d8d96167b22baf8e2ce11727668578"
+    },
+    "CA-M-291@5:41-41:edd1aece727475cf0113435f7dd54063e08c53df01c642df40877b442ddd8819": {
+      "evidence_ref": "CA-M-291@5:41-41:edd1aece727475cf0113435f7dd54063e08c53df01c642df40877b442ddd8819",
+      "atom_id": "CA-M-291",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-291-CORE_META_MODEL-GENERAL--author-project-structure-without-competing-declarations.md",
+      "carrier_sha256": "cb32963b5b127d9679484cdc39b159949d1338f00536672d495409cd93e86584",
+      "start_line": 41,
+      "end_line": 41,
+      "quote": "**to** express Project Structure, use one declaration for **every** non-root Scope Unit, reference its parent by the reserved Project-root reference **or** the parent's unique Name, **and** keep structural Local Order distinct from Navigational Order Number. retain an explicit Label independently of Ordered/Unordered Type. retain readable Structural Level **and** authority path **only** with their checked derivation from declared parentage **and** applicable Carrier conventions; physical nesting **must not** silently replace logical parentage. use concrete Carrier bindings as declared values rather than repeating them **in** Goal, Requirement, **or** Delivery Atoms. write an Authority Mode override **only** **when** explicitly selected for that unit; an omitted override remains inherited rather than copied as an explicit value. references **and** observations **must** distinguish the declared unit from its existing Carrier **and** Goal coverage.",
+      "text_sha256": "edd1aece727475cf0113435f7dd54063e08c53df01c642df40877b442ddd8819"
+    },
+    "CA-R-962@14:28-28:df964767a111b643038c23b09db916388a20483d7ff7c5843be3e7488f49697b": {
+      "evidence_ref": "CA-R-962@14:28-28:df964767a111b643038c23b09db916388a20483d7ff7c5843be3e7488f49697b",
+      "atom_id": "CA-R-962",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-CORE-REQUIREMENT--give-every-scope-unit-one-name.md",
+      "carrier_sha256": "2c1fceec5acedbcb559e49119a2bd6ded3da5fa2eb5d75a466b2dfc3688fa6f0",
+      "start_line": 28,
+      "end_line": 28,
+      "quote": "**every** Scope Unit **must** have **`=1`** authoritative Name.",
+      "text_sha256": "df964767a111b643038c23b09db916388a20483d7ff7c5843be3e7488f49697b"
+    },
+    "CA-R-970@17:31-31:c0060a300290bb297da48824e09146953e420187fb5f5ca73a158bf2f3f981d6": {
+      "evidence_ref": "CA-R-970@17:31-31:c0060a300290bb297da48824e09146953e420187fb5f5ca73a158bf2f3f981d6",
+      "atom_id": "CA-R-970",
+      "atom_revision": 17,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-GENERAL-REQUIREMENT--make-scope-unit-names-unique-within-the-project.md",
+      "carrier_sha256": "8d3fe614f7f2ee4c205fb6590b23e2cb25a3049819cf1ff11787134b3d9b6135",
+      "start_line": 31,
+      "end_line": 31,
+      "quote": "**every** Scope Unit Name **must** be unique within its Project.",
+      "text_sha256": "c0060a300290bb297da48824e09146953e420187fb5f5ca73a158bf2f3f981d6"
+    },
+    "CA-M-275@7:30-30:b1c3dc0c21980a8a387ace794169cd4bad5149da35cb350be2454ac80a589ca2": {
+      "evidence_ref": "CA-M-275@7:30-30:b1c3dc0c21980a8a387ace794169cd4bad5149da35cb350be2454ac80a589ca2",
+      "atom_id": "CA-M-275",
+      "atom_revision": 7,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-275-CORE_META_MODEL-METHOD--format-scope-unit-names.md",
+      "carrier_sha256": "8f594812eb0ff5144de3b84bca79ec243f40c4636ba10e1006fc7a784999e042",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "**to** write a Scope Unit Name, join nonempty uppercase letter-or-digit word tokens with single underscores.",
+      "text_sha256": "b1c3dc0c21980a8a387ace794169cd4bad5149da35cb350be2454ac80a589ca2"
+    },
+    "CA-M-299@4:29-29:d4fb232935699ccda242eaee0583e5c8620d2fc61251959a36ce306a82beefb6": {
+      "evidence_ref": "CA-M-299@4:29-29:d4fb232935699ccda242eaee0583e5c8620d2fc61251959a36ce306a82beefb6",
+      "atom_id": "CA-M-299",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/05_method/CA-M-299-CORE_META_MODEL--distinguish-scope-unit-names-from-ordinary-english.md",
+      "carrier_sha256": "bd094829b8aaf2e5bc69ea104346c8c7578a46002c1746ae7b1f22f1263dd9ba",
+      "start_line": 29,
+      "end_line": 29,
+      "quote": "**to** distinguish a Scope Unit reference from ordinary English, use its exact uppercase Scope Unit Name **to** denote the Scope Unit. an **otherwise** identical lowercase word retains its ordinary English meaning.",
+      "text_sha256": "d4fb232935699ccda242eaee0583e5c8620d2fc61251959a36ce306a82beefb6"
+    },
+    "CA-R-971@15:30-30:d3e5f682c33e5ba79da1552943316aeed9b10270b38207c27df295a583c750ff": {
+      "evidence_ref": "CA-R-971@15:30-30:d3e5f682c33e5ba79da1552943316aeed9b10270b38207c27df295a583c750ff",
+      "atom_id": "CA-R-971",
+      "atom_revision": 15,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-971-CORE_META_MODEL-CORE-REQUIREMENT--keep-readable-scope-unit-name-renderings-nonauthoritative.md",
+      "carrier_sha256": "369fe868f538c2d16e46f13875cd62f5422637145d3fd46535b29f02d2c61bdb",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "a readable rendering derived from a Scope Unit Name **must not** become an independent Scope Unit property **or** authority.",
+      "text_sha256": "d3e5f682c33e5ba79da1552943316aeed9b10270b38207c27df295a583c750ff"
+    },
+    "CA-R-983@14:28-28:85f1a90e997918f0be37a1f81c0b7f5190d95bef6ec915877672d3e1a2b511a6": {
+      "evidence_ref": "CA-R-983@14:28-28:85f1a90e997918f0be37a1f81c0b7f5190d95bef6ec915877672d3e1a2b511a6",
+      "atom_id": "CA-R-983",
+      "atom_revision": 14,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+      "carrier_sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4",
+      "start_line": 28,
+      "end_line": 28,
+      "quote": "the Operator **may** replace the default Navigational Order Number independently for **every** non-Project Scope Unit.",
+      "text_sha256": "85f1a90e997918f0be37a1f81c0b7f5190d95bef6ec915877672d3e1a2b511a6"
+    },
+    "CA-R-1014@18:34-34:7627a3fa1cfb27f347f5fa244ab42367242003d3709148ce179a9135488a801c": {
+      "evidence_ref": "CA-R-1014@18:34-34:7627a3fa1cfb27f347f5fa244ab42367242003d3709148ce179a9135488a801c",
+      "atom_id": "CA-R-1014",
+      "atom_revision": 18,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+      "carrier_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+      "start_line": 34,
+      "end_line": 34,
+      "quote": "an Atom Scope **must** include its current Scope Unit Scope **or** its Author's registered Operator fallback under CA-D-276-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim.",
+      "text_sha256": "7627a3fa1cfb27f347f5fa244ab42367242003d3709148ce179a9135488a801c"
+    },
+    "CA-D-442@6:49-49:116ed199e22f9d29ce206467f570569a2970e9a82e72063c0c9a1224169e2295": {
+      "evidence_ref": "CA-D-442@6:49-49:116ed199e22f9d29ce206467f570569a2970e9a82e72063c0c9a1224169e2295",
+      "atom_id": "CA-D-442",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL--encode-scope-unit-declaration-fields.md",
+      "carrier_sha256": "caa3df94215a7ae1e3e516c0bf94cae1295c79270f0f521e6f75a1eb51d70a2f",
+      "start_line": 49,
+      "end_line": 49,
+      "quote": "| `structural_level` | required integer equal **to** declared parent depth from Project level 0 |",
+      "text_sha256": "116ed199e22f9d29ce206467f570569a2970e9a82e72063c0c9a1224169e2295"
+    },
+    "CA-R-1730@19:35-35:0db81b155b88a5a0cfd04a528bdb9e5f49f1cd37155b1c262a7e3dce20aa496f": {
+      "evidence_ref": "CA-R-1730@19:35-35:0db81b155b88a5a0cfd04a528bdb9e5f49f1cd37155b1c262a7e3dce20aa496f",
+      "atom_id": "CA-R-1730",
+      "atom_revision": 19,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+      "carrier_sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+      "start_line": 35,
+      "end_line": 35,
+      "quote": "Structural Level **must** follow declared Scope Unit parentage; a retained level number **must not** independently override that parentage under CA-R-1485.",
+      "text_sha256": "0db81b155b88a5a0cfd04a528bdb9e5f49f1cd37155b1c262a7e3dce20aa496f"
+    },
+    "CA-R-1758@20:29-29:c63d32d852c20012a157fd14006307502c9b5921fe491346cd8354b61d935617": {
+      "evidence_ref": "CA-R-1758@20:29-29:c63d32d852c20012a157fd14006307502c9b5921fe491346cd8354b61d935617",
+      "atom_id": "CA-R-1758",
+      "atom_revision": 20,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md",
+      "carrier_sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b",
+      "start_line": 29,
+      "end_line": 29,
+      "quote": "**every** Scope Unit **must** have **`=1`** Type value **in** (Ordered, Unordered).",
+      "text_sha256": "c63d32d852c20012a157fd14006307502c9b5921fe491346cd8354b61d935617"
+    },
+    "CA-R-979@16:30-30:679b9169326c6838e785bf2c0244f69d492e8ef2d33650cee369552765899b69": {
+      "evidence_ref": "CA-R-979@16:30-30:679b9169326c6838e785bf2c0244f69d492e8ef2d33650cee369552765899b69",
+      "atom_id": "CA-R-979",
+      "atom_revision": 16,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-979-CORE_META_MODEL-GENERAL-REQUIREMENT--default-scope-units-to-unordered.md",
+      "carrier_sha256": "3f17b0012af73d9f8720916da5ca304fd846474e4f17754d0b957bfa79ca8ec1",
+      "start_line": 30,
+      "end_line": 30,
+      "quote": "**every** new Scope Unit **must** use Unordered as its default Type value.",
+      "text_sha256": "679b9169326c6838e785bf2c0244f69d492e8ef2d33650cee369552765899b69"
+    },
+    "CA-R-1760@20:28-28:ac8f30a3ee652526dd9937ea90b1d97baeda801adfbc5d17341194432367706e": {
+      "evidence_ref": "CA-R-1760@20:28-28:ac8f30a3ee652526dd9937ea90b1d97baeda801adfbc5d17341194432367706e",
+      "atom_id": "CA-R-1760",
+      "atom_revision": 20,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md",
+      "carrier_sha256": "24fadc44278ab8a451f9f380b16ad0585e64a7aff5bd6ca61726dcdf61b20094",
+      "start_line": 28,
+      "end_line": 28,
+      "quote": "the Scope Unit Type value Ordered **means** the value whose bearer participates **in** **`=1`** Local Order among sibling Scope Units.",
+      "text_sha256": "ac8f30a3ee652526dd9937ea90b1d97baeda801adfbc5d17341194432367706e"
+    },
+    "CA-R-1761@20:27-27:f307ea28989decdf6184cbb799c04f39cacd40fc8ba6514d36e17f407e17d458": {
+      "evidence_ref": "CA-R-1761@20:27-27:f307ea28989decdf6184cbb799c04f39cacd40fc8ba6514d36e17f407e17d458",
+      "atom_id": "CA-R-1761",
+      "atom_revision": 20,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md",
+      "carrier_sha256": "6a6ce6060d358af61ecbca6bafb510ab7a6d9bc97585ec5cb31a6008e97964d0",
+      "start_line": 27,
+      "end_line": 27,
+      "quote": "the Scope Unit Type value Unordered **means** the value whose bearer does **not** participate **in** a Local Order among sibling Scope Units.",
+      "text_sha256": "f307ea28989decdf6184cbb799c04f39cacd40fc8ba6514d36e17f407e17d458"
+    },
+    "CA-O-125@1:25-25:9c6657f8afcd3ef7d41bb21d5158cece7d073e3b8c53453e024db86c53319a28": {
+      "evidence_ref": "CA-O-125@1:25-25:9c6657f8afcd3ef7d41bb21d5158cece7d073e3b8c53453e024db86c53319a28",
+      "atom_id": "CA-O-125",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-125-CORE_META_MODEL-ACTION--assess-scoped-operator-choice-applicability.md",
+      "carrier_sha256": "384d40a5248d902591563bd494cb92c492d4bbf3ae586523a201b8bb704337ff",
+      "start_line": 25,
+      "end_line": 25,
+      "quote": "Scoped Operator-choice Applicability Assessment **means** the optional read-only Action that matches supplied literal Operator input to its supported antecedent and returns its prospective choice boundaries and the still-independent choices within a caller-declared packet. An Operator or an AI Agent acting within existing permission may perform the assessment; invoking it does **not** grant permission for any selected effect.",
+      "text_sha256": "9c6657f8afcd3ef7d41bb21d5158cece7d073e3b8c53453e024db86c53319a28"
+    },
+    "CA-O-125@1:35-44:2041d0ea699859f6e2b1484769a0c38f12275c2bda3196d6973f202e8166e628": {
+      "evidence_ref": "CA-O-125@1:35-44:2041d0ea699859f6e2b1484769a0c38f12275c2bda3196d6973f202e8166e628",
+      "atom_id": "CA-O-125",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-125-CORE_META_MODEL-ACTION--assess-scoped-operator-choice-applicability.md",
+      "carrier_sha256": "384d40a5248d902591563bd494cb92c492d4bbf3ae586523a201b8bb704337ff",
+      "start_line": 35,
+      "end_line": 44,
+      "quote": "1. Check existing settled decisions and complete applicable delegation before identifying a missing Operator choice. Do **not** manufacture a redundant question when existing authority already settles the allowed action; its execution owner still validates the complete bounds.\n2. Match the literal input only to an evidence-supported antecedent and alternative. A short answer to one question does **not** settle another independent question. Preserve the actual answer and references rather than substituting an assistant's interpretation for human provenance.\n3. Check applicability against the exact proposal, target, scope and current source/context frontier. Preserve later explicit corrections and their prospective bounds. Added benchmark, implementation or other effects are **not** covered by a research-only answer; a changed proposal or frontier does **not** inherit renewed approval. Distinguish the choice, permission, planned effect, actual effect and evidence for each.\n4. Return the supported match and its exact applicable boundaries with evidence references, or identify missing, ambiguous, mismatched, superseded or changed applicability and the precise unresolved point. Return the still-independent unanswered choices within the declared list; do **not** claim that all Project choices are known. If required input is unavailable or a check fails, return that limitation and any partial assessment without claiming a complete result.\n\n### Outcome and handoff\n\nThe result is an evidence-bound assessment, **not** approval or execution readiness. It identifies the assessed input and antecedent versions, applicable choice/bounds, corrections or currentness limitations, unresolved points and remaining independent choices. Required authoritative decision records are referenced, **not** copied. If the calling domain requires a record or prerequisite that is absent, return the absence; do **not** fabricate it or impose Journal recording on every generic question.\n\nAn unresolved result **may** supply one consequential question for the caller, with the relevant Concern, affected Atom, Goal, proposal/alternatives and evidence needed to understand the choice. This Action does **not** ask repeatedly, run a question loop or force another approval. The caller retains invocation, communication, persistence, permission and readiness gates.",
+      "text_sha256": "2041d0ea699859f6e2b1484769a0c38f12275c2bda3196d6973f202e8166e628"
+    },
+    "CA-O-065@5:27-33:0a6a74e130f00508b43d15ac654f40db846123f7390a5ea2275451e658751617": {
+      "evidence_ref": "CA-O-065@5:27-33:0a6a74e130f00508b43d15ac654f40db846123f7390a5ea2275451e658751617",
+      "atom_id": "CA-O-065",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-065-CORE_META_MODEL-ACTION--screen-short-names-for-unintended-readings.md",
+      "carrier_sha256": "3629a7a79d844cca473130fcf02d15b8597d2ef3c5f4c1eb503d381ea109f084",
+      "start_line": 27,
+      "end_line": 33,
+      "quote": "Screen Short Names **means** the Action that screens a proposed short name, abbreviation, **or** prefix **before** admission:\n\n- inspect the candidate's case-insensitive tokens **and** joined form for unintended obscene, insulting, deceptive, **or** distracting readings **in** the Operator's languages.\n- **if** such a reading is found, **then** present a concise warning that explains it **and** offers readable alternatives preserving the canonical meaning, preferring the shortest suitable alternative.\n- do **not** automatically reject the candidate on that basis; allow the Operator **to** accept the warned name explicitly.\n\nthis Action defines screening behavior; it does **not** record a particular execution **or** automatically change a registered name.",
+      "text_sha256": "0a6a74e130f00508b43d15ac654f40db846123f7390a5ea2275451e658751617"
+    },
+    "CA-R-1554@4:31-37:25d552feacee2672684ec8f59f8114bce1ff3fbb4ae5923e3e5eb086ffe33f6f": {
+      "evidence_ref": "CA-R-1554@4:31-37:25d552feacee2672684ec8f59f8114bce1ff3fbb4ae5923e3e5eb086ffe33f6f",
+      "atom_id": "CA-R-1554",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1554-CORE_META_MODEL-GENERAL-REQUIREMENT--bound-scripted-migrations.md",
+      "carrier_sha256": "f29ae37f9bb7da35630f272d73ab75d6fc5df9c5b33fdb0d5bd5026261eaafdd",
+      "start_line": 31,
+      "end_line": 37,
+      "quote": "an AI Agent that performs a Scripted Migration **must** satisfy **all** of these participation conditions:\n\n- bind the migration **to** an exact governed Target Set;\n- fail **when** an expected target is absent;\n- produce a reviewable change set.\n\nthese conditions constrain the AI Agent's participation; they do **not** define the migration's Steps **or** Workflow control flow **or** grant additional mutation authority.",
+      "text_sha256": "25d552feacee2672684ec8f59f8114bce1ff3fbb4ae5923e3e5eb086ffe33f6f"
+    },
+    "CA-O-023@5:34-37:68a49e10798a669ad4fbec6fe46316cac6960d3287502bea3181bf70b50a51f3": {
+      "evidence_ref": "CA-O-023@5:34-37:68a49e10798a669ad4fbec6fe46316cac6960d3287502bea3181bf70b50a51f3",
+      "atom_id": "CA-O-023",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-023-CORE_META_MODEL-ACTION--select-an-alternative-under-active-priorities.md",
+      "carrier_sha256": "0e5d328151a63a0fffa4d247f7149924460323bcf670a58c6de8629f7d92b403",
+      "start_line": 34,
+      "end_line": 37,
+      "quote": "1. obtain the effective priorities resolved under CA-O-022 for the affected context. unresolved priorities do **not** authorize selection.\n2. reject **every** candidate that violates applicable authority **or** a non-negotiable constraint.\n3. apply the selected model **to** the remaining alternatives using the available evidence. use CA-M-297 **only** for Operator-selected comparison by priority order; use the selected technique for another model.\n4. return a selected alternative **only** **when** that model justifies the choice. retain the constraints, criterion evidence, **and** comparison result that justify it.",
+      "text_sha256": "68a49e10798a669ad4fbec6fe46316cac6960d3287502bea3181bf70b50a51f3"
+    },
+    "CA-O-105@5:31-36:f092b84e33c70594ef7eb3633c578c06e4090566e977c9873fa725a316951d69": {
+      "evidence_ref": "CA-O-105@5:31-36:f092b84e33c70594ef7eb3633c578c06e4090566e977c9873fa725a316951d69",
+      "atom_id": "CA-O-105",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-105-CORE_META_MODEL-ACTION--select-a-bounded-rmed-review-batch.md",
+      "carrier_sha256": "d2b70d597eea1c6a143f84bf78dd415472f52a9f3f39eb22b701015511357b4f",
+      "start_line": 31,
+      "end_line": 36,
+      "quote": "Select RMED Review Batch **means** the read-only Action that resolves a requested selection into a bounded, reproducible local-review queue.\n\n1. resolve the requested Scope Unit locally **or** with descendants, Global **or** Local Tiers, **or** explicit Carrier list from carried Properties **and** authoritative selection data; select active RMED source Atoms.\n2. gather the relevant `atom_local` rules once: CCE, local Property encoding **and** domains, body structure, **and** Scope/Claim/Details/Summary coherence. supply their actual content **and** the vocabulary needed for case checks.\n3. record the original selection **in** the CA-D-496 progress list, ordered by Atom ID, Revision, **then** path. retain malformed **or** missing identifiers as inspectable candidates sorted by path.\n4. return the full selected queue **and** shared rules **to** the caller: `ready`, `empty` for a genuinely empty selection, **or** `blocked` for unresolved selection.",
+      "text_sha256": "f092b84e33c70594ef7eb3633c578c06e4090566e977c9873fa725a316951d69"
+    },
+    "CA-O-004@5:28-28:450147002ced7963edb190e22b595c3fe3ab4f1d1eceef441f9337a9338dac72": {
+      "evidence_ref": "CA-O-004@5:28-28:450147002ced7963edb190e22b595c3fe3ab4f1d1eceef441f9337a9338dac72",
+      "atom_id": "CA-O-004",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-004-CORE_META_MODEL-ACTION--select-reconciliation-sources.md",
+      "carrier_sha256": "c707d01c61cd00b811260a1e144b811b61f9f42778eddbc5368263aeb4723f4d",
+      "start_line": 28,
+      "end_line": 28,
+      "quote": "Select Reconciliation Sources **means** the reusable Action that resolves the complete source selection required by applicable governing authority **and** returns the exact selected source identities **and** Revisions as one source frontier. it **must** preserve source-selection constraints, include **every** eligible source, **and** retain unresolved selection ambiguity as a reported failure rather than silently choosing **or** discarding a source. selection does **not** change source authority **or** publish a Projection.",
+      "text_sha256": "450147002ced7963edb190e22b595c3fe3ab4f1d1eceef441f9337a9338dac72"
+    },
+    "CA-R-1650@19:28-28:7673e202ff1c27bbaa22ada32d8397edb176dcac2c61b24384ed80a622914461": {
+      "evidence_ref": "CA-R-1650@19:28-28:7673e202ff1c27bbaa22ada32d8397edb176dcac2c61b24384ed80a622914461",
+      "atom_id": "CA-R-1650",
+      "atom_revision": 19,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1650-CORE_META_MODEL-GENERAL-REQUIREMENT--define-the-bounded-session-state-envelope.md",
+      "carrier_sha256": "600a62b7febd9ee2e57e8366747a1e03d6df6047e4d7627eef4583b7182c0795",
+      "start_line": 28,
+      "end_line": 28,
+      "quote": "the bounded session-state envelope **must** contain **only** routing invariants, current scope, applicable settings, compact session state, **and** references needed **to** load active authority on demand.",
+      "text_sha256": "7673e202ff1c27bbaa22ada32d8397edb176dcac2c61b24384ed80a622914461"
+    }
+  },
+  "nodes": [
+    {
+      "identity": "Scope Reference Validation",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "E240 gives fixtures and acceptance/failure criteria validating independent ownership, GOVERNS target, Claim Target Scope Unit and textual applicability.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Validation is not the Scope Unit or the scope-reference fact it checks; shared Scope wording does not establish equivalence.",
+          "evidence_refs": [
+            "CA-E-240@30:39-39:a89fffadfab566a48ba2eac604a6c94e55662b01744acf6ad7a5e5a7c411cc69",
+            "CA-E-240@30:45-55:5f158da683ea4a65fdcfaf966dd8324c0dbe71bf9b84661b5488f6694491d93a"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Invalid target cardinality, guessed references and ownership transfer have explicit failure checks, supplying a testable use.",
+          "evidence_refs": [
+            "CA-E-240@30:39-39:a89fffadfab566a48ba2eac604a6c94e55662b01744acf6ad7a5e5a7c411cc69",
+            "CA-E-240@30:45-55:5f158da683ea4a65fdcfaf966dd8324c0dbe71bf9b84661b5488f6694491d93a"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "E240 gives fixtures and acceptance/failure criteria validating independent ownership, GOVERNS target, Claim Target Scope Unit and textual applicability.",
+          "evidence_refs": [
+            "CA-E-240@30:39-39:a89fffadfab566a48ba2eac604a6c94e55662b01744acf6ad7a5e5a7c411cc69",
+            "CA-E-240@30:45-55:5f158da683ea4a65fdcfaf966dd8324c0dbe71bf9b84661b5488f6694491d93a"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "A different permitted target or narrower Claim applicability does not transfer ownership or create Scope Unit ancestry.",
+          "evidence_refs": [
+            "CA-E-240@30:39-39:a89fffadfab566a48ba2eac604a6c94e55662b01744acf6ad7a5e5a7c411cc69",
+            "CA-E-240@30:45-55:5f158da683ea4a65fdcfaf966dd8324c0dbe71bf9b84661b5488f6694491d93a"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic scope-check replacement is proposed because it could lose independent owner/Subject/target/applicability checks.",
+          "evidence_refs": [
+            "CA-E-240@30:39-39:a89fffadfab566a48ba2eac604a6c94e55662b01744acf6ad7a5e5a7c411cc69",
+            "CA-E-240@30:45-55:5f158da683ea4a65fdcfaf966dd8324c0dbe71bf9b84661b5488f6694491d93a"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-E-240@30:39-39:a89fffadfab566a48ba2eac604a6c94e55662b01744acf6ad7a5e5a7c411cc69",
+        "CA-E-240@30:45-55:5f158da683ea4a65fdcfaf966dd8324c0dbe71bf9b84661b5488f6694491d93a"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-240"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "A different permitted target or narrower Claim applicability does not transfer ownership or create Scope Unit ancestry."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Unit",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R1757 defines a Structural Entity providing an Atom ownership boundary and possible child units; R1484 distinguishes declaration from Goal coverage and Carrier materialization.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The declared unit is not its Goal, its physical directory or its bindings; those independently evaluated objects cannot be merged from shared names.",
+          "evidence_refs": [
+            "CA-R-1757@17:29-29:70ee1c6b935426e19fc94dd08e484bf4a6738cd6457601619db97e85e627eafc",
+            "CA-R-1484@5:32-32:3903a6ebf9f8cb3084554f4e9284f1ed421eab1c1137040569199de3cbb6e5a3",
+            "CA-D-445@5:36-36:468392488f13e0c69dd88eb2329d0e857bf04ada7a273bc50fa936bfcbe0ab05"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "The ownership boundary and declared structural identity remain meaningful even when Goal coverage or Carrier materialization is separately deficient.",
+          "evidence_refs": [
+            "CA-R-1757@17:29-29:70ee1c6b935426e19fc94dd08e484bf4a6738cd6457601619db97e85e627eafc",
+            "CA-R-1484@5:32-32:3903a6ebf9f8cb3084554f4e9284f1ed421eab1c1137040569199de3cbb6e5a3",
+            "CA-D-445@5:36-36:468392488f13e0c69dd88eb2329d0e857bf04ada7a273bc50fa936bfcbe0ab05"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1757 defines a Structural Entity providing an Atom ownership boundary and possible child units; R1484 distinguishes declaration from Goal coverage and Carrier materialization.",
+          "evidence_refs": [
+            "CA-R-1757@17:29-29:70ee1c6b935426e19fc94dd08e484bf4a6738cd6457601619db97e85e627eafc",
+            "CA-R-1484@5:32-32:3903a6ebf9f8cb3084554f4e9284f1ed421eab1c1137040569199de3cbb6e5a3",
+            "CA-D-445@5:36-36:468392488f13e0c69dd88eb2329d0e857bf04ada7a273bc50fa936bfcbe0ab05"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Logical declaration establishes the unit; a native physical layout does not change declared parentage, Type, Name or Local Order.",
+          "evidence_refs": [
+            "CA-R-1757@17:29-29:70ee1c6b935426e19fc94dd08e484bf4a6738cd6457601619db97e85e627eafc",
+            "CA-R-1484@5:32-32:3903a6ebf9f8cb3084554f4e9284f1ed421eab1c1137040569199de3cbb6e5a3",
+            "CA-D-445@5:36-36:468392488f13e0c69dd88eb2329d0e857bf04ada7a273bc50fa936bfcbe0ab05"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No Artifact/folder/Goal replacement is proposed because it would erase the independently declared ownership and child-unit boundary.",
+          "evidence_refs": [
+            "CA-R-1757@17:29-29:70ee1c6b935426e19fc94dd08e484bf4a6738cd6457601619db97e85e627eafc",
+            "CA-R-1484@5:32-32:3903a6ebf9f8cb3084554f4e9284f1ed421eab1c1137040569199de3cbb6e5a3",
+            "CA-D-445@5:36-36:468392488f13e0c69dd88eb2329d0e857bf04ada7a273bc50fa936bfcbe0ab05"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1757@17:29-29:70ee1c6b935426e19fc94dd08e484bf4a6738cd6457601619db97e85e627eafc",
+        "CA-R-1484@5:32-32:3903a6ebf9f8cb3084554f4e9284f1ed421eab1c1137040569199de3cbb6e5a3",
+        "CA-D-445@5:36-36:468392488f13e0c69dd88eb2329d0e857bf04ada7a273bc50fa936bfcbe0ab05"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-445",
+        "CA-R-1257",
+        "CA-R-1264",
+        "CA-R-1292",
+        "CA-R-1484",
+        "CA-R-1730",
+        "CA-R-1748",
+        "CA-R-1757",
+        "CA-R-1762",
+        "CA-R-862",
+        "CA-R-927"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-D-276",
+        "CA-D-291",
+        "CA-D-296",
+        "CA-D-297",
+        "CA-D-298",
+        "CA-D-299",
+        "CA-D-300",
+        "CA-D-302",
+        "CA-D-312",
+        "CA-D-374",
+        "CA-D-380",
+        "CA-D-395",
+        "CA-D-407",
+        "CA-D-434",
+        "CA-D-440",
+        "CA-D-441",
+        "CA-D-442",
+        "CA-D-465",
+        "CA-D-482",
+        "CA-D-505",
+        "CA-E-240",
+        "CA-E-246",
+        "CA-E-383",
+        "CA-E-384",
+        "CA-E-444",
+        "CA-E-446",
+        "CA-E-447",
+        "CA-E-449",
+        "CA-E-456",
+        "CA-E-460",
+        "CA-E-461",
+        "CA-E-469",
+        "CA-E-470",
+        "CA-E-490",
+        "CA-E-499",
+        "CA-E-501",
+        "CA-E-505",
+        "CA-E-510",
+        "CA-E-511",
+        "CA-E-512",
+        "CA-E-522",
+        "CA-E-523",
+        "CA-M-115",
+        "CA-M-229",
+        "CA-M-272",
+        "CA-M-273",
+        "CA-M-275",
+        "CA-M-291",
+        "CA-M-299",
+        "CA-M-306",
+        "CA-O-011",
+        "CA-O-012",
+        "CA-O-017",
+        "CA-O-078",
+        "CA-O-079",
+        "CA-O-087",
+        "CA-O-105",
+        "CA-O-152",
+        "CA-R-1014",
+        "CA-R-1213",
+        "CA-R-1219",
+        "CA-R-1287",
+        "CA-R-1293",
+        "CA-R-1297",
+        "CA-R-1378",
+        "CA-R-1382",
+        "CA-R-1390",
+        "CA-R-1391",
+        "CA-R-1409",
+        "CA-R-1429",
+        "CA-R-1430",
+        "CA-R-1431",
+        "CA-R-1442",
+        "CA-R-1447",
+        "CA-R-1448",
+        "CA-R-1449",
+        "CA-R-1455",
+        "CA-R-1456",
+        "CA-R-1483",
+        "CA-R-1485",
+        "CA-R-1521",
+        "CA-R-1573",
+        "CA-R-1579",
+        "CA-R-1588",
+        "CA-R-1595",
+        "CA-R-1596",
+        "CA-R-1597",
+        "CA-R-1609",
+        "CA-R-1629",
+        "CA-R-1660",
+        "CA-R-1661",
+        "CA-R-1695",
+        "CA-R-1731",
+        "CA-R-1737",
+        "CA-R-1739",
+        "CA-R-1740",
+        "CA-R-1746",
+        "CA-R-1758",
+        "CA-R-1759",
+        "CA-R-1760",
+        "CA-R-1761",
+        "CA-R-1763",
+        "CA-R-1764",
+        "CA-R-1775",
+        "CA-R-626",
+        "CA-R-659",
+        "CA-R-660",
+        "CA-R-718",
+        "CA-R-794",
+        "CA-R-917",
+        "CA-R-922",
+        "CA-R-923",
+        "CA-R-925",
+        "CA-R-926",
+        "CA-R-942",
+        "CA-R-947",
+        "CA-R-962",
+        "CA-R-970",
+        "CA-R-971",
+        "CA-R-972",
+        "CA-R-978",
+        "CA-R-979",
+        "CA-R-980",
+        "CA-R-981",
+        "CA-R-982",
+        "CA-R-983"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Logical declaration establishes the unit; a native physical layout does not change declared parentage, Type, Name or Local Order."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Unit Graph",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R1655 explicitly constrains a derived Scope Unit Graph not to replace authoritative Project Structure.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The derived graph is not Project Structure authority; the source expressly denies that substitution.",
+          "evidence_refs": [
+            "CA-R-1655@25:43-43:1289e3656b7b48457e9cc7be6057569843b86d83ec7eb18c6010e8f32b03f9cc"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "A constrained derived view has meaningful model use without being a second structural authority; redundancy is not established.",
+          "evidence_refs": [
+            "CA-R-1655@25:43-43:1289e3656b7b48457e9cc7be6057569843b86d83ec7eb18c6010e8f32b03f9cc"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1655 explicitly constrains a derived Scope Unit Graph not to replace authoritative Project Structure.",
+          "evidence_refs": [
+            "CA-R-1655@25:43-43:1289e3656b7b48457e9cc7be6057569843b86d83ec7eb18c6010e8f32b03f9cc"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "The captured basis establishes the graph's derived/non-authoritative boundary, not its full edge grammar or native membership.",
+          "evidence_refs": [
+            "CA-R-1655@25:43-43:1289e3656b7b48457e9cc7be6057569843b86d83ec7eb18c6010e8f32b03f9cc"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No Project Structure consolidation is proposed because it would erase source-versus-view authority distinctions.",
+          "evidence_refs": [
+            "CA-R-1655@25:43-43:1289e3656b7b48457e9cc7be6057569843b86d83ec7eb18c6010e8f32b03f9cc"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1655@25:43-43:1289e3656b7b48457e9cc7be6057569843b86d83ec7eb18c6010e8f32b03f9cc"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1655"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "The captured basis establishes the graph's derived/non-authoritative boundary, not its full edge grammar or native membership."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Carrier",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "D505 defines Entity/Carrier as the binding to its storage/representation Carrier and explicitly includes Scope Unit/Carrier.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The binding Property is not the referenced Carrier; D505 expressly keeps that Carrier a Primary Entity.",
+          "evidence_refs": [
+            "CA-D-505@1:34-40:b1ed496b1ba46aa1125105d2c1823b1b3245139ff55953c5611e2e9b8775cdc1"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Preserving the qualified binding records which Carrier represents this unit without duplicating Carrier identity.",
+          "evidence_refs": [
+            "CA-D-505@1:34-40:b1ed496b1ba46aa1125105d2c1823b1b3245139ff55953c5611e2e9b8775cdc1"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "D505 defines Entity/Carrier as the binding to its storage/representation Carrier and explicitly includes Scope Unit/Carrier.",
+          "evidence_refs": [
+            "CA-D-505@1:34-40:b1ed496b1ba46aa1125105d2c1823b1b3245139ff55953c5611e2e9b8775cdc1"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "This is an Entity-to-Carrier binding following IS_CARRIED_BY, not transfer of concrete Carrier metadata or inheritance of another unit's Carrier.",
+          "evidence_refs": [
+            "CA-D-505@1:34-40:b1ed496b1ba46aa1125105d2c1823b1b3245139ff55953c5611e2e9b8775cdc1"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No flat Carrier replacement is proposed because it would collapse qualified binding with the referenced Primary Carrier.",
+          "evidence_refs": [
+            "CA-D-505@1:34-40:b1ed496b1ba46aa1125105d2c1823b1b3245139ff55953c5611e2e9b8775cdc1"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-D-505@1:34-40:b1ed496b1ba46aa1125105d2c1823b1b3245139ff55953c5611e2e9b8775cdc1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-505"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "This is an Entity-to-Carrier binding following IS_CARRIED_BY, not transfer of concrete Carrier metadata or inheritance of another unit's Carrier."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Label",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R972 defines the Scope Unit-borne Label Property; Ordered/Unordered defaults and independent Operator overrides are separately governed.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Label is not Scope Unit Type: replacing one label explicitly does not change Type, so shared examples are not type aliases.",
+          "evidence_refs": [
+            "CA-R-972@18:31-31:e60d6c2e350d8abd63949263a5bd73ebed255de554e2552d53f07d33f44bee75",
+            "CA-R-1382@9:28-28:aa555399d09addab2b4b95c8479f0f78e3279d7fe63316873079dbee551a636d",
+            "CA-R-980@15:30-30:6ddf4246dd0566a776139da7598a63ed4b32558f2b47d58984eec18c9e5d91fe",
+            "CA-R-982@15:31-31:e5e0511a1a85529e837ada1db1295c2c1c636bea462ea87273fc8049f533c31c"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "The navigational Label and its override/default policy remain meaningful independently of structural Type.",
+          "evidence_refs": [
+            "CA-R-972@18:31-31:e60d6c2e350d8abd63949263a5bd73ebed255de554e2552d53f07d33f44bee75",
+            "CA-R-1382@9:28-28:aa555399d09addab2b4b95c8479f0f78e3279d7fe63316873079dbee551a636d",
+            "CA-R-980@15:30-30:6ddf4246dd0566a776139da7598a63ed4b32558f2b47d58984eec18c9e5d91fe",
+            "CA-R-982@15:31-31:e5e0511a1a85529e837ada1db1295c2c1c636bea462ea87273fc8049f533c31c"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R972 defines the Scope Unit-borne Label Property; Ordered/Unordered defaults and independent Operator overrides are separately governed.",
+          "evidence_refs": [
+            "CA-R-972@18:31-31:e60d6c2e350d8abd63949263a5bd73ebed255de554e2552d53f07d33f44bee75",
+            "CA-R-1382@9:28-28:aa555399d09addab2b4b95c8479f0f78e3279d7fe63316873079dbee551a636d",
+            "CA-R-980@15:30-30:6ddf4246dd0566a776139da7598a63ed4b32558f2b47d58984eec18c9e5d91fe",
+            "CA-R-982@15:31-31:e5e0511a1a85529e837ada1db1295c2c1c636bea462ea87273fc8049f533c31c"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Layer/Feature defaults do not establish parentage, authority or Type; Label remains a qualified Property of the unit.",
+          "evidence_refs": [
+            "CA-R-972@18:31-31:e60d6c2e350d8abd63949263a5bd73ebed255de554e2552d53f07d33f44bee75",
+            "CA-R-1382@9:28-28:aa555399d09addab2b4b95c8479f0f78e3279d7fe63316873079dbee551a636d",
+            "CA-R-980@15:30-30:6ddf4246dd0566a776139da7598a63ed4b32558f2b47d58984eec18c9e5d91fe",
+            "CA-R-982@15:31-31:e5e0511a1a85529e837ada1db1295c2c1c636bea462ea87273fc8049f533c31c"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No consolidation with Type or Name is proposed because it would remove independent label choice.",
+          "evidence_refs": [
+            "CA-R-972@18:31-31:e60d6c2e350d8abd63949263a5bd73ebed255de554e2552d53f07d33f44bee75",
+            "CA-R-1382@9:28-28:aa555399d09addab2b4b95c8479f0f78e3279d7fe63316873079dbee551a636d",
+            "CA-R-980@15:30-30:6ddf4246dd0566a776139da7598a63ed4b32558f2b47d58984eec18c9e5d91fe",
+            "CA-R-982@15:31-31:e5e0511a1a85529e837ada1db1295c2c1c636bea462ea87273fc8049f533c31c"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-972@18:31-31:e60d6c2e350d8abd63949263a5bd73ebed255de554e2552d53f07d33f44bee75",
+        "CA-R-1382@9:28-28:aa555399d09addab2b4b95c8479f0f78e3279d7fe63316873079dbee551a636d",
+        "CA-R-980@15:30-30:6ddf4246dd0566a776139da7598a63ed4b32558f2b47d58984eec18c9e5d91fe",
+        "CA-R-982@15:31-31:e5e0511a1a85529e837ada1db1295c2c1c636bea462ea87273fc8049f533c31c"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1382",
+        "CA-R-972",
+        "CA-R-980",
+        "CA-R-982"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-D-297",
+        "CA-D-298",
+        "CA-D-299",
+        "CA-D-442",
+        "CA-E-505",
+        "CA-E-510",
+        "CA-M-291",
+        "CA-O-078",
+        "CA-R-1730"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Layer/Feature defaults do not establish parentage, authority or Type; Label remains a qualified Property of the unit."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Local Order",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "D442 requires local_order only for Ordered units and distinguishes navigational_order_number; M291 preserves structural Local Order separately from navigation.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Structural Local Order and Navigational Order Number are expressly distinct, not duplicate ordinal fields.",
+          "evidence_refs": [
+            "CA-D-442@6:50-51:461c9200eaca077c1e9d03ee7ff746bbe4d8d96167b22baf8e2ce11727668578",
+            "CA-M-291@5:41-41:edd1aece727475cf0113435f7dd54063e08c53df01c642df40877b442ddd8819"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Ordered sibling participation remains meaningful even when navigation is separately renumbered.",
+          "evidence_refs": [
+            "CA-D-442@6:50-51:461c9200eaca077c1e9d03ee7ff746bbe4d8d96167b22baf8e2ce11727668578",
+            "CA-M-291@5:41-41:edd1aece727475cf0113435f7dd54063e08c53df01c642df40877b442ddd8819"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "D442 requires local_order only for Ordered units and distinguishes navigational_order_number; M291 preserves structural Local Order separately from navigation.",
+          "evidence_refs": [
+            "CA-D-442@6:50-51:461c9200eaca077c1e9d03ee7ff746bbe4d8d96167b22baf8e2ce11727668578",
+            "CA-M-291@5:41-41:edd1aece727475cf0113435f7dd54063e08c53df01c642df40877b442ddd8819"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Unordered units lack this field; serialization does not create execution order or inferred physical parentage.",
+          "evidence_refs": [
+            "CA-D-442@6:50-51:461c9200eaca077c1e9d03ee7ff746bbe4d8d96167b22baf8e2ce11727668578",
+            "CA-M-291@5:41-41:edd1aece727475cf0113435f7dd54063e08c53df01c642df40877b442ddd8819"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic order-field merge is proposed because it could erase the Ordered-only and structural-versus-navigation constraints.",
+          "evidence_refs": [
+            "CA-D-442@6:50-51:461c9200eaca077c1e9d03ee7ff746bbe4d8d96167b22baf8e2ce11727668578",
+            "CA-M-291@5:41-41:edd1aece727475cf0113435f7dd54063e08c53df01c642df40877b442ddd8819"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-D-442@6:50-51:461c9200eaca077c1e9d03ee7ff746bbe4d8d96167b22baf8e2ce11727668578",
+        "CA-M-291@5:41-41:edd1aece727475cf0113435f7dd54063e08c53df01c642df40877b442ddd8819"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-442",
+        "CA-E-510",
+        "CA-M-291",
+        "CA-O-078"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Unordered units lack this field; serialization does not create execution order or inferred physical parentage."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Name",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "The captured sources require one Project-unique authoritative Name, canonical uppercase token syntax and exact-case reference use; readable rendering has no independent authority.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "A readable rendering is not a second Name Property; exact uppercase identity and ordinary lowercase English are not automatically equivalent.",
+          "evidence_refs": [
+            "CA-R-962@14:28-28:df964767a111b643038c23b09db916388a20483d7ff7c5843be3e7488f49697b",
+            "CA-R-970@17:31-31:c0060a300290bb297da48824e09146953e420187fb5f5ca73a158bf2f3f981d6",
+            "CA-M-275@7:30-30:b1c3dc0c21980a8a387ace794169cd4bad5149da35cb350be2454ac80a589ca2",
+            "CA-M-299@4:29-29:d4fb232935699ccda242eaee0583e5c8620d2fc61251959a36ce306a82beefb6",
+            "CA-R-971@15:30-30:d3e5f682c33e5ba79da1552943316aeed9b10270b38207c27df295a583c750ff"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "The unique canonical Name provides reference resolution that a display label alone does not supply.",
+          "evidence_refs": [
+            "CA-R-962@14:28-28:df964767a111b643038c23b09db916388a20483d7ff7c5843be3e7488f49697b",
+            "CA-R-970@17:31-31:c0060a300290bb297da48824e09146953e420187fb5f5ca73a158bf2f3f981d6",
+            "CA-M-275@7:30-30:b1c3dc0c21980a8a387ace794169cd4bad5149da35cb350be2454ac80a589ca2",
+            "CA-M-299@4:29-29:d4fb232935699ccda242eaee0583e5c8620d2fc61251959a36ce306a82beefb6",
+            "CA-R-971@15:30-30:d3e5f682c33e5ba79da1552943316aeed9b10270b38207c27df295a583c750ff"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "The captured sources require one Project-unique authoritative Name, canonical uppercase token syntax and exact-case reference use; readable rendering has no independent authority.",
+          "evidence_refs": [
+            "CA-R-962@14:28-28:df964767a111b643038c23b09db916388a20483d7ff7c5843be3e7488f49697b",
+            "CA-R-970@17:31-31:c0060a300290bb297da48824e09146953e420187fb5f5ca73a158bf2f3f981d6",
+            "CA-M-275@7:30-30:b1c3dc0c21980a8a387ace794169cd4bad5149da35cb350be2454ac80a589ca2",
+            "CA-M-299@4:29-29:d4fb232935699ccda242eaee0583e5c8620d2fc61251959a36ce306a82beefb6",
+            "CA-R-971@15:30-30:d3e5f682c33e5ba79da1552943316aeed9b10270b38207c27df295a583c750ff"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Project uniqueness, exact-case references and exclusion of independent rendering authority are retained.",
+          "evidence_refs": [
+            "CA-R-962@14:28-28:df964767a111b643038c23b09db916388a20483d7ff7c5843be3e7488f49697b",
+            "CA-R-970@17:31-31:c0060a300290bb297da48824e09146953e420187fb5f5ca73a158bf2f3f981d6",
+            "CA-M-275@7:30-30:b1c3dc0c21980a8a387ace794169cd4bad5149da35cb350be2454ac80a589ca2",
+            "CA-M-299@4:29-29:d4fb232935699ccda242eaee0583e5c8620d2fc61251959a36ce306a82beefb6",
+            "CA-R-971@15:30-30:d3e5f682c33e5ba79da1552943316aeed9b10270b38207c27df295a583c750ff"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No Label/readable-text consolidation is proposed because it could lose unique canonical referencing and operator-token exclusions.",
+          "evidence_refs": [
+            "CA-R-962@14:28-28:df964767a111b643038c23b09db916388a20483d7ff7c5843be3e7488f49697b",
+            "CA-R-970@17:31-31:c0060a300290bb297da48824e09146953e420187fb5f5ca73a158bf2f3f981d6",
+            "CA-M-275@7:30-30:b1c3dc0c21980a8a387ace794169cd4bad5149da35cb350be2454ac80a589ca2",
+            "CA-M-299@4:29-29:d4fb232935699ccda242eaee0583e5c8620d2fc61251959a36ce306a82beefb6",
+            "CA-R-971@15:30-30:d3e5f682c33e5ba79da1552943316aeed9b10270b38207c27df295a583c750ff"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-962@14:28-28:df964767a111b643038c23b09db916388a20483d7ff7c5843be3e7488f49697b",
+        "CA-R-970@17:31-31:c0060a300290bb297da48824e09146953e420187fb5f5ca73a158bf2f3f981d6",
+        "CA-M-275@7:30-30:b1c3dc0c21980a8a387ace794169cd4bad5149da35cb350be2454ac80a589ca2",
+        "CA-M-299@4:29-29:d4fb232935699ccda242eaee0583e5c8620d2fc61251959a36ce306a82beefb6",
+        "CA-R-971@15:30-30:d3e5f682c33e5ba79da1552943316aeed9b10270b38207c27df295a583c750ff"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-275",
+        "CA-M-299",
+        "CA-R-1297",
+        "CA-R-962",
+        "CA-R-970",
+        "CA-R-971"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-D-297",
+        "CA-D-299",
+        "CA-D-302",
+        "CA-D-442",
+        "CA-E-383",
+        "CA-E-512",
+        "CA-M-229",
+        "CA-M-291"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Project uniqueness, exact-case references and exclusion of independent rendering authority are retained."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Navigational Order Number",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R983 permits an independent Operator replacement of the default navigation number for each non-Project unit.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Independent replacement does not equate navigation number with structural Local Order or Name.",
+          "evidence_refs": [
+            "CA-R-983@14:28-28:85f1a90e997918f0be37a1f81c0b7f5190d95bef6ec915877672d3e1a2b511a6"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "The per-unit navigation choice supplies display/retrieval meaning; no redundancy with structural coordinates is proved.",
+          "evidence_refs": [
+            "CA-R-983@14:28-28:85f1a90e997918f0be37a1f81c0b7f5190d95bef6ec915877672d3e1a2b511a6"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R983 permits an independent Operator replacement of the default navigation number for each non-Project unit.",
+          "evidence_refs": [
+            "CA-R-983@14:28-28:85f1a90e997918f0be37a1f81c0b7f5190d95bef6ec915877672d3e1a2b511a6"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "The captured basis is an override permission for a non-Project unit, not an execution-order rule.",
+          "evidence_refs": [
+            "CA-R-983@14:28-28:85f1a90e997918f0be37a1f81c0b7f5190d95bef6ec915877672d3e1a2b511a6"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic structural-order replacement is proposed because it could remove the independent per-unit override.",
+          "evidence_refs": [
+            "CA-R-983@14:28-28:85f1a90e997918f0be37a1f81c0b7f5190d95bef6ec915877672d3e1a2b511a6"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-983@14:28-28:85f1a90e997918f0be37a1f81c0b7f5190d95bef6ec915877672d3e1a2b511a6"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-983"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-E-510",
+        "CA-M-291",
+        "CA-O-078"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "The captured basis is an override permission for a non-Project unit, not an execution-order rule."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Scope",
+      "disposition": "retain",
+      "confidence_percent": 90,
+      "reason": "R1014 uses the current Scope Unit Scope as a contextual contribution to Atom Scope, separately from its Governed Subject and explicit Claim restrictions.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The contextual unit scope is not thereby identical to the owning unit object, its Subject or the textual restriction.",
+          "evidence_refs": [
+            "CA-R-1014@18:34-34:7627a3fa1cfb27f347f5fa244ab42367242003d3709148ce179a9135488a801c"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Its contextual contribution is meaningful despite the lack of a standalone extent definition in this assigned source.",
+          "evidence_refs": [
+            "CA-R-1014@18:34-34:7627a3fa1cfb27f347f5fa244ab42367242003d3709148ce179a9135488a801c"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1014 uses the current Scope Unit Scope as a contextual contribution to Atom Scope, separately from its Governed Subject and explicit Claim restrictions.",
+          "evidence_refs": [
+            "CA-R-1014@18:34-34:7627a3fa1cfb27f347f5fa244ab42367242003d3709148ce179a9135488a801c"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Only the contextual role is evidenced; the exact extent is not independently resolved, and neither ownership nor applicability is reassigned.",
+          "evidence_refs": [
+            "CA-R-1014@18:34-34:7627a3fa1cfb27f347f5fa244ab42367242003d3709148ce179a9135488a801c"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No ownership/applicability flattening is proposed because it would erase the distinct contextual contributions.",
+          "evidence_refs": [
+            "CA-R-1014@18:34-34:7627a3fa1cfb27f347f5fa244ab42367242003d3709148ce179a9135488a801c"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1014@18:34-34:7627a3fa1cfb27f347f5fa244ab42367242003d3709148ce179a9135488a801c"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1014"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Only the contextual role is evidenced; the exact extent is not independently resolved, and neither ownership nor applicability is reassigned."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Structural Level",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "Assigned-slice captured support D442 defines structural_level as integer parent depth from Project zero; R1730 makes declared parentage authoritative over a retained level number.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The level coordinate is not parentage itself or a folder prefix; the source expressly forbids overriding declared parentage with a number.",
+          "evidence_refs": [
+            "CA-D-442@6:49-49:116ed199e22f9d29ce206467f570569a2970e9a82e72063c0c9a1224169e2295",
+            "CA-R-1730@19:35-35:0db81b155b88a5a0cfd04a528bdb9e5f49f1cd37155b1c262a7e3dce20aa496f"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "A checked depth coordinate supplies readable structural information without becoming independent structural authority.",
+          "evidence_refs": [
+            "CA-D-442@6:49-49:116ed199e22f9d29ce206467f570569a2970e9a82e72063c0c9a1224169e2295",
+            "CA-R-1730@19:35-35:0db81b155b88a5a0cfd04a528bdb9e5f49f1cd37155b1c262a7e3dce20aa496f"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "Assigned-slice captured support D442 defines structural_level as integer parent depth from Project zero; R1730 makes declared parentage authoritative over a retained level number.",
+          "evidence_refs": [
+            "CA-D-442@6:49-49:116ed199e22f9d29ce206467f570569a2970e9a82e72063c0c9a1224169e2295",
+            "CA-R-1730@19:35-35:0db81b155b88a5a0cfd04a528bdb9e5f49f1cd37155b1c262a7e3dce20aa496f"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Level follows declared parent depth, not physical nesting, navigation order or Label.",
+          "evidence_refs": [
+            "CA-D-442@6:49-49:116ed199e22f9d29ce206467f570569a2970e9a82e72063c0c9a1224169e2295",
+            "CA-R-1730@19:35-35:0db81b155b88a5a0cfd04a528bdb9e5f49f1cd37155b1c262a7e3dce20aa496f"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No parent/number merge is proposed because it would obscure which declaration derives the coordinate.",
+          "evidence_refs": [
+            "CA-D-442@6:49-49:116ed199e22f9d29ce206467f570569a2970e9a82e72063c0c9a1224169e2295",
+            "CA-R-1730@19:35-35:0db81b155b88a5a0cfd04a528bdb9e5f49f1cd37155b1c262a7e3dce20aa496f"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-D-442@6:49-49:116ed199e22f9d29ce206467f570569a2970e9a82e72063c0c9a1224169e2295",
+        "CA-R-1730@19:35-35:0db81b155b88a5a0cfd04a528bdb9e5f49f1cd37155b1c262a7e3dce20aa496f"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-442",
+        "CA-E-510",
+        "CA-O-078",
+        "CA-R-1730"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [
+        "CA-D-442",
+        "CA-R-1730"
+      ],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Level follows declared parent depth, not physical nesting, navigation order or Label."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Type",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R1758 requires exactly one Ordered/Unordered Type and R979 supplies the Unordered default for a new unit.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Ordered/Unordered Type is not Label or Child Composition; no equivalence with those fields is stated.",
+          "evidence_refs": [
+            "CA-R-1758@20:29-29:c63d32d852c20012a157fd14006307502c9b5921fe491346cd8354b61d935617",
+            "CA-R-979@16:30-30:679b9169326c6838e785bf2c0244f69d492e8ef2d33650cee369552765899b69"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "The required ordering classification and default have independent structural use.",
+          "evidence_refs": [
+            "CA-R-1758@20:29-29:c63d32d852c20012a157fd14006307502c9b5921fe491346cd8354b61d935617",
+            "CA-R-979@16:30-30:679b9169326c6838e785bf2c0244f69d492e8ef2d33650cee369552765899b69"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1758 requires exactly one Ordered/Unordered Type and R979 supplies the Unordered default for a new unit.",
+          "evidence_refs": [
+            "CA-R-1758@20:29-29:c63d32d852c20012a157fd14006307502c9b5921fe491346cd8354b61d935617",
+            "CA-R-979@16:30-30:679b9169326c6838e785bf2c0244f69d492e8ef2d33650cee369552765899b69"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "The closed two-value Type domain is preserved without assigning a value to a particular unit.",
+          "evidence_refs": [
+            "CA-R-1758@20:29-29:c63d32d852c20012a157fd14006307502c9b5921fe491346cd8354b61d935617",
+            "CA-R-979@16:30-30:679b9169326c6838e785bf2c0244f69d492e8ef2d33650cee369552765899b69"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No Label-based replacement is proposed because it could erase required Type and default selection.",
+          "evidence_refs": [
+            "CA-R-1758@20:29-29:c63d32d852c20012a157fd14006307502c9b5921fe491346cd8354b61d935617",
+            "CA-R-979@16:30-30:679b9169326c6838e785bf2c0244f69d492e8ef2d33650cee369552765899b69"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1758@20:29-29:c63d32d852c20012a157fd14006307502c9b5921fe491346cd8354b61d935617",
+        "CA-R-979@16:30-30:679b9169326c6838e785bf2c0244f69d492e8ef2d33650cee369552765899b69"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1758",
+        "CA-R-979"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-D-298",
+        "CA-D-442",
+        "CA-E-505",
+        "CA-E-510",
+        "CA-M-291",
+        "CA-O-078",
+        "CA-R-1293",
+        "CA-R-1382",
+        "CA-R-1759",
+        "CA-R-1760",
+        "CA-R-1761",
+        "CA-R-1762",
+        "CA-R-1763",
+        "CA-R-972",
+        "CA-R-980",
+        "CA-R-982"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "The closed two-value Type domain is preserved without assigning a value to a particular unit."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Type: Ordered",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R1760 defines Ordered as the Type value whose bearer participates in exactly one Local Order among sibling units.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Ordered is an allowed Type value, not the Local Order object or a Layer label.",
+          "evidence_refs": [
+            "CA-R-1760@20:28-28:ac8f30a3ee652526dd9937ea90b1d97baeda801adfbc5d17341194432367706e"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Required sibling-order participation gives this value meaning distinct from Unordered.",
+          "evidence_refs": [
+            "CA-R-1760@20:28-28:ac8f30a3ee652526dd9937ea90b1d97baeda801adfbc5d17341194432367706e"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1760 defines Ordered as the Type value whose bearer participates in exactly one Local Order among sibling units.",
+          "evidence_refs": [
+            "CA-R-1760@20:28-28:ac8f30a3ee652526dd9937ea90b1d97baeda801adfbc5d17341194432367706e"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "The definition fixes one Local Order participation; it does not admit execution order or assign this value to an actual unit.",
+          "evidence_refs": [
+            "CA-R-1760@20:28-28:ac8f30a3ee652526dd9937ea90b1d97baeda801adfbc5d17341194432367706e"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No label/order collapse is proposed because it could remove the required Type-domain and sibling-participation distinction.",
+          "evidence_refs": [
+            "CA-R-1760@20:28-28:ac8f30a3ee652526dd9937ea90b1d97baeda801adfbc5d17341194432367706e"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1760@20:28-28:ac8f30a3ee652526dd9937ea90b1d97baeda801adfbc5d17341194432367706e"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1760"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-D-298",
+        "CA-R-1293",
+        "CA-R-1382"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "The definition fixes one Local Order participation; it does not admit execution order or assign this value to an actual unit."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Type: Unordered",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R1761 defines Unordered as the Type value whose bearer does not participate in sibling Local Order.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Unordered is not the Feature label or an absence of Scope Unit identity.",
+          "evidence_refs": [
+            "CA-R-1761@20:27-27:f307ea28989decdf6184cbb799c04f39cacd40fc8ba6514d36e17f407e17d458"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Nonparticipation in Local Order is an operative Type distinction, not evidence of an empty node.",
+          "evidence_refs": [
+            "CA-R-1761@20:27-27:f307ea28989decdf6184cbb799c04f39cacd40fc8ba6514d36e17f407e17d458"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1761 defines Unordered as the Type value whose bearer does not participate in sibling Local Order.",
+          "evidence_refs": [
+            "CA-R-1761@20:27-27:f307ea28989decdf6184cbb799c04f39cacd40fc8ba6514d36e17f407e17d458"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Only structural Local Order is excluded; the clause does not forbid a separate navigation number.",
+          "evidence_refs": [
+            "CA-R-1761@20:27-27:f307ea28989decdf6184cbb799c04f39cacd40fc8ba6514d36e17f407e17d458"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic no-number replacement is proposed because it could wrongly remove independent navigation.",
+          "evidence_refs": [
+            "CA-R-1761@20:27-27:f307ea28989decdf6184cbb799c04f39cacd40fc8ba6514d36e17f407e17d458"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1761@20:27-27:f307ea28989decdf6184cbb799c04f39cacd40fc8ba6514d36e17f407e17d458"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1761"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-D-298",
+        "CA-R-980"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Only structural Local Order is excluded; the clause does not forbid a separate navigation number."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scoped Operator-choice Applicability",
+      "disposition": "retain",
+      "confidence_percent": 93,
+      "reason": "O125's assessment behavior constrains choice applicability to the exact antecedent, proposal, target, scope and source/context frontier, preserving later corrections.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Applicability boundaries are not approval, execution readiness or the Assessment Action identity; those are explicitly separated.",
+          "evidence_refs": [
+            "CA-O-125@1:25-25:9c6657f8afcd3ef7d41bb21d5158cece7d073e3b8c53453e024db86c53319a28",
+            "CA-O-125@1:35-44:2041d0ea699859f6e2b1484769a0c38f12275c2bda3196d6973f202e8166e628"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Matching actual Operator input to prospective bounds prevents inferred permission and supplies meaningful scoped-choice use.",
+          "evidence_refs": [
+            "CA-O-125@1:25-25:9c6657f8afcd3ef7d41bb21d5158cece7d073e3b8c53453e024db86c53319a28",
+            "CA-O-125@1:35-44:2041d0ea699859f6e2b1484769a0c38f12275c2bda3196d6973f202e8166e628"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "O125's assessment behavior constrains choice applicability to the exact antecedent, proposal, target, scope and source/context frontier, preserving later corrections.",
+          "evidence_refs": [
+            "CA-O-125@1:25-25:9c6657f8afcd3ef7d41bb21d5158cece7d073e3b8c53453e024db86c53319a28",
+            "CA-O-125@1:35-44:2041d0ea699859f6e2b1484769a0c38f12275c2bda3196d6973f202e8166e628"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "The first sentence defines Applicability Assessment; this preserved shorter Subject identity is supported by the applicability rules, not treated as an alias or a new Action instance.",
+          "evidence_refs": [
+            "CA-O-125@1:25-25:9c6657f8afcd3ef7d41bb21d5158cece7d073e3b8c53453e024db86c53319a28",
+            "CA-O-125@1:35-44:2041d0ea699859f6e2b1484769a0c38f12275c2bda3196d6973f202e8166e628"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic approval replacement is proposed because it would erase antecedent versions, independent choices and prospective applicability bounds.",
+          "evidence_refs": [
+            "CA-O-125@1:25-25:9c6657f8afcd3ef7d41bb21d5158cece7d073e3b8c53453e024db86c53319a28",
+            "CA-O-125@1:35-44:2041d0ea699859f6e2b1484769a0c38f12275c2bda3196d6973f202e8166e628"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-125@1:25-25:9c6657f8afcd3ef7d41bb21d5158cece7d073e3b8c53453e024db86c53319a28",
+        "CA-O-125@1:35-44:2041d0ea699859f6e2b1484769a0c38f12275c2bda3196d6973f202e8166e628"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-125"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "The first sentence defines Applicability Assessment; this preserved shorter Subject identity is supported by the applicability rules, not treated as an alias or a new Action instance."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Screen Short Names",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "O065 defines screening for unintended readings, warning with alternatives and permitting explicit Operator acceptance rather than automatic rejection.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The screening Action is not the candidate name, its registered meaning or a particular screening Run.",
+          "evidence_refs": [
+            "CA-O-065@5:27-33:0a6a74e130f00508b43d15ac654f40db846123f7390a5ea2275451e658751617"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Warning without automatic rejection is a specific reusable behavioral boundary, not a redundant naming label.",
+          "evidence_refs": [
+            "CA-O-065@5:27-33:0a6a74e130f00508b43d15ac654f40db846123f7390a5ea2275451e658751617"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "O065 defines screening for unintended readings, warning with alternatives and permitting explicit Operator acceptance rather than automatic rejection.",
+          "evidence_refs": [
+            "CA-O-065@5:27-33:0a6a74e130f00508b43d15ac654f40db846123f7390a5ea2275451e658751617"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Screening does not itself change a registered name or record an actual execution.",
+          "evidence_refs": [
+            "CA-O-065@5:27-33:0a6a74e130f00508b43d15ac654f40db846123f7390a5ea2275451e658751617"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic rejection/rename replacement is proposed because it would lose warning, alternatives and explicit acceptance behavior.",
+          "evidence_refs": [
+            "CA-O-065@5:27-33:0a6a74e130f00508b43d15ac654f40db846123f7390a5ea2275451e658751617"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-065@5:27-33:0a6a74e130f00508b43d15ac654f40db846123f7390a5ea2275451e658751617"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-065"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Screening does not itself change a registered name or record an actual execution."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Scripted Migration",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R1554 supplies participation constraints: exact governed Target Set, fail on missing expected targets and produce a reviewable change set.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The constrained migration is not the performing AI Agent or the resulting change set; no same-referent merge is evidenced.",
+          "evidence_refs": [
+            "CA-R-1554@4:31-37:25d552feacee2672684ec8f59f8114bce1ff3fbb4ae5923e3e5eb086ffe33f6f"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Exact targeting, missing-target failure and reviewable output give this occurrence meaningful operational constraints.",
+          "evidence_refs": [
+            "CA-R-1554@4:31-37:25d552feacee2672684ec8f59f8114bce1ff3fbb4ae5923e3e5eb086ffe33f6f"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1554 supplies participation constraints: exact governed Target Set, fail on missing expected targets and produce a reviewable change set.",
+          "evidence_refs": [
+            "CA-R-1554@4:31-37:25d552feacee2672684ec8f59f8114bce1ff3fbb4ae5923e3e5eb086ffe33f6f"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "This source does not define migration Steps or Workflow control flow and grants no extra mutation authority; retention asserts only the bounded occurrence meaning.",
+          "evidence_refs": [
+            "CA-R-1554@4:31-37:25d552feacee2672684ec8f59f8114bce1ff3fbb4ae5923e3e5eb086ffe33f6f"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic bulk-edit replacement is proposed because it could discard exact targeting and failure/review requirements.",
+          "evidence_refs": [
+            "CA-R-1554@4:31-37:25d552feacee2672684ec8f59f8114bce1ff3fbb4ae5923e3e5eb086ffe33f6f"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1554@4:31-37:25d552feacee2672684ec8f59f8114bce1ff3fbb4ae5923e3e5eb086ffe33f6f"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1554"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "This source does not define migration Steps or Workflow control flow and grants no extra mutation authority; retention asserts only the bounded occurrence meaning."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Select Priority-Governed Alternative",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "O023 requires effective priorities, rejection of unauthorized alternatives and a model-justified selection with retained constraint and criterion evidence.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The selection Action is not the priority model, an alternative or the selected outcome.",
+          "evidence_refs": [
+            "CA-O-023@5:34-37:68a49e10798a669ad4fbec6fe46316cac6960d3287502bea3181bf70b50a51f3"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Constraint filtering and evidence-justified choice provide an operative use beyond merely naming alternatives.",
+          "evidence_refs": [
+            "CA-O-023@5:34-37:68a49e10798a669ad4fbec6fe46316cac6960d3287502bea3181bf70b50a51f3"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "O023 requires effective priorities, rejection of unauthorized alternatives and a model-justified selection with retained constraint and criterion evidence.",
+          "evidence_refs": [
+            "CA-O-023@5:34-37:68a49e10798a669ad4fbec6fe46316cac6960d3287502bea3181bf70b50a51f3"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Unresolved priorities do not authorize selection; comparison technique follows the selected model rather than assumed ranking.",
+          "evidence_refs": [
+            "CA-O-023@5:34-37:68a49e10798a669ad4fbec6fe46316cac6960d3287502bea3181bf70b50a51f3"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic ranking replacement is proposed because it could remove authority filtering and model/criterion justification.",
+          "evidence_refs": [
+            "CA-O-023@5:34-37:68a49e10798a669ad4fbec6fe46316cac6960d3287502bea3181bf70b50a51f3"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-023@5:34-37:68a49e10798a669ad4fbec6fe46316cac6960d3287502bea3181bf70b50a51f3"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-023"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-E-207"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Unresolved priorities do not authorize selection; comparison technique follows the selected model rather than assumed ranking."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Select RMED Review Batch",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "O105 defines a read-only Action resolving bounded carried-property/authority selection to a reproducible Active RMED queue with shared local rules and readiness tags.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "Queue selection is not the subsequent RMED evaluation or the source Atom set itself.",
+          "evidence_refs": [
+            "CA-O-105@5:31-36:f092b84e33c70594ef7eb3633c578c06e4090566e977c9873fa725a316951d69"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Frozen ordering, malformed-candidate visibility and shared-rule gathering provide a distinct preparation use.",
+          "evidence_refs": [
+            "CA-O-105@5:31-36:f092b84e33c70594ef7eb3633c578c06e4090566e977c9873fa725a316951d69"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "O105 defines a read-only Action resolving bounded carried-property/authority selection to a reproducible Active RMED queue with shared local rules and readiness tags.",
+          "evidence_refs": [
+            "CA-O-105@5:31-36:f092b84e33c70594ef7eb3633c578c06e4090566e977c9873fa725a316951d69"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Ready, genuinely empty and unresolved-selection blocked outcomes remain distinct; selection does not mutate sources.",
+          "evidence_refs": [
+            "CA-O-105@5:31-36:f092b84e33c70594ef7eb3633c578c06e4090566e977c9873fa725a316951d69"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic file-list replacement is proposed because it could lose authoritative selection and unresolved-candidate coverage.",
+          "evidence_refs": [
+            "CA-O-105@5:31-36:f092b84e33c70594ef7eb3633c578c06e4090566e977c9873fa725a316951d69"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-105@5:31-36:f092b84e33c70594ef7eb3633c578c06e4090566e977c9873fa725a316951d69"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-105"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Ready, genuinely empty and unresolved-selection blocked outcomes remain distinct; selection does not mutate sources."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Select Reconciliation Sources",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "O004 defines the reusable Action resolving every eligible source to exact identities/Revisions as one complete source frontier, reporting ambiguity instead of silently choosing.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The selection Action is not the source frontier, selected authority or published Projection.",
+          "evidence_refs": [
+            "CA-O-004@5:28-28:450147002ced7963edb190e22b595c3fe3ab4f1d1eceef441f9337a9338dac72"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Completeness and ambiguity failure provide a distinct reconciliation-selection responsibility.",
+          "evidence_refs": [
+            "CA-O-004@5:28-28:450147002ced7963edb190e22b595c3fe3ab4f1d1eceef441f9337a9338dac72"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "O004 defines the reusable Action resolving every eligible source to exact identities/Revisions as one complete source frontier, reporting ambiguity instead of silently choosing.",
+          "evidence_refs": [
+            "CA-O-004@5:28-28:450147002ced7963edb190e22b595c3fe3ab4f1d1eceef441f9337a9338dac72"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "Selection preserves source authority and does not publish a Projection; exact selected Revisions remain traceable.",
+          "evidence_refs": [
+            "CA-O-004@5:28-28:450147002ced7963edb190e22b595c3fe3ab4f1d1eceef441f9337a9338dac72"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No generic fetch/filter replacement is proposed because it could lose eligible-source completeness and explicit ambiguity handling.",
+          "evidence_refs": [
+            "CA-O-004@5:28-28:450147002ced7963edb190e22b595c3fe3ab4f1d1eceef441f9337a9338dac72"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-O-004@5:28-28:450147002ced7963edb190e22b595c3fe3ab4f1d1eceef441f9337a9338dac72"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-004"
+      ],
+      "source_candidates_not_assessed": [
+        "CA-O-010",
+        "CA-O-015",
+        "CA-O-028",
+        "CA-O-152"
+      ],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "Selection preserves source authority and does not publish a Projection; exact selected Revisions remain traceable."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    },
+    {
+      "identity": "Session-State Envelope",
+      "disposition": "retain",
+      "confidence_percent": 95,
+      "reason": "R1650 restricts the bounded envelope to routing invariants, current scope, settings, compact state and references for loading authority on demand.",
+      "checks": {
+        "duplicates": {
+          "finding": "no_same_referent_equivalence_evidenced",
+          "reason": "The envelope is not a Session, the referenced authority or a durable Journal record; no same-referent equivalence is evidenced.",
+          "evidence_refs": [
+            "CA-R-1650@19:28-28:7673e202ff1c27bbaa22ada32d8397edb176dcac2c61b24384ed80a622914461"
+          ]
+        },
+        "redundancy": {
+          "finding": "redundancy_not_proven_in_reviewed_sources",
+          "reason": "Its bounded content and on-demand authority references supply a routing/state use without copying authority into it.",
+          "evidence_refs": [
+            "CA-R-1650@19:28-28:7673e202ff1c27bbaa22ada32d8397edb176dcac2c61b24384ed80a622914461"
+          ]
+        },
+        "empty_definition": {
+          "finding": "meaningful_captured_content",
+          "reason": "R1650 restricts the bounded envelope to routing invariants, current scope, settings, compact state and references for loading authority on demand.",
+          "evidence_refs": [
+            "CA-R-1650@19:28-28:7673e202ff1c27bbaa22ada32d8397edb176dcac2c61b24384ed80a622914461"
+          ]
+        },
+        "distinct_meaning": {
+          "finding": "bounded_meaning_evidenced",
+          "reason": "The content whitelist does not define Session lifecycle, temporal kind or a Journal-only storage rule.",
+          "evidence_refs": [
+            "CA-R-1650@19:28-28:7673e202ff1c27bbaa22ada32d8397edb176dcac2c61b24384ed80a622914461"
+          ]
+        },
+        "generalization": {
+          "finding": "not_proposed",
+          "reason": "No all-context/session merge is proposed because it could erase compactness and source-reference boundaries.",
+          "evidence_refs": [
+            "CA-R-1650@19:28-28:7673e202ff1c27bbaa22ada32d8397edb176dcac2c61b24384ed80a622914461"
+          ]
+        }
+      },
+      "evidence_refs": [
+        "CA-R-1650@19:28-28:7673e202ff1c27bbaa22ada32d8397edb176dcac2c61b24384ed80a622914461"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1650"
+      ],
+      "source_candidates_not_assessed": [],
+      "additional_captured_support_source_atom_ids": [],
+      "source_coverage_note": "Bounded per-identity reviewed sources only; no complete generic defining-authority or equivalence search is claimed.",
+      "proposal": {
+        "action": "retain",
+        "native_admission": "not_performed",
+        "replacement_identity": null,
+        "preserved_distinctions": [
+          "The content whitelist does not define Session lifecycle, temporal kind or a Journal-only storage rule."
+        ],
+        "relations_effect": "No relation creation, deletion, inversion or rewrite.",
+        "constraints_effect": "Captured obligations remain unchanged; no constraint is inherited or newly admitted.",
+        "historical_references_effect": "Preserve the original identity and exact captured references.",
+        "queries_effect": "No query alias, merge or retargeting is proposed."
+      },
+      "question": null
+    }
+  ],
+  "source_context": "captured_snapshot",
+  "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "semantic_review_receipt": {
+    "kind": "individual_meaning_review_not_native_admission",
+    "source_reader": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/support/snapshot_sources.py",
+      "sha256": "0a0078a6b8e25f4c2e52216bd78705a2e67537e5a89963ea478379ed35c932ea"
+    },
+    "producer": {
+      "path": ".caprmedio_tmp/planning/core-entity-review/nodes/repair_meaning_1943_1948.py",
+      "sha256": "aa5e8f1ae30d9cafdb0fe1d8e91c5e142974aa3fea57cc0c0a5ceef4a9c445f3"
+    },
+    "source_context": "captured_snapshot",
+    "current_core_claimed": false,
+    "source_candidates_scope": "original assigned slice source pool; cross-row support is explicit",
+    "scope": "Preserved display identities and bounded meanings; no universal duplicate/redundancy, native Entity/relation admission, source adoption or Subject migration."
+  }
+}

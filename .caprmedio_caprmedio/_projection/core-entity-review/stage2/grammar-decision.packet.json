@@ -1,0 +1,247 @@
+{
+  "task": "CA-P-1976",
+  "packet_kind": "derived_subject_grammar_decision",
+  "status": "decision_pending",
+  "prepared_on": "2026-10-11",
+  "prerequisite": {
+    "task": "CA-P-1960",
+    "status": "Done",
+    "source_commit_prefix": "83dc6b866"
+  },
+  "source_root": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+  "boundaries": {
+    "candidate_is_not_core_authority": true,
+    "native_relation_admission": "not performed",
+    "subject_migration": "not performed",
+    "successor_atom_creation": "not performed",
+    "source_atom_writes": "none",
+    "captured_reviews_preserved": true,
+    "git_mcp_fpf": "not used"
+  },
+  "packet_inputs": [
+    {
+      "kind": "plan",
+      "atom_id": "CA-P-1976",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/06-CA-P-1964-TASK--resolve-the-subject-grammar-cutover-boundary/01-CA-P-1976-TASK--prepare-the-subject-grammar-decision-packet.md",
+      "sha256": "ce549add3a1eddc5a5d915857d9f83f53da5aec61d4c2da327b9f5697d07f1fa"
+    },
+    {
+      "kind": "candidate_display_input",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    {
+      "kind": "operator_direction_record",
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/operator.decisions.md",
+      "sha256": "53eeb7a3fdaa002cd05170fe185cfb5baeea72814a1f32567d8eea6f56ac65cb"
+    }
+  ],
+  "replacement_candidate": {
+    "predecessor_atom_id": "CA-R-1204",
+    "predecessor_version": 14,
+    "predecessor_sha256": "f57d56dab2cff12ea38a94900a1f146e40ead39f0af9e26e3130e9867f290dda",
+    "successor_atom_id": null,
+    "successor_id_status": "operator_assigned_after_approval",
+    "successor_version": 1,
+    "summary": "Use Subject Path Separators for Broader-to-Narrower and Bearer-to-Dependent",
+    "summary_change_reason": "The predecessor Summary directly identifies slash as bearer qualification; changing that meaning requires a new Atom identity and predecessor/successor lineage.",
+    "proposed_claim": "In the proposed Subject Path profile, / separates a broader component from its following narrower component; . separates a bearer component from its following dependent component; : separates a Property component from its following allowed-value component; and @ is not Subject syntax. Subject Paths still resolve one canonical target and do not create target identities. The mechanical native fact for . is Dependent IS_BORNE_BY Bearer; for : it is AllowedValue IS_ALLOWED_VALUE_OF Property. A native edge for / is not admitted by this packet; if later bound to existing Terms-Graph NARROWER_THAN, its native direction would be Narrower NARROWER_THAN Broader.",
+    "atom_creation": "none"
+  },
+  "proposed_subject_profile": {
+    "profile_status": "proposed_actual_subject_parser_profile_not_adopted",
+    "not_tree_only": true,
+    "operators": {
+      "/": {
+        "subject_order": "broader -> narrower",
+        "native_edge": null,
+        "native_edge_status": "unresolved_and_not_admitted",
+        "conditional_terms_graph_mapping": "Narrower NARROWER_THAN Broader",
+        "boundary": "CA-R-1435 governs Terms Graph only; no new Entity/Subject relation is inferred."
+      },
+      ".": {
+        "subject_order": "bearer -> dependent",
+        "native_edge": "Dependent IS_BORNE_BY Bearer",
+        "native_edge_status": "existing_active_authority"
+      },
+      ":": {
+        "subject_order": "Property -> allowed value",
+        "native_edge": "AllowedValue IS_ALLOWED_VALUE_OF Property",
+        "native_edge_status": "existing_active_authority"
+      },
+      "@": {
+        "subject_order": null,
+        "native_edge": null,
+        "status": "not_a_subject_token",
+        "context": "display_or_carrier_only; current carrier authority is @<version> archive suffix"
+      }
+    },
+    "character_rules": {
+      "reserved_subject_term_characters": ["/", ".", ":"],
+      "at_sign": "outside Subject syntax; parser rejects it as a Subject token; no @ separator is added to CA-R-1324",
+      "named_components": "Every named component resolves to a Term; composite expression is not itself a Term."
+    },
+    "migration_boundary": "A later separately approved migration may update actual source Subject strings after this profile is authorized; this packet performs no migration."
+  },
+  "minimum_five_changes": [
+    {
+      "sequence": 1,
+      "change_kind": "replacement_atom",
+      "predecessor_atom_id": "CA-R-1204",
+      "current_version": 14,
+      "successor_atom_id": null,
+      "successor_version": 1,
+      "required_action": "Allocate a new Operator-assigned successor with the proposed Summary and Claim; preserve CA-R-1204 as predecessor/history.",
+      "native_slash_admission": "not included"
+    },
+    {
+      "sequence": 2,
+      "atom_id": "CA-R-1321",
+      "current_version": 12,
+      "proposed_version": 13,
+      "path": "04_requirement/CA-R-1321-CORE_META_MODEL-CORE--define-subject-expression.md",
+      "sha256": "6baf3f4179591dcc89c458dcb6503a55f24b70f9f1bd93203f4b748a9bcb1b8c",
+      "body_change": "Add . beside / and : as registered syntax and not a Term; explicitly keep @ outside Subject syntax; retain one-target/no-new-identity semantics."
+    },
+    {
+      "sequence": 3,
+      "atom_id": "CA-R-1324",
+      "current_version": 10,
+      "proposed_version": 11,
+      "path": "04_requirement/CA-R-1324-CORE_META_MODEL-REQUIREMENT--reserve-subject-expression-separators.md",
+      "sha256": "f38d4cc446b04cde6958f1fe011679ff95048bdfe30f360d11a7366a572bc0b1",
+      "body_change": "Reserve /, . and : in Subject-expression Term names; do not add @ as a separator."
+    },
+    {
+      "sequence": 4,
+      "atom_id": "CA-M-228",
+      "current_version": 14,
+      "proposed_version": 15,
+      "path": "05_method/CA-M-228-CORE_META_MODEL-METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "sha256": "f5a2152648b95c04af56c49118f43ac64ee46dd8183b23913cb64f335d6f26df",
+      "body_change": "Author / in broader-to-narrower order, . in bearer-to-dependent order, and : in Property-to-allowed-value order; retain Term resolution, canonical target, and GOVERNS/DEPENDS_ON boundaries."
+    },
+    {
+      "sequence": 5,
+      "atom_id": "CA-E-383",
+      "current_version": 13,
+      "proposed_version": 14,
+      "path": "06_evaluation/CA-E-383-CORE_META_MODEL-EVALUATION_APPROACH--reject-invalid-subject-expressions.md",
+      "sha256": "00c3e901fbd18cdb584387386f6b04cd43905f651c4369e16a97d20b469b3274",
+      "body_change": "Validate dot bearer order, colon allowed-value order, slash profile, reserved / . :, and @ rejection; repoint evaluation_for from CA-R-1204 to the allocated successor."
+    }
+  ],
+  "stable_authorities": [
+    {
+      "atom_id": "CA-R-1194",
+      "version": 14,
+      "path": "04_requirement/CA-R-1194-CORE_META_MODEL-CORE-REQUIREMENT--define-subject-path.md",
+      "sha256": "159ff72818c390f6d126c543587ebb8de49d5d5ae53cfc0e437df25d25e3c30e",
+      "role": "Subject Path resolves one canonical Entity"
+    },
+    {
+      "atom_id": "CA-R-1198",
+      "version": 13,
+      "path": "04_requirement/CA-R-1198-CORE_META_MODEL-CORE-REQUIREMENT--define-atom-subjects.md",
+      "sha256": "6eb2f68642b09eb05e1c6ece6b2dd92d309b92445fcea3e0b37f4b485576365b",
+      "role": "flat direct Atom Subjects"
+    },
+    {
+      "atom_id": "CA-R-1199",
+      "version": 13,
+      "path": "04_requirement/CA-R-1199-CORE_META_MODEL-CORE-REQUIREMENT--define-governs-subject-relation-kind.md",
+      "sha256": "1eb27ffbeb24d9ba35e39bfb6e6207214260867b6fb0687b1952ba70a7defd30",
+      "role": "GOVERNS Atom-to-target direction"
+    },
+    {
+      "atom_id": "CA-R-1200",
+      "version": 16,
+      "path": "04_requirement/CA-R-1200-CORE_META_MODEL-CORE-REQUIREMENT--define-depends-on-subject-relation-kind.md",
+      "sha256": "baa339768dcb5ef82ea6ce07c2020b934f787e552fc3e08a37dbc85c0021aa1f",
+      "role": "DEPENDS_ON Atom-to-target direction"
+    },
+    {
+      "atom_id": "CA-R-1245",
+      "version": 13,
+      "path": "04_requirement/CA-R-1245-CORE_META_MODEL-REQUIREMENT--qualify-allowed-values-with-colon.md",
+      "sha256": "fbfb35fcfff4feadfe7ec62e599e502a65eb0007108fe7947ca555d71abb0e54",
+      "role": "colon IS_ALLOWED_VALUE_OF qualification"
+    },
+    {
+      "atom_id": "CA-R-1260",
+      "version": 13,
+      "path": "04_requirement/CA-R-1260-CORE_META_MODEL-CORE-REQUIREMENT--define-is-borne-by.md",
+      "sha256": "ea7911f8d3bc88bcba954332193354c80df63005dbf94812960dda162615f54d",
+      "role": "IS_BORNE_BY Dependent-to-Bearer direction"
+    },
+    {
+      "atom_id": "CA-R-1435",
+      "version": 8,
+      "path": "04_requirement/CA-R-1435-CORE_META_MODEL-CORE--define-narrower-than.md",
+      "sha256": "15fa6d3511be9f2d4ad76eea38373f13bcbb37522a2f7c5b985e0a4b836f54cb",
+      "role": "Terms-Graph-only NARROWER_THAN"
+    },
+    {
+      "atom_id": "CA-R-1436",
+      "version": 8,
+      "path": "04_requirement/CA-R-1436-CORE_META_MODEL-CORE--define-is-allowed-value-of.md",
+      "sha256": "a33bdc582beb140647e6012022730abf531f6311923edf80ed7d1fe1614dabad",
+      "role": "IS_ALLOWED_VALUE_OF value-to-Property direction"
+    },
+    {
+      "atom_id": "CA-M-232",
+      "version": 12,
+      "path": "05_method/CA-M-232-CORE_META_MODEL-CORE--derive-atom-subjects-graph-from-current-atom-subjects.md",
+      "sha256": "01e1f3355f52762beabcc19fe30746a536c12f79015f581d00b6ff765a202cd7",
+      "role": "direct Subject graph derivation"
+    },
+    {
+      "atom_id": "CA-E-246",
+      "version": 25,
+      "path": "06_evaluation/CA-E-246-CORE_META_MODEL-QA_CASE--validate-atom-subjects.md",
+      "sha256": "6d5e65915b857be8e399aee9b32364dde2caa56ec6757bd8e69282b4ffee0098",
+      "role": "Atom Subjects coverage and qualified-path fixture"
+    },
+    {
+      "atom_id": "CA-D-269",
+      "version": 12,
+      "path": "07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+      "sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3",
+      "role": "flat Subjects serialization"
+    },
+    {
+      "atom_id": "CA-D-289",
+      "version": 12,
+      "path": "07_delivery/CA-D-289-CORE_META_MODEL--serialize-archive-revision-version-suffixes.md",
+      "sha256": "8489ccfb75f951effff4b61a1abe97e4d52001524c6d1ce87192e290e5cb0efb",
+      "role": "@ archive-carrier suffix, not Subject syntax"
+    },
+    {
+      "atom_id": "CA-R-1688",
+      "version": 24,
+      "path": "04_requirement/CA-R-1688-CORE_META_MODEL-REQUIREMENT--scope-path-does-not-change-semantic-coordinates.md",
+      "sha256": "7b5cf238bd6f1d4f928c6016300c2727440aff2ff5761d4684693a6b8d44deb1",
+      "role": "separate Scope-path broader-to-narrower ordering"
+    },
+    {
+      "atom_id": "CA-D-301",
+      "version": 15,
+      "path": "07_delivery/CA-D-301-CORE_META_MODEL--require-portable-safe-carrier-addresses.md",
+      "sha256": "40fa41c8ff9abdd81a39689a3b95284a2240cf567113bbf794fa874b8e61a691",
+      "role": "carrier address @ boundary"
+    }
+  ],
+  "operator_question": "May Step 1 admit exactly this Subject-grammar exception: / is a Subject separator ordered broader-to-narrower, . is a Subject separator ordered bearer-to-dependent, : remains Property-to-allowed-value, and @ is not a Subject token and remains display/carrier-only; may the body-only revisions to CA-R-1321, CA-R-1324, CA-M-228 and CA-E-383 be made together with a new Operator-assigned successor to CA-R-1204 (preserving CA-R-1204 as predecessor/history), while preserving native Dependent IS_BORNE_BY Bearer, native AllowedValue IS_ALLOWED_VALUE_OF Property, and the existing Terms-Graph-only scope of NARROWER_THAN, with no unapproved native slash relation or Subject migration?",
+  "acceptance_boundary": {
+    "approval_must_bind": "this packet and its exact SHA-256",
+    "on_refusal_or_deferral": "grammar cutover and Subject migration remain blocked",
+    "next_after_approval": "allocate successor ID, version the four body Atoms, update isolated parser/validator profile, then request separate migration approval",
+    "not_proven_by_packet": [
+      "native slash relation admission",
+      "source Subject rewrite",
+      "Core ontology adoption",
+      "production parser implementation"
+    ]
+  }
+}

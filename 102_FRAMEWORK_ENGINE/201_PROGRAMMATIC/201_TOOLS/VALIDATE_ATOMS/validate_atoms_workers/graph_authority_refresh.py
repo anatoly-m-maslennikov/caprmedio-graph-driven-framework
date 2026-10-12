@@ -19,6 +19,7 @@ APPROVED_GRAPH_AUTHORITY_IDS = frozenset(
     {
         "CA-D-305",
         "CA-D-268",
+        "CA-D-269",
         "CA-R-1676",
         "CA-R-1017",
         "CA-R-1016",
@@ -48,11 +49,13 @@ APPROVED_GRAPH_AUTHORITY_IDS = frozenset(
 CURRENT_SOURCE_ROOTS = (
     Path(
         ".caprmedio_caprmedio/000_CAPRMEDIO_framework/"
-        "00_APPLICABLE_METHODOLOGY/04_requirement"
+        "00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/"
+        "001_CORE_META_MODEL/04_requirement"
     ),
     Path(
         ".caprmedio_caprmedio/000_CAPRMEDIO_framework/"
-        "00_APPLICABLE_METHODOLOGY/07_delivery"
+        "00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/"
+        "001_CORE_META_MODEL/07_delivery"
     ),
 )
 
@@ -91,6 +94,8 @@ def _active_source(root: Path, atom_id: str) -> tuple[Path, Record]:
             if metadata.get("atom_id") != atom_id:
                 continue
             if metadata.get("status") in {"Active", "active"}:
+                if "projection" in metadata:
+                    raise ValueError("graph authority source is projected: " + atom_id)
                 candidates.append((candidate, metadata))
     if len(candidates) != 1:
         noun = "ambiguous" if candidates else "absent"

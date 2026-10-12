@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2159",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "input_pins": {
+    "task": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/22-CA-P-2159-TASK--audit-stage-2-execution-gates.md",
+      "sha256": "7dab4fd5edf3e1b1d6adda75849b939f79d4a7a0a33d157a5ff914acdf9274f2",
+      "role": "historical_registered_context_not_current_plan_lifecycle_authority",
+      "registration_commit": "50bf643d95f3f3171fe79199889f6b9dbf78e019"
+    },
+    "audit_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/contract.md",
+      "sha256": "cea762d3a48929859eb33a5c031c59890360e5cd08a96d5965d57e94e1e0e6ce"
+    },
+    "stage2_epic": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2.md",
+      "sha256": "959c0223a854e5ef2bb6c62fcd3b9b56987dd69c5f55cc5709962149def36add",
+      "role": "historical_registered_context_not_current_plan_lifecycle_authority",
+      "registration_commit": "50bf643d95f3f3171fe79199889f6b9dbf78e019",
+      "note": "The live Root lifecycle/link state may change after registration; this pin is retained only for the registration-context text read by this audit."
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99"
+    },
+    "frontier_audit": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/frontier-audit.json",
+      "sha256": "e6ac5b82f3b60ac13ffacd86fa13149de126e83d685d7b1fe8c7eb846dbe68c3"
+    },
+    "grammar_tool_contract": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-tools.current-contract.md",
+      "sha256": "cab46c2481e61fdca0ee7df38bce638d178eb37865e2e9e0be580179b2f3dbb6"
+    },
+    "ordinary_subject_tools": [
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_lookup.py",
+        "sha256": "8d1b7b033712a7ede53e0049f12b4ea873dd8af55374adde3134edd737a94657"
+      },
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_patch.py",
+        "sha256": "b0ed708f607992e6b084ed12bdd06aa1b1f63325fd1b88486a6e60422fa36f45"
+      },
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_operations.py",
+        "sha256": "1b41735a7ea5770d745f56cf02751adae0ef458ac7f21c3dabd4c830984385a6"
+      },
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/subject_notation.py",
+        "sha256": "97bfbbe5f125eec5d41836f7084e80ef922f4cc79298d054ef3300796ea2cc4c"
+      },
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/subject_model_sources.py",
+        "sha256": "201b5fbb3a891eafc4f1518bd1872b11863aa47b15600ff84f4a63c8763b8ac2"
+      },
+      {
+        "path": "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/core_entity_admission.py",
+        "sha256": "a54ad6e8f2780e0ea51bbd7f72e8f50ff8545653ce30daf4306e7fa3446662a6"
+      }
+    ],
+    "subject_route_plans": [
+      {
+        "atom_id": "CA-P-1966",
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins.md",
+        "sha256": "33fd56457ef31b6a2c730c9e976da621e615d1ed7bc0febe8c8934ac3aa58051"
+      },
+      {
+        "atom_id": "CA-P-1967",
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/09-CA-P-1967-TASK--seal-the-exact-subject-migration-preview.md",
+        "sha256": "e8a7fef3146a322af92b014873e3d15cd897be0011ec838f99283565eaf1cb9c"
+      },
+      {
+        "atom_id": "CA-P-1968",
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/10-CA-P-1968-EPIC--apply-approved-subject-migration-batches.md",
+        "sha256": "bf4debea4e269af8e8451690a5b653b4399589512d34df842d4e0bb5a19542d3"
+      },
+      {
+        "atom_id": "CA-P-1969",
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/11-CA-P-1969-TASK--verify-subject-migration-before-content-updates.md",
+        "sha256": "26a24ce96e01f1cf523fddef73334017ac0d819ffeb99f5f2b56e274484b2925"
+      },
+      {
+        "atom_id": "CA-P-1970",
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/12-CA-P-1970-EPIC--align-atom-content-after-subject-migration.md",
+        "sha256": "fcd30132e2b72099e41fe35ddd9f260423667361e21f96f622cd0948a9515a83"
+      },
+      {
+        "atom_id": "CA-P-1971",
+        "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/13-CA-P-1971-TASK--verify-the-stage-2-entity-model.md",
+        "sha256": "f7c1c782bb994dcff106f553183679b8f34f70797dd650cbcffbec7ea10de05c"
+      }
+    ],
+    "shared_route_plans": [
+      {
+        "atom_id": "CA-P-1909",
+        "path": ".caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/05-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/25-CA-P-1909-TASK--build-and-verify-the-accepted-core-entities-graph.md",
+        "sha256": "0e92f0da80f928e72b9997c9b557e302a478efe9961a518214f9b2ad8804cd21"
+      },
+      {
+        "atom_id": "CA-P-1910",
+        "path": ".caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/05-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/26-CA-P-1910-TASK--prepare-the-accepted-core-subject-migration-preview.md",
+        "sha256": "a4bd5afa587e50e2fa170f236e9e3b04020de0c4cb579ae163bbb0ff49a9bbc2"
+      },
+      {
+        "atom_id": "CA-P-1911",
+        "path": ".caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/05-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/27-CA-P-1911-TASK--apply-the-approved-core-subject-migration.md",
+        "sha256": "0b5dcfd12c4adc8cfd4249f21bb5d162cdb62985860c8a690b227880631feb10"
+      },
+      {
+        "atom_id": "CA-P-1912",
+        "path": ".caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/05-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/01-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/28-CA-P-1912-TASK--verify-the-migrated-core-graph-reproduction.md",
+        "sha256": "7c804027ea21b2e016fea10f038c262375821067e07ff08728a5c6f5cde0cc43"
+      }
+    ]
+  },
+  "counts": {
+    "sources": 907,
+    "occurrences": 4534,
+    "proposed": 1928,
+    "unchanged": 1540,
+    "unresolved": 1066,
+    "quarantined_sources": 8,
+    "quarantined_occurrences": 35,
+    "frontier_baseline_only_qualified": 242,
+    "frontier_previously_reviewed_unresolved": 824
+  },
+  "checks": {
+    "working_ledger_counts_match_remaining_gates_contract": true,
+    "route_plan_set_read": ["CA-P-1966", "CA-P-1967", "CA-P-1968", "CA-P-1969", "CA-P-1970", "CA-P-1971", "CA-P-1909", "CA-P-1910", "CA-P-1911", "CA-P-1912"],
+    "ordinary_lookup_is_profile_selected_and_lexical": true,
+    "ordinary_subject_preview_is_sealed_in_memory": true,
+    "ordinary_subject_apply_rejects": "static code path: subject-apply-not-admitted; this audit did not invoke apply",
+    "profile_evidence_native_admission": "not_performed",
+    "core_entity_admission_returns_empty_admitted_facts": true,
+    "audited_stage2_projection_named_receipts_or_outputs_for_1909_through_1912": "not_found_by_name_scan; this is not a repository-wide absence proof"
+  },
+  "findings": [
+    {
+      "id": "GATE-001-subject-mapping-completeness",
+      "disposition": "unfulfilled",
+      "observed": "The current ledger has complete inventory counts but retains 1066 unresolved occurrence decisions. Its frontier audit identifies 242 baseline-only qualified cases and separately preserves 824 other unresolved cases; it explicitly does not classify all unresolved cases as selector gaps.",
+      "inference": "The mapping evidence cannot yet supply the fully supported occurrence-to-candidate input that CA-P-1909 requires. This is a semantic-mapping gate, not a claim that the ledger lacks coverage.",
+      "evidence": [
+        {"pin": "working_ledger", "span": "$.counts"},
+        {"pin": "frontier_audit", "span": "$.counts, $.predicates, $.scope_note"},
+        {"pin": "subject_route_plans[0]", "span": "lines 28-43"},
+        {"pin": "shared_route_plans[0]", "span": "lines 35-43"}
+      ]
+    },
+    {
+      "id": "GATE-002-selector-and-qualified-identity-decision",
+      "disposition": "unfulfilled",
+      "observed": "The approved profile permits only slash, dot and colon and rejects selectors, conjunctions and @. The live frontier distinguishes 242 qualified baseline-only cases from the other 824 unresolved cases.",
+      "inference": "An Operator decision is still needed for qualified/named identity where current notation is insufficient; neither a generic target nor a selector grammar is inferred here. The other 824 unresolved cases require their own evidence and are not presumed to be selector-dependent.",
+      "evidence": [
+        {"pin": "grammar_tool_contract", "span": "lines 11-22"},
+        {"pin": "ordinary_subject_tools[3]", "span": "lines 140-158"},
+        {"pin": "stage2_epic", "span": "lines 133-135"},
+        {"pin": "frontier_audit", "span": "$.counts, $.scope_note"}
+      ]
+    },
+    {
+      "id": "GATE-003-accepted-graph-before-preview",
+      "disposition": "unfulfilled",
+      "observed": "CA-P-1909 requires an exact Operator-bound candidate decision, accepted derived graph, canonical hash, source pins, complete ledgers and verified comparison. The audit did not pin such a receipt or graph; a bounded name scan of the Stage 2 projection found no file named for the 1909-1912 receipt/preview/graph route.",
+      "inference": "CA-P-1967 candidate-packet preparation and CA-P-1910's sole final sealed preview remain gated. The name scan is only a scoped negative observation, not a conclusion that another uninspected interface or repository location is unsupported.",
+      "evidence": [
+        {"pin": "shared_route_plans[0]", "span": "lines 35-47"},
+        {"pin": "subject_route_plans[1]", "span": "lines 33-45"},
+        {"pin": "shared_route_plans[1]", "span": "lines 35-47"},
+        {"pin": "stage2_epic", "span": "lines 82-84"}
+      ]
+    },
+    {
+      "id": "GATE-004-sealed-preview-and-exact-authorization-before-apply",
+      "disposition": "unfulfilled",
+      "observed": "CA-P-1911 requires CA-P-1910 completion plus explicit authorization for that exact sealed preview, hash, file/patch list and source frontier. Static inspection of the local Subject-only update branch shows subject-apply-not-admitted for apply and describes preview apply_supported as false; this audit did not invoke that path.",
+      "inference": "No local preview may be treated as application authority. The audited local route can only prepare/read sealed preview material; it cannot satisfy the approved application gate or establish whether a separate admitted operation exists.",
+      "evidence": [
+        {"pin": "shared_route_plans[2]", "span": "lines 35-47"},
+        {"pin": "subject_route_plans[2]", "span": "lines 32-42"},
+        {"pin": "ordinary_subject_tools[2]", "span": "lines 819-839, 1231-1241"},
+        {"pin": "ordinary_subject_tools[1]", "span": "lines 53-118, 121-128"}
+      ]
+    },
+    {
+      "id": "GATE-005-reproduction-before-step-2",
+      "disposition": "unfulfilled",
+      "observed": "CA-P-1912 is the sole reproduction receipt and requires CA-P-1911's exact changed snapshot. CA-P-1969 then requires actual 1911/1912 completion evidence and a complete current Step-1 pass; CA-P-1970 expressly forbids preparation or application of content replacements before that pass.",
+      "inference": "Step 2 body work and final Stage 2 verification are not ready. This audit creates no alternative reproduction, receipt, approval or mutation route.",
+      "evidence": [
+        {"pin": "shared_route_plans[3]", "span": "lines 35-47"},
+        {"pin": "subject_route_plans[3]", "span": "lines 33-43"},
+        {"pin": "subject_route_plans[4]", "span": "lines 28-46"},
+        {"pin": "subject_route_plans[5]", "span": "lines 28-42"}
+      ]
+    },
+    {
+      "id": "GATE-006-local-tool-readiness-is-not-native-admission",
+      "disposition": "bounded_local_readiness_only",
+      "observed": "Lookup parses the chosen profile and returns lexical matches; preview seals source bytes, profile evidence and a digest. The notation module says parsing does not decide admitted endpoints and returns native_admission not_performed. The source provider says pin freshness is never native endpoint admission and leaves native_admission unperformed. The core-entity admission result builds candidates but returns an empty admitted_facts list with unknown coverage.",
+      "inference": "Same-profile local lookup and sealed preview are available for bounded inspection, but no native semantic admission is established by these inputs. This finding does not state that another advertised or admitted execution operation is absent.",
+      "evidence": [
+        {"pin": "ordinary_subject_tools[0]", "span": "lines 30-61, 100-103, 173-255"},
+        {"pin": "ordinary_subject_tools[1]", "span": "lines 53-118, 121-128"},
+        {"pin": "ordinary_subject_tools[3]", "span": "lines 140-147, 185-200"},
+        {"pin": "ordinary_subject_tools[4]", "span": "lines 1-6, 39-42, 134-151, 298-370"},
+        {"pin": "ordinary_subject_tools[5]", "span": "lines 306-330"},
+        {"pin": "grammar_tool_contract", "span": "lines 16-22"}
+      ]
+    }
+  ],
+  "safe_next_actions": [
+    {
+      "id": "NEXT-001-local-profile-revalidation",
+      "readiness": "locally_ready_not_gate_advancing",
+      "action": "For an explicitly selected, source-pinned carrier set, run same-profile lexical lookup or sealed preview only; preserve its source/profile pins and do not request apply.",
+      "does_not_require": ["selector grammar", "native admission", "source mutation", "migration approval"],
+      "does_not_satisfy": ["CA-P-1909 accepted graph", "CA-P-1910 sealed migration preview", "CA-P-1911 application", "CA-P-1912 reproduction", "CA-P-1969 Step-1 receipt"]
+    },
+    {
+      "id": "NEXT-002-resolve-concrete-model-choices",
+      "readiness": "blocked_on_operator_decision",
+      "action": "Take the bounded qualified/named identity cases to the designated Operator decision path without inventing selector syntax or singleton kinds; keep all other unresolved cases independently evidenced.",
+      "evidence": [{"pin": "frontier_audit", "span": "$.counts, $.scope_note"}, {"pin": "stage2_epic", "span": "lines 133-135"}]
+    },
+    {
+      "id": "NEXT-003-sole-route-after-prerequisites",
+      "readiness": "not_ready",
+      "action": "After a complete supported mapping and exact accepted graph are actually evidenced, follow only CA-P-1967 to CA-P-1910 sealed preview to separately approved CA-P-1911 application to CA-P-1912 reproduction, then CA-P-1969's complete Step-1 check.",
+      "evidence": [{"pin": "stage2_epic", "span": "lines 72-90"}, {"pin": "subject_route_plans[1]", "span": "lines 33-45"}, {"pin": "shared_route_plans[0]", "span": "lines 35-47"}, {"pin": "shared_route_plans[1]", "span": "lines 35-47"}, {"pin": "shared_route_plans[2]", "span": "lines 35-47"}, {"pin": "shared_route_plans[3]", "span": "lines 35-47"}]
+    }
+  ],
+  "limits": [
+    "This is a read-only diagnostic of pinned local inputs, not an approval, accepted graph, sealed preview, application, reproduction receipt, native-admission result or source-migration authorization.",
+    "Plan status and historical checkpoint prose were not treated as proof of the live gate outputs.",
+    "The scoped name scan cannot establish that an uninspected MCP or other external operation is unsupported."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2166",
+  "recorded_at": "2026-10-11 18:45:20 +0400",
+  "non_authoritative": true,
+  "source_migration": "verification_only_no_new_source_effects",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded verify the approved selector and metadata increment; not migration approval",
+  "verification": {
+    "source_migration": "verification_only_no_new_source_effects",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/approved-implementation/task-2166.integration-verification.json",
+      "sha256": "f0b2d5120b9d6105cfb2d6166de0487e4570f317f2a98f038a4a4c1385cf781e"
+    },
+    "independent_review": {
+      "status": "PASS",
+      "authority_reviewer": "projection_review_2099",
+      "selector_reviewer": "followup_semantic_acceptance",
+      "timestamp_reviewer": "domain_semantic_acceptance"
+    },
+    "checks": {
+      "tests": 418,
+      "suites": 8,
+      "source_atoms": 907,
+      "subject_occurrences": 4534,
+      "quarantines": 0,
+      "effect_rows": 24,
+      "current_archive_pins": 48,
+      "journal_events": 58,
+      "production_pins_stable": true
+    },
+    "limits": [
+      "Bounded approved increment only; no ordinary Subject migration, body sweep, native admission or runtime activation.",
+      "Historical mapping ledger and captured candidate/reviews remain unchanged and are not current-source application approval.",
+      "Parent Epic remains Active; its accepted graph, exact preview/application/reproduction and content gates remain pending."
+    ]
+  },
+  "independent_review": {
+    "status": "PASS",
+    "authority_reviewer": "projection_review_2099",
+    "selector_reviewer": "followup_semantic_acceptance",
+    "timestamp_reviewer": "domain_semantic_acceptance"
+  },
+  "completion_scope": "Independently checked current authority/history/Journal effects and verified the418-test,8-suite combined run against stable production code. Confirmed907 Core sources,4534 unchanged Subject occurrences,0 carrier quarantines,24 exact source effects and58 actual Journal records. Only the bounded approved increment is complete; parent Epic remains Active.",
+  "registration_commit": "cd5ea856823d565c285d767209e64297ba680749",
+  "limits": [
+    "Bounded approved increment only; no ordinary Subject migration, body sweep, native admission or runtime activation.",
+    "Historical mapping ledger and captured candidate/reviews remain unchanged and are not current-source application approval.",
+    "Parent Epic remains Active; its accepted graph, exact preview/application/reproduction and content gates remain pending."
+  ]
+}

@@ -1,0 +1,2489 @@
+{
+  "schema_version": 1,
+  "batch": 7,
+  "kind": "Captured nodes against Operator candidate",
+  "non_authoritative": true,
+  "native_admission": "not_performed",
+  "source_migration": "not_performed",
+  "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+  "candidate_sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+  "input_sha256": "9a9188b17a1aca100515a3857e61a7499c07dd840d9672a5589e25739a1be1b6",
+  "baseline_sha256": "bc5d99e91fb7dd4dcb42e59ff33cc24cff1d0901c5904764394c769aaa0a9430",
+  "prior_review_sha256": "1b9d751f95aa71486908b53b3d7f3f9825defae137be3d8792d45177587c48f8",
+  "review_method": "Compared all 80 captured identities with the latest Operator candidate using the accepted batch-7 meanings and the global disposition evidence catalogue. Exact captured Main Content spans were rechecked through snapshot_sources.py against the pinned Git snapshot. Operator directions are display/proposal inputs only; this is not a fresh exhaustive audit of all 951 sources or an adoption/remapping operation.",
+  "nodes": [
+    {
+      "identity": "RMED Atom Review Workflow/coverage/Action: 118",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Action 118",
+      "content_view": "O",
+      "confidence_percent": 92,
+      "reason": "Captured CA-O-118 gives the Coverage Gate an explicit bounded accounting obligation and result condition. Candidate comparison: The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-118:25-25"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-118"
+      ],
+      "preserved_distinctions": [
+        "Captured CA-O-118 gives the Coverage Gate an explicit bounded accounting obligation and result condition.",
+        "The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "RMED Atom Review Workflow/coverage/Step",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "The three captured Operations clauses define the gather, check, and fix coverage-gate substeps individually; none defines the unnumbered coverage/Step identity as a separate reusable entity. Candidate comparison: The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-119:24-24",
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-120:24-24",
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-121:24-24"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-119",
+        "CA-O-120",
+        "CA-O-121"
+      ],
+      "preserved_distinctions": [
+        "The three captured Operations clauses define the gather, check, and fix coverage-gate substeps individually; none defines the unnumbered coverage/Step identity as a separate reusable entity.",
+        "The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task (captured-evidence gap, not a new Operator design question): Should RMED Atom Review Workflow/coverage/Step remain a presentation-only grouping of the three numbered coverage-gate substeps, or is there a separate authoritative definition for an unnumbered reusable Step that should be supplied? Keep the original identity and checked source IDs until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "RMED Atom Review Workflow/coverage/Step: 119",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Step 119",
+      "content_view": "O",
+      "confidence_percent": 94,
+      "reason": "Captured CA-O-119 assigns the gather Coverage Gate substep a stage=gather invocation after the main gather Step and before continuation. Candidate comparison: The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-119:24-24"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-119"
+      ],
+      "preserved_distinctions": [
+        "Captured CA-O-119 assigns the gather Coverage Gate substep a stage=gather invocation after the main gather Step and before continuation.",
+        "The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "RMED Atom Review Workflow/coverage/Step: 120",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Step 120",
+      "content_view": "O",
+      "confidence_percent": 94,
+      "reason": "Captured CA-O-120 assigns the check Coverage Gate substep a stage=check invocation after the main check Step and before continuation. Candidate comparison: The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-120:24-24"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-120"
+      ],
+      "preserved_distinctions": [
+        "Captured CA-O-120 assigns the check Coverage Gate substep a stage=check invocation after the main check Step and before continuation.",
+        "The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "RMED Atom Review Workflow/coverage/Step: 121",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Step 121",
+      "content_view": "O",
+      "confidence_percent": 94,
+      "reason": "Captured CA-O-121 assigns the fix Coverage Gate substep a stage=fix invocation after the main fix Step and before continuation. Candidate comparison: The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-121:24-24"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-121"
+      ],
+      "preserved_distinctions": [
+        "Captured CA-O-121 assigns the fix Coverage Gate substep a stage=fix invocation after the main fix Step and before continuation.",
+        "The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "RMED Review Evaluation Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.RMED Review Evaluation Step",
+      "content_view": "O",
+      "confidence_percent": 97,
+      "reason": "Captured CA-O-109 defines this Step as the Workflow node invoking CA-O-106 in Isolated context. Candidate comparison: The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-109:31-31"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-109"
+      ],
+      "preserved_distinctions": [
+        "Captured CA-O-109 defines this Step as the Workflow node invoking CA-O-106 in Isolated context.",
+        "The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "RMED Review Repair Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.RMED Review Repair Step",
+      "content_view": "O",
+      "confidence_percent": 97,
+      "reason": "Captured CA-O-110 defines this Step as the Workflow node invoking CA-O-111 in Isolated context. Candidate comparison: The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-110:31-31"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-110"
+      ],
+      "preserved_distinctions": [
+        "Captured CA-O-110 defines this Step as the Workflow node invoking CA-O-111 in Isolated context.",
+        "The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "RMED Review Selection Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.RMED Review Selection Step",
+      "content_view": "O",
+      "confidence_percent": 97,
+      "reason": "Captured CA-O-108 defines this Step as the Workflow node invoking CA-O-105 in Integrated context. Candidate comparison: The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-108:31-31"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-108"
+      ],
+      "preserved_distinctions": [
+        "Captured CA-O-108 defines this Step as the Workflow node invoking CA-O-105 in Integrated context.",
+        "The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "RMEDO Conflict Resolution",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.RMEDO Conflict Resolution",
+      "content_view": "mixed",
+      "confidence_percent": 99,
+      "reason": "Captured CA-O-028 defines the Workflow; captured CA-E-477 independently constrains its Evaluation against CA-O-028 and reused Actions. Candidate comparison: The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-028:45-45",
+        "CA-P-1935/batch-7/CA-P-1945/CA-E-477:43-43"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-477",
+        "CA-O-028"
+      ],
+      "preserved_distinctions": [
+        "Captured CA-O-028 defines the Workflow; captured CA-E-477 independently constrains its Evaluation against CA-O-028 and reused Actions.",
+        "The numbered review workflow item remains a named dependent Operation specification; grouping does not create another root Entity."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Rationale For Relation",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation.Rationale For Relation",
+      "content_view": "R",
+      "confidence_percent": 93,
+      "reason": "Captured CA-R-1016 gives the rationale_for relation a direct owner, target cardinality, and explained-target meaning. Candidate comparison: Keep Relation facts, Relation Kinds, authority metadata, endpoints and derived provenance distinct; candidate comparison does not admit a native edge.",
+      "operator_rules": [
+        "/root_entities/3",
+        "/graph_model",
+        "/relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1945/CA-R-1016:29-29"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1016"
+      ],
+      "preserved_distinctions": [
+        "Captured CA-R-1016 gives the rationale_for relation a direct owner, target cardinality, and explained-target meaning.",
+        "Keep Relation facts, Relation Kinds, authority metadata, endpoints and derived provenance distinct; candidate comparison does not admit a native edge."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Reconcile Navigation Numbers",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Reconcile Navigation Numbers",
+      "content_view": "O",
+      "confidence_percent": 99,
+      "reason": "Captured CA-O-078 defines the bounded Action, and captured CA-E-510 states its conformance condition and separated readiness boundary. Candidate comparison: The bounded Action and its conformance/readiness conditions remain an Operation definition.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-078:39-39",
+        "CA-P-1935/batch-7/CA-P-1945/CA-E-510:45-45"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-510",
+        "CA-O-078"
+      ],
+      "preserved_distinctions": [
+        "Captured CA-O-078 defines the bounded Action, and captured CA-E-510 states its conformance condition and separated readiness boundary.",
+        "The bounded Action and its conformance/readiness conditions remain an Operation definition."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Reconcile Unfinished Work",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Reconcile Unfinished Work",
+      "content_view": "O",
+      "confidence_percent": 99,
+      "reason": "Captured CA-O-079 defines the Action as reconciling still-valid remaining work with applicable Plan representation while prohibiting duplicate Plans and execution authorization. Candidate comparison: Remaining-work reconciliation remains an Operation definition and does not authorize duplicate Plans or execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1945/CA-O-079:42-42"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-079"
+      ],
+      "preserved_distinctions": [
+        "Captured CA-O-079 defines the Action as reconciling still-valid remaining work with applicable Plan representation while prohibiting duplicate Plans and execution authorization.",
+        "Remaining-work reconciliation remains an Operation definition and does not authorize duplicate Plans or execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Recurrence Protection",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Evaluation.Recurrence Protection",
+      "content_view": "E",
+      "confidence_percent": 99,
+      "reason": "Concrete recurrence protection is represented by an Evaluation Atom defining a mechanism-neutral bounded check for the corrected failure class. Candidate comparison: The captured Evaluation meaning is a reusable check definition; it is not an actual Execution or a new root.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-1741:30-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1741"
+      ],
+      "preserved_distinctions": [
+        "Concrete recurrence protection is represented by an Evaluation Atom defining a mechanism-neutral bounded check for the corrected failure class.",
+        "Mechanism-neutral check meaning remains distinct from a particular test mechanism and actual check execution.",
+        "The captured Evaluation meaning is a reusable check definition; it is not an actual Execution or a new root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Related To Relation",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation.Related To Relation",
+      "content_view": "R",
+      "confidence_percent": 96,
+      "reason": "related_to is the sole imprecise fallback relation-kind vocabulary in Artifact sources whose effective authority_mode is casual. Candidate comparison: Keep Relation facts, Relation Kinds, authority metadata, endpoints and derived provenance distinct; candidate comparison does not admit a native edge.",
+      "operator_rules": [
+        "/root_entities/3",
+        "/graph_model",
+        "/relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-1653:25-29"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1653"
+      ],
+      "preserved_distinctions": [
+        "related_to is the sole imprecise fallback relation-kind vocabulary in Artifact sources whose effective authority_mode is casual.",
+        "Retain the constrained vocabulary meaning without claiming native graph owner, direction or endpoint admission absent from this source.",
+        "Keep Relation facts, Relation Kinds, authority metadata, endpoints and derived provenance distinct; candidate comparison does not admit a native edge."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Relation",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation",
+      "content_view": "mixed",
+      "confidence_percent": 97,
+      "reason": "Relation facts preserve exact identities and authority: independently authored facts have one declaration; derived facts trace to derivation authority and input facts. A Subject is a direct Atom-to-Entity Relation, not an intermediate object or target path. Candidate comparison: Keep Relation facts, Relation Kinds, authority metadata, endpoints and derived provenance distinct; candidate comparison does not admit a native edge.",
+      "operator_rules": [
+        "/root_entities/3",
+        "/graph_model",
+        "/relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-1437:35-37",
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-1275:34-40",
+        "CA-P-1935/batch-7/CA-P-1946/CA-M-120:47-50"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-120",
+        "CA-R-1275",
+        "CA-R-1437"
+      ],
+      "preserved_distinctions": [
+        "Relation facts preserve exact identities and authority: independently authored facts have one declaration; derived facts trace to derivation authority and input facts. A Subject is a direct Atom-to-Entity Relation, not an intermediate object or target path.",
+        "Primitive authored facts, derived results and inverse navigation preserve different provenance obligations.",
+        "Keep Relation facts, Relation Kinds, authority metadata, endpoints and derived provenance distinct; candidate comparison does not admit a native edge."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Relation Kind",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation.Kind",
+      "content_view": "mixed",
+      "confidence_percent": 99,
+      "reason": "Relation Kind identity is owning graph kind plus canonical name; native admission belongs to exactly that graph kind, with declared endpoint contexts and metadata. Candidate comparison: Keep Relation facts, Relation Kinds, authority metadata, endpoints and derived provenance distinct; candidate comparison does not admit a native edge.",
+      "operator_rules": [
+        "/root_entities/3",
+        "/graph_model",
+        "/relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-1246:31-35",
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-806:31-31",
+        "CA-P-1935/batch-7/CA-P-1946/CA-M-120:48-50"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-120",
+        "CA-R-1246",
+        "CA-R-806"
+      ],
+      "preserved_distinctions": [
+        "Relation Kind identity is owning graph kind plus canonical name; native admission belongs to exactly that graph kind, with declared endpoint contexts and metadata.",
+        "Kind authority differs from a concrete fact and from external endpoint references; cross-graph representation does not transfer ownership.",
+        "Keep Relation facts, Relation Kinds, authority metadata, endpoints and derived provenance distinct; candidate comparison does not admit a native edge."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Relation Kind/Metadata",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation.Kind.Metadata",
+      "content_view": "mixed",
+      "confidence_percent": 99,
+      "reason": "Each admitted Relation Kind has one authority-derived canonical metadata record covering graph owner, meaning, direction/inverse, endpoint classes/contexts, cardinality, authority effects, transitivity, applicability, Status and purpose. Candidate comparison: Keep Relation facts, Relation Kinds, authority metadata, endpoints and derived provenance distinct; candidate comparison does not admit a native edge.",
+      "operator_rules": [
+        "/root_entities/3",
+        "/graph_model",
+        "/relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-806:31-31",
+        "CA-P-1935/batch-7/CA-P-1946/CA-M-120:47-50",
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-1472:35-37"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-120",
+        "CA-R-1472",
+        "CA-R-806"
+      ],
+      "preserved_distinctions": [
+        "Each admitted Relation Kind has one authority-derived canonical metadata record covering graph owner, meaning, direction/inverse, endpoint classes/contexts, cardinality, authority effects, transitivity, applicability, Status and purpose.",
+        "Record completeness differs from actual fact evidence; missing/conflicting fields block resolution instead of being invented.",
+        "Keep Relation facts, Relation Kinds, authority metadata, endpoints and derived provenance distinct; candidate comparison does not admit a native edge."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Relation Kind/registry compilation",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation.Kind.Registry Compilation",
+      "content_view": "P",
+      "confidence_percent": 99,
+      "reason": "Registry compilation derives metadata from active governing Requirement authority, groups by owning graph kind, derives inverse navigation and retains source traceability as a non-authoritative Projection. Candidate comparison: The registry is a derived, non-authoritative compilation of Relation Kind metadata; it is not a second Relation declaration.",
+      "operator_rules": [
+        "/root_entities/3",
+        "/graph_model",
+        "/relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1946/CA-M-120:45-50"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-120"
+      ],
+      "preserved_distinctions": [
+        "Registry compilation derives metadata from active governing Requirement authority, groups by owning graph kind, derives inverse navigation and retains source traceability as a non-authoritative Projection.",
+        "Construction Method, compiled Projection, governing kind authority and concrete Relation facts stay distinct.",
+        "The registry is a derived, non-authoritative compilation of Relation Kind metadata; it is not a second Relation declaration."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Relation Type",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 78,
+      "reason": "Delivery authoring names an admitted Relation Type for classification/binding, but the captured Method does not define Relation Type or equate it with graph-qualified Relation Kind. Candidate comparison: The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap.",
+      "operator_rules": [
+        "/root_entities/3",
+        "/relation_type_model",
+        "/graph_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1946/CA-M-313:38-48"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-313"
+      ],
+      "preserved_distinctions": [
+        "Delivery authoring names an admitted Relation Type for classification/binding, but the captured Method does not define Relation Type or equate it with graph-qualified Relation Kind.",
+        "The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task (captured-evidence gap, not a new Operator design question): Does Relation Type in CA-M-313 denote exactly the graph-qualified Relation Kind, or a distinct type/classification concept? Which captured governing definition establishes that identity and its graph/admission boundaries? Keep the original identity and checked source IDs until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "Relation/authority",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Relation",
+      "candidate_path": "Relation.Authority",
+      "content_view": "mixed",
+      "confidence_percent": 99,
+      "reason": "Independently authored Relation facts have one authoritative declaration; derived Relation results remain traceable to admitted derivation authority and authoritative inputs without a fake direct declaration. Candidate comparison: Keep Relation facts, Relation Kinds, authority metadata, endpoints and derived provenance distinct; candidate comparison does not admit a native edge.",
+      "operator_rules": [
+        "/root_entities/3",
+        "/graph_model",
+        "/relation_type_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-1437:35-37",
+        "CA-P-1935/batch-7/CA-P-1946/CA-M-120:49-50"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-120",
+        "CA-R-1437"
+      ],
+      "preserved_distinctions": [
+        "Independently authored Relation facts have one authoritative declaration; derived Relation results remain traceable to admitted derivation authority and authoritative inputs without a fake direct declaration.",
+        "Direct fact authority, derivation authority, input facts and non-authoritative registry/view traceability remain separate.",
+        "Keep Relation facts, Relation Kinds, authority metadata, endpoints and derived provenance distinct; candidate comparison does not admit a native edge."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Relational Atom",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Relational Atom",
+      "content_view": "mixed",
+      "confidence_percent": 99,
+      "reason": "Relational Atom has no containing Scope Unit or a resolved Claim Target Scope Unit different from its current Scope Unit; it remains an Atom and is not relational merely due to Plan decomposition/blocking or Label. Candidate comparison: Relational wording does not create a Relation root: the Atom, its qualified allowed values and its target conditions remain distinct.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-923:30-30",
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-1256:28-28",
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-924:31-31"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1256",
+        "CA-R-923",
+        "CA-R-924"
+      ],
+      "preserved_distinctions": [
+        "Relational Atom has no containing Scope Unit or a resolved Claim Target Scope Unit different from its current Scope Unit; it remains an Atom and is not relational merely due to Plan decomposition/blocking or Label.",
+        "Actual Claim target applicability differs from current ownership and from Plan Relation participation.",
+        "Relational wording does not create a Relation root: the Atom, its qualified allowed values and its target conditions remain distinct."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Relational Atom Classification Validation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Evaluation.Relational Atom Classification Validation",
+      "content_view": "E",
+      "confidence_percent": 99,
+      "reason": "Classification Evaluation enforces admitted qualified Relational Atom Types and target conditions, rejects Labels as Type authority and preserves current-scope Plan nonrelational cases despite decomposition/blocking. Candidate comparison: The captured classification check is an Evaluation specification; allowed qualified types and target conditions remain separate from Labels and from an actual Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1946/CA-E-425:32-39"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-425"
+      ],
+      "preserved_distinctions": [
+        "Classification Evaluation enforces admitted qualified Relational Atom Types and target conditions, rejects Labels as Type authority and preserves current-scope Plan nonrelational cases despite decomposition/blocking.",
+        "Plan Label changes do not change target-based classification; a saved definition is not an executed validation result.",
+        "The captured classification check is an Evaluation specification; allowed qualified types and target conditions remain separate from Labels and from an actual Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Relational Atom/Qualified Type",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Relational Atom.Qualified Type",
+      "content_view": "mixed",
+      "confidence_percent": 99,
+      "reason": "Core allowed qualified Relational Atom Types are Requirement/Goal, Requirement/Demand and Plan/Plan, with Plan relational only under the actual target condition. Candidate comparison: Relational wording does not create a Relation root: the Atom, its qualified allowed values and its target conditions remain distinct.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1946/CA-R-924:31-31",
+        "CA-P-1935/batch-7/CA-P-1946/CA-E-425:32-39"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-425",
+        "CA-R-924"
+      ],
+      "preserved_distinctions": [
+        "Core allowed qualified Relational Atom Types are Requirement/Goal, Requirement/Demand and Plan/Plan, with Plan relational only under the actual target condition.",
+        "Allowed type value, Atom classification, Plan Label and actual target remain distinct; no new subtype follows from path syntax.",
+        "Relational wording does not create a Relation root: the Atom, its qualified allowed values and its target conditions remain distinct."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Repair RMED Review Batch",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Repair RMED Review Batch",
+      "content_view": "O",
+      "confidence_percent": 99,
+      "reason": "Reusable repair Action applies the smallest authorized correction for confirmed local findings, classifies lifecycle changes, preserves partial effects/history and returns fixed/replaced-not-rechecked only after complete finding/check coverage. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1946/CA-O-111:31-40",
+        "CA-P-1935/batch-7/CA-P-1946/CA-O-111:44-46"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-111"
+      ],
+      "preserved_distinctions": [
+        "Reusable repair Action applies the smallest authorized correction for confirmed local findings, classifies lifecycle changes, preserves partial effects/history and returns fixed/replaced-not-rechecked only after complete finding/check coverage.",
+        "An applied edit or correction record is not a semantic pass or completion of unperformed checks.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Replacement-Required Lineage Impact Disposition",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Claim.Replacement-Required Lineage Impact Disposition",
+      "content_view": "C",
+      "confidence_percent": 99,
+      "reason": "Captured Claim defines replacement_required as successor plus archival before traversal of every affected descendant. Candidate comparison: The replacement/archival lineage distinction remains a Claim-level disposition, not a Revision or Execution root.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-R-1035-29-29"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1035"
+      ],
+      "preserved_distinctions": [
+        "Captured Claim defines replacement_required as successor plus archival before traversal of every affected descendant.",
+        "The replacement/archival lineage distinction remains a Claim-level disposition, not a Revision or Execution root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Requirement Implementation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Requirement Implementation",
+      "content_view": "O",
+      "confidence_percent": 99,
+      "reason": "Captured Operation defines the Agentic Action that realizes selected Plan-item Requirements after tests are prepared within Delivery boundaries. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-O-019-35-40"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-019"
+      ],
+      "preserved_distinctions": [
+        "Captured Operation defines the Agentic Action that realizes selected Plan-item Requirements after tests are prepared within Delivery boundaries.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Requirement Implementation Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Requirement Implementation Step",
+      "content_view": "O",
+      "confidence_percent": 99,
+      "reason": "Captured Operation defines the Workflow node invoking exactly one CA-O-019 Action in Isolated context with retained execution evidence. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-O-093-35-41"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-093"
+      ],
+      "preserved_distinctions": [
+        "Captured Operation defines the Workflow node invoking exactly one CA-O-019 Action in Isolated context with retained execution evidence.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Resolve Operator Priorities",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Resolve Operator Priorities",
+      "content_view": "O",
+      "confidence_percent": 99,
+      "reason": "Captured legacy Action body directly defines the Action that turns applicable Operator input into the effective priority model for an identified Scope and Project stage. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-O-022-28-35"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-022"
+      ],
+      "preserved_distinctions": [
+        "Captured legacy Action body directly defines the Action that turns applicable Operator input into the effective priority model for an identified Scope and Project stage.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Resolve Project Initialization Inputs",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Resolve Project Initialization Inputs",
+      "content_view": "O",
+      "confidence_percent": 99,
+      "reason": "Captured Operation defines the reusable Action resolving authoritative Project and Framework Instance initialization inputs before Project Structure interpretation. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-O-052-36-42"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-052"
+      ],
+      "preserved_distinctions": [
+        "Captured Operation defines the reusable Action resolving authoritative Project and Framework Instance initialization inputs before Project Structure interpretation.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Revert Changes Workflow",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Revert Changes Workflow",
+      "content_view": "O",
+      "confidence_percent": 99,
+      "reason": "Captured Operation defines the reusable single-node Workflow graph and its terminal outcomes. Candidate comparison: The reusable Workflow definition remains separate from any actual Workflow Run.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-O-130-25-36"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-130"
+      ],
+      "preserved_distinctions": [
+        "Captured Operation defines the reusable single-node Workflow graph and its terminal outcomes.",
+        "The reusable Workflow definition remains separate from any actual Workflow Run."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Root Term",
+      "prior_disposition": "retain",
+      "action": "syntax_context",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 99,
+      "reason": "Captured Claim defines Root Term by zero direct NARROWER_THAN parents in the Terms Graph. Candidate comparison: Terms remain in their separate graph; Root Term is contextual graph syntax, not an eighth Entity root.",
+      "operator_rules": [
+        "/terms_graph_boundary",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-R-1347-30-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1347",
+        "CA-R-1353"
+      ],
+      "preserved_distinctions": [
+        "Captured Claim defines Root Term by zero direct NARROWER_THAN parents in the Terms Graph.",
+        "Terms remain in their separate graph; Root Term is contextual graph syntax, not an eighth Entity root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Runtime Journal",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Journal",
+      "content_view": "D",
+      "confidence_percent": 91,
+      "reason": "Captured Claim imposes a meaningful delivery boundary for runtime technical and business Journals without making their Carrier location canonical. Candidate comparison: Journal remains a record of changes and decisions; the captured D clause does not make a runtime directory or Carrier path canonical.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/history_model",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-D-559-27-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-559"
+      ],
+      "preserved_distinctions": [
+        "Captured Claim imposes a meaningful delivery boundary for runtime technical and business Journals without making their Carrier location canonical.",
+        "Journal remains a record of changes and decisions; the captured D clause does not make a runtime directory or Carrier path canonical."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Runtime Journal/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Carrier",
+      "candidate_path": "Carrier delivery policy for Runtime Journal",
+      "content_view": "D",
+      "confidence_percent": 93,
+      "reason": "Captured Claim states the Carriers that may deliver runtime technical and business Journals and rejects a fixed journal/runtime-directory requirement. Candidate comparison: The D meaning is a general storage/delivery policy. It keeps Carrier ID separate from filename/path and creates no per-Property Carrier edge.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/carrier_delivery_model",
+        "/entity_identity_model/carrier_identity"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-D-559-27-27"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-559"
+      ],
+      "preserved_distinctions": [
+        "Captured Claim states the Carriers that may deliver runtime technical and business Journals and rejects a fixed journal/runtime-directory requirement.",
+        "The D meaning is a general storage/delivery policy. It keeps Carrier ID separate from filename/path and creates no per-Property Carrier edge."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Runtime State",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Execution",
+      "candidate_path": "Execution.Runtime State",
+      "content_view": "E",
+      "confidence_percent": 90,
+      "reason": "Captured Evaluation gives Runtime State a meaningful storage-boundary role: treating it as canonical truth fails readiness. Candidate comparison: Runtime State is kept as an execution-state concern; it does not replace Git preservation of Atom contents or establish a new root.",
+      "operator_rules": [
+        "/root_entities/6",
+        "/execution_definition_policy",
+        "/m_e_root_question"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-E-522-55-60"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-522",
+        "CA-E-523"
+      ],
+      "preserved_distinctions": [
+        "Captured Evaluation gives Runtime State a meaningful storage-boundary role: treating it as canonical truth fails readiness.",
+        "Runtime State is kept as an execution-state concern; it does not replace Git preservation of Atom contents or establish a new root."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Runtime State Carrier",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 78,
+      "reason": "Captured CA-D-341 requires persistent Framework/Project Carriers to remain outside Runtime State, but does not define a Runtime State Carrier identity or its binding. Candidate comparison: The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-D-341-30-30"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-341"
+      ],
+      "preserved_distinctions": [
+        "Captured CA-D-341 requires persistent Framework/Project Carriers to remain outside Runtime State, but does not define a Runtime State Carrier identity or its binding.",
+        "The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task (captured-evidence gap, not a new Operator design question): What captured Core Claim defines `Runtime State Carrier` itself, including whether it is a carrier of ephemeral state or a prohibited persistent-carrier classification? Keep the original identity and checked source IDs until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "Scope",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 78,
+      "reason": "The listed captured candidates use affected Scope as context but do not define this exact generic Scope identity; the later omission direction is candidate-only and is not Core evidence. Candidate comparison: The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/content_direction/scope_omission"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-E-207-42-49"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-207",
+        "CA-O-022",
+        "CA-R-1487"
+      ],
+      "preserved_distinctions": [
+        "The listed captured candidates use affected Scope as context but do not define this exact generic Scope identity; the later omission direction is candidate-only and is not Core evidence.",
+        "The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task (captured-evidence gap, not a new Operator design question): Which captured Core Claim defines this generic `Scope` identity and distinguishes it from Scope Unit ownership, Claim Target Scope Unit, and applicability Scope? Keep the original identity and checked source IDs until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "Scope Expression",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Scope Expression",
+      "content_view": "mixed",
+      "confidence_percent": 99,
+      "reason": "Captured Claim defines one deterministic expression identifying Governed Entities by references, IDs, grouping, registered operators, and predicates. Candidate comparison: The deterministic expression remains qualified applicability under a Scope Unit; its predicates and grouping are not inferred as Entity taxonomy.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-R-999-28-28"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-999",
+        "CA-M-121",
+        "CA-R-1271"
+      ],
+      "preserved_distinctions": [
+        "Captured Claim defines one deterministic expression identifying Governed Entities by references, IDs, grouping, registered operators, and predicates.",
+        "The deterministic expression remains qualified applicability under a Scope Unit; its predicates and grouping are not inferred as Entity taxonomy."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Expression Evaluation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Scope Expression Evaluation",
+      "content_view": "M",
+      "confidence_percent": 99,
+      "reason": "Captured Claim defines ordered Resolver semantics for identities, entity-kind selectors, operators, predicates, and parentheses. Candidate comparison: Resolver/evaluation semantics remain a method view over Scope applicability, not a second Scope Unit.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-M-121-25-34"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-121"
+      ],
+      "preserved_distinctions": [
+        "Captured Claim defines ordered Resolver semantics for identities, entity-kind selectors, operators, predicates, and parentheses.",
+        "Resolver/evaluation semantics remain a method view over Scope applicability, not a second Scope Unit."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Expression/Canonical Scope Signature",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Scope Expression.Canonical Scope Signature",
+      "content_view": "P",
+      "confidence_percent": 99,
+      "reason": "Captured Claim defines the Canonical Scope Signature as a derived non-authoritative comparison value for one parenthesized Scope Expression occurrence. Candidate comparison: The signature remains a derived comparison value, distinct from the source Scope Expression and its evaluation.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-R-1361-32-32"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1361",
+        "CA-E-407",
+        "CA-M-241"
+      ],
+      "preserved_distinctions": [
+        "Captured Claim defines the Canonical Scope Signature as a derived non-authoritative comparison value for one parenthesized Scope Expression occurrence.",
+        "The signature remains a derived comparison value, distinct from the source Scope Expression and its evaluation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Expression/Canonical Scope Signature/Projection",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Scope Expression.Canonical Scope Signature.Projection",
+      "content_view": "P",
+      "confidence_percent": 99,
+      "reason": "Captured Claim requires one non-authoritative JSON report with exact source frontier and diagnostics, while prohibiting source rewrite, Claim equivalence, and dependency creation. Candidate comparison: The report is a non-authoritative Projection of a Scope Expression signature; it does not rewrite source scope or create a Relation.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1947/CA-D-347-31-31"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-347"
+      ],
+      "preserved_distinctions": [
+        "Captured Claim requires one non-authoritative JSON report with exact source frontier and diagnostics, while prohibiting source rewrite, Claim equivalence, and dependency creation.",
+        "The report is a non-authoritative Projection of a Scope Expression signature; it does not rewrite source scope or create a Relation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Reference Validation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Evaluation.Scope Reference Validation",
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "E240 gives fixtures and acceptance/failure criteria validating independent ownership, GOVERNS target, Claim Target Scope Unit and textual applicability. Candidate comparison: The captured fixture/acceptance meaning is an Evaluation specification; it does not transfer ownership or create Scope Unit ancestry.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-E-240@30:39-39:a89fffadfab566a48ba2eac604a6c94e55662b01744acf6ad7a5e5a7c411cc69",
+        "CA-P-1935/batch-7/CA-P-1948/CA-E-240@30:45-55:5f158da683ea4a65fdcfaf966dd8324c0dbe71bf9b84661b5488f6694491d93a"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-240"
+      ],
+      "preserved_distinctions": [
+        "A different permitted target or narrower Claim applicability does not transfer ownership or create Scope Unit ancestry.",
+        "E240 gives fixtures and acceptance/failure criteria validating independent ownership, GOVERNS target, Claim Target Scope Unit and textual applicability.",
+        "The captured fixture/acceptance meaning is an Evaluation specification; it does not transfer ownership or create Scope Unit ancestry."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Unit",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit",
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "R1757 defines a Structural Entity providing an Atom ownership boundary and possible child units; R1484 distinguishes declaration from Goal coverage and Carrier materialization. Candidate comparison: Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-1757@17:29-29:70ee1c6b935426e19fc94dd08e484bf4a6738cd6457601619db97e85e627eafc",
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-1484@5:32-32:3903a6ebf9f8cb3084554f4e9284f1ed421eab1c1137040569199de3cbb6e5a3",
+        "CA-P-1935/batch-7/CA-P-1948/CA-D-445@5:36-36:468392488f13e0c69dd88eb2329d0e857bf04ada7a273bc50fa936bfcbe0ab05"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-445",
+        "CA-R-1257",
+        "CA-R-1264",
+        "CA-R-1292",
+        "CA-R-1484",
+        "CA-R-1730",
+        "CA-R-1748",
+        "CA-R-1757",
+        "CA-R-1762",
+        "CA-R-862",
+        "CA-R-927"
+      ],
+      "preserved_distinctions": [
+        "Logical declaration establishes the unit; a native physical layout does not change declared parentage, Type, Name or Local Order.",
+        "R1757 defines a Structural Entity providing an Atom ownership boundary and possible child units; R1484 distinguishes declaration from Goal coverage and Carrier materialization.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Unit Graph",
+      "prior_disposition": "retain",
+      "action": "projection_view",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Graph",
+      "content_view": "P",
+      "confidence_percent": 95,
+      "reason": "R1655 explicitly constrains a derived Scope Unit Graph not to replace authoritative Project Structure. Candidate comparison: The Scope Unit Graph is a derived view and does not replace authoritative Project Structure or declare native ancestry.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-1655@25:43-43:1289e3656b7b48457e9cc7be6057569843b86d83ec7eb18c6010e8f32b03f9cc"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1655"
+      ],
+      "preserved_distinctions": [
+        "The captured basis establishes the graph's derived/non-authoritative boundary, not its full edge grammar or native membership.",
+        "R1655 explicitly constrains a derived Scope Unit Graph not to replace authoritative Project Structure.",
+        "The Scope Unit Graph is a derived view and does not replace authoritative Project Structure or declare native ancestry."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Carrier",
+      "prior_disposition": "retain",
+      "action": "delivery_policy",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit carrier delivery policy",
+      "content_view": "D",
+      "confidence_percent": 95,
+      "reason": "D505 defines Entity/Carrier as the binding to its storage/representation Carrier and explicitly includes Scope Unit/Carrier. Candidate comparison: Keep the Scope Unit-to-Carrier meaning distinct from concrete Carrier metadata; general D policies do not require per-Property Carrier edges.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-D-505@1:34-40:b1ed496b1ba46aa1125105d2c1823b1b3245139ff55953c5611e2e9b8775cdc1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-505"
+      ],
+      "preserved_distinctions": [
+        "This is an Entity-to-Carrier binding following IS_CARRIED_BY, not transfer of concrete Carrier metadata or inheritance of another unit's Carrier.",
+        "D505 defines Entity/Carrier as the binding to its storage/representation Carrier and explicitly includes Scope Unit/Carrier.",
+        "Keep the Scope Unit-to-Carrier meaning distinct from concrete Carrier metadata; general D policies do not require per-Property Carrier edges."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Label",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Label",
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "R972 defines the Scope Unit-borne Label Property; Ordered/Unordered defaults and independent Operator overrides are separately governed. Candidate comparison: Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-972@18:31-31:e60d6c2e350d8abd63949263a5bd73ebed255de554e2552d53f07d33f44bee75",
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-1382@9:28-28:aa555399d09addab2b4b95c8479f0f78e3279d7fe63316873079dbee551a636d",
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-980@15:30-30:6ddf4246dd0566a776139da7598a63ed4b32558f2b47d58984eec18c9e5d91fe",
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-982@15:31-31:e5e0511a1a85529e837ada1db1295c2c1c636bea462ea87273fc8049f533c31c"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1382",
+        "CA-R-972",
+        "CA-R-980",
+        "CA-R-982"
+      ],
+      "preserved_distinctions": [
+        "Layer/Feature defaults do not establish parentage, authority or Type; Label remains a qualified Property of the unit.",
+        "R972 defines the Scope Unit-borne Label Property; Ordered/Unordered defaults and independent Operator overrides are separately governed.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Local Order",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Local Order",
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "D442 requires local_order only for Ordered units and distinguishes navigational_order_number; M291 preserves structural Local Order separately from navigation. Candidate comparison: Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-D-442@6:50-51:461c9200eaca077c1e9d03ee7ff746bbe4d8d96167b22baf8e2ce11727668578",
+        "CA-P-1935/batch-7/CA-P-1948/CA-M-291@5:41-41:edd1aece727475cf0113435f7dd54063e08c53df01c642df40877b442ddd8819"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-442",
+        "CA-E-510",
+        "CA-M-291",
+        "CA-O-078"
+      ],
+      "preserved_distinctions": [
+        "Unordered units lack this field; serialization does not create execution order or inferred physical parentage.",
+        "D442 requires local_order only for Ordered units and distinguishes navigational_order_number; M291 preserves structural Local Order separately from navigation.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Name",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Name",
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "The captured sources require one Project-unique authoritative Name, canonical uppercase token syntax and exact-case reference use; readable rendering has no independent authority. Candidate comparison: Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-962@14:28-28:df964767a111b643038c23b09db916388a20483d7ff7c5843be3e7488f49697b",
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-970@17:31-31:c0060a300290bb297da48824e09146953e420187fb5f5ca73a158bf2f3f981d6",
+        "CA-P-1935/batch-7/CA-P-1948/CA-M-275@7:30-30:b1c3dc0c21980a8a387ace794169cd4bad5149da35cb350be2454ac80a589ca2",
+        "CA-P-1935/batch-7/CA-P-1948/CA-M-299@4:29-29:d4fb232935699ccda242eaee0583e5c8620d2fc61251959a36ce306a82beefb6",
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-971@15:30-30:d3e5f682c33e5ba79da1552943316aeed9b10270b38207c27df295a583c750ff"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-275",
+        "CA-M-299",
+        "CA-R-1297",
+        "CA-R-962",
+        "CA-R-970",
+        "CA-R-971"
+      ],
+      "preserved_distinctions": [
+        "Project uniqueness, exact-case references and exclusion of independent rendering authority are retained.",
+        "The captured sources require one Project-unique authoritative Name, canonical uppercase token syntax and exact-case reference use; readable rendering has no independent authority.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Navigational Order Number",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Navigational Order Number",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "R983 permits an independent Operator replacement of the default navigation number for each non-Project unit. Candidate comparison: Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-983@14:28-28:85f1a90e997918f0be37a1f81c0b7f5190d95bef6ec915877672d3e1a2b511a6"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-983"
+      ],
+      "preserved_distinctions": [
+        "The captured basis is an override permission for a non-Project unit, not an execution-order rule.",
+        "R983 permits an independent Operator replacement of the default navigation number for each non-Project unit.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Scope",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Scope",
+      "content_view": "R",
+      "confidence_percent": 90,
+      "reason": "R1014 uses the current Scope Unit Scope as a contextual contribution to Atom Scope, separately from its Governed Subject and explicit Claim restrictions. Candidate comparison: Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-1014@18:34-34:7627a3fa1cfb27f347f5fa244ab42367242003d3709148ce179a9135488a801c"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1014"
+      ],
+      "preserved_distinctions": [
+        "Only the contextual role is evidenced; the exact extent is not independently resolved, and neither ownership nor applicability is reassigned.",
+        "R1014 uses the current Scope Unit Scope as a contextual contribution to Atom Scope, separately from its Governed Subject and explicit Claim restrictions.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Structural Level",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Structural Level",
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "Assigned-slice captured support D442 defines structural_level as integer parent depth from Project zero; R1730 makes declared parentage authoritative over a retained level number. Candidate comparison: Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-D-442@6:49-49:116ed199e22f9d29ce206467f570569a2970e9a82e72063c0c9a1224169e2295",
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-1730@19:35-35:0db81b155b88a5a0cfd04a528bdb9e5f49f1cd37155b1c262a7e3dce20aa496f"
+      ],
+      "checked_source_atom_ids": [
+        "CA-D-442",
+        "CA-E-510",
+        "CA-O-078",
+        "CA-R-1730"
+      ],
+      "preserved_distinctions": [
+        "Level follows declared parent depth, not physical nesting, navigation order or Label.",
+        "Assigned-slice captured support D442 defines structural_level as integer parent depth from Project zero; R1730 makes declared parentage authoritative over a retained level number.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Type",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Type",
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "R1758 requires exactly one Ordered/Unordered Type and R979 supplies the Unordered default for a new unit. Candidate comparison: Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-1758@20:29-29:c63d32d852c20012a157fd14006307502c9b5921fe491346cd8354b61d935617",
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-979@16:30-30:679b9169326c6838e785bf2c0244f69d492e8ef2d33650cee369552765899b69"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1758",
+        "CA-R-979"
+      ],
+      "preserved_distinctions": [
+        "The closed two-value Type domain is preserved without assigning a value to a particular unit.",
+        "R1758 requires exactly one Ordered/Unordered Type and R979 supplies the Unordered default for a new unit.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Type: Ordered",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Type: Ordered",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "R1760 defines Ordered as the Type value whose bearer participates in exactly one Local Order among sibling units. Candidate comparison: Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-1760@20:28-28:ac8f30a3ee652526dd9937ea90b1d97baeda801adfbc5d17341194432367706e"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1760"
+      ],
+      "preserved_distinctions": [
+        "The definition fixes one Local Order participation; it does not admit execution order or assign this value to an actual unit.",
+        "R1760 defines Ordered as the Type value whose bearer participates in exactly one Local Order among sibling units.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scope Unit/Type: Unordered",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Scope Unit",
+      "candidate_path": "Scope Unit.Type: Unordered",
+      "content_view": "R",
+      "confidence_percent": 95,
+      "reason": "R1761 defines Unordered as the Type value whose bearer does not participate in sibling Local Order. Candidate comparison: Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities.",
+      "operator_rules": [
+        "/root_entities/1",
+        "/entity_identity_model/scope_unit",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-1761@20:27-27:f307ea28989decdf6184cbb799c04f39cacd40fc8ba6514d36e17f407e17d458"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1761"
+      ],
+      "preserved_distinctions": [
+        "Only structural Local Order is excluded; the clause does not forbid a separate navigation number.",
+        "R1761 defines Unordered as the Type value whose bearer does not participate in sibling Local Order.",
+        "Scope Unit remains a root ownership boundary with stable `(project prefix)-SU-(number)` identity; its qualified property constraints and allowed values are retained without treating labels, folders or slash segments as new Entities."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scoped Operator-choice Applicability",
+      "prior_disposition": "retain",
+      "action": "rebase",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance Scope",
+      "content_view": "O",
+      "confidence_percent": 93,
+      "reason": "O125's assessment behavior constrains choice applicability to the exact antecedent, proposal, target, scope and source/context frontier, preserving later corrections. Candidate comparison: Substance Scope is applicability, not ownership. Omission is valid only for the whole governed Subject and whole owning Scope Unit; role-required content stays.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/content_direction/scope_omission",
+        "/content_direction/details",
+        "/entity_vs_syntax_rules"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-O-125@1:25-25:9c6657f8afcd3ef7d41bb21d5158cece7d073e3b8c53453e024db86c53319a28",
+        "CA-P-1935/batch-7/CA-P-1948/CA-O-125@1:35-44:2041d0ea699859f6e2b1484769a0c38f12275c2bda3196d6973f202e8166e628"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-125"
+      ],
+      "preserved_distinctions": [
+        "The first sentence defines Applicability Assessment; this preserved shorter Subject identity is supported by the applicability rules, not treated as an alias or a new Action instance.",
+        "O125's assessment behavior constrains choice applicability to the exact antecedent, proposal, target, scope and source/context frontier, preserving later corrections.",
+        "Substance Scope is applicability, not ownership. Omission is valid only for the whole governed Subject and whole owning Scope Unit; role-required content stays."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Screen Short Names",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Screen Short Names",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "O065 defines screening for unintended readings, warning with alternatives and permitting explicit Operator acceptance rather than automatic rejection. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-O-065@5:27-33:0a6a74e130f00508b43d15ac654f40db846123f7390a5ea2275451e658751617"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-065"
+      ],
+      "preserved_distinctions": [
+        "Screening does not itself change a registered name or record an actual execution.",
+        "O065 defines screening for unintended readings, warning with alternatives and permitting explicit Operator acceptance rather than automatic rejection.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Scripted Migration",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Scripted Migration",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "R1554 supplies participation constraints: exact governed Target Set, fail on missing expected targets and produce a reviewable change set. Candidate comparison: The migration occurrence retains its governed target-set and reviewable change-set constraints without extra mutation authority.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-1554@4:31-37:25d552feacee2672684ec8f59f8114bce1ff3fbb4ae5923e3e5eb086ffe33f6f"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1554"
+      ],
+      "preserved_distinctions": [
+        "This source does not define migration Steps or Workflow control flow and grants no extra mutation authority; retention asserts only the bounded occurrence meaning.",
+        "R1554 supplies participation constraints: exact governed Target Set, fail on missing expected targets and produce a reviewable change set.",
+        "The migration occurrence retains its governed target-set and reviewable change-set constraints without extra mutation authority."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Select Priority-Governed Alternative",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Select Priority-Governed Alternative",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "O023 requires effective priorities, rejection of unauthorized alternatives and a model-justified selection with retained constraint and criterion evidence. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-O-023@5:34-37:68a49e10798a669ad4fbec6fe46316cac6960d3287502bea3181bf70b50a51f3"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-023"
+      ],
+      "preserved_distinctions": [
+        "Unresolved priorities do not authorize selection; comparison technique follows the selected model rather than assumed ranking.",
+        "O023 requires effective priorities, rejection of unauthorized alternatives and a model-justified selection with retained constraint and criterion evidence.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Select RMED Review Batch",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Select RMED Review Batch",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "O105 defines a read-only Action resolving bounded carried-property/authority selection to a reproducible Active RMED queue with shared local rules and readiness tags. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-O-105@5:31-36:f092b84e33c70594ef7eb3633c578c06e4090566e977c9873fa725a316951d69"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-105"
+      ],
+      "preserved_distinctions": [
+        "Ready, genuinely empty and unresolved-selection blocked outcomes remain distinct; selection does not mutate sources.",
+        "O105 defines a read-only Action resolving bounded carried-property/authority selection to a reproducible Active RMED queue with shared local rules and readiness tags.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Select Reconciliation Sources",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Select Reconciliation Sources",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "O004 defines the reusable Action resolving every eligible source to exact identities/Revisions as one complete source frontier, reporting ambiguity instead of silently choosing. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-O-004@5:28-28:450147002ced7963edb190e22b595c3fe3ab4f1d1eceef441f9337a9338dac72"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-004"
+      ],
+      "preserved_distinctions": [
+        "Selection preserves source authority and does not publish a Projection; exact selected Revisions remain traceable.",
+        "O004 defines the reusable Action resolving every eligible source to exact identities/Revisions as one complete source frontier, reporting ambiguity instead of silently choosing.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Session-State Envelope",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Execution",
+      "candidate_path": "Execution.Session-State Envelope",
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "R1650 restricts the bounded envelope to routing invariants, current scope, settings, compact state and references for loading authority on demand. Candidate comparison: An actual run/context is kept under Execution and remains distinct from its reusable Operation definition; no O Atom is required merely for an ad hoc Execution.",
+      "operator_rules": [
+        "/root_entities/6",
+        "/execution_definition_policy",
+        "/m_e_root_question"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1948/CA-R-1650@19:28-28:7673e202ff1c27bbaa22ada32d8397edb176dcac2c61b24384ed80a622914461"
+      ],
+      "checked_source_atom_ids": [
+        "CA-R-1650"
+      ],
+      "preserved_distinctions": [
+        "The content whitelist does not define Session lifecycle, temporal kind or a Journal-only storage rule.",
+        "R1650 restricts the bounded envelope to routing invariants, current scope, settings, compact state and references for loading authority on demand.",
+        "An actual run/context is kept under Execution and remains distinct from its reusable Operation definition; no O Atom is required merely for an ad hoc Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Set-valued Property",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Set-valued Property",
+      "content_view": "M",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: The set-valued property remains a dependent Entity with its membership domain preserved.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-127"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "The set-valued property remains a dependent Entity with its membership domain preserved."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Set-valued Property Membership Evaluation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Evaluation.Set-valued Property Membership Evaluation",
+      "content_view": "M",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: Membership evaluation remains distinct from the set-valued Property and its allowed values.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e1"
+      ],
+      "checked_source_atom_ids": [
+        "CA-M-127"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "Membership evaluation remains distinct from the set-valued Property and its allowed values."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Single Source of Truth",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Single Source of Truth",
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: One representation per Entity instance and the projection authority boundary remain distinct from a duplicate source or a native Relation.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e2"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-466",
+        "CA-M-120",
+        "CA-R-1408",
+        "CA-R-1437",
+        "CA-R-1470",
+        "CA-R-1471",
+        "CA-R-1483",
+        "CA-R-1598",
+        "CA-R-1609",
+        "CA-R-1610",
+        "CA-R-1746",
+        "CAPRMEDIO-GOV-EVAL-005"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "One representation per Entity instance and the projection authority boundary remain distinct from a duplicate source or a native Relation."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Skill",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot sources are topical, concern-only, or define another target; this is not evidence to drop, consolidate, or generalize. Candidate comparison: The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction"
+      ],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-M-277",
+        "CA-M-278"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot sources are topical, concern-only, or define another target; this is not evidence to drop, consolidate, or generalize.",
+        "The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task (captured-evidence gap, not a new Operator design question): Which captured-snapshot Main Content statement defines or gives a meaningful constraint for Skill? Keep the original identity and checked source IDs until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "Source Reconciliation",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Source Reconciliation",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e3"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-146",
+        "CA-O-147",
+        "CA-O-148",
+        "CA-O-149",
+        "CA-O-150",
+        "CA-O-151"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Assessment Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Source Reconciliation Assessment Step",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e4"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-147"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Correction Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Source Reconciliation Correction Step",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e5"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-150"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Decision Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Source Reconciliation Decision Step",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e6"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-149"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Proposal Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Source Reconciliation Proposal Step",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e7"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-148"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Publication Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Source Reconciliation Publication Step",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e8"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-151"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Selection Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Source Reconciliation Selection Step",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e9"
+      ],
+      "checked_source_atom_ids": [
+        "CA-O-146"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Source Reconciliation Workflow Carrier layout",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot sources are topical, concern-only, or define another target; this is not evidence to drop, consolidate, or generalize. Candidate comparison: The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap.",
+      "operator_rules": [
+        "/root_entities/5",
+        "/carrier_delivery_model"
+      ],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-C-350"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot sources are topical, concern-only, or define another target; this is not evidence to drop, consolidate, or generalize.",
+        "The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task (captured-evidence gap, not a new Operator design question): Which captured-snapshot Main Content statement defines or gives a meaningful constraint for Source Reconciliation Workflow Carrier layout? Keep the original identity and checked source IDs until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "Spec",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot sources are topical, concern-only, or define another target; this is not evidence to drop, consolidate, or generalize. Candidate comparison: The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction"
+      ],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-E-440",
+        "CA-O-017",
+        "CA-O-021",
+        "CA-O-089",
+        "CA-O-090",
+        "CA-O-124",
+        "CA-R-1340",
+        "CA-R-1549",
+        "CA-R-1556",
+        "CA-R-1559"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot sources are topical, concern-only, or define another target; this is not evidence to drop, consolidate, or generalize.",
+        "The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task (captured-evidence gap, not a new Operator design question): Which captured-snapshot Main Content statement defines or gives a meaningful constraint for Spec? Keep the original identity and checked source IDs until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "Spec Content Roles",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Content Roles",
+      "content_view": "mixed",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: Substance role labels remain qualified content views; optional general Details do not erase role/type-required content.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e10"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-498",
+        "CA-E-499",
+        "CA-R-1431",
+        "CA-R-1548",
+        "CA-R-1550",
+        "CA-R-1568",
+        "CA-R-1610",
+        "CA-R-1682",
+        "CA-R-1683",
+        "CA-R-659"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "Substance role labels remain qualified content views; optional general Details do not erase role/type-required content."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Status",
+      "prior_disposition": "question",
+      "action": "review_required",
+      "candidate_root": null,
+      "candidate_path": null,
+      "content_view": "unclassified",
+      "confidence_percent": 0,
+      "reason": "Captured snapshot sources are topical, concern-only, or define another target; this is not evidence to drop, consolidate, or generalize. Candidate comparison: The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction"
+      ],
+      "evidence_refs": [],
+      "checked_source_atom_ids": [
+        "CA-E-490",
+        "CA-M-287",
+        "CA-O-128",
+        "CA-R-1520",
+        "CA-R-1521"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot sources are topical, concern-only, or define another target; this is not evidence to drop, consolidate, or generalize.",
+        "The checked source slice does not prove a candidate mapping; keep this as review work rather than asking the Operator to decide a source-proof gap."
+      ],
+      "question": {
+        "kind": "source_gap",
+        "text": "Review task (captured-evidence gap, not a new Operator design question): Which captured-snapshot Main Content statement defines or gives a meaningful constraint for Status? Keep the original identity and checked source IDs until qualifying Main Content is available."
+      }
+    },
+    {
+      "identity": "Step",
+      "prior_disposition": "retain",
+      "action": "operation_or_method",
+      "candidate_root": "Artifact",
+      "candidate_path": "Artifact/Atom.Substance.Operation.Step",
+      "content_view": "O",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution.",
+      "operator_rules": [
+        "/root_entities/0",
+        "/dependent_entities",
+        "/content_direction",
+        "/execution_definition_policy"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e11"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-486",
+        "CA-E-489",
+        "CA-E-491",
+        "CA-E-494",
+        "CA-E-495",
+        "CA-E-496",
+        "CA-E-497",
+        "CA-E-498",
+        "CA-E-500",
+        "CA-E-513",
+        "CA-E-519",
+        "CA-M-301",
+        "CA-M-303",
+        "CA-M-304",
+        "CA-M-305",
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-015",
+        "CA-O-016",
+        "CA-O-028",
+        "CA-O-080",
+        "CA-O-088",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-101",
+        "CA-O-102",
+        "CA-O-104",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110",
+        "CA-O-118",
+        "CA-O-119",
+        "CA-O-120",
+        "CA-O-121",
+        "CA-O-127",
+        "CA-O-129",
+        "CA-O-130",
+        "CA-O-132",
+        "CA-O-133",
+        "CA-O-135",
+        "CA-O-136",
+        "CA-O-138",
+        "CA-O-139",
+        "CA-O-140",
+        "CA-O-141",
+        "CA-O-142",
+        "CA-O-143",
+        "CA-O-144",
+        "CA-O-145",
+        "CA-O-146",
+        "CA-O-147",
+        "CA-O-148",
+        "CA-O-149",
+        "CA-O-150",
+        "CA-O-151",
+        "CA-O-152",
+        "CA-O-153",
+        "CA-O-154",
+        "CA-O-155",
+        "CA-O-156",
+        "CA-O-157",
+        "CA-O-158",
+        "CA-O-161",
+        "CA-O-163",
+        "CA-R-1312",
+        "CA-R-1452",
+        "CA-R-1508",
+        "CA-R-1509",
+        "CA-R-1511",
+        "CA-R-1513",
+        "CA-R-1519",
+        "CA-R-1520",
+        "CA-R-1525",
+        "CA-R-1527",
+        "CA-R-1528",
+        "CA-R-1530",
+        "CA-R-1554",
+        "CA-R-1563",
+        "CA-R-1569",
+        "CA-R-1570",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "The captured reusable Action/Workflow/Step meaning maps to an Operation specification; any actual performance remains an Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Step Run",
+      "prior_disposition": "retain",
+      "action": "retain",
+      "candidate_root": "Execution",
+      "candidate_path": "Execution.Step Run",
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: An actual run/context is kept under Execution and remains distinct from its reusable Operation definition; no O Atom is required merely for an ad hoc Execution.",
+      "operator_rules": [
+        "/root_entities/6",
+        "/execution_definition_policy",
+        "/m_e_root_question"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e12"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-486",
+        "CA-E-494",
+        "CA-E-495",
+        "CA-E-496",
+        "CA-E-497",
+        "CA-M-304",
+        "CA-O-010",
+        "CA-O-011",
+        "CA-O-015",
+        "CA-O-016",
+        "CA-O-024",
+        "CA-O-028",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-101",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110",
+        "CA-O-129",
+        "CA-O-130",
+        "CA-O-131",
+        "CA-O-132",
+        "CA-O-135",
+        "CA-O-138",
+        "CA-O-139",
+        "CA-O-140",
+        "CA-O-141",
+        "CA-O-142",
+        "CA-O-143",
+        "CA-O-144",
+        "CA-O-145",
+        "CA-O-146",
+        "CA-O-147",
+        "CA-O-148",
+        "CA-O-149",
+        "CA-O-150",
+        "CA-O-151",
+        "CA-R-1468",
+        "CA-R-1509",
+        "CA-R-1510",
+        "CA-R-1511",
+        "CA-R-1513",
+        "CA-R-1519",
+        "CA-R-1525",
+        "CA-R-1527",
+        "CA-R-1528",
+        "CA-R-1720",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "An actual run/context is kept under Execution and remains distinct from its reusable Operation definition; no O Atom is required merely for an ad hoc Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Step Run/Invocation",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Execution",
+      "candidate_path": "Execution.Step Run.Invocation",
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: An actual run/context is kept under Execution and remains distinct from its reusable Operation definition; no O Atom is required merely for an ad hoc Execution.",
+      "operator_rules": [
+        "/root_entities/6",
+        "/execution_definition_policy",
+        "/m_e_root_question"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e13"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-497",
+        "CA-M-304",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "An actual run/context is kept under Execution and remains distinct from its reusable Operation definition; no O Atom is required merely for an ad hoc Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Step Run/Tool Call",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Execution",
+      "candidate_path": "Execution.Step Run.Tool Call",
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: An actual run/context is kept under Execution and remains distinct from its reusable Operation definition; no O Atom is required merely for an ad hoc Execution.",
+      "operator_rules": [
+        "/root_entities/6",
+        "/execution_definition_policy",
+        "/m_e_root_question"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e14"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-496",
+        "CA-M-304",
+        "CA-R-1511",
+        "CA-R-1528"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "An actual run/context is kept under Execution and remains distinct from its reusable Operation definition; no O Atom is required merely for an ad hoc Execution."
+      ],
+      "question": null
+    },
+    {
+      "identity": "Step/Agentic Execution Context",
+      "prior_disposition": "retain",
+      "action": "inherit",
+      "candidate_root": "Execution",
+      "candidate_path": "Execution.Step.Agentic Execution Context",
+      "content_view": "E",
+      "confidence_percent": 95,
+      "reason": "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement. Candidate comparison: An actual run/context is kept under Execution and remains distinct from its reusable Operation definition; no O Atom is required merely for an ad hoc Execution.",
+      "operator_rules": [
+        "/root_entities/6",
+        "/execution_definition_policy",
+        "/m_e_root_question"
+      ],
+      "evidence_refs": [
+        "CA-P-1935/batch-7/CA-P-1949/e15"
+      ],
+      "checked_source_atom_ids": [
+        "CA-E-495",
+        "CA-O-091",
+        "CA-O-092",
+        "CA-O-093",
+        "CA-O-094",
+        "CA-O-095",
+        "CA-O-096",
+        "CA-O-098",
+        "CA-O-099",
+        "CA-O-101",
+        "CA-O-108",
+        "CA-O-109",
+        "CA-O-110",
+        "CA-O-129",
+        "CA-O-135",
+        "CA-O-138",
+        "CA-O-139",
+        "CA-O-140",
+        "CA-O-141",
+        "CA-O-142",
+        "CA-O-143",
+        "CA-O-144",
+        "CA-O-145",
+        "CA-O-146",
+        "CA-O-147",
+        "CA-O-148",
+        "CA-O-149",
+        "CA-O-150",
+        "CA-O-151",
+        "CA-R-1508",
+        "CA-R-1509",
+        "CA-R-1511",
+        "CA-R-1527",
+        "CA-R-1789",
+        "CA-R-1790",
+        "CA-R-1791",
+        "CA-R-1792",
+        "CA-R-1793"
+      ],
+      "preserved_distinctions": [
+        "Captured snapshot Main Content has a direct definition or meaningful constraint; retain without inferring a native relation or replacement.",
+        "An actual run/context is kept under Execution and remains distinct from its reusable Operation definition; no O Atom is required merely for an ad hoc Execution."
+      ],
+      "question": null
+    }
+  ]
+}

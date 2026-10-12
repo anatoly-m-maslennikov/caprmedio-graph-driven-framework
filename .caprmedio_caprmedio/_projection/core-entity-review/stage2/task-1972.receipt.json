@@ -1,0 +1,42 @@
+{
+  "task": "CA-P-1972",
+  "recorded_at": "2026-10-11 01:26:09 +0400",
+  "result": "PASS: preparation group only; current meaning review not performed",
+  "decomposing_tasks": [
+    {
+      "task": "CA-P-1988",
+      "status": "Done",
+      "receipt": "task-1988.receipt.json"
+    },
+    {
+      "task": "CA-P-1989",
+      "status": "Done",
+      "receipt": "task-1989.receipt.json"
+    },
+    {
+      "task": "CA-P-1990",
+      "status": "Done",
+      "receipt": "task-1990.receipt.json"
+    },
+    {
+      "task": "CA-P-1991",
+      "status": "Done",
+      "receipt": "task-1991.receipt.json"
+    }
+  ],
+  "checks": {
+    "all_child_plans_done": true,
+    "all_child_receipt_output_pins_current": true,
+    "current_sources": 907,
+    "current_occurrences": 4534,
+    "review_tasks_created": 51,
+    "integration_tasks_created": 1,
+    "core_source_write": false,
+    "captured_review_write": false
+  },
+  "limits": [
+    "CA-P-1966 remains Active: 51 review Tasks and one integration Task are not started",
+    "No grammar exception or sealed migration approval inferred",
+    "No native admission, Subject migration, final graph gate or content-update gate passed"
+  ]
+}

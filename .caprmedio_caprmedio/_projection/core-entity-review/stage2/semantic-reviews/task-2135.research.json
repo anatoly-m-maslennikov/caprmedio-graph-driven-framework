@@ -1,0 +1,1092 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "task_id": "CA-P-2135",
+  "family": "relational_producer_consumer",
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "executable": false,
+  "selection": {
+    "family": "relational_producer_consumer",
+    "sources": 12,
+    "occurrences": 19,
+    "occurrence_id_set_sha256": "8e930a77f02795f4ee5d2cbbdcabd3e2598bd17387bdc61e1f35a667b815489d",
+    "manifest_sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+  },
+  "input_pins": {
+    "manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "frozen_baseline_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2132-2139.contract.md",
+        "sha256": "3ed29d889a2d7905614a0d02c23a75f82fb002ffea51f4dce2714f60865aa6ff"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/102-CA-P-2135-TASK--review-relational-producer-and-consumer-subjects.md",
+      "sha256": "4dc95b5fea86efbb96eb68a62dd9f9ea79a26bdeaf8232cfb774a36e7ead8f4f",
+      "registration_commit": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-913-CORE_META_MODEL-CORE-REQUIREMENT--define-previous-unit.md",
+        "sha256": "b1cb57153b547e97706a1a2c1431818b483549ba1a06eae93127150279a88e55"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-923-CORE_META_MODEL-CORE--define-relational-atom.md",
+        "sha256": "251d0accd8acdec682af7687d4df05369222e916cfbef0ef71c94e6e4deb481b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-relational-atom-classifications.md",
+        "sha256": "aa5a683e5c2b49cd8e56ef1cde4c6561c853e7f8a617c9a624709ee227400b11"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-925-CORE_META_MODEL-CORE-REQUIREMENT--define-goal-atom.md",
+        "sha256": "9e9215ca81c46f68f26549a08290b3405d058adeb343bcdb3103e890d26bb1f7"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+        "sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+        "sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+        "sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+        "sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+        "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-425-CORE_META_MODEL-QA_CASE--validate-relational-atom-classifications.md",
+        "sha256": "85d8366aa1962ce23d5564888bff061ea929068d2872670d3ba66e58150b97d4"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+        "sha256": "7d1a04cabf809fd37379b0367ad0d4732c130e13257a1fb427f3a5d5053197bd"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-482-CORE_META_MODEL-DELIVERY--carry-the-resolved-claim-target-scope-unit.md",
+        "sha256": "234720c3b8aafb19a9befc3a934155959b49ec876897370b1ae16adf290e4065"
+      }
+    ]
+  },
+  "supporting_current_definitions": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+      "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+      "start_line": 1,
+      "end_line": 31,
+      "span_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+      "reason": "Scope Unit is the structural ownership boundary for Atoms and may contain child Scope Units."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+      "sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+      "start_line": 1,
+      "end_line": 30,
+      "span_sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+      "reason": "Relational Atom is explicitly NARROWER_THAN Atom."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+      "sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+      "start_line": 1,
+      "end_line": 32,
+      "span_sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+      "reason": "Type is a single-valued Property with a finite applicable allowed-value set."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-925-CORE_META_MODEL-CORE-REQUIREMENT--define-goal-atom.md",
+      "sha256": "9e9215ca81c46f68f26549a08290b3405d058adeb343bcdb3103e890d26bb1f7",
+      "start_line": 1,
+      "end_line": 32,
+      "span_sha256": "9e9215ca81c46f68f26549a08290b3405d058adeb343bcdb3103e890d26bb1f7",
+      "reason": "Goal Atom is explicitly a Relational Atom with Requirement Content Role and Goal Type."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1294-CORE_META_MODEL-CORE-REQUIREMENT--derive-demand-direction-without-another-relation-kind.md",
+      "sha256": "1a4fb4af2ce6389a6545c2e29a7958d8f7eb9807772ceaf60c627728828ecc01",
+      "start_line": 1,
+      "end_line": 31,
+      "span_sha256": "1a4fb4af2ce6389a6545c2e29a7958d8f7eb9807772ceaf60c627728828ecc01",
+      "reason": "Demand direction is derived from Consumer and Producer Scope Unit references and must not add another Relation Kind."
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-CORE-REQUIREMENT--target-one-implementation-result-with-each-demand.md",
+      "sha256": "97a867d7d3a9383fb1b4209f38edc5ffbec3a30acd021d1bc0bd37b11afc8a28",
+      "start_line": 1,
+      "end_line": 31,
+      "span_sha256": "97a867d7d3a9383fb1b4209f38edc5ffbec3a30acd021d1bc0bd37b11afc8a28",
+      "reason": "Demand constrains one Implementation result, but this source does not declare an Entity or Property identity for that result."
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-913-CORE_META_MODEL-CORE-REQUIREMENT--define-previous-unit.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-913-CORE_META_MODEL-CORE-REQUIREMENT--define-previous-unit.md",
+      "source_atom_id": "CA-R-913",
+      "source_version": 13,
+      "source_sha256": "b1cb57153b547e97706a1a2c1431818b483549ba1a06eae93127150279a88e55",
+      "field": "governs",
+      "index": null,
+      "old_value": "Previous Unit",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The current body explicitly identifies this role as a Scope Unit (the Consumer owns the Demand and the Producer is its Claim Target Scope Unit). The candidate Scope Unit root preserves the bearer; the Consumer/Producer role, ownership, target, order, and branch restrictions remain source-local rather than a new subtype or Actor.Type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-913-CORE_META_MODEL-CORE-REQUIREMENT--define-previous-unit.md",
+          "sha256": "b1cb57153b547e97706a1a2c1431818b483549ba1a06eae93127150279a88e55",
+          "start_line": 21,
+          "end_line": 29,
+          "span_sha256": "44352cbd24495c627ccd2d84017799fcd8584dbba80142f6e6ca64b822cee32f",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 1,
+          "end_line": 31,
+          "span_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "reason": "Current explicit definition: Scope Unit is the structural ownership boundary for Atoms and may contain child Scope Units."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The frozen candidate explicitly defines Scope Unit as a root Entity; it does not define Consumer or Producer as separate roots or Actor types."
+        }
+      ],
+      "preserved_distinctions": [
+        "Consumer and Producer remain relation-specific Scope Unit roles, not new Scope Unit subtypes or Actor.Type values.",
+        "Demand ownership, Claim Target Scope Unit, permitted branches, ordering, and exact-result constraints remain current-body qualifications."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-923-CORE_META_MODEL-CORE--define-relational-atom.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-923-CORE_META_MODEL-CORE--define-relational-atom.md",
+      "source_atom_id": "CA-R-923",
+      "source_version": 22,
+      "source_sha256": "251d0accd8acdec682af7687d4df05369222e916cfbef0ef71c94e6e4deb481b",
+      "field": "governs",
+      "index": null,
+      "old_value": "Relational Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.93,
+      "reason": "The current definition makes Relational Atom narrower than Atom, and the owning body retains the relational classification through Scope Unit containment and Claim Target Scope Unit difference. Artifact/Atom preserves the established bearer without inventing a relational subtype, selector, or relation kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-923-CORE_META_MODEL-CORE--define-relational-atom.md",
+          "sha256": "251d0accd8acdec682af7687d4df05369222e916cfbef0ef71c94e6e4deb481b",
+          "start_line": 25,
+          "end_line": 32,
+          "span_sha256": "f8436fe4f2cb5220738e6a73ed96d7d02480f4842a914b262d8bfb2cd7a53869",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+          "sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "start_line": 1,
+          "end_line": 30,
+          "span_sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "reason": "Current explicit definition: the Term Relational Atom is NARROWER_THAN Atom."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate defines Atom as the named narrower Entity of Artifact."
+        },
+        {
+          "pointer": "#/dependent_entities/compact_examples/0",
+          "reason": "The frozen candidate explicitly gives Artifact/Atom as its compact dependent-Entity example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relational classification remains determined by containment and resolved Claim Target Scope Unit difference in the current body.",
+        "No Atom subtype, selector, relation kind, or ownership transfer is introduced."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-relational-atom-classifications.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-relational-atom-classifications.md",
+      "source_atom_id": "CA-R-924",
+      "source_version": 20,
+      "source_sha256": "aa5a683e5c2b49cd8e56ef1cde4c6561c853e7f8a617c9a624709ee227400b11",
+      "field": "governs",
+      "index": null,
+      "old_value": "Relational Atom/Qualified Type",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Type",
+      "confidence": 0.92,
+      "reason": "The owning body governs or validates the qualified Types of a Relational Atom, while the current Type definition makes Type a single-valued Property. The current bearer is an Atom, so Atom.Type preserves the property identity; Content Role, allowed values, relational admission, target difference, and evaluation restrictions remain source-local qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-relational-atom-classifications.md",
+          "sha256": "aa5a683e5c2b49cd8e56ef1cde4c6561c853e7f8a617c9a624709ee227400b11",
+          "start_line": 25,
+          "end_line": 33,
+          "span_sha256": "61e45ebb9a0f0cedb8a4405837435aacebd7cf3e9b99002b58a1d994be02e215",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+          "sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+          "start_line": 1,
+          "end_line": 32,
+          "span_sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+          "reason": "Current explicit definition: Type is a single-valued Property with a finite applicable allowed-value set."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer."
+        },
+        {
+          "pointer": "#/graph_model",
+          "reason": "The frozen candidate retains Entities as graph nodes and Relations as connections without creating a new root or selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Requirement/Goal, Requirement/Demand, and Plan/Plan allowed-value qualifications remain current-body constraints.",
+        "This does not admit a new Type allowed value, native field, selector, or relational Atom subtype."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-925-CORE_META_MODEL-CORE-REQUIREMENT--define-goal-atom.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-925-CORE_META_MODEL-CORE-REQUIREMENT--define-goal-atom.md",
+      "source_atom_id": "CA-R-925",
+      "source_version": 20,
+      "source_sha256": "9e9215ca81c46f68f26549a08290b3405d058adeb343bcdb3103e890d26bb1f7",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Relational Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.93,
+      "reason": "The current definition makes Relational Atom narrower than Atom, and the owning body retains the relational classification through Scope Unit containment and Claim Target Scope Unit difference. Artifact/Atom preserves the established bearer without inventing a relational subtype, selector, or relation kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-925-CORE_META_MODEL-CORE-REQUIREMENT--define-goal-atom.md",
+          "sha256": "9e9215ca81c46f68f26549a08290b3405d058adeb343bcdb3103e890d26bb1f7",
+          "start_line": 24,
+          "end_line": 32,
+          "span_sha256": "6bb8eab6e050bd037f791ae7e210c0aafb074e477314051d27eaf2924caf9fb6",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+          "sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "start_line": 1,
+          "end_line": 30,
+          "span_sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "reason": "Current explicit definition: the Term Relational Atom is NARROWER_THAN Atom."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate defines Atom as the named narrower Entity of Artifact."
+        },
+        {
+          "pointer": "#/dependent_entities/compact_examples/0",
+          "reason": "The frozen candidate explicitly gives Artifact/Atom as its compact dependent-Entity example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relational classification remains determined by containment and resolved Claim Target Scope Unit difference in the current body.",
+        "No Atom subtype, selector, relation kind, or ownership transfer is introduced."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+      "source_atom_id": "CA-R-932",
+      "source_version": 21,
+      "source_sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Relational Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.93,
+      "reason": "The current definition makes Relational Atom narrower than Atom, and the owning body retains the relational classification through Scope Unit containment and Claim Target Scope Unit difference. Artifact/Atom preserves the established bearer without inventing a relational subtype, selector, or relation kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+          "sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+          "start_line": 28,
+          "end_line": 36,
+          "span_sha256": "1a65cc7ca5278393d2a79b7b2345e73736179cb0106502ac94695f15397f37c2",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+          "sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "start_line": 1,
+          "end_line": 30,
+          "span_sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "reason": "Current explicit definition: the Term Relational Atom is NARROWER_THAN Atom."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate defines Atom as the named narrower Entity of Artifact."
+        },
+        {
+          "pointer": "#/dependent_entities/compact_examples/0",
+          "reason": "The frozen candidate explicitly gives Artifact/Atom as its compact dependent-Entity example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relational classification remains determined by containment and resolved Claim Target Scope Unit difference in the current body.",
+        "No Atom subtype, selector, relation kind, or ownership transfer is introduced."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+      "source_atom_id": "CA-R-932",
+      "source_version": 21,
+      "source_sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Consumer",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The current body explicitly identifies this role as a Scope Unit (the Consumer owns the Demand and the Producer is its Claim Target Scope Unit). The candidate Scope Unit root preserves the bearer; the Consumer/Producer role, ownership, target, order, and branch restrictions remain source-local rather than a new subtype or Actor.Type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+          "sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+          "start_line": 28,
+          "end_line": 36,
+          "span_sha256": "1a65cc7ca5278393d2a79b7b2345e73736179cb0106502ac94695f15397f37c2",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 1,
+          "end_line": 31,
+          "span_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "reason": "Current explicit definition: Scope Unit is the structural ownership boundary for Atoms and may contain child Scope Units."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The frozen candidate explicitly defines Scope Unit as a root Entity; it does not define Consumer or Producer as separate roots or Actor types."
+        }
+      ],
+      "preserved_distinctions": [
+        "Consumer and Producer remain relation-specific Scope Unit roles, not new Scope Unit subtypes or Actor.Type values.",
+        "Demand ownership, Claim Target Scope Unit, permitted branches, ordering, and exact-result constraints remain current-body qualifications."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+      "source_atom_id": "CA-R-932",
+      "source_version": 21,
+      "source_sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Producer",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The current body explicitly identifies this role as a Scope Unit (the Consumer owns the Demand and the Producer is its Claim Target Scope Unit). The candidate Scope Unit root preserves the bearer; the Consumer/Producer role, ownership, target, order, and branch restrictions remain source-local rather than a new subtype or Actor.Type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-932-CORE_META_MODEL-CORE-REQUIREMENT--define-demand-atom.md",
+          "sha256": "d471f827067c6db2a5020ab6634a210caae500f00d631a92c5d0f86df5c82f36",
+          "start_line": 28,
+          "end_line": 36,
+          "span_sha256": "1a65cc7ca5278393d2a79b7b2345e73736179cb0106502ac94695f15397f37c2",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 1,
+          "end_line": 31,
+          "span_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "reason": "Current explicit definition: Scope Unit is the structural ownership boundary for Atoms and may contain child Scope Units."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The frozen candidate explicitly defines Scope Unit as a root Entity; it does not define Consumer or Producer as separate roots or Actor types."
+        }
+      ],
+      "preserved_distinctions": [
+        "Consumer and Producer remain relation-specific Scope Unit roles, not new Scope Unit subtypes or Actor.Type values.",
+        "Demand ownership, Claim Target Scope Unit, permitted branches, ordering, and exact-result constraints remain current-body qualifications."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+      "source_atom_id": "CA-R-933",
+      "source_version": 17,
+      "source_sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Consumer/Goal",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.91,
+      "reason": "The current body refers to the Consumer's accepted Goal, and the current Goal definition establishes that the Goal is a Goal Atom. Artifact/Atom preserves that bearer; accepted status, Consumer association, Claim Target Scope Unit, dependency authorization, and Goal role remain explicit current-body qualifications rather than a selector path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+          "sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+          "start_line": 24,
+          "end_line": 32,
+          "span_sha256": "3fb7b8c3f3dd69af22e9bbf893d96ae68ddd37a19206e3111b04de362697cb53",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-925-CORE_META_MODEL-CORE-REQUIREMENT--define-goal-atom.md",
+          "sha256": "9e9215ca81c46f68f26549a08290b3405d058adeb343bcdb3103e890d26bb1f7",
+          "start_line": 24,
+          "end_line": 32,
+          "span_sha256": "6bb8eab6e050bd037f791ae7e210c0aafb074e477314051d27eaf2924caf9fb6",
+          "reason": "Current explicit definition: a Goal Atom is a Relational Atom with Requirement Content Role and Goal Type, with one Scope Unit Claim target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate establishes Atom as Artifact's named narrower Entity."
+        },
+        {
+          "pointer": "#/dependent_entities/compact_examples/0",
+          "reason": "The frozen candidate explicitly supplies Artifact/Atom as the compact Atom form."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Goal remains the Consumer-associated accepted Goal Atom rather than a standalone Goal root or selector expression.",
+        "Requirement role, Goal Type, acceptance, target Scope Unit, and exact dependency authorization remain current-body qualifications."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+      "source_atom_id": "CA-R-933",
+      "source_version": 17,
+      "source_sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Producer/Result",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The current body requires one exact Producer or Implementation result, but it does not establish that result as an Atom, a Property, an independent Entity, or a lossless selector target. Mapping it to Artifact/Atom, Scope Unit, or Relation would erase the exact-result and Producer-authorization boundary; no selector decision is inferred.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-933-CORE_META_MODEL-CORE-REQUIREMENT--restrict-demand-to-one-depended-on-result.md",
+          "sha256": "b8ff8d839c71d80663b115bfee0521c969aa106846668f8de2cf83839d1c644f",
+          "start_line": 24,
+          "end_line": 32,
+          "span_sha256": "3fb7b8c3f3dd69af22e9bbf893d96ae68ddd37a19206e3111b04de362697cb53",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-CORE-REQUIREMENT--target-one-implementation-result-with-each-demand.md",
+          "sha256": "97a867d7d3a9383fb1b4209f38edc5ffbec3a30acd021d1bc0bd37b11afc8a28",
+          "start_line": 23,
+          "end_line": 31,
+          "span_sha256": "d1b2e204a2127a61b095f30fdfbc7629abbcc68442813b36409cd8ce033c26ce",
+          "reason": "Current explicit rule confirms exactly one Implementation result but does not establish an Entity/property identity for that result."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "Artifact requires a governed lifecycle unit; the current result rule does not establish such an Artifact identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The result remains exactly one Producer/Implementation result constrained by the Demand.",
+        "Consumer Goal authorization and the prohibition on constraining Producer authority outside that result remain explicit current-body constraints."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+      "source_atom_id": "CA-R-945",
+      "source_version": 18,
+      "source_sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Producer",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The current body explicitly identifies this role as a Scope Unit (the Consumer owns the Demand and the Producer is its Claim Target Scope Unit). The candidate Scope Unit root preserves the bearer; the Consumer/Producer role, ownership, target, order, and branch restrictions remain source-local rather than a new subtype or Actor.Type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+          "sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+          "start_line": 26,
+          "end_line": 34,
+          "span_sha256": "d8a779f53d28d3a5888763b76ba79054916747c9e0e61857bf29e5ee670ecef1",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 1,
+          "end_line": 31,
+          "span_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "reason": "Current explicit definition: Scope Unit is the structural ownership boundary for Atoms and may contain child Scope Units."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The frozen candidate explicitly defines Scope Unit as a root Entity; it does not define Consumer or Producer as separate roots or Actor types."
+        }
+      ],
+      "preserved_distinctions": [
+        "Consumer and Producer remain relation-specific Scope Unit roles, not new Scope Unit subtypes or Actor.Type values.",
+        "Demand ownership, Claim Target Scope Unit, permitted branches, ordering, and exact-result constraints remain current-body qualifications."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+      "source_atom_id": "CA-R-945",
+      "source_version": 18,
+      "source_sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Consumer",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.94,
+      "reason": "The current body explicitly identifies this role as a Scope Unit (the Consumer owns the Demand and the Producer is its Claim Target Scope Unit). The candidate Scope Unit root preserves the bearer; the Consumer/Producer role, ownership, target, order, and branch restrictions remain source-local rather than a new subtype or Actor.Type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+          "sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+          "start_line": 26,
+          "end_line": 34,
+          "span_sha256": "d8a779f53d28d3a5888763b76ba79054916747c9e0e61857bf29e5ee670ecef1",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md",
+          "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "start_line": 1,
+          "end_line": 31,
+          "span_sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad",
+          "reason": "Current explicit definition: Scope Unit is the structural ownership boundary for Atoms and may contain child Scope Units."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The frozen candidate explicitly defines Scope Unit as a root Entity; it does not define Consumer or Producer as separate roots or Actor types."
+        }
+      ],
+      "preserved_distinctions": [
+        "Consumer and Producer remain relation-specific Scope Unit roles, not new Scope Unit subtypes or Actor.Type values.",
+        "Demand ownership, Claim Target Scope Unit, permitted branches, ordering, and exact-result constraints remain current-body qualifications."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+      "source_atom_id": "CA-R-945",
+      "source_version": 18,
+      "source_sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+      "field": "governs",
+      "index": null,
+      "old_value": "Producer Result/Flow Direction",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.91,
+      "reason": "The current body defines the flow direction through two explicit endpoints: Producer Claim Target Scope Unit to Consumer Atom Scope Unit. Relation preserves that directed semantic connection while the current policy keeps it derived from those references and prohibits adding a separate Demand-direction Relation Kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+          "sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+          "start_line": 26,
+          "end_line": 34,
+          "span_sha256": "d8a779f53d28d3a5888763b76ba79054916747c9e0e61857bf29e5ee670ecef1",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1294-CORE_META_MODEL-CORE-REQUIREMENT--derive-demand-direction-without-another-relation-kind.md",
+          "sha256": "1a4fb4af2ce6389a6545c2e29a7958d8f7eb9807772ceaf60c627728828ecc01",
+          "start_line": 23,
+          "end_line": 31,
+          "span_sha256": "5fcbb7abef3c9b24323c82d6a9587b0e0c02c07e1a2bf4e5668f1157331a6541",
+          "reason": "Current explicit definition: Demand direction is derived from Consumer Atom Scope Unit and Producer Claim Target Scope Unit references and must not introduce another graph Relation Kind."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/3",
+          "reason": "The frozen candidate explicitly defines Relation as a root Entity."
+        },
+        {
+          "pointer": "#/relation_type_model/endpoint_boundary",
+          "reason": "The frozen candidate retains permitted endpoint constraints for Relation Types; this proposal does not admit one."
+        }
+      ],
+      "preserved_distinctions": [
+        "Direction remains derived from the two current Scope Unit references, not a new Relation instance or Relation Type.",
+        "Producer-result, Consumer ownership, Demand role, and exact-result restrictions remain current-body qualifications."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+      "source_atom_id": "CA-R-951",
+      "source_version": 17,
+      "source_sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Consumer/Goal",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.91,
+      "reason": "The current body refers to the Consumer's accepted Goal, and the current Goal definition establishes that the Goal is a Goal Atom. Artifact/Atom preserves that bearer; accepted status, Consumer association, Claim Target Scope Unit, dependency authorization, and Goal role remain explicit current-body qualifications rather than a selector path.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+          "sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+          "start_line": 24,
+          "end_line": 32,
+          "span_sha256": "c2f2dfa1c9b66bf8ad5494d8893a60fa04b8d5f3068b6c049fb2a9a076403648",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-925-CORE_META_MODEL-CORE-REQUIREMENT--define-goal-atom.md",
+          "sha256": "9e9215ca81c46f68f26549a08290b3405d058adeb343bcdb3103e890d26bb1f7",
+          "start_line": 24,
+          "end_line": 32,
+          "span_sha256": "6bb8eab6e050bd037f791ae7e210c0aafb074e477314051d27eaf2924caf9fb6",
+          "reason": "Current explicit definition: a Goal Atom is a Relational Atom with Requirement Content Role and Goal Type, with one Scope Unit Claim target."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate establishes Atom as Artifact's named narrower Entity."
+        },
+        {
+          "pointer": "#/dependent_entities/compact_examples/0",
+          "reason": "The frozen candidate explicitly supplies Artifact/Atom as the compact Atom form."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Goal remains the Consumer-associated accepted Goal Atom rather than a standalone Goal root or selector expression.",
+        "Requirement role, Goal Type, acceptance, target Scope Unit, and exact dependency authorization remain current-body qualifications."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+      "source_atom_id": "CA-R-951",
+      "source_version": 17,
+      "source_sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Producer/Result",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The current body requires one exact Producer or Implementation result, but it does not establish that result as an Atom, a Property, an independent Entity, or a lossless selector target. Mapping it to Artifact/Atom, Scope Unit, or Relation would erase the exact-result and Producer-authorization boundary; no selector decision is inferred.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-951-CORE_META_MODEL-CORE-REQUIREMENT--require-an-exact-dependency-before-a-demand.md",
+          "sha256": "6162c2771fd120c086a7ef053f0ade2e1ba313158cf2e2345e88c9a3205cb5d7",
+          "start_line": 24,
+          "end_line": 32,
+          "span_sha256": "c2f2dfa1c9b66bf8ad5494d8893a60fa04b8d5f3068b6c049fb2a9a076403648",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-CORE-REQUIREMENT--target-one-implementation-result-with-each-demand.md",
+          "sha256": "97a867d7d3a9383fb1b4209f38edc5ffbec3a30acd021d1bc0bd37b11afc8a28",
+          "start_line": 23,
+          "end_line": 31,
+          "span_sha256": "d1b2e204a2127a61b095f30fdfbc7629abbcc68442813b36409cd8ce033c26ce",
+          "reason": "Current explicit rule confirms exactly one Implementation result but does not establish an Entity/property identity for that result."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0",
+          "reason": "Artifact requires a governed lifecycle unit; the current result rule does not establish such an Artifact identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "The result remains exactly one Producer/Implementation result constrained by the Demand.",
+        "Consumer Goal authorization and the prohibition on constraining Producer authority outside that result remain explicit current-body constraints."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+      "source_atom_id": "CA-M-115",
+      "source_version": 23,
+      "source_sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Relational Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.93,
+      "reason": "The current definition makes Relational Atom narrower than Atom, and the owning body retains the relational classification through Scope Unit containment and Claim Target Scope Unit difference. Artifact/Atom preserves the established bearer without inventing a relational subtype, selector, or relation kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/05_method/CA-M-115-CORE_META_MODEL--author-one-cce-claim-per-atom.md",
+          "sha256": "caf1459a6cce687b0e981e258783ed8efa417f289b6034623ddec7c6f6645dcc",
+          "start_line": 29,
+          "end_line": 43,
+          "span_sha256": "82f576996564567fc569b0d51185c1118f72e8ce3458e530a8a23a677b37ac61",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+          "sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "start_line": 1,
+          "end_line": 30,
+          "span_sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "reason": "Current explicit definition: the Term Relational Atom is NARROWER_THAN Atom."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate defines Atom as the named narrower Entity of Artifact."
+        },
+        {
+          "pointer": "#/dependent_entities/compact_examples/0",
+          "reason": "The frozen candidate explicitly gives Artifact/Atom as its compact dependent-Entity example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relational classification remains determined by containment and resolved Claim Target Scope Unit difference in the current body.",
+        "No Atom subtype, selector, relation kind, or ownership transfer is introduced."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-425-CORE_META_MODEL-QA_CASE--validate-relational-atom-classifications.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-425-CORE_META_MODEL-QA_CASE--validate-relational-atom-classifications.md",
+      "source_atom_id": "CA-E-425",
+      "source_version": 14,
+      "source_sha256": "85d8366aa1962ce23d5564888bff061ea929068d2872670d3ba66e58150b97d4",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Relational Atom/Qualified Type",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Atom.Type",
+      "confidence": 0.92,
+      "reason": "The owning body governs or validates the qualified Types of a Relational Atom, while the current Type definition makes Type a single-valued Property. The current bearer is an Atom, so Atom.Type preserves the property identity; Content Role, allowed values, relational admission, target difference, and evaluation restrictions remain source-local qualifications.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-425-CORE_META_MODEL-QA_CASE--validate-relational-atom-classifications.md",
+          "sha256": "85d8366aa1962ce23d5564888bff061ea929068d2872670d3ba66e58150b97d4",
+          "start_line": 26,
+          "end_line": 41,
+          "span_sha256": "59222568e1004fd53e5862dc717dc4cc55f02ab865787201efa7cf3ae4d274ea",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL-CORE--define-type.md",
+          "sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+          "start_line": 1,
+          "end_line": 32,
+          "span_sha256": "f6a19da96c46a42a8245d219e8eb89e1ad36698e5da698d14a4a6419e7a16036",
+          "reason": "Current explicit definition: Type is a single-valued Property with a finite applicable allowed-value set."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/dependent_entities/property_node_vs_relation",
+          "reason": "The frozen candidate confirms that a Property is a dependent Entity node of its bearer."
+        },
+        {
+          "pointer": "#/graph_model",
+          "reason": "The frozen candidate retains Entities as graph nodes and Relations as connections without creating a new root or selector."
+        }
+      ],
+      "preserved_distinctions": [
+        "Requirement/Goal, Requirement/Demand, and Plan/Plan allowed-value qualifications remain current-body constraints.",
+        "This does not admit a new Type allowed value, native field, selector, or relational Atom subtype."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-425-CORE_META_MODEL-QA_CASE--validate-relational-atom-classifications.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-425-CORE_META_MODEL-QA_CASE--validate-relational-atom-classifications.md",
+      "source_atom_id": "CA-E-425",
+      "source_version": 14,
+      "source_sha256": "85d8366aa1962ce23d5564888bff061ea929068d2872670d3ba66e58150b97d4",
+      "field": "governs",
+      "index": null,
+      "old_value": "Relational Atom Classification Validation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.61,
+      "reason": "The owning QA Case validates whether a Relational Atom uses an allowed qualified Type; it does not establish the validation as a standalone Artifact, Atom dependent Entity, or Execution run. Mapping the activity to Artifact/Atom would substitute its carrier for its evaluation meaning, and mapping it to Execution would collapse evaluation definition into a run.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-425-CORE_META_MODEL-QA_CASE--validate-relational-atom-classifications.md",
+          "sha256": "85d8366aa1962ce23d5564888bff061ea929068d2872670d3ba66e58150b97d4",
+          "start_line": 26,
+          "end_line": 41,
+          "span_sha256": "59222568e1004fd53e5862dc717dc4cc55f02ab865787201efa7cf3ae4d274ea",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/6",
+          "reason": "The frozen candidate distinguishes Execution as its own root; the current QA Case does not establish an Execution identity or run."
+        }
+      ],
+      "preserved_distinctions": [
+        "The validation remains an Evaluation QA Case over registered Relational Atom qualified Types.",
+        "Allowed-value, Content Role, target, and classification restrictions remain current-body conditions."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+      "source_atom_id": "CA-E-511",
+      "source_version": 5,
+      "source_sha256": "7d1a04cabf809fd37379b0367ad0d4732c130e13257a1fb427f3a5d5053197bd",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Relational Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.93,
+      "reason": "The current definition makes Relational Atom narrower than Atom, and the owning body retains the relational classification through Scope Unit containment and Claim Target Scope Unit difference. Artifact/Atom preserves the established bearer without inventing a relational subtype, selector, or relation kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-511-CORE_META_MODEL-QA_CASE--validate-target-scope-unit-and-textual-claim-scope.md",
+          "sha256": "7d1a04cabf809fd37379b0367ad0d4732c130e13257a1fb427f3a5d5053197bd",
+          "start_line": 40,
+          "end_line": 62,
+          "span_sha256": "8d3f54f5ac5811376bdbcb68e773a634b5296c6748add57588564404224df247",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+          "sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "start_line": 1,
+          "end_line": 30,
+          "span_sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "reason": "Current explicit definition: the Term Relational Atom is NARROWER_THAN Atom."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate defines Atom as the named narrower Entity of Artifact."
+        },
+        {
+          "pointer": "#/dependent_entities/compact_examples/0",
+          "reason": "The frozen candidate explicitly gives Artifact/Atom as its compact dependent-Entity example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relational classification remains determined by containment and resolved Claim Target Scope Unit difference in the current body.",
+        "No Atom subtype, selector, relation kind, or ownership transfer is introduced."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-482-CORE_META_MODEL-DELIVERY--carry-the-resolved-claim-target-scope-unit.md#subjects.depends_on[7]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-482-CORE_META_MODEL-DELIVERY--carry-the-resolved-claim-target-scope-unit.md",
+      "source_atom_id": "CA-D-482",
+      "source_version": 7,
+      "source_sha256": "234720c3b8aafb19a9befc3a934155959b49ec876897370b1ae16adf290e4065",
+      "field": "depends_on",
+      "index": 7,
+      "old_value": "Relational Atom",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Atom",
+      "confidence": 0.93,
+      "reason": "The current definition makes Relational Atom narrower than Atom, and the owning body retains the relational classification through Scope Unit containment and Claim Target Scope Unit difference. Artifact/Atom preserves the established bearer without inventing a relational subtype, selector, or relation kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-482-CORE_META_MODEL-DELIVERY--carry-the-resolved-claim-target-scope-unit.md",
+          "sha256": "234720c3b8aafb19a9befc3a934155959b49ec876897370b1ae16adf290e4065",
+          "start_line": 29,
+          "end_line": 44,
+          "span_sha256": "e184cf4e9588dbfe2b4c2e7d682246b6301072ea1c266615aa7fa170a8303918",
+          "reason": "Complete current owning Main Content was read from Scope through Details for this exact assigned origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1256-CORE_META_MODEL-CORE-REQUIREMENT--classify-relational-atom-as-an-atom.md",
+          "sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "start_line": 1,
+          "end_line": 30,
+          "span_sha256": "390f52f06501c8af6e74bf258b88220f366d07c13c998582367ec73c44c505f5",
+          "reason": "Current explicit definition: the Term Relational Atom is NARROWER_THAN Atom."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0/narrower_entities/0",
+          "reason": "The frozen candidate defines Atom as the named narrower Entity of Artifact."
+        },
+        {
+          "pointer": "#/dependent_entities/compact_examples/0",
+          "reason": "The frozen candidate explicitly gives Artifact/Atom as its compact dependent-Entity example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Relational classification remains determined by containment and resolved Claim Target Scope Unit difference in the current body.",
+        "No Atom subtype, selector, relation kind, or ownership transfer is introduced."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned": 19,
+    "covered": 19,
+    "owning_sources": 12,
+    "current_sources": 12,
+    "current_evidence_spans": 19,
+    "owning_current_evidence_spans": 19,
+    "proposed": 16,
+    "unresolved": 3
+  },
+  "limits": [
+    "CA-P-2135 owns exactly the 19 relational_producer_consumer manifest occurrences and no other origins.",
+    "This is semantic research only; no source migration, native admission, selector, singleton kind, @ syntax, Artifact.Revision target, or source/Tool/Plan/Git change is authorized.",
+    "Consumer and Producer remain current relation-specific Scope Unit roles; Goal/result ownership, flow derivation, relational classification, and qualified-Type constraints remain explicit current-body evidence rather than new hierarchy or grammar."
+  ]
+}

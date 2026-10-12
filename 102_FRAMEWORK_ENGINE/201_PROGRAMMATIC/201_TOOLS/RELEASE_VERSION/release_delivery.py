@@ -6,7 +6,9 @@ An owned predecessor is retained beside the delivery for repair or rollback.
 
 from __future__ import annotations
 
+import hashlib
 import os
+import shutil
 import stat
 import tempfile
 import tomllib
@@ -14,19 +16,19 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from bootstrap_image import BootstrapImageError, _retained_initial_package
-from release_contract import ReleaseContractError, ValidatedCandidate
+from release_contract import VERSION_TOML_RELATIVE, ReleaseContractError, ValidatedCandidate
 from release_handoff import (
-    CANONICAL_SOURCE_RELATIVE,
     CURRENT_SELECTOR_RELATIVE,
-    DERIVED_SOURCE_COPY_RELATIVE,
     PROJECT_STRUCTURE_RELATIVE,
     PackageRow,
     SealedSourceCopy,
     _revalidate,
     tree_sha256,
     validate_source_copy,
+    reopen_native_installed_n, selected_n_selector_relative, selected_n_identity,
 )
 from release_inventory import _is_ephemeral_file, ReleaseInventoryError, persistent_regular_files, refuse_secret_path
+from methodology_layout import resolve_methodology_layout
 from release_packaging import (
     MANIFEST_NAME,
     RUNTIME_ROOT,
@@ -58,6 +60,17 @@ class _PredecessorReservation:
     parent_identity: tuple[int, int] | None = None
     wrapper_identity: tuple[int, int] | None = None
     backup_identity: tuple[int, int] | None = None
+
+
+def _layout(root: Path):
+    try:
+        return resolve_methodology_layout(root)
+    except (OSError, ValueError) as error:
+        # The resolver refuses symlinked/non-directory declared places before
+        # this delivery opens them.  Keep the public delivery boundary's
+        # established unsafe-path classification rather than exposing a new
+        # layout-specific failure to callers.
+        raise ReleaseDeliveryError("release-copy-path-unsafe", "current Methodology layout is unsafe") from error
 
 
 def _safe_path(root: Path, relative: str) -> Path:
@@ -198,6 +211,55 @@ def _write_snapshot(folder: Path, records: dict[str, tuple[bool, int, bytes]]) -
             (folder / relative).chmod(mode)
 
 
+def _publish_snapshot(
+    staging: Path,
+    destination: Path,
+    records: dict[str, tuple[bool, int, bytes]],
+) -> None:
+    """Publish an already verified source copy without widening its inputs.
+
+    A nested directory rename is denied by some sandboxed macOS filesystems.
+    The fallback creates only the proven destination entries and re-observes
+    their exact bytes and modes; callers still validate the sealed digest
+    before treating the copy as consumable.
+    """
+
+    try:
+        staging.rename(destination)
+        return
+    except PermissionError:
+        if os.path.lexists(destination):
+            raise
+    try:
+        destination.mkdir()
+        _write_snapshot(destination, records)
+        if _snapshot(destination) != records:
+            raise ReleaseDeliveryError("release-copy-digest-mismatch", "published source bytes or modes differ")
+    except Exception:
+        if destination.exists() and not destination.is_symlink():
+            try:
+                import shutil
+
+                shutil.rmtree(destination)
+            except OSError:
+                pass
+        raise
+    try:
+        _discard_private_staging(staging)
+    except OSError:
+        # Cleanup is not part of the sealed delivery effect.  A filesystem
+        # that refuses to remove a completed private carrier must not turn a
+        # byte-for-byte verified destination into a failed publication.
+        # Preserve the carrier unchanged for explicit later maintenance.
+        pass
+
+
+def _discard_private_staging(staging: Path) -> None:
+    """Best-effort removal of only the just-created private staging tree."""
+
+    shutil.rmtree(staging)
+
+
 def _persistent_file_snapshot(root: Path, folder: Path) -> dict[str, tuple[int, bytes]]:
     """Read persisted predecessor bytes/modes using the sealed inventory rules."""
 
@@ -214,7 +276,10 @@ def _admit(candidate: ValidatedCandidate) -> ValidatedCandidate:
     if not isinstance(candidate, ValidatedCandidate):
         raise ReleaseDeliveryError("release-candidate-untrusted", "delivery requires a typed locally validated candidate")
     root = Path(candidate.project_root)
-    for relative in (CANONICAL_SOURCE_RELATIVE, CURRENT_SELECTOR_RELATIVE, PROJECT_STRUCTURE_RELATIVE,
+    layout = _layout(root)
+    if candidate.manifest.canonical_source_snapshot_ref != layout.source_root:
+        raise ReleaseDeliveryError("release-currentness-stale", "sealed Methodology source root differs from the current Project Structure")
+    for relative in (layout.source_root, layout.source_copy_root, selected_n_selector_relative(candidate), PROJECT_STRUCTURE_RELATIVE,
                      *(row.source_path for row in candidate.manifest.source_inventory_rows)):
         _safe_path(root, relative)
     current = _revalidate(candidate)
@@ -226,6 +291,22 @@ def _admit(candidate: ValidatedCandidate) -> ValidatedCandidate:
 def _prove_predecessor(root: Path, candidate: ValidatedCandidate, destination: Path) -> None:
     """Admit replacement only from an exact, complete retained executing N."""
 
+    canonical_source_root = candidate.manifest.canonical_source_snapshot_ref
+    if candidate.native_installed_n is not None:
+        native = reopen_native_installed_n(root, candidate.native_installed_n)
+        descriptor = native.full_gate_packet.retained_candidate.descriptor
+        expected = {
+            row.source_path.removeprefix(canonical_source_root + "/"): (row.source_mode, row.source_sha256)
+            for row in descriptor.source_inventory_rows
+            if row.resource == "METHODOLOGY" and row.source_path.startswith(canonical_source_root + "/")
+        }
+        if not expected:
+            raise ReleaseDeliveryError("release-copy-ownership-unproven", "native Full Gate descriptor has no canonical source predecessor")
+        observed = {name: (mode, hashlib.sha256(payload).hexdigest())
+                    for name, (mode, payload) in _persistent_file_snapshot(root, destination).items()}
+        if (observed != expected or tree_sha256(root, destination) != descriptor.canonical_source_snapshot_digest):
+            raise ReleaseDeliveryError("release-copy-predecessor-mismatch", "existing delivery differs from the selected native package sources")
+        return
     executing = candidate.authority.executing_release
     relative = (RUNTIME_ROOT / "releases" / executing).as_posix()
     retained = _safe_path(root, relative)
@@ -250,7 +331,10 @@ def _prove_predecessor(root: Path, candidate: ValidatedCandidate, destination: P
             retained, bootstrap_rows, _manifest, identity = _retained_initial_package(root, executing)
             rows = list(bootstrap_rows)
         else:
-            if set(manifest) != {"schema_version", "candidate_snapshot_manifest_sha256", "package", "files"}:
+            base_manifest_fields = {"schema_version", "candidate_snapshot_manifest_sha256", "package", "files"}
+            version_manifest_fields = base_manifest_fields | {"framework_version", "version_toml_sha256"}
+            versioned_package = set(manifest) == version_manifest_fields
+            if set(manifest) not in (base_manifest_fields, version_manifest_fields):
                 raise ValueError("retained package manifest has unexpected members")
             identity = _candidate_sha256(manifest["candidate_snapshot_manifest_sha256"])
             if manifest["schema_version"] != 2 or manifest["package"] != "caprmedio-framework" or identity != executing:
@@ -263,19 +347,48 @@ def _prove_predecessor(root: Path, candidate: ValidatedCandidate, destination: P
                                                       "destination_path": row["destination"]}))
         if len({row.destination_path for row in rows}) != len(rows):
             raise ValueError("retained package destinations collide")
-        if not {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"} <= {row.resource for row in rows}:
+        resources = {row.resource for row in rows}
+        control_rows = [row for row in rows if row.resource == "PACKAGE_CONTROL"]
+        if not {"FRAMEWORK_ENGINE", "METHODOLOGY", "SKILL"} <= resources:
             raise ValueError("retained executing package is incomplete")
         if not {"SKILLS/ca/SKILL.md", "SKILLS/ca/agents/openai.yaml"} <= {row.destination_path for row in rows}:
             raise ValueError("retained executing package lacks required Skill files")
         if rows != sorted(rows, key=lambda row: (row.destination_path, row.source_path, row.sha256)):
             raise ValueError("retained package rows are not ordered")
-        _verify_release(retained, text if bootstrap else _render_manifest(identity, rows), rows)
+        if not bootstrap and versioned_package:
+            if len(control_rows) != 1 or (
+                control_rows[0].source_path != VERSION_TOML_RELATIVE
+                or control_rows[0].destination_path != VERSION_TOML_RELATIVE
+                or control_rows[0].sha256 != manifest["version_toml_sha256"]
+            ):
+                raise ValueError("retained package has no exact version.toml control row")
+            version_bytes = (retained / VERSION_TOML_RELATIVE).read_bytes()
+            version_document = tomllib.loads(version_bytes.decode("utf-8"))
+            if (
+                not isinstance(version_document.get("framework"), dict)
+                or version_document["framework"].get("version") != manifest["framework_version"]
+                or hashlib.sha256(version_bytes).hexdigest() != manifest["version_toml_sha256"]
+            ):
+                raise ValueError("retained package root version.toml is not exact")
+        elif not bootstrap and control_rows:
+            raise ValueError("legacy retained package has an undeclared version control row")
+        _verify_release(
+            retained,
+            text if bootstrap else _render_manifest(
+                identity, rows,
+                framework_version=manifest.get("framework_version") if not bootstrap and versioned_package else None,
+                version_toml_sha256=manifest.get("version_toml_sha256") if not bootstrap and versioned_package else None,
+            ),
+            rows,
+            framework_version=manifest.get("framework_version") if not bootstrap and versioned_package else None,
+            version_toml_sha256=manifest.get("version_toml_sha256") if not bootstrap and versioned_package else None,
+        )
         source_rows = [row for row in rows if row.destination_path.startswith("METHODOLOGY/sources/")]
         if not source_rows:
             raise ValueError("retained package lacks Methodology sources")
         for row in source_rows:
             suffix = row.destination_path.removeprefix("METHODOLOGY/sources/")
-            if row.resource != "METHODOLOGY" or row.source_path != f"{CANONICAL_SOURCE_RELATIVE}/{suffix}":
+            if row.resource != "METHODOLOGY" or row.source_path != f"{canonical_source_root}/{suffix}":
                 raise ValueError("retained source row does not bind canonical Methodology")
         predecessor = _persistent_file_snapshot(root, retained / "METHODOLOGY/sources")
     except (BootstrapImageError, OSError, UnicodeDecodeError, ValueError, KeyError, TypeError, ReleasePackagingError) as error:
@@ -294,7 +407,7 @@ def _prove_owned_predecessor(root: Path, candidate: ValidatedCandidate, destinat
     except ReleaseDeliveryError as error:
         if error.code != "release-copy-predecessor-mismatch":
             raise
-        if not verify_recorded_source_predecessor(root, candidate.authority.executing_release, destination):
+        if not verify_recorded_source_predecessor(root, selected_n_identity(candidate), destination):
             raise error
 
 
@@ -307,8 +420,9 @@ def deliver_release_sources(candidate: ValidatedCandidate) -> SealedSourceCopy:
 
     current = _admit(candidate)
     root = Path(current.project_root)
-    source = _safe_path(root, CANONICAL_SOURCE_RELATIVE)
-    destination = _safe_path(root, DERIVED_SOURCE_COPY_RELATIVE)
+    layout = _layout(root)
+    source = _safe_path(root, current.manifest.canonical_source_snapshot_ref)
+    destination = _safe_path(root, layout.source_copy_root)
     records = _snapshot(source)
     existing = os.path.lexists(destination)
     if existing:
@@ -328,7 +442,7 @@ def deliver_release_sources(candidate: ValidatedCandidate) -> SealedSourceCopy:
         _admit(current)
         if _snapshot(source) != records:
             raise ReleaseDeliveryError("release-currentness-stale", "canonical source tree changed during delivery")
-        _safe_path(root, DERIVED_SOURCE_COPY_RELATIVE)
+        _safe_path(root, layout.source_copy_root)
         if existing:
             # Retain the private wrapper for recovery.  Only its still-absent
             # fixed child may receive the owned old delivery; do not remove
@@ -344,7 +458,7 @@ def deliver_release_sources(candidate: ValidatedCandidate) -> SealedSourceCopy:
             _record_predecessor_backup(reservation, predecessor_identity)
         elif os.path.lexists(destination):
             raise ReleaseDeliveryError("release-copy-collision", "delivery target appeared while staging")
-        staging.rename(destination)
+        _publish_snapshot(staging, destination, records)
         result = validate_source_copy(_admit(current))
         if _snapshot(destination) != records or _snapshot(source) != records:
             raise ReleaseDeliveryError("release-copy-digest-mismatch", "completed delivery bytes or modes changed")

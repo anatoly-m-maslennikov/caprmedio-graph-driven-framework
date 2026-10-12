@@ -16,7 +16,17 @@ import sys
 import time
 import tomllib
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any, Literal, Mapping
+
+from pydantic import BaseModel, ConfigDict, Field, JsonValue, model_validator
+
+_TOOLS = Path(__file__).resolve().parents[1]
+if str(_TOOLS) not in sys.path:
+    sys.path.insert(0, str(_TOOLS))
+
+from work_journal import resolve_settings_path
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import open_regular
+from tool_description import binding_matches, make_tool_description
 
 try:
     from query_filter import (
@@ -50,16 +60,102 @@ class JournalQueryError(ValueError):
         super().__init__(message or code)
 
 
-_SETTINGS = Path("caprmedio_project_settings.toml")
+class _ClosedModel(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+
+class JournalQueryLimits(_ClosedModel):
+    """Optional bounded overrides accepted by the native Journal query core."""
+
+    max_request_bytes: int | None = Field(default=None, ge=1)
+    max_grammar_depth: int | None = Field(default=None, ge=1)
+    max_filter_tokens: int | None = Field(default=None, ge=1)
+    max_in_members: int | None = Field(default=None, ge=1)
+    max_selected_fields: int | None = Field(default=None, ge=1)
+    max_page_size: int | None = Field(default=None, ge=1)
+    max_snapshot_members: int | None = Field(default=None, ge=1)
+    max_file_bytes: int | None = Field(default=None, ge=1)
+    max_total_read_bytes: int | None = Field(default=None, ge=1)
+    timeout_seconds: int | None = Field(default=None, ge=1)
+    max_findings: int | None = Field(default=None, ge=1)
+
+
+class JournalQuerySnapshot(_ClosedModel):
+    """The opaque retained-snapshot capability returned by this Tool."""
+
+    snapshot_handle: str = Field(min_length=1)
+    id: str = Field(min_length=1)
+    source_root: str = Field(min_length=1)
+    prefix_bytes: int = Field(ge=0)
+    prefix_digest: str = Field(min_length=1)
+    event_ids: list[str]
+
+
+class JournalQueryRequest(_ClosedModel):
+    """Canonical request accepted by the root-bound Journal query Tool."""
+
+    filter: str | None = None
+    mode: Literal["ids", "fields", "full_events"] = "ids"
+    select: list[str] | None = None
+    limit: int | None = Field(default=None, ge=1)
+    cursor: str | None = None
+    limits: JournalQueryLimits | None = None
+    snapshot: JournalQuerySnapshot | None = None
+
+    @model_validator(mode="after")
+    def _validate_mode_and_continuation(self) -> "JournalQueryRequest":
+        if (self.snapshot is None) != (self.cursor is None):
+            raise ValueError("continuation requires its exact snapshot and cursor together")
+        if self.mode == "fields":
+            if self.select is None:
+                self.select = []
+        elif self.select not in (None, []):
+            raise ValueError("select is allowed only in fields mode")
+        return self
+
+    def native_request(self) -> dict[str, Any]:
+        value = self.model_dump(mode="python", exclude_none=True)
+        value.pop("snapshot", None)
+        return value
+
+
+class JournalQueryCoverage(_ClosedModel):
+    scanned: int = Field(ge=0)
+    matched: int = Field(ge=0)
+    returned: int = Field(ge=0)
+    complete: bool
+
+
+class JournalQueryLimitEvidence(_ClosedModel):
+    configured: int
+    source: str
+    consumed: int = Field(ge=0)
+    exhausted: bool
+
+
+class JournalQueryFinding(_ClosedModel):
+    code: str = Field(min_length=1)
+
+
+class JournalQueryResult(_ClosedModel):
+    """Canonical structured result emitted by the native Journal query core."""
+
+    status: Literal["complete", "incomplete", "blocked", "invalid"]
+    snapshot: JournalQuerySnapshot | None = None
+    results: list[JsonValue]
+    next_cursor: str | None = None
+    coverage: JournalQueryCoverage
+    limits: dict[str, JournalQueryLimitEvidence]
+    findings: list[JournalQueryFinding]
+
+
 _DEFAULT_SETTINGS = Path(
     "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
     "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
     "caprmedio_framework_default_settings.toml"
 )
 _INSTANCE_SETTINGS = Path(
-    "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
-    "000_APPLICABLE_MTHD_sources/003_PROJECT_CONFIGURATION/"
-    "caprmedio_framework_settings.toml"
+    "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
 )
 _LIMIT_NAMES = (
     "max_request_bytes",
@@ -125,7 +221,12 @@ def _safe_regular_file(path: Path, code: str) -> None:
 def _read_toml(path: Path, code: str) -> dict[str, Any]:
     _safe_regular_file(path, code)
     try:
-        value = tomllib.loads(path.read_text(encoding="utf-8"))
+        if path.resolve() != path:
+            raise JournalQueryError(code)
+        with os.fdopen(open_regular(path), "rb") as handle:
+            if not stat.S_ISREG(os.fstat(handle.fileno()).st_mode):
+                raise JournalQueryError(code)
+            value = tomllib.loads(handle.read().decode("utf-8"))
     except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
         raise JournalQueryError(code) from error
     if not isinstance(value, dict):
@@ -136,21 +237,13 @@ def _read_toml(path: Path, code: str) -> dict[str, Any]:
 def _control_and_settings(root: Path) -> tuple[Path, dict[str, Any], dict[str, Any]]:
     if root.is_symlink() or not root.is_dir():
         raise JournalQueryError("invalid-project-root")
-    root = root.resolve()
-    settings = _read_toml(root / ".caprmedio_caprmedio" / _SETTINGS, "project-settings-unavailable")
-    paths = settings.get("paths")
-    control_name = paths.get("control_root") if isinstance(paths, dict) else None
-    if not isinstance(control_name, str) or not control_name:
-        raise JournalQueryError("invalid-control-root")
-    control_relative = Path(control_name)
-    if control_relative.is_absolute() or ".." in control_relative.parts or control_relative == Path("."):
-        raise JournalQueryError("invalid-control-root")
-    control = root / control_relative
-    if control.is_symlink() or not control.is_dir():
-        raise JournalQueryError("invalid-control-root")
+    try:
+        control = resolve_settings_path(root).parent
+    except (OSError, RuntimeError) as error:
+        raise JournalQueryError("project-settings-unavailable") from error
     defaults = _read_toml(control / _DEFAULT_SETTINGS, "default-settings-unavailable")
     instance_path = control / _INSTANCE_SETTINGS
-    instance = _read_toml(instance_path, "instance-settings-unavailable") if instance_path.exists() else {}
+    instance = _read_toml(instance_path, "instance-settings-unavailable") if os.path.lexists(instance_path) else {}
     return control, defaults, instance
 
 
@@ -787,4 +880,99 @@ def query(snapshot: Mapping[str, Any], request: Mapping[str, Any] | None = None)
         return _diagnostic_result(public_snapshot, limits, sources, result_evidence, error)
 
 
-__all__ = ["JournalQueryError", "capture_snapshot", "query"]
+TOOL_NAME = "FIND_AND_FETCH_JOURNAL_EVENTS"
+MCP_NAME = "find_and_fetch_journal_events"
+ACTION_ID = "CA-O-162"
+DELIVERY_ID = "CA-D-557"
+ENTRYPOINT = (
+    "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/"
+    "FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py"
+)
+
+
+def _bound_root(root: str | Path) -> Path:
+    supplied = Path(root)
+    try:
+        resolved = supplied.resolve(strict=True)
+    except (OSError, TypeError, ValueError) as error:
+        raise JournalQueryError("invalid-project-root") from error
+    if supplied.is_symlink() or resolved.is_symlink() or not resolved.is_dir():
+        raise JournalQueryError("invalid-project-root")
+    return resolved
+
+
+class _DescriptorAdapter:
+    """The direct, root-bound invoker; it has no MCP transport envelope."""
+
+    def __init__(self, root: str | Path) -> None:
+        self._root = _bound_root(root)
+
+    def invoke(self, request: JournalQueryRequest | Mapping[str, Any]) -> JournalQueryResult:
+        try:
+            parsed = request if isinstance(request, JournalQueryRequest) else JournalQueryRequest.model_validate(request)
+        except Exception as error:
+            raise JournalQueryError("invalid-request") from error
+        snapshot = (
+            parsed.snapshot.model_dump(mode="python")
+            if parsed.snapshot is not None
+            else capture_snapshot(self._root)
+        )
+        return JournalQueryResult.model_validate(query(snapshot, parsed.native_request()))
+
+
+def create_adapter(root: str | Path) -> _DescriptorAdapter:
+    """Create the sole root-bound canonical Journal query invoker."""
+
+    return _DescriptorAdapter(root)
+
+
+def describe_tool() -> dict[str, Any]:
+    """Describe this read-only Tool without opening a Project or invoking it."""
+
+    return make_tool_description(
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=[ACTION_ID],
+        input_symbol="JournalQueryRequest",
+        output_symbol="JournalQueryResult",
+        title="Find and fetch Journal events",
+        description="Query a root-bound canonical Journal snapshot without starting a Workflow or recording a Run.",
+        purpose="Read admitted Journal events through the native frozen-snapshot query boundary.",
+        read_only=True,
+        idempotent=True,
+    )
+
+
+def binding_is_admitted(binding: Any) -> bool:
+    """Accept only CA-D-557's exact declared native Tool binding."""
+
+    return binding_matches(
+        binding,
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=[ACTION_ID],
+    )
+
+
+__all__ = [
+    "ACTION_ID",
+    "DELIVERY_ID",
+    "ENTRYPOINT",
+    "JournalQueryCoverage",
+    "JournalQueryError",
+    "JournalQueryFinding",
+    "JournalQueryLimitEvidence",
+    "JournalQueryLimits",
+    "JournalQueryRequest",
+    "JournalQueryResult",
+    "JournalQuerySnapshot",
+    "MCP_NAME",
+    "TOOL_NAME",
+    "binding_is_admitted",
+    "capture_snapshot",
+    "create_adapter",
+    "describe_tool",
+    "query",
+]

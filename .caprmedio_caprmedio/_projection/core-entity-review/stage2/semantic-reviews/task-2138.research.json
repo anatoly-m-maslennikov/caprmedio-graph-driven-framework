@@ -1,0 +1,1060 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2138",
+  "family": "settings_priority_structure",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2132-2139.inputs.json",
+      "sha256": "a115ac2b55f88698a057bec8f13c9bbfba72105cb56bc2a7d606ff6360214cfd"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "19d55f08f9bd809d5a7cf7c937992b597e1a17d4b641e186ebc144b1e26c1186"
+    },
+    "baseline_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2132-2139.contract.md",
+        "sha256": "3ed29d889a2d7905614a0d02c23a75f82fb002ffea51f4dce2714f60865aa6ff"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/105-CA-P-2138-TASK--review-remaining-settings-and-structure-subjects.md",
+      "sha256": "7fb0bc887739959626afa9202758945ec4570bddeb183992e343f23605b19c34"
+    },
+    "task_registration_sha256": "5814a20c8d7b27b45b383409b35e4f0dfda5cefc",
+    "selection_occurrence_id_set_sha256": "fef3a74209951eec14d5d7b506e3c93881a5b71e3a21595eecd8698a86d1357f"
+  },
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+      "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+      "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md",
+      "sha256": "1ae8e1df0c2eeb193b37fa1953b3761b8a2c4247fb7f250c7958c344b466f0ae"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1427-CORE_META_MODEL-CORE--define-confidence-threshold.md",
+      "sha256": "347fc5921d406adf14de0dcc680f41861c8bb19f416e4002f272fa6876241e7a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-369-CORE_META_MODEL--serialize-the-semantic-resolution-confidence-default.md",
+      "sha256": "400ff65877f571b7155d9035e39096c7aeee5690c5dee5f570a2d34d21308d82"
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md",
+      "source_atom_id": "CA-R-1428",
+      "source_version": 9,
+      "source_sha256": "8bf145b5175d143954ac403bb11247fc8d2a74168881ed607260b1fb66c2c075",
+      "field": "governs",
+      "index": null,
+      "old_value": "Confidence Threshold/source",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The current body enumerates four distinct value sources—direct Operator input, an explicit Property on the current Plan, an explicit Property on the nearest Hub Plan, or the Framework Instance Settings default—and fixes the Hub chain by `IS_DECOMPOSITION_OF`. The routing topic does not identify one owner or selector-safe target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL-GENERAL--permit-confidence-threshold-defaults-and-overrides.md",
+          "sha256": "8bf145b5175d143954ac403bb11247fc8d2a74168881ed607260b1fb66c2c075",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "56a79fb9645f7ec4a31f4153641bd99b3a26b702df06d456b1084944e4e829ee",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Direct input, Plan Properties, Hub Plan inheritance, and the Framework Instance Settings default remain distinct sources; no precedence selector is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+      "source_atom_id": "CA-R-1429",
+      "source_version": 10,
+      "source_sha256": "ba0e34e5057a5acb5f3c1a875214a373b167a860ed3ac0b6d708a3c657fdd7ed",
+      "field": "governs",
+      "index": null,
+      "old_value": "settings specification",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.38,
+      "reason": "The current body divides settings foundations, independently governable shared specifications, and concrete section/field/Carrier syntax specifications across tiers. `settings specification` is a routing label, not one Artifact or Property owner.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1429-CORE_META_MODEL-CORE--separate-settings-boundaries-from-field-specifications.md",
+          "sha256": "ba0e34e5057a5acb5f3c1a875214a373b167a860ed3ac0b6d708a3c657fdd7ed",
+          "start_line": 22,
+          "end_line": 38,
+          "span_sha256": "1354b084c2e48df3a116b8608e9fd07a08ceadf522b105603db271888217412c",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Foundation ownership, shared-specification authority, concrete field/section ownership, and Carrier syntax remain separate."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+      "source_atom_id": "CA-R-1430",
+      "source_version": 8,
+      "source_sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/Authority Modes",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.48,
+      "reason": "The body distinguishes Framework Instance Settings selection of Project and default Scope Unit Authority Modes from an explicit per-Scope-Unit override owned only by Project Structure. One plural topic cannot safely collapse those different owners or introduce a selector.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+          "sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263",
+          "start_line": 27,
+          "end_line": 39,
+          "span_sha256": "b11e18e136e6a834292212df42fc5f17fb928513cccd14c88936ca66f5d4845f",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Project and default Scope Unit modes, Project Structure overrides, and an omitted override's effective default remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1439-CORE_META_MODEL-GENERAL--limit-reporting-mode-effects-to-presentation.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1439-CORE_META_MODEL-GENERAL--limit-reporting-mode-effects-to-presentation.md",
+      "source_atom_id": "CA-R-1439",
+      "source_version": 7,
+      "source_sha256": "6b571579605b408a7565cbdff0d7efece5834f0a1dce12dc223a5d7d72e28eab",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Framework Instance Settings/interaction/reporting mode",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings.Interaction Reporting Mode",
+      "confidence": 0.96,
+      "reason": "The live owners make interaction reporting mode a Framework Instance Settings configuration choice: CA-R-1439 limits its effect to presentation and CA-R-1440 specifies mandatory information for every mode. CA-R-1402 identifies Framework Instance Settings as the authoritative Artifact for explicit Operator-selected configuration, CA-R-1750 gives it the unique owner role for configuration choices, and CA-D-383 supplies the explicit instance default's carrier field without turning that syntax into the Property itself. Those combined current definitions support this named dependent Property despite its absence from the candidate display.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1439-CORE_META_MODEL-GENERAL--limit-reporting-mode-effects-to-presentation.md",
+          "sha256": "6b571579605b408a7565cbdff0d7efece5834f0a1dce12dc223a5d7d72e28eab",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "4be844121df26a2543e95a58e5645b89c352f6e4a2c4a3f74c0da4b2e9498204",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current definition: Framework Instance Settings is the authoritative Artifact containing explicit Operator-selected behavior and configuration choices for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current owner rule: Framework Instance Settings is the one authoritative owner for CAPRMEDIO behavior and configuration choices; permitted parameters and storage do not duplicate current selected values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md",
+          "sha256": "1ae8e1df0c2eeb193b37fa1953b3761b8a2c4247fb7f250c7958c344b466f0ae",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "ba3b7090acde35038013713d4cda923058969897f2a2a73a0e0f1b77cd009b30",
+          "reason": "Current delivery rule: the explicit instance reporting default is stored as `interaction.reporting_mode`; this is carrier syntax supporting the named setting's representation, not an independent per-Property Carrier Entity."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The candidate defines Artifact as the governed lifecycle unit that contains named dependent Entities; the current Framework Instance Settings definition identifies the relevant owner as an authoritative Artifact."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate permits a body-supported setting to be represented as a Property dependent Entity of its actual owning Artifact, rather than as a new root or a carrier registry entry."
+        },
+        {
+          "pointer": "/dependent_entities/compact_examples/1",
+          "reason": "The candidate's compact notation uses a dot to qualify a named Property by its bearer; this supports the display form only and does not admit a native edge or migrate a Subject."
+        }
+      ],
+      "preserved_distinctions": [
+        "The reporting mode remains a Framework Instance Settings Property; its presentation-only effect and mandatory-information invariant remain distinct governing constraints, not extra Properties.",
+        "The TOML section and field remain Carrier syntax, not a carrier registry or a replacement for the semantic Property."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1439-CORE_META_MODEL-GENERAL--limit-reporting-mode-effects-to-presentation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1439-CORE_META_MODEL-GENERAL--limit-reporting-mode-effects-to-presentation.md",
+      "source_atom_id": "CA-R-1439",
+      "source_version": 7,
+      "source_sha256": "6b571579605b408a7565cbdff0d7efece5834f0a1dce12dc223a5d7d72e28eab",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/interaction/reporting mode/effects",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings.Interaction Reporting Mode",
+      "confidence": 0.96,
+      "reason": "The live owners make interaction reporting mode a Framework Instance Settings configuration choice: CA-R-1439 limits its effect to presentation and CA-R-1440 specifies mandatory information for every mode. CA-R-1402 identifies Framework Instance Settings as the authoritative Artifact for explicit Operator-selected configuration, CA-R-1750 gives it the unique owner role for configuration choices, and CA-D-383 supplies the explicit instance default's carrier field without turning that syntax into the Property itself. Those combined current definitions support this named dependent Property despite its absence from the candidate display. The current effects rule is retained as a constraint of that Property rather than being renamed into a separate `effects` Property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1439-CORE_META_MODEL-GENERAL--limit-reporting-mode-effects-to-presentation.md",
+          "sha256": "6b571579605b408a7565cbdff0d7efece5834f0a1dce12dc223a5d7d72e28eab",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "4be844121df26a2543e95a58e5645b89c352f6e4a2c4a3f74c0da4b2e9498204",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current definition: Framework Instance Settings is the authoritative Artifact containing explicit Operator-selected behavior and configuration choices for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current owner rule: Framework Instance Settings is the one authoritative owner for CAPRMEDIO behavior and configuration choices; permitted parameters and storage do not duplicate current selected values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md",
+          "sha256": "1ae8e1df0c2eeb193b37fa1953b3761b8a2c4247fb7f250c7958c344b466f0ae",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "ba3b7090acde35038013713d4cda923058969897f2a2a73a0e0f1b77cd009b30",
+          "reason": "Current delivery rule: the explicit instance reporting default is stored as `interaction.reporting_mode`; this is carrier syntax supporting the named setting's representation, not an independent per-Property Carrier Entity."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The candidate defines Artifact as the governed lifecycle unit that contains named dependent Entities; the current Framework Instance Settings definition identifies the relevant owner as an authoritative Artifact."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate permits a body-supported setting to be represented as a Property dependent Entity of its actual owning Artifact, rather than as a new root or a carrier registry entry."
+        },
+        {
+          "pointer": "/dependent_entities/compact_examples/1",
+          "reason": "The candidate's compact notation uses a dot to qualify a named Property by its bearer; this supports the display form only and does not admit a native edge or migrate a Subject."
+        }
+      ],
+      "preserved_distinctions": [
+        "The reporting mode remains a Framework Instance Settings Property; its presentation-only effect and mandatory-information invariant remain distinct governing constraints, not extra Properties.",
+        "The TOML section and field remain Carrier syntax, not a carrier registry or a replacement for the semantic Property."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL-GENERAL--preserve-mandatory-information-in-every-reporting-mode.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL-GENERAL--preserve-mandatory-information-in-every-reporting-mode.md",
+      "source_atom_id": "CA-R-1440",
+      "source_version": 7,
+      "source_sha256": "1766012465ccfd46d83d91016802bf1c4550fea3393d9281dedc48e4da672c9c",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Framework Instance Settings/interaction/reporting mode",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings.Interaction Reporting Mode",
+      "confidence": 0.96,
+      "reason": "The live owners make interaction reporting mode a Framework Instance Settings configuration choice: CA-R-1439 limits its effect to presentation and CA-R-1440 specifies mandatory information for every mode. CA-R-1402 identifies Framework Instance Settings as the authoritative Artifact for explicit Operator-selected configuration, CA-R-1750 gives it the unique owner role for configuration choices, and CA-D-383 supplies the explicit instance default's carrier field without turning that syntax into the Property itself. Those combined current definitions support this named dependent Property despite its absence from the candidate display.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL-GENERAL--preserve-mandatory-information-in-every-reporting-mode.md",
+          "sha256": "1766012465ccfd46d83d91016802bf1c4550fea3393d9281dedc48e4da672c9c",
+          "start_line": 23,
+          "end_line": 41,
+          "span_sha256": "6f6f7ab4fa2681d785d824a24f7a9f1f1a749439f360000010db3bdbccd8a892",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current definition: Framework Instance Settings is the authoritative Artifact containing explicit Operator-selected behavior and configuration choices for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current owner rule: Framework Instance Settings is the one authoritative owner for CAPRMEDIO behavior and configuration choices; permitted parameters and storage do not duplicate current selected values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md",
+          "sha256": "1ae8e1df0c2eeb193b37fa1953b3761b8a2c4247fb7f250c7958c344b466f0ae",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "ba3b7090acde35038013713d4cda923058969897f2a2a73a0e0f1b77cd009b30",
+          "reason": "Current delivery rule: the explicit instance reporting default is stored as `interaction.reporting_mode`; this is carrier syntax supporting the named setting's representation, not an independent per-Property Carrier Entity."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The candidate defines Artifact as the governed lifecycle unit that contains named dependent Entities; the current Framework Instance Settings definition identifies the relevant owner as an authoritative Artifact."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate permits a body-supported setting to be represented as a Property dependent Entity of its actual owning Artifact, rather than as a new root or a carrier registry entry."
+        },
+        {
+          "pointer": "/dependent_entities/compact_examples/1",
+          "reason": "The candidate's compact notation uses a dot to qualify a named Property by its bearer; this supports the display form only and does not admit a native edge or migrate a Subject."
+        }
+      ],
+      "preserved_distinctions": [
+        "The reporting mode remains a Framework Instance Settings Property; its presentation-only effect and mandatory-information invariant remain distinct governing constraints, not extra Properties.",
+        "The TOML section and field remain Carrier syntax, not a carrier registry or a replacement for the semantic Property."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL-GENERAL--preserve-mandatory-information-in-every-reporting-mode.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL-GENERAL--preserve-mandatory-information-in-every-reporting-mode.md",
+      "source_atom_id": "CA-R-1440",
+      "source_version": 7,
+      "source_sha256": "1766012465ccfd46d83d91016802bf1c4550fea3393d9281dedc48e4da672c9c",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/interaction/reporting mode/mandatory information",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings.Interaction Reporting Mode",
+      "confidence": 0.96,
+      "reason": "The live owners make interaction reporting mode a Framework Instance Settings configuration choice: CA-R-1439 limits its effect to presentation and CA-R-1440 specifies mandatory information for every mode. CA-R-1402 identifies Framework Instance Settings as the authoritative Artifact for explicit Operator-selected configuration, CA-R-1750 gives it the unique owner role for configuration choices, and CA-D-383 supplies the explicit instance default's carrier field without turning that syntax into the Property itself. Those combined current definitions support this named dependent Property despite its absence from the candidate display. The mandatory-information list remains an invariant of every value of that Property rather than a separate Property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1440-CORE_META_MODEL-GENERAL--preserve-mandatory-information-in-every-reporting-mode.md",
+          "sha256": "1766012465ccfd46d83d91016802bf1c4550fea3393d9281dedc48e4da672c9c",
+          "start_line": 23,
+          "end_line": 41,
+          "span_sha256": "6f6f7ab4fa2681d785d824a24f7a9f1f1a749439f360000010db3bdbccd8a892",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current definition: Framework Instance Settings is the authoritative Artifact containing explicit Operator-selected behavior and configuration choices for one Framework Instance serving one Project."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current owner rule: Framework Instance Settings is the one authoritative owner for CAPRMEDIO behavior and configuration choices; permitted parameters and storage do not duplicate current selected values."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md",
+          "sha256": "1ae8e1df0c2eeb193b37fa1953b3761b8a2c4247fb7f250c7958c344b466f0ae",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "ba3b7090acde35038013713d4cda923058969897f2a2a73a0e0f1b77cd009b30",
+          "reason": "Current delivery rule: the explicit instance reporting default is stored as `interaction.reporting_mode`; this is carrier syntax supporting the named setting's representation, not an independent per-Property Carrier Entity."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The candidate defines Artifact as the governed lifecycle unit that contains named dependent Entities; the current Framework Instance Settings definition identifies the relevant owner as an authoritative Artifact."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate permits a body-supported setting to be represented as a Property dependent Entity of its actual owning Artifact, rather than as a new root or a carrier registry entry."
+        },
+        {
+          "pointer": "/dependent_entities/compact_examples/1",
+          "reason": "The candidate's compact notation uses a dot to qualify a named Property by its bearer; this supports the display form only and does not admit a native edge or migrate a Subject."
+        }
+      ],
+      "preserved_distinctions": [
+        "The reporting mode remains a Framework Instance Settings Property; its presentation-only effect and mandatory-information invariant remain distinct governing constraints, not extra Properties.",
+        "The TOML section and field remain Carrier syntax, not a carrier registry or a replacement for the semantic Property."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1449-CORE_META_MODEL-GENERAL--define-subtree-targeting-atoms.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1449-CORE_META_MODEL-GENERAL--define-subtree-targeting-atoms.md",
+      "source_atom_id": "CA-R-1449",
+      "source_version": 7,
+      "source_sha256": "8a18e82f15f3462ef32d0a3060da0e0a098df57ab6284f7da4da135fafc5a06c",
+      "field": "governs",
+      "index": null,
+      "old_value": "Subtree-targeting Atoms",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.43,
+      "reason": "The body defines a subtree-targeting Atom set as a selected Scope Unit plus every descendant Scope Unit. It is a derived targeting/set rule, not an independently named candidate Entity or a generic Scope Unit target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1449-CORE_META_MODEL-GENERAL--define-subtree-targeting-atoms.md",
+          "sha256": "8a18e82f15f3462ef32d0a3060da0e0a098df57ab6284f7da4da135fafc5a06c",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "f324dee0a77d3a450ba3dba66e89a6488824ff0447c33e13852aa08d82ecdeef",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The selected Scope Unit, descendant relation, and Atom target set remain distinct; no selector is adopted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1498-CORE_META_MODEL-CORE-REQUIREMENT--derive-recursive-containment-from-direct-containment.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1498-CORE_META_MODEL-CORE-REQUIREMENT--derive-recursive-containment-from-direct-containment.md",
+      "source_atom_id": "CA-R-1498",
+      "source_version": 4,
+      "source_sha256": "0096d109f1112d8159feec43716baf7e4f688c60615099a43f01e7c7998e691f",
+      "field": "governs",
+      "index": null,
+      "old_value": "Structural Entity/Recursive Containment",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.4,
+      "reason": "The body derives recursive Structural Entity containment as the transitive closure of direct containment. Structural Entity is broader than Scope Unit, and the derived closure is not evidence for one generic root or direct Relation Type target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1498-CORE_META_MODEL-CORE-REQUIREMENT--derive-recursive-containment-from-direct-containment.md",
+          "sha256": "0096d109f1112d8159feec43716baf7e4f688c60615099a43f01e7c7998e691f",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "329179cdb0f276394f0f298ba56f151677126efe4fe144428f5642461c09d402",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Direct containment, its transitive derived closure, Structural Entity breadth, and Scope Unit semantics remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+      "source_atom_id": "CA-R-1557",
+      "source_version": 5,
+      "source_sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Exploration Mode",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.35,
+      "reason": "The body uses Exploration Mode to preserve conflict discovery before resolving or suppressing it. It does not identify a Framework Instance Settings owner, an allowed value domain, or a candidate Entity target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-GENERAL-REQUIREMENT--keep-conflict-discovery-in-exploration-mode.md",
+          "sha256": "5aacdee1be98f04966d555e5149fbfaa42c98ecacdef83f96c1fc40490997416",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "ca535e5b7a1eb7e3692bb66d789b378fca2fff5c2bdd90481f0719bcd59438fc",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Conflict discovery, resolution, and any future mode configuration remain distinct; no current setting Property is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+      "source_atom_id": "CA-R-1558",
+      "source_version": 4,
+      "source_sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Exploration Mode",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.35,
+      "reason": "The body routes questions and ideas through Exploration Mode and preserves their non-authoritative status. It does not state an owning Artifact Property or candidate type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1558-CORE_META_MODEL-CORE-REQUIREMENT--route-questions-and-ideas-through-exploration-mode.md",
+          "sha256": "02bea1389941c57c23c59c0b144f57eb546c6bdb455fcdb8299c0d230632eaa5",
+          "start_line": 22,
+          "end_line": 40,
+          "span_sha256": "9fb05c733ac5158f59fabc6b3dc67ee04963fdac896996ede32b44fdb47ebf97",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Question/idea routing, exploration workflow, and authority remain distinct; no generic Actor, Execution, or setting target is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+      "source_atom_id": "CA-R-1683",
+      "source_version": 24,
+      "source_sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Actor",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.36,
+      "reason": "The body distinguishes authority, Evaluation, Operations, concrete Implementations, actual Executions, and Journal records. Its legacy `Actor` dependency is only a route and does not define an Actor semantic target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL-CORE--authority-evaluation-and-operations-remain-distinct.md",
+          "sha256": "fd3e0cd68962ecb4e461e4bb35ff28054bc7cd5af28395bd6ef3ad6760453a9b",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "b9a8ce1d24d843724683664a3d07c7cf7873c3bf77e6d622129db69f17894155",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Authority, Evaluation, Operations, Implementation, Execution, and Journal evidence remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+      "source_atom_id": "CA-R-1724",
+      "source_version": 21,
+      "source_sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+      "field": "governs",
+      "index": null,
+      "old_value": "Configuration Selection and Precedence",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings.Configuration Selection and Precedence",
+      "confidence": 0.95,
+      "reason": "CA-R-1724 expressly assigns selection, combination, parameterization, activation or disablement of available Tools and Extensions, explicit composition precedence, and the current activation selection and selected Extension revision to the Framework Instance Settings Artifact. CA-R-1402 and CA-R-1750 establish that Artifact as the authoritative owner of explicit configuration choices. This supports a single named dependent configuration Property; it does not equate installed availability, a Tool, an Extension, or a selected revision with the Property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1724-CORE_META_MODEL-CORE--define-configuration-selection-and-precedence.md",
+          "sha256": "16c8ae376287c4d8bcdacb70cfeda052fc267273aaff6c866bb0fd6c0d2f5c56",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "7c444811e278c2a554aad6a9eca47f74ced72894770f0fa533bf8e3c880c8290",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current definition: Framework Instance Settings is the authoritative Artifact containing explicit Operator-selected behavior and configuration choices."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current owner rule: Framework Instance Settings, rather than a parameter-definition Atom or Default Settings, owns the current selected configuration value."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The candidate defines Artifact as the governed lifecycle unit that contains named dependent Entities; the current Framework Instance Settings definition identifies the relevant owner as an authoritative Artifact."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate permits a body-supported setting to be represented as a Property dependent Entity of its actual owning Artifact, rather than as a new root or a carrier registry entry."
+        },
+        {
+          "pointer": "/dependent_entities/compact_examples/1",
+          "reason": "The candidate's compact notation uses a dot to qualify a named Property by its bearer; this supports the display form only and does not admit a native edge or migrate a Subject."
+        }
+      ],
+      "preserved_distinctions": [
+        "Configuration availability, activation, foreground/background state, precedence, and selected revision remain qualified aspects governed by CA-R-1724; the proposal does not create a generic Tool or Extension Entity target.",
+        "Installed-but-disabled Extensions and retained settings remain distinct from explicit Framework Instance Settings activation."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+      "source_atom_id": "CA-R-1736",
+      "source_version": 19,
+      "source_sha256": "14a338784dc5d1dd3903a435c7ee6df81ff55c8e440b09d77920d49e22edf2cf",
+      "field": "governs",
+      "index": null,
+      "old_value": "CAPRMEDIO Expansion",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.39,
+      "reason": "The body defines the CAPRMEDIO expansion as a role list and preserves its canonical order. The label does not establish a candidate root, Property, or a mapping of each listed role to an Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+          "sha256": "14a338784dc5d1dd3903a435c7ee6df81ff55c8e440b09d77920d49e22edf2cf",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "5b95493c76f422fb0d7912e3672d7d4572e068cea2b146027170e6fe1559d35b",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The named Concern, Analysis, Plan, Requirement, Method, Evaluation, Delivery, Implementation, and Operations roles remain a canonical expansion list, not inferred Entities."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+      "source_atom_id": "CA-R-1741",
+      "source_version": 15,
+      "source_sha256": "9a9f22ad994c1281767fd9161908d5a4419f1d3f60b08fdaeb74f398da072ff9",
+      "field": "governs",
+      "index": null,
+      "old_value": "Recurrence Protection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.43,
+      "reason": "The body requires each concrete Recurrence Protection to be an Evaluation Atom defining a bounded mechanism-neutral check. It does not make the label a generic Atom field, a new type, or a standalone candidate Property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+          "sha256": "9a9f22ad994c1281767fd9161908d5a4419f1d3f60b08fdaeb74f398da072ff9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "95b4b0f7bec797eb0bbe3dc20f3aee66d075ed17b02478e546ec55d95937c3bd",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Evaluation role, concrete check content, recurrence-protection purpose, and mechanism neutrality remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1772-CORE_META_MODEL-CORE-REQUIREMENT--minimal-default-project-model.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1772-CORE_META_MODEL-CORE-REQUIREMENT--minimal-default-project-model.md",
+      "source_atom_id": "CA-R-1772",
+      "source_version": 14,
+      "source_sha256": "bbf3143a6793b7a463dbb18ff5e7f0cadbce655fc4eeb07354dad2cad7d5685a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project/minimum model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.36,
+      "reason": "The body sets the minimum default Project model as a policy over a Project and its Components; it does not identify a named candidate dependent Entity or Property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1772-CORE_META_MODEL-CORE-REQUIREMENT--minimal-default-project-model.md",
+          "sha256": "bbf3143a6793b7a463dbb18ff5e7f0cadbce655fc4eeb07354dad2cad7d5685a",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "5cb3f43b78798c6c07b31de65cc4ec15ea0fcb5a1e9752facde407db943a0499",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The Project, minimum model, default composition, and component roles remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1773-CORE_META_MODEL-CORE-REQUIREMENT--define-the-project-principle-universe.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1773-CORE_META_MODEL-CORE-REQUIREMENT--define-the-project-principle-universe.md",
+      "source_atom_id": "CA-R-1773",
+      "source_version": 16,
+      "source_sha256": "b8dbe8b639932dc98a00fd6d8d861f255b21ddaafec0c77da68f590aac8c60ba",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project/Principle universe",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.36,
+      "reason": "The body defines the Project Principle universe and its cross-project invariant role, not a generic Property on a Project or Scope Unit.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1773-CORE_META_MODEL-CORE-REQUIREMENT--define-the-project-principle-universe.md",
+          "sha256": "b8dbe8b639932dc98a00fd6d8d861f255b21ddaafec0c77da68f590aac8c60ba",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "6d55d8a247ac7660680c7486a2cfda952c545d00661d8fd3cee5f5d342fb317f",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Project-wide principles, their universe, and individual Principle ownership remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1774-CORE_META_MODEL--give-every-project-wide-invariant-one-principle-owner.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1774-CORE_META_MODEL--give-every-project-wide-invariant-one-principle-owner.md",
+      "source_atom_id": "CA-R-1774",
+      "source_version": 12,
+      "source_sha256": "04c2a63ac0fec443491c5d835d5b4bcfecc1e282171544c44af083ad563b619c",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project/Principle universe",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.36,
+      "reason": "The body assigns each Project-wide invariant to exactly one Project Principle owner. The old label names a universe, while the claim preserves an ownership/cardinality rule that cannot be reduced to a generic candidate target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1774-CORE_META_MODEL--give-every-project-wide-invariant-one-principle-owner.md",
+          "sha256": "04c2a63ac0fec443491c5d835d5b4bcfecc1e282171544c44af083ad563b619c",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "1e4d3b98201c2b26616da1fe22fccea5596da475538e157c2e89167ec76a867f",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Invariant, Principle owner, project-wide scope, and one-owner cardinality remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1776-CORE_META_MODEL-CORE-REQUIREMENT--separate-graph-dimensions.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1776-CORE_META_MODEL-CORE-REQUIREMENT--separate-graph-dimensions.md",
+      "source_atom_id": "CA-R-1776",
+      "source_version": 19,
+      "source_sha256": "048ef443a0803f8d028f54326767993e2bd3fdf69406ffd608eebf60fd3cfdef",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project/graph dimensions",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.37,
+      "reason": "The body separates graph dimensions as an orthogonality rule. The topic does not state a specific root, Property, or Relation Type to map.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1776-CORE_META_MODEL-CORE-REQUIREMENT--separate-graph-dimensions.md",
+          "sha256": "048ef443a0803f8d028f54326767993e2bd3fdf69406ffd608eebf60fd3cfdef",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "6ba546cfda6c9b81da4ab8ab62d63afb26c35d047305399567e6e880aeefcaee",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The distinct graph dimensions and their non-collapse constraint remain preserved."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md",
+      "source_atom_id": "CA-R-380",
+      "source_version": 24,
+      "source_sha256": "2d10306800cba3cd68d1be8bb698925c976dee96ef7a2692793427c2beb93770",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/Confidence/Semantic Resolution Threshold",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings.Semantic Resolution Confidence Threshold",
+      "confidence": 0.96,
+      "reason": "CA-R-380 directly requires an Operator-configurable semantic-resolution Confidence Threshold instance default. CA-R-1427 defines the threshold's value domain, CA-R-1402 and CA-R-1750 place current CAPRMEDIO configuration choices under the authoritative Framework Instance Settings Artifact, and CA-D-369 records the corresponding Framework Instance Settings carrier field. Together they support this exact named dependent Property rather than a generic Entity or a carrier path; the broader multi-source override rule in CA-R-1428 remains separate.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-380-CORE_META_MODEL-GENERAL--configure-the-semantic-resolution-confidence-default.md",
+          "sha256": "2d10306800cba3cd68d1be8bb698925c976dee96ef7a2692793427c2beb93770",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "4e9cc66b1f94270b359aa6966d54ef5ca0f970eeeec23d90af559dabcbff1ce9",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current definition: Framework Instance Settings is the authoritative Artifact containing explicit Operator-selected configuration choices."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current owner rule: current CAPRMEDIO behavior and configuration choices have Framework Instance Settings as their authoritative owner."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1427-CORE_META_MODEL-CORE--define-confidence-threshold.md",
+          "sha256": "347fc5921d406adf14de0dcc680f41861c8bb19f416e4002f272fa6876241e7a",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "3100f7e01cdae63fed221710f9e1c8bc6d8bf0a605292434e411bbe71255ddc9",
+          "reason": "Current definition: Confidence Threshold is the minimum integer confidence percentage required for a specified decision or action in its applicable context."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-369-CORE_META_MODEL--serialize-the-semantic-resolution-confidence-default.md",
+          "sha256": "400ff65877f571b7155d9035e39096c7aeee5690c5dee5f570a2d34d21308d82",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "bf0cf7846d123ebe60a2dd07610664f5313c4f016fc73c4481254b422ab2adaf",
+          "reason": "Current delivery rule: the explicit semantic-resolution confidence default in the Framework Instance Settings TOML Carrier uses `confidence.semantic_resolution_threshold_percent`; it specifies serialization, not a separate Entity."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The candidate defines Artifact as the governed lifecycle unit that contains named dependent Entities; the current Framework Instance Settings definition identifies the relevant owner as an authoritative Artifact."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate permits a body-supported setting to be represented as a Property dependent Entity of its actual owning Artifact, rather than as a new root or a carrier registry entry."
+        },
+        {
+          "pointer": "/dependent_entities/compact_examples/1",
+          "reason": "The candidate's compact notation uses a dot to qualify a named Property by its bearer; this supports the display form only and does not admit a native edge or migrate a Subject."
+        }
+      ],
+      "preserved_distinctions": [
+        "The setting remains an instance default and preserves the threshold's integer-percentage value domain and applicable-context qualification.",
+        "Carrier field syntax stays separate from the Property; no per-Property Carrier registry is inferred.",
+        "Direct Operator input and explicit Plan or Hub Plan threshold values remain distinct possible sources governed by CA-R-1428."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-833-CORE_META_MODEL-CORE-REQUIREMENT--organize-normative-authority-as-an-acyclic-hierarchy.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-833-CORE_META_MODEL-CORE-REQUIREMENT--organize-normative-authority-as-an-acyclic-hierarchy.md",
+      "source_atom_id": "CA-R-833",
+      "source_version": 12,
+      "source_sha256": "08282a72887527871e48bbc792440c2a176603ef7e684267fb5de97f7da6d846",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project/normative authority graph",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.41,
+      "reason": "The body defines a normative authority graph as an acyclic hierarchy with typed authority links. The compound project/graph label does not identify one candidate Entity and must not flatten authority structure into Scope Unit ownership.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-833-CORE_META_MODEL-CORE-REQUIREMENT--organize-normative-authority-as-an-acyclic-hierarchy.md",
+          "sha256": "08282a72887527871e48bbc792440c2a176603ef7e684267fb5de97f7da6d846",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "594661eae949686272f464b45dffd7d0aeef39ba147f12cfdc0417838d4a673f",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Normative authority, graph hierarchy, acyclicity, and typed links remain distinct from Project structure."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+      "source_atom_id": "CA-E-207",
+      "source_version": 13,
+      "source_sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Project/lexicographic selection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The Evaluation body distinguishes lexicographic selection and application of a priority model from the evaluated alternatives, applicable constraints, and Operator choice. It does not name an owning settings Artifact or candidate Property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+          "sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+          "start_line": 32,
+          "end_line": 55,
+          "span_sha256": "2b5a336859025130d21d96255c5ab2a4d68512641b59e0e02d12c1fedbd8be5f",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Priority model, lexicographic selection, application, evaluation, alternatives, and Operator choice remain distinct; no selector is adopted."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+      "source_atom_id": "CA-E-207",
+      "source_version": 13,
+      "source_sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project/priority model application",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The Evaluation body distinguishes lexicographic selection and application of a priority model from the evaluated alternatives, applicable constraints, and Operator choice. It does not name an owning settings Artifact or candidate Property.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-207-CORE_META_MODEL-EVALUATION_APPROACH--evaluate-priority-governed-alternative-selection.md",
+          "sha256": "d722991a355ed9c72a210150049bc95be05a9f10b0268403ef8bd65bf97f4f5c",
+          "start_line": 32,
+          "end_line": 55,
+          "span_sha256": "2b5a336859025130d21d96255c5ab2a4d68512641b59e0e02d12c1fedbd8be5f",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Priority model, lexicographic selection, application, evaluation, alternatives, and Operator choice remain distinct; no selector is adopted."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned_occurrences": 23,
+    "owning_sources": 20,
+    "proposed": 6,
+    "unresolved": 17,
+    "owning_current_evidence_spans": 23,
+    "additional_current_definition_evidence_spans": 5
+  },
+  "limits": [
+    "This is non-authoritative, non-executable candidate research only; it performs no source migration or native admission.",
+    "No selector, singleton kind, @ operator, Artifact.Revision containment, carrier registry, source/body change, or display-only Artifact prefix is inferred.",
+    "Only the three explicit Framework Instance Settings configuration meanings are proposed as dependent Properties; all authority, scope, derived-structure, priority, role, and representation distinctions without one body-supported target remain explicit unresolved rows."
+  ]
+}

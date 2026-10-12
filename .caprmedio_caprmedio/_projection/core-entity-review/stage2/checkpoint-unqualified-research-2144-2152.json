@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11 12:12:24 +0400",
+  "non_authoritative": true,
+  "result": "PASS: bounded accepted research and independent frontier audit; working ledger integration and source migration remain pending",
+  "completed_tasks": [
+    "CA-P-2144",
+    "CA-P-2145",
+    "CA-P-2146",
+    "CA-P-2147",
+    "CA-P-2148",
+    "CA-P-2149",
+    "CA-P-2150",
+    "CA-P-2151",
+    "CA-P-2152"
+  ],
+  "scope": {
+    "core_only": true,
+    "subjects_first": true,
+    "ordinary_content_deferred": true,
+    "research_origins": 204,
+    "distinct_owners": 145,
+    "supported_proposals": 59,
+    "explicit_nulls": 145
+  },
+  "inputs": {
+    "manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2144-2151.inputs.json",
+      "sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+    },
+    "registration_commit": "98d0b4617deb172906712abe278c2562048c3a2e",
+    "accepted_reports": [
+      {
+        "task": "CA-P-2144",
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2144.research.json",
+        "sha256": "c8f597de7f0d898fb743864dcf32ce93693ae1e041c40c60750679b0180de85a",
+        "rows": 19,
+        "proposed": 6,
+        "unresolved": 13,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2144.receipt.json"
+      },
+      {
+        "task": "CA-P-2145",
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2145.research.json",
+        "sha256": "ea17bd333aedc0a0e4b32b926e2697362bc2b9f64172a45974d277432044078f",
+        "rows": 22,
+        "proposed": 13,
+        "unresolved": 9,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2145.receipt.json"
+      },
+      {
+        "task": "CA-P-2146",
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2146.research.json",
+        "sha256": "567f21ba21eabe86155300820c305ea33594e3cd6d4bac06d6290d09a49fa556",
+        "rows": 24,
+        "proposed": 8,
+        "unresolved": 16,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2146.receipt.json"
+      },
+      {
+        "task": "CA-P-2147",
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2147.research.json",
+        "sha256": "398330315580e7a2784e45b50fa86cc8b1dc965d0d46c5db01103ebc6228a0fb",
+        "rows": 25,
+        "proposed": 13,
+        "unresolved": 12,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2147.receipt.json"
+      },
+      {
+        "task": "CA-P-2148",
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2148.research.json",
+        "sha256": "3b206222d47f5365baacbc332600341a32c57d18966b4505b43c210b0b5e7c20",
+        "rows": 23,
+        "proposed": 15,
+        "unresolved": 8,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2148.receipt.json"
+      },
+      {
+        "task": "CA-P-2149",
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2149.research.json",
+        "sha256": "f1bc95e923e32d2f5e5fb93c77d15106dcd044db45df340b0a2ef74a027bffff",
+        "rows": 37,
+        "proposed": 3,
+        "unresolved": 34,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2149.receipt.json"
+      },
+      {
+        "task": "CA-P-2150",
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2150.research.json",
+        "sha256": "10daa4c33f9e1651a454cd46f0ee9887a10f2bfdb87478c2cbc742ed3826bef6",
+        "rows": 33,
+        "proposed": 1,
+        "unresolved": 32,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2150.receipt.json"
+      },
+      {
+        "task": "CA-P-2151",
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2151.research.json",
+        "sha256": "933dbea13f4b13a2cc36677389bdb6c04e612db6b42b0d3b96ef3383ae96a50b",
+        "rows": 21,
+        "proposed": 0,
+        "unresolved": 21,
+        "receipt": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/task-2151.receipt.json"
+      }
+    ]
+  },
+  "frontier_audit": {
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2152.frontier-audit.json",
+      "sha256": "4962a8bc5a8fdd45d24b620febb7fa9ee9d63245b35cef5f83edd5aeed477227"
+    },
+    "independent_review": {
+      "reviewer": "/root",
+      "final_report_sha256": "4962a8bc5a8fdd45d24b620febb7fa9ee9d63245b35cef5f83edd5aeed477227",
+      "result": "PASS after actual one-off reproduction and independent current-ledger gate",
+      "meaning_checks": [
+        "No semantic mapping judgement or source change is made.",
+        "One validator reconstructs the exact selected set, checks all origin fields/live owner hashes/lane digests/counts/source-owner disjointness, and runs four wrong-data controls.",
+        "Actual positive has zero errors; all four controls reject for explicit relevant defects.",
+        "Root independently re-ran the current-ledger verifier: exact current original Core907sources/4534occurrences,1125unresolved,8quarantines.",
+        "Actual Core directory exists and has empty diff against441bc48e1; frozen baseline/candidate/canonical decision hashes match."
+      ],
+      "rejected_previous_revisions": [
+        {
+          "sha256": "e238488d21128dbb19b910ef6c40bd0635248f6e07b1c11aef00652060eb90af",
+          "reviewer": "/root",
+          "result": "FAIL: alleged negative probes/counts hardcoded; current authority enumeration, exact origin/digest/source hashes and owner-disjoint proof missing",
+          "required_corrections": [
+            "Actual independent current source/occurrence enumeration",
+            "Compute exact baseline-only242exclusion and8/35quarantine counts",
+            "Compare all origins/current owner hashes/task digests/source-set disjointness",
+            "Run actual valid-control wrong-data probes through same exact validator",
+            "Verify frozen live pins and actual Core path/diff"
+          ]
+        },
+        {
+          "sha256": "6af0129980bbee0b1c132cbb651aa295edd0b85a3031a630c20c730fbe13eb06",
+          "reviewer": "/root",
+          "result": "FAIL: required full expected-set/digests/source-owner disjointness not checked; counts remain hardcoded; simplified negatives bypass actual validator and qualified-row appending is not a valid-control probe."
+        }
+      ],
+      "verification_limits": [
+        "The one-off audit is scoped to the exact a729/d299 inputs, not a reusable validation Tool.",
+        "Frontier counts printed in the audit are corroborated by the separately executed independent current-ledger gate stored in this receipt."
+      ]
+    },
+    "current_frontier": {
+      "excluded_sources": 11203,
+      "occurrences": 4534,
+      "outcome": "PASS",
+      "proposed": 1869,
+      "quarantined_sources": 8,
+      "sources": 907,
+      "unchanged": 1540,
+      "unresolved": 1125
+    },
+    "actual_reproduction": {
+      "chunk_id": "c6353a",
+      "wall_time_seconds": 0.130127709,
+      "exit_code": 0,
+      "original_token_count": 151,
+      "output": "PASS 4962a8bc5a8fdd45d24b620febb7fa9ee9d63245b35cef5f83edd5aeed477227 {'selected_occurrences': 204, 'selected_owners': 145, 'baseline_qualified_excluded': 242, 'quarantined_sources': 8, 'quarantined_occurrences': 35} {'omitted': ['exact selected occurrence set/uniqueness', 'CA-P-2144 lane limits/count', 'CA-P-2144 digest'], 'duplicated': ['exact selected occurrence set/uniqueness', 'CA-P-2144 digest'], 'changed_origin': ['origin field source_sha256', 'owner source sha'], 'qualified_replacement': ['exact selected occurrence set/uniqueness', 'unexpected or nonqual origin', 'CA-P-2144 digest']} []\n"
+    },
+    "selected": {
+      "occurrences": 204,
+      "owners": 145,
+      "baseline_only_qualified_excluded": 242
+    },
+    "quarantine": {
+      "sources": 8,
+      "occurrences": 35
+    },
+    "original_core": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+      "exists": true,
+      "comparison": "441bc48e1",
+      "diff": "empty"
+    },
+    "frozen_pins": {
+      "baseline": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39",
+      "candidate": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+      "operator_decision": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    }
+  },
+  "verification": {
+    "reports": 8,
+    "exact_report_controls": 112,
+    "current_global_mechanical_result": "PASS",
+    "original_core": "exists and no diff against441bc48e1",
+    "current_persisted_frontier": {
+      "excluded_sources": 11203,
+      "occurrences": 4534,
+      "outcome": "PASS",
+      "proposed": 1869,
+      "quarantined_sources": 8,
+      "sources": 907,
+      "unchanged": 1540,
+      "unresolved": 1125
+    }
+  },
+  "rejected_before_acceptance": [
+    {
+      "sha256": "c5b79b26e322dca5e59efdd7491ccd7439be097c90af5f5b21b56d7cf2e0ad33",
+      "reviewer": "/root/projection_review_2099",
+      "result": "FAIL: three supported nulls overlook explicit Core Projection/Journal Record meanings",
+      "required_corrections": [
+        "CA-D-346 governs Projection",
+        "CA-D-347 governs Projection",
+        "CA-D-360 depends_on[1] Journal.Record with original Core R1745 support"
+      ]
+    },
+    {
+      "sha256": "bf4a87ab14efd1d6582ede0ddd6fba1bcc6ba2e70ac6e5259dfd5b4decbe0b60",
+      "reviewer": "/root",
+      "result": "FAIL: CA-D-505's IS_CARRIED_BY inverse promoted as a separate primitive Kind; independent review reversed explicit D256/D257 directions",
+      "evidence": [
+        "CA-D-256 Claim line32 defines CARRIES as direct Carrier-to-Entity.",
+        "CA-D-257 Scope27/Claim31 defines IS_CARRIED_BY as inverse of CARRIES, Entity-to-Carrier."
+      ]
+    },
+    {
+      "sha256": "6138969b426febe1795ca2941cf23fef1ab92a46c033ddd3d284b137f82d94e8",
+      "reviewer": "/root/domain_semantic_acceptance",
+      "result": "FAIL: O028 depends_on[15] overlooks explicit Principle Local Tier meaning; O157 Artifact/Projection narrowing is supported and must remain unchanged",
+      "required_correction": "Promote O028 depends_on[15] to Atom.Local Tier: Principle using current R658/R1774 proof",
+      "rejected_review_hypothesis": {
+        "reviewer": "/root/subject_review_004",
+        "claim": "Remove Artifact/Projection prefix solely because candidate Artifact root's narrower display list names only Atom.",
+        "adjudication": "REJECT: original Core R1746 explicitly defines Projection Artifact form/Projection Artifacts and candidate whole-set lifecycle; display examples do not negate supported current narrowing."
+      }
+    },
+    {
+      "sha256": "2b9eefb5a50fb8c777056cb9bce1fa6b8286804f3a42a6de1338a8fec7adc066",
+      "result": "FAIL: declared counts disagreed with actual rows after supported O028 promotion; corrected before final acceptance."
+    },
+    {
+      "sha256": "e238488d21128dbb19b910ef6c40bd0635248f6e07b1c11aef00652060eb90af",
+      "reviewer": "/root",
+      "result": "FAIL: alleged negative probes/counts hardcoded; current authority enumeration, exact origin/digest/source hashes and owner-disjoint proof missing",
+      "required_corrections": [
+        "Actual independent current source/occurrence enumeration",
+        "Compute exact baseline-only242exclusion and8/35quarantine counts",
+        "Compare all origins/current owner hashes/task digests/source-set disjointness",
+        "Run actual valid-control wrong-data probes through same exact validator",
+        "Verify frozen live pins and actual Core path/diff"
+      ]
+    },
+    {
+      "sha256": "6af0129980bbee0b1c132cbb651aa295edd0b85a3031a630c20c730fbe13eb06",
+      "reviewer": "/root",
+      "result": "FAIL: required full expected-set/digests/source-owner disjointness not checked; counts remain hardcoded; simplified negatives bypass actual validator and qualified-row appending is not a valid-control probe."
+    }
+  ],
+  "limits": [
+    "All outputs are derived; no original Core or captured/frozen evidence was changed.",
+    "Current saved ledger remains d299 /1869proposed/1540unchanged/1125unresolved until the separate bounded rebuild passes.",
+    "Only forecasting addition of these59supportedproposals yields1928/1540/1066; actual persistence and independent verification must decide.",
+    "Qualified/named selector grammar remains unanswered,242baseline-only qualified origins stay outside this selection, and prior research nulls remain open.",
+    "Quarantines, accepted graph, exact preview approval, source application, reproduction and content gates remain open."
+  ]
+}

@@ -1,7 +1,10 @@
 # Project-scoped Docker runtime
 
-One image runs three separate services: MCP, durable DBOS worker, and Codex Agent.
-Nothing starts automatically or enqueues a Workflow during startup.
+One image supports separate MCP, durable DBOS worker, and Codex Agent services.
+The source-development `project-mcp` route starts or reuses only the selected
+Project's HTTP MCP container. The selected-installed-package route is described
+separately below. Nothing starts automatically or enqueues a Workflow during
+startup.
 
 The worker and MCP receive one Project bind mount at `/project`, allowing atomic
 publication from `.caprmedio_tmp/` into admitted authority and execution-state
@@ -14,24 +17,40 @@ the executor still restricts edits to the explicitly admitted selection.
 The worker alone applies authorized Atom proposals. The Agent has no Project,
 host-home, or Docker-socket mount. It receives the explicit frozen source/rules
 over the private Compose network. The ordinary worker, stdio MCP, and Agent
-publish no ports. The separately started HTTP MCP publishes only an explicitly
-selected `127.0.0.1` port. Containers run as a non-root user with a read-only
-image and dropped capabilities.
+publish no ports. HTTP MCP publishes only on `127.0.0.1`. Containers run as a
+non-root user with a read-only image and dropped capabilities.
 
 ## Build and test without credentials
 
-From the repository root:
+From the repository root, host-side commands use only the project-local uv
+environment: `UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv"`.
+They pin the checked-in lock and use uv-managed Python 3.14; they do not depend
+on a system Python or an `.env` file.
 
 ```sh
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py build
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --mock start
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --mock status
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --mock stop
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py build
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --mock start
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --mock status
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --mock stop
 ```
 
 Docker Desktop/Engine and Compose must already be available. The image pins
 Python 3.14.7, Node 22.20.0, Codex CLI 0.156.1, uv 0.12.18, and the checked-in
 Python dependency lock. Build uses the invoking user's UID/GID for mount access.
+Each build uses a private, attempt-local Buildx client-state cache outside the
+immutable build context; it does not modify the user's global Buildx state.
 The build context includes Engine source and dependency declarations, not Project
 Atoms, runtime state, authentication, or `.env` files. Compose explicitly disables
 implicit `.env` loading. Network restrictions still apply to image building;
@@ -42,7 +61,10 @@ It is only for tests: do not enqueue real Atom selections against the mock Agent
 The two real-container end-to-end tests require a successful image build:
 
 ```sh
-CAPRMEDIO_DOCKER_E2E=1 uv run --group workflow-orchestrator --group rmed-workflow-mcp python -m unittest discover -s 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests -p test_docker_e2e.py -v
+CAPRMEDIO_DOCKER_E2E=1 \
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator --group rmed-workflow-mcp python -m unittest discover -s 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/tests -p test_docker_e2e.py -v
 ```
 
 These use disposable mock Projects. They check MCP admission/disconnection,
@@ -54,7 +76,10 @@ and uncertain dispatch without replay. They do not verify model judgment.
 Pass the exact existing Codex `auth.json` path explicitly; it is never guessed:
 
 ```sh
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --auth-file /ABSOLUTE/PATH/TO/auth.json start
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py --auth-file /ABSOLUTE/PATH/TO/auth.json start
 ```
 
 Only the Agent receives this runtime-only secret. On its first start it seeds a
@@ -72,9 +97,22 @@ or an adversarial isolation guarantee; the Agent can access its own credentials.
 
 ## Connect MCP and run explicitly
 
-Configure MCP's command as `python3` and its arguments as:
+Set the MCP process environment to
+`UV_PROJECT_ENVIRONMENT=/ABSOLUTE/REPOSITORY/.caprmedio_runtime/launcher-venv`.
+Configure MCP's command as `uv` and its arguments as:
 
 ```text
+run
+--project
+/ABSOLUTE/REPOSITORY
+--locked
+--python
+3.14
+--managed-python
+--no-env-file
+--group
+workflow-orchestrator
+python
 /ABSOLUTE/REPOSITORY/102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py
 --project-root
 /ABSOLUTE/REPOSITORY
@@ -84,26 +122,134 @@ mcp
 Start the worker/Agent first. The stdio MCP container exists only for that client
 connection. MCP shutdown does not stop the worker or its queue.
 
-## Authenticated localhost HTTP MCP
+## Launch a selected Project MCP endpoint
+
+Choose one route below. The development source launcher and selected-installed
+package runtime boundary have different evidence and image-input boundaries.
+
+### Selected installed package runtime boundary
+
+After installation has selected matching package and runtime selectors, its
+reopened generation carries the exact package-owned locked UV argv, environment,
+and wrapper. They bind the selected package and target context, but remain
+prospective command data: actual invocation requires a separately authorized
+installation-specific Operator command bound to that exact command digest and
+context. Do not reconstruct the command by directly invoking
+`installed_mcp_cli.py`, or substitute a source-checkout command; neither is an
+installation or activation authority. Missing or mismatched selectors,
+configuration, command carriers, or invocation authority are refused.
+
+This boundary is implementation capability, not evidence that an installed
+Project has passed Full Gate, native installation, public release, or a live
+endpoint proof.
+
+### Development source launcher
+
+For development from a Framework source checkout, run the standard-library
+bootstrap through its isolated uv shebang environment. It pins the child
+launcher to the selected Framework source's `.caprmedio_runtime/launcher-venv`
+and does not use a host Python environment:
+
+```sh
+uv run --no-project --isolated --managed-python --python 3.14 --no-env-file python -I \
+  .caprmedio_runtime/start_mcp.py \
+  --project-root /ABSOLUTE/PROJECT --source-root "$PWD"
+```
+
+The bootstrap prints the endpoint URL on success. To invoke the underlying
+launcher directly, use the following equivalent locked project command:
+
+```sh
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --group rmed-workflow-mcp python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
+  --project-root /ABSOLUTE/PROJECT --source-root /ABSOLUTE/FRAMEWORK-SOURCE project-mcp
+```
+
+`--project-root` is the actual Project folder: it directly contains its own
+`.caprmedio_<project>/` folder with `caprmedio_project_settings.toml` and
+`project_structure.toml`.
+Projects nested in one repository use their separate Project folders as roots.
+The HTTP endpoint requires no local `.git`. `--control-root .caprmedio_<project>`
+can explicitly select a direct control folder when needed.
+
+The command admits a compatible immutable image, builds it when absent, and
+lets Docker allocate a loopback port. JSON is the default; successful output
+includes these fields, alongside Project, image, and container identities:
+
+```json
+{"disposition":"started","condition":"READY_STARTED","readiness":true,"url":"http://127.0.0.1:49152/mcp","port":49152}
+```
+
+The illustrated port is not fixed. A healthy repeat returns `reused` and
+`READY_REUSED` with the same container and URL. A mismatched or unhealthy runtime
+is retained and reported without replacement. Explicit recreation may change
+the URL, so reconnect using the newly returned endpoint.
+
+To request one particular loopback port, pass `--port` with an integer from
+`1` through `65535`:
+
+```sh
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --group rmed-workflow-mcp python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
+  --project-root /ABSOLUTE/PROJECT --source-root /ABSOLUTE/FRAMEWORK-SOURCE \
+  --port 18092 project-mcp
+```
+
+The omitted default lets Docker allocate the port atomically. An existing
+healthy Project runtime must already use a requested port exactly; otherwise it
+is retained and reported as a mismatch. If a requested port is occupied, startup
+fails without stopping the other runtime or selecting a different port.
+
+Every invocation of this development `project-mcp` launcher requires
+`--source-root` to name a readable Framework source checkout for image identity
+and build inputs. Omitting it returns JSON with
+`condition: IMAGE_INPUT_UNAVAILABLE`; no repository or ancestor is inferred.
+Do not substitute a package path into this source-development route; installed
+runtime invocation uses its separately authorized command boundary.
+
+`--output url` prints only the URL on success. Failures still return JSON with
+`disposition` and `condition`, exit nonzero, and contain no success URL. Use
+`--no-build` to refuse a missing compatible image. `--startup-timeout` defaults
+to 60 seconds and accepts at most 60; `--build-timeout` defaults to 600 seconds
+and accepts at most 600. Build source is independent of the selected Project.
+
+Docker client commands preserve configured HTTP/HTTPS/SOCKS proxy routing,
+including uppercase and lowercase proxy variables. These host routing values
+are not emitted in launcher results or supplied as image build arguments.
+
+Configure your Streamable HTTP MCP client with the returned loopback URL. The
+listener has no password or authorization-header requirement; it remains limited
+to localhost and rejects non-local Host or Origin values. Each endpoint uses one
+container limited to 512 MiB and one CPU. Readiness confirms host access to MCP;
+this command does not start a worker, Agent, queue, or Workflow, or grant
+execution authority.
+
+## Explicit-port localhost HTTP MCP
 
 The Docker runtime can additionally expose Streamable HTTP MCP at a caller-chosen
-loopback port. Supply both values explicitly in the invoking environment; neither
-is read from an `.env` file:
+loopback port. Supply the port explicitly in the invoking environment; it is not
+read from an `.env` file:
 
 ```sh
 CAPRMEDIO_MCP_HTTP_PORT=18092 \
-CAPRMEDIO_MCP_HTTP_SECRET_TOKEN='set-a-secret-outside-the-repository' \
-python3 102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
+UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
+uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
+  --group workflow-orchestrator python \
+  102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py \
   --project-root "$PWD" mcp-http-start
 ```
 
-On success the command returns `http://127.0.0.1:<port>/mcp`. Clients must send
-the configured Bearer token. The listener rejects invalid credentials and
-non-local Host or Origin values. Startup fails closed unless Compose reports one
-healthy `mcp-http` service with the requested loopback TCP publication. Inspect
-or stop that endpoint explicitly with `mcp-http-status` or `mcp-http-stop` using
-the same environment. This HTTP service is independent of the stdio connection;
-starting it neither starts a Workflow nor grants execution authority.
+On success the command returns `http://127.0.0.1:<port>/mcp`. The listener
+rejects non-local Host or Origin values. Startup fails closed unless Compose
+reports one healthy `mcp-http` service with the requested loopback TCP
+publication. Inspect or stop that endpoint explicitly with `mcp-http-status` or
+`mcp-http-stop` using the same environment. This HTTP service is independent of
+the stdio connection; starting it neither starts a Workflow nor grants execution
+authority.
 
 Alternatively, existing native MCP `workflow_orchestrator` calls route to the
 Docker worker after a successful explicit `start` publishes `transport.json`.

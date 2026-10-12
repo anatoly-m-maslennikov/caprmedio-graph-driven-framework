@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import shutil
 import sys
 import tempfile
@@ -11,8 +12,11 @@ from pathlib import Path
 
 
 RELEASE_ROOT = Path(__file__).resolve().parents[1]
+COMPILER_ROOT = RELEASE_ROOT.parent / "COMPILE_APPLICABLE_METHODOLOGY"
 if str(RELEASE_ROOT) not in sys.path:
     sys.path.insert(0, str(RELEASE_ROOT))
+if str(COMPILER_ROOT) not in sys.path:
+    sys.path.insert(0, str(COMPILER_ROOT))
 
 from release_compilation import (  # noqa: E402
     CHILD_MANIFEST_NAME,
@@ -22,7 +26,15 @@ from release_compilation import (  # noqa: E402
     render_release_candidate,
 )
 from release_contract import ReleaseContractError  # noqa: E402
-from release_handoff import CANONICAL_SOURCE_RELATIVE, MATERIALIZED_RELATIVE, tree_sha256  # noqa: E402
+from release_handoff import MATERIALIZED_RELATIVE, tree_sha256  # noqa: E402
+from methodology_layout import resolve_methodology_layout  # noqa: E402
+import compile_applicable_methodology as compiler  # noqa: E402
+
+
+_CURRENT_SOURCE_ROOT = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
+_CURRENT_PRODUCT_ROOT = "101_FRAMEWORK_METHODOLOGY"
+_CURRENT_SOURCE_COPY_ROOT = "101_FRAMEWORK_METHODOLOGY/sources"
+_CURRENT_APPLICABLE_ROOT = "101_FRAMEWORK_METHODOLOGY/applicable_methodology"
 
 
 def carrier(atom_id: str, *, version: int = 1) -> bytes:
@@ -42,24 +54,36 @@ def carrier(atom_id: str, *, version: int = 1) -> bytes:
 
 class ReleaseCompilationTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.temporary = tempfile.TemporaryDirectory()
+        self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True, dir=tempfile.gettempdir())
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name).resolve(strict=True)
         self.control = self.root / ".caprmedio_caprmedio"
-        self.source = self.root / CANONICAL_SOURCE_RELATIVE
+        self.source = self.root / _CURRENT_SOURCE_ROOT
         for layer in ("001_CORE_META_MODEL", "003_PROJECT_CONFIGURATION"):
             for role in ("04_requirement", "05_method", "06_evaluation", "07_delivery", "09_operations"):
                 (self.source / layer / role).mkdir(parents=True, exist_ok=True)
         (self.source / "002_INSTALLED_EXTENSIONS").mkdir(parents=True)
         self.write(".caprmedio_caprmedio/project_structure.toml", (
             "[[scope_units]]\n"
+            'scope_unit_name = "FRAMEWORK_METHODOLOGY"\n'
+            f'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY"\n'
+            f'delivery_path = "{_CURRENT_PRODUCT_ROOT}"\n\n'
+            "[[scope_units]]\n"
             'scope_unit_name = "METHODOLOGY_SOURCES"\n'
-            f'authority_path = "{CANONICAL_SOURCE_RELATIVE}"\n'
+            'parent = "FRAMEWORK_METHODOLOGY"\n'
+            f'authority_path = "{_CURRENT_SOURCE_ROOT}"\n'
+            f'delivery_path = "{_CURRENT_SOURCE_COPY_ROOT}"\n\n'
+            "[[scope_units]]\n"
+            'scope_unit_name = "APPLICABLE_METHODOLOGY"\n'
+            'parent = "FRAMEWORK_METHODOLOGY"\n'
+            'authority_path = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/202_SUPERLAYER_2_APPLICABLE_METHODOLOGY"\n'
+            f'delivery_path = "{_CURRENT_APPLICABLE_ROOT}"\n'
         ).encode())
         self.write(".caprmedio_caprmedio/caprmedio_project_settings.toml", b'[paths]\ncontrol_root = ".caprmedio_caprmedio"\n')
-        self.write(f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml", b"")
-        self.write(f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/caprmedio_framework_settings.toml", b"")
+        self.write(".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml", b"")
+        self.write(f"{_CURRENT_SOURCE_ROOT}/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml", b"")
         self.write(".caprmedio_runtime/framework/current.toml", b'release = "N"\n')
+        self.write("version.toml", b'[framework]\nversion = "N+1"\n')
         self.write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool\n", 0o755)
         self.write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/app.py", b"app\n")
         self.write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/server.py", b"mcp\n")
@@ -70,14 +94,23 @@ class ReleaseCompilationTests(unittest.TestCase):
         self.write("uv.lock", b"version = 1\n")
         self.write(
             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile",
-            b"FROM scratch\nCOPY pyproject.toml uv.lock ./\n",
+            (
+                RELEASE_ROOT.parents[1]
+                / "203_APPS/WORKFLOW_ORCHESTRATOR/docker/Dockerfile"
+            ).read_bytes(),
         )
         self.compiler = self.write(
             "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
             EXECUTING_COMPILER_PATH.read_bytes(),
             0o755,
         )
-        self.core = self.write(f"{CANONICAL_SOURCE_RELATIVE}/001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
+        self.core = self.write(f"{_CURRENT_SOURCE_ROOT}/001_CORE_META_MODEL/04_requirement/CA-R-001--core.md", carrier("CA-R-001"))
+        self.layout = resolve_methodology_layout(self.root)
+        self.assertEqual(self.layout.source_root, _CURRENT_SOURCE_ROOT)
+        self.assertEqual(self.layout.product_root, _CURRENT_PRODUCT_ROOT)
+        self.assertEqual(self.layout.source_copy_root, _CURRENT_SOURCE_COPY_ROOT)
+        self.assertEqual(self.layout.applicable_root, _CURRENT_APPLICABLE_ROOT)
+        self.materialize_current_projection()
 
     def write(self, relative: str, data: bytes, mode: int = 0o644) -> Path:
         path = self.root / relative
@@ -86,8 +119,39 @@ class ReleaseCompilationTests(unittest.TestCase):
         path.chmod(mode)
         return path
 
+    def set_version(self, version: str) -> None:
+        self.write("version.toml", f'[framework]\nversion = "{version}"\n'.encode())
+
+    def materialize_current_projection(self) -> None:
+        """Seed the canonical compiler output with its real pure renderer.
+
+        First-install planning reads a retained, already-current Methodology
+        projection.  This fixture therefore renders that projection from the
+        exact compiler bytes it declares, without invoking compiler
+        publication or creating any runtime carrier.
+        """
+
+        canonical = compiler.methodology_paths(self.root)
+        places = compiler.MethodologyPaths(
+            source=Path(self.layout.source_root), output=Path(self.layout.applicable_root),
+            structure_sha256=canonical.structure_sha256, control_root=canonical.control_root,
+        )
+        report, candidates, _snapshot = compiler.compile_report(self.root, places)
+        self.assertTrue(report["can_apply"], report)
+        output = self.root / places.output
+        for _role, directory in compiler.ROLES:
+            (output / directory).mkdir(parents=True, exist_ok=True)
+        for candidate in candidates:
+            source = self.root / candidate.source_path
+            parent = output / candidate.role_directory
+            source_relative = Path(os.path.relpath(source, start=parent)).as_posix()
+            self.write(
+                (parent / candidate.basename).relative_to(self.root).as_posix(),
+                compiler.projection_bytes(source.read_bytes(), source_relative, candidate),
+            )
+
     def copy_source(self) -> Path:
-        target = self.root / "101_LAYER_1_FRAMEWORK_METHODOLOGY/sources"
+        target = self.root / self.layout.source_copy_root
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(self.source, target)
         return target
@@ -107,18 +171,21 @@ class ReleaseCompilationTests(unittest.TestCase):
         before = self.snapshot()
         preflight, candidate = self.build()
         self.assertEqual(preflight.expected_derived_source_copy_sha256, tree_sha256(self.root, self.source))
+        self.assertEqual(candidate.manifest.canonical_source_snapshot_ref, self.layout.source_root)
         self.assertEqual(candidate.manifest.source_frontier_digest, preflight.compiler_frontier_digest)
         self.assertNotEqual(candidate.manifest.source_frontier_digest, candidate.manifest.canonical_source_snapshot_digest)
+        self.assertFalse((self.control / "000_CAPRMEDIO_framework" / "00_APPLICABLE_METHODOLOGY" / "_release_materialized").exists())
         self.copy_source()
         handoff = render_release_candidate(candidate, preflight)
         child = self.root / MATERIALIZED_RELATIVE / candidate.manifest.sha256
+        self.assertEqual(handoff.child_materialization_root, child.relative_to(self.root).as_posix())
         self.assertEqual(handoff.actual_compiled_output_sha256, preflight.expected_compiled_output_sha256)
         self.assertEqual(handoff.compiler_frontier_digest, preflight.compiler_frontier_digest)
         self.assertTrue((child / CHILD_MANIFEST_NAME).is_file())
         self.assertNotIn(candidate.manifest.sha256.encode(), (child / CHILD_MANIFEST_NAME).read_bytes())
         self.assertFalse((self.control / "_projection/APPLICABLE_METHODOLOGY").exists())
         for relative, data in before.items():
-            if relative.startswith("101_LAYER_1_FRAMEWORK_METHODOLOGY/"):
+            if relative.startswith(f"{self.layout.product_root}/"):
                 continue
             self.assertEqual((self.root / relative).read_bytes(), data)
 
@@ -137,14 +204,14 @@ class ReleaseCompilationTests(unittest.TestCase):
             render_release_candidate(candidate, preflight)
         self.assertEqual(stale.exception.code, "release-currentness-stale")
         self.core.write_bytes(original)
-        duplicate = self.write(f"{CANONICAL_SOURCE_RELATIVE}/003_PROJECT_CONFIGURATION/04_requirement/CA-R-001--duplicate.md", carrier("CA-R-001"))
+        duplicate = self.write(f"{_CURRENT_SOURCE_ROOT}/003_PROJECT_CONFIGURATION/04_requirement/CA-R-001--duplicate.md", carrier("CA-R-001"))
         with self.assertRaises(ReleaseContractError) as conflict:
             preflight_release_compilation(self.root, candidate_release="N+1")
         self.assertEqual(conflict.exception.code, "release-compiler-blocked")
         duplicate.unlink()
         self.assertFalse((self.control / "_projection/APPLICABLE_METHODOLOGY").exists())
 
-    def test_declared_stub_compiler_and_symlinked_materialization_parent_refuse_before_write(self) -> None:
+    def test_declared_stub_compiler_and_symlinked_applicable_root_refuse_before_write(self) -> None:
         self.compiler.write_bytes(b"# different compiler bytes\n")
         with self.assertRaises(ReleaseContractError) as identity:
             self.build()
@@ -155,6 +222,7 @@ class ReleaseCompilationTests(unittest.TestCase):
         escaped = self.root / "escape"
         escaped.mkdir()
         materialized = self.root / MATERIALIZED_RELATIVE
+        materialized.parent.mkdir(parents=True)
         materialized.symlink_to(escaped, target_is_directory=True)
         with self.assertRaises(ReleaseContractError) as unsafe:
             render_release_candidate(candidate, preflight)

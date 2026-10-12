@@ -1,0 +1,2580 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "task_id": "CA-P-2012",
+  "batch_id": "current-subjects.batch-021",
+  "input_batch_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-021.json",
+  "input_batch_sha256": "cba78ddaed9cfe59d4d531220d1b8679efe5fef74b4016f0b11304694e2b31ae",
+  "input_inventory_sha256": "e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a",
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated/nodes.review.json",
+      "sha256": "e4cb9c76b441c13115e87e141890a9dab58634a7a62fb1b3bc32168dbac261f6",
+      "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    }
+  ],
+  "source_reviews": [
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md",
+      "full_file_sha256": "c50c68fea59b4168b3b694b09e453d220d31feb3166b9cc908ba827a81f2ee96",
+      "atom_id": "CA-R-1729",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'lifecycle-traceability'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+      "full_file_sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+      "atom_id": "CA-R-1730",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'Project Structure', 'Structural Level', 'Structural Parent Relation'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md",
+      "full_file_sha256": "701b5ff6d4f2240e630a89ea9dc3e048ea1038e2f6153224d9172529f008b273",
+      "atom_id": "CA-R-1731",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'Structural Level', 'Structural Parent Relation'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1732-CORE_META_MODEL-GENERAL--target-the-narrowest-capable-improvement-owner.md",
+      "full_file_sha256": "e893f6113346e1d2b02e763798c79d72d2a70a4a8d937d66c0833ead546dde98",
+      "atom_id": "CA-R-1732",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'scope-topology'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+      "full_file_sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+      "atom_id": "CA-R-1733",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'Framework Instance Settings', 'extension-model'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1734-CORE_META_MODEL-CORE--preserve-self-improvement-stage-meanings.md",
+      "full_file_sha256": "ae7f786e37b84a2be7bc0857cbe4071920f43709e8c540248643cad77615c16a",
+      "atom_id": "CA-R-1734",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'continuous-improvement'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1735-CORE_META_MODEL-GENERAL--relate-self-improvement-stages-explicitly.md",
+      "full_file_sha256": "183fc487f8018c8276a5eab07ac9f5c29b5b05105d570f613c85c8a9793b2aab",
+      "atom_id": "CA-R-1735",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'continuous-improvement'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+      "full_file_sha256": "14a338784dc5d1dd3903a435c7ee6df81ff55c8e440b09d77920d49e22edf2cf",
+      "atom_id": "CA-R-1736",
+      "version": 19,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'CAPRMEDIO Expansion', 'semantics'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md",
+      "full_file_sha256": "954cbc9a8247acf143fdf0198ee80999b39eba149483db48e0d7b1c3f3f6ce38",
+      "atom_id": "CA-R-1737",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'Structural Level', 'Structural Parent Relation'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "full_file_sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+      "atom_id": "CA-R-1738",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'Atom/Identifier/Project Prefix', 'Project', 'Project Name', 'Project Settings'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+      "full_file_sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+      "atom_id": "CA-R-1739",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'Atom/Content Role: Requirement/Type: Goal', 'Framework Instance Settings', 'Project Scope Unit Graph Projection', 'Project Structure'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "full_file_sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+      "atom_id": "CA-R-1740",
+      "version": 21,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'Framework Instance Settings', 'Project Scope Unit Graph Projection', 'Project Structure'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+      "full_file_sha256": "9a9f22ad994c1281767fd9161908d5a4419f1d3f60b08fdaeb74f398da072ff9",
+      "atom_id": "CA-R-1741",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'Recurrence Protection', 'continuous-improvement'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1742-CORE_META_MODEL-GENERAL-REQUIREMENT--realize-recurrence-evaluation-through-implementation.md",
+      "full_file_sha256": "a7837eafe661acce1a99770598d3ac4c9b12979e796c8ed0099230ac4724c552",
+      "atom_id": "CA-R-1742",
+      "version": 15,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'continuous-improvement'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL-CORE--record-recurrence-check-outcomes-in-the-journal.md",
+      "full_file_sha256": "1a3dcebb61d2929cd98ee226791940645b0d30ce2f83385c354b4ec201374cf0",
+      "atom_id": "CA-R-1743",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'continuous-improvement'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1744-CORE_META_MODEL-CORE--keep-project-specific-substrates-out-of-the-reusable-core.md",
+      "full_file_sha256": "c2cb562f47e808b7d605862665c6275ae575906e6d5d2cc851c53e37aec6c502",
+      "atom_id": "CA-R-1744",
+      "version": 18,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'authority'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+      "full_file_sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+      "atom_id": "CA-R-1745",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'Atom/Claim'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "full_file_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "atom_id": "CA-R-1746",
+      "version": 20,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'Atom/Claim', 'Project Structure', 'Single Source of Truth', 'Structural Entity'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL-CORE--distinguish-native-targets-from-governed-artifacts.md",
+      "full_file_sha256": "619c1916826859628af327566a919ab7ba2066d91a04443738295909223f1db7",
+      "atom_id": "CA-R-1747",
+      "version": 17,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'artifact-model'; current evidence and candidate do not establish safe replacements."
+      ]
+    },
+    {
+      "relative_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+      "full_file_sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+      "atom_id": "CA-R-1748",
+      "version": 16,
+      "quarantined": false,
+      "findings": [],
+      "main_content_read": true,
+      "finding_dispositions": [],
+      "questions": [
+        "Targeted mapping research is required for: 'Atom/Claim', 'Atom/Local Tier', 'Core Meta-Model', 'Extension', 'Methodology Source', 'Project Configuration'; current evidence and candidate do not establish safe replacements."
+      ]
+    }
+  ],
+  "occurrences": [
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md#subjects.governs",
+      "old_value": "lifecycle-traceability",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1729",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md",
+      "source_sha256": "c50c68fea59b4168b3b694b09e453d220d31feb3166b9cc908ba827a81f2ee96",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1729-CORE_META_MODEL-CORE--distinguish-operations-authority-lifecycle-from-factual-history.md",
+          "sha256": "c50c68fea59b4168b3b694b09e453d220d31feb3166b9cc908ba827a81f2ee96",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "fcfbe98d10c44ca74adf89939f4ffbb7159091b5ca8e3b9e143f225487555e2e",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'lifecycle-traceability', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md#subjects.depends_on[0]",
+      "old_value": "Structural Level",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1730",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+      "source_sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+      "source_version": 19,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+          "sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "92cd0f2f9f29195fd544d448eec6d8905a4707c1ae253f1a146b131f7cefc4ba",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Structural Level', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md#subjects.depends_on[1]",
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1730",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+      "source_sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+      "source_version": 19,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+          "sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "92cd0f2f9f29195fd544d448eec6d8905a4707c1ae253f1a146b131f7cefc4ba",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Structural Parent Relation', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md#subjects.depends_on[2]",
+      "old_value": "Scope Unit/Label",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1730",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+      "source_sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+      "source_version": 19,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+          "sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "92cd0f2f9f29195fd544d448eec6d8905a4707c1ae253f1a146b131f7cefc4ba",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Label",
+      "confidence": 0.95,
+      "reason": "The current Claim separates a Scope Unit's selectable label from structural level, authority, precedence, and Relation semantics. The candidate confirms a stable Scope Unit ID while Label remains a changeable suffix, so the dependent Label distinction is retained without changing the Scope Unit identity.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/scope_unit_rename/rename",
+          "reason": "The confirmed rule keeps stable Scope Unit identity while updating the changeable Label and Name suffix."
+        },
+        {
+          "pointer": "/entity_identity_model/scope_unit_rename/metadata_scope_unit_folder_format",
+          "reason": "The confirmed format retains the existing Label alongside the stable Scope Unit ID."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Scope Unit remains the bearer; Label is retained as a dependent distinction.",
+        "Structural level, authority, precedence, and Relation semantics remain outside the Label value."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md#subjects.depends_on[3]",
+      "old_value": "Operator",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1730",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+      "source_sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+      "source_version": 19,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+          "sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "92cd0f2f9f29195fd544d448eec6d8905a4707c1ae253f1a146b131f7cefc4ba",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.95,
+      "reason": "The current Claim uses Operator as the performer who may choose a Scope Unit Label. The candidate confirms Actor identity as Actor Type plus optional Name and lists Operator as a type example, preserving the generic actor-type reference without inventing an individual performer.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name; Operator is an explicit type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "This denotes the generic Actor Type, not a named individual.",
+        "The allowed value Operator is retained under the Actor Type bearer."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md#subjects.depends_on[4]",
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1730",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+      "source_sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+      "source_version": 19,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+          "sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "92cd0f2f9f29195fd544d448eec6d8905a4707c1ae253f1a146b131f7cefc4ba",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Project Structure', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md#subjects.governs",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1730",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+      "source_sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+      "source_version": 19,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL-CORE--separate-structural-levels-from-scope-labels.md",
+          "sha256": "6c4009bc43c8046065bd5a87cae55a3ed0ccb17af98c27a0d3371689a9f8cc3a",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "92cd0f2f9f29195fd544d448eec6d8905a4707c1ae253f1a146b131f7cefc4ba",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Scope Unit' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md#subjects.depends_on[0]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1731",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md",
+      "source_sha256": "701b5ff6d4f2240e630a89ea9dc3e048ea1038e2f6153224d9172529f008b273",
+      "source_version": 17,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md",
+          "sha256": "701b5ff6d4f2240e630a89ea9dc3e048ea1038e2f6153224d9172529f008b273",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "f48b54e79f4c6ba0d1c75d3fea0e55f1f8621a0bbcd5a5ba53e4176f3870809e",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Scope Unit' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md#subjects.depends_on[1]",
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1731",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md",
+      "source_sha256": "701b5ff6d4f2240e630a89ea9dc3e048ea1038e2f6153224d9172529f008b273",
+      "source_version": 17,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md",
+          "sha256": "701b5ff6d4f2240e630a89ea9dc3e048ea1038e2f6153224d9172529f008b273",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "f48b54e79f4c6ba0d1c75d3fea0e55f1f8621a0bbcd5a5ba53e4176f3870809e",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Structural Parent Relation', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md#subjects.governs",
+      "old_value": "Structural Level",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1731",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md",
+      "source_sha256": "701b5ff6d4f2240e630a89ea9dc3e048ea1038e2f6153224d9172529f008b273",
+      "source_version": 17,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1731-CORE_META_MODEL-CORE--admit-only-necessary-structural-levels.md",
+          "sha256": "701b5ff6d4f2240e630a89ea9dc3e048ea1038e2f6153224d9172529f008b273",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "f48b54e79f4c6ba0d1c75d3fea0e55f1f8621a0bbcd5a5ba53e4176f3870809e",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Structural Level', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1732-CORE_META_MODEL-GENERAL--target-the-narrowest-capable-improvement-owner.md#subjects.governs",
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1732",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1732-CORE_META_MODEL-GENERAL--target-the-narrowest-capable-improvement-owner.md",
+      "source_sha256": "e893f6113346e1d2b02e763798c79d72d2a70a4a8d937d66c0833ead546dde98",
+      "source_version": 15,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1732-CORE_META_MODEL-GENERAL--target-the-narrowest-capable-improvement-owner.md",
+          "sha256": "e893f6113346e1d2b02e763798c79d72d2a70a4a8d937d66c0833ead546dde98",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "b26828ea927a801a3a4af47b083891ec4c267027fa38bb34d29a0d3786f65637",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'scope-topology', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md#subjects.depends_on[0]",
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1733",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+      "source_sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+      "source_version": 17,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+          "sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+          "start_line": 21,
+          "end_line": 35,
+          "span_sha256": "07e64aa437f20784d61a689841687ea415df8df519d533677b572d93c36790e4",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Framework Instance Settings', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md#subjects.governs",
+      "old_value": "extension-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1733",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+      "source_sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+      "source_version": 17,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1733-CORE_META_MODEL--separate-extension-ownership-from-application-bindings.md",
+          "sha256": "a26768fbd323012ded3622c8921cf3d9c013bc42fdd51d07e4f304b0447526ed",
+          "start_line": 21,
+          "end_line": 35,
+          "span_sha256": "07e64aa437f20784d61a689841687ea415df8df519d533677b572d93c36790e4",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'extension-model', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1734-CORE_META_MODEL-CORE--preserve-self-improvement-stage-meanings.md#subjects.governs",
+      "old_value": "continuous-improvement",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1734",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1734-CORE_META_MODEL-CORE--preserve-self-improvement-stage-meanings.md",
+      "source_sha256": "ae7f786e37b84a2be7bc0857cbe4071920f43709e8c540248643cad77615c16a",
+      "source_version": 15,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1734-CORE_META_MODEL-CORE--preserve-self-improvement-stage-meanings.md",
+          "sha256": "ae7f786e37b84a2be7bc0857cbe4071920f43709e8c540248643cad77615c16a",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "44f8b271399012c609078f0734f6ffa19f6092d64c6665d5b4ad4bd1d6b6322c",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'continuous-improvement', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1735-CORE_META_MODEL-GENERAL--relate-self-improvement-stages-explicitly.md#subjects.governs",
+      "old_value": "continuous-improvement",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1735",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1735-CORE_META_MODEL-GENERAL--relate-self-improvement-stages-explicitly.md",
+      "source_sha256": "183fc487f8018c8276a5eab07ac9f5c29b5b05105d570f613c85c8a9793b2aab",
+      "source_version": 15,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1735-CORE_META_MODEL-GENERAL--relate-self-improvement-stages-explicitly.md",
+          "sha256": "183fc487f8018c8276a5eab07ac9f5c29b5b05105d570f613c85c8a9793b2aab",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "3052b8a359c07d60aaabaf3df2ac823ff0c57fbd64c5a6a4fc6fe2be4d0c905e",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'continuous-improvement', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md#subjects.depends_on[0]",
+      "old_value": "semantics",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1736",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+      "source_sha256": "14a338784dc5d1dd3903a435c7ee6df81ff55c8e440b09d77920d49e22edf2cf",
+      "source_version": 19,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+          "sha256": "14a338784dc5d1dd3903a435c7ee6df81ff55c8e440b09d77920d49e22edf2cf",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "5b95493c76f422fb0d7912e3672d7d4572e068cea2b146027170e6fe1559d35b",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'semantics', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md#subjects.governs",
+      "old_value": "CAPRMEDIO Expansion",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1736",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+      "source_sha256": "14a338784dc5d1dd3903a435c7ee6df81ff55c8e440b09d77920d49e22edf2cf",
+      "source_version": 19,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1736-CORE_META_MODEL--define-the-caprmedio-expansion.md",
+          "sha256": "14a338784dc5d1dd3903a435c7ee6df81ff55c8e440b09d77920d49e22edf2cf",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "5b95493c76f422fb0d7912e3672d7d4572e068cea2b146027170e6fe1559d35b",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'CAPRMEDIO Expansion', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md#subjects.depends_on[0]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1737",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md",
+      "source_sha256": "954cbc9a8247acf143fdf0198ee80999b39eba149483db48e0d7b1c3f3f6ce38",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md",
+          "sha256": "954cbc9a8247acf143fdf0198ee80999b39eba149483db48e0d7b1c3f3f6ce38",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "38c7ef1372ba09656c6bf0bd748412b184a9b1d1d6e726f6df9b0436bf2c8ec8",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Scope Unit' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md#subjects.depends_on[1]",
+      "old_value": "Structural Parent Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1737",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md",
+      "source_sha256": "954cbc9a8247acf143fdf0198ee80999b39eba149483db48e0d7b1c3f3f6ce38",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md",
+          "sha256": "954cbc9a8247acf143fdf0198ee80999b39eba149483db48e0d7b1c3f3f6ce38",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "38c7ef1372ba09656c6bf0bd748412b184a9b1d1d6e726f6df9b0436bf2c8ec8",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Structural Parent Relation', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md#subjects.depends_on[2]",
+      "old_value": "Relation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1737",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md",
+      "source_sha256": "954cbc9a8247acf143fdf0198ee80999b39eba149483db48e0d7b1c3f3f6ce38",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md",
+          "sha256": "954cbc9a8247acf143fdf0198ee80999b39eba149483db48e0d7b1c3f3f6ce38",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "38c7ef1372ba09656c6bf0bd748412b184a9b1d1d6e726f6df9b0436bf2c8ec8",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Relation",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Relation' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md#subjects.governs",
+      "old_value": "Structural Level",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1737",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md",
+      "source_sha256": "954cbc9a8247acf143fdf0198ee80999b39eba149483db48e0d7b1c3f3f6ce38",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1737-CORE_META_MODEL-GENERAL--require-an-irreducible-ownership-boundary-for-new-structural-levels.md",
+          "sha256": "954cbc9a8247acf143fdf0198ee80999b39eba149483db48e0d7b1c3f3f6ce38",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "38c7ef1372ba09656c6bf0bd748412b184a9b1d1d6e726f6df9b0436bf2c8ec8",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Structural Level', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md#subjects.depends_on[0]",
+      "old_value": "Artifact",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1738",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "source_sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Artifact",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Artifact' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md#subjects.depends_on[1]",
+      "old_value": "Project",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1738",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "source_sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Project', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md#subjects.depends_on[2]",
+      "old_value": "Operator",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1738",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "source_sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.95,
+      "reason": "The current Claim uses Operator as the performer who may choose a Scope Unit Label. The candidate confirms Actor identity as Actor Type plus optional Name and lists Operator as a type example, preserving the generic actor-type reference without inventing an individual performer.",
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/actor/identity",
+          "reason": "The confirmed Actor identity is Actor Type plus optional Name; Operator is an explicit type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "This denotes the generic Actor Type, not a named individual.",
+        "The allowed value Operator is retained under the Actor Type bearer."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md#subjects.depends_on[3]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1738",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "source_sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Atom' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md#subjects.depends_on[4]",
+      "old_value": "Implementation",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1738",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "source_sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Implementation",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Implementation' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md#subjects.depends_on[5]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1738",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "source_sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Projection' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md#subjects.depends_on[6]",
+      "old_value": "Project Name",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1738",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "source_sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Project Name', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 7,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md#subjects.depends_on[7]",
+      "old_value": "Atom/Identifier/Project Prefix",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1738",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "source_sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Atom/Identifier/Project Prefix', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md#subjects.governs",
+      "old_value": "Project Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1738",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+      "source_sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Project Settings', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md#subjects.depends_on[0]",
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1739",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+      "source_sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+          "sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "17b5363499e8427c52d0024b5f2879baa5ca5fd92c3f6e877a36db3d40fa0635",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Project Structure', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md#subjects.depends_on[1]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1739",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+      "source_sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+          "sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "17b5363499e8427c52d0024b5f2879baa5ca5fd92c3f6e877a36db3d40fa0635",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Scope Unit' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md#subjects.depends_on[2]",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1739",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+      "source_sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+          "sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "17b5363499e8427c52d0024b5f2879baa5ca5fd92c3f6e877a36db3d40fa0635",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Projection' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md#subjects.depends_on[3]",
+      "old_value": "Atom/Content Role: Requirement/Type: Goal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1739",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+      "source_sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+          "sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "17b5363499e8427c52d0024b5f2879baa5ca5fd92c3f6e877a36db3d40fa0635",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Atom/Content Role: Requirement/Type: Goal', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md#subjects.depends_on[4]",
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1739",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+      "source_sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+          "sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "17b5363499e8427c52d0024b5f2879baa5ca5fd92c3f6e877a36db3d40fa0635",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Framework Instance Settings', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md#subjects.governs",
+      "old_value": "Project Scope Unit Graph Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1739",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+      "source_sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1739-CORE_META_MODEL-CORE--project-current-structure-without-creating-authority.md",
+          "sha256": "b02a96fca3ce3b568401cfd16bc6995fb127f5be5017a8b1f5f3679e8be41383",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "17b5363499e8427c52d0024b5f2879baa5ca5fd92c3f6e877a36db3d40fa0635",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Project Scope Unit Graph Projection', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md#subjects.depends_on[0]",
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1740",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "source_sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+          "sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "14982aa8fd69687e9dee502227df2ed017f27f4bf22462364ad3d284ff6cf986",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Project Structure', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md#subjects.depends_on[1]",
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1740",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "source_sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+          "sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "14982aa8fd69687e9dee502227df2ed017f27f4bf22462364ad3d284ff6cf986",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.96,
+      "reason": "The current Main Content uses Revision as historical source state and requires traceability to exact Revision evidence. The candidate confirms Revision as the separate historical root and expressly excludes Artifact/Revision, so the historical-state meaning is retained while removing the obsolete Artifact subtype path.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4/meaning",
+          "reason": "The confirmed Revision root is a historical snapshot of an Artifact and is not an Artifact or its dependent property."
+        },
+        {
+          "pointer": "/root_entities/4/excluded_paths/1",
+          "reason": "The candidate explicitly excludes the Artifact/Revision path for the separate Revision root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Historical-state meaning is retained.",
+        "Revision is not made an Artifact-dependent entity or a property."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md#subjects.depends_on[2]",
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1740",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "source_sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+          "sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "14982aa8fd69687e9dee502227df2ed017f27f4bf22462364ad3d284ff6cf986",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Framework Instance Settings', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md#subjects.depends_on[3]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1740",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "source_sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+          "sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "14982aa8fd69687e9dee502227df2ed017f27f4bf22462364ad3d284ff6cf986",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Atom' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md#subjects.depends_on[4]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1740",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "source_sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+          "sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "14982aa8fd69687e9dee502227df2ed017f27f4bf22462364ad3d284ff6cf986",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Scope Unit' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md#subjects.depends_on[5]",
+      "old_value": "Journal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1740",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "source_sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+          "sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "14982aa8fd69687e9dee502227df2ed017f27f4bf22462364ad3d284ff6cf986",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Journal",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Journal' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md#subjects.governs",
+      "old_value": "Project Scope Unit Graph Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1740",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+      "source_sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+      "source_version": 21,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1740-CORE_META_MODEL--bind-every-project-scope-unit-graph-value-to-exact-sources.md",
+          "sha256": "746f4329db1d2700e6f2e4a71e1c129d0ecdef33cfb4a0ed4642849971314384",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "14982aa8fd69687e9dee502227df2ed017f27f4bf22462364ad3d284ff6cf986",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Project Scope Unit Graph Projection', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md#subjects.depends_on[0]",
+      "old_value": "continuous-improvement",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1741",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+      "source_sha256": "9a9f22ad994c1281767fd9161908d5a4419f1d3f60b08fdaeb74f398da072ff9",
+      "source_version": 15,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+          "sha256": "9a9f22ad994c1281767fd9161908d5a4419f1d3f60b08fdaeb74f398da072ff9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "95b4b0f7bec797eb0bbe3dc20f3aee66d075ed17b02478e546ec55d95937c3bd",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'continuous-improvement', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md#subjects.governs",
+      "old_value": "Recurrence Protection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1741",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+      "source_sha256": "9a9f22ad994c1281767fd9161908d5a4419f1d3f60b08fdaeb74f398da072ff9",
+      "source_version": 15,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1741-CORE_META_MODEL-CORE--define-concrete-recurrence-protection-as-evaluation.md",
+          "sha256": "9a9f22ad994c1281767fd9161908d5a4419f1d3f60b08fdaeb74f398da072ff9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "95b4b0f7bec797eb0bbe3dc20f3aee66d075ed17b02478e546ec55d95937c3bd",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Recurrence Protection', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1742-CORE_META_MODEL-GENERAL-REQUIREMENT--realize-recurrence-evaluation-through-implementation.md#subjects.governs",
+      "old_value": "continuous-improvement",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1742",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1742-CORE_META_MODEL-GENERAL-REQUIREMENT--realize-recurrence-evaluation-through-implementation.md",
+      "source_sha256": "a7837eafe661acce1a99770598d3ac4c9b12979e796c8ed0099230ac4724c552",
+      "source_version": 15,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1742-CORE_META_MODEL-GENERAL-REQUIREMENT--realize-recurrence-evaluation-through-implementation.md",
+          "sha256": "a7837eafe661acce1a99770598d3ac4c9b12979e796c8ed0099230ac4724c552",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "976aa40f6cd98e18f59699ab27bf592fe470fd0a72b26752586b98303b663eff",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'continuous-improvement', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL-CORE--record-recurrence-check-outcomes-in-the-journal.md#subjects.governs",
+      "old_value": "continuous-improvement",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1743",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL-CORE--record-recurrence-check-outcomes-in-the-journal.md",
+      "source_sha256": "1a3dcebb61d2929cd98ee226791940645b0d30ce2f83385c354b4ec201374cf0",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1743-CORE_META_MODEL-CORE--record-recurrence-check-outcomes-in-the-journal.md",
+          "sha256": "1a3dcebb61d2929cd98ee226791940645b0d30ce2f83385c354b4ec201374cf0",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "f53c0fa7753cfc850f70ea766d8fd76076acd76b55b63035169cfa864a12c51a",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'continuous-improvement', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1744-CORE_META_MODEL-CORE--keep-project-specific-substrates-out-of-the-reusable-core.md#subjects.governs",
+      "old_value": "authority",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1744",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1744-CORE_META_MODEL-CORE--keep-project-specific-substrates-out-of-the-reusable-core.md",
+      "source_sha256": "c2cb562f47e808b7d605862665c6275ae575906e6d5d2cc851c53e37aec6c502",
+      "source_version": 18,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1744-CORE_META_MODEL-CORE--keep-project-specific-substrates-out-of-the-reusable-core.md",
+          "sha256": "c2cb562f47e808b7d605862665c6275ae575906e6d5d2cc851c53e37aec6c502",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "1bb15a461fb6d0f26cdf61be99baecaa9dc9aeffcb7b93238a70979646a9b2d7",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'authority', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md#subjects.depends_on[0]",
+      "old_value": "Artifact",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1745",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+      "source_sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+      "source_version": 17,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "7805108fab24bf8592fce367a13d290038e6b46d059731973eb8ec58ddf78678",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Artifact",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Artifact' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md#subjects.depends_on[1]",
+      "old_value": "Journal/Record",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1745",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+      "source_sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+      "source_version": 17,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "7805108fab24bf8592fce367a13d290038e6b46d059731973eb8ec58ddf78678",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Journal.Record",
+      "confidence": 0.96,
+      "reason": "The current Main Content defines a Journal as an ordered history of admitted records and distinguishes each record from the event it describes. The candidate likewise states that a Journal record is not the event and names Journal.Record as the record bearer, so the dependent record distinction is retained.",
+      "candidate_basis": [
+        {
+          "pointer": "/history_model/journal_role",
+          "reason": "The confirmed Journal role records what happened and distinguishes the record from the event itself."
+        },
+        {
+          "pointer": "/history_model/relation_proposal/connections/1",
+          "reason": "The candidate explicitly names Journal.Record in the confirmed record-to-Execution connection meaning."
+        }
+      ],
+      "preserved_distinctions": [
+        "Journal remains the bearer and Record remains its dependent entity.",
+        "The record remains distinct from the event or Execution it may describe."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md#subjects.depends_on[2]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1745",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+      "source_sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+      "source_version": 17,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "7805108fab24bf8592fce367a13d290038e6b46d059731973eb8ec58ddf78678",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Atom/Claim', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md#subjects.governs",
+      "old_value": "Journal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1745",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+      "source_sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+      "source_version": 17,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "7805108fab24bf8592fce367a13d290038e6b46d059731973eb8ec58ddf78678",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Journal",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Journal' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md#subjects.depends_on[0]",
+      "old_value": "Artifact",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1746",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "source_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "source_version": 20,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Artifact",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Artifact' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md#subjects.depends_on[1]",
+      "old_value": "Artifact/Revision",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1746",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "source_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "source_version": 20,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "proposed",
+      "proposed_value": "Revision",
+      "confidence": 0.96,
+      "reason": "The current Main Content uses Revision as historical source state and requires traceability to exact Revision evidence. The candidate confirms Revision as the separate historical root and expressly excludes Artifact/Revision, so the historical-state meaning is retained while removing the obsolete Artifact subtype path.",
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/4/meaning",
+          "reason": "The confirmed Revision root is a historical snapshot of an Artifact and is not an Artifact or its dependent property."
+        },
+        {
+          "pointer": "/root_entities/4/excluded_paths/1",
+          "reason": "The candidate explicitly excludes the Artifact/Revision path for the separate Revision root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Historical-state meaning is retained.",
+        "Revision is not made an Artifact-dependent entity or a property."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md#subjects.depends_on[2]",
+      "old_value": "Atom",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1746",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "source_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "source_version": 20,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Atom",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Atom' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md#subjects.depends_on[3]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1746",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "source_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "source_version": 20,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Atom/Claim', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md#subjects.depends_on[4]",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1746",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "source_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "source_version": 20,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Scope Unit' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md#subjects.depends_on[5]",
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1746",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "source_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "source_version": 20,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Structural Entity', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 6,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md#subjects.depends_on[6]",
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1746",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "source_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "source_version": 20,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Project Structure', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 7,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md#subjects.depends_on[7]",
+      "old_value": "Journal",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1746",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "source_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "source_version": 20,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Journal",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Journal' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 8,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md#subjects.depends_on[8]",
+      "old_value": "Single Source of Truth",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1746",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "source_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "source_version": 20,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Single Source of Truth', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md#subjects.governs",
+      "old_value": "Projection",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1746",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+      "source_sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+      "source_version": 20,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1746-CORE_META_MODEL-CORE--define-projection-artifact-form.md",
+          "sha256": "cb22c58bd0f84b1e04b0e0fe62ed0a1a0570474e1505aca7529e7d26153a697c",
+          "start_line": 26,
+          "end_line": 42,
+          "span_sha256": "f79789bf65e3b6afab098c6eb808932091d2fedeba0d8c9b1878ad0569e65fb6",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Projection",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Projection' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL-CORE--distinguish-native-targets-from-governed-artifacts.md#subjects.governs",
+      "old_value": "artifact-model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1747",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL-CORE--distinguish-native-targets-from-governed-artifacts.md",
+      "source_sha256": "619c1916826859628af327566a919ab7ba2066d91a04443738295909223f1db7",
+      "source_version": 17,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1747-CORE_META_MODEL-CORE--distinguish-native-targets-from-governed-artifacts.md",
+          "sha256": "619c1916826859628af327566a919ab7ba2066d91a04443738295909223f1db7",
+          "start_line": 17,
+          "end_line": 29,
+          "span_sha256": "6df5641143c68daebac2df8bc285fb45f4989b4ef27877ea5eca52b557e3a96e",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'artifact-model', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 0,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md#subjects.depends_on[0]",
+      "old_value": "Atom/Claim",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1748",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+      "source_sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+          "sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "6122c4d721e4f4dad030b5a3317f950a3cfcd71ceeb917f6e1ac7ba83c5803d7",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Atom/Claim', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 1,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md#subjects.depends_on[1]",
+      "old_value": "Atom/Local Tier",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1748",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+      "source_sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+          "sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "6122c4d721e4f4dad030b5a3317f950a3cfcd71ceeb917f6e1ac7ba83c5803d7",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Atom/Local Tier', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 2,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md#subjects.depends_on[2]",
+      "old_value": "Methodology Source",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1748",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+      "source_sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+          "sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "6122c4d721e4f4dad030b5a3317f950a3cfcd71ceeb917f6e1ac7ba83c5803d7",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Methodology Source', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 3,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md#subjects.depends_on[3]",
+      "old_value": "Core Meta-Model",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1748",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+      "source_sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+          "sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "6122c4d721e4f4dad030b5a3317f950a3cfcd71ceeb917f6e1ac7ba83c5803d7",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Core Meta-Model', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 4,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md#subjects.depends_on[4]",
+      "old_value": "Extension",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1748",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+      "source_sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+          "sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "6122c4d721e4f4dad030b5a3317f950a3cfcd71ceeb917f6e1ac7ba83c5803d7",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Extension', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "depends_on",
+      "index": 5,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md#subjects.depends_on[5]",
+      "old_value": "Project Configuration",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1748",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+      "source_sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+          "sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "6122c4d721e4f4dad030b5a3317f950a3cfcd71ceeb917f6e1ac7ba83c5803d7",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.5,
+      "reason": "Current Main Content gives a specific use for 'Project Configuration', but the pinned candidate does not establish a compatible canonical identity that preserves its full qualification, owner, and domain. A broader topic or display-only path would collapse meaning, so targeted mapping research remains required.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The source-specific identity, qualification, owner, and allowed-value domain are not collapsed into a broader candidate topic.",
+        "No display-only Artifact prefix, unadopted grammar assumption, or inferred Carrier registry is used as a replacement."
+      ],
+      "question": null
+    },
+    {
+      "field": "governs",
+      "index": null,
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md#subjects.governs",
+      "old_value": "Scope Unit",
+      "quarantined": false,
+      "source_atom_id": "CA-R-1748",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+      "source_sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+      "source_version": 16,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1748-CORE_META_MODEL-CORE--bound-descendant-specialization-to-its-structural-scope.md",
+          "sha256": "568c25016973897bc81b3ba479746e6a6382c7203ddee3c4c9fa0830eefc0585",
+          "start_line": 25,
+          "end_line": 41,
+          "span_sha256": "6122c4d721e4f4dad030b5a3317f950a3cfcd71ceeb917f6e1ac7ba83c5803d7",
+          "reason": "Full current Main Content supplies live evidence for this exact Subject occurrence."
+        }
+      ],
+      "executable": false,
+      "decision": "unchanged",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.96,
+      "reason": "Current Main Content uses 'Scope Unit' with its existing semantic distinction. The pinned candidate supplies no more specific compatible replacement without changing that meaning, so this review retains the exact current identity.",
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The exact current Subject identity is retained without collapsing its source-specific meaning.",
+        "This is based on live current content, not on grammar-adoption or execution permission."
+      ],
+      "question": null
+    }
+  ]
+}

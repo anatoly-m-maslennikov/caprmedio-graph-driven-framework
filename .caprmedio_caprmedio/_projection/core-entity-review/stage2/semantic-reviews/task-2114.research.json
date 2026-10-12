@@ -1,0 +1,1391 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2114",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+      "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "c52b26478acac8d5cfa9687b0925a1a9165a3647bd510e9877d69b06cbf214d4"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2112-2117.contract.md",
+        "sha256": "5310bccde97faba8b2e96fecc8de705178b4677fab07af2e897bae4e65ea04bd"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/87-CA-P-2114-TASK--review-final-settings-and-methodology-origins.md",
+      "sha256": "56e909fa14009b36378f946cc7652f9a4d833248b4604398c23ab7ee3481d389"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1373-CORE_META_MODEL-CORE--define-applicable-methodology-conflict.md",
+        "sha256": "8ce47a9afdb2500a239c31cc3fad61794cfaa552d64dadbf2ded546caefe5ebf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+        "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+        "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+        "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+        "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+        "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+        "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
+        "sha256": "895f31fddd18894449f73321bf1fe3a26e4686a2a474a87ad0c2475812fadc12"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md",
+        "sha256": "66ad7ecaf6fcaa3368539f464be8345818f71135d85d3e9f9d96c2ba7b32e822"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md",
+        "sha256": "4007710401af00358dcaf1c04aaa2f62ed396ef9471d74d7940fb35dcafad1c4"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-008-CORE_META_MODEL-ACTION--apply-approved-source-corrections.md",
+        "sha256": "7dba215459417f680301c03e853579dde655cbd9854d5d270df560e6a31a2a96"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources.md",
+        "sha256": "0f20146444637ca38de69f97931c4a45c663c9a6dd2d759c3599e9864acfc7da"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+        "sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+        "sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+        "sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+        "sha256": "025012a315e6a26b0ce3ed49567c216e8c0774d07a92618faebf2192c3bae977"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-105-CORE_META_MODEL-ACTION--select-a-bounded-rmed-review-batch.md",
+        "sha256": "d2b70d597eea1c6a143f84bf78dd415472f52a9f3f39eb22b701015511357b4f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-146-CORE_META_MODEL-STEP--select-the-reconciliation-source-frontier.md",
+        "sha256": "47fc11d3062b6a516aff7672143512b4d0dfc0596e57b8b869b305578db7b8ba"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-147-CORE_META_MODEL-STEP--assess-the-reconciliation-source-frontier.md",
+        "sha256": "e01f9c528f0f1626c9e229c3cc2f4c0fd0ba5cc22d97d330599e271cc07d6335"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-148-CORE_META_MODEL-STEP--propose-the-reconciliation-source-corrections.md",
+        "sha256": "bdc4505a6d43029f55b0f4bc7a0fc19971ed0670f1d0d1ee669f61b645c609b4"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+        "sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+        "sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+        "sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
+      "source_atom_id": "CA-O-155",
+      "source_version": 2,
+      "source_sha256": "895f31fddd18894449f73321bf1fe3a26e4686a2a474a87ad0c2475812fadc12",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Applicable Methodology/Source Frontier Digest",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content uses the digest as an exact source-frontier/approval binding. No confirmed candidate identity retains its digest, source-set, and decision-binding qualification, so a replacement would guess.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
+          "sha256": "895f31fddd18894449f73321bf1fe3a26e4686a2a474a87ad0c2475812fadc12",
+          "start_line": 32,
+          "end_line": 50,
+          "span_sha256": "556e4e28c5e36ec3ec8dc43dcbfcfcdae326548bf55013238202a06f75f610eb",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains exact source-frontier digest and approval binding."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md#subjects.depends_on[12]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
+      "source_atom_id": "CA-O-155",
+      "source_version": 2,
+      "source_sha256": "895f31fddd18894449f73321bf1fe3a26e4686a2a474a87ad0c2475812fadc12",
+      "field": "depends_on",
+      "index": 12,
+      "old_value": "Methodology Source/Expansion Boundary",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content uses this as a declared conformance boundary for methodology-source expansion. No confirmed candidate identity retains the source/provenance and expansion-boundary qualification.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
+          "sha256": "895f31fddd18894449f73321bf1fe3a26e4686a2a474a87ad0c2475812fadc12",
+          "start_line": 32,
+          "end_line": 50,
+          "span_sha256": "556e4e28c5e36ec3ec8dc43dcbfcfcdae326548bf55013238202a06f75f610eb",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains source provenance, conformance, and expansion-boundary qualification."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md#subjects.depends_on[9]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
+      "source_atom_id": "CA-O-155",
+      "source_version": 2,
+      "source_sha256": "895f31fddd18894449f73321bf1fe3a26e4686a2a474a87ad0c2475812fadc12",
+      "field": "depends_on",
+      "index": 9,
+      "old_value": "Applicable Methodology/Conflict",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "proposed",
+      "proposed_value": "Artifact/Projection.Conflict",
+      "confidence": 0.95,
+      "reason": "The owning current Main Content binds this conflict to one exact Applicable Methodology source frontier. CA-R-1373 defines the exact term as one compiler-detected incompatible candidate selection within that frontier; the candidate defines Applicable Methodology as a Projection and permits named dependent Entities. The target retains the Projection-qualified conflict rather than a free Relation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-155-CORE_META_MODEL-STEP--obtain-the-applicable-methodology-correction-decision.md",
+          "sha256": "895f31fddd18894449f73321bf1fe3a26e4686a2a474a87ad0c2475812fadc12",
+          "start_line": 32,
+          "end_line": 50,
+          "span_sha256": "556e4e28c5e36ec3ec8dc43dcbfcfcdae326548bf55013238202a06f75f610eb",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1373-CORE_META_MODEL-CORE--define-applicable-methodology-conflict.md",
+          "sha256": "8ce47a9afdb2500a239c31cc3fad61794cfaa552d64dadbf2ded546caefe5ebf",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "ea55fb9bac8805007c49d7e251e203dd0d9bb278ceed4cc8e308968d80ec0c42",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        },
+        {
+          "pointer": "/projection_member_model/whole_set",
+          "reason": "Confirms the whole derived set is one Projection with its own lifecycle."
+        },
+        {
+          "pointer": "/applicable_methodology/requirement",
+          "reason": "Confirms source-faithful Applicable Methodology projection and manual conflict resolution."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the exact Applicable Methodology source-frontier qualification and compiler-detected incompatibility; does not replace it with a generic Relation."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md#subjects.depends_on[8]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md",
+      "source_atom_id": "CA-O-156",
+      "source_version": 2,
+      "source_sha256": "66ad7ecaf6fcaa3368539f464be8345818f71135d85d3e9f9d96c2ba7b32e822",
+      "field": "depends_on",
+      "index": 8,
+      "old_value": "Methodology Source",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content uses Methodology Source as source provenance/selection context. No confirmed candidate identity preserves that source-specific role without inventing a new kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-156-CORE_META_MODEL-STEP--apply-approved-applicable-methodology-source-corrections.md",
+          "sha256": "66ad7ecaf6fcaa3368539f464be8345818f71135d85d3e9f9d96c2ba7b32e822",
+          "start_line": 29,
+          "end_line": 47,
+          "span_sha256": "94af6734a42cc9a924f892b029f700e6ce67016f6cd8423c4573304d0195887a",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains source provenance and selection role."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md",
+      "source_atom_id": "CA-O-157",
+      "source_version": 2,
+      "source_sha256": "4007710401af00358dcaf1c04aaa2f62ed396ef9471d74d7940fb35dcafad1c4",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Applicable Methodology/Source Frontier Digest",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content uses the digest as an exact source-frontier/approval binding. No confirmed candidate identity retains its digest, source-set, and decision-binding qualification, so a replacement would guess.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md",
+          "sha256": "4007710401af00358dcaf1c04aaa2f62ed396ef9471d74d7940fb35dcafad1c4",
+          "start_line": 32,
+          "end_line": 50,
+          "span_sha256": "d2fd462fa52c6262e9630e423ca1d175b024596debe6abe44891078be3167782",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains exact source-frontier digest and approval binding."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md#subjects.depends_on[9]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md",
+      "source_atom_id": "CA-O-157",
+      "source_version": 2,
+      "source_sha256": "4007710401af00358dcaf1c04aaa2f62ed396ef9471d74d7940fb35dcafad1c4",
+      "field": "depends_on",
+      "index": 9,
+      "old_value": "Applicable Methodology/Conflict",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "proposed",
+      "proposed_value": "Artifact/Projection.Conflict",
+      "confidence": 0.95,
+      "reason": "The owning current Main Content binds this conflict to one exact Applicable Methodology source frontier. CA-R-1373 defines the exact term as one compiler-detected incompatible candidate selection within that frontier; the candidate defines Applicable Methodology as a Projection and permits named dependent Entities. The target retains the Projection-qualified conflict rather than a free Relation.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/APPLICABLE_METHODOLOGY_COMPILATION/CA-O-157-CORE_META_MODEL-STEP--publish-the-applicable-methodology.md",
+          "sha256": "4007710401af00358dcaf1c04aaa2f62ed396ef9471d74d7940fb35dcafad1c4",
+          "start_line": 32,
+          "end_line": 50,
+          "span_sha256": "d2fd462fa52c6262e9630e423ca1d175b024596debe6abe44891078be3167782",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1373-CORE_META_MODEL-CORE--define-applicable-methodology-conflict.md",
+          "sha256": "8ce47a9afdb2500a239c31cc3fad61794cfaa552d64dadbf2ded546caefe5ebf",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "ea55fb9bac8805007c49d7e251e203dd0d9bb278ceed4cc8e308968d80ec0c42",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        },
+        {
+          "pointer": "/projection_member_model/whole_set",
+          "reason": "Confirms the whole derived set is one Projection with its own lifecycle."
+        },
+        {
+          "pointer": "/applicable_methodology/requirement",
+          "reason": "Confirms source-faithful Applicable Methodology projection and manual conflict resolution."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the exact Applicable Methodology source-frontier qualification and compiler-detected incompatibility; does not replace it with a generic Relation."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-008-CORE_META_MODEL-ACTION--apply-approved-source-corrections.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-008-CORE_META_MODEL-ACTION--apply-approved-source-corrections.md",
+      "source_atom_id": "CA-O-008",
+      "source_version": 11,
+      "source_sha256": "7dba215459417f680301c03e853579dde655cbd9854d5d270df560e6a31a2a96",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "The owning current Main Content uses Framework Instance Settings as the Project context's effective settings input. CA-R-1402 defines that exact term as the authoritative Artifact for one serving Framework Instance and Project; CA-R-1404 excludes Atom identity and CA-R-1405 registers its Artifact Type. The target retains that named Artifact type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-008-CORE_META_MODEL-ACTION--apply-approved-source-corrections.md",
+          "sha256": "7dba215459417f680301c03e853579dde655cbd9854d5d270df560e6a31a2a96",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "2d2691606da7903be7ec9841c75efd99943de99f832425b3de4bc14873442189",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework Instance Settings Artifact as distinct from Project Settings, Default Settings, Project Structure, and any Atom."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-008-CORE_META_MODEL-ACTION--apply-approved-source-corrections.md#subjects.depends_on[11]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-008-CORE_META_MODEL-ACTION--apply-approved-source-corrections.md",
+      "source_atom_id": "CA-O-008",
+      "source_version": 11,
+      "source_sha256": "7dba215459417f680301c03e853579dde655cbd9854d5d270df560e6a31a2a96",
+      "field": "depends_on",
+      "index": 11,
+      "old_value": "Project Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "proposed",
+      "proposed_value": "Artifact/Project Settings",
+      "confidence": 0.95,
+      "reason": "The owning current Main Content treats Project Settings as the current Project's initialization input. CA-R-1738 defines that exact term as the authoritative Artifact before the first Atom or Implementation, CA-R-1750 preserves its sole Project-initialization ownership, and CA-R-1405 registers the Artifact Type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-008-CORE_META_MODEL-ACTION--apply-approved-source-corrections.md",
+          "sha256": "7dba215459417f680301c03e853579dde655cbd9854d5d270df560e6a31a2a96",
+          "start_line": 30,
+          "end_line": 46,
+          "span_sha256": "2d2691606da7903be7ec9841c75efd99943de99f832425b3de4bc14873442189",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains Project-initialization ownership; does not collapse Project Settings into Framework Instance Settings, Default Settings, Project Structure, or a Projection."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md#subjects.depends_on[10]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+      "source_atom_id": "CA-O-011",
+      "source_version": 12,
+      "source_sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124",
+      "field": "depends_on",
+      "index": 10,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "The owning current Main Content uses Framework Instance Settings as the Project context's effective settings input. CA-R-1402 defines that exact term as the authoritative Artifact for one serving Framework Instance and Project; CA-R-1404 excludes Atom identity and CA-R-1405 registers its Artifact Type. The target retains that named Artifact type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+          "sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124",
+          "start_line": 37,
+          "end_line": 83,
+          "span_sha256": "76883144e1be4db4ab2abd00499016a12ad7d2f8f92f9268f96727a8592b2e73",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework Instance Settings Artifact as distinct from Project Settings, Default Settings, Project Structure, and any Atom."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md#subjects.depends_on[11]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+      "source_atom_id": "CA-O-011",
+      "source_version": 12,
+      "source_sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124",
+      "field": "depends_on",
+      "index": 11,
+      "old_value": "Extension",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content names an Extension as a source/conformance participant. No confirmed candidate identity preserves its extension-specific authority and conformance role.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+          "sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124",
+          "start_line": 37,
+          "end_line": 83,
+          "span_sha256": "76883144e1be4db4ab2abd00499016a12ad7d2f8f92f9268f96727a8592b2e73",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Extension-specific authority and conformance role."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md#subjects.depends_on[12]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+      "source_atom_id": "CA-O-011",
+      "source_version": 12,
+      "source_sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124",
+      "field": "depends_on",
+      "index": 12,
+      "old_value": "Project Configuration",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content treats Project Configuration as a distinct source/context. It cannot be collapsed into Project Settings, an Artifact, or a Projection without losing that distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+          "sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124",
+          "start_line": 37,
+          "end_line": 83,
+          "span_sha256": "76883144e1be4db4ab2abd00499016a12ad7d2f8f92f9268f96727a8592b2e73",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains distinct Project Configuration source/context; no Project Settings collapse."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md#subjects.depends_on[13]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+      "source_atom_id": "CA-O-011",
+      "source_version": 12,
+      "source_sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124",
+      "field": "depends_on",
+      "index": 13,
+      "old_value": "Methodology Source/Expansion Boundary",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content uses this as a declared conformance boundary for methodology-source expansion. No confirmed candidate identity retains the source/provenance and expansion-boundary qualification.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+          "sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124",
+          "start_line": 37,
+          "end_line": 83,
+          "span_sha256": "76883144e1be4db4ab2abd00499016a12ad7d2f8f92f9268f96727a8592b2e73",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains source provenance, conformance, and expansion-boundary qualification."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md#subjects.depends_on[17]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+      "source_atom_id": "CA-O-011",
+      "source_version": 12,
+      "source_sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124",
+      "field": "depends_on",
+      "index": 17,
+      "old_value": "Applicable Methodology/Source Frontier Digest",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content uses the digest as an exact source-frontier/approval binding. No confirmed candidate identity retains its digest, source-set, and decision-binding qualification, so a replacement would guess.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-011-CORE_META_MODEL-WORKFLOW--bind-source-reconciliation-to-applicable-methodology.md",
+          "sha256": "a3195abd54ae22115ff07b7f686db5c2b69c54a4537f4e9bccf8aa7a53c86124",
+          "start_line": 37,
+          "end_line": 83,
+          "span_sha256": "76883144e1be4db4ab2abd00499016a12ad7d2f8f92f9268f96727a8592b2e73",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains exact source-frontier digest and approval binding."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+      "source_atom_id": "CA-O-022",
+      "source_version": 6,
+      "source_sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "CAPRMEDIO Framework Instance",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content refers to the serving Framework Instance, not the separately defined Framework Instance Settings Artifact. No confirmed target preserves this instance identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-022-CORE_META_MODEL-ACTION--resolve-and-activate-operator-priorities.md",
+          "sha256": "44e316259ddd26c107c4ae3d5b468857f58440f6161f7b203006c45fa3227a7c",
+          "start_line": 26,
+          "end_line": 43,
+          "span_sha256": "ee64cde2dd6739e1d8f807095d394d73f8228a9da9c62655cd21634feb23542f",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains the serving Framework Instance as distinct from Framework Instance Settings."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+      "source_atom_id": "CA-O-052",
+      "source_version": 4,
+      "source_sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Project Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "proposed",
+      "proposed_value": "Artifact/Project Settings",
+      "confidence": 0.95,
+      "reason": "The owning current Main Content treats Project Settings as the current Project's initialization input. CA-R-1738 defines that exact term as the authoritative Artifact before the first Atom or Implementation, CA-R-1750 preserves its sole Project-initialization ownership, and CA-R-1405 registers the Artifact Type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+          "sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+          "start_line": 30,
+          "end_line": 44,
+          "span_sha256": "b32490be3e76a16ef6d5d62fe8b9891b05dd396b96868ee84dc6fd500bda5ada",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1738-CORE_META_MODEL-CORE--define-project-settings.md",
+          "sha256": "d36185c3b3aca00c40a02d2d8cf430695e14223fa1c0de2762f7d115d943c41f",
+          "start_line": 28,
+          "end_line": 40,
+          "span_sha256": "adcd9c523aac15e6225286132d6ca104465c6fe47bf2250da39b40b189777ab4",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains Project-initialization ownership; does not collapse Project Settings into Framework Instance Settings, Default Settings, Project Structure, or a Projection."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+      "source_atom_id": "CA-O-052",
+      "source_version": 4,
+      "source_sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "The owning current Main Content uses Framework Instance Settings as the Project context's effective settings input. CA-R-1402 defines that exact term as the authoritative Artifact for one serving Framework Instance and Project; CA-R-1404 excludes Atom identity and CA-R-1405 registers its Artifact Type. The target retains that named Artifact type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+          "sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+          "start_line": 30,
+          "end_line": 44,
+          "span_sha256": "b32490be3e76a16ef6d5d62fe8b9891b05dd396b96868ee84dc6fd500bda5ada",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework Instance Settings Artifact as distinct from Project Settings, Default Settings, Project Structure, and any Atom."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+      "source_atom_id": "CA-O-052",
+      "source_version": 4,
+      "source_sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Default Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "proposed",
+      "proposed_value": "Artifact/Default Settings",
+      "confidence": 0.95,
+      "reason": "The owning current Main Content uses Default Settings while resolving settings inputs. CA-R-1441 defines the exact term as the authoritative Artifact for reusable baseline Framework Instance Settings values, CA-R-1750 keeps those values distinct from selected owners, and CA-R-1405 registers the Artifact Type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-052-CORE_META_MODEL-ACTION--resolve-project-and-framework-settings-before-derived-structure.md",
+          "sha256": "d239e6fb7075b391ef5671bb49907480265198e8bb1c6926106d6e88cf61351b",
+          "start_line": 30,
+          "end_line": 44,
+          "span_sha256": "b32490be3e76a16ef6d5d62fe8b9891b05dd396b96868ee84dc6fd500bda5ada",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+          "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "e348fe4db6df77d4c5b84c7f04b9e44c1c4044ae7b766a5490f087461752ebaa",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1750-CORE_META_MODEL-CORE--partition-operator-settings-between-settings-artifacts.md",
+          "sha256": "ccc949d6ede0c9a9d436a25d934f3fb3d771afdae4e31a36044273a8474da1ab",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "45a4edac37196046a62837ea9c68f9c89ea890146ac7ded1544d5e30357d4b2b",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains reusable baseline-value meaning and excludes Project initialization inputs and explicit Operator selections."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+      "source_atom_id": "CA-O-054",
+      "source_version": 5,
+      "source_sha256": "025012a315e6a26b0ce3ed49567c216e8c0774d07a92618faebf2192c3bae977",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Methodology Source",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content uses Methodology Source as source provenance/selection context. No confirmed candidate identity preserves that source-specific role without inventing a new kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+          "sha256": "025012a315e6a26b0ce3ed49567c216e8c0774d07a92618faebf2192c3bae977",
+          "start_line": 25,
+          "end_line": 40,
+          "span_sha256": "7822407b639df85f6fc91479c89cde4d2e423416925ae07263ace4290023623f",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains source provenance and selection role."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+      "source_atom_id": "CA-O-054",
+      "source_version": 5,
+      "source_sha256": "025012a315e6a26b0ce3ed49567c216e8c0774d07a92618faebf2192c3bae977",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Extension",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content names an Extension as a source/conformance participant. No confirmed candidate identity preserves its extension-specific authority and conformance role.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+          "sha256": "025012a315e6a26b0ce3ed49567c216e8c0774d07a92618faebf2192c3bae977",
+          "start_line": 25,
+          "end_line": 40,
+          "span_sha256": "7822407b639df85f6fc91479c89cde4d2e423416925ae07263ace4290023623f",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Extension-specific authority and conformance role."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+      "source_atom_id": "CA-O-054",
+      "source_version": 5,
+      "source_sha256": "025012a315e6a26b0ce3ed49567c216e8c0774d07a92618faebf2192c3bae977",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Project Configuration",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content treats Project Configuration as a distinct source/context. It cannot be collapsed into Project Settings, an Artifact, or a Projection without losing that distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+          "sha256": "025012a315e6a26b0ce3ed49567c216e8c0774d07a92618faebf2192c3bae977",
+          "start_line": 25,
+          "end_line": 40,
+          "span_sha256": "7822407b639df85f6fc91479c89cde4d2e423416925ae07263ace4290023623f",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains distinct Project Configuration source/context; no Project Settings collapse."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+      "source_atom_id": "CA-O-054",
+      "source_version": 5,
+      "source_sha256": "025012a315e6a26b0ce3ed49567c216e8c0774d07a92618faebf2192c3bae977",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Core Meta-Model",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The owning current Main Content uses Core Meta-Model as governing authority/context. A generic Scope Unit or Artifact target would lose that authority meaning without an explicit identity rule.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-054-CORE_META_MODEL-ACTION--admit-methodology-expansion-mappings.md",
+          "sha256": "025012a315e6a26b0ce3ed49567c216e8c0774d07a92618faebf2192c3bae977",
+          "start_line": 25,
+          "end_line": 40,
+          "span_sha256": "7822407b639df85f6fc91479c89cde4d2e423416925ae07263ace4290023623f",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Core Meta-Model authority/context rather than inferring generic Scope Unit identity."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-105-CORE_META_MODEL-ACTION--select-a-bounded-rmed-review-batch.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-105-CORE_META_MODEL-ACTION--select-a-bounded-rmed-review-batch.md",
+      "source_atom_id": "CA-O-105",
+      "source_version": 5,
+      "source_sha256": "d2b70d597eea1c6a143f84bf78dd415472f52a9f3f39eb22b701015511357b4f",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Framework Instance Settings",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings",
+      "confidence": 0.95,
+      "reason": "The owning current Main Content uses Framework Instance Settings as the Project context's effective settings input. CA-R-1402 defines that exact term as the authoritative Artifact for one serving Framework Instance and Project; CA-R-1404 excludes Atom identity and CA-R-1405 registers its Artifact Type. The target retains that named Artifact type.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-105-CORE_META_MODEL-ACTION--select-a-bounded-rmed-review-batch.md",
+          "sha256": "d2b70d597eea1c6a143f84bf78dd415472f52a9f3f39eb22b701015511357b4f",
+          "start_line": 25,
+          "end_line": 40,
+          "span_sha256": "087549a45a0ce6f6c6dbec085761bfd113fd0ce6ccea02ea60353496c95fc6f8",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1404-CORE_META_MODEL-CORE--keep-framework-instance-settings-outside-the-atom-type.md",
+          "sha256": "dcb592bb7de8b0df4526bea9072a0f2ce27a602f5b0cb25f79b3b9d92851c46f",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "efdacac69173592071a111fa2ae578f90a9bc9fef1333c166e852b71b0fab412",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-CORE--register-core-artifact-type-values.md",
+          "sha256": "c406d504a72b1d8e2d31a13a5d2d3edbbf48374c7a417aa6f2665e261ba2e2ad",
+          "start_line": 23,
+          "end_line": 35,
+          "span_sha256": "2107529856061c832581b0d750dc1db712fa2cae9a2e3a650f65edeefe45c554",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0",
+          "reason": "Confirms Artifact as the governed lifecycle root."
+        },
+        {
+          "pointer": "/dependent_entities",
+          "reason": "Allows named dependent entities inside an Artifact without creating another root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Retains the Framework Instance Settings Artifact as distinct from Project Settings, Default Settings, Project Structure, and any Atom."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-146-CORE_META_MODEL-STEP--select-the-reconciliation-source-frontier.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-146-CORE_META_MODEL-STEP--select-the-reconciliation-source-frontier.md",
+      "source_atom_id": "CA-O-146",
+      "source_version": 2,
+      "source_sha256": "47fc11d3062b6a516aff7672143512b4d0dfc0596e57b8b869b305578db7b8ba",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Source Reconciliation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The owning current Main Content identifies this Step as part of the named reusable Source Reconciliation Workflow. CA-O-010 retains exact Step nodes and typed, directed control flow while distinguishing that Workflow definition from Workflow Run, Step Run, and Action execution. Neither generic Atom nor Artifact/Atom preserves the named Operations Workflow and type/definition boundary; no selector decision supplies a lossless target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-146-CORE_META_MODEL-STEP--select-the-reconciliation-source-frontier.md",
+          "sha256": "47fc11d3062b6a516aff7672143512b4d0dfc0596e57b8b869b305578db7b8ba",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "86820c907a464974aa8e528613df6b6ce6b75b8127b8963de644f0eee79d05e9",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources.md",
+          "sha256": "0f20146444637ca38de69f97931c4a45c663c9a6dd2d759c3599e9864acfc7da",
+          "start_line": 34,
+          "end_line": 80,
+          "span_sha256": "6014d838090d300bea96411e72286e809bace7d2cb18effdb6c27bdedcb9dcb2",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Source Reconciliation as the reusable Workflow definition with its exact Steps and transitions; it is not a Workflow Run, Step Run, Action, or generic execution."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-147-CORE_META_MODEL-STEP--assess-the-reconciliation-source-frontier.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-147-CORE_META_MODEL-STEP--assess-the-reconciliation-source-frontier.md",
+      "source_atom_id": "CA-O-147",
+      "source_version": 2,
+      "source_sha256": "e01f9c528f0f1626c9e229c3cc2f4c0fd0ba5cc22d97d330599e271cc07d6335",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Source Reconciliation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The owning current Main Content identifies this Step as part of the named reusable Source Reconciliation Workflow. CA-O-010 retains exact Step nodes and typed, directed control flow while distinguishing that Workflow definition from Workflow Run, Step Run, and Action execution. Neither generic Atom nor Artifact/Atom preserves the named Operations Workflow and type/definition boundary; no selector decision supplies a lossless target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-147-CORE_META_MODEL-STEP--assess-the-reconciliation-source-frontier.md",
+          "sha256": "e01f9c528f0f1626c9e229c3cc2f4c0fd0ba5cc22d97d330599e271cc07d6335",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "deff901d3fafd2550922601286be6e02e4e01e2acfb93342679c75472f37ba38",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources.md",
+          "sha256": "0f20146444637ca38de69f97931c4a45c663c9a6dd2d759c3599e9864acfc7da",
+          "start_line": 34,
+          "end_line": 80,
+          "span_sha256": "6014d838090d300bea96411e72286e809bace7d2cb18effdb6c27bdedcb9dcb2",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Source Reconciliation as the reusable Workflow definition with its exact Steps and transitions; it is not a Workflow Run, Step Run, Action, or generic execution."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-148-CORE_META_MODEL-STEP--propose-the-reconciliation-source-corrections.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-148-CORE_META_MODEL-STEP--propose-the-reconciliation-source-corrections.md",
+      "source_atom_id": "CA-O-148",
+      "source_version": 2,
+      "source_sha256": "bdc4505a6d43029f55b0f4bc7a0fc19971ed0670f1d0d1ee669f61b645c609b4",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Source Reconciliation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The owning current Main Content identifies this Step as part of the named reusable Source Reconciliation Workflow. CA-O-010 retains exact Step nodes and typed, directed control flow while distinguishing that Workflow definition from Workflow Run, Step Run, and Action execution. Neither generic Atom nor Artifact/Atom preserves the named Operations Workflow and type/definition boundary; no selector decision supplies a lossless target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-148-CORE_META_MODEL-STEP--propose-the-reconciliation-source-corrections.md",
+          "sha256": "bdc4505a6d43029f55b0f4bc7a0fc19971ed0670f1d0d1ee669f61b645c609b4",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "4852499676b919e285b5c98acd936cb9e78ed8a13dced36f76afe66de82fe93f",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources.md",
+          "sha256": "0f20146444637ca38de69f97931c4a45c663c9a6dd2d759c3599e9864acfc7da",
+          "start_line": 34,
+          "end_line": 80,
+          "span_sha256": "6014d838090d300bea96411e72286e809bace7d2cb18effdb6c27bdedcb9dcb2",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Source Reconciliation as the reusable Workflow definition with its exact Steps and transitions; it is not a Workflow Run, Step Run, Action, or generic execution."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+      "source_atom_id": "CA-O-149",
+      "source_version": 2,
+      "source_sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Source Reconciliation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The owning current Main Content identifies this Step as part of the named reusable Source Reconciliation Workflow. CA-O-010 retains exact Step nodes and typed, directed control flow while distinguishing that Workflow definition from Workflow Run, Step Run, and Action execution. Neither generic Atom nor Artifact/Atom preserves the named Operations Workflow and type/definition boundary; no selector decision supplies a lossless target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-149-CORE_META_MODEL-STEP--obtain-the-reconciliation-source-correction-decision.md",
+          "sha256": "48f9245598122d2caaa3341720fb69f732771cf456375aefdba3a971b839c103",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "a70f51bcc16dcacbf7ff234d8432923314e24390a8dda5740a298d48f13471da",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources.md",
+          "sha256": "0f20146444637ca38de69f97931c4a45c663c9a6dd2d759c3599e9864acfc7da",
+          "start_line": 34,
+          "end_line": 80,
+          "span_sha256": "6014d838090d300bea96411e72286e809bace7d2cb18effdb6c27bdedcb9dcb2",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Source Reconciliation as the reusable Workflow definition with its exact Steps and transitions; it is not a Workflow Run, Step Run, Action, or generic execution."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+      "source_atom_id": "CA-O-150",
+      "source_version": 2,
+      "source_sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Source Reconciliation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The owning current Main Content identifies this Step as part of the named reusable Source Reconciliation Workflow. CA-O-010 retains exact Step nodes and typed, directed control flow while distinguishing that Workflow definition from Workflow Run, Step Run, and Action execution. Neither generic Atom nor Artifact/Atom preserves the named Operations Workflow and type/definition boundary; no selector decision supplies a lossless target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-150-CORE_META_MODEL-STEP--apply-the-reconciliation-source-corrections.md",
+          "sha256": "5f5dd94b4e4a453b37c2b5914ec860c508ce75d4f17efcf127740065f100e3be",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "0f79bda9c680e90a559d5e1d432c9fd6276ec82c53de703729c3aaa83ed7f5f6",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources.md",
+          "sha256": "0f20146444637ca38de69f97931c4a45c663c9a6dd2d759c3599e9864acfc7da",
+          "start_line": 34,
+          "end_line": 80,
+          "span_sha256": "6014d838090d300bea96411e72286e809bace7d2cb18effdb6c27bdedcb9dcb2",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Source Reconciliation as the reusable Workflow definition with its exact Steps and transitions; it is not a Workflow Run, Step Run, Action, or generic execution."
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+      "source_atom_id": "CA-O-151",
+      "source_version": 2,
+      "source_sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Source Reconciliation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "executable": false,
+      "question": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.6,
+      "reason": "The owning current Main Content identifies this Step as part of the named reusable Source Reconciliation Workflow. CA-O-010 retains exact Step nodes and typed, directed control flow while distinguishing that Workflow definition from Workflow Run, Step Run, and Action execution. Neither generic Atom nor Artifact/Atom preserves the named Operations Workflow and type/definition boundary; no selector decision supplies a lossless target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/SOURCE_RECONCILIATION/CA-O-151-CORE_META_MODEL-STEP--publish-the-reconciled-source-projection.md",
+          "sha256": "c0cb676da0a7fad0031bd581b091c6caf3373573535250dc07988f1bbc9fb0f6",
+          "start_line": 30,
+          "end_line": 43,
+          "span_sha256": "e9498d486c5a7325135ca6bb0640d979ab26f398aa304f41966e916211abf0d5",
+          "reason": "Complete current owning Main Content read; it establishes the occurrence context and its retained qualification."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/CA-O-010-CORE_META_MODEL-WORKFLOW--reconcile-sources.md",
+          "sha256": "0f20146444637ca38de69f97931c4a45c663c9a6dd2d759c3599e9864acfc7da",
+          "start_line": 34,
+          "end_line": 80,
+          "span_sha256": "6014d838090d300bea96411e72286e809bace7d2cb18effdb6c27bdedcb9dcb2",
+          "reason": "Current explicit definition supporting the proposed target while retaining the source-specific qualification."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Retains Source Reconciliation as the reusable Workflow definition with its exact Steps and transitions; it is not a Workflow Run, Step Run, Action, or generic execution."
+      ]
+    }
+  ],
+  "counts": {
+    "assigned": 28,
+    "covered": 28,
+    "owning_sources": 15,
+    "current_sources": 23,
+    "current_evidence_spans": 57,
+    "owning_current_evidence_spans": 28,
+    "proposed": 9,
+    "unresolved": 19
+  },
+  "limits": [
+    "CA-P-2114 owns exactly the 28 CA-P-2114 manifest occurrences and no other origins.",
+    "Candidate research only: this report neither adopts Subject grammar nor changes native admission, sources, or mappings.",
+    "Every proposal remains executable=false; explicit unresolved rows retain open semantic gaps."
+  ]
+}

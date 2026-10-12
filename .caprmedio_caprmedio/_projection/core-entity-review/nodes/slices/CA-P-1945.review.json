@@ -1,0 +1,858 @@
+{
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "batch": 7,
+  "evidence_catalogue": {
+    "CA-E-477:43-43": {
+      "atom_id": "CA-E-477",
+      "atom_revision": 5,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-477-CORE_META_MODEL-QA_CASE--validate-gap-free-rmedo-conflict-resolution.md",
+      "carrier_sha256": "5393c69f1cbb00a0d5c4366c5ca848a334d782ae251c7c98096ce5adcff9b232",
+      "end_line": 43,
+      "quote": "the Evaluation **must** check whether RMEDO Conflict Resolution follows CA-O-028 **and** its reused Actions **without** losing required authority.",
+      "start_line": 43,
+      "text_sha256": "45d3385b1709a830db2ce186342d8f2006c6c80d17fafad67ade68e0f17ffcc0"
+    },
+    "CA-E-510:45-45": {
+      "atom_id": "CA-E-510",
+      "atom_revision": 3,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/06_evaluation/CA-E-510-CORE_META_MODEL-QA_CASE--validate-navigation-number-migration-evidence.md",
+      "carrier_sha256": "cf67a8ebbae8c48c1233dd42c5d5a75aad3672fbacd5323e90d881a33a0a1108",
+      "end_line": 45,
+      "quote": "the Evaluation accepts a navigation-migration result **only** **if** it conforms **to** CA-O-078 **and** the identified Project Structure authority, preserves declared values **unless** an authorized change selects replacements, **and** distinguishes a ready candidate from unresolved **or** failed preparation.",
+      "start_line": 45,
+      "text_sha256": "3a4205801a437bd493cc35372746cf1929969580d47a88e7fda8819c85d7248f"
+    },
+    "CA-O-028:45-45": {
+      "atom_id": "CA-O-028",
+      "atom_revision": 8,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-028-CORE_META_MODEL-WORKFLOW--resolve-rmedo-conflicts-without-leaving-gaps.md",
+      "carrier_sha256": "05e99fe585123cc73785ef5b5716a5f9ca242e47e83f3bef10f568955393bd47",
+      "end_line": 45,
+      "quote": "RMEDO Conflict Resolution **means** the Workflow that resolves conflicts among selected active Requirement, Method, Evaluation, Delivery, **and** Operations Atoms **without** leaving gaps **in** affected authority.",
+      "start_line": 45,
+      "text_sha256": "7c8eea0f58bc2aecfc904081a63071a7fe59d3c11cc3e9718b0de92cf536daee"
+    },
+    "CA-O-078:39-39": {
+      "atom_id": "CA-O-078",
+      "atom_revision": 3,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-078-CORE_META_MODEL-ACTION--reconcile-navigation-numbers-during-project-structure-migration.md",
+      "carrier_sha256": "021771bd4094074d36294390318dd23fd16619c098f8dbd3bed2dfb59e5eb014",
+      "end_line": 39,
+      "quote": "Reconcile Navigation Numbers **means** the Action that prepares evidence-backed Navigational Order Number values for a bounded Project Structure migration candidate, **without** activating that candidate **or** changing live Carriers.",
+      "start_line": 39,
+      "text_sha256": "83dd3797ddbb32f2c79e6d674d4634a5e5afa2d86f4390a94994601ff0773458"
+    },
+    "CA-O-079:42-42": {
+      "atom_id": "CA-O-079",
+      "atom_revision": 4,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-079-CORE_META_MODEL-ACTION--reconcile-unfinished-operative-work.md",
+      "carrier_sha256": "51b60f0cd6a02da6bcbc4110547210d5c4c12a006878bcf4e7d2e58ed3c39ab6",
+      "end_line": 42,
+      "quote": "Reconcile Unfinished Work **means** the Action that reconciles still-valid remaining work with its applicable Plan representation under CA-R-1715, **without** duplicating existing Plans **or** authorizing execution of that work.",
+      "start_line": 42,
+      "text_sha256": "98bc0d212b413026e4080fa99b8d1c8cbeeb8e01bd82c968a1008b7a573889b0"
+    },
+    "CA-O-108:31-31": {
+      "atom_id": "CA-O-108",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-108-CORE_META_MODEL-STEP--select-the-rmed-review-batch.md",
+      "carrier_sha256": "741aa7ecef3eb1c00d0e70e2d72d77f42416e7062b29b7fe31e4ebdbc55bbee6",
+      "end_line": 31,
+      "quote": "RMED Review Selection Step **means** the Workflow node invoking **`=1`** Action, CA-O-105, **in** Integrated context.",
+      "start_line": 31,
+      "text_sha256": "099b9aadd330f8bab0c44931046516d09a2b7bffd65219373ea5bc0b17aee528"
+    },
+    "CA-O-109:31-31": {
+      "atom_id": "CA-O-109",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-109-CORE_META_MODEL-STEP--evaluate-the-selected-rmed-review-batch.md",
+      "carrier_sha256": "d6c0a6493598c54aa9aca3407301c85a91d0d6cd2129d13a51e1b32f12ec01b8",
+      "end_line": 31,
+      "quote": "RMED Review Evaluation Step **means** the Workflow node invoking **`=1`** Action, CA-O-106, **in** Isolated context.",
+      "start_line": 31,
+      "text_sha256": "d34c7ee05f1627cc30c1a619616d6d143a74bc6fdd37a9e12e1cc1a0b0ccb712"
+    },
+    "CA-O-110:31-31": {
+      "atom_id": "CA-O-110",
+      "atom_revision": 6,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-110-CORE_META_MODEL-STEP--repair-the-evaluated-rmed-review-batch.md",
+      "carrier_sha256": "b988a4b68f6f34b78c17bc6a66cf9646c2c3b21c4ce45910e65d67f80f506ae5",
+      "end_line": 31,
+      "quote": "RMED Review Repair Step **means** the Workflow node invoking **`=1`** Action, CA-O-111, **in** Isolated context.",
+      "start_line": 31,
+      "text_sha256": "70daac41a9a08bf6ef57404ddac5b83ab621ace3efa28a8ed24d92263c6ed43f"
+    },
+    "CA-O-118:25-25": {
+      "atom_id": "CA-O-118",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-118-CORE_META_MODEL-ACTION--review-base-revise-result-coverage.md",
+      "carrier_sha256": "13101b6fa0d46755f25dcbf2c81cb31e8f945be1a0a932dabd36c0b77274ad26",
+      "end_line": 25,
+      "quote": "the Coverage Gate **must** compare saved main-Step results with their explicit expected work **and** return covered **only** at coverage **`=100`** percent.",
+      "start_line": 25,
+      "text_sha256": "6263d83287a4a5e3a26ca43ad738d4f7b6707565d06c0c66c9061370107c4db3"
+    },
+    "CA-O-119:24-24": {
+      "atom_id": "CA-O-119",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-119-CORE_META_MODEL-STEP--gate-gather-result-coverage.md",
+      "carrier_sha256": "4f9f072eb47d4c3536a86d6edbf634a18c177136a3c9e560c944d642c0543a67",
+      "end_line": 24,
+      "quote": "the gather Coverage Gate substep **must** invoke **`=1`** Action, CA-O-118, with stage=gather **after** the main gather Step **and** **before** continuation.",
+      "start_line": 24,
+      "text_sha256": "f465319d4e1aeeedfd7b73ba2a269bebff156fd2d12c7040fd95ec1103651226"
+    },
+    "CA-O-120:24-24": {
+      "atom_id": "CA-O-120",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-120-CORE_META_MODEL-STEP--gate-check-result-coverage.md",
+      "carrier_sha256": "f89bc7ec47a3fed5e52daf011167e6244693f3cb5df47b11943fabcbcd3a4a40",
+      "end_line": 24,
+      "quote": "the check Coverage Gate substep **must** invoke **`=1`** Action, CA-O-118, with stage=check **after** the main check Step **and** **before** continuation.",
+      "start_line": 24,
+      "text_sha256": "b6edc01337997553f3552e7fe00724c8dc60ada52328a6299fc25c8ac7846549"
+    },
+    "CA-O-121:24-24": {
+      "atom_id": "CA-O-121",
+      "atom_revision": 1,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-121-CORE_META_MODEL-STEP--gate-fix-result-coverage.md",
+      "carrier_sha256": "5fa55cfb3f70101f5c29c1f95497cd80d5847130232ec28b688c697d26530f09",
+      "end_line": 24,
+      "quote": "the fix Coverage Gate substep **must** invoke **`=1`** Action, CA-O-118, with stage=fix **after** the main fix Step **and** **before** continuation.",
+      "start_line": 24,
+      "text_sha256": "2b76a033892d939b8fc8d2e45f774b2a4567a73754f07e5ab31702016e2ba75a"
+    },
+    "CA-R-1016:29-29": {
+      "atom_id": "CA-R-1016",
+      "atom_revision": 15,
+      "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+      "carrier_sha256": "c868694504380f16322a07a3b7568b16b6d519010e8a19459208f6196d90164f",
+      "end_line": 29,
+      "quote": "`rationale_for` **must** be registered as a direct relation owned by a Rationale Analysis Atom **and** directed **to** **`=1`** (Requirement, Method, Evaluation, **or** Delivery) Atom that it explains.",
+      "start_line": 29,
+      "text_sha256": "148f0cac84eab139ce1b3c8d9bc324fdecabee7287e9462644433e79caf0d681"
+    }
+  },
+  "input_file_sha256": "a7ab9742ef53910a6a47e09705fae560164cbd67430a089e9d19d60958cad113",
+  "nodes": [
+    {
+      "checked_source_atom_ids": [
+        "CA-O-118"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-O-118:25-25"
+          ],
+          "finding": "evidenced",
+          "reason": "CA-O-118 requires the Coverage Gate to compare saved main-Step results with explicit expected work and return covered only at 100 percent."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-O-118:25-25"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured evidence for RMED Atom Review Workflow/coverage/Action: 118 states one bounded meaning and does not identify another same-meaning candidate."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-O-118:25-25"
+          ],
+          "finding": "not_evidenced",
+          "reason": "RMED Atom Review Workflow/coverage/Action: 118 has a meaningful captured Main Content constraint rather than a bare label."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-O-118:25-25"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for RMED Atom Review Workflow/coverage/Action: 118 is proposed from this bounded captured evidence."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-O-118:25-25"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured source gives RMED Atom Review Workflow/coverage/Action: 118 a specific operational or relation constraint; no replacement is evidenced in this slice."
+        }
+      },
+      "confidence_percent": 92,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-O-118:25-25"
+      ],
+      "identity": "RMED Atom Review Workflow/coverage/Action: 118",
+      "proposal": {
+        "candidate_action": "retain",
+        "preserved_identity": "RMED Atom Review Workflow/coverage/Action: 118",
+        "semantic_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Captured CA-O-118 gives the Coverage Gate an explicit bounded accounting obligation and result condition."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-119",
+        "CA-O-120",
+        "CA-O-121"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-O-119:24-24",
+            "CA-O-120:24-24",
+            "CA-O-121:24-24"
+          ],
+          "finding": "unresolved",
+          "reason": "Stage=gather, stage=check, and stage=fix distinguish the numbered substeps; no clause supplies a distinct meaning for the collective identity."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-O-119:24-24",
+            "CA-O-120:24-24",
+            "CA-O-121:24-24"
+          ],
+          "finding": "unresolved",
+          "reason": "CA-O-119, CA-O-120, and CA-O-121 evidence separate stage-specific substeps, not whether the unnumbered identity duplicates one of them."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-O-119:24-24",
+            "CA-O-120:24-24",
+            "CA-O-121:24-24"
+          ],
+          "finding": "unresolved",
+          "reason": "The separate substep constraints are meaningful, but there is no captured Main Content clause defining the unnumbered coverage/Step itself."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-O-119:24-24",
+            "CA-O-120:24-24",
+            "CA-O-121:24-24"
+          ],
+          "finding": "not_proposed",
+          "reason": "The individual substeps cannot safely be generalized into a native unnumbered Step without Operator direction or a captured defining clause."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-O-119:24-24",
+            "CA-O-120:24-24",
+            "CA-O-121:24-24"
+          ],
+          "finding": "unresolved",
+          "reason": "The evidence does not say whether the unnumbered identity is only a display grouping or carries an independent constraint."
+        }
+      },
+      "confidence_percent": 0,
+      "disposition": "question",
+      "evidence_refs": [
+        "CA-O-119:24-24",
+        "CA-O-120:24-24",
+        "CA-O-121:24-24"
+      ],
+      "identity": "RMED Atom Review Workflow/coverage/Step",
+      "proposal": null,
+      "question": "Should RMED Atom Review Workflow/coverage/Step remain a presentation-only grouping of the three numbered coverage-gate substeps, or is there a separate authoritative definition for an unnumbered reusable Step that should be supplied?",
+      "reason": "The three captured Operations clauses define the gather, check, and fix coverage-gate substeps individually; none defines the unnumbered coverage/Step identity as a separate reusable entity."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-119"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-O-119:24-24"
+          ],
+          "finding": "evidenced",
+          "reason": "The captured clause identifies a gather-stage substep and its sequencing constraint, distinguishing it from check and fix stages."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-O-119:24-24"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured evidence for RMED Atom Review Workflow/coverage/Step: 119 states one bounded meaning and does not identify another same-meaning candidate."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-O-119:24-24"
+          ],
+          "finding": "not_evidenced",
+          "reason": "RMED Atom Review Workflow/coverage/Step: 119 has a meaningful captured Main Content constraint rather than a bare label."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-O-119:24-24"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for RMED Atom Review Workflow/coverage/Step: 119 is proposed from this bounded captured evidence."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-O-119:24-24"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured source gives RMED Atom Review Workflow/coverage/Step: 119 a specific operational or relation constraint; no replacement is evidenced in this slice."
+        }
+      },
+      "confidence_percent": 94,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-O-119:24-24"
+      ],
+      "identity": "RMED Atom Review Workflow/coverage/Step: 119",
+      "proposal": {
+        "candidate_action": "retain",
+        "preserved_identity": "RMED Atom Review Workflow/coverage/Step: 119",
+        "semantic_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Captured CA-O-119 assigns the gather Coverage Gate substep a stage=gather invocation after the main gather Step and before continuation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-120"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-O-120:24-24"
+          ],
+          "finding": "evidenced",
+          "reason": "The captured clause identifies a check-stage substep and its sequencing constraint, distinguishing it from gather and fix stages."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-O-120:24-24"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured evidence for RMED Atom Review Workflow/coverage/Step: 120 states one bounded meaning and does not identify another same-meaning candidate."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-O-120:24-24"
+          ],
+          "finding": "not_evidenced",
+          "reason": "RMED Atom Review Workflow/coverage/Step: 120 has a meaningful captured Main Content constraint rather than a bare label."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-O-120:24-24"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for RMED Atom Review Workflow/coverage/Step: 120 is proposed from this bounded captured evidence."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-O-120:24-24"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured source gives RMED Atom Review Workflow/coverage/Step: 120 a specific operational or relation constraint; no replacement is evidenced in this slice."
+        }
+      },
+      "confidence_percent": 94,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-O-120:24-24"
+      ],
+      "identity": "RMED Atom Review Workflow/coverage/Step: 120",
+      "proposal": {
+        "candidate_action": "retain",
+        "preserved_identity": "RMED Atom Review Workflow/coverage/Step: 120",
+        "semantic_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Captured CA-O-120 assigns the check Coverage Gate substep a stage=check invocation after the main check Step and before continuation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-121"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-O-121:24-24"
+          ],
+          "finding": "evidenced",
+          "reason": "The captured clause identifies a fix-stage substep and its sequencing constraint, distinguishing it from gather and check stages."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-O-121:24-24"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured evidence for RMED Atom Review Workflow/coverage/Step: 121 states one bounded meaning and does not identify another same-meaning candidate."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-O-121:24-24"
+          ],
+          "finding": "not_evidenced",
+          "reason": "RMED Atom Review Workflow/coverage/Step: 121 has a meaningful captured Main Content constraint rather than a bare label."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-O-121:24-24"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for RMED Atom Review Workflow/coverage/Step: 121 is proposed from this bounded captured evidence."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-O-121:24-24"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured source gives RMED Atom Review Workflow/coverage/Step: 121 a specific operational or relation constraint; no replacement is evidenced in this slice."
+        }
+      },
+      "confidence_percent": 94,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-O-121:24-24"
+      ],
+      "identity": "RMED Atom Review Workflow/coverage/Step: 121",
+      "proposal": {
+        "candidate_action": "retain",
+        "preserved_identity": "RMED Atom Review Workflow/coverage/Step: 121",
+        "semantic_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Captured CA-O-121 assigns the fix Coverage Gate substep a stage=fix invocation after the main fix Step and before continuation."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-109"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-O-109:31-31"
+          ],
+          "finding": "evidenced",
+          "reason": "The captured definition fixes both the invoked Action CA-O-106 and Isolated execution context for RMED Review Evaluation Step."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-O-109:31-31"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured evidence for RMED Review Evaluation Step states one bounded meaning and does not identify another same-meaning candidate."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-O-109:31-31"
+          ],
+          "finding": "not_evidenced",
+          "reason": "RMED Review Evaluation Step has a meaningful captured Main Content constraint rather than a bare label."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-O-109:31-31"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for RMED Review Evaluation Step is proposed from this bounded captured evidence."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-O-109:31-31"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured source gives RMED Review Evaluation Step a specific operational or relation constraint; no replacement is evidenced in this slice."
+        }
+      },
+      "confidence_percent": 97,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-O-109:31-31"
+      ],
+      "identity": "RMED Review Evaluation Step",
+      "proposal": {
+        "candidate_action": "retain",
+        "preserved_identity": "RMED Review Evaluation Step",
+        "semantic_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Captured CA-O-109 defines this Step as the Workflow node invoking CA-O-106 in Isolated context."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-110"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-O-110:31-31"
+          ],
+          "finding": "evidenced",
+          "reason": "The captured definition fixes both the invoked Action CA-O-111 and Isolated execution context for RMED Review Repair Step."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-O-110:31-31"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured evidence for RMED Review Repair Step states one bounded meaning and does not identify another same-meaning candidate."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-O-110:31-31"
+          ],
+          "finding": "not_evidenced",
+          "reason": "RMED Review Repair Step has a meaningful captured Main Content constraint rather than a bare label."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-O-110:31-31"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for RMED Review Repair Step is proposed from this bounded captured evidence."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-O-110:31-31"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured source gives RMED Review Repair Step a specific operational or relation constraint; no replacement is evidenced in this slice."
+        }
+      },
+      "confidence_percent": 97,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-O-110:31-31"
+      ],
+      "identity": "RMED Review Repair Step",
+      "proposal": {
+        "candidate_action": "retain",
+        "preserved_identity": "RMED Review Repair Step",
+        "semantic_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Captured CA-O-110 defines this Step as the Workflow node invoking CA-O-111 in Isolated context."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-108"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-O-108:31-31"
+          ],
+          "finding": "evidenced",
+          "reason": "The captured definition fixes both the invoked Action CA-O-105 and Integrated execution context for RMED Review Selection Step."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-O-108:31-31"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured evidence for RMED Review Selection Step states one bounded meaning and does not identify another same-meaning candidate."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-O-108:31-31"
+          ],
+          "finding": "not_evidenced",
+          "reason": "RMED Review Selection Step has a meaningful captured Main Content constraint rather than a bare label."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-O-108:31-31"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for RMED Review Selection Step is proposed from this bounded captured evidence."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-O-108:31-31"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured source gives RMED Review Selection Step a specific operational or relation constraint; no replacement is evidenced in this slice."
+        }
+      },
+      "confidence_percent": 97,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-O-108:31-31"
+      ],
+      "identity": "RMED Review Selection Step",
+      "proposal": {
+        "candidate_action": "retain",
+        "preserved_identity": "RMED Review Selection Step",
+        "semantic_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Captured CA-O-108 defines this Step as the Workflow node invoking CA-O-105 in Integrated context."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-477",
+        "CA-O-028"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-O-028:45-45",
+            "CA-E-477:43-43"
+          ],
+          "finding": "evidenced",
+          "reason": "CA-O-028 identifies a Workflow resolving conflicts among selected active RMEDO Atoms without leaving gaps; CA-E-477 checks that exact workflow behavior."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-O-028:45-45",
+            "CA-E-477:43-43"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured evidence for RMEDO Conflict Resolution states one bounded meaning and does not identify another same-meaning candidate."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-O-028:45-45",
+            "CA-E-477:43-43"
+          ],
+          "finding": "not_evidenced",
+          "reason": "RMEDO Conflict Resolution has a meaningful captured Main Content constraint rather than a bare label."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-O-028:45-45",
+            "CA-E-477:43-43"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for RMEDO Conflict Resolution is proposed from this bounded captured evidence."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-O-028:45-45",
+            "CA-E-477:43-43"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured source gives RMEDO Conflict Resolution a specific operational or relation constraint; no replacement is evidenced in this slice."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-O-028:45-45",
+        "CA-E-477:43-43"
+      ],
+      "identity": "RMEDO Conflict Resolution",
+      "proposal": {
+        "candidate_action": "retain",
+        "preserved_identity": "RMEDO Conflict Resolution",
+        "semantic_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Captured CA-O-028 defines the Workflow; captured CA-E-477 independently constrains its Evaluation against CA-O-028 and reused Actions."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-R-1016"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-R-1016:29-29"
+          ],
+          "finding": "evidenced",
+          "reason": "CA-R-1016 requires rationale_for to be a direct relation owned by a Rationale Analysis Atom and directed to exactly one explained RMED Atom."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-R-1016:29-29"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured evidence for Rationale For Relation states one bounded meaning and does not identify another same-meaning candidate."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-R-1016:29-29"
+          ],
+          "finding": "not_evidenced",
+          "reason": "Rationale For Relation has a meaningful captured Main Content constraint rather than a bare label."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-R-1016:29-29"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Rationale For Relation is proposed from this bounded captured evidence."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-R-1016:29-29"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured source gives Rationale For Relation a specific operational or relation constraint; no replacement is evidenced in this slice."
+        }
+      },
+      "confidence_percent": 93,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-R-1016:29-29"
+      ],
+      "identity": "Rationale For Relation",
+      "proposal": {
+        "candidate_action": "retain",
+        "preserved_identity": "Rationale For Relation",
+        "semantic_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Captured CA-R-1016 gives the rationale_for relation a direct owner, target cardinality, and explained-target meaning."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-E-510",
+        "CA-O-078"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-O-078:39-39",
+            "CA-E-510:45-45"
+          ],
+          "finding": "evidenced",
+          "reason": "CA-O-078 prepares evidence-backed Navigational Order Number values without activation or live-Carrier changes; CA-E-510 requires conformance to that Action."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-O-078:39-39",
+            "CA-E-510:45-45"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured evidence for Reconcile Navigation Numbers states one bounded meaning and does not identify another same-meaning candidate."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-O-078:39-39",
+            "CA-E-510:45-45"
+          ],
+          "finding": "not_evidenced",
+          "reason": "Reconcile Navigation Numbers has a meaningful captured Main Content constraint rather than a bare label."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-O-078:39-39",
+            "CA-E-510:45-45"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Reconcile Navigation Numbers is proposed from this bounded captured evidence."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-O-078:39-39",
+            "CA-E-510:45-45"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured source gives Reconcile Navigation Numbers a specific operational or relation constraint; no replacement is evidenced in this slice."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-O-078:39-39",
+        "CA-E-510:45-45"
+      ],
+      "identity": "Reconcile Navigation Numbers",
+      "proposal": {
+        "candidate_action": "retain",
+        "preserved_identity": "Reconcile Navigation Numbers",
+        "semantic_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Captured CA-O-078 defines the bounded Action, and captured CA-E-510 states its conformance condition and separated readiness boundary."
+    },
+    {
+      "checked_source_atom_ids": [
+        "CA-O-079"
+      ],
+      "checks": {
+        "distinct_meaning": {
+          "evidence_refs": [
+            "CA-O-079:42-42"
+          ],
+          "finding": "evidenced",
+          "reason": "CA-O-079 distinguishes representation maintenance from execution, replay, completion marking, and new preservation policy."
+        },
+        "duplicates": {
+          "evidence_refs": [
+            "CA-O-079:42-42"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured evidence for Reconcile Unfinished Work states one bounded meaning and does not identify another same-meaning candidate."
+        },
+        "empty_definition": {
+          "evidence_refs": [
+            "CA-O-079:42-42"
+          ],
+          "finding": "not_evidenced",
+          "reason": "Reconcile Unfinished Work has a meaningful captured Main Content constraint rather than a bare label."
+        },
+        "generalization": {
+          "evidence_refs": [
+            "CA-O-079:42-42"
+          ],
+          "finding": "not_proposed",
+          "reason": "No broader replacement for Reconcile Unfinished Work is proposed from this bounded captured evidence."
+        },
+        "redundancy": {
+          "evidence_refs": [
+            "CA-O-079:42-42"
+          ],
+          "finding": "not_evidenced",
+          "reason": "The captured source gives Reconcile Unfinished Work a specific operational or relation constraint; no replacement is evidenced in this slice."
+        }
+      },
+      "confidence_percent": 99,
+      "disposition": "retain",
+      "evidence_refs": [
+        "CA-O-079:42-42"
+      ],
+      "identity": "Reconcile Unfinished Work",
+      "proposal": {
+        "candidate_action": "retain",
+        "preserved_identity": "Reconcile Unfinished Work",
+        "semantic_admission": "not_performed",
+        "source_migration": "not_performed"
+      },
+      "question": null,
+      "reason": "Captured CA-O-079 defines the Action as reconciling still-valid remaining work with applicable Plan representation while prohibiting duplicate Plans and execution authorization."
+    }
+  ],
+  "non_authoritative": true,
+  "operator_decision": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/design/operator.decisions.md",
+    "sha256": "53eeb7a3fdaa002cd05170fe185cfb5baeea72814a1f32567d8eea6f56ac65cb"
+  },
+  "parent_input": {
+    "partition_sha256": "c15461f84c5e59fad27e16674f00efdb0804c3ec45de2290283ad7c25af85b42",
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/inputs/nodes.batch-7.input.json",
+    "sha256": "9a9188b17a1aca100515a3857e61a7499c07dd840d9672a5589e25739a1be1b6"
+  },
+  "partition_sha256": "4aef108f609648891782d7eb0d87d2c6c2e0759cecb6fefeac57d6be8288f514",
+  "scope_omission_pin": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/nodes/scope.omission.decision.md",
+    "sha256": "d4ea636d540b0558c1a0fbb8263760947e1f0768840c43b3ed1d05c96b497453"
+  },
+  "semantic_admission": "not_performed",
+  "snapshot_context": {
+    "current_core_claimed": false,
+    "git_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "operator_selection": "captured_snapshot_only",
+    "source_context": "captured_snapshot"
+  },
+  "source_migration": "not_performed",
+  "source_task": "CA-P-1945"
+}

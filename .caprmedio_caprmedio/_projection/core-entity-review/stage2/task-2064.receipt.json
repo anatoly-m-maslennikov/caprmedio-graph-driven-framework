@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "non_authoritative": true,
+  "task": "CA-P-2064",
+  "recorded_at": "2026-10-11 04:40:07 +0400",
+  "result": "PASS: four E/D contracts independently accepted",
+  "effects": [
+    {
+      "atom_id": "CA-D-424",
+      "before": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/07_delivery/CA-D-424-ATOM_SEARCH-DELIVERY--deliver-atom-search-tool.md",
+        "version": 8,
+        "sha256": "0c75b89f884a9da6de735f79642bcce9b6025f6dc5b436012cdde9aab698662d"
+      },
+      "after": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/07_delivery/CA-D-424-ATOM_SEARCH-DELIVERY--deliver-atom-search-tool.md",
+        "version": 9,
+        "sha256": "c370269e36f7c057ac2eec0fa920e76f797c574cde6bc29734fb2cfce1294686",
+        "updated_at": "2026-10-11 04:28:03 +0400"
+      },
+      "archive": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/07_delivery/archive/CA-D-424-ATOM_SEARCH-DELIVERY--deliver-atom-search-tool@8.md",
+        "version": 8,
+        "sha256": "0c75b89f884a9da6de735f79642bcce9b6025f6dc5b436012cdde9aab698662d"
+      }
+    },
+    {
+      "atom_id": "CA-D-425",
+      "before": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/07_delivery/CA-D-425-ATOM_UPDATE-DELIVERY--deliver-atom-update-tool.md",
+        "version": 8,
+        "sha256": "7652c6b65166f8d6a1c616cbda1ee753a2372e7e373189f552f3917039b0f87f"
+      },
+      "after": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/07_delivery/CA-D-425-ATOM_UPDATE-DELIVERY--deliver-atom-update-tool.md",
+        "version": 9,
+        "sha256": "f562f1e827e03ab42941cd0ece3d24894f73c7b32ebe29fd689f9a8e4bfe445d",
+        "updated_at": "2026-10-11 04:28:03 +0400"
+      },
+      "archive": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/07_delivery/archive/CA-D-425-ATOM_UPDATE-DELIVERY--deliver-atom-update-tool@8.md",
+        "version": 8,
+        "sha256": "7652c6b65166f8d6a1c616cbda1ee753a2372e7e373189f552f3917039b0f87f"
+      }
+    },
+    {
+      "atom_id": "CA-E-301",
+      "before": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/06_evaluation/CA-E-301-ATOM_SEARCH-QA_CASE--verify-search-caprmedio-atom-carriers.md",
+        "version": 13,
+        "sha256": "ca1538da46464a45076dd755a6647240976cf52d40ea61d99c4e003786f45e46"
+      },
+      "after": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/06_evaluation/CA-E-301-ATOM_SEARCH-QA_CASE--verify-search-caprmedio-atom-carriers.md",
+        "version": 14,
+        "sha256": "416be34f445b8515bb6fa5be9a8894f306a0c5ee48b88452b017e254ec3ae97e",
+        "updated_at": "2026-10-11 04:36:44 +0400"
+      },
+      "archive": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_SEARCH/06_evaluation/archive/CA-E-301-ATOM_SEARCH-QA_CASE--verify-search-caprmedio-atom-carriers@13.md",
+        "version": 13,
+        "sha256": "ca1538da46464a45076dd755a6647240976cf52d40ea61d99c4e003786f45e46"
+      }
+    },
+    {
+      "atom_id": "CA-E-304",
+      "before": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/06_evaluation/CA-E-304-TOOLS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
+        "version": 12,
+        "sha256": "595c4ea753df4f4cee070ae53e73b1fc3d9c7df66aa385f6ca8f1f6e2f705df9"
+      },
+      "after": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/06_evaluation/CA-E-304-TOOLS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md",
+        "version": 13,
+        "sha256": "f696e778937f7f1c312e78533657ee436c56208ea4d85282bc3f1c63f8dd653e",
+        "updated_at": "2026-10-11 04:36:44 +0400"
+      },
+      "archive": {
+        "path": ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/201_FEATURE_TOOLS/ATOM_UPDATE/06_evaluation/archive/CA-E-304-TOOLS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers@12.md",
+        "version": 12,
+        "sha256": "595c4ea753df4f4cee070ae53e73b1fc3d9c7df66aa385f6ca8f1f6e2f705df9"
+      }
+    }
+  ],
+  "checks": {
+    "unrelated_metadata_bytes": "PASS",
+    "Summary_and_Scope": "PASS",
+    "Version_plus_one": "PASS",
+    "exact_archives": "PASS",
+    "fixed_delivery_pins": "PASS",
+    "five_Core_grammar_pins": "PASS",
+    "project_structure": "PASS",
+    "generic_QA_preserved": "byte-exact removal of additive section restores archived body",
+    "core_manifest": {
+      "time": "2026-10-11 04:40:07 +0400",
+      "core_manifest_sha256": "8c9de8fc73221a38e3096f82525afd98fa3a8335ed965684218c458ba49b4873",
+      "core_files": 12114,
+      "code_pins": "unchanged"
+    }
+  },
+  "independent_acceptance": {
+    "reviewer": "subject_review_006",
+    "result": "PASS",
+    "scope": "four E/D current/history pins and final ten-source agreement"
+  },
+  "journal": {
+    "path": ".caprmedio_caprmedio/_journal/anatoly-m-maslennikov-2026-10-11-part-4.ndjson",
+    "sha256": "a3196363130618a4d18b5e5e0796a52d08edeb76ad14240bc11e1a356281542d",
+    "events": 8
+  },
+  "limits": [
+    "No implementation or original Core Subjects changed.",
+    "Combined packet/contract compilation is CA-P-2066, not this Task.",
+    "Native admission, source migration and runtime activation not performed."
+  ]
+}

@@ -1,0 +1,1350 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2095",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2094-2099.inputs.json",
+      "sha256": "5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "9c16ba32e74cb51cbd4c63cf3b938a57f614f55ca2650d54af2d6ed15b92088d"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2094-2099.contract.md",
+        "sha256": "cf24b036a6dfaf27281f7b67e5cf2f70cff1c147c9edbabf791bb8fc12bf72ff"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/74-CA-P-2095-TASK--review-remaining-scope-unit-and-project-targets.md",
+      "sha256": "cd1a913da14c725e1a99bb5c1f8a8b9a767b7163a9b1773c3b6345344de23f42"
+    },
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+        "sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md",
+        "sha256": "10aa9ef792dce3b452e4e1957ad5ea6d536f59ce7b6fbf4af1ad9cf753c37e7a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md",
+        "sha256": "8ec002929de017298e9210c61590b78278b61f57bd9d9ed73df488b9c849055e"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md",
+        "sha256": "c4b7692619465d85e89357989b727282881fc783df167f01c5d5d85023d4108a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+        "sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1293-CORE_META_MODEL-CORE--prohibit-demands-to-later-ordered-siblings.md",
+        "sha256": "ca33e5cabef7bc7a7cc9071db16177c338c871dc0570f4d79b0b745031844006"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+        "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+        "sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+        "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL-CORE--define-general-artifact-graph.md",
+        "sha256": "3a076773130957430f7c9ee585d8199643cb83edba9e90d60b049ce3d0880069"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md",
+        "sha256": "4cba155ea2ec0fdc6d5425e85e6590c2d63cc6c8653c325975a4ff74123ec1b9"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+        "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+        "sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+        "sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+        "sha256": "31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+        "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1442-CORE_META_MODEL-GENERAL--order-non-project-local-tiers.md",
+        "sha256": "1bb9f86e43bbef7303e65ceb67e4f183608e15fa43880affbdcfae4dae2a388b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1443-CORE_META_MODEL-CORE--restrict-principle-to-project-scope.md",
+        "sha256": "4ca3ce81b7b1e9b292158b48def0af9d4b0c9215036e46dbf9098d438410fa36"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1444-CORE_META_MODEL-CORE--define-global-tier.md",
+        "sha256": "645fc3a90398166225a844baf0956038800a9dfdd13cfdb9229347b6c7460cbf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1447-CORE_META_MODEL-GENERAL--define-owned-atoms.md",
+        "sha256": "71013a2f3d4d646ea0b9d5b54db1bb903d9308bc13ee9df121940c36905af514"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1448-CORE_META_MODEL-GENERAL--define-targeting-atoms.md",
+        "sha256": "b50a8ea3e89a2e204232241a7b81f259f052e08aebb1d25ec5f6d3ad5fb33db3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1449-CORE_META_MODEL-GENERAL--define-subtree-targeting-atoms.md",
+        "sha256": "8a18e82f15f3462ef32d0a3060da0e0a098df57ab6284f7da4da135fafc5a06c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+        "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1498-CORE_META_MODEL-CORE-REQUIREMENT--derive-recursive-containment-from-direct-containment.md",
+        "sha256": "0096d109f1112d8159feec43716baf7e4f688c60615099a43f01e7c7998e691f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+        "sha256": "594a30cc1e597486912beb347ad0a857167b5bbbc428ba06c18ea482b9990ccb"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md",
+        "sha256": "cc874266ba373e0ceadc086d9942236d06828a6a33ee1777bff2b0df0b2b8aee"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+        "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+      "source_atom_id": "CA-R-1191",
+      "source_version": 13,
+      "source_sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31",
+      "field": "governs",
+      "index": null,
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.62,
+      "reason": "The source uses Primary Entity as the independent/no-bearer condition. The candidate provides no explicit replacement retaining that condition across Entity, Artifact, and Actor contexts, so a generic root would lose current qualified identity.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is an explicit owning root, but is not evidence that the independent Primary Entity condition collapses to one candidate root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Primary Entity retains its current no-bearer identity condition.",
+        "No generic Entity, Artifact, or Actor replacement is inferred.",
+        "No selector, singleton kind, source migration, or native admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1191-CORE_META_MODEL-CORE-REQUIREMENT--define-primary-entity.md",
+          "sha256": "52b71abb1b3df787ec3e4394bc5f61c367a4f0da58f5d01fd5ce22ba22e9ff31",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a9020ce3a68d82888dc3fcd715f699af15f0328ca22fdc3ce4256d579ea6ba36",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md",
+      "source_atom_id": "CA-R-1249",
+      "source_version": 12,
+      "source_sha256": "10aa9ef792dce3b452e4e1957ad5ea6d536f59ce7b6fbf4af1ad9cf753c37e7a",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.62,
+      "reason": "The source uses Primary Entity as the independent/no-bearer condition. The candidate provides no explicit replacement retaining that condition across Entity, Artifact, and Actor contexts, so a generic root would lose current qualified identity.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is an explicit owning root, but is not evidence that the independent Primary Entity condition collapses to one candidate root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Primary Entity retains its current no-bearer identity condition.",
+        "No generic Entity, Artifact, or Actor replacement is inferred.",
+        "No selector, singleton kind, source migration, or native admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1249-CORE_META_MODEL-CORE-REQUIREMENT--classify-artifact-as-a-primary-entity.md",
+          "sha256": "10aa9ef792dce3b452e4e1957ad5ea6d536f59ce7b6fbf4af1ad9cf753c37e7a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "e7ae0eaee16561b982459db1baa1a748ddfc47edca90b1a7140852a78a8b9a82",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md",
+      "source_atom_id": "CA-R-1250",
+      "source_version": 12,
+      "source_sha256": "8ec002929de017298e9210c61590b78278b61f57bd9d9ed73df488b9c849055e",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.62,
+      "reason": "The source uses Primary Entity as the independent/no-bearer condition. The candidate provides no explicit replacement retaining that condition across Entity, Artifact, and Actor contexts, so a generic root would lose current qualified identity.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is an explicit owning root, but is not evidence that the independent Primary Entity condition collapses to one candidate root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Primary Entity retains its current no-bearer identity condition.",
+        "No generic Entity, Artifact, or Actor replacement is inferred.",
+        "No selector, singleton kind, source migration, or native admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1250-CORE_META_MODEL-CORE-REQUIREMENT--classify-actor-as-a-primary-entity.md",
+          "sha256": "8ec002929de017298e9210c61590b78278b61f57bd9d9ed73df488b9c849055e",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "52b3ff000a13dafd2d3a0ad788d15b06a59e42d94f6a94b1f74a0858a8a09b6b",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md",
+      "source_atom_id": "CA-R-1266",
+      "source_version": 12,
+      "source_sha256": "c4b7692619465d85e89357989b727282881fc783df167f01c5d5d85023d4108a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.62,
+      "reason": "The source uses Primary Entity as the independent/no-bearer condition. The candidate provides no explicit replacement retaining that condition across Entity, Artifact, and Actor contexts, so a generic root would lose current qualified identity.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is an explicit owning root, but is not evidence that the independent Primary Entity condition collapses to one candidate root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Primary Entity retains its current no-bearer identity condition.",
+        "No generic Entity, Artifact, or Actor replacement is inferred.",
+        "No selector, singleton kind, source migration, or native admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1266-CORE_META_MODEL-CORE-REQUIREMENT--classify-primary-entity-as-an-entity.md",
+          "sha256": "c4b7692619465d85e89357989b727282881fc783df167f01c5d5d85023d4108a",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "66e2966fa0d814d935effb1915cd48a620179ea5f734e801ea7c5719cd2b9cd7",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+      "source_atom_id": "CA-R-1268",
+      "source_version": 12,
+      "source_sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.62,
+      "reason": "The source uses Primary Entity as the independent/no-bearer condition. The candidate provides no explicit replacement retaining that condition across Entity, Artifact, and Actor contexts, so a generic root would lose current qualified identity.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is an explicit owning root, but is not evidence that the independent Primary Entity condition collapses to one candidate root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Primary Entity retains its current no-bearer identity condition.",
+        "No generic Entity, Artifact, or Actor replacement is inferred.",
+        "No selector, singleton kind, source migration, or native admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1268-CORE_META_MODEL-CORE-REQUIREMENT--define-artifact.md",
+          "sha256": "9cfaecd2519ec038a73a183281030d43266113bcdb037cc9152a8c2039ef88de",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "735f291aa1a29c8d608ad9694a08d0bf60cd94b32c590528d3a83f475f905082",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1293-CORE_META_MODEL-CORE--prohibit-demands-to-later-ordered-siblings.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1293-CORE_META_MODEL-CORE--prohibit-demands-to-later-ordered-siblings.md",
+      "source_atom_id": "CA-R-1293",
+      "source_version": 12,
+      "source_sha256": "ca33e5cabef7bc7a7cc9071db16177c338c871dc0570f4d79b0b745031844006",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Local Order",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.66,
+      "reason": "The current definition makes Local Order a sibling-relative coordinate of Ordered Scope Units. The candidate contains Scope Unit but no explicit property/value model preserving ordering, sibling set, and Ordered qualification.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "The candidate establishes Scope Unit as a root but does not define its ordered-sibling Local Order coordinate."
+        }
+      ],
+      "preserved_distinctions": [
+        "Local Order remains the position of an Ordered Scope Unit among ordered siblings.",
+        "Ordering is distinct from Scope Unit identity and from an unqualified candidate property.",
+        "No selector, source-field rename, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1293-CORE_META_MODEL-CORE--prohibit-demands-to-later-ordered-siblings.md",
+          "sha256": "ca33e5cabef7bc7a7cc9071db16177c338c871dc0570f4d79b0b745031844006",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d8c2562fdea426cd6a36da2ffbe258e05b4161e03d9e22ce49fd69ceedcbdbc3",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+      "source_atom_id": "CA-R-1376",
+      "source_version": 12,
+      "source_sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Primary Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.62,
+      "reason": "The source uses Primary Entity as the independent/no-bearer condition. The candidate provides no explicit replacement retaining that condition across Entity, Artifact, and Actor contexts, so a generic root would lose current qualified identity.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is an explicit owning root, but is not evidence that the independent Primary Entity condition collapses to one candidate root."
+        }
+      ],
+      "preserved_distinctions": [
+        "Primary Entity retains its current no-bearer identity condition.",
+        "No generic Entity, Artifact, or Actor replacement is inferred.",
+        "No selector, singleton kind, source migration, or native admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+      "source_atom_id": "CA-R-1376",
+      "source_version": 12,
+      "source_sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Structural Entity/Direct Containment",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.53,
+      "reason": "The current direct-containment relation spans the structural class, including Atom Collections. The candidate only supports recursive Scope Unit nesting and does not define the relation’s broader domain or direct-versus-transitive distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Recursive Scope Unit nesting is explicit, but it does not establish the current broader Direct Containment relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Direct containment remains a typed structural relation, not mere recursive Scope Unit nesting.",
+        "Its current domain includes Atom Collections as well as Scope Units.",
+        "No synthetic relation, selector, or native admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1376-CORE_META_MODEL-CORE--define-structural-entity.md",
+          "sha256": "453af0d506c4ef4a5c37f2e49d14d0ea50b1a172753a8b44dec394263865b1d9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "2b521fc012239f00b095bc42aff35ea8e4917c74b1487a9127102f9f200f6f63",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+      "source_atom_id": "CA-R-1383",
+      "source_version": 10,
+      "source_sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Structural Entity/Direct Containment",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.53,
+      "reason": "The current direct-containment relation spans the structural class, including Atom Collections. The candidate only supports recursive Scope Unit nesting and does not define the relation’s broader domain or direct-versus-transitive distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Recursive Scope Unit nesting is explicit, but it does not establish the current broader Direct Containment relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Direct containment remains a typed structural relation, not mere recursive Scope Unit nesting.",
+        "Its current domain includes Atom Collections as well as Scope Units.",
+        "No synthetic relation, selector, or native admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1383-CORE_META_MODEL-GENERAL--permit-nested-atom-collections.md",
+          "sha256": "9fdeedaf5800006559b213fb3f5f472e1bf549db37de04382d186e992bcfab6d",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "fe13b5f7480a15de831a23f052d59ca1eff963a13767dbba1807714f68b19080",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+      "source_atom_id": "CA-R-1402",
+      "source_version": 10,
+      "source_sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.92,
+      "reason": "The owning source uses Project as the project-specific Scope Unit context, and the current global definition makes a Project Scope Unit a parentless Scope Unit with Type Unordered. The candidate explicitly supplies Scope Unit as the owning root Entity. Scope Unit therefore preserves the entity category without inventing a singleton Project root; the source-local Project qualifications remain preserved.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Defines Scope Unit as the candidate owning root Entity, with recursive nesting outside any individual Atom."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the particular parentless, Unordered Project Scope Unit in current definitions; Scope Unit is only the generic candidate category.",
+        "Project-specific authority, settings, and principle conditions remain source-local qualifications.",
+        "No singleton Project kind, path identity, selector, source-field rename, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1402-CORE_META_MODEL-CORE--define-framework-instance-settings.md",
+          "sha256": "55819591535bf60bc5a4ddc8f55dc9c4f46201ce3b4d588f5d6a35b2941fd2f2",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1bb4cffd364e1871377b5398f57f1f55b3adbca3f49f197d150da5b2544b6361",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current global definition was re-read: a Project Scope Unit has zero parent Scope Units and Type Unordered."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL-CORE--define-general-artifact-graph.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL-CORE--define-general-artifact-graph.md",
+      "source_atom_id": "CA-R-1409",
+      "source_version": 8,
+      "source_sha256": "3a076773130957430f7c9ee585d8199643cb83edba9e90d60b049ce3d0880069",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The live sources use Structural Entity for a heterogeneous structural class that includes Scope Units and Atom Collections. The candidate defines Scope Unit but no Atom Collection counterpart or explicit structural supertype, so mapping it to Scope Unit would drop current membership.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit supports only part of the current Structural Entity class; the candidate supplies no Atom Collection/structural-class identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Structural Entity includes Scope Units and Atom Collections in the current source.",
+        "Graph representation remains derived and does not create a new authority.",
+        "No Atom Collection root, selector, or synthetic containment relation is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL-CORE--define-general-artifact-graph.md",
+          "sha256": "3a076773130957430f7c9ee585d8199643cb83edba9e90d60b049ce3d0880069",
+          "start_line": 27,
+          "end_line": 41,
+          "span_sha256": "404c56356440476a2dc75b1abc47b088209aeec0d4ffee918976e83ac98dbf46",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL-CORE--define-general-artifact-graph.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL-CORE--define-general-artifact-graph.md",
+      "source_atom_id": "CA-R-1409",
+      "source_version": 8,
+      "source_sha256": "3a076773130957430f7c9ee585d8199643cb83edba9e90d60b049ce3d0880069",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Structural Entity/Direct Containment",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.53,
+      "reason": "The current direct-containment relation spans the structural class, including Atom Collections. The candidate only supports recursive Scope Unit nesting and does not define the relation’s broader domain or direct-versus-transitive distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Recursive Scope Unit nesting is explicit, but it does not establish the current broader Direct Containment relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Direct containment remains a typed structural relation, not mere recursive Scope Unit nesting.",
+        "Its current domain includes Atom Collections as well as Scope Units.",
+        "No synthetic relation, selector, or native admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1409-CORE_META_MODEL-CORE--define-general-artifact-graph.md",
+          "sha256": "3a076773130957430f7c9ee585d8199643cb83edba9e90d60b049ce3d0880069",
+          "start_line": 27,
+          "end_line": 41,
+          "span_sha256": "404c56356440476a2dc75b1abc47b088209aeec0d4ffee918976e83ac98dbf46",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md",
+      "source_atom_id": "CA-R-1410",
+      "source_version": 7,
+      "source_sha256": "4cba155ea2ec0fdc6d5425e85e6590c2d63cc6c8653c325975a4ff74123ec1b9",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The live sources use Structural Entity for a heterogeneous structural class that includes Scope Units and Atom Collections. The candidate defines Scope Unit but no Atom Collection counterpart or explicit structural supertype, so mapping it to Scope Unit would drop current membership.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit supports only part of the current Structural Entity class; the candidate supplies no Atom Collection/structural-class identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Structural Entity includes Scope Units and Atom Collections in the current source.",
+        "Graph representation remains derived and does not create a new authority.",
+        "No Atom Collection root, selector, or synthetic containment relation is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1410-CORE_META_MODEL-CORE--connect-every-caprmedio-graph-through-the-general-artifact-graph.md",
+          "sha256": "4cba155ea2ec0fdc6d5425e85e6590c2d63cc6c8653c325975a4ff74123ec1b9",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "47fb5ad7d10548785312b25f4f61b859193661ae9547b20ad1a07f39989a2d19",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+      "source_atom_id": "CA-R-1422",
+      "source_version": 8,
+      "source_sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.92,
+      "reason": "The owning source uses Project as the project-specific Scope Unit context, and the current global definition makes a Project Scope Unit a parentless Scope Unit with Type Unordered. The candidate explicitly supplies Scope Unit as the owning root Entity. Scope Unit therefore preserves the entity category without inventing a singleton Project root; the source-local Project qualifications remain preserved.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Defines Scope Unit as the candidate owning root Entity, with recursive nesting outside any individual Atom."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the particular parentless, Unordered Project Scope Unit in current definitions; Scope Unit is only the generic candidate category.",
+        "Project-specific authority, settings, and principle conditions remain source-local qualifications.",
+        "No singleton Project kind, path identity, selector, source-field rename, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current global definition was re-read: a Project Scope Unit has zero parent Scope Units and Type Unordered."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+      "source_atom_id": "CA-R-1430",
+      "source_version": 8,
+      "source_sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project Structure",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact",
+      "confidence": 0.92,
+      "reason": "The owning source uses Project Structure as the source of a Project-specific override. The current global definition explicitly identifies Project Structure as an authoritative non-Atom Artifact containing accepted Scope Unit declarations, while the candidate defines Artifact as a root Entity. Artifact retains that category without adding a display prefix or confusing it with a Carrier.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/0",
+            "reason": "Defines Artifact as the candidate root Entity with one governed lifecycle containing named dependent Entities."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Structure remains the authoritative non-Atom Artifact containing accepted Scope Unit declarations.",
+        "It remains distinct from a Projection, Goal Atom, Carrier, filesystem observation, and a path-derived identity.",
+        "No Artifact.Revision, carrier binding, source-field rename, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+          "sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263",
+          "start_line": 27,
+          "end_line": 39,
+          "span_sha256": "b11e18e136e6a834292212df42fc5f17fb928513cccd14c88936ca66f5d4845f",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1483-CORE_META_MODEL-CORE--define-authoritative-project-structure.md",
+          "sha256": "9b18eb93b626c0520d5dc6fb93a0e3e4c4be4adf123bda002fb025a4f48ffce4",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "17fc5856f30b3f7866487bb2144a4e27cc0e973f1d62bc301c6e22acd2e390ad",
+          "reason": "Current global definition was re-read: Project Structure is the authoritative non-Atom Artifact containing a Project’s accepted Scope Unit declarations."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+      "source_atom_id": "CA-R-1430",
+      "source_version": 8,
+      "source_sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.92,
+      "reason": "The owning source uses Project as the project-specific Scope Unit context, and the current global definition makes a Project Scope Unit a parentless Scope Unit with Type Unordered. The candidate explicitly supplies Scope Unit as the owning root Entity. Scope Unit therefore preserves the entity category without inventing a singleton Project root; the source-local Project qualifications remain preserved.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Defines Scope Unit as the candidate owning root Entity, with recursive nesting outside any individual Atom."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the particular parentless, Unordered Project Scope Unit in current definitions; Scope Unit is only the generic candidate category.",
+        "Project-specific authority, settings, and principle conditions remain source-local qualifications.",
+        "No singleton Project kind, path identity, selector, source-field rename, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1430-CORE_META_MODEL-GENERAL--select-authority-modes-through-framework-instance-settings.md",
+          "sha256": "ec9d8b3f6d6aa35d43101e4d7d6d405413778d4bc05d15cce92975ae6356d263",
+          "start_line": 27,
+          "end_line": 39,
+          "span_sha256": "b11e18e136e6a834292212df42fc5f17fb928513cccd14c88936ca66f5d4845f",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current global definition was re-read: a Project Scope Unit has zero parent Scope Units and Type Unordered."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+      "source_atom_id": "CA-R-1434",
+      "source_version": 8,
+      "source_sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.92,
+      "reason": "The owning source uses Project as the project-specific Scope Unit context, and the current global definition makes a Project Scope Unit a parentless Scope Unit with Type Unordered. The candidate explicitly supplies Scope Unit as the owning root Entity. Scope Unit therefore preserves the entity category without inventing a singleton Project root; the source-local Project qualifications remain preserved.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Defines Scope Unit as the candidate owning root Entity, with recursive nesting outside any individual Atom."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the particular parentless, Unordered Project Scope Unit in current definitions; Scope Unit is only the generic candidate category.",
+        "Project-specific authority, settings, and principle conditions remain source-local qualifications.",
+        "No singleton Project kind, path identity, selector, source-field rename, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1434-CORE_META_MODEL-CORE--provide-reusable-methodology-compilation-authority.md",
+          "sha256": "4be82bc5555ffd4c96fdd6b25f714acd7964025a24dc707f76858cc5e17d96ee",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "8ee60ec795427357f6227a2fb398eb5d3e1f4cf9c8624232cbc381e5cecfcf41",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current global definition was re-read: a Project Scope Unit has zero parent Scope Units and Type Unordered."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+      "source_atom_id": "CA-R-1437",
+      "source_version": 6,
+      "source_sha256": "31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Structural Entity",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.55,
+      "reason": "The live sources use Structural Entity for a heterogeneous structural class that includes Scope Units and Atom Collections. The candidate defines Scope Unit but no Atom Collection counterpart or explicit structural supertype, so mapping it to Scope Unit would drop current membership.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit supports only part of the current Structural Entity class; the candidate supplies no Atom Collection/structural-class identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "Structural Entity includes Scope Units and Atom Collections in the current source.",
+        "Graph representation remains derived and does not create a new authority.",
+        "No Atom Collection root, selector, or synthetic containment relation is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-CORE--keep-one-source-for-each-relation-fact.md",
+          "sha256": "31392aee334fa3ca828d8459d585ca6655f99506ee7a98d59d2ff381bfa0ddbf",
+          "start_line": 25,
+          "end_line": 39,
+          "span_sha256": "0e29e9b297ced7ac025980f02ac9592683869c626fca6a6ea4f3d748513e9088",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+      "source_atom_id": "CA-R-1441",
+      "source_version": 8,
+      "source_sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.92,
+      "reason": "The owning source uses Project as the project-specific Scope Unit context, and the current global definition makes a Project Scope Unit a parentless Scope Unit with Type Unordered. The candidate explicitly supplies Scope Unit as the owning root Entity. Scope Unit therefore preserves the entity category without inventing a singleton Project root; the source-local Project qualifications remain preserved.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Defines Scope Unit as the candidate owning root Entity, with recursive nesting outside any individual Atom."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the particular parentless, Unordered Project Scope Unit in current definitions; Scope Unit is only the generic candidate category.",
+        "Project-specific authority, settings, and principle conditions remain source-local qualifications.",
+        "No singleton Project kind, path identity, selector, source-field rename, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1441-CORE_META_MODEL-CORE--define-default-settings.md",
+          "sha256": "8d1e66cd103c269aa291cb57ae101c80536df27bdcddbb58f058c4db20c84928",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "e348fe4db6df77d4c5b84c7f04b9e44c1c4044ae7b766a5490f087461752ebaa",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current global definition was re-read: a Project Scope Unit has zero parent Scope Units and Type Unordered."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1442-CORE_META_MODEL-GENERAL--order-non-project-local-tiers.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1442-CORE_META_MODEL-GENERAL--order-non-project-local-tiers.md",
+      "source_atom_id": "CA-R-1442",
+      "source_version": 10,
+      "source_sha256": "1bb9f86e43bbef7303e65ceb67e4f183608e15fa43880affbdcfae4dae2a388b",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.92,
+      "reason": "The owning source uses Project as the project-specific Scope Unit context, and the current global definition makes a Project Scope Unit a parentless Scope Unit with Type Unordered. The candidate explicitly supplies Scope Unit as the owning root Entity. Scope Unit therefore preserves the entity category without inventing a singleton Project root; the source-local Project qualifications remain preserved.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Defines Scope Unit as the candidate owning root Entity, with recursive nesting outside any individual Atom."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the particular parentless, Unordered Project Scope Unit in current definitions; Scope Unit is only the generic candidate category.",
+        "Project-specific authority, settings, and principle conditions remain source-local qualifications.",
+        "No singleton Project kind, path identity, selector, source-field rename, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1442-CORE_META_MODEL-GENERAL--order-non-project-local-tiers.md",
+          "sha256": "1bb9f86e43bbef7303e65ceb67e4f183608e15fa43880affbdcfae4dae2a388b",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "90a03f200ca6e4c449e4947a875cd86d0ffae6fd6ede44b8d8fd3489865fa9eb",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current global definition was re-read: a Project Scope Unit has zero parent Scope Units and Type Unordered."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1443-CORE_META_MODEL-CORE--restrict-principle-to-project-scope.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1443-CORE_META_MODEL-CORE--restrict-principle-to-project-scope.md",
+      "source_atom_id": "CA-R-1443",
+      "source_version": 9,
+      "source_sha256": "4ca3ce81b7b1e9b292158b48def0af9d4b0c9215036e46dbf9098d438410fa36",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Project",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Scope Unit",
+      "confidence": 0.92,
+      "reason": "The owning source uses Project as the project-specific Scope Unit context, and the current global definition makes a Project Scope Unit a parentless Scope Unit with Type Unordered. The candidate explicitly supplies Scope Unit as the owning root Entity. Scope Unit therefore preserves the entity category without inventing a singleton Project root; the source-local Project qualifications remain preserved.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Defines Scope Unit as the candidate owning root Entity, with recursive nesting outside any individual Atom."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project remains the particular parentless, Unordered Project Scope Unit in current definitions; Scope Unit is only the generic candidate category.",
+        "Project-specific authority, settings, and principle conditions remain source-local qualifications.",
+        "No singleton Project kind, path identity, selector, source-field rename, or migration is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1443-CORE_META_MODEL-CORE--restrict-principle-to-project-scope.md",
+          "sha256": "4ca3ce81b7b1e9b292158b48def0af9d4b0c9215036e46dbf9098d438410fa36",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "5f72971d238171e26c33cb16bafda92d12ffa85052702aa4401087f812b66f6b",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1759-CORE_META_MODEL-CORE--keep-the-project-unordered-without-a-parent.md",
+          "sha256": "5875dc8cc4787909dc31bee8f946100c598ff0c112da9e906e0c3f3c70cf1506",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "603d1cc23b22360c450a9ac56cc887ae0576e3829a0fecd994720d8088105b85",
+          "reason": "Current global definition was re-read: a Project Scope Unit has zero parent Scope Units and Type Unordered."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1444-CORE_META_MODEL-CORE--define-global-tier.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1444-CORE_META_MODEL-CORE--define-global-tier.md",
+      "source_atom_id": "CA-R-1444",
+      "source_version": 9,
+      "source_sha256": "645fc3a90398166225a844baf0956038800a9dfdd13cfdb9229347b6c7460cbf",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Structural Level",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.64,
+      "reason": "The candidate supplies neither an explicit Structural Level property nor its signed ancestry coordinate relative to the Project Scope Unit. Scope Unit alone would drop the measured-property and reference-point meaning.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is the current coordinate’s carrier context, not an explicit candidate Structural Level property."
+        }
+      ],
+      "preserved_distinctions": [
+        "Structural Level remains the signed ancestry-depth coordinate relative to the Project Scope Unit.",
+        "The Project Scope Unit reference and integer-coordinate rule remain qualified current meaning.",
+        "No generic property or path identity is invented."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1444-CORE_META_MODEL-CORE--define-global-tier.md",
+          "sha256": "645fc3a90398166225a844baf0956038800a9dfdd13cfdb9229347b6c7460cbf",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "e93ad919445cb63641f398f5e7c3cbb2724e4e5711c310f1f8a3ee0b395899b4",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1447-CORE_META_MODEL-GENERAL--define-owned-atoms.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1447-CORE_META_MODEL-GENERAL--define-owned-atoms.md",
+      "source_atom_id": "CA-R-1447",
+      "source_version": 8,
+      "source_sha256": "71013a2f3d4d646ea0b9d5b54db1bb903d9308bc13ee9df121940c36905af514",
+      "field": "governs",
+      "index": null,
+      "old_value": "Owned Atoms",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.58,
+      "reason": "The source defines Owned Atoms as a derived selection by internally carried current Scope Unit, expressly excluding grouping, carrier, decomposition, and placement. The candidate Scope Unit ownership statement does not specify that set-valued selection or its exclusions.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit ownership is explicit, but the candidate does not define the current selected Owned Atoms derivation."
+        },
+        {
+          "pointer": "#/content_direction/scope_omission",
+          "reason": "Substance Scope is applicability to Subject and owning Scope Unit, not the selected current Scope Unit ownership set."
+        }
+      ],
+      "preserved_distinctions": [
+        "Owned Atoms remains a selected Scope Unit’s derived set based on internally carried current Scope Unit.",
+        "Ownership remains distinct from grouping, carrier, decomposition, placement, and Substance Scope applicability.",
+        "No set-valued property, selector, or registry is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1447-CORE_META_MODEL-GENERAL--define-owned-atoms.md",
+          "sha256": "71013a2f3d4d646ea0b9d5b54db1bb903d9308bc13ee9df121940c36905af514",
+          "start_line": 20,
+          "end_line": 36,
+          "span_sha256": "b6cfb652b9ad93a12d5ff1e6afd8e678d023db39026a2cbc6bebcccb78117caa",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1448-CORE_META_MODEL-GENERAL--define-targeting-atoms.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1448-CORE_META_MODEL-GENERAL--define-targeting-atoms.md",
+      "source_atom_id": "CA-R-1448",
+      "source_version": 9,
+      "source_sha256": "b50a8ea3e89a2e204232241a7b81f259f052e08aebb1d25ec5f6d3ad5fb33db3",
+      "field": "governs",
+      "index": null,
+      "old_value": "Targeting Atoms",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.57,
+      "reason": "The source defines Targeting Atoms by resolved Claim Target Scope Unit, independently of ownership or storage. The candidate lacks a target-set identity, and mapping to Scope Unit would invert a relation between an Atom set and its target.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is the current target value, not the derived Targeting Atoms set."
+        },
+        {
+          "pointer": "#/content_direction/scope_omission",
+          "reason": "Substance Scope applicability is not Claim Target Scope Unit targeting."
+        }
+      ],
+      "preserved_distinctions": [
+        "Targeting Atoms remains a derived set resolved through Claim Target Scope Unit.",
+        "Targeting remains independent from owning/storage Scope Unit and Substance Scope applicability.",
+        "No set-valued property, selector, or source-field rename is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1448-CORE_META_MODEL-GENERAL--define-targeting-atoms.md",
+          "sha256": "b50a8ea3e89a2e204232241a7b81f259f052e08aebb1d25ec5f6d3ad5fb33db3",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "de5f71cdb9f944d9919c5131f7d32ba7fcb53ff9aef5268f72efb5f1ab4bb416",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1449-CORE_META_MODEL-GENERAL--define-subtree-targeting-atoms.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1449-CORE_META_MODEL-GENERAL--define-subtree-targeting-atoms.md",
+      "source_atom_id": "CA-R-1449",
+      "source_version": 7,
+      "source_sha256": "8a18e82f15f3462ef32d0a3060da0e0a098df57ab6284f7da4da135fafc5a06c",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Targeting Atoms",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.57,
+      "reason": "The source defines Targeting Atoms by resolved Claim Target Scope Unit, independently of ownership or storage. The candidate lacks a target-set identity, and mapping to Scope Unit would invert a relation between an Atom set and its target.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is the current target value, not the derived Targeting Atoms set."
+        },
+        {
+          "pointer": "#/content_direction/scope_omission",
+          "reason": "Substance Scope applicability is not Claim Target Scope Unit targeting."
+        }
+      ],
+      "preserved_distinctions": [
+        "Targeting Atoms remains a derived set resolved through Claim Target Scope Unit.",
+        "Targeting remains independent from owning/storage Scope Unit and Substance Scope applicability.",
+        "No set-valued property, selector, or source-field rename is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1449-CORE_META_MODEL-GENERAL--define-subtree-targeting-atoms.md",
+          "sha256": "8a18e82f15f3462ef32d0a3060da0e0a098df57ab6284f7da4da135fafc5a06c",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "f324dee0a77d3a450ba3dba66e89a6488824ff0447c33e13852aa08d82ecdeef",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1498-CORE_META_MODEL-CORE-REQUIREMENT--derive-recursive-containment-from-direct-containment.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1498-CORE_META_MODEL-CORE-REQUIREMENT--derive-recursive-containment-from-direct-containment.md",
+      "source_atom_id": "CA-R-1498",
+      "source_version": 4,
+      "source_sha256": "0096d109f1112d8159feec43716baf7e4f688c60615099a43f01e7c7998e691f",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Structural Entity/Direct Containment",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.53,
+      "reason": "The current direct-containment relation spans the structural class, including Atom Collections. The candidate only supports recursive Scope Unit nesting and does not define the relation’s broader domain or direct-versus-transitive distinction.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Recursive Scope Unit nesting is explicit, but it does not establish the current broader Direct Containment relation."
+        }
+      ],
+      "preserved_distinctions": [
+        "Direct containment remains a typed structural relation, not mere recursive Scope Unit nesting.",
+        "Its current domain includes Atom Collections as well as Scope Units.",
+        "No synthetic relation, selector, or native admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1498-CORE_META_MODEL-CORE-REQUIREMENT--derive-recursive-containment-from-direct-containment.md",
+          "sha256": "0096d109f1112d8159feec43716baf7e4f688c60615099a43f01e7c7998e691f",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "329179cdb0f276394f0f298ba56f151677126efe4fe144428f5642461c09d402",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+      "source_atom_id": "CA-R-1658",
+      "source_version": 17,
+      "source_sha256": "594a30cc1e597486912beb347ad0a857167b5bbbc428ba06c18ea482b9990ccb",
+      "field": "governs",
+      "index": null,
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.52,
+      "reason": "The live sources use scope-topology for validation rules over parent ancestry, active intermediary scopes, and structural coordinates. The candidate Scope Unit root does not define a corresponding entity/property identity, so no lossless replacement is supported.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is part of the validation domain, not an explicit candidate scope-topology identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "scope-topology remains a validation/constraint rule over structural ancestry and coordinates.",
+        "Validation of stored parent and active intermediate scope remains distinct from Scope Unit identity.",
+        "No synthetic property, selector, or runtime admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1658-CORE_META_MODEL-CORE-REQUIREMENT--prohibit-skipped-scope-unit-ownership.md",
+          "sha256": "594a30cc1e597486912beb347ad0a857167b5bbbc428ba06c18ea482b9990ccb",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "13c007eb2372af2b04849227de23d3a15ed936bd68e3b3102d049e62402d4a6a",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md",
+      "source_atom_id": "CA-R-1677",
+      "source_version": 20,
+      "source_sha256": "cc874266ba373e0ceadc086d9942236d06828a6a33ee1777bff2b0df0b2b8aee",
+      "field": "governs",
+      "index": null,
+      "old_value": "scope-topology",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.52,
+      "reason": "The live sources use scope-topology for validation rules over parent ancestry, active intermediary scopes, and structural coordinates. The candidate Scope Unit root does not define a corresponding entity/property identity, so no lossless replacement is supported.",
+      "candidate_basis": [
+        {
+          "pointer": "#/root_entities/1",
+          "reason": "Scope Unit is part of the validation domain, not an explicit candidate scope-topology identity."
+        }
+      ],
+      "preserved_distinctions": [
+        "scope-topology remains a validation/constraint rule over structural ancestry and coordinates.",
+        "Validation of stored parent and active intermediate scope remains distinct from Scope Unit identity.",
+        "No synthetic property, selector, or runtime admission is inferred."
+      ],
+      "question": null,
+      "executable": false,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1677-CORE_META_MODEL-GENERAL--validate-structural-coordinates-against-authority.md",
+          "sha256": "cc874266ba373e0ceadc086d9942236d06828a6a33ee1777bff2b0df0b2b8aee",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "f0faeddffe7e3e5accd2cae5e7cad3f4f0d4c4a193dee1645114059acd949bdd",
+          "reason": "The complete current owning Main Content, including Scope and Details, was re-read; this exact byte span is freshly hash-verified for the assigned occurrence."
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "assigned": 28,
+    "covered": 28,
+    "proposed": 8,
+    "unresolved": 20,
+    "owning_sources": 25,
+    "current_sources": 27,
+    "current_evidence_spans": 36
+  },
+  "limits": [
+    "Research only; every proposed value requires independent semantic review before ledger acceptance.",
+    "No current Subject grammar, source migration, native admission, selector syntax, singleton Project root, @ operator, Artifact.Revision, carrier registry, or live graph change is admitted.",
+    "Scope Unit ownership remains distinct from Substance Scope applicability, Claim Target Scope Unit targeting, and source-local Project qualifications.",
+    "Unresolved rows remain null where the candidate cannot retain the current qualified structural, ordering, set-derivation, or validation-rule meaning."
+  ]
+}

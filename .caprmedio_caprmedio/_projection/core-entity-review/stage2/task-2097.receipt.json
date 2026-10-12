@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2097",
+  "recorded_at": "2026-10-11 07:42:02 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review remaining relation targets; not migration approval",
+  "verification": {
+    "task": "CA-P-2097",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2097.research.json",
+      "sha256": "7a24becd960411a50eeb6ef344df0599c817820376453cdfbc6511c15495ae04"
+    },
+    "rows": 25,
+    "counts": {
+      "proposed": 14,
+      "unresolved": 11
+    },
+    "exact_evidence_spans": 25,
+    "exact_input_pins": 12,
+    "historical_plan_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2094-2099.inputs.json",
+      "sha256": "5e9ed02cadeccf6b46dcea33593db65c8540c7cf77ce984a3d2502d8f00c3a3d"
+    },
+    "registration_commit": "da5074e2d2ac47d44f001526f0e88c947f963ef2",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/subject_review_005",
+      "final_report_sha256": "7a24becd960411a50eeb6ef344df0599c817820376453cdfbc6511c15495ae04",
+      "result": "PASS after correction: all25owning meanings checked;14 supported Relation proposals and11 justified nulls",
+      "rejected_earlier_report_sha256": "44cef37bb2a52b1b676017af02c3d944a351ccd331d7701aa52a949104ed2454",
+      "correction": "CA-R-1018 Evaluation For Relation remains null: Evaluation owner, target roles and checked-authority qualification cannot be collapsed into generic Relation"
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/subject_review_005",
+    "final_report_sha256": "7a24becd960411a50eeb6ef344df0599c817820376453cdfbc6511c15495ae04",
+    "result": "PASS after correction: all25owning meanings checked;14 supported Relation proposals and11 justified nulls",
+    "rejected_earlier_report_sha256": "44cef37bb2a52b1b676017af02c3d944a351ccd331d7701aa52a949104ed2454",
+    "correction": "CA-R-1018 Evaluation For Relation remains null: Evaluation owner, target roles and checked-authority qualification cannot be collapsed into generic Relation"
+  },
+  "completion_scope": "All 25 assigned Relation Subject origins passed independent semantic acceptance and exact current-origin/pin/span checks after correcting the unsupported CA-R-1018 generalization. Fourteen relation-model aliases have supported Relation proposals; eleven qualified/lineage meanings remain null. No native Relation kind or source migration was admitted.",
+  "registration_commit": "da5074e2d2ac47d44f001526f0e88c947f963ef2",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

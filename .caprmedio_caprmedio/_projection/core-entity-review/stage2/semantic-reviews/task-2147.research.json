@@ -1,0 +1,1113 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2147",
+  "family": "unqualified_origins_004",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2144-2151.inputs.json",
+      "sha256": "a7298c750e0d25fe678aaf4b6b3b9947c62a91f011cac9ba9ccdd2e29484ef92"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "d2994276ef63a8a2d5286ae0f2ddf1c75beebc3ed377eac692ec8db7129e38de"
+    },
+    "baseline_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2144-2151.contract.md",
+        "sha256": "0df1d9e998ad2b8cc3e26f7cb5dfdf58421a9e6c9f27a456a828d32c02f4a651"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+        "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+        "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+        "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.contract.md",
+        "sha256": "14fadd10a3d19c70da4bec58eb21b768dfa5a8d6197bef8bcec58784924c25e6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/followups-current-2132-2139.contract.md",
+        "sha256": "3ed29d889a2d7905614a0d02c23a75f82fb002ffea51f4dce2714f60865aa6ff"
+      }
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/111-CA-P-2147-TASK--review-remaining-unqualified-subjects-004.md",
+      "sha256": "3c120c8db8f612e3a26c7a2b4176bbf6d355f5497d292a318affc6ab924f8c3f"
+    },
+    "task_registration_sha256": "98d0b4617deb172906712abe278c2562048c3a2e",
+    "selection_occurrence_id_set_sha256": "88a1cc7f97825c35176014dabd5a45767b646d16f4759dc90c0a7cc22031538e",
+    "current_sources": [
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md",
+        "sha256": "994b91d17ef0089ff49d3bc8d07776830d0ab3803ebcef5fbbbdfee9343219b6"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-256-CORE_META_MODEL-CORE-DELIVERY--define-carries.md",
+        "sha256": "1cc8ccf565aaa36b83d71d8d89514cc85a94ace691281daca38f269342e6b9bd"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-257-CORE_META_MODEL-CORE-DELIVERY--define-is-carried-by.md",
+        "sha256": "c98a25d70836de9a0cf6c3da781fb9e64e810fae5f47a4df734eeaa63d7a5682"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-DELIVERY--derive-direct-containment-from-the-nearest-directory-carrier.md",
+        "sha256": "0f19e5fd28ed760867d261ad14aa29e0bed6b95d7482ad8a0bd196483f144f36"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-CORE-DELIVERY--prohibit-persisting-derived-containment.md",
+        "sha256": "e8786ab9d629bf73b7d5a6679cfecbf72921ed04ab8c888d8f4e4d85b7fe8d36"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md",
+        "sha256": "2afc204f59d90286345c9f4b5f74f8fcf2b8b40b992ab5aca734b0ad53e46335"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+        "sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+        "sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md",
+        "sha256": "84f1e41ffe1d1bd5e17fffbbdd51c0de63ea8be0769f2182bc7a06e43488e144"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-338-CORE_META_MODEL-GENERAL-DELIVERY--serialize-completed-projection-rebuild-results.md",
+        "sha256": "33fe42c9c7fe098894b526d03aa4dfbc562e59506f801c5c9e91782730066602"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+        "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+        "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+        "sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md",
+        "sha256": "29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+        "sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+        "sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+        "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+        "sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+        "sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0"
+      },
+      {
+        "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+        "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md",
+      "source_atom_id": "CAPRMEDIO-GOV-EVAL-010",
+      "source_version": 17,
+      "source_sha256": "994b91d17ef0089ff49d3bc8d07776830d0ab3803ebcef5fbbbdfee9343219b6",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Implementation Relation",
+      "quarantined": true,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.42,
+      "reason": "The quarantined Evaluation rejects generated-only updates that contribute an Implementation Relation or self-cite a generated Projection, but it does not name the canonical Relation Type, endpoints, or direction. A generic Relation target would discard that implementation/provenance boundary.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CAPRMEDIO-GOV-EVAL-010-CORE_META_MODEL-EVALUATION_APPROACH--validate-generated-only-provenance-boundary.md",
+          "sha256": "994b91d17ef0089ff49d3bc8d07776830d0ab3803ebcef5fbbbdfee9343219b6",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "1abc21c53c1ade3395b3f8cacef5c9ebf0c74e4a1f8b0a99e78b6c06f332a0b7",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "The generated-only validation, Implementation Relation qualification, Projection self-input prohibition, and quarantine remain explicit; no kind or generic root is guessed."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-256-CORE_META_MODEL-CORE-DELIVERY--define-carries.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-256-CORE_META_MODEL-CORE-DELIVERY--define-carries.md",
+      "source_atom_id": "CA-D-256",
+      "source_version": 14,
+      "source_sha256": "1cc8ccf565aaa36b83d71d8d89514cc85a94ace691281daca38f269342e6b9bd",
+      "field": "governs",
+      "index": null,
+      "old_value": "CARRIES",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: CARRIES",
+      "confidence": 0.95,
+      "reason": "CA-D-256 directly defines CARRIES as the directed Relation from a Carrier to the non-ephemeral Entity it stores or represents. CA-D-257 independently makes IS_CARRIED_BY its inverse direction. The named direct Relation therefore supports Relation.Type: CARRIES without independently admitting the inverse as a second direct kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-256-CORE_META_MODEL-CORE-DELIVERY--define-carries.md",
+          "sha256": "1cc8ccf565aaa36b83d71d8d89514cc85a94ace691281daca38f269342e6b9bd",
+          "start_line": 22,
+          "end_line": 38,
+          "span_sha256": "3cd8a32ee90ee17669bec6eb7a76d5dd179aa430602c51aa78724e56d74bad4b",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model/name_variants",
+          "reason": "The candidate confirms Relation Type and Relation Kind are one concept, so a live current body that directly defines a named Relation supports a Relation.Type target without admitting a new native kind."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves the current Relation's endpoint and direction constraints rather than flattening its Carrier/Entity or Structural Entity qualifications."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier-to-Entity direction, non-ephemeral endpoint qualification, applicable representation definition, and exact carried-Revision condition remain live-body constraints.",
+        "IS_CARRIED_BY remains inverse navigation, not a separate authored Relation Type or a per-Property Carrier registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-257-CORE_META_MODEL-CORE-DELIVERY--define-is-carried-by.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-257-CORE_META_MODEL-CORE-DELIVERY--define-is-carried-by.md",
+      "source_atom_id": "CA-D-257",
+      "source_version": 13,
+      "source_sha256": "c98a25d70836de9a0cf6c3da781fb9e64e810fae5f47a4df734eeaa63d7a5682",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "CARRIES",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: CARRIES",
+      "confidence": 0.95,
+      "reason": "CA-D-256 directly defines CARRIES as the directed Relation from a Carrier to the non-ephemeral Entity it stores or represents. CA-D-257 independently makes IS_CARRIED_BY its inverse direction. The named direct Relation therefore supports Relation.Type: CARRIES without independently admitting the inverse as a second direct kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-257-CORE_META_MODEL-CORE-DELIVERY--define-is-carried-by.md",
+          "sha256": "c98a25d70836de9a0cf6c3da781fb9e64e810fae5f47a4df734eeaa63d7a5682",
+          "start_line": 21,
+          "end_line": 35,
+          "span_sha256": "2dda5e4d7462d5d16d1fb88ccaa842cd81e054dc4de19df4dee2061d9496c4c5",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model/name_variants",
+          "reason": "The candidate confirms Relation Type and Relation Kind are one concept, so a live current body that directly defines a named Relation supports a Relation.Type target without admitting a new native kind."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves the current Relation's endpoint and direction constraints rather than flattening its Carrier/Entity or Structural Entity qualifications."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier-to-Entity direction, non-ephemeral endpoint qualification, applicable representation definition, and exact carried-Revision condition remain live-body constraints.",
+        "IS_CARRIED_BY remains inverse navigation, not a separate authored Relation Type or a per-Property Carrier registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-257-CORE_META_MODEL-CORE-DELIVERY--define-is-carried-by.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-257-CORE_META_MODEL-CORE-DELIVERY--define-is-carried-by.md",
+      "source_atom_id": "CA-D-257",
+      "source_version": 13,
+      "source_sha256": "c98a25d70836de9a0cf6c3da781fb9e64e810fae5f47a4df734eeaa63d7a5682",
+      "field": "governs",
+      "index": null,
+      "old_value": "IS_CARRIED_BY",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation.Type: CARRIES",
+      "confidence": 0.95,
+      "reason": "CA-D-256 directly defines CARRIES as the directed Relation from a Carrier to the non-ephemeral Entity it stores or represents. CA-D-257 independently makes IS_CARRIED_BY its inverse direction. The named direct Relation therefore supports Relation.Type: CARRIES without independently admitting the inverse as a second direct kind.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-257-CORE_META_MODEL-CORE-DELIVERY--define-is-carried-by.md",
+          "sha256": "c98a25d70836de9a0cf6c3da781fb9e64e810fae5f47a4df734eeaa63d7a5682",
+          "start_line": 21,
+          "end_line": 35,
+          "span_sha256": "2dda5e4d7462d5d16d1fb88ccaa842cd81e054dc4de19df4dee2061d9496c4c5",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/relation_type_model/name_variants",
+          "reason": "The candidate confirms Relation Type and Relation Kind are one concept, so a live current body that directly defines a named Relation supports a Relation.Type target without admitting a new native kind."
+        },
+        {
+          "pointer": "/relation_type_model/endpoint_boundary",
+          "reason": "The candidate preserves the current Relation's endpoint and direction constraints rather than flattening its Carrier/Entity or Structural Entity qualifications."
+        }
+      ],
+      "preserved_distinctions": [
+        "Carrier-to-Entity direction, non-ephemeral endpoint qualification, applicable representation definition, and exact carried-Revision condition remain live-body constraints.",
+        "IS_CARRIED_BY remains inverse navigation, not a separate authored Relation Type or a per-Property Carrier registry."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-DELIVERY--derive-direct-containment-from-the-nearest-directory-carrier.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-DELIVERY--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "source_atom_id": "CA-D-264",
+      "source_version": 14,
+      "source_sha256": "0f19e5fd28ed760867d261ad14aa29e0bed6b95d7482ad8a0bd196483f144f36",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Containment Relation Pair",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.91,
+      "reason": "CA-D-264 and CA-D-266 govern a typed CONTAINS/IS_CONTAINED_BY containment pair derived from canonical Directory Carrier nesting, including the non-persistence rule. The bodies support Relation as the precise common semantic category, while they do not select one canonical direction or create a new singleton containment kind in this bounded lane.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-DELIVERY--derive-direct-containment-from-the-nearest-directory-carrier.md",
+          "sha256": "0f19e5fd28ed760867d261ad14aa29e0bed6b95d7482ad8a0bd196483f144f36",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "11a68463a5de6d3848b329b0bd315f0e0f9bf6d36ccf822ae18c4e65afa76131",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3/meaning",
+          "reason": "The candidate defines Relation as a typed connection between Entities; the live bodies govern relation pairs or authored direct relations rather than an invented Scope Unit or singleton kind."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The candidate retains typed Relations as connections between Entity nodes, preserving declared directions and endpoint constraints in the live body."
+        }
+      ],
+      "preserved_distinctions": [
+        "CONTAINS and IS_CONTAINED_BY remain the named pair, with nearest-directory source, Structural Entity Revision endpoint, cardinality, derivation, and non-persistence preserved.",
+        "No generic Scope Unit target, selector, extra native kind, or independently persisted derived fact is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-CORE-DELIVERY--prohibit-persisting-derived-containment.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-CORE-DELIVERY--prohibit-persisting-derived-containment.md",
+      "source_atom_id": "CA-D-266",
+      "source_version": 13,
+      "source_sha256": "e8786ab9d629bf73b7d5a6679cfecbf72921ed04ab8c888d8f4e4d85b7fe8d36",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Containment Relation Pair",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.91,
+      "reason": "CA-D-264 and CA-D-266 govern a typed CONTAINS/IS_CONTAINED_BY containment pair derived from canonical Directory Carrier nesting, including the non-persistence rule. The bodies support Relation as the precise common semantic category, while they do not select one canonical direction or create a new singleton containment kind in this bounded lane.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-CORE-DELIVERY--prohibit-persisting-derived-containment.md",
+          "sha256": "e8786ab9d629bf73b7d5a6679cfecbf72921ed04ab8c888d8f4e4d85b7fe8d36",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d20e8b2bfa8174cd89b75fb929a1b46cfcbca0618640266d919e8acc52994ee6",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3/meaning",
+          "reason": "The candidate defines Relation as a typed connection between Entities; the live bodies govern relation pairs or authored direct relations rather than an invented Scope Unit or singleton kind."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The candidate retains typed Relations as connections between Entity nodes, preserving declared directions and endpoint constraints in the live body."
+        }
+      ],
+      "preserved_distinctions": [
+        "CONTAINS and IS_CONTAINED_BY remain the named pair, with nearest-directory source, Structural Entity Revision endpoint, cardinality, derivation, and non-persistence preserved.",
+        "No generic Scope Unit target, selector, extra native kind, or independently persisted derived fact is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-CORE-DELIVERY--prohibit-persisting-derived-containment.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-CORE-DELIVERY--prohibit-persisting-derived-containment.md",
+      "source_atom_id": "CA-D-266",
+      "source_version": 13,
+      "source_sha256": "e8786ab9d629bf73b7d5a6679cfecbf72921ed04ab8c888d8f4e4d85b7fe8d36",
+      "field": "governs",
+      "index": null,
+      "old_value": "Structural Entity/Containment",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.91,
+      "reason": "CA-D-264 and CA-D-266 govern a typed CONTAINS/IS_CONTAINED_BY containment pair derived from canonical Directory Carrier nesting, including the non-persistence rule. The bodies support Relation as the precise common semantic category, while they do not select one canonical direction or create a new singleton containment kind in this bounded lane.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-CORE-DELIVERY--prohibit-persisting-derived-containment.md",
+          "sha256": "e8786ab9d629bf73b7d5a6679cfecbf72921ed04ab8c888d8f4e4d85b7fe8d36",
+          "start_line": 19,
+          "end_line": 31,
+          "span_sha256": "d20e8b2bfa8174cd89b75fb929a1b46cfcbca0618640266d919e8acc52994ee6",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3/meaning",
+          "reason": "The candidate defines Relation as a typed connection between Entities; the live bodies govern relation pairs or authored direct relations rather than an invented Scope Unit or singleton kind."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The candidate retains typed Relations as connections between Entity nodes, preserving declared directions and endpoint constraints in the live body."
+        }
+      ],
+      "preserved_distinctions": [
+        "CONTAINS and IS_CONTAINED_BY remain the named pair, with nearest-directory source, Structural Entity Revision endpoint, cardinality, derivation, and non-persistence preserved.",
+        "No generic Scope Unit target, selector, extra native kind, or independently persisted derived fact is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "source_atom_id": "CA-D-268",
+      "source_version": 12,
+      "source_sha256": "2afc204f59d90286345c9f4b5f74f8fcf2b8b40b992ab5aca734b0ad53e46335",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Atom/Relation Owner",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.47,
+      "reason": "The selected origin is the owner of a relation, not the Relation itself. Its body assigns declared direction to the owning Atom but supplies no candidate Property for relation ownership; mapping the owner label to Relation would lose that bearer distinction.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md",
+          "sha256": "2afc204f59d90286345c9f4b5f74f8fcf2b8b40b992ab5aca734b0ad53e46335",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "a922dda754b9657a2531f5c6bc89f84fdf6b69b8f9eb77ebf0d794d39009a81c",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Authored Relation, declared direction, owning Atom, serialization location, canonical targets, and order-independence remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+      "source_atom_id": "CA-D-269",
+      "source_version": 12,
+      "source_sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Subject Path",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.36,
+      "reason": "The body defines scalar Subject Path serialization and distinguishes a Subject target from its Subject Relation Kind. Subject/Subject Path are grammar and target-reference concepts, not one of the candidate Entity roots or a Property owner.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+          "sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "434cef4572f255814026d289f689fc6d380dccbe26f4f308f67c11996dbd66b7",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "GOVERNS/DEPENDS_ON relation kind, implicit source Atom, scalar target path, migration-limited compatibility form, and Term/subject grammar remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+      "source_atom_id": "CA-D-269",
+      "source_version": 12,
+      "source_sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Subject",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.36,
+      "reason": "The body defines scalar Subject Path serialization and distinguishes a Subject target from its Subject Relation Kind. Subject/Subject Path are grammar and target-reference concepts, not one of the candidate Entity roots or a Property owner.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter.md",
+          "sha256": "eea15e5b1c2411acdd552c8701da98ac34bab89a107ee05f28760eb1ce8eeac3",
+          "start_line": 23,
+          "end_line": 37,
+          "span_sha256": "434cef4572f255814026d289f689fc6d380dccbe26f4f308f67c11996dbd66b7",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "GOVERNS/DEPENDS_ON relation kind, implicit source Atom, scalar target path, migration-limited compatibility form, and Term/subject grammar remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+      "source_atom_id": "CA-D-304",
+      "source_version": 12,
+      "source_sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Atom/Direct Relation",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Relation",
+      "confidence": 0.92,
+      "reason": "The current body expressly governs authored direct semantic relations: CA-D-268 assigns their declared-direction owner and canonical serialization, while CA-D-304 requires their preservation through carrier-only recoding. Relation is the candidate's typed-connection category; ownership, direction, target collection, and recoding invariants remain source-qualified rather than being made Properties.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-304-CORE_META_MODEL-CORE--preserve-authority-through-carrier-only-recoding.md",
+          "sha256": "d9c2fe921539bbc0a0df41a684581021072b3d1b3d3b40165068789f4a59653a",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "dca8da3a01a40580e0890ffbbe45768fbf5e47a11b6314fc797e1c28ec2189ff",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/3/meaning",
+          "reason": "The candidate defines Relation as a typed connection between Entities; the live bodies govern relation pairs or authored direct relations rather than an invented Scope Unit or singleton kind."
+        },
+        {
+          "pointer": "/graph_model",
+          "reason": "The candidate retains typed Relations as connections between Entity nodes, preserving declared directions and endpoint constraints in the live body."
+        }
+      ],
+      "preserved_distinctions": [
+        "The owning Atom, declared direction, unique canonical target collection, target-order rule, and carrier-only recoding boundary remain distinct from the Relation target.",
+        "No specific Relation Type, selector, or native relation admission is invented."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md",
+      "source_atom_id": "CA-D-307",
+      "source_version": 11,
+      "source_sha256": "84f1e41ffe1d1bd5e17fffbbdd51c0de63ea8be0769f2182bc7a06e43488e144",
+      "field": "governs",
+      "index": null,
+      "old_value": "Applicable Methodology/Subject Index Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.35,
+      "reason": "The body prohibits a persistent Applicable Methodology Subject Index Carrier. It establishes a storage prohibition, not a positive Carrier identity or an admissible Subject Index Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-307-CORE_META_MODEL-DELIVERY--prohibit-persistent-applicable-methodology-subject-indexes.md",
+          "sha256": "84f1e41ffe1d1bd5e17fffbbdd51c0de63ea8be0769f2182bc7a06e43488e144",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "3c30863242e241ebcb68c7e82e31e53fd849162f9c26797d88347556a58c2eb7",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Applicable Methodology, GOVERNS/DEPENDS_ON index, persistence prohibition, and Carrier representation remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-338-CORE_META_MODEL-GENERAL-DELIVERY--serialize-completed-projection-rebuild-results.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-338-CORE_META_MODEL-GENERAL-DELIVERY--serialize-completed-projection-rebuild-results.md",
+      "source_atom_id": "CA-D-338",
+      "source_version": 11,
+      "source_sha256": "33fe42c9c7fe098894b526d03aa4dfbc562e59506f801c5c9e91782730066602",
+      "field": "governs",
+      "index": null,
+      "old_value": "Work Journal/Projection Rebuild/Completed Event",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.37,
+      "reason": "The body serializes evidence from a completed Projection Rebuild Event. A Work Journal Event/result is distinct from an Operation definition, actual Execution, Carrier, and Projection Artifact, so no candidate root preserves the compound event evidence.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-338-CORE_META_MODEL-GENERAL-DELIVERY--serialize-completed-projection-rebuild-results.md",
+          "sha256": "33fe42c9c7fe098894b526d03aa4dfbc562e59506f801c5c9e91782730066602",
+          "start_line": 18,
+          "end_line": 30,
+          "span_sha256": "b125811255ed95a3ee20319f6efb8e6d1a93e7dfd56b26299ab4f00b99431a54",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Completed rebuild Event, published Projection Updated At, output Carrier reference, and digest remain distinct evidence fields."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+      "source_atom_id": "CA-D-340",
+      "source_version": 11,
+      "source_sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+      "field": "governs",
+      "index": null,
+      "old_value": "Work Journal/Event/Carrier Serialization",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.39,
+      "reason": "The body serializes a Work Journal Event Carrier record and expressly preserves observed payload values without treating them as current Project or Atom authority. It does not establish an Event Entity or a carrier Property target.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-GENERAL-DELIVERY--serialize-work-journal-event-properties.md",
+          "sha256": "f10f4d14cda74263ab6c9ab5cad1f98ffc4f32a843ba4adf5ac01ce349710504",
+          "start_line": 26,
+          "end_line": 39,
+          "span_sha256": "c48ef20d968114d2c299f97be2a4503a0e32978ec2e481629ce3e12bed8668cf",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Journal Event identity, Action identity, Type, Author, occurrence, provenance, Structural Scope, payload preservation, and admission checks remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-346",
+      "source_version": 12,
+      "source_sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+      "field": "governs",
+      "index": null,
+      "old_value": "Atom/Claim/Canonical Signature/Projection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Projection",
+      "confidence": 0.93,
+      "reason": "Each live body explicitly governs a Canonical Signature Projection or Canonical Scope Signature Projection delivered as one non-authoritative external report. Projection is therefore the supported semantic target; source frontier, signature content, Carrier placement, and source authority remain distinct constraints rather than being collapsed into Artifact, Atom, or Claim.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL--deliver-cce-canonical-signatures-as-external-report-projections.md",
+          "sha256": "33e2c363b2c3075a45d073eeedff0ee0e3617d1965d689e010406cd512d6312c",
+          "start_line": 26,
+          "end_line": 36,
+          "span_sha256": "1554930b62c4c936d148cef54dfd87f91d02df06cf215a7c1371c42606feae6e",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "The candidate treats a Projection as another Entity instance rather than an additional representation of its source Entity instance."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "The candidate keeps a Projection derived and prevents it from becoming another authority for the source facts."
+        },
+        {
+          "pointer": "/projection_member_model/authority_boundary",
+          "reason": "The candidate's projection-member boundary preserves that a derived instance is not an authoritative source for its source Atoms' facts."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Projection remains derived, non-authoritative, external-report output and neither an Atom Carrier nor Claim equivalence.",
+        "Source identity/revision, source expressions or Scope Expression occurrence, canonical signature content, exclusions, Carrier placement, and the no-dependency constraint remain source-qualified details."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-347",
+      "source_version": 12,
+      "source_sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Scope Expression/Canonical Scope Signature",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.37,
+      "reason": "The body treats Canonical Scope Signature as report content of a non-authoritative Projection, not a candidate Scope Unit or Artifact identity. The selected dependency and governing path retain expression, signature, report, and Carrier boundaries that no one target preserves.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+          "sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "c53c6040c32b6ba5d92890aec327784b2f509352eb3db40bf5ffc927bf56fdc4",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Scope Expression occurrence, Canonical Scope Signature, external JSON report, source identity/revision, Carrier digest, and no-Claim-equivalence/no-dependency constraints remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+      "source_atom_id": "CA-D-347",
+      "source_version": 12,
+      "source_sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+      "field": "governs",
+      "index": null,
+      "old_value": "Scope Expression/Canonical Scope Signature/Projection",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Projection",
+      "confidence": 0.93,
+      "reason": "Each live body explicitly governs a Canonical Signature Projection or Canonical Scope Signature Projection delivered as one non-authoritative external report. Projection is therefore the supported semantic target; source frontier, signature content, Carrier placement, and source authority remain distinct constraints rather than being collapsed into Artifact, Atom, or Claim.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL--deliver-canonical-scope-signatures-as-external-report-projections.md",
+          "sha256": "34a984e863c035e1a55a2179f6d12dd83b131bdb44ac7c7faa0ca8462f9d9270",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "c53c6040c32b6ba5d92890aec327784b2f509352eb3db40bf5ffc927bf56fdc4",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_representation_rules/1",
+          "reason": "The candidate treats a Projection as another Entity instance rather than an additional representation of its source Entity instance."
+        },
+        {
+          "pointer": "/entity_representation_rules/2",
+          "reason": "The candidate keeps a Projection derived and prevents it from becoming another authority for the source facts."
+        },
+        {
+          "pointer": "/projection_member_model/authority_boundary",
+          "reason": "The candidate's projection-member boundary preserves that a derived instance is not an authoritative source for its source Atoms' facts."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Projection remains derived, non-authoritative, external-report output and neither an Atom Carrier nor Claim equivalence.",
+        "Source identity/revision, source expressions or Scope Expression occurrence, canonical signature content, exclusions, Carrier placement, and the no-dependency constraint remain source-qualified details."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md",
+      "source_atom_id": "CA-D-358",
+      "source_version": 10,
+      "source_sha256": "29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/Identifier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Framework Instance Settings.Identifier",
+      "confidence": 0.95,
+      "reason": "CA-D-358 explicitly identifies the authoritative Framework Instance Settings Artifact and fixes its Identifier. The complete live body supplies the Artifact owner and the named Identifier meaning; the candidate's dependent-Property rule supports the absent display path without treating the literal value as carrier syntax or a new root.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-358-CORE_META_MODEL--identify-framework-settings-artifact.md",
+          "sha256": "29a20f1d01704bf176e906981daaa5477e50c67068071253b06357ba0c2e8087",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "9e0254845b30c4011c8f28f5361f3cb566015d266460d21109967b8bc5944068",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The candidate identifies Artifact as the governed lifecycle unit containing named dependent Entities; each current body explicitly names the relevant Settings Artifact as the Property's owner."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate permits a body-supported Identifier to be a dependent Property node of its explicit owning Artifact, not a root or carrier field."
+        },
+        {
+          "pointer": "/dependent_entities/compact_examples/1",
+          "reason": "The candidate's compact examples establish dot qualification for a Property of its bearer; this is display notation only and does not author a native edge."
+        }
+      ],
+      "preserved_distinctions": [
+        "Framework Instance Settings remains its own authoritative Artifact, while its exact identifier literal remains the Property value rather than a separate Entity.",
+        "No File Carrier, filename, revision binding, or Project Configuration authority is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+      "source_atom_id": "CA-D-359",
+      "source_version": 10,
+      "source_sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/Authoritative Carrier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Carrier",
+      "confidence": 0.93,
+      "reason": "CA-D-359 explicitly requires the Framework Instance Settings Artifact to use exactly one authoritative TOML File Carrier. That is a direct Carrier semantic binding; the file path and TOML format remain Delivery representation details rather than a new Carrier Property or Artifact.Revision containment.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-359-CORE_META_MODEL--bind-framework-settings-to-its-authoritative-toml-carrier.md",
+          "sha256": "bec9916eb5f080ea22b9a19dd1124d8f66a1dde0ff2fa289ebd08e427becfd6f",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "1dcce09ccf86046e5e40d53c270d358d0971341597df9a309dff8b4a05e76405",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/5",
+          "reason": "The candidate defines Carrier as the separate root that carries or stores an Entity representation; the current body identifies one authoritative TOML File Carrier."
+        },
+        {
+          "pointer": "/carrier_delivery_model/carrier_root_boundary",
+          "reason": "The candidate preserves generic semantic Carrier links without requiring a per-Entity Carrier Relation Type or turning a file location into a Property registry."
+        }
+      ],
+      "preserved_distinctions": [
+        "The Framework Instance Settings owner, one-carrier cardinality, Project-name qualification, file location, and TOML format remain source constraints.",
+        "No per-Property Carrier registry, selector, or independent revision target is created."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+      "source_atom_id": "CA-D-360",
+      "source_version": 12,
+      "source_sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Work Journal/Record",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Journal.Record",
+      "confidence": 0.95,
+      "reason": "CA-D-360 makes the completed governed-change Work Journal receipt the binding evidence for current Framework Instance Settings revision, digest, and authoritative Carrier. CA-R-1745 defines a Journal as an authoritative Artifact with an ordered history of admitted records, and defines a record as evidence about an event rather than the event itself. Together with the candidate's Journal history and record-role rules, this supports Journal.Record without collapsing the receipt into Revision or the event itself.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+          "sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "4ded4fd5bf46306c7931f1310934f5b5960f7aa5ae3c63981d1a363a760b26e6",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1745-CORE_META_MODEL-CORE--define-journal-artifact-form.md",
+          "sha256": "0b7947c66a02af2ea3cf77a3d23b5b3a8b450e98742e2c67c4ab8a8291097d90",
+          "start_line": 20,
+          "end_line": 34,
+          "span_sha256": "7805108fab24bf8592fce367a13d290038e6b46d059731973eb8ec58ddf78678",
+          "reason": "Complete live supporting Core Main Content defines the authoritative Journal and its admitted records, preserving record-versus-event and recorded-evidence boundaries for this exact Work Journal/Record origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/history_model/confirmed_parts",
+          "reason": "The candidate retains Journal as a confirmed history part, separate from Revision."
+        },
+        {
+          "pointer": "/history_model/journal_role",
+          "reason": "The candidate says that a Journal records what happened and that a record is not the event itself, matching the complete-receipt distinction in the live bodies."
+        }
+      ],
+      "preserved_distinctions": [
+        "The completed receipt, Framework Instance Settings revision and digest, authoritative Carrier, and currentness-unknown condition remain explicit binding constraints.",
+        "Journal.Record remains distinct from the recorded event and from Revision; no Artifact.Revision containment, selector, or new singleton kind is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+      "source_atom_id": "CA-D-360",
+      "source_version": 12,
+      "source_sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/Revision Binding",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.41,
+      "reason": "The body requires a completed governed-change Work Journal receipt to bind a current Framework Instance Settings revision and digest to its Carrier, and states absence or mismatch leaves currentness unknown. A Work Journal Record or Revision root would erase this binding/currentness condition.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL--bind-framework-settings-revisions-to-journal-receipts.md",
+          "sha256": "5f20b3b9781fa9c8821682dd855a2e5b32be494692842de317b5440735e23c2a",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "4ded4fd5bf46306c7931f1310934f5b5960f7aa5ae3c63981d1a363a760b26e6",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Journal receipt, revision, digest, authoritative Carrier, completed change, and currentness/unknown distinction remain explicit."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-361",
+      "source_version": 10,
+      "source_sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Tool",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.38,
+      "reason": "The body names Tools only as possible content of Framework Instance Settings TOML, with explicit Operator choices governed by other Standard-tier definitions. Tool has no candidate root or body-supported Property identity in this origin; the governing row is carrier-content serialization rather than a Carrier identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+          "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "4b5bdb8371dadd600c4c985d41552c482b3481fff670e253227589e1c793bc3a",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Tool/Extension choices, Framework Instance Settings, Default Settings, sections/fields, initialization inputs, Project Structure declarations, and derived values remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+      "source_atom_id": "CA-D-361",
+      "source_version": 10,
+      "source_sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+      "field": "governs",
+      "index": null,
+      "old_value": "Framework Instance Settings/Authoritative Carrier/Content",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.38,
+      "reason": "The body names Tools only as possible content of Framework Instance Settings TOML, with explicit Operator choices governed by other Standard-tier definitions. Tool has no candidate root or body-supported Property identity in this origin; the governing row is carrier-content serialization rather than a Carrier identity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-361-CORE_META_MODEL--serialize-framework-settings-content-in-toml.md",
+          "sha256": "08f48988f709e47417ae7d3c01c33c4bd9cfc64066e7d6996133a465afc51d68",
+          "start_line": 26,
+          "end_line": 38,
+          "span_sha256": "4b5bdb8371dadd600c4c985d41552c482b3481fff670e253227589e1c793bc3a",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Tool/Extension choices, Framework Instance Settings, Default Settings, sections/fields, initialization inputs, Project Structure declarations, and derived values remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+      "source_atom_id": "CA-D-362",
+      "source_version": 10,
+      "source_sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project Settings/Identifier",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "proposed",
+      "proposed_value": "Artifact/Project Settings.Identifier",
+      "confidence": 0.94,
+      "reason": "CA-D-362's complete live body identifies the Project Settings Artifact and its Identifier for a Project. That direct owner-and-field definition supports a named dependent Identifier Property despite the candidate's lack of a Project Settings display example.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+          "sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a",
+          "start_line": 20,
+          "end_line": 32,
+          "span_sha256": "1214709897fc8c28a6ad626ce46fcddc271bab8c381d83a540cba030184f9981",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/root_entities/0/meaning",
+          "reason": "The candidate identifies Artifact as the governed lifecycle unit containing named dependent Entities; each current body explicitly names the relevant Settings Artifact as the Property's owner."
+        },
+        {
+          "pointer": "/dependent_entities/property_node_vs_relation",
+          "reason": "The candidate permits a body-supported Identifier to be a dependent Property node of its explicit owning Artifact, not a root or carrier field."
+        },
+        {
+          "pointer": "/dependent_entities/compact_examples/1",
+          "reason": "The candidate's compact examples establish dot qualification for a Property of its bearer; this is display notation only and does not author a native edge."
+        }
+      ],
+      "preserved_distinctions": [
+        "Project Settings remains distinct from Framework Instance Settings and the Project-specific identifier literal remains a Property value, not a filename or separate Entity.",
+        "No Project Configuration authority, File Carrier, or generic Scope Unit target is inferred."
+      ],
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+      "source_atom_id": "CA-D-363",
+      "source_version": 10,
+      "source_sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0",
+      "field": "governs",
+      "index": null,
+      "old_value": "Project Settings/Authoritative Carrier/Filename",
+      "quarantined": false,
+      "prior_decision": "unresolved",
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.34,
+      "reason": "The body governs a Project Settings TOML File Carrier filename pattern. A filename is lexical carrier syntax, not the Project Settings Identifier Property or a separate Carrier Entity.",
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-363-CORE_META_MODEL-DELIVERY--serialize-project-settings-filename.md",
+          "sha256": "6ba8b8ddadfa6f10a1f7b0344e16b40fb908016175f9f9e8cd2aa3d13e51b8a0",
+          "start_line": 21,
+          "end_line": 33,
+          "span_sha256": "01cb144b7435bd2a9c8ced9e89a7cb9b7b935948d93e0282238854b230e95193",
+          "reason": "Complete live owning Main Content was read from after the second frontmatter delimiter through Summary, Scope, Claim, and Details for this exact selected origin."
+        }
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": [
+        "Project-name parameter, exact lowercase constraint, filename pattern, File Carrier, and Project Settings Artifact remain distinct."
+      ],
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned_occurrences": 25,
+    "owning_sources": 19,
+    "proposed": 13,
+    "unresolved": 12,
+    "owning_current_evidence_spans": 25,
+    "additional_current_definition_evidence_spans": 1
+  },
+  "limits": [
+    "This is non-authoritative, non-executable candidate research only; it performs no source migration or native admission.",
+    "No selector, singleton kind, @ operator, Artifact.Revision containment, carrier registry, source/body change, or Project Configuration authority is inferred.",
+    "Carrier locations and fields, report/projection output, Journal evidence, grammar terms, and currentness or history constraints remain explicit source distinctions rather than generic candidate roots."
+  ]
+}

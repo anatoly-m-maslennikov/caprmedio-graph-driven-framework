@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2123",
+  "recorded_at": "2026-10-11 09:57:51 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review carrier-structure origins; not migration approval",
+  "verification": {
+    "task": "CA-P-2123",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2123.research.json",
+      "sha256": "64c5e84639b39c37d7a175c11e967b407dfabbd840b76a80bc91352dd29e8728"
+    },
+    "rows": 28,
+    "counts": {
+      "proposed": 7,
+      "unresolved": 21
+    },
+    "exact_evidence_spans": 28,
+    "exact_supporting_definition_spans": 0,
+    "exact_input_pins": 31,
+    "historical_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2121-2128.inputs.json",
+      "sha256": "311058fd59732975cbe9c3662c6eb93dc2231d192a66c33bc416a4ee83084c5f"
+    },
+    "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/subject_review_004",
+      "final_report_sha256": "64c5e84639b39c37d7a175c11e967b407dfabbd840b76a80bc91352dd29e8728",
+      "result": "PASS: all twenty-eight meanings reopened; seven supported Carrier targets and twenty-one justified nulls",
+      "meaning_checks": [
+        "Physical Carrier and binding semantics are explicit in each proposal.",
+        "Syntax, sections, format, workflow/discovery and per-property representation remain distinct.",
+        "Carrier replacement/history transitions are not resolved by a generic Carrier target."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/subject_review_004",
+    "final_report_sha256": "64c5e84639b39c37d7a175c11e967b407dfabbd840b76a80bc91352dd29e8728",
+    "result": "PASS: all twenty-eight meanings reopened; seven supported Carrier targets and twenty-one justified nulls",
+    "meaning_checks": [
+      "Physical Carrier and binding semantics are explicit in each proposal.",
+      "Syntax, sections, format, workflow/discovery and per-property representation remain distinct.",
+      "Carrier replacement/history transitions are not resolved by a generic Carrier target."
+    ]
+  },
+  "completion_scope": "All 28 exact current origins passed independent meaning review and live pin/span/coverage controls: seven supported Carrier proposals and twenty-one explicit nulls. Syntax, per-Property storage and Carrier history remain distinct; no original Core changed.",
+  "registration_commit": "56bb0d1b4da85c34ffc5dfe0edd5296d868011bd",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

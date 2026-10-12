@@ -97,7 +97,7 @@
     },
     "CA-D-481": {
       "version": 4,
-      "sha256": "2cbf78a2f7779dc0e773a3a982cbe21e08f0d8e38ea303f3e4f1648a89f1acf2",
+      "sha256": "f9a0d601d76895e245c78765004c60cb4c4ffbb01bb578afc0ce6279c2cf2ccb",
       "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-481-CORE_META_MODEL-DELIVERY--store-plan-decomposition-on-the-decomposing-plan.md",
       "required": true,
       "obligations": [
@@ -137,8 +137,8 @@
     },
     "CA-D-471": {
       "version": 5,
-      "sha256": "40892f6192bf6526ba69554cb345973503cdbb4961f1284caf1b329814e674ec",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL-DELIVERY--serialize-explicit-plan-blocking.md",
+      "sha256": "bc4762a7fe3c01b9f8750c31bc98c1e3acba0c4fc4b78b53ff27aebddb9230a3",
+      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL--serialize-explicit-plan-blocking.md",
       "required": true,
       "obligations": [
         "plan.blocking",
@@ -176,8 +176,8 @@
     },
     "CA-D-305": {
       "version": 10,
-      "sha256": "800869321898d98dde2ada4705450cd4a6c526c55af6505090c739c56392b759",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE-DELIVERY--carry-projected-atoms-without-new-identity.md",
+      "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
+      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
       "required": true,
       "obligations": [
         "projection.fidelity"
@@ -258,7 +258,7 @@
     },
     "CA-R-1539": {
       "version": 4,
-      "sha256": "ba6276712b8deef4eca632fca79097427d045cd724931bd30197be7146acc491",
+      "sha256": "ce1395908987e58b681c5f22f2f08cae5c89478d8184aa7ace97ad2a400d75e8",
       "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md",
       "required": false,
       "obligations": [

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2160",
+  "non_authoritative": true,
+  "recorded_at": "2026-10-11 14:39:13 +0400",
+  "source": {
+    "kind": "actual_operator_message",
+    "thread_id": "01a0263a-7510-7672-bce4-58830bc4d184",
+    "answer": "1 - explain\n2 - let's migrate to new IDs\n3 - yes",
+    "question_context": [
+      "Use Atom selectors for qualified/named references.",
+      "Preserve the six legacy IDs as exceptions.",
+      "Use quoted timestamps with explicit UTC offsets."
+    ]
+  },
+  "decisions": {
+    "qualified_named_atom_selectors": {
+      "status": "unanswered_explanation_requested",
+      "syntax_adopted": false
+    },
+    "legacy_atom_ids": {
+      "status": "approved_direction",
+      "choice": "migrate_to_new_canonical_ids",
+      "preserve_as_current_exceptions": false,
+      "predecessor_ids": [
+        "CAPRMEDIO-R-791",
+        "CAPRMEDIO-GOV-EVAL-001",
+        "CAPRMEDIO-GOV-EVAL-002",
+        "CAPRMEDIO-GOV-EVAL-005",
+        "CAPRMEDIO-GOV-EVAL-009",
+        "CAPRMEDIO-GOV-EVAL-010"
+      ],
+      "successor_ids": "Not allocated by this decision-record Task; require current collision-free allocation and explicit predecessor/successor mapping.",
+      "history": "Preserve exact predecessor contents through Git and recorded lineage; do not rewrite frozen or archived evidence."
+    },
+    "updated_at": {
+      "status": "approved_direction",
+      "serialization": "quoted YAML string containing date, time and explicit UTC offset",
+      "example": "2026-10-11 14:00:00 +0400",
+      "example_is_execution_timestamp": false,
+      "timezone": "Use the configured Project timezone for actual new-update timestamps.",
+      "historical_boundary": "Preserve old naive timestamp bytes as history; do not guess or retroactively reconstruct their UTC offsets."
+    }
+  },
+  "input_pins": {
+    "quarantine_audit": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/remaining-gates/quarantine-audit.json",
+      "sha256": "600729177a2e03ffc6098fe614b2211485993b513fcac950da5ee74747ec6f60"
+    },
+    "working_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger/working-mapping-ledger.json",
+      "sha256": "c5c9af1f2a15f2fdbab680e0d70f8a02f57fb266ea98d14329a3668c30cbfd99"
+    }
+  },
+  "limits": [
+    "This records actual Operator choices, not completed migration or policy adoption.",
+    "No Atom selectors were approved.",
+    "Exact current source pins, successor allocation, lineage, effects and existing application authorization still need execution evidence.",
+    "Ordinary Summary/Substance/Scope/Details work remains after the complete Subject gate."
+  ],
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "policy_changes_applied": false
+}

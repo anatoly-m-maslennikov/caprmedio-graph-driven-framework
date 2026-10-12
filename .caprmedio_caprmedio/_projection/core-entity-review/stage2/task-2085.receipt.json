@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2085",
+  "recorded_at": "2026-10-11 06:15:52 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: exact bounded research; not source migration approval",
+  "verification": {
+    "task": "CA-P-2085",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2085.research.json",
+      "sha256": "ebfce47eb8ccd518c692021e1d413bed9b0e6f34e2cc30081964586bce32443d"
+    },
+    "rows": 7,
+    "counts": {
+      "proposed": 7
+    },
+    "source_files": 8,
+    "exact_evidence_spans": 14,
+    "exact_input_pins": 5,
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "corrupt_span",
+      "inferred_selector"
+    ],
+    "result": "PASS: exact current coverage, pins, spans, syntax and non-executable proposals"
+  },
+  "independent_review": {
+    "reviewer": "subject_review_004",
+    "reviewed_output_sha256": "ebfce47eb8ccd518c692021e1d413bed9b0e6f34e2cc30081964586bce32443d",
+    "accepted_proposals": 7,
+    "rejected_proposals": 0,
+    "correct_unresolved": 0,
+    "result": "PASS: current CA-R-1422 and candidate Actor Type rule support generic collective Operator roles; delegation/approval/routing/execution distinctions remain in each source"
+  },
+  "registration_commit": "1fa56f189ef20e4f6a8d9d1eb4af400c1f00cf07",
+  "completion_scope": "All seven remaining generic Operator references are supported as Actor.Type: Operator. No named Actor or permission/Execution identity is invented; original Subjects remain unchanged.",
+  "limits": [
+    "Only this derived report and Plan lifecycle/receipt were authored; original Core Subjects and ordinary content remain unchanged.",
+    "Frozen candidate, baseline ledger, raw supplements and earlier evidence remain unchanged.",
+    "Unresolved research stays tracked. No selector adoption, MCP/FPF, runtime, native or source write admission."
+  ]
+}

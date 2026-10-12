@@ -1,0 +1,279 @@
+"""Explicit Project-scoped Docker lifecycle; never creates Workflow requests."""
+
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import tempfile
+
+try:
+    from .image_reference import IMAGE, IMMUTABLE_IMAGE, image_reference
+except ImportError:  # direct execution: docker/ is the import root
+    from image_reference import IMAGE, IMMUTABLE_IMAGE, image_reference
+
+DIRECTORY = Path(__file__).resolve().parent
+SOURCE_ROOT = DIRECTORY.parents[4]
+
+
+class Runtime:
+    def __init__(self, root, *, mock=False, auth_file=None, image=None):
+        self.root = Path(root).resolve(strict=True)
+        self.mock, self.auth_file = mock, auth_file
+        if image is not None and (not isinstance(image, str) or IMMUTABLE_IMAGE.fullmatch(image) is None):
+            raise ValueError("Runtime image must be an immutable sha256 image ID")
+        self.image = image
+        self.project = "caprmedio-" + hashlib.sha256(str(self.root).encode()).hexdigest()[:12]
+
+    def environment(self):
+        environment = dict(
+            os.environ,
+            CAPRMEDIO_PROJECT_ROOT=str(self.root),
+            CAPRMEDIO_IMAGE=self.image or image_reference(os.environ),
+        )
+        environment.pop("CAPRMEDIO_CODEX_AUTH_FILE", None)
+        if not self.mock and self.auth_file:
+            environment["CAPRMEDIO_CODEX_AUTH_FILE"] = str(
+                Path(self.auth_file).resolve(strict=True)
+            )
+        return environment
+
+    def command(self, *arguments, authentication=False, http=False):
+        command = [
+            "docker",
+            "compose",
+            "--env-file",
+            "/dev/null",
+            "--project-name",
+            self.project,
+            "-f",
+            str(DIRECTORY / "compose.yaml"),
+        ]
+        if self.mock:
+            command += ["-f", str(DIRECTORY / "mock.compose.yaml")]
+        elif authentication:
+            command += ["-f", str(DIRECTORY / "auth.compose.yaml")]
+        if http:
+            command += ["-f", str(DIRECTORY / "mcp-http.compose.yaml")]
+        return command + list(arguments)
+
+    def call(self, *arguments, authentication=False, http=False, capture=True, timeout=60):
+        result = subprocess.run(
+            self.command(*arguments, authentication=authentication, http=http),
+            env=self.environment(),
+            text=True,
+            capture_output=capture,
+            timeout=timeout,
+            check=False,
+        )
+        if result.returncode:
+            raise RuntimeError("Docker operation failed; inspect service logs")
+        return result.stdout if capture else None
+
+    def build(self):
+        command = [
+            "docker",
+            "build",
+            "--file",
+            str(DIRECTORY / "Dockerfile"),
+            "--tag",
+            IMAGE,
+            "--build-arg",
+            f"RUNTIME_UID={os.getuid()}",
+            "--build-arg",
+            f"RUNTIME_GID={os.getgid()}",
+            str(SOURCE_ROOT),
+        ]
+        subprocess.run(command, check=True)
+
+    def prepare(self, *, require_auth=True):
+        for relative in (".caprmedio_caprmedio", ".git"):
+            if (self.root / relative).is_symlink():
+                raise ValueError("Runtime mounts must not be symlinks")
+        if not (self.root / ".caprmedio_caprmedio").is_dir() or not (self.root / ".git").is_dir():
+            raise ValueError("Project authority and a directory Git repository are required")
+        for relative in (".caprmedio_install", ".caprmedio_tmp", "tmp"):
+            path = self.root / relative
+            if path.is_symlink():
+                raise ValueError("Runtime mounts must not be symlinks")
+            path.mkdir(exist_ok=True)
+        if require_auth and not self.mock and not self.auth_file:
+            raise ValueError("Pass --auth-file explicitly; credentials are not guessed")
+        directory = self.root / ".caprmedio_install"
+        for name in ("workflow_orchestrator", "docker"):
+            directory /= name
+            if directory.is_symlink():
+                raise ValueError("Runtime routing directories must not be symlinks")
+            directory.mkdir(exist_ok=True)
+        marker = directory / "transport.json"
+        if marker.is_symlink() or (marker.exists() and not marker.is_file()):
+            raise ValueError("Unsafe runtime routing marker")
+
+    def start(self):
+        self.prepare()
+        self.call(
+            "up",
+            "-d",
+            "--wait",
+            "--wait-timeout",
+            "60",
+            "--force-recreate",
+            "agent",
+            "worker",
+            authentication=not self.mock,
+            timeout=90,
+        )
+        marker = self.root / ".caprmedio_install/workflow_orchestrator/docker/transport.json"
+        descriptor, name = tempfile.mkstemp(prefix="transport-", suffix=".json", dir=marker.parent)
+        temporary = Path(name)
+        try:
+            with os.fdopen(descriptor, "w") as handle:
+                json.dump({"transport": "docker", "project_name": self.project}, handle)
+                handle.flush()
+                os.fsync(handle.fileno())
+            temporary.replace(marker)
+        finally:
+            temporary.unlink(missing_ok=True)
+        return {
+            "runtime": "docker",
+            "project_name": self.project,
+            "outcome": "ready",
+            "agent_mode": "mock" if self.mock else "codex",
+        }
+
+    def stop(self):
+        self.call("stop", "worker", "agent", timeout=60)
+        return {"runtime": "docker", "outcome": "stopped", "persistent_state": "retained"}
+
+    def status(self):
+        raw = self.call("ps", "--all", "--format", "json")
+        services = [json.loads(line) for line in raw.splitlines() if line.strip()]
+        return {"runtime": "docker", "project_name": self.project, "services": services}
+
+    def _http_port(self):
+        value = os.environ.get("CAPRMEDIO_MCP_HTTP_PORT", "")
+        try:
+            port = int(value)
+        except ValueError as error:
+            raise ValueError("Set CAPRMEDIO_MCP_HTTP_PORT to an integer in 1..65535") from error
+        if not 1 <= port <= 65535:
+            raise ValueError("Set CAPRMEDIO_MCP_HTTP_PORT to an integer in 1..65535")
+        return port
+
+    @staticmethod
+    def _http_publisher_admitted(status, port):
+        """Require the exact host binding before advertising an HTTP endpoint."""
+        services = status.get("services") if isinstance(status, dict) else None
+        if not isinstance(services, list):
+            return False
+        rows = [row for row in services if isinstance(row, dict) and row.get("Service") == "mcp-http"]
+        if len(rows) != 1:
+            return False
+        row = rows[0]
+        if row.get("State") != "running" or row.get("Health") != "healthy":
+            return False
+        publishers = row.get("Publishers")
+        if not isinstance(publishers, list) or len(publishers) != 1:
+            return False
+        publisher = publishers[0]
+        return (
+            isinstance(publisher, dict)
+            and publisher.get("Protocol") == "tcp"
+            and publisher.get("TargetPort") == 8092
+            and publisher.get("PublishedPort") == port
+            and publisher.get("URL") == "127.0.0.1"
+        )
+
+    def mcp_http_start(self):
+        self.prepare(require_auth=False)
+        port = self._http_port()
+        self.call("up", "-d", "--wait", "--wait-timeout", "60", "--force-recreate", "mcp-http",
+                  http=True, timeout=90)
+        if not self._http_publisher_admitted(self.mcp_http_status(), port):
+            raise RuntimeError("HTTP MCP published listener admission failed")
+        return {"runtime": "docker", "service": "mcp-http", "outcome": "ready",
+                "url": f"http://127.0.0.1:{port}/mcp"}
+
+    def mcp_http_stop(self):
+        self.call("stop", "mcp-http", http=True, timeout=60)
+        return {"runtime": "docker", "service": "mcp-http", "outcome": "stopped"}
+
+    def mcp_http_status(self):
+        raw = self.call("ps", "--all", "--format", "json", http=True)
+        services = [json.loads(line) for line in raw.splitlines() if line.strip()]
+        result = {"runtime": "docker", "service": "mcp-http", "project_name": self.project,
+                  "services": services}
+        try:
+            result["url"] = f"http://127.0.0.1:{self._http_port()}/mcp"
+        except ValueError:
+            result["url"] = None
+        return result
+
+
+def _project_mcp_port(value):
+    try:
+        port = int(value)
+    except (TypeError, ValueError) as error:
+        raise argparse.ArgumentTypeError("--port must be an integer in 1..65535") from error
+    if not 1 <= port <= 65535:
+        raise argparse.ArgumentTypeError("--port must be an integer in 1..65535")
+    return port
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--project-root", type=Path, default=SOURCE_ROOT)
+    parser.add_argument("--auth-file", type=Path)
+    parser.add_argument("--image", help=argparse.SUPPRESS)
+    parser.add_argument("--mock", action="store_true")
+    parser.add_argument("--control-root", help="Direct .caprmedio_<project> folder, when explicit selection is needed")
+    parser.add_argument("--source-root", type=Path, help="Explicit Framework checkout with image build inputs; required for project-mcp")
+    parser.add_argument("--startup-timeout", type=float, default=60, help="Bound startup/readiness seconds (maximum 60)")
+    parser.add_argument("--build-timeout", type=float, default=600, help="Bound image build seconds (maximum 600)")
+    parser.add_argument("--no-build", action="store_true", help="Refuse a missing compatible image instead of building")
+    parser.add_argument("--port", type=_project_mcp_port,
+                        help="Optional loopback port for project-mcp (1..65535)")
+    parser.add_argument("--output", choices=["json", "url"], default="json", help="Project MCP result format")
+    parser.add_argument(
+        "operation", choices=["build", "start", "stop", "restart", "status", "logs", "mcp",
+                              "mcp-http-start", "mcp-http-stop", "mcp-http-status", "project-mcp"]
+    )
+    args = parser.parse_args()
+    if args.operation == "project-mcp":
+        from project_mcp_launcher import Launcher
+        result = Launcher().launch(args.project_root, None, control_root=args.control_root,
+            image=args.image, source_root=args.source_root, timeout=args.startup_timeout,
+            port=args.port, build_if_missing=not args.no_build, build_timeout=args.build_timeout)
+        ready = result.get("disposition") in ("started", "reused") and result.get("readiness") is True
+        print(result["url"] if args.output == "url" and ready else json.dumps(result, sort_keys=True))
+        return 0 if ready else 1
+    runtime = Runtime(args.project_root, mock=args.mock, auth_file=args.auth_file, image=args.image)
+    if args.operation == "build":
+        runtime.build()
+    elif args.operation in ("start", "restart"):
+        if args.operation == "restart":
+            runtime.stop()
+        print(json.dumps(runtime.start()))
+    elif args.operation == "stop":
+        print(json.dumps(runtime.stop()))
+    elif args.operation == "status":
+        print(json.dumps(runtime.status()))
+    elif args.operation == "logs":
+        runtime.call("logs", "--tail", "100", capture=False)
+    elif args.operation == "mcp-http-start":
+        print(json.dumps(runtime.mcp_http_start()))
+    elif args.operation == "mcp-http-stop":
+        print(json.dumps(runtime.mcp_http_stop()))
+    elif args.operation == "mcp-http-status":
+        print(json.dumps(runtime.mcp_http_status()))
+    else:
+        os.execvpe(
+            "docker",
+            runtime.command("run", "--rm", "--no-deps", "-T", "mcp"),
+            runtime.environment(),
+        )
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

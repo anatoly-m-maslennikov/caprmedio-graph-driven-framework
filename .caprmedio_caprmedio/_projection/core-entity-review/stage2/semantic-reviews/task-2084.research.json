@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2084",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2082-2085.inputs.json",
+      "sha256": "aa24c92ac9ea5658019bac4c6702a4e678836b0c2ff0e6cefc4972dc5481e371"
+    },
+    "base_ledger": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+      "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "contracts": [
+      {"path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md", "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"},
+      {"path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md", "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"},
+      {"path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md", "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"}
+    ],
+    "current_grammar": [
+      {"path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/subject-tools.grammar-contract.md", "sha256": "aa267553ff481c7473c86fedcd757e902bbf00ffe3e2f2deef90b99201598f59"},
+      {"path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-tools.current-contract.md", "sha256": "cab46c2481e61fdca0ee7df38bce638d178eb37865e2e9e0be580179b2f3dbb6"}
+    ],
+    "originating_reviews": [
+      {"path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-001.review.json", "sha256": "e71a55c836e4bc62280b79cebf4bad2177346f00b26a8d850206ba84d6b640ae"},
+      {"path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-005.review.json", "sha256": "a37a2e7e0db6888bed95b520e2343717eec10b24b6d38f6efaa63de416956405"},
+      {"path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-008.review.json", "sha256": "918d22a55b8ebbdb79e251b19e3dd531c0a3bf1252dde2f0e30b2ae9f2ff63b7"},
+      {"path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-026.review.json", "sha256": "610dcdeebbf3c37e4142fcdc63803c82630d2922338d9233377123c5c70178fa"},
+      {"path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-027.review.json", "sha256": "07bff7c2a88cab85ac9c0c8ea985e00be2820c5abdb60db74dd4261d9f22d86e"}
+    ],
+    "supporting_current_definitions": [
+      {"atom_id": "CA-R-1757", "version": 17, "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md", "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad"},
+      {"atom_id": "CA-R-1758", "version": 20, "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md", "sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b"},
+      {"atom_id": "CA-R-1760", "version": 20, "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md", "sha256": "24fadc44278ab8a451f9f380b16ad0585e64a7aff5bd6ca61726dcdf61b20094"},
+      {"atom_id": "CA-R-1761", "version": 20, "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md", "sha256": "6a6ce6060d358af61ecbca6bafb510ab7a6d9bc97585ec5cb31a6008e97964d0"},
+      {"atom_id": "CA-R-978", "version": 17, "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md", "sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b"},
+      {"atom_id": "CA-R-976", "version": 16, "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md", "sha256": "cef8bce8abbd9b30a617d75864af9f6d1a263f56d55004edb5381a98d202a0f5"}
+    ],
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/70-CA-P-2084-TASK--resolve-scope-unit-field-mappings.md",
+      "sha256": "730887666082dc201896cbe848d7b913006db71dbf1754c844214f55a5c5edf8"
+    },
+    "epic_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins.md",
+      "sha256": "f9090f82af5bb9c4785e3b01be0c2284000afa2f92bf79c281e2b5db45248cae"
+    }
+  },
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md",
+      "source_atom_id": "CA-R-1014",
+      "source_version": 18,
+      "source_sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Scope Unit/Scope",
+      "quarantined": false,
+      "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-001.review.json",
+      "originating_review_sha256": "e71a55c836e4bc62280b79cebf4bad2177346f00b26a8d850206ba84d6b640ae",
+      "prior_disposition": "unresolved",
+      "baseline_decision": "unresolved",
+      "baseline_proposed_value": null,
+      "input_proposed_value": null,
+      "decision": "unresolved",
+      "proposed_value": null,
+      "confidence": 0.7,
+      "evidence": [
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-CORE-REQUIREMENT--resolve-atom-scope-contextually.md", "sha256": "57013a4e165d493701cb180a4cc32df85c8aa79373b2ec503e3b4e5dd1c4352e", "start_line": 24, "end_line": 36, "span_sha256": "f003adc896e74bb23f53d801f32e0c9216a03867e0ce7ec32f8802e64e7de90e", "reason": "Current Main Content requires the current Scope Unit Scope as one component of Atom Scope."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1757-CORE_META_MODEL-CORE--define-scope-unit.md", "sha256": "8740c1e278847e7787663774088a5ff73442b6dbf81a1a37a4c927653b7681ad", "start_line": 25, "end_line": 29, "span_sha256": "d33750cb7aba09c65fa9d7c7e422d7f2000e0c106d541f28577387f50b9d3a96", "reason": "The current definition establishes Scope Unit as an ownership boundary only, not a Scope field or scope-extent identity."}
+      ],
+      "candidate_basis": [],
+      "preserved_distinctions": ["Scope extent remains distinct from the Scope Unit ownership boundary", "Atom Scope composition remains distinct from Substance Scope applicability", "No dot property or owner binding is inferred from the legacy slash"],
+      "reason": "CA-R-1014 names a current Scope Unit Scope, but no pinned current definition establishes whether that is a dependent Scope Unit field, an extent, or another relation. The candidate confirms only the Scope Unit ownership root. Mapping it to Scope Unit.Scope would invent the missing identity.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1293-CORE_META_MODEL-CORE--prohibit-demands-to-later-ordered-siblings.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1293-CORE_META_MODEL-CORE--prohibit-demands-to-later-ordered-siblings.md",
+      "source_atom_id": "CA-R-1293",
+      "source_version": 12,
+      "source_sha256": "ca33e5cabef7bc7a7cc9071db16177c338c871dc0570f4d79b0b745031844006",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Scope Unit/Type: Ordered",
+      "quarantined": false,
+      "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-005.review.json",
+      "originating_review_sha256": "a37a2e7e0db6888bed95b520e2343717eec10b24b6d38f6efaa63de416956405",
+      "prior_disposition": "unresolved",
+      "baseline_decision": "unresolved",
+      "baseline_proposed_value": null,
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type: Ordered",
+      "confidence": 0.96,
+      "evidence": [
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1293-CORE_META_MODEL-CORE--prohibit-demands-to-later-ordered-siblings.md", "sha256": "ca33e5cabef7bc7a7cc9071db16177c338c871dc0570f4d79b0b745031844006", "start_line": 19, "end_line": 31, "span_sha256": "d8c2562fdea426cd6a36da2ffbe258e05b4161e03d9e22ce49fd69ceedcbdbc3", "reason": "The Claim applies specifically to Demand Atoms owned by an Ordered Scope Unit and later Ordered siblings."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md", "sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b", "start_line": 25, "end_line": 29, "span_sha256": "91ffe9ae8a23af1101c1c86ae7a4e153d7ec39e028aa8eb9e2bb4a9d5524eaa7", "reason": "The current definition requires one Scope Unit Type value in Ordered or Unordered."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md", "sha256": "24fadc44278ab8a451f9f380b16ad0585e64a7aff5bd6ca61726dcdf61b20094", "start_line": 24, "end_line": 28, "span_sha256": "00d6391ce7b294cada89bcd5d09be5f703ba9e9e685e6349f3111cfcf73e02db", "reason": "The current definition makes Ordered a Scope Unit Type value with its Local Order participation meaning."}
+      ],
+      "candidate_basis": [{"pointer": "/root_entities/1", "reason": "Confirms Scope Unit as the retained root identity."}, {"pointer": "/dependent_entities/property_node_vs_relation", "reason": "Confirms a Property is a dependent Entity connected to its owning Entity; the current definitions establish Type as that Scope Unit property and Ordered as its allowed value."}],
+      "preserved_distinctions": ["Type remains a property of Scope Unit", "Ordered remains the allowed value of Type, not a narrower Scope Unit kind", "The source's sibling and Local Order restrictions remain source behavior, not a native edge admission"],
+      "reason": "The current occurrence and shared definitions explicitly establish the Scope Unit Type property and its Ordered value. Approved notation uses dot for bearer-to-dependent and colon only from Property to allowed value, so this retains the full property/value domain without making Ordered a subtype.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md",
+      "source_atom_id": "CA-R-1382",
+      "source_version": 9,
+      "source_sha256": "c3e84e0a0b438d149ebefc0a645e0ac92f0d5dea5c764d39748b4c01af16500a",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Scope Unit/Type: Ordered",
+      "quarantined": false,
+      "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-008.review.json",
+      "originating_review_sha256": "918d22a55b8ebbdb79e251b19e3dd531c0a3bf1252dde2f0e30b2ae9f2ff63b7",
+      "prior_disposition": "unresolved",
+      "baseline_decision": "unresolved",
+      "baseline_proposed_value": null,
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type: Ordered",
+      "confidence": 0.96,
+      "evidence": [
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1382-CORE_META_MODEL--default-ordered-scope-unit-label-to-layer.md", "sha256": "c3e84e0a0b438d149ebefc0a645e0ac92f0d5dea5c764d39748b4c01af16500a", "start_line": 18, "end_line": 30, "span_sha256": "956f0c3d1754728138ed1d569e24c4c22f70e010dbd78bffe0f4e8767dbe2940", "reason": "The Claim sets Layer as the default Label for every Ordered Scope Unit."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md", "sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b", "start_line": 25, "end_line": 29, "span_sha256": "91ffe9ae8a23af1101c1c86ae7a4e153d7ec39e028aa8eb9e2bb4a9d5524eaa7", "reason": "The current definition supplies the exact Scope Unit Type allowed-value domain."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1760-CORE_META_MODEL-CORE--define-ordered-as-a-type-value-under-scope-unit.md", "sha256": "24fadc44278ab8a451f9f380b16ad0585e64a7aff5bd6ca61726dcdf61b20094", "start_line": 24, "end_line": 28, "span_sha256": "00d6391ce7b294cada89bcd5d09be5f703ba9e9e685e6349f3111cfcf73e02db", "reason": "The current definition fixes Ordered's Type-value meaning."}
+      ],
+      "candidate_basis": [{"pointer": "/root_entities/1", "reason": "Confirms Scope Unit as the retained root identity."}, {"pointer": "/dependent_entities/property_node_vs_relation", "reason": "The current Type definitions establish the property/allowed-value distinction represented by the generic dependent-Entity rule."}],
+      "preserved_distinctions": ["Type remains a property of Scope Unit", "Ordered remains Type's allowed value", "Layer remains a separate Label value and is not collapsed into Type"],
+      "reason": "The source's Ordered qualifier is the current defined Scope Unit Type value. The target preserves both bearer and allowed-value domain while retaining the independent Label default in the body.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md#subjects.depends_on[3]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md",
+      "source_atom_id": "CA-R-972",
+      "source_version": 18,
+      "source_sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3",
+      "field": "depends_on",
+      "index": 3,
+      "old_value": "Scope Unit/Type",
+      "quarantined": false,
+      "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-026.review.json",
+      "originating_review_sha256": "610dcdeebbf3c37e4142fcdc63803c82630d2922338d9233377123c5c70178fa",
+      "prior_disposition": "unresolved",
+      "baseline_decision": "unresolved",
+      "baseline_proposed_value": null,
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type",
+      "confidence": 0.91,
+      "evidence": [
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-972-CORE_META_MODEL-CORE--define-scope-unit-label.md", "sha256": "2b104d079f45bf848c2bae40f50fd2a2ba3ff99282082d90d23df6bd2c1470d3", "start_line": 21, "end_line": 33, "span_sha256": "f6a37ced2321dbd6b96ca34d7eb4601c9a01afe099f44a0feff437444697b6dd", "reason": "The Claim says Scope Unit-specific Label defaults remain separately governed, retaining a separate Scope Unit characteristic from Label."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md", "sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b", "start_line": 25, "end_line": 29, "span_sha256": "91ffe9ae8a23af1101c1c86ae7a4e153d7ec39e028aa8eb9e2bb4a9d5524eaa7", "reason": "The current shared definition establishes the Type property independently of Label and its two-value domain."}
+      ],
+      "candidate_basis": [{"pointer": "/root_entities/1", "reason": "Confirms Scope Unit as the retained bearer identity."}, {"pointer": "/dependent_entities/property_node_vs_relation", "reason": "The current definitions establish Type as a dependent property connected to that bearer, rather than a second Scope Unit kind."}],
+      "preserved_distinctions": ["Label remains a separate Scope Unit property", "Type remains independent of Label and its defaults", "No Type allowed value is invented for this unqualified occurrence"],
+      "reason": "The source establishes that Label defaults are separate Scope Unit governance, and the current shared definition explicitly supplies the independent Type property. The unqualified target preserves that dependency without inventing an Ordered or Unordered value.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-979-CORE_META_MODEL-GENERAL-REQUIREMENT--default-scope-units-to-unordered.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-979-CORE_META_MODEL-GENERAL-REQUIREMENT--default-scope-units-to-unordered.md",
+      "source_atom_id": "CA-R-979",
+      "source_version": 16,
+      "source_sha256": "3f17b0012af73d9f8720916da5ca304fd846474e4f17754d0b957bfa79ca8ec1",
+      "field": "governs",
+      "index": null,
+      "old_value": "Scope Unit/Type",
+      "quarantined": false,
+      "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-027.review.json",
+      "originating_review_sha256": "07bff7c2a88cab85ac9c0c8ea985e00be2820c5abdb60db74dd4261d9f22d86e",
+      "prior_disposition": "unresolved",
+      "baseline_decision": "unresolved",
+      "baseline_proposed_value": null,
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type",
+      "confidence": 0.97,
+      "evidence": [
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-979-CORE_META_MODEL-GENERAL-REQUIREMENT--default-scope-units-to-unordered.md", "sha256": "3f17b0012af73d9f8720916da5ca304fd846474e4f17754d0b957bfa79ca8ec1", "start_line": 20, "end_line": 32, "span_sha256": "fa13046bc99bb9d281d8d797686f3583ac2183fa02ea92cbce2d9903baeef873", "reason": "The Claim directly governs every new Scope Unit's default Type value."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md", "sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b", "start_line": 25, "end_line": 29, "span_sha256": "91ffe9ae8a23af1101c1c86ae7a4e153d7ec39e028aa8eb9e2bb4a9d5524eaa7", "reason": "The current definition fixes Type as a Scope Unit property with a closed Ordered/Unordered value domain."}
+      ],
+      "candidate_basis": [{"pointer": "/root_entities/1", "reason": "Confirms Scope Unit as the bearer identity."}, {"pointer": "/dependent_entities/property_node_vs_relation", "reason": "The current definition establishes Type as a dependent property rather than a Scope Unit subtype."}],
+      "preserved_distinctions": ["The governed target remains Type, not its current default", "Unordered remains an allowed value rather than a narrower kind", "New-Scope-Unit default behavior stays in current source meaning"],
+      "reason": "CA-R-979 directly governs the Scope Unit Type property while its body separately assigns the Unordered default. The proposed target deliberately keeps the governed property unqualified.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-980-CORE_META_MODEL-REQUIREMENT--default-unordered-scope-unit-label-to-feature.md#subjects.depends_on[0]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-980-CORE_META_MODEL-REQUIREMENT--default-unordered-scope-unit-label-to-feature.md",
+      "source_atom_id": "CA-R-980",
+      "source_version": 15,
+      "source_sha256": "7cf1579c1f5c3f87514fdd51239532b34ff39857919588bce64c8f7206600dce",
+      "field": "depends_on",
+      "index": 0,
+      "old_value": "Scope Unit/Type: Unordered",
+      "quarantined": false,
+      "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-027.review.json",
+      "originating_review_sha256": "07bff7c2a88cab85ac9c0c8ea985e00be2820c5abdb60db74dd4261d9f22d86e",
+      "prior_disposition": "unresolved",
+      "baseline_decision": "unresolved",
+      "baseline_proposed_value": null,
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type: Unordered",
+      "confidence": 0.96,
+      "evidence": [
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-980-CORE_META_MODEL-REQUIREMENT--default-unordered-scope-unit-label-to-feature.md", "sha256": "7cf1579c1f5c3f87514fdd51239532b34ff39857919588bce64c8f7206600dce", "start_line": 20, "end_line": 32, "span_sha256": "c02e76999b68e89f9a2e415b434ab8a4a49edb7d8fcfc256eccf508da8fff672", "reason": "The Claim sets Feature as the default Label of every Unordered Scope Unit."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md", "sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b", "start_line": 25, "end_line": 29, "span_sha256": "91ffe9ae8a23af1101c1c86ae7a4e153d7ec39e028aa8eb9e2bb4a9d5524eaa7", "reason": "The current definition establishes the Scope Unit Type allowed-value domain."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1761-CORE_META_MODEL-CORE--define-unordered-as-a-type-value-under-scope-unit.md", "sha256": "6a6ce6060d358af61ecbca6bafb510ab7a6d9bc97585ec5cb31a6008e97964d0", "start_line": 23, "end_line": 27, "span_sha256": "8647c77d1838e1bf7d58fd03182e58b4bab0302b1f5f74d04d944255897b9d9a", "reason": "The current definition gives Unordered's Type-value and Local Order meaning."}
+      ],
+      "candidate_basis": [{"pointer": "/root_entities/1", "reason": "Confirms Scope Unit as the retained bearer identity."}, {"pointer": "/dependent_entities/property_node_vs_relation", "reason": "The current definitions establish the Type property and Unordered allowed value as dependent/property semantics."}],
+      "preserved_distinctions": ["Type remains a Scope Unit property", "Unordered remains Type's allowed value", "Feature remains a separate Label value"],
+      "reason": "The source's Unordered qualifier is the current defined Type value. The target retains that qualified domain and does not turn Feature or Unordered into a Scope Unit subtype.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md",
+      "source_atom_id": "CA-R-982",
+      "source_version": 15,
+      "source_sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Scope Unit/Type",
+      "quarantined": false,
+      "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-027.review.json",
+      "originating_review_sha256": "07bff7c2a88cab85ac9c0c8ea985e00be2820c5abdb60db74dd4261d9f22d86e",
+      "prior_disposition": "unresolved",
+      "baseline_decision": "unresolved",
+      "baseline_proposed_value": null,
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Type",
+      "confidence": 0.96,
+      "evidence": [
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-982-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-scope-unit-label.md", "sha256": "ba5aa246c7280faf167d648c59b28f2fd639d0066900d4f75c0c38dfb3d20c2f", "start_line": 21, "end_line": 33, "span_sha256": "27fa0b52f6810c78830435290d355f0c9f6eb2af9dc0fcbae7bdc4fc2eee204c", "reason": "The Claim says an Operator may replace Label without changing a Scope Unit's Type."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1758-CORE_META_MODEL-CORE--register-ordered-and-unordered-as-type-values-under-scope-unit.md", "sha256": "518088ad7c56e3d02cee70c0025b3275079802fade1870982f9f1bd85a23bc0b", "start_line": 25, "end_line": 29, "span_sha256": "91ffe9ae8a23af1101c1c86ae7a4e153d7ec39e028aa8eb9e2bb4a9d5524eaa7", "reason": "The current definition identifies the independent Scope Unit Type property and its value domain."}
+      ],
+      "candidate_basis": [{"pointer": "/root_entities/1", "reason": "Confirms Scope Unit as the preserved bearer identity."}, {"pointer": "/dependent_entities/property_node_vs_relation", "reason": "The source and definition establish Type as a dependent property, distinct from Label."}],
+      "preserved_distinctions": ["Operator remains the authority permitted to change Label", "Label and Type remain distinct properties", "No Type value or selector is inferred"],
+      "reason": "The current Claim expressly distinguishes a Scope Unit's Type from its Label. Scope Unit.Type preserves that dependent property without adding a value, Operator subtype, selector, or mutation authority.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md#subjects.governs",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md",
+      "source_atom_id": "CA-R-983",
+      "source_version": 14,
+      "source_sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4",
+      "field": "governs",
+      "index": null,
+      "old_value": "Scope Unit/Navigational Order Number",
+      "quarantined": false,
+      "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-027.review.json",
+      "originating_review_sha256": "07bff7c2a88cab85ac9c0c8ea985e00be2820c5abdb60db74dd4261d9f22d86e",
+      "prior_disposition": "unresolved",
+      "baseline_decision": "unresolved",
+      "baseline_proposed_value": null,
+      "input_proposed_value": null,
+      "decision": "proposed",
+      "proposed_value": "Scope Unit.Navigational Order Number",
+      "confidence": 0.96,
+      "evidence": [
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-983-CORE_META_MODEL-GENERAL-REQUIREMENT--let-the-operator-override-navigational-order-number.md", "sha256": "40bcd839e622f2bc7d18423f833530c0cacd2af1ecbd58a2c89fb4864ebd8af4", "start_line": 18, "end_line": 30, "span_sha256": "182377651170ebd3f248979a2b92d2ac9f34fdd102bdf93dc42be05b94104b70", "reason": "The Claim directly governs a non-Project Scope Unit's Navigational Order Number."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-978-CORE_META_MODEL-REQUIREMENT--define-navigational-order-number.md", "sha256": "808f47ce4862082ffa3ab9a0274180bc34e6307a33f33e7631f5fdd3a69c506b", "start_line": 27, "end_line": 31, "span_sha256": "2643a73608d5dabf18b9ba7607922366a81a76f164d65dc74f75d6793f9a0af0", "reason": "The current definition identifies Navigational Order Number as an Operator-controlled navigation label for one Scope Unit."},
+        {"path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-976-CORE_META_MODEL-CORE-REQUIREMENT--separate-navigational-order-from-structural-relations.md", "sha256": "cef8bce8abbd9b30a617d75864af9f6d1a263f56d55004edb5381a98d202a0f5", "start_line": 25, "end_line": 29, "span_sha256": "ff8a076ccda11292a22874b95a1e9c7ae86ad8b3c4426c05306c42d1f68b68a8", "reason": "The current boundary excludes structural parent/child, Type, Local Order, and dependency meanings."}
+      ],
+      "candidate_basis": [{"pointer": "/root_entities/1", "reason": "Confirms Scope Unit as the preserved bearer identity."}, {"pointer": "/dependent_entities/property_node_vs_relation", "reason": "The explicit current definition establishes Navigational Order Number as a dependent property of one Scope Unit."}],
+      "preserved_distinctions": ["Navigational Order Number remains an Operator-controlled navigation label", "Non-Project applicability remains a source qualification", "Navigation remains distinct from structural coordinate, hierarchy, Type, Local Order, and dependency"],
+      "reason": "The current definition directly binds Navigational Order Number to one Scope Unit and separately excludes structural meanings. Scope Unit.Navigational Order Number preserves that property-bearing relation without representing navigation as a narrower kind or structural edge.",
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned": 8,
+    "covered": 8,
+    "proposed": 7,
+    "unresolved": 1,
+    "current_sources": 8,
+    "current_evidence_spans": 20
+  },
+  "limits": [
+    "Research only; every proposed value requires independent semantic review before any ledger acceptance.",
+    "Scope Unit ownership remains distinct from scope extent, Substance Scope applicability, and Atom Scope composition.",
+    "Type is a Scope Unit property; Ordered and Unordered are its allowed values, not narrower Scope Unit kinds.",
+    "Navigational Order Number is a navigation label and not a structural coordinate, hierarchy, Type, Local Order, or dependency.",
+    "No selector, native relation, Subject grammar admission, source migration, or live graph change is admitted."
+  ]
+}

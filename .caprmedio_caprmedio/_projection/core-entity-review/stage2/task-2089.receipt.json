@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2089",
+  "recorded_at": "2026-10-11 06:52:40 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded audit accepted mapping layer provenance; not migration approval",
+  "verification": {
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/working-ledger.layers.audit.json",
+      "sha256": "dbdafdfe802aaf6640920f0dd9094190b35966f7922975e356869f1c50d48b12"
+    },
+    "root_independent_result": "PASS",
+    "mapping_reports_and_receipts": 14,
+    "decided_rows": 647,
+    "evidence_entries": 771,
+    "live_core_files": 374,
+    "unique_spans": 381,
+    "checks": [
+      "live final report/receipt pins and acceptance output descriptors",
+      "exact occurrence ID sets and selected coverage",
+      "all 771 current source/span evidence entries",
+      "CA-P-2082 one-newline reverse hash and JSON equality",
+      "CA-P-2084 exact registration Git task/parent context only"
+    ],
+    "grammar_recheck": "unaccepted; excluded from this bounded audit"
+  },
+  "completion_scope": "Accepted layer provenance is verified for 14 final mapping reports/receipts and 647 selected decided rows; current Core evidence matches 374 files and 381 unique spans. Historical Plan context is separate from live Core meaning. CA-P-2087 remains excluded at this checkpoint.",
+  "registration_commit": "5e4356db9950d00bb2eaa1e081e1fcc8e218ee97",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

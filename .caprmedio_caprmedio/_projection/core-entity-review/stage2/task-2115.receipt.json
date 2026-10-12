@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2115",
+  "recorded_at": "2026-10-11 09:08:22 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded review final relation-family origins; not migration approval",
+  "verification": {
+    "task": "CA-P-2115",
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2115.research.json",
+      "sha256": "cbad7db5ae4f00f397f67eb240d593596402fcb8bc02a247bdfd2b78abcf75b3"
+    },
+    "rows": 24,
+    "counts": {
+      "proposed": 9,
+      "unresolved": 15
+    },
+    "exact_evidence_spans": 25,
+    "exact_input_pins": 29,
+    "historical_plan_context_pins": [],
+    "negative_checks_rejected": [
+      "missing_row",
+      "duplicate_row",
+      "changed_origin",
+      "corrupt_span",
+      "stale_source",
+      "inferred_selector",
+      "missing_context_pin",
+      "low_confidence_proposal",
+      "high_confidence_null",
+      "executable_row",
+      "wrong_prior_decision"
+    ],
+    "input_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2112-2117.inputs.json",
+      "sha256": "397b371532dc4f1fb684649ffe3ef6728e955c3825939ab9ee35e76047381bd5"
+    },
+    "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+    "result": "PASS: exact current origins, pins, spans, syntax and non-executable coverage",
+    "independent_review": {
+      "reviewer": "/root/subject_review_005",
+      "final_report_sha256": "cbad7db5ae4f00f397f67eb240d593596402fcb8bc02a247bdfd2b78abcf75b3",
+      "result": "PASS: all twenty-four final meanings independently checked; nine supported proposals and fifteen justified nulls",
+      "meaning_checks": [
+        "Relation policy mappings retain topology, authority, endpoints, serialization and syntax constraints.",
+        "Relation Type and Kind remain one concept.",
+        "Explicit IS_ALLOWED_VALUE_OF membership supports Relation.Type allowed-value notation.",
+        "Named Subject relations, evaluation-for, authority-qualified and composition meanings remain null where generic Relation loses meaning."
+      ]
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root/subject_review_005",
+    "final_report_sha256": "cbad7db5ae4f00f397f67eb240d593596402fcb8bc02a247bdfd2b78abcf75b3",
+    "result": "PASS: all twenty-four final meanings independently checked; nine supported proposals and fifteen justified nulls",
+    "meaning_checks": [
+      "Relation policy mappings retain topology, authority, endpoints, serialization and syntax constraints.",
+      "Relation Type and Kind remain one concept.",
+      "Explicit IS_ALLOWED_VALUE_OF membership supports Relation.Type allowed-value notation.",
+      "Named Subject relations, evaluation-for, authority-qualified and composition meanings remain null where generic Relation loses meaning."
+    ]
+  },
+  "completion_scope": "All 24 assigned current origins passed independent meaning review and exact pin/span/coverage checks: nine supported proposals and fifteen explicit nulls. Relation kinds and source-specific constraints remain distinct; no original Atom changed.",
+  "registration_commit": "9a584ff18f338aef87ac8c1d45116e430abf41b5",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

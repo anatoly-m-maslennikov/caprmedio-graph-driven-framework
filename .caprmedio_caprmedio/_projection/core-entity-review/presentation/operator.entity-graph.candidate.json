@@ -1,0 +1,433 @@
+{
+  "kind": "Entity Graph Candidate",
+  "status": "Candidate",
+  "basis": "Latest Operator decisions in this conversation; later decisions replace earlier conflicting proposals. Unconfirmed assistant proposals are marked separately.",
+  "saved_on": "2026-10-10",
+  "timezone": "Asia/Tbilisi",
+  "authority": {
+    "operator_confirmed_root_list": true,
+    "adopted_core_model": false,
+    "native_relation_admission": "not performed",
+    "source_subject_migration": "not performed",
+    "earlier_source_pinned_review": "preserved, not replaced",
+    "complete_706_identity_remapping": "No native remapping performed; the consolidation review is a separate derived artifact."
+  },
+  "graph_model": "Entities are nodes; typed Relations connect them. Permitted Relation kinds constrain the valid endpoint Entity kinds.",
+  "root_entities": [
+    {
+      "name": "Artifact",
+      "meaning": "One governed lifecycle unit containing named dependent Entities.",
+      "lifecycle": "The Artifact has one lifecycle; its dependent Entities do not have separate lifecycles.",
+      "narrower_entities": [
+        {
+          "name": "Atom",
+          "meaning": "An Entity made of named dependent Entities, informally called sub-atoms.",
+          "named_dependent_entity_examples": [
+            "Summary",
+            "Status",
+            "Substance",
+            "Version Number",
+            "Updated At"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scope Unit",
+      "meaning": "Organizes and owns Atoms and other Scope Units; sits outside any individual Atom.",
+      "owned_entity_kinds": [
+        "Atom",
+        "Scope Unit"
+      ],
+      "nesting": "Recursive Scope Unit nesting is allowed."
+    },
+    {
+      "name": "Actor",
+      "meaning": "Who performs work."
+    },
+    {
+      "name": "Relation",
+      "meaning": "Typed connections between Entities.",
+      "note": "Permitted Relation kinds constrain which Entity kinds may connect. Examples include Artifact to Property, Scope Unit to Atom, and Carrier to Artifact. This does not permit every Relation kind between every pair of Entities."
+    },
+    {
+      "name": "Revision",
+      "meaning": "A historical snapshot of an Artifact.",
+      "not_an_artifact": true,
+      "not_a_property": true,
+      "not_a_bearer_qualified_entity_under_artifact": true,
+      "excluded_paths": [
+        "Artifact.Revision",
+        "Artifact/Revision",
+        "Atom.Revision",
+        "Atom/Revision"
+      ],
+      "history_connection": "Revision of an Artifact; no new native relation kind is admitted by this candidate.",
+      "recursion_boundary": "Revision is not itself an Artifact subject to another Artifact revision rule."
+    },
+    {
+      "name": "Carrier",
+      "meaning": "What carries or stores an Entity's representation.",
+      "placement": "Separate root Entity, not a Property."
+    },
+    {
+      "name": "Execution",
+      "meaning": "One actual run of an Operation.",
+      "proposed_kinds": [
+        "Action Run",
+        "Step Run",
+        "Workflow Run"
+      ],
+      "definition_boundary": "The Operation definition and its actual Execution are distinct."
+    }
+  ],
+  "dependent_entities": {
+    "meaning": "Named Entities inside an Artifact, including Properties.",
+    "independent_roots": false,
+    "independent_lifecycles": false,
+    "property_node_vs_relation": "A Property is a dependent Entity node; property-of is the relation connecting it to its owning Entity.",
+    "compact_examples": [
+      "Artifact/Atom",
+      "Atom.Summary",
+      "Atom.Status",
+      "Atom.Substance",
+      "Atom.Version Number",
+      "Atom.Updated At"
+    ],
+    "notation_boundary": "Compact examples are candidate display notation, not admission of native edges or permission to migrate Subjects."
+  },
+  "carrier_delivery_model": {
+    "status": "Confirmed",
+    "mapping_authority": "D Atom or D Policy",
+    "entity_specific_carrier_relation_types_required": false,
+    "per_property_carrier_relation_instances_required": false,
+    "per_property_d_atoms_required": false,
+    "policy_location": "Core Delivery specifications",
+    "decision": "Use a small set of general Core D Policies for storage and field conventions. Do not register each Status Property as carried by a YAML status field, and do not create a Carrier Relation Type or D Atom for every Property.",
+    "policy_reuse": "One general D Policy can cover multiple Entities and their instances; it need not enumerate each Property's Carrier binding as a graph Relation.",
+    "field_mapping_examples": [
+      {
+        "entity": "Status",
+        "stored_field": "status"
+      },
+      {
+        "entity": "Version Number",
+        "stored_field": "version_number"
+      }
+    ],
+    "semantic_boundary": "An Entity name is not itself a storage-field name. These examples illustrate D conventions, not required per-Property graph Relations; the exact general conversion rule is not authored by this candidate.",
+    "carrier_root_boundary": "Carrier remains a separate root Entity; this decision removes the need for per-Entity Carrier Relation Types, not the Carrier concept or all generic semantic Carrier links.",
+    "native_adoption": "Not performed."
+  },
+  "entity_representation_rules": [
+    "Each Entity instance has exactly one representation: a single source of truth for that instance.",
+    "A Projection is another Entity instance, not an additional representation of its source Entity instance.",
+    "A Projection remains derived and does not become another authority for its source facts."
+  ],
+  "representation_composition": {
+    "status": "Confirmed",
+    "meaning": "One Atom representation may combine a folder and a file with different meanings.",
+    "folder_role": "Organizes child Atoms.",
+    "file_role": "Contains the classic Atom content.",
+    "maximum_folder_parts_per_instance": 1,
+    "maximum_file_parts_per_instance": 1,
+    "parts_are_optional": "This permission does not require every Atom to have both parts.",
+    "child_boundary": "Carriers of child Atom instances are not additional representation parts of the parent Atom instance."
+  },
+  "entity_identity_model": {
+    "status": "Confirmed",
+    "scope_unit": "(project prefix)-SU-(number)",
+    "scope_unit_rename": {
+      "status": "Resolved — Operator-confirmed",
+      "selected_identity": "Stable Scope Unit ID",
+      "stable_id_format": "(project prefix)-SU-(number)",
+      "su_marker": "SU means Scope Unit.",
+      "metadata_root": ".caprmedio_(project name)",
+      "metadata_scope_unit_folder_format": "(project prefix)-SU-(number)-(LABEL)-(NAME_NAME)",
+      "metadata_folder_contents": "Preserve the full Scope Unit ID plus its existing Label and Name in the metadata Scope Unit folder name.",
+      "rename": "Keep the stable Scope Unit ID when its Label, Name or metadata folder path changes. Update the changeable Label and Name suffix rather than creating a replacement Scope Unit.",
+      "project_root_folder_policy": "Keep project-root folder names and layout as they are; the full metadata Scope Unit naming format is not imposed on implementation or delivery folders.",
+      "superseded_identity": "Name + Path; Name-based replacement-and-transfer rename semantics were not selected.",
+      "carrier_boundary": "Scope Unit identity continuity does not decide Carrier rename continuity.",
+      "implementation_boundary": "Naming and identity are confirmed in this candidate only; no folders are renamed and no native Scope Unit ID migration is performed."
+    },
+    "actor": {
+      "identity": "Actor Type + optional Name",
+      "type_examples": [
+        "AI Agent",
+        "Operator"
+      ],
+      "name_required": false,
+      "unnamed_reference": "A generic Actor Type, not one specific performer.",
+      "individual_disambiguation_priority": "Not important for now, per Operator."
+    },
+    "carrier": "Carrier ID",
+    "carrier_identity": {
+      "status": "Confirmed",
+      "identity": "Carrier ID",
+      "filename_and_path_are_identity": false,
+      "filename_and_path_role": "Storage location, not Carrier identity.",
+      "id_format_and_assignment": "Not yet specified.",
+      "rename_boundary": "A filename or path change does not define a Carrier ID change. Exact Carrier reuse or replacement lifecycle rules are not specified by this answer.",
+      "superseded_identity": "Filename + Path"
+    },
+    "execution": "Execution ID",
+    "dependent_entity": {
+      "status": "Confirmed",
+      "identity": "Owner selector + dependent field",
+      "operator_example": "atom(atom_id=\"CA-R-123\").status",
+      "notation_style": "Pseudocode",
+      "meaning": "Select the Atom instance by atom_id, then identify its dependent status Entity. The complete expression is the dependent Entity's ID, not merely a display address.",
+      "independent_surrogate_id": false,
+      "view_boundary": "Resolve the owner within the selected source or Projection view; copies retaining the same source Atom ID remain separate instances.",
+      "notation_boundary": "The Operator's pseudocode example is preserved exactly; it is not an executable API or an adopted parser grammar. Native identifier parsing and Subject grammar adoption are not performed."
+    },
+    "unconfirmed_details": "Carrier ID format, assignment and reuse or replacement lifecycle rules require authoring review, not an established new broad Operator choice; filename and path are not its identity. Individual unnamed Actor distinctions are low priority; their generic reference meaning is confirmed. Scope Unit ID and rename continuity are confirmed.",
+    "native_adoption": "Not performed."
+  },
+  "execution_definition_policy": {
+    "status": "Confirmed",
+    "ad_hoc_executions_allowed": true,
+    "o_atom_required_for_ad_hoc_execution": false,
+    "o_atom_role": "Defines repeatable Operations.",
+    "repeatability_decision_authority": "Operator",
+    "automatic_repeatability_rule": "Not introduced; the Operator decides what is repeatable.",
+    "native_adoption": "Not performed."
+  },
+  "atom_versioning": {
+    "status": "Confirmed",
+    "increment": 1,
+    "example_sequence": [1, 2, 3, 4],
+    "trigger": "Every Atom update, including Status-only and other metadata-only changes, increments Version Number by 1.",
+    "version_transition": "Update Atom -> new Version -> older Version archived -> current Version Active.",
+    "archive_meaning": "Archived older versions are history, not a permanent exclusion of the Atom ID or an inherited Status for the new current version.",
+    "projection_boundary": "Projected copies preserve their source Atom's Version Number; Projection rebuilds are tracked by the Projection, not by inventing a new source Atom version.",
+    "native_adoption": "Not performed."
+  },
+  "atom_lookup": {
+    "status": "Confirmed",
+    "default_view": "Active original Atoms in the source of truth.",
+    "maximum_active_originals_per_atom_id": 1,
+    "projection_boundary": "Projected instances are a separate view and do not count as additional Active original Atoms.",
+    "archived_lookup": "Atom ID + Version Number",
+    "native_adoption": "Not performed."
+  },
+  "projection_member_model": {
+    "status": "Confirmed",
+    "member_instances": "Derived Atom instances, not merely entries inside a Projection.",
+    "whole_set": "The whole set of derived Atom instances is a Projection.",
+    "lifecycle": "The Projection set has its own lifecycle and is managed as a whole.",
+    "atom_id_rule": "Each derived Atom keeps the same Atom ID as its source Atom.",
+    "version_number_rule": "Each derived Atom keeps its source Atom's Version Number.",
+    "rebuild_tracking": "The Projection tracks its own rebuilds. Its rebuild history does not increment the source Atom's Version Number.",
+    "source_reference": {
+      "required_for_each_derived_atom": true,
+      "form": "Relative link to its source Atom",
+      "serialization_and_relative_base": "Not yet specified."
+    },
+    "authority_boundary": "Derived instances do not become another authoritative source for the source Atoms' facts."
+  },
+  "draft_duplicate_policy": {
+    "status": "Deferred by Operator",
+    "decision": "No semantic duplicate rules for Drafts for now; their contents do not need to be deduplicated.",
+    "boundary": "This decision adds no Draft duplicate policy and does not change the already confirmed Atom ID rules."
+  },
+  "relation_type_model": {
+    "status": "Confirmed",
+    "name_variants": [
+      "Relation Type",
+      "Relation Kind"
+    ],
+    "same_concept": true,
+    "group_examples": [
+      "Atoms",
+      "Entities",
+      "Terms"
+    ],
+    "grouping": "Relation Types have groups for Atoms, Entities, Terms and other contexts; these are not two separate Type/Kind concepts.",
+    "endpoint_boundary": "Grouping does not remove each Relation Type's permitted endpoint constraints."
+  },
+  "terms_graph_boundary": {
+    "status": "Confirmed",
+    "decision": "Terms belong to another graph, separate from the Entities Graph.",
+    "entity_root_boundary": "This answer does not add Term as an eighth root of the Entities Graph.",
+    "cross_graph_links": "No new cross-graph Relation is admitted by this decision."
+  },
+  "relation_lifecycle_question": {
+    "status": "Resolved — Operator-confirmed",
+    "operator_context": "Changing an Atom's Status is simple; checking and fixing dropped Relations can be difficult and is another task.",
+    "question": "Does a Relation instance follow its declaring Entity's lifecycle or have an independently managed representation and lifecycle?",
+    "confirmed_choice": "Keep each Relation declaration with one declaring Entity; keep Status changes separate from Relation impact checking and repair. No independent Relation lifecycle is introduced for repair work.",
+    "operator_answer": "agree",
+    "decided_on": "2026-10-10",
+    "decision": {
+      "status": "Confirmed by Operator",
+      "direction": "Keep an Atom Status change separate from Relation impact checking and repair.",
+      "rules": [
+        "Keep one authoritative Relation declaration with one declaring Entity rather than introducing an independent Relation lifecycle solely for repair work.",
+        "A Status change is not deletion and does not itself erase Relations.",
+        "Check affected Relations against their endpoint and applicability rules as a separate task.",
+        "Report unresolved or invalid Relations explicitly rather than silently dropping them.",
+        "Require the necessary validity check before an affected Relation is relied upon."
+      ],
+      "scope": "The declaring Entity owns the Relation declaration; checking and repair remain separate tasks. Exact typed history links and native admission remain outside this decision."
+    }
+  },
+  "entity_vs_syntax_rules": [
+    "Syntax used to describe an Entity is not itself that Entity: indentation, headings and compact notation operators /, ., : and @.",
+    "A label or alias does not create another Entity.",
+    "A contextual grouping does not automatically create an Entity."
+  ],
+  "snapshot_and_history_rules": [
+    "Entities and Properties describe the selected snapshot.",
+    "Across non-archived authoritative Atom folders combined, at most one source Atom may carry a given Atom ID.",
+    "The uniqueness boundary includes Active, Done, Backlog, Canceled and other non-archived status containers.",
+    "Derived Projection Atom instances keep their source Atom IDs and each carry a relative source link; this supersedes the earlier unqualified ban on reused IDs across every non-archived folder.",
+    "Archived snapshots may retain the same Atom ID.",
+    "On an Atom version update, the older version is archived history and the new current version is Active; archiving a version does not permanently archive the Atom ID.",
+    "Drafts remain without assigned Atom IDs.",
+    "Git preserves Atom contents and versions; Journal records changes and applicability decisions.",
+    "An Atom historical reference is Atom ID + Version Number. For another Artifact without a Version Number, it is Artifact ID + Updated At. No separate Applicable Methodology Revision or Projection Revision kind is formalized here.",
+    "Revision is a separate historical root, not an Artifact subtype or an IS_BORNE_BY child of Artifact or Atom."
+  ],
+  "history_model": {
+    "confirmed_parts": [
+      "Revision",
+      "Journal"
+    ],
+    "revision_role": "Preserves a historical Artifact state.",
+    "journal_role": "Records what happened, including changes, Executions and observed outcomes. A record is not the event itself.",
+    "version_preservation": {
+      "status": "Confirmed",
+      "every_atom_version_recoverable": true,
+      "preserved_by": "Git",
+      "archived_version_meaning": "An older archived Atom version is history. The current version is Active after an update; old archived history does not make the current version archived.",
+      "records": "Git preserves Atom contents and versions. Journal records identify Atoms involved in applicability and creation decisions without duplicating their contents.",
+      "storage_boundary": "Every previous Atom version must remain recoverable from Git history; preserving Atom contents is not the Journal's job.",
+      "retention_requirement": "Retain Git history containing every Atom version required for recovery. No new commit or retention mechanism is implemented by this candidate."
+    },
+    "relation_version_binding": {
+      "status": "Confirmed — loose for now",
+      "mandatory_endpoint_version_pins": false,
+      "reconstruction_basis": "Use Atom version records to reconstruct which version of one Atom was linked with which version of another Atom.",
+      "deferred_details": "Exact temporal resolution and the reconstruction algorithm remain unspecified; this decision does not claim that exact historical bindings are already recoverable."
+    },
+    "relation_proposal": {
+      "status": "Native kind proposals for already selected meanings; lexical names and admission remain review work, not new semantic questions.",
+      "connections": [
+        "Revision — REVISION_OF → Artifact",
+        "Journal.Record — RECORDS → Execution"
+      ],
+      "deferred_connections": [
+        "Journal.Record — FROM_REVISION → previous Revision",
+        "Journal.Record — TO_REVISION → resulting Revision"
+      ],
+      "deferral_status": "Confirmed by Operator — FROM_REVISION and TO_REVISION wait until needed; Git preserves Atom versions.",
+      "deferred_change_record_scope": "If introduced later, FROM_REVISION and TO_REVISION were proposed for Artifact state-change records, not every Journal record. Creation has no previous Revision.",
+      "execution_record_scope": "RECORDS points to an Execution when the Journal record describes an actual run."
+    },
+    "historical_reference": {
+      "status": "Confirmed by Operator — not yet adopted as native reference grammar",
+      "atom_reference": "Atom ID + Version Number",
+      "other_unversioned_artifact_reference": "Artifact ID + Updated At",
+      "version_increment_policy": "Every Atom update increments Version Number by 1, including Status-only and other metadata-only changes.",
+      "projection_resolution": "Default lookup covers Active original source-of-truth Atoms, with at most one Active original per Atom ID. Projected instances belong to a separate view."
+    }
+  },
+  "content_direction": {
+    "umbrella": "Substance",
+    "role_labels": {
+      "RMED": "Claim",
+      "Plan": "Objective",
+      "Analysis": "Question",
+      "Concern": "Issue",
+      "Operations": "Operation"
+    },
+    "scope_omission": "Substance Scope may be omitted only for the whole governed Subject AND the whole owning Scope Unit; either restriction requires explicit Scope.",
+    "details": "General Details are optional; role/type-required content is not silently removed."
+  },
+  "applicable_methodology": {
+    "form": "A one-to-one Projection of all source Atoms into status folders, not only Active; applying and manually resolving the methodology is a realization process rather than only copying a Projection.",
+    "sources": [
+      "Core",
+      "Installed Extensions",
+      "Project Configuration"
+    ],
+    "requirement": "Project every Atom from the input sources somewhere in Applicable Methodology. Keep each projected Atom mapped one-to-one to one source Atom; not every projected Atom is Active. Resolve conflicts manually rather than combining multiple sources into one derived Atom.",
+    "mapping": {
+      "source_atoms_per_projected_atom": 1,
+      "combine_multiple_sources_into_one_atom": false,
+      "all_source_atoms_projected": true,
+      "active_only": false,
+      "identity": "Preserve the source Atom ID and add a relative link to that source."
+    },
+    "decision_journal": {
+      "status": "Confirmed",
+      "atom_reference": "Atom ID",
+      "registered_decisions": [
+        "Which Atoms were projected to Active.",
+        "Which Atoms were projected to archived.",
+        "Which Atoms were created in Project Configuration."
+      ],
+      "recording_required": true,
+      "contents_boundary": "The Journal registers these decisions by Atom ID; Git preserves the Atoms themselves and their versions.",
+      "archive_record_boundary": "Recording an archived version does not permanently exclude that Atom ID or transfer the older version's archived Status to a new current version.",
+      "rebuild_roles": "Source Atoms provide contents; Journal records provide applicability decisions; Git preserves recoverable Atom history. Exact record serialization and replay mechanics are not specified here."
+    },
+    "source_update_policy": {
+      "status": "Resolved — ordinary version lifecycle clarified; prior question withdrawn",
+      "decision": "An Atom update creates a new current Active version; the older version is archived history.",
+      "withdrawn_question": "The assistant conflated an archived historical version with a permanent applicability exclusion by Atom ID.",
+      "boundary": "No permanent-ID exclusion or archived-Status inheritance rule is introduced. Earlier explicit manual conflict-resolution decisions are not silently replaced by a different automatic projection mechanism."
+    },
+    "manual_realization": {
+      "conflict_resolution": "Place an excluded projected Atom in Applicable Methodology's archived subfolder and record the decision in a Journal. When needed, create a new authored Atom in Project Configuration.",
+      "exclusion_target": "The projected Atom in Applicable Methodology, not a project-local mutation of its original source Atom.",
+      "excluded_atom_folder": "archived",
+      "archive_scope": "Archiving concerns the projected copy or version addressed by that decision; it is not a blanket archived Status for every future version sharing the Atom ID.",
+      "journal_record_required_for_exclusion": true,
+      "new_atom_location": "Project Configuration",
+      "new_atom_origin": "A newly authored original Atom may have no upstream source Atom; it is not a derived Projection member at creation.",
+      "subsequent_projection": "That original Configuration Atom is projected one-to-one into the derived view with a link back to it."
+    },
+    "authority": "Core, Installed Extensions and Project Configuration originals remain the source of truth for Atom facts. Newly authored Configuration Atoms are original sources; Journal records register applicability and creation decisions. The derived view creates no second authoritative source for Atom facts; Git preserves Atom contents and versions.",
+    "instance_boundary": "The Projection is a distinct Entity instance with one representation. References to source Atoms do not make it another representation of those source instances.",
+    "root_status": "Not an additional independent root in this candidate."
+  },
+  "m_e_root_question": {
+    "status": "Resolved",
+    "operator_question": "What about M/E root Entities?",
+    "decision": "M and E are role-centred views over the shared roots: their specifications are Atoms; actual performances or checks are Executions.",
+    "operator_answer": "okay, yes.",
+    "decided_on": "2026-10-10",
+    "alternative_not_selected": "Add separate Method or Evaluation conceptual roots.",
+    "additional_roots_added": false
+  },
+  "unresolved": [],
+  "review_backlog": {
+    "question_policy": "Ask the Operator only when review exposes a concrete incompatible meaning not already settled by their latest decisions. Missing native proof, a lexical kind name or an unmapped old label is review work, not itself a new design question.",
+    "authoring_and_implementation": [
+      "Specify Carrier ID syntax and assignment, retaining identity separately from filename and path.",
+      "Specify Journal record serialization and replay, Projection rebuild metadata, and Git version recovery.",
+      "Implement identifier and Subject parsing, including relative source-link resolution.",
+      "Review and author the minimal native Relation catalogue for the selected meanings; no per-Property Carrier binding registry.",
+      "Review the 706 captured identities and preserve original identities, source evidence, allowed-value domains and qualified meanings."
+    ],
+    "deliberately_deferred": [
+      "FROM_REVISION and TO_REVISION kinds until needed.",
+      "Exact historical endpoint-version binding; keep it loose now.",
+      "Draft semantic deduplication and individual unnamed Actor disambiguation."
+    ],
+    "later_harness_decision": "Live or resumable Execution-state storage is separate from the confirmed Git preservation of Atom contents and versions; it is not a current entity-model blocker.",
+    "consolidation_artifact_directory": ".caprmedio_caprmedio/_projection/core-entity-review/consolidated",
+    "native_adoption": "Not performed."
+  },
+  "earlier_review": {
+    "inventory": "candidate.entities.indented.txt",
+    "review": "candidate.review.md",
+    "manifest": "candidate.manifest.json",
+    "captured_core_commit": "a971d0e00c33c779f485fc8cad63194894d440fb",
+    "manifest_sha256": "fb9deec859a5f828e648d94da9d7888c50175872a70b9711e6a9f6a734ec81ce",
+    "note": "The earlier package is immutable review evidence. This Operator-authored concept candidate is not a mechanical rebuild of it."
+  }
+}

@@ -1,0 +1,632 @@
+{
+  "baseline_inventory_sha256": "23394abaf6e9c18a585cf3146aedd0a80df166c9dd82be6e86ed7c3c56780bdc",
+  "batch_number": 6,
+  "cases": [
+    {
+      "case_id": "slash:8460a944ada2096722a0c840cb82ff1e30f18491d3f0c60ed6c3c2dc2d89a248",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Project Settings/Project identity",
+        "qualified_parent": "Project Settings",
+        "semantic_intent": "project-identity qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-D-375",
+          "atom_revision": 9,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-375-CORE_META_MODEL--serialize-project-initialization-identity.md",
+          "carrier_sha256": "404da79b6bb14e62c88ad5409b1f1947f907acf5812fd1b8ca3a53ce18e7c5d7",
+          "end_line": 36,
+          "quote": "\nthe Project Settings TOML Carrier **must** encode the Operator-selected Project Name as its exact lowercase value **in** `project.name`, **before** the first Project Atom **or** Implementation is created.\n",
+          "start_line": 34,
+          "text_sha256": "00746370e3a5350ba8963f51e3eacb3faf6e8d3f7891343b06617de7ea7e70d9"
+        }
+      ],
+      "old_child": "Project Settings/Project identity",
+      "old_parent": "Project Settings",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this project-identity qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:88d8868ca7c79c38d1cfd300e471f9c0abc2ef7317c30e840bd40525a837be56",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "RMED Atom Review Workflow/coverage/Step",
+        "qualified_parent": "RMED Atom Review Workflow/coverage",
+        "semantic_intent": "coverage-substep context"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-O-119",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-119-CORE_META_MODEL-STEP--gate-gather-result-coverage.md",
+          "carrier_sha256": "4f9f072eb47d4c3536a86d6edbf634a18c177136a3c9e560c944d642c0543a67",
+          "end_line": 25,
+          "quote": "\nthe gather Coverage Gate substep **must** invoke **`=1`** Action, CA-O-118, with stage=gather **after** the main gather Step **and** **before** continuation.\n",
+          "start_line": 23,
+          "text_sha256": "ad6bb081ef9640acf75ed73592d1037621a3656a1972d02c6c48d3d7a80e4078"
+        }
+      ],
+      "old_child": "RMED Atom Review Workflow/coverage/Step",
+      "old_parent": "RMED Atom Review Workflow/coverage",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this coverage-substep context; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:90fc724c6acfd7679fcf2f7342770f296ed1d199c611d717f73ae98c3d7fcfa5",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Find and Fetch Journal Events/Step",
+        "qualified_parent": "Find and Fetch Journal Events",
+        "semantic_intent": "query-step context"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-O-163",
+          "atom_revision": 2,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/FIND_AND_FETCH_JOURNAL_EVENTS/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md",
+          "carrier_sha256": "8d0238a1614f5888f2aa486038d271cc58db1d3f0d7014dece0baa53004a489c",
+          "end_line": 30,
+          "quote": "\nThis Step is the query node of CA-O-161 and invokes exactly one Action, CA-O-162, Query Journal Events.\n\n### Inputs and parameters\n\nBefore workflow/action-start recording or Action dispatch, the adapter captures the selected Project's canonical Journal byte-prefix and binds one opaque snapshot token containing source-root identity, prefix byte length and hash, ordered member references, member byte hashes, and unique Event IDs. The Action consumes exactly that sealed frontier. A standalone Action captures before its own Run evidence. Bind the literal filter expression, requested result mode (`ids`, selected `fields`, or `full_events`), selected fields when applicable, and bounded page request. The token excludes this invocation's later Run/Event records and permits later append only outside the sealed prefix.\n",
+          "start_line": 24,
+          "text_sha256": "710dc4c2ddda2404c2486a4718b30bcb816736bd4831af67b825d1bf3401aa86"
+        }
+      ],
+      "old_child": "Find and Fetch Journal Events/Step",
+      "old_parent": "Find and Fetch Journal Events",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this query-step context; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:9bf603f9bb3f271aa1a80ec913d66cbda949b1c201f8a9d7aa878c6554c6bad2",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Project Settings/Identifier",
+        "qualified_parent": "Project Settings",
+        "semantic_intent": "identifier qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-D-362",
+          "atom_revision": 10,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-362-CORE_META_MODEL--identify-project-settings-artifact.md",
+          "carrier_sha256": "3cf6985a157cfd77e5d084bdc8e3e748eb3aa7c5fededa64a79049717b10ac7a",
+          "end_line": 31,
+          "quote": "\nthe Identifier of Project Settings for a Project named `<project_name>` **must** be `caprmedio_<project_name>_settings`.\n",
+          "start_line": 29,
+          "text_sha256": "d3f992734288760907abb9a6edff2bacedbc4ce9988c78817566bfa2dbc252d6"
+        }
+      ],
+      "old_child": "Project Settings/Identifier",
+      "old_parent": "Project Settings",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this identifier qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:a3f8cca14a25cedb73274f8375b41173c7fabf34d5d90352288948769c898d68",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Markdown Atom Carrier/Main Content",
+        "qualified_parent": "Markdown Atom Carrier",
+        "semantic_intent": "main-content qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-D-279",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-279-CORE_META_MODEL-DELIVERY--serialize-markdown-paragraphs-as-unwrapped-lines.md",
+          "carrier_sha256": "a6e3e5de33f5e0f3a13257de29826657c133a0ff7d5a867e9531a735e4a1dff3",
+          "end_line": 28,
+          "quote": "\n**every** Markdown Atom Carrier Main Content prose paragraph **must** use one unwrapped source line **and** one blank line between adjacent paragraphs.\n",
+          "start_line": 26,
+          "text_sha256": "9d86c4d5529c39a11cd06c47c4c266d818a6516c1dcbeec6199f4f2c36555da5"
+        }
+      ],
+      "old_child": "Markdown Atom Carrier/Main Content",
+      "old_parent": "Markdown Atom Carrier",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this main-content qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:afa9c4e09b2626197efeb62d68d3293772aa1749d387a0488c9b0e18b8e9ddf8",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Markdown Atom Carrier/YAML Frontmatter/Scalar",
+        "qualified_parent": "Markdown Atom Carrier/YAML Frontmatter",
+        "semantic_intent": "frontmatter-scalar qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-D-277",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-277-CORE_META_MODEL-DELIVERY--serialize-safe-frontmatter-scalars.md",
+          "carrier_sha256": "3f725da058e785dcb62fd2ff25bdcf55e20c1df6ad906c3d471024aae9398ee9",
+          "end_line": 29,
+          "quote": "\nthe YAML Frontmatter of a Markdown Atom Carrier **must** serialize registered YAML-safe controlled string values as plain scalars **and** **must** place uncontrolled human prose **in** Main Content.\n",
+          "start_line": 27,
+          "text_sha256": "676f1e729bc39f5a71f345aedd1aceb27601e2e23c491f02ba2c271fa60324c0"
+        }
+      ],
+      "old_child": "Markdown Atom Carrier/YAML Frontmatter/Scalar",
+      "old_parent": "Markdown Atom Carrier/YAML Frontmatter",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this frontmatter-scalar qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:b78252431614eaa1b1094540cf8a0da5f34554f5a69f8b65acb5573393cf94ea",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Framework Instance Settings/Tool selections",
+        "qualified_parent": "Framework Instance Settings",
+        "semantic_intent": "tool-selection qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-D-372",
+          "atom_revision": 7,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-372-CORE_META_MODEL--serialize-instance-tool-selections.md",
+          "carrier_sha256": "cd5f93b752e15615a092d9869e673d8c017f36f85f50aa0610f6bf093c4aec6a",
+          "end_line": 32,
+          "quote": "\nthe Framework Instance Settings TOML Carrier **must** encode selected active **and** background Tools with their per-Tool settings.\n",
+          "start_line": 30,
+          "text_sha256": "745c374936b37ddb1ebda05985c6b684092ef77de19dab4bed41cf7127a74240"
+        }
+      ],
+      "old_child": "Framework Instance Settings/Tool selections",
+      "old_parent": "Framework Instance Settings",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this tool-selection qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:c4e2a0a60d752bf21f772b76ad04ebfa1cecbfff44a285551c44dc145c86d439",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "RMED Atom Review Workflow/coverage",
+        "qualified_parent": "RMED Atom Review Workflow",
+        "semantic_intent": "coverage-action context"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-O-118",
+          "atom_revision": 1,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/RMED_ATOM_REVIEW/CA-O-118-CORE_META_MODEL-ACTION--review-base-revise-result-coverage.md",
+          "carrier_sha256": "13101b6fa0d46755f25dcbf2c81cb31e8f945be1a0a932dabd36c0b77274ad26",
+          "end_line": 26,
+          "quote": "\nthe Coverage Gate **must** compare saved main-Step results with their explicit expected work **and** return covered **only** at coverage **`=100`** percent.\n",
+          "start_line": 24,
+          "text_sha256": "1fba58b09b0091502a1f3c991e27dae6331d4dcdf244ce1ea51aef24d08c6426"
+        }
+      ],
+      "old_child": "RMED Atom Review Workflow/coverage",
+      "old_parent": "RMED Atom Review Workflow",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this coverage-action context; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:c596e175d30b0af83730841db9066f62436912e1ed213e43a5ea90d7f5248c1d",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Project Settings/Atom Prefix",
+        "qualified_parent": "Project Settings",
+        "semantic_intent": "atom-prefix qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-D-376",
+          "atom_revision": 8,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL--serialize-the-project-atom-prefix.md",
+          "carrier_sha256": "a8a1e395a50127fcc7ab120f2d4ca0d33c1176f35793cbaf218b6643bfdba46b",
+          "end_line": 33,
+          "quote": "\nthe Project Settings TOML Carrier **must** encode the Operator-selected Atom prefix **in** `artifacts.identity.project_prefix` **before** the first Project Atom is created.\n",
+          "start_line": 31,
+          "text_sha256": "f6b122763113524619650659c41106efdbafe3f42a2709547f22c28cabb46ee7"
+        }
+      ],
+      "old_child": "Project Settings/Atom Prefix",
+      "old_parent": "Project Settings",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this atom-prefix qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:ca1cc7b4bee584c1e94ff1f32a6bcc0a2c45d1a12f34a8b65b54ab11d7bec6f2",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Markdown Atom Carrier/YAML Frontmatter",
+        "qualified_parent": "Markdown Atom Carrier",
+        "semantic_intent": "frontmatter qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-D-276",
+          "atom_revision": 15,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-276-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter.md",
+          "carrier_sha256": "ea6013f935f9b465d4a6ea5afd80a20a44dbc4ab50db2d031f325510f4881b06",
+          "end_line": 32,
+          "quote": "\nthe YAML Frontmatter of a Markdown Atom Carrier **must** use the least syntax **and** nesting that preserves unambiguous deterministic parsing, validation, extensibility, **and** human readability.\n",
+          "start_line": 30,
+          "text_sha256": "42062a0af8289c23e877dbd0df697f980a660e16545c3226505b2ec7f247fef6"
+        }
+      ],
+      "old_child": "Markdown Atom Carrier/YAML Frontmatter",
+      "old_parent": "Markdown Atom Carrier",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this frontmatter qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:d2e062b5eae54c39cd3c74514cce0828d5b25081aec8265fad3805539af40823",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Proof Carrier/Dependency Frontier",
+        "qualified_parent": "Proof Carrier",
+        "semantic_intent": "dependency-frontier qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-D-329",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-329-CORE_META_MODEL--serialize-proof-frontier-references.md",
+          "carrier_sha256": "965f664d842c8633f356944fdb9b3fd899da2e5aff2fa2999ac72581677345ca",
+          "end_line": 28,
+          "quote": "\n**every** proof Carrier **must** serialize its machine-readable dependency frontier as a YAML `proof_frontier_refs` list of exact versioned **or** digest-bound references. prose **must** be reserved for additional invalidation conditions that cannot be encoded **without** loss.\n",
+          "start_line": 26,
+          "text_sha256": "0180e5f807fb079dbb179e969915f3b0b32d5f8edab864b2c1885b5322919dfd"
+        }
+      ],
+      "old_child": "Proof Carrier/Dependency Frontier",
+      "old_parent": "Proof Carrier",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this dependency-frontier qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:da9d64b00a7e3c45dc865a3d2d8e596a608d8bd461dc430fa6c7d3e3e69d17a8",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Framework Instance Settings/framework control-root locator",
+        "qualified_parent": "Framework Instance Settings",
+        "semantic_intent": "control-root-locator qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-D-370",
+          "atom_revision": 8,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-370-CORE_META_MODEL--serialize-the-framework-control-root-locator.md",
+          "carrier_sha256": "69e3f575cb2373de175ff1407ad953f7d7ee42e105551c6da58de9c66b2c9177",
+          "end_line": 33,
+          "quote": "\nthe Framework Instance Settings TOML Carrier **must** encode the framework control-root locator for its Project, resolving **to** the Directory Carrier prescribed by CA-D-317 **without** selecting a different authority root.\n",
+          "start_line": 31,
+          "text_sha256": "8d7a829a51817c3af542156e6952b3dcffa25eaf337279532137ec7fcabe5b8d"
+        }
+      ],
+      "old_child": "Framework Instance Settings/framework control-root locator",
+      "old_parent": "Framework Instance Settings",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this control-root-locator qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:dc1297a8a9f4525db1add67e337ab19d0e31014d76f00b1e20511bacd21ecc6a",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Atom Carrier/Filename/Summary Slug",
+        "qualified_parent": "Atom Carrier/Filename",
+        "semantic_intent": "summary-slug qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-D-282",
+          "atom_revision": 11,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-282-CORE_META_MODEL-DELIVERY--serialize-filename-summary-slug-from-summary.md",
+          "carrier_sha256": "148ffbd7b9320fb81ff0d6b69a2c0342ab64d2fdca7c14869a391000cd980119",
+          "end_line": 29,
+          "quote": "\n**every** Atom Filename Summary Slug **must** be the lowercase ASCII kebab-case serialization of the complete Atom Summary.\n",
+          "start_line": 27,
+          "text_sha256": "53efa255c13dffa83f9de19d181642a586774db37a9d559918b8783dbdbd5871"
+        }
+      ],
+      "old_child": "Atom Carrier/Filename/Summary Slug",
+      "old_parent": "Atom Carrier/Filename",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this summary-slug qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:f124dbaf1755e3243dae880f0caea78ee0ebce40a3b178ef6c3e9b102493b373",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Markdown Atom Carrier/Main Content/CCE Operator",
+        "qualified_parent": "Markdown Atom Carrier/Main Content",
+        "semantic_intent": "CCE-operator qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-D-280",
+          "atom_revision": 12,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-280-CORE_META_MODEL-DELIVERY--serialize-cce-operators-in-bold.md",
+          "carrier_sha256": "1f4289f4d3c0e0b832b4017edf7dac48f505802c8e65daafe7383c8264f68849",
+          "end_line": 29,
+          "quote": "\n**every** CCE Operator occurrence within Markdown Atom Carrier Main Content **must** use its exact canonical spelling with bold rendering; a word-form CCE Operator **must** use lowercase bold text, while a symbolic CCE Operator **must** use bold inline-code rendering.\n",
+          "start_line": 27,
+          "text_sha256": "3a7cdcf27618ba7f9ffe3d1800629951bec5a5e5ac58122999af0af32019c595"
+        }
+      ],
+      "old_child": "Markdown Atom Carrier/Main Content/CCE Operator",
+      "old_parent": "Markdown Atom Carrier/Main Content",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this CCE-operator qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:f67dca2f9e6f9810a1732e7853715e652bb415f453cad0180e23ca26805ee33c",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Producer Result/Flow Direction",
+        "qualified_parent": "Producer Result",
+        "semantic_intent": "flow-direction qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-R-945",
+          "atom_revision": 18,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CA-R-945-CORE_META_MODEL-CORE-REQUIREMENT--define-result-flow-direction.md",
+          "carrier_sha256": "01d7b28472ed418b1d8479c538b100ff9902b09d77b08c582ed6341787a87400",
+          "end_line": 33,
+          "quote": "\na Producer result flow direction **means** from the Producer Claim Target Scope Unit **to** the Consumer Atom Scope Unit.\n",
+          "start_line": 31,
+          "text_sha256": "0d538c5d26d29d42b05639ff20a895d4d3e52c36aba4987b95c0711faa2bec9c"
+        }
+      ],
+      "old_child": "Producer Result/Flow Direction",
+      "old_parent": "Producer Result",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this flow-direction qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    },
+    {
+      "case_id": "slash:fd3b33a6eef3692ab6eda745039f11facc10ce024e4930d709c53b901ac53bad",
+      "checks_performed": [
+        "selected-current-source-pin-sha256-matched",
+        "quoted-current-main-content-not-subjects",
+        "no-metadata-filename-or-incidence-semantic-inference",
+        "no-native-admission"
+      ],
+      "confidence_percent": 90,
+      "display_candidate": {
+        "display_operator": ".",
+        "native_admission": "not_performed",
+        "qualified_child": "Framework Instance Settings/Artifact Timestamp Timezone",
+        "qualified_parent": "Framework Instance Settings",
+        "semantic_intent": "timestamp-timezone qualification"
+      },
+      "disposition": "not-native",
+      "evidence": [
+        {
+          "atom_id": "CA-D-390",
+          "atom_revision": 8,
+          "carrier_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL--configure-the-artifact-timestamp-timezone.md",
+          "carrier_sha256": "3042bb9e7056b85e8b0b248e83869f8145260da9813ca31101963e923bf4c67e",
+          "end_line": 34,
+          "quote": "\nthe Framework Instance Settings Artifact **may** set `[artifact_timestamps].timezone` **to** `local`, `UTC`, **or** an IANA timezone name, with `local` as the default; **every** emitted `updated_at` value uses `YYYY-MM-DD HH:MM:SS`, **and** the setting supplies its timezone interpretation.\n",
+          "start_line": 32,
+          "text_sha256": "b93f3426453d5df81039783f9c39e2b4eeda80ab93a5cbc91e25e184d21ac682"
+        }
+      ],
+      "old_child": "Framework Instance Settings/Artifact Timestamp Timezone",
+      "old_parent": "Framework Instance Settings",
+      "proposal": null,
+      "question": null,
+      "reason": "The pinned Claim expressly governs this timestamp-timezone qualification; it supports display-only '.' qualification, but does not identify an immediate dependent Entity required for native IS_BORNE_BY."
+    }
+  ],
+  "checkpoint_sha256": "e6f3df07e9f60d124eda754fb486c7d1456d9f55ac380aa209ce334d8a82c2d9",
+  "checkpoint_source_sha256": "43db3bb5f5c82994812afb8bf63950c28298a098fb9e6a535c75ad7c8676c799",
+  "complete_review": false,
+  "non_authoritative": true,
+  "partition_sha256": "c9cfb1746d24471eb8aa2743913f062198fa51ab3c2c1874a57fbf08a6425b4e",
+  "remaining_case_ids": [
+    "slash:83f433dc09b44fa71a7f32da4de94141e28389f6e2364c09832c79322dfc9b19",
+    "slash:849a1649789f4c82236f8bdce55deeeeed57e8f2eb5dc09d59ac2c7756f2e050",
+    "slash:852756903fff9e4372feb610bc8763c22bdef5ff45dc808f8549eee55b0edeed",
+    "slash:859ab7a4455ff40df3e8d4cd5ec7a096c3f99bb678448a0a3e831d8fe5feeda1",
+    "slash:8e6c8a53bf094630af05b08577e75d3afdce1ef2b7769997b413e4f488f7d1a3",
+    "slash:900bd22515858205d4c56199ecdbbeba7e3bac5b2629799173e703fdc21737cf",
+    "slash:90593d53cc562790784c8791d35b20ceaadc32269e68c8459bc9282d5c940fb2",
+    "slash:91a5a55548f184d65f1e6b4745c3386271f79e11afa7b534057abdfe19d4332e",
+    "slash:91cd856a726a346ec9bf682b8ced53f86bdd1dafdf8341231dc04d51a7efa6c0",
+    "slash:947ce932c7bff9f8e1afe3df2f63b80b771e5e9922eab1172dab7603c94b0594",
+    "slash:94962d59b719c180984715a3bbbfa50868a0121b9a9c6b03786c167ccdd6a1b7",
+    "slash:9a0017beb976d0fdd6964c6591e9644d8545ac8da0b226074792dee00153072b",
+    "slash:9bc7943d17fae1aa47d28611d400ff16e30b7b90fe33acd1dc84be468dc54226",
+    "slash:9c37a05731df6580ba6d78347fdfac8f4077725d02fe3808229eea5bd0433c64",
+    "slash:a117e753b1cd59017219294975ad9acda21f93a6c41eec87f93ffaf4cd194560",
+    "slash:a219973284328568bff077b970e377d4332c5e195b460b05504d3c1bd719200b",
+    "slash:a47cdd0720efa3261354a23984ac1b7389712760033dcd8e3d5e9aae8ac15180",
+    "slash:a8d2aa80e70afc83c7d2a742c62711562796469a380455aa95ae61cb0a06fc43",
+    "slash:abb01a24fc41074203cd28377c7838eb35ef363f3ee351736d723149aeabacee",
+    "slash:aed5839ab415338505e7c911f5754f06a9c19c27320a60bccc6c9336eb1c0392",
+    "slash:b381f7654c13d5853ae6c5e1061cbc6b6405ae622661b65138712ef63a1422db",
+    "slash:b47d9995357836e64677b54629744cb579510ebb8a8c5a4fd5ae5a28746bb97b",
+    "slash:b4e63205cfb965c7bbb023fd976889b208fdd872f74cf6ea2c575b7f0dc844cc",
+    "slash:b81ffee76e67bd57ea3d27137fa233322cefb877fb4a4729920f6e45cc7cf582",
+    "slash:bc1f7c12aca1fa510aa4bb261edbaa58520ed9a746dd8fb2387dec9ca83f8a20",
+    "slash:bca1c148dbc29a78ae231dd43efa4a59a52bc430b917f39970317991c88f6b10",
+    "slash:c1e12f6512839a2066a33deecc97d6a30e3704c8eb2784a8a447f69dbc8ac55a",
+    "slash:c2391bc2218272ada08eb17b8bee5fe02fe5d858ac43c9cd8447266ab9443a36",
+    "slash:c2664911d92af1cb2d4784cb59c30fd792c1fb84c1b64cd9a237ff32d168abd3",
+    "slash:c2f8196944ac8789e276d44862e523fbb4cf4997536a4889fe491482315476ff",
+    "slash:c51cc2181b75db4939f08c048cc8d59f10d9b51ad8334b92d8a550c0dcd7a0f7",
+    "slash:c8029aae30e728e4ffa6373a80671350fe29fedff7ad2f8024e463dcdf429056",
+    "slash:cb9a4fc7d85d413809577bd2d5d8dacb3610eaba5c2ef9f729dd85fe45364893",
+    "slash:cc05c646fa00e00f03e1d398dda4f18b756b054b9c0001af1e52ba93453a2865",
+    "slash:d04191de176e795b40923bc2b62542b630a1735183e8f0b3bd33a0faebec9f01",
+    "slash:d1596a33061b3d18b32ffc3c3e5997c6a677e3b6cd44bcd76d6fc1aecb9855dd",
+    "slash:d1a1765eea3993ae253c10df3d8c7768d1610d13910d3335ff5691b50be736f8",
+    "slash:dd1ff0eaffb5362eacc4d9a251eafcb20baf928512fc10cd5ec53217fef6b48b",
+    "slash:e3f6dfb82d53b5561cc9c8c36bd47c319c3310996a36415940f3a21ba56b337e",
+    "slash:e5994894c71bdec11e067c6d3423fd8d8d85bc3c3fa05eba631304ad081c39b4",
+    "slash:e5cab080a8c0388c366ab1c998addcdd279c36529aaeeee8db737f829426fbfd",
+    "slash:e795f588dba192021e3be5c24820d7044e8f181721b379ab0754889876a4ce39",
+    "slash:ed76bd8d72c8515f07a6c6fc7027f6d26146bdc42425aae8351bdfa3af1ffa9d",
+    "slash:f0007337019af5376113356803f15dfe5376bef0ced4d5b6d8a049b5ffc64e7c",
+    "slash:f13b0ab347ff1fc601a771f98320d0605acc59285b3ff6273f3461670f5aac87",
+    "slash:f5494c8673120e88dd999d71a634067b7c8156d46b742a8a7c60b13d54178f5b",
+    "slash:f782036b8257ecaf0f3199a4e617e090af0125d8bd190b3a2a44941f160701dc",
+    "slash:fb12d8e07f8955dab8a1a192ba437787ee24bdeba3945ba7d84feaa742a88ffa",
+    "slash:fff1903e3a5b35b6d151447d50a0e130c26e9dd8b081a94be78342b61b6f21fe"
+  ],
+  "remaining_cases": 49,
+  "reviewed_cases": 16,
+  "semantic_admission": "not_performed",
+  "source_binding": {
+    "selection_sha256": "f72964ad096a671d0c36cc0cf6649cf2cf131110edb57446fb523dc5feedb840",
+    "source_collection_sha256": "5ebcf48d24841b65ba46ffdd113e964fe10a53da80a40db32cefedc484ae7d3d",
+    "source_frontier_sha256": "7792e842cfe6c66320745660e69cd0df5525ec18bb22b5c060a6ddfff5fc97f7"
+  },
+  "source_migration": "not_performed",
+  "source_task": "CA-P-1918"
+}

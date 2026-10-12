@@ -15,13 +15,26 @@ from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
+from types import MappingProxyType
+from typing import Any, Literal
+
+from pydantic import BaseModel, ConfigDict, JsonValue, RootModel
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import artifact_metadata
 from artifact_metadata import atom_identifier
 from project_runtime import atomic_tempfile
+from project_selection import bound_selection
+import subject_notation
+from tool_description import binding_matches, make_tool_description
 
 
 TOOL_ID = "GENERATE_ENTITY_GRAPH"
+TOOL_NAME = TOOL_ID
+DELIVERY_ID = "CA-D-538"
+ENTRYPOINT = "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/GENERATE_ENTITY_GRAPH/generate_entity_graph.py"
+ACTION_IDS = ("CA-O-134", "CA-O-137")
 TOOL_KIND = "finder"
 SCHEMA_VERSION = 6
 INACTIVE_DIRECTORY_NAMES = {"archive", "drafts", "done", "canceled", "cancelled", "solved", "handled"}
@@ -35,6 +48,79 @@ CANONICAL_SUBJECT_KINDS = {"governs": "GOVERNS", "depends_on": "DEPENDS_ON"}
 LEGACY_SUBJECT_KINDS = {"declared": "GOVERNS", "prerequisite": "DEPENDS_ON"}
 TEMPORAL_FORMS = {"continuant": "CONTINUANT", "occurrent": "OCCURRENT"}
 _SECRET_SHAPED = re.compile(r"(?:secret|password|token|credential|api[_-]?key)", re.I)
+
+
+class _GenerateEntityGraphRequestBody(BaseModel):
+    """Public JSON fields only; native validators retain detailed semantics."""
+
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+    graph_kind: Literal["entities", "terms"]
+    source_frontier: dict[str, JsonValue]
+    selection: dict[str, JsonValue]
+    representation_configuration: dict[str, JsonValue]
+    capability_permission_evidence: dict[str, JsonValue]
+    display_selection: dict[str, JsonValue] | None = None
+    subject_profile: Literal["legacy", "approved"] = "legacy"
+    output_destination: str | None = None
+    existing_projection_evidence: dict[str, JsonValue] | None = None
+
+
+class GenerateEntityGraphRequest(RootModel[_GenerateEntityGraphRequestBody]):
+    """Canonical descriptor request for the existing D538 graph constructor."""
+
+
+class GenerateEntityGraphResult(RootModel[dict[str, JsonValue]]):
+    """The graph constructor's existing result remains open and source-bound."""
+
+
+class GenerateEntityGraphAdapter:
+    """Root-bound descriptor adapter with no way to forge executor capabilities."""
+
+    def __init__(self, root: str | Path) -> None:
+        self.root = Path(root).resolve()
+
+    def invoke(self, request: GenerateEntityGraphRequest) -> dict[str, object]:
+        if not isinstance(request, GenerateEntityGraphRequest):
+            raise EntityGraphError("descriptor-request-invalid", "Descriptor invocation requires the canonical graph request model")
+        # A descriptor request cannot carry source_fact_context or
+        # run_recording_context: those stay executor-injected capabilities.
+        return run(self.root, request.root.model_dump(mode="json", exclude_unset=True))
+
+
+def create_adapter(root: str | Path) -> GenerateEntityGraphAdapter:
+    """Create the one root-bound descriptor adapter for the graph Tool."""
+
+    return GenerateEntityGraphAdapter(root)
+
+
+def describe_tool() -> dict[str, Any]:
+    """Describe D538 without discovering sources or constructing a graph."""
+
+    return make_tool_description(
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=ACTION_IDS,
+        input_symbol="GenerateEntityGraphRequest",
+        output_symbol="GenerateEntityGraphResult",
+        title="Generate Entity Graph",
+        description="Construct the existing source-bound entities or terms graph through the native projection boundary.",
+        purpose="Expose the governed graph constructor without creating a second graph engine or bypassing its Run and permission gates.",
+        read_only=False,
+    )
+
+
+def binding_is_admitted(binding: Mapping[str, object] | None) -> bool:
+    """Accept only the D538 Tool binding with its existing graph Actions."""
+
+    return binding_matches(
+        binding,
+        entrypoint=ENTRYPOINT,
+        name=TOOL_NAME,
+        delivery_atom_id=DELIVERY_ID,
+        action_ids=ACTION_IDS,
+    )
 
 
 class EntityGraphError(RuntimeError):
@@ -53,7 +139,10 @@ class EntityGraphError(RuntimeError):
         return record
 
 
-@dataclass(frozen=True)
+_RECORDING_FACTORY_TOKEN = object()
+
+
+@dataclass(frozen=True, init=False)
 class ActualRunRecordingContext:
     """An execution-local proof that this Action has a recorded start.
 
@@ -68,6 +157,29 @@ class ActualRunRecordingContext:
     step_run_id: str
     action_run_id: str
     start_event_receipt: Mapping[str, object]
+    execution_authorization_bytes: bytes | None = None
+    _factory_token: object = None
+
+    def __init__(self, workflow_run_id, step_run_id, action_run_id, start_event_receipt,
+                 *, execution_authorization_bytes=None, _token=None):
+        if _token is not _RECORDING_FACTORY_TOKEN:
+            raise EntityGraphError("recording-context-untrusted", "Actual context must come from the executor-bound factory")
+        for key, value in (
+            ("workflow_run_id", workflow_run_id), ("step_run_id", step_run_id),
+            ("action_run_id", action_run_id), ("start_event_receipt", start_event_receipt),
+            ("execution_authorization_bytes", execution_authorization_bytes), ("_factory_token", _token),
+        ):
+            object.__setattr__(self, key, value)
+
+    def authorization_evidence(self) -> dict[str, object] | None:
+        """Return a detached copy of executor-retained admission, not caller JSON."""
+        if self.execution_authorization_bytes is None:
+            return None
+        return json.loads(self.execution_authorization_bytes)
+
+
+def is_actual_recording_context(value: object) -> bool:
+    return type(value) is ActualRunRecordingContext and getattr(value, "_factory_token", None) is _RECORDING_FACTORY_TOKEN
 
 
 def actual_run_recording_context(
@@ -75,6 +187,8 @@ def actual_run_recording_context(
     step_run_id: str,
     action_run_id: str,
     start_event_receipt: Mapping[str, object],
+    *,
+    execution_authorization: Mapping[str, object] | None = None,
 ) -> ActualRunRecordingContext:
     """Build the executor-only graph recording capability.
 
@@ -103,11 +217,37 @@ def actual_run_recording_context(
         ))
     ):
         raise EntityGraphError("recording-context-invalid", "Actual Action start receipt is invalid")
+    authorization_bytes = None
+    if execution_authorization is not None:
+        required_authorization = {
+            "authorization_ref", "authorization_freshness", "request_id", "operation_route",
+            "proposal_receipt_digest", "parameters_digest", "target_frontier_digest",
+            "effects_digest", "definition_manifest", "source_freshness",
+        }
+        if not isinstance(execution_authorization, Mapping) or set(execution_authorization) != required_authorization:
+            raise EntityGraphError("execution-authorization-invalid", "Actual execution authorization is incomplete")
+        freshness = execution_authorization["authorization_freshness"]
+        if (not isinstance(freshness, Mapping) or set(freshness) != {"state", "digest"}
+                or freshness.get("state") != "current"
+                or not isinstance(freshness.get("digest"), str)
+                or not re.fullmatch(r"[0-9a-f]{64}", freshness["digest"])):
+            raise EntityGraphError("execution-authorization-invalid", "Actual execution authorization is not current")
+        if (any(not isinstance(execution_authorization[key], str) or not execution_authorization[key]
+                for key in ("authorization_ref", "request_id", "operation_route"))
+                or any(not isinstance(execution_authorization[key], str) or not re.fullmatch(r"[0-9a-f]{64}", execution_authorization[key])
+                       for key in ("proposal_receipt_digest", "parameters_digest", "target_frontier_digest", "effects_digest"))
+                or not isinstance(execution_authorization["definition_manifest"], Mapping)
+                or not isinstance(execution_authorization["source_freshness"], Mapping)):
+            raise EntityGraphError("execution-authorization-invalid", "Actual execution authorization has invalid bindings")
+        from graph_fact_context import canonical_bytes
+        authorization_bytes = canonical_bytes(dict(execution_authorization))
     return ActualRunRecordingContext(
         workflow_run_id=workflow_run_id,
         step_run_id=step_run_id,
         action_run_id=action_run_id,
-        start_event_receipt=dict(start_event_receipt),
+        start_event_receipt=MappingProxyType(dict(start_event_receipt)),
+        execution_authorization_bytes=authorization_bytes,
+        _token=_RECORDING_FACTORY_TOKEN,
     )
 
 
@@ -178,12 +318,61 @@ def scalar_value(raw: str) -> str:
     return value
 
 
-def yaml_scalar_or_list(raw: str, *, path: str, field: str) -> list[str]:
+def _approved_subject_yaml(raw: str, *, path: str, field: str) -> str | list[str]:
+    """Decode only YAML text scalars and flow lists for approved Subjects.
+
+    YAML quoting is carrier serialization, not escaping within the decoded
+    Subject grammar.  Keep this reader separate from the frozen legacy reader.
+    """
+
+    import yaml
+
+    try:
+        if any(isinstance(token, (yaml.tokens.AliasToken, yaml.tokens.AnchorToken, yaml.tokens.TagToken))
+               for token in yaml.scan(raw)):
+            raise ValueError("Subject values cannot use YAML aliases, anchors, or tags")
+        node = yaml.compose(raw, Loader=yaml.SafeLoader)
+
+        def text_value(value: object) -> str:
+            if (not isinstance(value, yaml.ScalarNode) or value.tag != "tag:yaml.org,2002:str"
+                    or value.style in {"|", ">"} or not value.value.strip()):
+                raise ValueError("Subject values must be non-empty YAML text scalars")
+            return value.value
+
+        if isinstance(node, yaml.SequenceNode) and node.flow_style:
+            return [text_value(item) for item in node.value]
+        return text_value(node)
+    except (yaml.YAMLError, ValueError) as error:
+        raise EntityGraphError(
+            "subjects-yaml-invalid", "Subject value must be a YAML text scalar or flow list of text",
+            path=path, field=field,
+        ) from error
+
+
+def subject_scalar_value(
+    raw: str, *, path: str, field: str, subject_profile: str = "legacy"
+) -> str:
+    """Decode one Subject scalar without changing legacy carrier semantics."""
+
+    if subject_profile != "approved":
+        return scalar_value(raw)
+    value = _approved_subject_yaml(raw, path=path, field=field)
+    if not isinstance(value, str):
+        raise EntityGraphError("subjects-yaml-invalid", "Subject item must be text", path=path, field=field)
+    return value
+
+
+def yaml_scalar_or_list(
+    raw: str, *, path: str, field: str, subject_profile: str = "legacy"
+) -> list[str]:
     """Read the narrow scalar/inline-list YAML form used by current Subjects."""
 
     value = raw.strip()
     if not value:
         return []
+    if subject_profile == "approved":
+        decoded = _approved_subject_yaml(value, path=path, field=field)
+        return [decoded] if isinstance(decoded, str) else decoded
     if not (value.startswith("[") and value.endswith("]")):
         return [scalar_value(value)]
     body = value[1:-1].strip()
@@ -336,7 +525,23 @@ def discover_atoms(repository: Path, selected_folder: Path) -> tuple[list[AtomCa
     return carriers, diagnostics
 
 
-def parse_subject_relations(carrier: AtomCarrier) -> tuple[list[SubjectRelation], list[dict[str, object]]]:
+def _subject_profile(subject_profile: str = "legacy") -> object:
+    """Return the settled notation profile as a graph-local failure surface."""
+
+    try:
+        return subject_notation.get_profile(subject_profile)
+    except ValueError as error:
+        raise EntityGraphError(
+            getattr(error, "code", "subject-profile-invalid"),
+            str(error),
+            subject_profile=subject_profile,
+        ) from error
+
+
+def parse_subject_relations(
+    carrier: AtomCarrier, *, subject_profile: str = "legacy"
+) -> tuple[list[SubjectRelation], list[dict[str, object]]]:
+    _subject_profile(subject_profile)
     block = top_block(carrier.frontmatter, "subjects")
     relations: list[SubjectRelation] = []
     diagnostics: list[dict[str, object]] = []
@@ -345,8 +550,7 @@ def parse_subject_relations(carrier: AtomCarrier) -> tuple[list[SubjectRelation]
     legacy_keys: set[str] = set()
 
     def append(kind: str, subject_path: str, temporal_form: str, source_schema_key: str) -> None:
-        if not subject_path:
-            raise EntityGraphError("subject-path-empty", "Subject Path must not be empty", path=carrier.carrier_path)
+        _subject_parts(subject_path, subject_profile=subject_profile)
         relations.append(
             SubjectRelation(
                 atom_id=carrier.atom_id,
@@ -376,7 +580,8 @@ def parse_subject_relations(carrier: AtomCarrier) -> tuple[list[SubjectRelation]
                     kind=current_kind,
                 )
             inline_values = yaml_scalar_or_list(
-                kind_match.group(2) or "", path=carrier.carrier_path, field=current_kind
+                kind_match.group(2) or "", path=carrier.carrier_path, field=current_kind,
+                subject_profile=subject_profile,
             )
             for subject_path in inline_values:
                 append(current_kind, subject_path, "CURRENT", current_kind)
@@ -394,7 +599,8 @@ def parse_subject_relations(carrier: AtomCarrier) -> tuple[list[SubjectRelation]
             if candidate_form in TEMPORAL_FORMS:
                 current_form = candidate_form
                 for subject_path in yaml_scalar_or_list(
-                    form_match.group(2) or "", path=carrier.carrier_path, field=candidate_form
+                    form_match.group(2) or "", path=carrier.carrier_path, field=candidate_form,
+                    subject_profile=subject_profile,
                 ):
                     append(current_kind, subject_path, TEMPORAL_FORMS[candidate_form], current_kind)
                 continue
@@ -413,7 +619,10 @@ def parse_subject_relations(carrier: AtomCarrier) -> tuple[list[SubjectRelation]
                     path=carrier.carrier_path,
                     line=line,
                 )
-            append(current_kind, scalar_value(current_item_match.group(1)), "CURRENT", current_kind)
+            append(current_kind, subject_scalar_value(
+                current_item_match.group(1), path=carrier.carrier_path, field=current_kind,
+                subject_profile=subject_profile,
+            ), "CURRENT", current_kind)
             continue
         item_match = re.fullmatch(r"      -\s*(.+?)\s*", line)
         if not item_match:
@@ -432,7 +641,10 @@ def parse_subject_relations(carrier: AtomCarrier) -> tuple[list[SubjectRelation]
                 path=carrier.carrier_path,
                 line=line,
             )
-        append(current_kind, scalar_value(item_match.group(1)), TEMPORAL_FORMS[current_form], current_kind)
+        append(current_kind, subject_scalar_value(
+            item_match.group(1), path=carrier.carrier_path, field=current_kind,
+            subject_profile=subject_profile,
+        ), TEMPORAL_FORMS[current_form], current_kind)
     if legacy_keys:
         diagnostics.append(
             {
@@ -461,31 +673,35 @@ def parse_subject_relations(carrier: AtomCarrier) -> tuple[list[SubjectRelation]
     return relations, diagnostics
 
 
-def _subject_parts(subject_path: str) -> list[tuple[str, str | None]]:
-    parts = re.split(r"\s*([/:])\s*", subject_path.strip())
-    if not parts or not parts[0]:
-        raise EntityGraphError("subject-path-empty", "Subject Path must not be empty")
-    if len(parts) % 2 == 0:
-        raise EntityGraphError("subject-path-invalid", "Subject Path ends with a separator", subject_path=subject_path)
-    result: list[tuple[str, str | None]] = []
-    for index in range(0, len(parts), 2):
-        segment = parts[index].strip()
-        if not segment:
-            raise EntityGraphError(
-                "subject-path-empty-segment", "Subject Path has an empty segment", subject_path=subject_path
-            )
-        separator = None if index == 0 else parts[index - 1]
-        result.append((segment, separator))
-    return result
+def _subject_parts(
+    subject_path: str, *, subject_profile: str = "legacy"
+) -> list[tuple[str, str | None]]:
+    try:
+        return subject_notation.parse_subject(subject_path, subject_profile=subject_profile)
+    except ValueError as error:
+        raise EntityGraphError(
+            getattr(error, "code", "subject-path-invalid"),
+            str(error),
+            subject_path=subject_path,
+        ) from error
 
 
-def terminal_term(subject_path: str) -> str:
+def terminal_term(subject_path: str, *, subject_profile: str = "legacy") -> str:
     """Return the terminal Term named by one complete Subject Expression."""
+    parts = _subject_parts(subject_path, subject_profile=subject_profile)
+    if subject_profile == "approved" and len(parts) == 1:
+        selector = subject_notation.parse_initial_atom_selector(parts[0][0], subject_profile=subject_profile)
+        if selector is not None:
+            return selector.entity_type_term
+    return parts[-1][0]
 
-    return _subject_parts(subject_path)[-1][0]
 
-
-def _subject_prefix(parent: str, separator: str, segment: str) -> str:
+def _subject_prefix(
+    parent: str, separator: str, segment: str, *, subject_profile: str = "legacy"
+) -> str:
+    profile = _subject_profile(subject_profile)
+    if separator not in profile.separators:
+        raise EntityGraphError("subject-path-invalid", "Subject Path has an unsupported separator")
     return f"{parent}{separator}{' ' if separator == ':' else ''}{segment}"
 
 
@@ -501,10 +717,11 @@ def _edge_evidence(relation: SubjectRelation) -> dict[str, object]:
 
 
 def term_system_edges(
-    carriers: Sequence[AtomCarrier], relations: Sequence[SubjectRelation]
+    carriers: Sequence[AtomCarrier], relations: Sequence[SubjectRelation], *, subject_profile: str = "legacy"
 ) -> list[dict[str, object]]:
     """Derive typed Term-System edges without treating all dependencies as taxonomy."""
 
+    profile = _subject_profile(subject_profile)
     edge_rows: dict[tuple[str, str, str], dict[str, object]] = {}
 
     def add(
@@ -534,29 +751,33 @@ def term_system_edges(
             rows.append(candidate)
 
     for relation in relations:
-        parts = _subject_parts(relation.subject_path)
+        parts = _subject_parts(relation.subject_path, subject_profile=subject_profile)
         parent_prefix = parts[0][0]
         for segment, separator in parts[1:]:
             assert separator is not None
-            child_prefix = _subject_prefix(parent_prefix, separator, segment)
-            if separator == "/":
+            child_prefix = _subject_prefix(
+                parent_prefix, separator, segment, subject_profile=subject_profile
+            )
+            if separator == profile.bearer_separator:
                 add(
                     "IS_BORNE_BY",
                     child_prefix,
                     segment,
                     parent_prefix,
-                    terminal_term(parent_prefix),
+                    terminal_term(parent_prefix, subject_profile=subject_profile),
                     _edge_evidence(relation),
                 )
-            else:
+            elif separator == ":":
                 add(
                     "IS_ALLOWED_VALUE_OF",
                     child_prefix,
                     segment,
                     parent_prefix,
-                    terminal_term(parent_prefix),
+                    terminal_term(parent_prefix, subject_profile=subject_profile),
                     _edge_evidence(relation),
                 )
+            # An approved slash is broader-to-narrower syntax only.  It is
+            # intentionally not a native bearer or taxonomy relation.
             parent_prefix = child_prefix
 
     subkind_pattern = re.compile(
@@ -572,12 +793,12 @@ def term_system_edges(
         for match in subkind_pattern.finditer(normalized_body):
             source_term, target_term = match.groups()
             governed_terms = {
-                terminal_term(row.subject_path)
+                terminal_term(row.subject_path, subject_profile=subject_profile)
                 for row in relations_by_carrier[carrier.carrier_path]
                 if row.kind == "GOVERNS"
             }
             depended_terms = {
-                terminal_term(row.subject_path)
+                terminal_term(row.subject_path, subject_profile=subject_profile)
                 for row in relations_by_carrier[carrier.carrier_path]
                 if row.kind == "DEPENDS_ON"
             }
@@ -678,18 +899,21 @@ def term_system_analysis(
     }
 
 
-def declared_term_tree(declared: Mapping[str, Sequence[SubjectRelation]]) -> list[dict[str, object]]:
+def declared_term_tree(
+    declared: Mapping[str, Sequence[SubjectRelation]], *, subject_profile: str = "legacy"
+) -> list[dict[str, object]]:
+    profile = _subject_profile(subject_profile)
     roots: dict[tuple[str, str | None], dict[str, object]] = {}
     for term in sorted(declared):
         for relation in declared[term]:
-            parts = _subject_parts(relation.subject_path)
+            parts = _subject_parts(relation.subject_path, subject_profile=subject_profile)
             current_children = roots
             prefix = ""
             for segment, separator in parts:
                 prefix = (
                     segment
                     if separator is None
-                    else f"{prefix}{separator}{' ' if separator == ':' else ''}{segment}"
+                    else _subject_prefix(prefix, separator, segment, subject_profile=subject_profile)
                 )
                 key = (segment, separator)
                 node = current_children.setdefault(
@@ -701,8 +925,10 @@ def declared_term_tree(declared: Mapping[str, Sequence[SubjectRelation]]) -> lis
                             None
                             if separator is None
                             else "IS_BORNE_BY"
-                            if separator == "/"
+                            if separator == profile.bearer_separator
                             else "IS_ALLOWED_VALUE_OF"
+                            if separator == ":"
+                            else None
                         ),
                         "declared": False,
                         "declared_term": None,
@@ -755,6 +981,8 @@ def _is_definition_carrier(carrier: AtomCarrier) -> bool:
 def dependency_edges(
     carriers: Sequence[AtomCarrier],
     relations: Sequence[SubjectRelation],
+    *,
+    subject_profile: str = "legacy",
 ) -> tuple[
     dict[str, set[str]],
     dict[tuple[str, str], list[dict[str, object]]],
@@ -773,6 +1001,7 @@ def dependency_edges(
     depended: dict[str, list[SubjectRelation]] = defaultdict(list)
     definition_rows_by_atom: dict[tuple[str, str], list[SubjectRelation]] = {}
     dependency_rows_by_atom: dict[tuple[str, str], list[SubjectRelation]] = {}
+    _subject_profile(subject_profile)
     for atom_key, rows in by_atom.items():
         governs = sorted((row for row in rows if row.kind == "GOVERNS"), key=_relation_sort_key)
         depends_on = sorted((row for row in rows if row.kind == "DEPENDS_ON"), key=_relation_sort_key)
@@ -780,7 +1009,7 @@ def dependency_edges(
         for row in governs:
             governed_subjects[row.subject_path].append(row)
             if is_definition:
-                declared_terms[terminal_term(row.subject_path)].append(row)
+                declared_terms[terminal_term(row.subject_path, subject_profile=subject_profile)].append(row)
         for row in depends_on:
             depended[row.subject_path].append(row)
         definition_rows_by_atom[atom_key] = list(governs) if is_definition else []
@@ -790,9 +1019,9 @@ def dependency_edges(
     for atom_key, definition_terms in definition_rows_by_atom.items():
         depends_on = dependency_rows_by_atom[atom_key]
         for governed in definition_terms:
-            governed_term = terminal_term(governed.subject_path)
+            governed_term = terminal_term(governed.subject_path, subject_profile=subject_profile)
             for parent in depends_on:
-                parent_terminal = terminal_term(parent.subject_path)
+                parent_terminal = terminal_term(parent.subject_path, subject_profile=subject_profile)
                 parent_node = parent_terminal if parent_terminal in declared_term_names else parent.subject_path
                 graph[governed_term].add(parent_node)
                 evidence[(governed_term, parent_node)].append(
@@ -916,7 +1145,10 @@ def frontier_digest(carriers: Sequence[AtomCarrier]) -> str:
     return hashlib.sha256(encoded).hexdigest()
 
 
-def generate_projection(repository: Path, selected_folder: Path) -> dict[str, object]:
+def generate_projection(
+    repository: Path, selected_folder: Path, *, subject_profile: str = "legacy"
+) -> dict[str, object]:
+    _subject_profile(subject_profile)
     repository = repository.resolve()
     selected_folder = selected_folder.resolve()
     if not selected_folder.is_dir():
@@ -924,11 +1156,15 @@ def generate_projection(repository: Path, selected_folder: Path) -> dict[str, ob
     carriers, diagnostics = discover_atoms(repository, selected_folder)
     relations: list[SubjectRelation] = []
     for carrier in carriers:
-        carrier_relations, carrier_diagnostics = parse_subject_relations(carrier)
+        carrier_relations, carrier_diagnostics = parse_subject_relations(
+            carrier, subject_profile=subject_profile
+        )
         relations.extend(carrier_relations)
         diagnostics.extend(carrier_diagnostics)
     relations.sort(key=_relation_sort_key)
-    graph, edge_evidence, declared, governed, depended = dependency_edges(carriers, relations)
+    graph, edge_evidence, declared, governed, depended = dependency_edges(
+        carriers, relations, subject_profile=subject_profile
+    )
     duplicate_definitions = {
         term: rows for term, rows in declared.items() if len(rows) != 1
     }
@@ -953,21 +1189,21 @@ def generate_projection(repository: Path, selected_folder: Path) -> dict[str, ob
     depends_on_subjects = sorted(depended)
     declared_term_names = set(declared_terms)
     depends_on_terminal_terms = {
-        terminal_term(subject_path) for subject_path in depends_on_subjects
+        terminal_term(subject_path, subject_profile=subject_profile) for subject_path in depends_on_subjects
     }
     terms_in_depends_on = sorted(depends_on_terminal_terms & declared_term_names)
     gaps = sorted(
         subject_path
         for subject_path in depends_on_subjects
         if subject_path not in governed
-        and terminal_term(subject_path) not in declared_term_names
+        and terminal_term(subject_path, subject_profile=subject_profile) not in declared_term_names
     )
     cycles = dependency_cycles(graph)
     dependency_trees = [
         dependency_tree_for(term, graph, edge_evidence, set(declared_terms), set(governed_subjects))
         for term in declared_terms
     ]
-    typed_edges = term_system_edges(carriers, relations)
+    typed_edges = term_system_edges(carriers, relations, subject_profile=subject_profile)
     typed_analysis = term_system_analysis(declared_terms, typed_edges)
     term_system_violations = typed_analysis["violations"]
     assert isinstance(term_system_violations, Sequence)
@@ -995,7 +1231,7 @@ def generate_projection(repository: Path, selected_folder: Path) -> dict[str, ob
         "projection_kind": "ENTITY_GRAPH",
         "generator": TOOL_ID,
         "generation_procedure": "terminal_terms_typed_term_system_edges_and_claim_subject_relations_from_selected_folder",
-        "updated_at": datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %z"),
+        "updated_at": _projection_timestamp(repository),
         "source": {
             "selected_folder": _display_path(selected_folder, repository),
             "atom_count": len(carriers),
@@ -1003,7 +1239,7 @@ def generate_projection(repository: Path, selected_folder: Path) -> dict[str, ob
             "excluded_nested_directory_names": sorted(INACTIVE_DIRECTORY_NAMES),
         },
         "sets": {
-            "declared_term_tree": declared_term_tree(declared),
+            "declared_term_tree": declared_term_tree(declared, subject_profile=subject_profile),
             "dependency_trees_by_declared_term": dependency_trees,
             "terms_in_depends_on": terms_in_depends_on,
             "depends_on_subjects": depends_on_subjects,
@@ -1207,6 +1443,31 @@ def _default_publication_path(repository: Path, graph_kind: str) -> Path:
     return _configured_projection_root(repository) / DEFAULT_GRAPH_OUTPUT_NAMES[graph_kind]
 
 
+def _projection_timestamp(repository: Path) -> str:
+    """Emit an offset-qualified projection timestamp with standalone fallback."""
+    if bound_selection(repository) is not None:
+        return artifact_metadata.current_timestamp(repository)
+    settings = sorted(repository.glob(f"*/{PROJECT_SETTINGS_FILENAME}"))
+    if not settings:
+        return datetime.now().astimezone().strftime("%Y-%m-%d %H:%M:%S %z")
+    if len(settings) != 1:
+        raise EntityGraphError("project-settings-unavailable", "Exactly one Project Settings carrier is required")
+    settings_path = settings[0]
+    if settings_path.is_symlink() or not settings_path.is_file():
+        raise EntityGraphError("project-settings-invalid", "Project Settings carrier must be a regular file")
+    try:
+        settings_data = tomllib.loads(settings_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        raise EntityGraphError("project-settings-unreadable", "Project Settings cannot be read") from error
+    artifact_timestamps = settings_data.get("artifact_timestamps", {})
+    if not isinstance(artifact_timestamps, Mapping):
+        raise EntityGraphError("project-settings-invalid", "artifact_timestamps must be a table")
+    timezone = artifact_timestamps.get("timezone", "local")
+    if not isinstance(timezone, str) or not timezone:
+        raise EntityGraphError("project-settings-invalid", "artifact_timestamps.timezone must be text")
+    return artifact_metadata.timestamp_for_timezone(timezone)
+
+
 def _validate_frontier(
     repository: Path, frontier: Mapping[str, object]
 ) -> tuple[Path, dict[str, object], list[dict[str, object]]]:
@@ -1285,11 +1546,15 @@ def _selected_carriers(
     if unknown:
         raise EntityGraphError("selection-unknown-field", "Selection has unknown fields", fields=unknown)
     atom_ids = selection.get("atom_ids")
-    if not isinstance(atom_ids, list) or not atom_ids or any(not isinstance(item, str) or not item for item in atom_ids):
-        raise EntityGraphError("selection-atoms-invalid", "Selection requires a non-empty atom_ids array")
+    if not isinstance(atom_ids, list) or any(not isinstance(item, str) or not item for item in atom_ids):
+        raise EntityGraphError("selection-atoms-invalid", "Selection requires an explicit atom_ids array")
     if atom_ids != sorted(set(atom_ids)):
         raise EntityGraphError("selection-atoms-ambiguous", "Selection atom_ids must be unique and canonically sorted")
-    available = {carrier.atom_id: carrier for carrier in carriers}
+    available = {}
+    for carrier in carriers:
+        if carrier.atom_id in available:
+            raise EntityGraphError("source-atom-identity-duplicate", "Source frontier contains duplicate Atom identities", atom_id=carrier.atom_id)
+        available[carrier.atom_id] = carrier
     missing = sorted(set(atom_ids) - set(available))
     if missing:
         raise EntityGraphError("selection-atom-unresolved", "Selection names atoms outside the admitted frontier", atom_ids=missing)
@@ -1327,11 +1592,13 @@ def _selected_structure(
     raw_units = parsed.get("scope_units")
     if not isinstance(raw_units, list):
         raise EntityGraphError("project-structure-invalid", "Project Structure lacks scope_units", path=path_value)
-    by_name = {
-        unit.get("scope_unit_name"): unit
-        for unit in raw_units
-        if isinstance(unit, dict) and isinstance(unit.get("scope_unit_name"), str)
-    }
+    by_name = {}
+    for unit in raw_units:
+        if not isinstance(unit, dict) or not isinstance(unit.get("scope_unit_name"), str) or not unit["scope_unit_name"]:
+            raise EntityGraphError("project-structure-invalid", "Project Structure contains an invalid Scope Unit record")
+        if unit["scope_unit_name"] in by_name:
+            raise EntityGraphError("scope-unit-identity-duplicate", "Project Structure contains duplicate Scope Unit names")
+        by_name[unit["scope_unit_name"]] = unit
     missing = sorted(set(scope_unit_names) - set(by_name))
     diagnostics: list[dict[str, object]] = []
     if missing:
@@ -1415,20 +1682,26 @@ def _outcome_for(quality: Mapping[str, str], diagnostics: Sequence[Mapping[str, 
 
 
 def _term_dependencies(
-    relations: Sequence[SubjectRelation], terms: set[str]
+    relations: Sequence[SubjectRelation], terms: set[str], *, subject_profile: str = "legacy"
 ) -> tuple[dict[str, list[str]], list[dict[str, object]], list[list[str]]]:
+    _subject_profile(subject_profile)
     by_atom: dict[tuple[str, str], list[SubjectRelation]] = defaultdict(list)
     for relation in relations:
         by_atom[(relation.atom_id, relation.carrier_path)].append(relation)
     dependency_graph: dict[str, set[str]] = defaultdict(set)
     evidence: list[dict[str, object]] = []
     for rows in by_atom.values():
-        governed = [row for row in rows if row.kind == "GOVERNS" and terminal_term(row.subject_path) in terms]
+        governed = [
+            row
+            for row in rows
+            if row.kind == "GOVERNS"
+            and terminal_term(row.subject_path, subject_profile=subject_profile) in terms
+        ]
         depended = [row for row in rows if row.kind == "DEPENDS_ON"]
         for source in governed:
-            source_term = terminal_term(source.subject_path)
+            source_term = terminal_term(source.subject_path, subject_profile=subject_profile)
             for target in depended:
-                target_term = terminal_term(target.subject_path)
+                target_term = terminal_term(target.subject_path, subject_profile=subject_profile)
                 if target_term in terms:
                     dependency_graph[source_term].add(target_term)
                     evidence.append(
@@ -1468,6 +1741,16 @@ def _ancestor_sets(parents: Mapping[str, Sequence[str]]) -> tuple[dict[str, list
 def _publication_path(repository: Path, value: object) -> Path:
     if not isinstance(value, str) or not value:
         raise EntityGraphError("output-destination-invalid", "output_destination must be a non-empty path")
+    if "\\" in value or "\x00" in value or value != Path(value).as_posix():
+        raise EntityGraphError("output-destination-invalid", "Output destination must be canonical repository-relative POSIX text")
+    # Inspect the lexical path before resolve() can erase a symlink boundary.
+    probe = repository / value
+    if Path(value).is_absolute() or ".." in Path(value).parts:
+        raise EntityGraphError("unsafe-path", "Output destination must be repository-relative")
+    while probe != repository:
+        if probe.is_symlink():
+            raise EntityGraphError("output-destination-symlink", "Output destination must not traverse a symlink")
+        probe = probe.parent
     destination = _safe_repository_path(repository, value, name="output_destination")
     try:
         destination.relative_to(_configured_projection_root(repository))
@@ -1488,348 +1771,14 @@ def _publication_path(repository: Path, value: object) -> Path:
 
 
 def _strict_error_result(graph_kind: object, error: EntityGraphError) -> dict[str, object]:
-    key = "entities_graph" if graph_kind == "entities" else "terms_graph" if graph_kind == "terms" else None
-    result: dict[str, object] = {
-        "outcome": "failed",
-        "source_frontier_evidence": {},
-        "selection_evidence": {},
-        "lineage": [],
-        "quality_dispositions": {name: "unresolved" for name in ("coverage", "fidelity", "validity", "currentness", "permission", "persistence", "recording")},
-        "diagnostics": [error.record()],
-        "non_authoritative": True,
-        "output_effects": {"state": "none", "paths": []},
-        "run_receipt_refs": [],
-    }
-    if key is not None:
-        result[key] = {}
-    return result
+    from strict_graph_request import error_result
+    return error_result(graph_kind, error)
 
 
 def build_graph(repository: Path, request: Mapping[str, object]) -> dict[str, object]:
-    """Build one source-sealed Entities or Terms Graph without source mutation.
-
-    This is the public Tool/Action API for CA-O-134 and CA-O-137.  It accepts
-    only the CA-D-539 request fields, returns the common Run-compatible result
-    envelope, and leaves Journal persistence to the shared support owner.
-    """
-
-    graph_kind: object = request.get("graph_kind") if isinstance(request, Mapping) else None
-    try:
-        if not isinstance(request, Mapping):
-            raise EntityGraphError("request-invalid", "Graph request must be an object")
-        unknown = sorted(set(request) - STRICT_REQUEST_FIELDS)
-        missing = sorted(STRICT_REQUIRED_REQUEST_FIELDS - set(request))
-        if unknown or missing:
-            raise EntityGraphError("request-schema-invalid", "Graph request fields are not exact", unknown=unknown, missing=missing)
-        graph_kind = request["graph_kind"]
-        if graph_kind not in GRAPH_KINDS:
-            raise EntityGraphError("graph-kind-invalid", "graph_kind must be entities or terms", graph_kind=graph_kind)
-        repository = repository.resolve()
-        frontier = _mapping(request["source_frontier"], "source_frontier")
-        selection = _mapping(request["selection"], "selection")
-        configuration = _mapping(request["representation_configuration"], "representation_configuration")
-        permission = _mapping(request["capability_permission_evidence"], "capability_permission_evidence")
-        recording = request["run_recording_context"]
-        display_selection = request.get("display_selection")
-        if display_selection is not None:
-            display_selection = dict(_mapping(display_selection, "display_selection"))
-        if set(permission) != {"authorized"} or not isinstance(permission["authorized"], bool):
-            raise EntityGraphError("permission-evidence-invalid", "Permission evidence must contain only authorized:boolean")
-        if not isinstance(recording, ActualRunRecordingContext):
-            raise EntityGraphError(
-                "recording-context-untrusted",
-                "Graph publication requires the actual selected Action start recording context.",
-            )
-        folder, actual_frontier, frontier_diagnostics = _validate_frontier(repository, frontier)
-        if frontier_diagnostics:
-            result = _strict_error_result(graph_kind, EntityGraphError("source-frontier-stale", "Admitted source frontier is stale"))
-            result["outcome"] = "stale"
-            result["source_frontier_evidence"] = actual_frontier
-            result["diagnostics"] = frontier_diagnostics
-            result["output_effects"] = {"state": "none", "paths": []}
-            return result
-        carriers, discovery_diagnostics = discover_atoms(repository, folder)
-        selected_carriers, scope_unit_names = _selected_carriers(carriers, selection)
-        # Validate every serializable source Property before constructing either
-        # graph representation.  Terms Graph does not currently expose these
-        # values, but a shared fail-closed boundary prevents future drift.
-        for carrier in selected_carriers:
-            _frontmatter_properties(carrier)
-        relations: list[SubjectRelation] = []
-        diagnostics: list[dict[str, object]] = list(discovery_diagnostics)
-        for carrier in selected_carriers:
-            parsed, carrier_diagnostics = parse_subject_relations(carrier)
-            relations.extend(parsed)
-            diagnostics.extend(carrier_diagnostics)
-        relations.sort(key=_relation_sort_key)
-        structure_rows, structure_diagnostics = _selected_structure(repository, frontier, scope_unit_names)
-        diagnostics.extend(structure_diagnostics)
-        graph_payload: dict[str, object]
-        if graph_kind == "entities":
-            typed_edges = term_system_edges(selected_carriers, relations)
-            governed_by_subject: dict[str, list[SubjectRelation]] = defaultdict(list)
-            for relation in relations:
-                if relation.kind == "GOVERNS":
-                    governed_by_subject[relation.subject_path].append(relation)
-            property_nodes: list[dict[str, object]] = []
-            for carrier in selected_carriers:
-                governed = [
-                    relation.subject_path
-                    for relation in relations
-                    if relation.atom_id == carrier.atom_id
-                    and relation.carrier_path == carrier.carrier_path
-                    and relation.kind == "GOVERNS"
-                ]
-                for key, value in _frontmatter_properties(carrier).items():
-                    property_nodes.append(
-                        {
-                            "identity": f"{carrier.atom_id}#{key}",
-                            "entity_identities": governed,
-                            "name": key,
-                            "value": value,
-                            "source": carrier.evidence(),
-                        }
-                    )
-            graph_payload = {
-                "entities": [
-                    {
-                        "identity": subject_path,
-                        "governing_sources": [relation.evidence() for relation in governed_by_subject[subject_path]],
-                    }
-                    for subject_path in sorted(governed_by_subject)
-                ],
-                "properties": sorted(property_nodes, key=lambda row: str(row["identity"])),
-                "relations": [
-                    {
-                        "identity": f"{relation.atom_id}:{relation.kind}:{relation.subject_path}",
-                        "relation": relation.kind,
-                        "source_atom_id": relation.atom_id,
-                        "target_entity": relation.subject_path,
-                        "temporal_form": relation.temporal_form,
-                        "source_lineage": _edge_evidence(relation),
-                    }
-                    for relation in relations
-                ],
-                "structural_relations": [
-                    {
-                        "relation": edge["relation"],
-                        "source": edge["source_subject"],
-                        "target": edge["target_subject"],
-                        "source_term": edge["source_term"],
-                        "target_term": edge["target_term"],
-                        "evidence": edge["evidence"],
-                    }
-                    for edge in typed_edges
-                    if edge["relation"] in {"IS_BORNE_BY", "IS_ALLOWED_VALUE_OF"}
-                ],
-                "source_atoms": [
-                    {
-                        "atom_id": carrier.atom_id,
-                        "properties": _frontmatter_properties(carrier),
-                        "claim": {"sha256": hashlib.sha256(carrier.body.encode("utf-8")).hexdigest()},
-                        "source": carrier.evidence(),
-                    }
-                    for carrier in selected_carriers
-                ],
-                "project_structure": structure_rows,
-                "external_references": [],
-            }
-        else:
-            _, _, declared, _, depended = dependency_edges(selected_carriers, relations)
-            terms = sorted(declared)
-            terms_set = set(terms)
-            conflicts = {term: rows for term, rows in declared.items() if len(rows) != 1}
-            for term, rows in sorted(conflicts.items()):
-                diagnostics.append(
-                    {
-                        "severity": "error",
-                        "code": "governed-term-definition-conflict",
-                        "message": "A selected Term has conflicting defining Atom evidence.",
-                        "details": {"term": term, "definitions": [row.evidence() for row in rows]},
-                    }
-                )
-            typed_edges = term_system_edges(selected_carriers, relations)
-            term_edges = [
-                {
-                    "relation": edge["relation"],
-                    "source": edge["source_term"],
-                    "target": edge["target_term"],
-                    "source_subject": edge["source_subject"],
-                    "target_subject": edge["target_subject"],
-                    "evidence": edge["evidence"],
-                }
-                for edge in typed_edges
-                if str(edge["source_term"]) in terms_set and str(edge["target_term"]) in terms_set
-                and edge["relation"] == "SUBKIND_OF"
-            ]
-            external_edges = [
-                edge
-                for edge in typed_edges
-                if edge["relation"] == "SUBKIND_OF"
-                and (str(edge["source_term"]) not in terms_set or str(edge["target_term"]) not in terms_set)
-            ]
-            parent_sets: dict[str, list[str]] = {term: [] for term in terms}
-            for edge in term_edges:
-                if edge["relation"] == "SUBKIND_OF":
-                    parent_sets[str(edge["source"])].append(str(edge["target"]))
-            parent_sets = {term: sorted(set(values)) for term, values in sorted(parent_sets.items())}
-            ancestors, parent_cycles = _ancestor_sets(parent_sets)
-            dependencies, dependency_evidence, dependency_cycles_found = _term_dependencies(relations, terms_set)
-            unresolved = sorted(
-                subject_path
-                for subject_path in depended
-                if terminal_term(subject_path) not in terms_set
-            )
-            for subject_path in unresolved:
-                diagnostics.append(
-                    {
-                        "severity": "warning",
-                        "code": "term-unresolved",
-                        "message": "A selected dependency names no governed Term in the selected frontier.",
-                        "details": {"subject_path": subject_path},
-                    }
-                )
-            for cycle in parent_cycles + dependency_cycles_found:
-                diagnostics.append(
-                    {
-                        "severity": "error",
-                        "code": "self-reference" if len(cycle) == 1 else "dependency-cycle",
-                        "message": "Selected Term relation data contains a cycle.",
-                        "details": {"cycle": cycle},
-                    }
-                )
-            graph_payload = {
-                "terms": [
-                    {
-                        "identity": term,
-                        "defining_sources": [
-                            {"subject_path": row.subject_path, "source": row.evidence()}
-                            for row in declared[term]
-                        ],
-                    }
-                    for term in terms
-                ],
-                "relations": sorted(term_edges + dependency_evidence, key=lambda row: (str(row["relation"]), str(row["source"]), str(row["target"]))),
-                "parents_by_term": parent_sets,
-                "ancestors_by_term": ancestors,
-                "dependencies_by_term": dependencies,
-                "unresolved_terms": unresolved,
-                "cycles": sorted(parent_cycles + dependency_cycles_found, key=lambda cycle: tuple(cycle)),
-                "external_references": external_edges,
-            }
-        diagnostics.sort(key=lambda row: (str(row.get("severity", "")), str(row.get("code", "")), canonical_json(row.get("details", {}))))
-        final_frontier = source_frontier_for(repository, folder)
-        current = canonical_json(final_frontier) == canonical_json(frontier)
-        authorized = bool(permission["authorized"])
-        # The shared session has already durably recorded this Action's start.
-        # Its terminal fact necessarily follows effect publication and remains
-        # the executor's responsibility, avoiding a circular pre-effect gate.
-        recording_confirmed = True
-        destination: Path
-        persistence_valid = True
-        if "output_destination" in request:
-            destination = _publication_path(repository, request["output_destination"])
-        else:
-            assert isinstance(graph_kind, str)
-            destination = _default_publication_path(repository, graph_kind)
-        quality = _quality(
-            diagnostics=diagnostics,
-            current=current,
-            authorized=authorized,
-            recording_confirmed=recording_confirmed,
-            persistence_valid=persistence_valid,
-        )
-        outcome = _outcome_for(quality, diagnostics)
-        graph_key = "entities_graph" if graph_kind == "entities" else "terms_graph"
-        selection_evidence = {"selection": dict(selection)}
-        if display_selection is not None:
-            selection_evidence["display_selection"] = display_selection
-        settings_digest = hashlib.sha256(
-            canonical_json(
-                {
-                    "graph_kind": graph_kind,
-                    "selection_evidence": selection_evidence,
-                    "representation_configuration": dict(configuration),
-                }
-            ).encode("utf-8")
-        ).hexdigest()
-        result: dict[str, object] = {
-            "outcome": outcome,
-            graph_key: graph_payload,
-            "source_frontier_evidence": final_frontier,
-            "selection_evidence": selection_evidence,
-            "representation_configuration": dict(configuration),
-            "settings_sha256": settings_digest,
-            "lineage": [carrier.evidence() for carrier in selected_carriers],
-            "quality_dispositions": quality,
-            "diagnostics": diagnostics,
-            "non_authoritative": True,
-            "output_effects": {"state": "none", "paths": []},
-            "run_receipt_refs": [str(recording.start_event_receipt["event_id"])],
-        }
-        if outcome != "built":
-            return result
-        publication = {
-            "schema_version": SCHEMA_VERSION,
-            "tool": TOOL_ID,
-            "graph_kind": graph_kind,
-            graph_key: graph_payload,
-            "source_frontier_evidence": final_frontier,
-            "selection_evidence": selection_evidence,
-            "representation_configuration": dict(configuration),
-            "settings_sha256": settings_digest,
-            "lineage": result["lineage"],
-            "quality_dispositions": quality,
-            "diagnostics": diagnostics,
-            "non_authoritative": True,
-        }
-        rendered = canonical_json(publication, pretty=True)
-        requested_existing = request.get("existing_projection_evidence")
-        if requested_existing is not None:
-            existing = _mapping(requested_existing, "existing_projection_evidence")
-            expected_digest = existing.get("sha256")
-            if not isinstance(expected_digest, str) or not destination.is_file() or _sha256(destination) != expected_digest:
-                result["outcome"] = "stale"
-                result["quality_dispositions"] = {**quality, "currentness": "fail"}
-                result["diagnostics"] = diagnostics + [
-                    {
-                        "severity": "error",
-                        "code": "existing-projection-stale",
-                        "message": "Existing Projection evidence does not match the explicit destination.",
-                        "details": {"path": _display_path(destination, repository)},
-                    }
-                ]
-                return result
-        publication_frontier = source_frontier_for(repository, folder)
-        if canonical_json(publication_frontier) != canonical_json(frontier):
-            result["outcome"] = "stale"
-            result["source_frontier_evidence"] = publication_frontier
-            result["quality_dispositions"] = {**quality, "currentness": "fail"}
-            result["diagnostics"] = diagnostics + [
-                {
-                    "severity": "error",
-                    "code": "source-frontier-changed-before-publication",
-                    "message": "Source bytes changed after construction and before publication.",
-                    "details": {"actual": publication_frontier},
-                }
-            ]
-            return result
-        if destination.is_file() and destination.read_text(encoding="utf-8") == rendered:
-            result["outcome"] = "no_op"
-            result["output_effects"] = {"state": "unchanged", "paths": []}
-            result["projection_revision"] = _sha256(destination)
-            return result
-        atomic_write(destination, rendered)
-        result["output_effects"] = {
-            "state": "created" if not requested_existing else "replaced",
-            "paths": [_display_path(destination, repository)],
-        }
-        result["projection_revision"] = _sha256(destination)
-        return result
-    except EntityGraphError as error:
-        return _strict_error_result(graph_kind, error)
-
-
+    """Construct one source-bound graph; completion is owned by the executor."""
+    from strict_graph_request import build_graph as strict_build_graph
+    return strict_build_graph(repository, request, sys.modules[__name__])
 def construct_entities_graph_projection(repository: Path, request: Mapping[str, object]) -> dict[str, object]:
     """CA-O-134 Action adapter for the source graph executor."""
 
@@ -1882,7 +1831,25 @@ def queue_action_handlers(repository: Path) -> dict[str, object]:
                     EntityGraphError("queue-parameters-invalid", "Selected queue context lacks a graph request"),
                 ),
             }
-        request = dict(parameters.get("graph_request", parameters))
+        nested_request = parameters.get("graph_request", parameters)
+        if not isinstance(nested_request, Mapping):
+            return {
+                "result": "blocked",
+                "effect_refs": [],
+                "graph_result": _strict_error_result(
+                    graph_kind,
+                    EntityGraphError("queue-parameters-invalid", "Selected queue graph request must be an object"),
+                ),
+            }
+        request = dict(nested_request)
+        outer_recording = parameters.get("run_recording_context")
+        if nested_request is not parameters:
+            # Caller nesting cannot carry trusted capabilities.  Only the
+            # outer executor-injected value may cross this adapter boundary.
+            request.pop("run_recording_context", None)
+            request.pop("source_fact_context", None)
+        if is_actual_recording_context(outer_recording):
+            request["run_recording_context"] = outer_recording
         if request.get("graph_kind", graph_kind) != graph_kind:
             result = _strict_error_result(
                 request.get("graph_kind"),

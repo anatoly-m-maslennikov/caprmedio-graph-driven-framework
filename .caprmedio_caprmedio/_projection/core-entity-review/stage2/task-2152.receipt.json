@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "task": "CA-P-2152",
+  "recorded_at": "2026-10-11 12:02:02 +0400",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "result": "PASS: bounded verify the unqualified review frontier; not migration approval",
+  "verification": {
+    "output": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/task-2152.frontier-audit.json",
+      "sha256": "4962a8bc5a8fdd45d24b620febb7fa9ee9d63245b35cef5f83edd5aeed477227"
+    },
+    "independent_review": {
+      "reviewer": "/root",
+      "final_report_sha256": "4962a8bc5a8fdd45d24b620febb7fa9ee9d63245b35cef5f83edd5aeed477227",
+      "result": "PASS after actual one-off reproduction and independent current-ledger gate",
+      "meaning_checks": [
+        "No semantic mapping judgement or source change is made.",
+        "One validator reconstructs the exact selected set, checks all origin fields/live owner hashes/lane digests/counts/source-owner disjointness, and runs four wrong-data controls.",
+        "Actual positive has zero errors; all four controls reject for explicit relevant defects.",
+        "Root independently re-ran the current-ledger verifier: exact current original Core907sources/4534occurrences,1125unresolved,8quarantines.",
+        "Actual Core directory exists and has empty diff against441bc48e1; frozen baseline/candidate/canonical decision hashes match."
+      ],
+      "rejected_previous_revisions": [
+        {
+          "sha256": "e238488d21128dbb19b910ef6c40bd0635248f6e07b1c11aef00652060eb90af",
+          "reviewer": "/root",
+          "result": "FAIL: alleged negative probes/counts hardcoded; current authority enumeration, exact origin/digest/source hashes and owner-disjoint proof missing",
+          "required_corrections": [
+            "Actual independent current source/occurrence enumeration",
+            "Compute exact baseline-only242exclusion and8/35quarantine counts",
+            "Compare all origins/current owner hashes/task digests/source-set disjointness",
+            "Run actual valid-control wrong-data probes through same exact validator",
+            "Verify frozen live pins and actual Core path/diff"
+          ]
+        },
+        {
+          "sha256": "6af0129980bbee0b1c132cbb651aa295edd0b85a3031a630c20c730fbe13eb06",
+          "reviewer": "/root",
+          "result": "FAIL: required full expected-set/digests/source-owner disjointness not checked; counts remain hardcoded; simplified negatives bypass actual validator and qualified-row appending is not a valid-control probe."
+        }
+      ],
+      "verification_limits": [
+        "The one-off audit is scoped to the exact a729/d299 inputs, not a reusable validation Tool.",
+        "Frontier counts printed in the audit are corroborated by the separately executed independent current-ledger gate stored in this receipt."
+      ]
+    },
+    "current_frontier": {
+      "excluded_sources": 11203,
+      "occurrences": 4534,
+      "outcome": "PASS",
+      "proposed": 1869,
+      "quarantined_sources": 8,
+      "sources": 907,
+      "unchanged": 1540,
+      "unresolved": 1125
+    },
+    "actual_reproduction": {
+      "chunk_id": "c6353a",
+      "wall_time_seconds": 0.130127709,
+      "exit_code": 0,
+      "original_token_count": 151,
+      "output": "PASS 4962a8bc5a8fdd45d24b620febb7fa9ee9d63245b35cef5f83edd5aeed477227 {'selected_occurrences': 204, 'selected_owners': 145, 'baseline_qualified_excluded': 242, 'quarantined_sources': 8, 'quarantined_occurrences': 35} {'omitted': ['exact selected occurrence set/uniqueness', 'CA-P-2144 lane limits/count', 'CA-P-2144 digest'], 'duplicated': ['exact selected occurrence set/uniqueness', 'CA-P-2144 digest'], 'changed_origin': ['origin field source_sha256', 'owner source sha'], 'qualified_replacement': ['exact selected occurrence set/uniqueness', 'unexpected or nonqual origin', 'CA-P-2144 digest']} []\n"
+    },
+    "selected": {
+      "occurrences": 204,
+      "owners": 145,
+      "baseline_only_qualified_excluded": 242
+    },
+    "quarantine": {
+      "sources": 8,
+      "occurrences": 35
+    },
+    "original_core": {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL",
+      "exists": true,
+      "comparison": "441bc48e1",
+      "diff": "empty"
+    },
+    "frozen_pins": {
+      "baseline": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39",
+      "candidate": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b",
+      "operator_decision": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    }
+  },
+  "independent_review": {
+    "reviewer": "/root",
+    "final_report_sha256": "4962a8bc5a8fdd45d24b620febb7fa9ee9d63245b35cef5f83edd5aeed477227",
+    "result": "PASS after actual one-off reproduction and independent current-ledger gate",
+    "meaning_checks": [
+      "No semantic mapping judgement or source change is made.",
+      "One validator reconstructs the exact selected set, checks all origin fields/live owner hashes/lane digests/counts/source-owner disjointness, and runs four wrong-data controls.",
+      "Actual positive has zero errors; all four controls reject for explicit relevant defects.",
+      "Root independently re-ran the current-ledger verifier: exact current original Core907sources/4534occurrences,1125unresolved,8quarantines.",
+      "Actual Core directory exists and has empty diff against441bc48e1; frozen baseline/candidate/canonical decision hashes match."
+    ],
+    "rejected_previous_revisions": [
+      {
+        "sha256": "e238488d21128dbb19b910ef6c40bd0635248f6e07b1c11aef00652060eb90af",
+        "reviewer": "/root",
+        "result": "FAIL: alleged negative probes/counts hardcoded; current authority enumeration, exact origin/digest/source hashes and owner-disjoint proof missing",
+        "required_corrections": [
+          "Actual independent current source/occurrence enumeration",
+          "Compute exact baseline-only242exclusion and8/35quarantine counts",
+          "Compare all origins/current owner hashes/task digests/source-set disjointness",
+          "Run actual valid-control wrong-data probes through same exact validator",
+          "Verify frozen live pins and actual Core path/diff"
+        ]
+      },
+      {
+        "sha256": "6af0129980bbee0b1c132cbb651aa295edd0b85a3031a630c20c730fbe13eb06",
+        "reviewer": "/root",
+        "result": "FAIL: required full expected-set/digests/source-owner disjointness not checked; counts remain hardcoded; simplified negatives bypass actual validator and qualified-row appending is not a valid-control probe."
+      }
+    ],
+    "verification_limits": [
+      "The one-off audit is scoped to the exact a729/d299 inputs, not a reusable validation Tool.",
+      "Frontier counts printed in the audit are corroborated by the separately executed independent current-ledger gate stored in this receipt."
+    ]
+  },
+  "completion_scope": "The exact 204 selected origins across 145 owners pass actual read-only reproduction, complete origin/live-pin/digest/source-owner-disjointness checks and four executed wrong-data controls. The independent current-ledger gate corroborates the live 907/4534 frontier and8/35quarantines. Frozen evidence and original Core remain unchanged. Rejected unsupported audit claims were corrected before acceptance; qualified242baseline-only rows stay outside this selection.",
+  "registration_commit": "1d71265d6c868e1565d0793a260e905102d046b0",
+  "limits": [
+    "Only this Task's derived/support output, receipt and controlled Plan lifecycle were changed.",
+    "Captured baseline/candidate/reviews and original Core Subjects/content remain unchanged.",
+    "No selector adoption, MCP/FPF/runtime activation, native admission or authorized source application."
+  ]
+}

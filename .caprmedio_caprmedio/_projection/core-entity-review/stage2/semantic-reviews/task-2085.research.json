@@ -1,0 +1,481 @@
+{
+  "schema_version": 1,
+  "task_id": "CA-P-2085",
+  "non_authoritative": true,
+  "source_migration": "not_performed",
+  "native_admission": "not_performed",
+  "base_ledger": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.mapping-ledger.json",
+    "sha256": "4d094ce89390e31290ce6ae7248cde78701376085bbe3078e33a228055e2eb39"
+  },
+  "input_pins": {
+    "selection_manifest": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/semantic-reviews/followups-2082-2085.inputs.json",
+      "sha256": "aa24c92ac9ea5658019bac4c6702a4e678836b0c2ff0e6cefc4972dc5481e371"
+    },
+    "source_report": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/supplements/actor_types.review.json",
+      "sha256": "ffe7e6d8371243f2261849cbf1c1dc58764d8117f71ce6590b697bd7d9046e2f"
+    },
+    "candidate": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/presentation/operator.entity-graph.candidate.json",
+      "sha256": "99e7710f5ef83df2b1f3ec1ef4142547655e63bef7415266c5521380da7fa99b"
+    },
+    "operator_decision_record": {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/operator.subject-decisions.2026-10-11.json",
+      "sha256": "743fd63f5c8c8ea19b0f1ffae1fa1d89d81504308c7f5345e2809fe7cef15ffc"
+    },
+    "task_plan": {
+      "path": ".caprmedio_caprmedio/03_plan/18-CA-P-1959-EPIC--improve-entity-model-stage-2/08-CA-P-1966-EPIC--map-current-core-subject-origins/71-CA-P-2085-TASK--resolve-remaining-actor-role-mappings.md",
+      "sha256": "a47a94d4ccf8916b4d0db6fcff3d40d1b0f558b1ab8311d4dfebee8b00f6f263"
+    }
+  },
+  "evidence_pins": [
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md",
+      "sha256": "5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md",
+      "sha256": "b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.supplements.contract.md",
+      "sha256": "21af5872e01036be1ce44497a17816515fe5f282616e176d70b2ccf0df57b42a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/subject-tools.grammar-contract.md",
+      "sha256": "aa267553ff481c7473c86fedcd757e902bbf00ffe3e2f2deef90b99201598f59"
+    },
+    {
+      "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/grammar-tools.current-contract.md",
+      "sha256": "cab46c2481e61fdca0ee7df38bce638d178eb37865e2e9e0be580179b2f3dbb6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+      "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38"
+    }
+  ],
+  "rows": [
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-471-CORE_META_MODEL-EVALUATION_APPROACH--validate-structural-change-cutover.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-471-CORE_META_MODEL-EVALUATION_APPROACH--validate-structural-change-cutover.md",
+      "source_atom_id": "CA-E-471",
+      "source_version": 7,
+      "source_sha256": "1718ae5ac2b7359c74b1d6c17b15b84fdbc2ca36c3f390961324716431d31c8d",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Operator",
+      "quarantined": false,
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-033",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-033.review.json",
+        "originating_review_sha256": "f9f60191bcffe030be5bea91e33c504dd4f8d6ede28a6b01e11f4e39b0b5466d",
+        "task_id": "CA-P-2024"
+      },
+      "baseline_decision": "proposed",
+      "baseline_proposed_value": "Actor/Operator",
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.92,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-471-CORE_META_MODEL-EVALUATION_APPROACH--validate-structural-change-cutover.md",
+          "sha256": "1718ae5ac2b7359c74b1d6c17b15b84fdbc2ca36c3f390961324716431d31c8d",
+          "start_line": 31,
+          "end_line": 61,
+          "span_sha256": "8ca44a82cc9a4c5ca0324c9578ca4cab9bc1f68ed698580aee6c4ca3576b8de4",
+          "reason": "The complete current Main Content constrains authorization during structural change cutover; the current direct Operator dependency therefore remains a generic actor-role reference, with no individual performer introduced."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "reason": "The current global definition identifies the referenced Operator as a collective human Actor."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/actor/identity",
+          "reason": "The candidate defines Actor identity as Actor Type plus optional Name, matching this generic rather than individual reference."
+        },
+        {
+          "pointer": "/entity_identity_model/actor/type_examples/1",
+          "reason": "The candidate expressly lists Operator as an allowed Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains the allowed value of Actor.Type, not a slash subtype or a new root kind.",
+        "The collective-human meaning remains supplied by the current Operator definition; no individual Name or Actor ID is inferred.",
+        "Authorization, the evaluation, and any actual structural-change execution remain distinct."
+      ],
+      "reason": "The source's current direct Operator dependency is read with its authorization-focused Main Content and the current definition of Operator. Actor.Type: Operator preserves that generic collective Actor role without turning it into a named performer, an authorization record, or an execution.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-QA_CASE--validate-workflow-execution-and-handoff-definitions.md#subjects.depends_on[5]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-QA_CASE--validate-workflow-execution-and-handoff-definitions.md",
+      "source_atom_id": "CA-E-489",
+      "source_version": 5,
+      "source_sha256": "649fc2ca1ffca21d2aeceb31611f41a06fe7dc2627644241fdabc540acaeeae1",
+      "field": "depends_on",
+      "index": 5,
+      "old_value": "Operator",
+      "quarantined": false,
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-034",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-034.review.json",
+        "originating_review_sha256": "43eb614f49e23577d6da15dfacf99f4d27a6cfc07da306287583f060fce821c3",
+        "task_id": "CA-P-2025"
+      },
+      "baseline_decision": "proposed",
+      "baseline_proposed_value": "Actor/Operator",
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.93,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-489-CORE_META_MODEL-QA_CASE--validate-workflow-execution-and-handoff-definitions.md",
+          "sha256": "649fc2ca1ffca21d2aeceb31611f41a06fe7dc2627644241fdabc540acaeeae1",
+          "start_line": 24,
+          "end_line": 48,
+          "span_sha256": "8addcdf7f2c23f4c97bb8a327035391a6de6db71049e7b06544826b9974e7e46",
+          "reason": "The complete current Main Content distinguishes a valid Workflow definition from executor availability, current permission, and a Run; its direct Operator dependency is therefore a generic actor-role reference, not an asserted executor instance."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "reason": "The current global definition identifies the referenced Operator as a collective human Actor."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/actor/identity",
+          "reason": "The candidate defines Actor identity as Actor Type plus optional Name, matching this generic rather than individual reference."
+        },
+        {
+          "pointer": "/entity_identity_model/actor/type_examples/1",
+          "reason": "The candidate expressly lists Operator as an allowed Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains the allowed value of Actor.Type, not a slash subtype or a new root kind.",
+        "The collective-human meaning remains supplied by the current Operator definition; no individual Name or Actor ID is inferred.",
+        "Workflow definition, executor availability, permission, and actual execution remain distinct."
+      ],
+      "reason": "The current QA case retains Operator as an explicit dependency while separating executor availability from the definition and execution. Actor.Type: Operator therefore preserves the generic Actor role without claiming a selected worker, permission, or performed Run.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md#subjects.depends_on[8]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md",
+      "source_atom_id": "CA-E-491",
+      "source_version": 5,
+      "source_sha256": "687b3d30d85e0ca910a82f6688bc0f14dc3424f25f48ba8ac444d644f226ddc6",
+      "field": "depends_on",
+      "index": 8,
+      "old_value": "Operator",
+      "quarantined": false,
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-034",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-034.review.json",
+        "originating_review_sha256": "43eb614f49e23577d6da15dfacf99f4d27a6cfc07da306287583f060fce821c3",
+        "task_id": "CA-P-2025"
+      },
+      "baseline_decision": "proposed",
+      "baseline_proposed_value": "Actor/Operator",
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.93,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-491-CORE_META_MODEL-QA_CASE--validate-update-to-replacement-routing.md",
+          "sha256": "687b3d30d85e0ca910a82f6688bc0f14dc3424f25f48ba8ac444d644f226ddc6",
+          "start_line": 27,
+          "end_line": 49,
+          "span_sha256": "ab73898e0884f4a6b3f6252b9c52957b24db4f770ccfeafc7c997b61bd36919d",
+          "reason": "The complete current Main Content describes the caller/executor boundary and rejects treating routing as completed persistence; the direct Operator dependency remains a generic actor-role reference rather than a particular executor or effect."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "reason": "The current global definition identifies the referenced Operator as a collective human Actor."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/actor/identity",
+          "reason": "The candidate defines Actor identity as Actor Type plus optional Name, matching this generic rather than individual reference."
+        },
+        {
+          "pointer": "/entity_identity_model/actor/type_examples/1",
+          "reason": "The candidate expressly lists Operator as an allowed Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains the allowed value of Actor.Type, not a slash subtype or a new root kind.",
+        "The collective-human meaning remains supplied by the current Operator definition; no individual Name or Actor ID is inferred.",
+        "The update caller, executor, routing, and actual replacement effect remain distinct."
+      ],
+      "reason": "The current QA case has a generic direct Operator dependency in a body that separates the caller and executor from routing and actual replacement. Actor.Type: Operator preserves the generic Actor reference without collapsing it into an executor identity or performed effect.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-494-CORE_META_MODEL-QA_CASE--validate-workflow-run-definition-bindings.md#subjects.depends_on[6]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-494-CORE_META_MODEL-QA_CASE--validate-workflow-run-definition-bindings.md",
+      "source_atom_id": "CA-E-494",
+      "source_version": 5,
+      "source_sha256": "55b1d6c759133d0166335e5bb43bbe061cff344ed71bb44af5e8a2f0f861f3b0",
+      "field": "depends_on",
+      "index": 6,
+      "old_value": "Operator",
+      "quarantined": false,
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-034",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-034.review.json",
+        "originating_review_sha256": "43eb614f49e23577d6da15dfacf99f4d27a6cfc07da306287583f060fce821c3",
+        "task_id": "CA-P-2025"
+      },
+      "baseline_decision": "proposed",
+      "baseline_proposed_value": "Actor/Operator",
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.93,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-494-CORE_META_MODEL-QA_CASE--validate-workflow-run-definition-bindings.md",
+          "sha256": "55b1d6c759133d0166335e5bb43bbe061cff344ed71bb44af5e8a2f0f861f3b0",
+          "start_line": 25,
+          "end_line": 46,
+          "span_sha256": "ecb484a09bc99a27a5b79c388a3a6e4fbccdb8523c987b3e5d0a72560f20d9c4",
+          "reason": "The complete current Main Content requires revalidation and distinguishes authorization and evidence from a recorded assertion or performed check; the direct Operator dependency is not an individual executor identity."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "reason": "The current global definition identifies the referenced Operator as a collective human Actor."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/actor/identity",
+          "reason": "The candidate defines Actor identity as Actor Type plus optional Name, matching this generic rather than individual reference."
+        },
+        {
+          "pointer": "/entity_identity_model/actor/type_examples/1",
+          "reason": "The candidate expressly lists Operator as an allowed Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains the allowed value of Actor.Type, not a slash subtype or a new root kind.",
+        "The collective-human meaning remains supplied by the current Operator definition; no individual Name or Actor ID is inferred.",
+        "Authorization, revalidation evidence, a recorded assertion, and an actual check remain distinct."
+      ],
+      "reason": "The current QA case preserves an explicit generic Operator dependency while distinguishing authorization and revalidation evidence from what any executor performed. Actor.Type: Operator is the lossless generic Actor-Type candidate, without an individual performer or execution claim.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-QA_CASE--validate-self-contained-agentic-invocations.md#subjects.depends_on[4]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-QA_CASE--validate-self-contained-agentic-invocations.md",
+      "source_atom_id": "CA-E-497",
+      "source_version": 4,
+      "source_sha256": "17de1ecc22b82359e2ebf18c4a3c447de634dd1fd169a79b2a36b059c6da5a60",
+      "field": "depends_on",
+      "index": 4,
+      "old_value": "Operator",
+      "quarantined": false,
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-034",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-034.review.json",
+        "originating_review_sha256": "43eb614f49e23577d6da15dfacf99f4d27a6cfc07da306287583f060fce821c3",
+        "task_id": "CA-P-2025"
+      },
+      "baseline_decision": "proposed",
+      "baseline_proposed_value": "Actor/Operator",
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.94,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-QA_CASE--validate-self-contained-agentic-invocations.md",
+          "sha256": "17de1ecc22b82359e2ebf18c4a3c447de634dd1fd169a79b2a36b059c6da5a60",
+          "start_line": 24,
+          "end_line": 45,
+          "span_sha256": "b821cc5baa23dab2bc6e1dc875c176cdae9f4da6afb9f5af1da94c1b199d0f01",
+          "reason": "The complete current Main Content explicitly distinguishes an executor's declared routing from self-contained prompts, actual effects, new Runs, and authorization; the direct Operator dependency is therefore a generic actor role, not the invocation or an executor instance."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "reason": "The current global definition identifies the referenced Operator as a collective human Actor."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/actor/identity",
+          "reason": "The candidate defines Actor identity as Actor Type plus optional Name, matching this generic rather than individual reference."
+        },
+        {
+          "pointer": "/entity_identity_model/actor/type_examples/1",
+          "reason": "The candidate expressly lists Operator as an allowed Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains the allowed value of Actor.Type, not a slash subtype or a new root kind.",
+        "The collective-human meaning remains supplied by the current Operator definition; no individual Name or Actor ID is inferred.",
+        "The supplied invocation, executor routing, authorization, and actual effects remain distinct."
+      ],
+      "reason": "The current QA case directly distinguishes actor/executor responsibility from prompt delivery, actual effects, Runs, and authorization. Read with the source's direct Operator dependency and current Operator definition, Actor.Type: Operator preserves only the generic collective Actor role.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md#subjects.depends_on[1]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md",
+      "source_atom_id": "CA-D-383",
+      "source_version": 11,
+      "source_sha256": "1ae8e1df0c2eeb193b37fa1953b3761b8a2c4247fb7f250c7958c344b466f0ae",
+      "field": "depends_on",
+      "index": 1,
+      "old_value": "Operator",
+      "quarantined": false,
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-040",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-040.review.json",
+        "originating_review_sha256": "1090f7cf627c076e254981992691fb4ffc8504a85fe258c3d05fbe6422b29805",
+        "task_id": "CA-P-2031"
+      },
+      "baseline_decision": "proposed",
+      "baseline_proposed_value": "Actor/Operator",
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-383-CORE_META_MODEL-DELIVERY--serialize-interaction-reporting-mode.md",
+          "sha256": "1ae8e1df0c2eeb193b37fa1953b3761b8a2c4247fb7f250c7958c344b466f0ae",
+          "start_line": 25,
+          "end_line": 37,
+          "span_sha256": "ba3b7090acde35038013713d4cda923058969897f2a2a73a0e0f1b77cd009b30",
+          "reason": "The complete current Main Content is limited to an instance reporting default and does not name an individual, a Carrier, or an actual interaction; the direct current Operator dependency is the sole generic actor reference retained by this candidate mapping."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "reason": "The current global definition identifies the referenced Operator as a collective human Actor."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/actor/identity",
+          "reason": "The candidate defines Actor identity as Actor Type plus optional Name, which retains this unnamed generic reference."
+        },
+        {
+          "pointer": "/entity_identity_model/actor/type_examples/1",
+          "reason": "The candidate expressly lists Operator as an allowed Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains the allowed value of Actor.Type, not a slash subtype or a new root kind.",
+        "The collective-human meaning remains supplied by the current Operator definition; no individual Name or Actor ID is inferred.",
+        "The reporting default, its Framework Instance Settings Carrier, and any interaction remain distinct."
+      ],
+      "reason": "Although this current body does not add a named performer, its direct current Operator dependency is an explicit generic reference and the global definition fixes that reference as a collective Actor. Actor.Type: Operator is therefore the narrowest candidate form that retains it without inventing a person, a settings owner, or an interaction execution.",
+      "question": null,
+      "executable": false
+    },
+    {
+      "occurrence_id": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-444-CORE_META_MODEL-STANDARD--separate-candidate-project-structure-from-active-authority.md#subjects.depends_on[2]",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-444-CORE_META_MODEL-STANDARD--separate-candidate-project-structure-from-active-authority.md",
+      "source_atom_id": "CA-D-444",
+      "source_version": 6,
+      "source_sha256": "18651eac6973724eacc0f5034fd7742b848dddb7560dcc4d858a718d7042e95a",
+      "field": "depends_on",
+      "index": 2,
+      "old_value": "Operator",
+      "quarantined": false,
+      "baseline_origin": {
+        "batch_id": "current-subjects.batch-041",
+        "originating_review_path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-041.review.json",
+        "originating_review_sha256": "9674be8e230e274ce2c8411a5a70d8b9243ffc18bc53353be71f75c5b1766551",
+        "task_id": "CA-P-2032"
+      },
+      "baseline_decision": "proposed",
+      "baseline_proposed_value": "Actor/Operator",
+      "decision": "proposed",
+      "proposed_value": "Actor.Type: Operator",
+      "confidence": 0.92,
+      "evidence": [
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-444-CORE_META_MODEL-STANDARD--separate-candidate-project-structure-from-active-authority.md",
+          "sha256": "18651eac6973724eacc0f5034fd7742b848dddb7560dcc4d858a718d7042e95a",
+          "start_line": 24,
+          "end_line": 36,
+          "span_sha256": "06a92fe8f6abb6d60883dc1de22123985574605a91b6007f81fda16a900331b2",
+          "reason": "The complete current Main Content requires explicit authorization and recoverability during Project Structure cutover; the direct Operator dependency is a generic actor-role reference, not the candidate file, active authority, or an individual approver."
+        },
+        {
+          "path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1422-CORE_META_MODEL-CORE--define-the-operator-as-the-collective-human-actor.md",
+          "sha256": "fa310406299664345e8c595d85d228c07a8220d35cb81726e138e01892d17a38",
+          "start_line": 22,
+          "end_line": 34,
+          "span_sha256": "b765b7f3369279bd273c3afc3cac651943501c4511037d1219e97536b56f3c05",
+          "reason": "The current global definition identifies the referenced Operator as a collective human Actor."
+        }
+      ],
+      "candidate_basis": [
+        {
+          "pointer": "/entity_identity_model/actor/identity",
+          "reason": "The candidate defines Actor identity as Actor Type plus optional Name, matching this generic rather than individual reference."
+        },
+        {
+          "pointer": "/entity_identity_model/actor/type_examples/1",
+          "reason": "The candidate expressly lists Operator as an allowed Actor Type example."
+        }
+      ],
+      "preserved_distinctions": [
+        "Operator remains the allowed value of Actor.Type, not a slash subtype or a new root kind.",
+        "The collective-human meaning remains supplied by the current Operator definition; no individual Name or Actor ID is inferred.",
+        "Project Structure candidate storage, active authority, authorization, and recovery evidence remain distinct."
+      ],
+      "reason": "The current Delivery constrains authorization for structural cutover while preserving separate candidate and active-authority states. Read with its direct Operator dependency and the current global definition, Actor.Type: Operator is the lossless generic Actor-Type candidate and does not name an approver or conflate authority with storage.",
+      "question": null,
+      "executable": false
+    }
+  ],
+  "counts": {
+    "assigned": 7,
+    "covered": 7,
+    "proposed": 7,
+    "unresolved": 0,
+    "current_sources": 7,
+    "owning_current_evidence_spans": 7,
+    "global_definition_evidence_spans": 7
+  },
+  "limits": [
+    "This is non-authoritative, non-executable candidate research only; it performs no source migration or native admission.",
+    "Actor.Type: Operator records Operator as an allowed Actor-Type value, not a slash subtype, selector, individual Actor Name, Actor ID, delegation, permission, or actual Execution.",
+    "No Subject grammar is adopted: the current grammar evidence permits the candidate colon notation and continues to reject @."
+  ]
+}

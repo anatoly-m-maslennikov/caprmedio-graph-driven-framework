@@ -8,6 +8,8 @@ turning cleanup failures into success.
 from __future__ import annotations
 
 import datetime as dt
+import hashlib
+import json
 import shutil
 import sys
 import tempfile
@@ -24,14 +26,29 @@ for path in (RELEASE_ROOT, TOOLS_ROOT):
         sys.path.insert(0, str(path))
 
 import work_journal  # noqa: E402
+import direct_action_session as direct_action  # noqa: E402
 from direct_action_session import (  # noqa: E402
     ACTION_ATOM_RELATIVE,
+    ACTION_ATOM_SHA256,
     DirectActionJournalError,
     DirectActionSession,
     INITIALIZATION_ACTION_ID,
+    INSTALLATION_ACTION_ID,
+    INSTALLATION_ATOM_RELATIVE,
+    INSTALLATION_ATOM_SHA256,
     RESTORATION_ACTION_ID,
     RESTORATION_ATOM_RELATIVE,
+    RESTORATION_ATOM_SHA256,
 )
+from framework_package import assemble_framework_package  # noqa: E402
+import framework_image_restoration as image_restoration  # noqa: E402
+from release_image import DockerSubprocessExecutor  # noqa: E402
+
+TOOLS_TEST_ROOT = TOOLS_ROOT / "tests"
+if str(TOOLS_TEST_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_TEST_ROOT))
+from source_admission_fixture import write_source_admission_receipt  # noqa: E402
+import direct_action_golden_fixture as golden_fixture  # noqa: E402
 
 
 def _repository_root() -> Path:
@@ -42,6 +59,33 @@ def _repository_root() -> Path:
 
 
 REPOSITORY_ROOT = _repository_root()
+class DirectActionGoldenFixtureTests(unittest.TestCase):
+    def test_exact_pins_reopen_without_an_installed_repository_source(self) -> None:
+        with patch(__name__ + ".REPOSITORY_ROOT", object()):
+            for relative, digest in (
+                (ACTION_ATOM_RELATIVE, ACTION_ATOM_SHA256),
+                (RESTORATION_ATOM_RELATIVE, RESTORATION_ATOM_SHA256),
+                (INSTALLATION_ATOM_RELATIVE, INSTALLATION_ATOM_SHA256),
+            ):
+                with self.subTest(relative=relative):
+                    self.assertEqual(digest, hashlib.sha256(golden_fixture.action_fixture(relative).read_bytes()).hexdigest())
+        with self.assertRaises(KeyError):
+            golden_fixture.action_fixture(Path("undeclared.md"))
+
+    def test_changed_or_symlinked_inert_carrier_is_refused(self) -> None:
+        reviewed_source = golden_fixture.action_fixture(ACTION_ATOM_RELATIVE)
+        temporary = Path(tempfile.mkdtemp(prefix="direct-action-golden-negative-"))
+        fixture = temporary / "CA-O-180-v3.md"
+        fixture.write_bytes(b"not the reviewed source\n")
+        with patch.object(golden_fixture, "_ACTION_FIXTURES", temporary):
+            with self.assertRaises(RuntimeError):
+                golden_fixture.action_fixture(ACTION_ATOM_RELATIVE)
+            fixture.unlink()
+            fixture.symlink_to(reviewed_source)
+            with self.assertRaises(RuntimeError):
+                golden_fixture.action_fixture(ACTION_ATOM_RELATIVE)
+
+
 AUTHORIZATION = {"operator": "Anatoly Maslennikov", "authorization_ref": "tmp/operator-authorizations/bootstrap.md"}
 INTENT = {
     "action_id": INITIALIZATION_ACTION_ID,
@@ -60,6 +104,29 @@ RESTORATION_INTENT = {
     "retained_proof_receipt_sha256": "e" * 64,
     "retained_context_sha256": "f" * 64,
 }
+QUERY_DEFAULTS = (
+    b"[query]\n"
+    b"max_request_bytes = 4096\nmax_grammar_depth = 16\n"
+    b"max_filter_tokens = 128\nmax_in_members = 16\n"
+    b"max_selected_fields = 8\nmax_page_size = 8\n"
+    b"max_snapshot_members = 8\nmax_file_bytes = 65536\n"
+    b"max_total_read_bytes = 262144\ntimeout_seconds = 10\nmax_findings = 8\n"
+)
+
+
+def _tree_digest(root: Path) -> str:
+    rows = [
+        {
+            "path": path.relative_to(root).as_posix(),
+            "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+            "mode": path.stat().st_mode & 0o777,
+        }
+        for path in sorted(root.rglob("*"))
+        if path.is_file()
+    ]
+    return hashlib.sha256(
+        json.dumps(rows, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()
 
 
 class _ExclusiveFixtureLock(AbstractContextManager[None]):
@@ -87,7 +154,17 @@ class DirectActionSessionTests(unittest.TestCase):
             ".caprmedio_caprmedio/caprmedio_project_settings.toml",
             b"[paths]\ncontrol_root = '.caprmedio_caprmedio'\njournal_root = '.caprmedio_caprmedio/_journal'\nruntime_root = '.caprmedio_runtime'\n",
         )
-        source = REPOSITORY_ROOT / ACTION_ATOM_RELATIVE
+        self._write(
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/caprmedio_framework_settings.toml",
+            b"",
+        )
+        self._write(
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
+            "caprmedio_framework_default_settings.toml",
+            QUERY_DEFAULTS,
+        )
+        source = golden_fixture.action_fixture(ACTION_ATOM_RELATIVE)
         target = self.root / ACTION_ATOM_RELATIVE
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
@@ -97,7 +174,7 @@ class DirectActionSessionTests(unittest.TestCase):
         )
         self.session = DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization=AUTHORIZATION,
             now=lambda: dt.datetime(2026, 10, 5, 18, 0, tzinfo=dt.UTC),
         )
@@ -115,13 +192,99 @@ class DirectActionSessionTests(unittest.TestCase):
             events.extend(__import__("json").loads(line) for line in path.read_text(encoding="utf-8").splitlines())
         return events
 
-    def _restoration_session(self) -> DirectActionSession:
+    def _recording_command(self, result_ref: str, *, command_id: str) -> str:
+        binding = direct_action._source_binding(self.root, RESTORATION_ACTION_ID)
+        registry = (self.root / ".caprmedio_caprmedio/operators_registry.toml").read_bytes()
+        command = {
+            "schema_version": 1,
+            "operation": "record_terminal",
+            "command_id": command_id,
+            "operator": AUTHORIZATION["operator"],
+            "journal_author": "anatoly-m-maslennikov",
+            "operators_registry_sha256": hashlib.sha256(registry).hexdigest(),
+            "action_source": {
+                "atom_id": binding["atom_id"],
+                "version": binding["version"],
+                "path": binding["path"],
+                "sha256": binding["digest"],
+            },
+            "input": {"result_ref": result_ref},
+        }
+        raw = json.dumps(command, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        reference = "operator-commands/" + hashlib.sha256(raw).hexdigest() + ".json"
+        self._write(reference, raw)
+        return reference
+
+    def _o200_package(self):
+        source = self.root / "o200-package-source"
+        releases = self.root / "o200-package-releases"
+
+        def write(relative: str, payload: bytes, *, mode: int = 0o644) -> None:
+            target = source / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(payload)
+            target.chmod(mode)
+
+        action_payload = golden_fixture.action_fixture(INSTALLATION_ATOM_RELATIVE).read_bytes()
+        action_relative = INSTALLATION_ATOM_RELATIVE.as_posix()
+        write("102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/tool.py", b"tool = 'fixture'\n", mode=0o755)
+        write("methodology/active/001_CORE_META_MODEL/04_requirement/CA-R-001--fixture.md", b"# core\n")
+        write(action_relative, action_payload)
+        write("methodology/support/CA-D-001--fixture.md", b"# support\n")
+        write("SKILLS/ca/SKILL.md", b"# ca\n")
+        write("defaults/framework.toml", b"[defaults]\nname = 'fixture'\n")
+        write("pyproject.toml", b"[project]\nname = 'fixture'\nversion = '0.1.0'\n")
+        write("uv.lock", b"version = 1\n")
+        write("version.toml", b"[framework]\nversion = '0.1.0'\n")
+        rows = (
+            ("local-core", "core", "102_FRAMEWORK_ENGINE"),
+            ("core-meta-model", "methodology", "methodology/active/001_CORE_META_MODEL"),
+            ("project-configuration", "configuration", "methodology/active/003_PROJECT_CONFIGURATION"),
+            ("methodology-support", "support", "methodology/support"),
+        )
+        descriptors = tuple(
+            sorted(
+                (
+                    {
+                        "identity": identity,
+                        "kind": kind,
+                        "revision": _tree_digest(source / relative),
+                        "sha256": _tree_digest(source / relative),
+                        "visibility": "public",
+                        "selection_default": False,
+                        "path": relative,
+                    }
+                    for identity, kind, relative in rows
+                ),
+                key=lambda descriptor: str(descriptor["identity"]),
+            )
+        )
+        receipt = write_source_admission_receipt(source, descriptors)
+        lines = ["schema_version = 1", ""]
+        for descriptor in descriptors:
+            lines.extend(
+                [
+                    f"[source.{descriptor['identity']}]",
+                    f'kind = "{descriptor["kind"]}"',
+                    f'revision = "{descriptor["revision"]}"',
+                    f'sha256 = "{descriptor["sha256"]}"',
+                    f'admission_receipt_sha256 = "{receipt.sha256}"',
+                    f'visibility = "{descriptor["visibility"]}"',
+                    "selection_default = false",
+                    f'path = "{descriptor["path"]}"',
+                    "",
+                ]
+            )
+        write("catalog.toml", ("\n".join(lines) + "\n").encode())
+        return assemble_framework_package(source, releases)
+
+    def _restoration_session(self, *, authorization=AUTHORIZATION) -> DirectActionSession:
         target = self.root / RESTORATION_ATOM_RELATIVE
         target.parent.mkdir(parents=True, exist_ok=True)
         if not target.exists():
-            shutil.copyfile(REPOSITORY_ROOT / RESTORATION_ATOM_RELATIVE, target)
+            shutil.copyfile(golden_fixture.action_fixture(RESTORATION_ATOM_RELATIVE), target)
         session = DirectActionSession(
-            self.root, author="anatoly-m", operator_authorization=AUTHORIZATION,
+            self.root, author="anatoly-m-maslennikov", operator_authorization=authorization,
             action_id=RESTORATION_ACTION_ID,
             now=lambda: dt.datetime(2026, 10, 5, 18, 0, tzinfo=dt.UTC),
         )
@@ -147,9 +310,46 @@ class DirectActionSessionTests(unittest.TestCase):
         self.assertEqual(["started", "completed"], [event["event"] for event in self._events()])
         self.assertEqual(effects, self._events()[-1]["effect_refs"])
 
+    def test_o200_requires_and_records_the_physically_verified_package_source(self) -> None:
+        package = self._o200_package()
+        session = DirectActionSession(
+            self.root,
+            author="anatoly-m-maslennikov",
+            operator_authorization=AUTHORIZATION,
+            action_id=INSTALLATION_ACTION_ID,
+            action_package=package,
+            now=lambda: dt.datetime(2026, 10, 5, 18, 0, tzinfo=dt.UTC),
+        )
+        self.addCleanup(session.close)
+        intent = {
+            "action_id": INSTALLATION_ACTION_ID,
+            "kind": "install_one_admitted_project_runtime",
+            "installation_command_sha256": "a" * 64,
+            "target_project_context_sha256": "b" * 64,
+            "package_manifest_sha256": package.manifest_digest,
+            "full_gate_receipt_sha256": "c" * 64,
+            "prior_runtime_selector_sha256": None,
+            "operators_registry_sha256": "d" * 64,
+        }
+        started = session.begin_action(action_id=INSTALLATION_ACTION_ID, requested_run_id="install-001", intent=intent)
+
+        event = self._events()[0]
+        self.assertEqual("CA-O-200", event["run"]["definition"]["atom_id"])
+        self.assertEqual(INSTALLATION_ATOM_RELATIVE.as_posix(), event["run"]["definition"]["path"])
+        self.assertEqual(package.manifest_digest, intent["package_manifest_sha256"])
+        self.assertEqual(started["run_id"], session.read_recorded_action_start(started["run_id"]).action_run_id)
+        with self.assertRaises(DirectActionJournalError) as missing_package:
+            DirectActionSession(
+                self.root,
+                author="anatoly-m-maslennikov",
+                operator_authorization=AUTHORIZATION,
+                action_id=INSTALLATION_ACTION_ID,
+            )
+        self.assertEqual("direct-action-package-required", missing_package.exception.code)
+
     def test_restoration_intent_and_session_dispatch_are_closed(self) -> None:
         with self.assertRaises(DirectActionJournalError) as invalid:
-            DirectActionSession(self.root, author="anatoly-m", operator_authorization=AUTHORIZATION,
+            DirectActionSession(self.root, author="anatoly-m-maslennikov", operator_authorization=AUTHORIZATION,
                                 action_id="caller-supplied-action")
         self.assertEqual("direct-action-unadmitted", invalid.exception.code)
         session = self._restoration_session()
@@ -259,6 +459,75 @@ class DirectActionSessionTests(unittest.TestCase):
         self.assertEqual("direct-action-already-terminal", terminal_exists.exception.code)
         self.assertEqual(["started", "completed"], [event["event"] for event in self._events()])
 
+    def test_restoration_recording_uses_distinct_command_as_terminal_report_only(self) -> None:
+        original = self._restoration_session()
+        started = original.begin_action(
+            action_id=RESTORATION_ACTION_ID,
+            requested_run_id="restore-recording-command",
+            intent=RESTORATION_INTENT,
+        )
+        original.close()
+        result_ref = "tmp/restoration/result.json"
+        recording_ref = self._recording_command(result_ref, command_id="record-terminal-positive")
+        resumed = self._restoration_session(
+            authorization=dict(AUTHORIZATION, authorization_ref=recording_ref),
+        )
+        result_path = self._write(result_ref, b"{}")
+        retained = (
+            self.root / "tmp/restoration/intent",
+            result_path.parent,
+            RESTORATION_INTENT,
+            {"requested_run_id": "restore-recording-command", "run_id": started["run_id"]},
+            [result_ref],
+        )
+        with patch.object(image_restoration, "_retained_result_for_terminal", return_value=retained):
+            recovered = image_restoration.recover_framework_image_terminal(
+                self.root,
+                journal=resumed,
+                result_ref=result_ref,
+                image_executor=DockerSubprocessExecutor(),
+                recording_authorization_ref=recording_ref,
+            )
+        self.assertEqual("restored", recovered["state"], recovered)
+        event = next(item for item in self._events() if item["event_id"] == recovered["terminal"]["event_id"])
+        self.assertEqual(AUTHORIZATION["authorization_ref"], event["input_ref"])
+        self.assertEqual(AUTHORIZATION["authorization_ref"], event["initiative"]["initiative_ref"])
+        self.assertEqual(recording_ref, event["report_ref"])
+
+    def test_restoration_recording_refuses_unowned_recording_command(self) -> None:
+        original = self._restoration_session()
+        original.begin_action(
+            action_id=RESTORATION_ACTION_ID,
+            requested_run_id="restore-recording-command-refused",
+            intent=RESTORATION_INTENT,
+        )
+        original.close()
+        result_ref = "tmp/restoration/refused-result.json"
+        recording_ref = self._recording_command(result_ref, command_id="record-terminal-owned")
+        other_ref = self._recording_command(result_ref, command_id="record-terminal-other")
+        resumed = self._restoration_session(
+            authorization=dict(AUTHORIZATION, authorization_ref=recording_ref),
+        )
+        result_path = self._write(result_ref, b"{}")
+        started = next(iter(original.actual))
+        retained = (
+            self.root / "tmp/restoration/refused-intent",
+            result_path.parent,
+            RESTORATION_INTENT,
+            {"requested_run_id": "restore-recording-command-refused", "run_id": started},
+            [result_ref],
+        )
+        with patch.object(image_restoration, "_retained_result_for_terminal", return_value=retained):
+            refused = image_restoration.recover_framework_image_terminal(
+                self.root,
+                journal=resumed,
+                result_ref=result_ref,
+                image_executor=DockerSubprocessExecutor(),
+                recording_authorization_ref=other_ref,
+            )
+        self.assertEqual("recovery_required", refused["state"], refused)
+        self.assertEqual("framework-image-restoration-recording-authorization-invalid", refused["reason"])
+
     def test_restoration_recording_refuses_wrong_run_intent_authorization_and_current_source(self) -> None:
         original = self._restoration_session()
         original.begin_action(action_id=RESTORATION_ACTION_ID,
@@ -270,10 +539,10 @@ class DirectActionSessionTests(unittest.TestCase):
              AUTHORIZATION, "direct-action-intent-conflict"),
             ("restore-recording-identity", RESTORATION_INTENT,
              dict(AUTHORIZATION, authorization_ref="tmp/operator-authorizations/different.md"),
-             "direct-action-intent-conflict"),
+             "direct-action-recording-authorization-required"),
         ):
             with self.subTest(expected=expected, requested=requested):
-                resumed = DirectActionSession(self.root, author="anatoly-m", operator_authorization=authorization,
+                resumed = DirectActionSession(self.root, author="anatoly-m-maslennikov", operator_authorization=authorization,
                                                action_id=RESTORATION_ACTION_ID)
                 with resumed, patch.object(work_journal, "append_sealed_events") as append:
                     with self.assertRaises(DirectActionJournalError) as refused:
@@ -448,7 +717,7 @@ class DirectActionSessionTests(unittest.TestCase):
         self.session.close()
         resumed = DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization=AUTHORIZATION,
             now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
         )
@@ -509,7 +778,7 @@ class DirectActionSessionTests(unittest.TestCase):
         (self.root / ACTION_ATOM_RELATIVE).write_text("O-180 changed after the pending completion", encoding="utf-8")
         inspector = DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization=AUTHORIZATION,
             now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
         )
@@ -534,7 +803,7 @@ class DirectActionSessionTests(unittest.TestCase):
             )
         self.assertEqual(raised.exception.code, "direct-action-source-stale")
         with self.assertRaises(DirectActionJournalError) as authorization:
-            DirectActionSession(self.root, author="anatoly-m", operator_authorization={})
+            DirectActionSession(self.root, author="anatoly-m-maslennikov", operator_authorization={})
         self.assertEqual(authorization.exception.code, "direct-action-authorization-required")
 
     def test_refuses_a_symlinked_pinned_action_source(self) -> None:
@@ -563,7 +832,7 @@ class DirectActionSessionTests(unittest.TestCase):
         changed = dict(INTENT, image_digest="sha256:" + "d" * 64)
         resumed = DirectActionSession(
             self.root,
-            author="anatoly-m",
+            author="anatoly-m-maslennikov",
             operator_authorization=AUTHORIZATION,
             now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
         )
@@ -575,6 +844,143 @@ class DirectActionSessionTests(unittest.TestCase):
             )
         self.assertEqual(raised.exception.code, "direct-action-intent-conflict")
         self.assertEqual([event["event"] for event in self._events()], ["started"])
+
+    def test_reopen_refuses_a_duplicate_event_id_across_journal_parts(self) -> None:
+        self.session.begin_action(
+            action_id=INITIALIZATION_ACTION_ID,
+            requested_run_id="bootstrap-duplicate-across-parts",
+            intent=INTENT,
+        )
+        self.session.close()
+        journal = self.root / ".caprmedio_caprmedio/_journal"
+        original = next(journal.glob("*.ndjson"))
+        (journal / "duplicate-part.ndjson").write_bytes(original.read_bytes())
+        resumed = DirectActionSession(
+            self.root,
+            author="anatoly-m-maslennikov",
+            operator_authorization=AUTHORIZATION,
+            now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
+        )
+        with self.assertRaises(DirectActionJournalError) as refused:
+            resumed.begin_action(
+                action_id=INITIALIZATION_ACTION_ID,
+                requested_run_id="bootstrap-duplicate-across-parts",
+                intent=INTENT,
+            )
+        self.assertEqual("direct-action-journal-unavailable", refused.exception.code)
+
+    def test_reopen_refuses_a_symlinked_journal_member(self) -> None:
+        self.session.begin_action(
+            action_id=INITIALIZATION_ACTION_ID,
+            requested_run_id="bootstrap-symlink-member",
+            intent=INTENT,
+        )
+        self.session.close()
+        journal = self.root / ".caprmedio_caprmedio/_journal"
+        original = next(journal.glob("*.ndjson"))
+        (journal / "unsafe-member.ndjson").symlink_to(original)
+        resumed = DirectActionSession(
+            self.root,
+            author="anatoly-m-maslennikov",
+            operator_authorization=AUTHORIZATION,
+            now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
+        )
+        with self.assertRaises(DirectActionJournalError) as refused:
+            resumed.begin_action(
+                action_id=INITIALIZATION_ACTION_ID,
+                requested_run_id="bootstrap-symlink-member",
+                intent=INTENT,
+            )
+        self.assertEqual("direct-action-journal-unavailable", refused.exception.code)
+
+    def test_reopen_refuses_configured_bounded_member_limit(self) -> None:
+        self.session.begin_action(
+            action_id=INITIALIZATION_ACTION_ID,
+            requested_run_id="bootstrap-member-limit",
+            intent=INTENT,
+        )
+        self.session.close()
+        self._write(
+            ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/"
+            "000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/"
+            "caprmedio_framework_default_settings.toml",
+            QUERY_DEFAULTS.replace(b"max_snapshot_members = 8", b"max_snapshot_members = 1"),
+        )
+        (self.root / ".caprmedio_caprmedio/_journal/unrelated.ndjson").write_text(
+            '{"event_id":"unrelated"}\n', encoding="utf-8"
+        )
+        resumed = DirectActionSession(
+            self.root,
+            author="anatoly-m-maslennikov",
+            operator_authorization=AUTHORIZATION,
+            now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
+        )
+        with self.assertRaises(DirectActionJournalError) as refused:
+            resumed.begin_action(
+                action_id=INITIALIZATION_ACTION_ID,
+                requested_run_id="bootstrap-member-limit",
+                intent=INTENT,
+            )
+        self.assertEqual("direct-action-journal-unavailable", refused.exception.code)
+
+    def test_reopen_refuses_incomplete_bounded_coverage(self) -> None:
+        self.session.begin_action(
+            action_id=INITIALIZATION_ACTION_ID,
+            requested_run_id="bootstrap-incomplete-coverage",
+            intent=INTENT,
+        )
+        self.session.close()
+        resumed = DirectActionSession(
+            self.root,
+            author="anatoly-m-maslennikov",
+            operator_authorization=AUTHORIZATION,
+            now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
+        )
+        with patch.object(
+            direct_action,
+            "query",
+            return_value={"status": "incomplete", "coverage": {"complete": False}, "results": []},
+        ):
+            with self.assertRaises(DirectActionJournalError) as refused:
+                resumed.begin_action(
+                    action_id=INITIALIZATION_ACTION_ID,
+                    requested_run_id="bootstrap-incomplete-coverage",
+                    intent=INTENT,
+                )
+        self.assertEqual("direct-action-journal-incomplete", refused.exception.code)
+
+    def test_reopen_refuses_a_sidecar_without_exact_bounded_carrier_provenance(self) -> None:
+        started = self.session.begin_action(
+            action_id=INITIALIZATION_ACTION_ID,
+            requested_run_id="bootstrap-tampered-sidecar",
+            intent=INTENT,
+        )
+        self.session.close()
+        receipt_path = self.root / ".caprmedio_runtime/state/work_journal/receipts" / f"{started['event_id']}.json"
+        original = receipt_path.read_bytes()
+        for field, value in (
+            ("line", 2),
+            ("carrier", ".caprmedio_caprmedio/_journal/other.ndjson"),
+            ("previous_carrier_digest", "0" * 64),
+        ):
+            with self.subTest(field=field):
+                receipt = json.loads(original)
+                receipt[field] = value
+                receipt_path.write_text(json.dumps(receipt, sort_keys=True), encoding="utf-8")
+                resumed = DirectActionSession(
+                    self.root,
+                    author="anatoly-m-maslennikov",
+                    operator_authorization=AUTHORIZATION,
+                    now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
+                )
+                with self.assertRaises(DirectActionJournalError) as refused:
+                    resumed.begin_action(
+                        action_id=INITIALIZATION_ACTION_ID,
+                        requested_run_id="bootstrap-tampered-sidecar",
+                        intent=INTENT,
+                    )
+                self.assertEqual("direct-action-journal-invalid", refused.exception.code)
+        receipt_path.write_bytes(original)
 
     def test_another_session_cannot_start_same_or_distinct_run_while_first_install_is_owned(self) -> None:
         held: set[str] = set()
@@ -592,7 +998,7 @@ class DirectActionSessionTests(unittest.TestCase):
             for requested_run_id in ("bootstrap-008", "bootstrap-009"):
                 competing = DirectActionSession(
                     self.root,
-                    author="anatoly-m",
+                    author="anatoly-m-maslennikov",
                     operator_authorization=AUTHORIZATION,
                     now=lambda: dt.datetime(2026, 10, 5, 18, 1, tzinfo=dt.UTC),
                 )

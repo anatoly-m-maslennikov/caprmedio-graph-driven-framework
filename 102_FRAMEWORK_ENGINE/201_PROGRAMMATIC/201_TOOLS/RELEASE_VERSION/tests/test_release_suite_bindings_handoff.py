@@ -15,8 +15,9 @@ RELEASE_ROOT = Path(__file__).resolve().parents[1]
 if str(RELEASE_ROOT) not in sys.path:
     sys.path.insert(0, str(RELEASE_ROOT))
 
-from release_handoff import PackageRow  # noqa: E402
+from release_handoff import PackageRow, _observed_inventory  # noqa: E402
 from release_contract import ReleaseContractError  # noqa: E402
+from methodology_layout import resolve_methodology_layout  # noqa: E402
 from release_suite import (  # noqa: E402
     COMPILED_PROBE_TEST_MODULE,
     MODULE_RULES_RELATIVE,
@@ -116,6 +117,37 @@ class ReleaseSuiteBindingsHandoffTests(unittest.TestCase):
                 self.root, "a" * 64, self.rows, ".caprmedio_caprmedio/compiled/candidate", self.context,
             )
 
+    def test_delivered_probe_matches_registered_authoring_inventory_row(self) -> None:
+        project_root = RELEASE_ROOT.parents[3]
+        layout = resolve_methodology_layout(project_root)
+        default_source = f"{layout.source_root}/001_CORE_META_MODEL/caprmedio_framework_default_settings.toml"
+        rule_bytes = (project_root / self.rule_source).read_bytes()
+        rules = json.loads(rule_bytes)
+        compilation_probe = next(
+            probe for probe in rules["module_probes"]
+            if probe["test_module_source_path"] == COMPILED_PROBE_TEST_MODULE
+        )
+        self.assertEqual(compilation_probe["source_paths"], [default_source])
+
+        inventory, _image = _observed_inventory(project_root)
+        observed = next(row for row in inventory if row.source_path == default_source)
+        self.assertEqual(observed.resource, "METHODOLOGY")
+        self.assertEqual(observed.source_sha256, hashlib.sha256((project_root / default_source).read_bytes()).hexdigest())
+        rows = [PackageRow(
+            resource=row.resource, source_path=row.source_path, destination_path=row.destination_path,
+            sha256=row.source_sha256, mode=row.source_mode,
+        ) for row in inventory if row.resource != "IMAGE_INPUT"] + [self.rows[-1]]
+        (self.root / self.rule_source).write_bytes(rule_bytes)
+        envelope = json.loads(_source_bindings_bytes(
+            self.root, "a" * 64, rows, ".caprmedio_caprmedio/compiled/candidate", self.context,
+        ))
+        self.assertIn(default_source, {row["source_path"] for row in envelope["package_rows"]})
+        with self.assertRaisesRegex(ReleaseContractError, "module probe"):
+            _source_bindings_bytes(
+                self.root, "a" * 64, [row for row in rows if row.source_path != default_source],
+                ".caprmedio_caprmedio/compiled/candidate", self.context,
+            )
+
     def test_rejects_invalid_compiled_candidate_probe_declarations(self) -> None:
         base = {
             "test_module_source_path": self.test_source,
@@ -156,7 +188,7 @@ class ReleaseSuiteBindingsHandoffTests(unittest.TestCase):
             ))
 
     def test_fresh_executor_image_context_changes_the_revalidation_bindings(self) -> None:
-        candidate = SimpleNamespace(manifest=SimpleNamespace(sha256="a" * 64))
+        candidate = SimpleNamespace(manifest=SimpleNamespace(sha256="a" * 64), native_installed_n=None)
         compilation = SimpleNamespace(child_materialization_root=".caprmedio_caprmedio/compiled/candidate")
         before = _trusted_context_bindings(
             candidate, compilation, SimpleNamespace(source_context_sha256="b" * 64), "N",

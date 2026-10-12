@@ -1,0 +1,28 @@
+{
+  "task": "CA-P-2017",
+  "recorded_at": "2026-10-11 02:27:43 +0400",
+  "result": "PASS: complete candidate review; unresolved mapping research retained",
+  "output": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/reviews/current-subjects.batch-026.review.json",
+    "sha256": "610dcdeebbf3c37e4142fcdc63803c82630d2922338d9233377123c5c70178fa"
+  },
+  "input_batch": {
+    "path": ".caprmedio_caprmedio/_projection/core-entity-review/stage2/inputs/current-subjects.batch-026.json",
+    "sha256": "673ac4a753e0719e1d3d2ba90823247b22122f480829374cb424b1ab4f747648"
+  },
+  "checks": {
+    "independent_structural_verifier": "PASS",
+    "sources": 20,
+    "occurrences": 66,
+    "proposed": 9,
+    "unchanged": 4,
+    "unresolved": 53,
+    "meaning_review": "Independent meaning review checked all proposed and unchanged mappings. The unsupported CA-R-940 Claim-field mapping was corrected to unresolved; the remaining nine proposals retain current meaning.",
+    "all_executable_false": true
+  },
+  "unresolved_work": "53 occurrence-level research rows remain in the pinned report and required CA-P-2045 integration; CA-P-1966 remains Active.",
+  "limits": [
+    "No original Atom, captured candidate, grammar, native or runtime change",
+    "Review completion is not migration approval"
+  ]
+}
