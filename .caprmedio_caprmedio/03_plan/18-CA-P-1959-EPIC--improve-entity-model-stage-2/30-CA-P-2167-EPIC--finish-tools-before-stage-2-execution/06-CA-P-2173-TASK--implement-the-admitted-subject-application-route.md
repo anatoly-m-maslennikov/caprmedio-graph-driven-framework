@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Revision, Journal, Plan, Operator]
-version: 2
-updated_at: "2026-10-12 04:12:42 +0400"
+version: 3
+updated_at: "2026-10-12 04:16:55 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2174]
@@ -29,7 +29,7 @@ The existing governed mutation boundary can apply an exact sealed Subjects-only 
 
 ## Details
 
-Own work: none. Required prerequisite: CA-P-2170's actual current application contract packet independently accepted under CA-P-2171; unrelated preview/graph packets need not delay it. CA-P-2177 binds the concrete implementation scope and creates bounded implementation/check children here. Those children and their actual isolated outputs must complete; preparation alone cannot finish this group.
+Own work: none. Required prerequisite for production implementation: CA-P-2170's actual current application contract packet independently accepted under CA-P-2171; unrelated preview/graph packets need not delay it. CA-P-2177 has prepared the bounded children below. Contract/fixture preparation may proceed independently, but implementation and acceptance must obey each child's gates. All children and their actual isolated outputs must complete; preparation alone cannot finish this group.
 
 The Operator chose extending the existing admitted MCP update action with Subjects-only application. Implement that route only after its actual current contract packet passes independent acceptance. No local transport exception, completed capability or live migration approval is inferred; the exact CA-P-1910 sealed packet still needs separate approval.
 
@@ -37,9 +37,16 @@ Implement only the accepted application contracts through the existing boundary.
 
 Use valid isolated fixture carriers only. Production Core application stays under CA-P-1910's separately approved exact sealed packet and CA-P-1911's sole execution. A working Tool is not that approval or a live effect receipt.
 
+The ready implementation sequence is pure intent/materialization (CA-P-2178), guarded native publication/recovery (CA-P-2179), then the existing MCP selected-route integration (CA-P-2180). Independent fixture authoring (CA-P-2181) may run before those interfaces are implemented; independent combined verification (CA-P-2182) consumes all actual results. Keep a single target and existing Report/envelope/Run/recording boundaries. No `selected_routes.py`, Core body, installation or runtime-publication change is included. Live image/manifest readiness remains separate.
+
 ### Decomposing Plans
 
-- [CA-P-2177 — Prepare bounded admitted application work](06-CA-P-2173-TASK--implement-the-admitted-subject-application-route/01-CA-P-2177-TASK--prepare-bounded-admitted-application-work.md)
+- [CA-P-2177 — Prepare bounded admitted application work](06-CA-P-2173-TASK--implement-the-admitted-subject-application-route/done/01-CA-P-2177-TASK--prepare-bounded-admitted-application-work.md)
+- [CA-P-2178 — Define Subject intent and effect materialization](06-CA-P-2173-TASK--implement-the-admitted-subject-application-route/02-CA-P-2178-TASK--define-subject-intent-and-effect-materialization.md)
+- [CA-P-2179 — Publish and recover guarded Subject effects](06-CA-P-2173-TASK--implement-the-admitted-subject-application-route/03-CA-P-2179-TASK--publish-and-recover-guarded-subject-effects.md)
+- [CA-P-2180 — Integrate Subject application into the MCP update action](06-CA-P-2173-TASK--implement-the-admitted-subject-application-route/04-CA-P-2180-TASK--integrate-subject-application-into-the-mcp-update-action.md)
+- [CA-P-2181 — Author independent Subject application fixtures](06-CA-P-2173-TASK--implement-the-admitted-subject-application-route/05-CA-P-2181-TASK--author-independent-subject-application-fixtures.md)
+- [CA-P-2182 — Verify the combined Subject application route](06-CA-P-2173-TASK--implement-the-admitted-subject-application-route/06-CA-P-2182-TASK--verify-the-combined-subject-application-route.md)
 
 ### Definition of Done
 
