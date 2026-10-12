@@ -9,12 +9,12 @@ status: "Active"
 author: "Anatoly Maslennikov"
 subjects:
   governs: "Release a selected public Version"
-  depends_on: [Operator, Version, README, Pull Request, Version History, Full Gate, Journal, Tool]
-version: 4
-updated_at: "2026-10-11 17:30:38 +0000"
+  depends_on: [Operator, Version, README, Pull Request, Version History, Tool]
+version: 5
+updated_at: "2026-10-12 00:00:51 +0000"
 relations:
   relates_to: [CA-R-1920, CA-R-1924, CA-R-1925, CA-R-1926, CA-R-1927, CA-R-1928, CA-R-1929]
-  invokes: [CA-O-189, CA-O-191, CA-O-193, CA-O-195, CA-O-197]
+  invokes: [CA-O-189, CA-O-191, CA-O-195, CA-O-197]
 ---
 # Summary
 
@@ -26,7 +26,7 @@ Release a selected public Version **means** the **Operator**-invoked, non-recurs
 
 ## Scope
 
-One selected Version, one personal remote identity, `amm/dev`, `main`, the selected README, one full PR description, one concise Version History summary, a fresh full-suite result, and Journal Run lineage.
+One selected Version, one personal remote identity, `amm/dev`, `main`, the selected README, one full PR description, and one concise Version History summary.
 
 ## Steps
 
@@ -34,7 +34,6 @@ One selected Version, one personal remote identity, `amm/dev`, `main`, the selec
 | --- | --- | --- |
 | CA-O-189 | CA-O-190 | discover at most one matching open PR |
 | CA-O-191 | CA-O-192 | make the one content prompt for the PR body and concise Version History summary |
-| CA-O-193 | CA-O-194 | run a fresh full suite before public release |
 | CA-O-195 | CA-O-196 | mechanically apply documentation and history, commit/push, and create or update its `main` PR |
 | CA-O-197 | CA-O-198 | when newly known, append the exact PR URL mechanically and refresh that same PR |
 
@@ -43,14 +42,11 @@ One selected Version, one personal remote identity, `amm/dev`, `main`, the selec
 | Step result | Next result |
 | --- | --- |
 | a unique existing matching PR or no matching PR is evidenced | CA-O-191 |
-| one content result is complete | CA-O-193 |
-| fresh full suite passes for the public closure | CA-O-195 |
-| immutable push proof and one actual open PR URL are evidenced | CA-O-197 |
+| one content result is complete | CA-O-195 |
+| commit is pushed and one actual open PR URL is available | CA-O-197 |
 | exact URL is already present, or mechanically appended and pushed to the same PR | complete |
-| missing, stale, duplicate, unauthorized, unsafe, failed, partial, or uncertain result | stop with actual evidence; do not merge or replay remote effects |
+| failed or unsafe result | stop and report it for manual handling; do not merge |
 
 ## Details
 
-This Workflow starts only on the Operator's command for the selected public-release Run. Public release increments the third numeric Version component and drops the fourth/internal suffix, producing exactly three numeric components: `0.4.1.xxx` becomes `0.4.2`. There is no rollover: `0.4.9.x` becomes `0.4.10`. CA-O-192 is its sole content prompt; README, Version History, Git, and PR mechanics are programmatic. Its initial fresh full suite is its own public-release gate and cannot reuse Local Release evidence. A code, Methodology, or package change after that suite requires a fresh full suite before public release. Adding only the actual PR URL after the PR exists requires its mechanical follow-up commit and push, not a repeated suite. It never merges.
-
-Every invoked Workflow, Step, and Action Run carries actual definition revisions, parent lineage, input/result/effect/report references, and truthful started or terminal Journal evidence under CA-R-1928. Tool calls are evidence attached to their parent Step and Action; they are not a fourth Tool Run kind. This Workflow invokes native bindings only after their registry admission. It grants no current GitHub write, merge, secret, credential, source-authority replacement, or implicit retry authority.
+This Workflow starts only on the Operator's command for the selected public-release Run. It runs Git before every listed Step and after final completion. Public release increments the third numeric Version component and drops the fourth/internal suffix, producing exactly three numeric components: `0.4.1.xxx` becomes `0.4.2`. There is no rollover: `0.4.9.x` becomes `0.4.10`. CA-O-192 is its sole content prompt; README, Version History, Git, and PR mechanics are programmatic. Adding only the actual PR URL after the PR exists requires its mechanical follow-up commit and push. It never merges.

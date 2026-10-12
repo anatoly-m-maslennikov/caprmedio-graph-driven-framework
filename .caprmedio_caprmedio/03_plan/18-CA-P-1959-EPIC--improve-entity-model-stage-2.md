@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 49
-updated_at: "2026-10-12 04:02:18 +0400"
+version: 50
+updated_at: "2026-10-12 04:12:42 +0400"
 relations: {}
 ---
 # Summary
@@ -143,9 +143,11 @@ Required acceptance cases: a definition compiled from multiple source cases; reu
 
 CA-P-2166 records the completed selector/metadata increment and its zero-quarantine inventory in [the increment receipt](../_projection/core-entity-review/stage2/approved-implementation/current-increment.md). Those recorded results supersede the older open-selector/eight-quarantine reports below; they are not a fresh scan performed by this plan update. Candidate #3 and the latest decisions are now the prospective target. CA-P-1966's current-source re-pin and candidate-compatibility review remain pending, as do accepted graph, sealed preview, live Subject migration and Step-2 adoption. No historical mapping receipt establishes readiness for those steps.
 
-CA-P-2167 now gates affected mapping execution and the shared graph/preview/application/reproduction stages. Its three bounded Tool-RMEDO reviews are ready for preparation; implementation waits for independent contract verification, and production use waits for independent fixture verification. Parallel edits require disjoint files. Preview and application share UPDATE contracts, so one file owner serializes those changes and re-pins/re-verifies affected packets after a revision. Current source adaptation/re-pinning is still pending. Live application still needs CA-P-1910's separately Operator-approved exact sealed packet and current pins. Navigation number 30 preserves the historical folders; the new group is first in execution order.
+CA-P-2167 now gates affected mapping execution and the shared graph/preview/application/reproduction stages. Each affected implementation waits for independent current contract verification, and production use waits for independent fixture verification. Parallel edits require disjoint files. Preview and application share UPDATE contracts, so one file owner serializes those changes and re-pins/re-verifies affected packets after a revision. Current source adaptation/re-pinning is still pending. Live application still needs CA-P-1910's separately Operator-approved exact sealed packet and current pins. Navigation number 30 preserves the historical folders; the new group is first in execution order.
 
-Application transport is a pending Operator choice: current CA-R-866, CA-O-030, CA-D-531 and CA-R-1827 require the admitted MCP boundary, and no admitted Subjects-only path exists yet. CA-P-2170/2173 may prepare evidence but cannot infer a local-route exception or implementation authority from tools-first ordering. Independent preview/graph contract verification and their disjoint implementation need not wait for this choice.
+The Operator chose to extend the existing admitted MCP update action with Subjects-only application. CA-P-2170 aligns that exact route's RMEDO, then independent current contract verification gates CA-P-2173's bounded implementation. This choice grants no local transport exception, completed admission or live Core effects; CA-P-1910's exact sealed migration packet still needs separate approval and current pins.
+
+CA-P-2168 and CA-P-2169 are Done: the actual preview/currentness and public graph profile packets passed [independent contract acceptance](../_projection/core-entity-review/stage2/tools-first/contract-acceptance.md). That recorded receipt predates the application-route choice and retains its historical boundary. It releases only CA-P-2175/2176's bounded implementation under the accepted pins; any overlapping source revision requires re-pinning/re-verification. CA-P-2171 remains Active for the application packet, CA-P-2167 remains Active for complete Tool readiness, and implementation completion is not asserted.
 
 ### Historical checkpoint — CA-P-2144–2155
 

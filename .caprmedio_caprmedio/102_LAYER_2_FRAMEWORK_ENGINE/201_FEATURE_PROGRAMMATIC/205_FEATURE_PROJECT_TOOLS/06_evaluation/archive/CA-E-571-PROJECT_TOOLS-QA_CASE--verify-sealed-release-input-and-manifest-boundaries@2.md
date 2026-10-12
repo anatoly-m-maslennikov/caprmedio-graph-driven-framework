@@ -5,7 +5,7 @@ type: QA Case
 current_scope_unit: PROJECT_TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
 version: 2
 updated_at: "2026-10-11 16:46:21 +0000"

@@ -1,22 +1,18 @@
-"""Minimal local replacement workflow for the Project-owned framework release.
-
-This module deliberately owns only deterministic filesystem transitions.  The
-caller supplies the configured compiler, full-test, Git, runtime, MCP, and
-Journal integrations as keyword-only callbacks.  It is not a recovery or
-authority framework.
-"""
+"""Direct local replacement workflow for the Project-owned framework release."""
 
 from __future__ import annotations
 
-import hashlib
+import json
 import os
 import re
 import shutil
 import stat
+import subprocess
+import sys
 import tomllib
 from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path, PurePosixPath
-from typing import Any, Protocol
+from typing import Any
 
 
 class LocalReleaseError(RuntimeError):
@@ -41,19 +37,6 @@ _PRESERVED_NAMES = frozenset(
 _RUN_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*\Z")
 _ACTIVE_STATUS = re.compile(r"^status:\s*[\"']?Active[\"']?\s*$", re.MULTILINE)
 _NON_SOURCE_DIRECTORIES = frozenset({"archive", "draft", "drafts", "journal", "projection", "_journal", "_projection", ".caprmedio_tmp", "__pycache__"})
-
-
-class LocalReleaseHooks(Protocol):
-    """The integration boundary; every callback is invoked with keywords."""
-
-    def compile(self, *, source_root: Path, output_root: Path, project_root: Path) -> Any: ...
-    def test(self, *, project_root: Path, candidate_root: Path) -> Any: ...
-    def commit(self, *, project_root: Path, paths: tuple[str, ...], message: str) -> Any: ...
-    def install_engine(self, *, project_root: Path, candidate_root: Path) -> Any: ...
-    def start_mcp(self, *, project_root: Path) -> Any: ...
-    def journal(self, *, event: Mapping[str, Any]) -> Any: ...
-
-
 def _relative(value: object, *, label: str) -> Path:
     if not isinstance(value, str) or not value or "\x00" in value:
         raise LocalReleaseError(f"local-release-{label}-invalid")
@@ -91,15 +74,6 @@ def _project_path(root: Path, relative: Path, *, label: str, require_exists: boo
 
 def _ignored(name: str) -> bool:
     return name == ".DS_Store" or name.startswith(".env") or name.endswith(".env")
-
-
-def _require_hooks(value: Mapping[str, Callable[..., Any]] | LocalReleaseHooks) -> Mapping[str, Callable[..., Any]]:
-    required = ("compile", "test", "commit", "install_engine", "start_mcp", "journal")
-    callbacks = {name: (value.get(name) if isinstance(value, Mapping) else getattr(value, name, None)) for name in required}
-    absent = [name for name, callback in callbacks.items() if not callable(callback)]
-    if absent:
-        raise LocalReleaseError("local-release-hooks-invalid:" + ",".join(absent))
-    return callbacks
 
 
 def _read_structure(root: Path, config: Mapping[str, Any]) -> tuple[tuple[str, Path], ...]:
@@ -167,36 +141,6 @@ def _active_atom(path: Path) -> bool:
         return False
     closing = payload.find("\n---\n", len("---\n"))
     return bool(closing >= 0 and _ACTIVE_STATUS.search(payload[len("---\n"):closing]))
-
-
-def _copy_active_sources(sources: tuple[tuple[str, Path], ...], destination: Path) -> int:
-    copied = 0
-    for name, source in sources:
-        target_root = destination / source.name
-        target_root.mkdir(parents=True, exist_ok=False)
-        unit_copied = 0
-        for entry in _walk_regular_files(source, excluded_directories=_NON_SOURCE_DIRECTORIES):
-            if not _active_atom(entry):
-                continue
-            target = target_root / entry.relative_to(source)
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(entry, target)
-            copied += 1
-            unit_copied += 1
-        if name == "CORE_META_MODEL" and not unit_copied:
-            raise LocalReleaseError(f"local-release-source-empty:{name}")
-    return copied
-
-
-def _protected_paths(config: Mapping[str, Any], key: str) -> frozenset[str]:
-    value = config.get(key, tuple(sorted(_PRESERVED_NAMES)))
-    if not isinstance(value, Sequence) or isinstance(value, (str, bytes)):
-        raise LocalReleaseError(f"local-release-{key}-invalid")
-    protected: set[str] = set()
-    for item in value:
-        path = _relative(item, label=key)
-        protected.add(path.parts[0])
-    return frozenset(protected)
 
 
 def _clear_target(target: Path, *, root: Path, preserve: frozenset[str], label: str) -> None:
@@ -286,163 +230,335 @@ def _copy_tree(source: Path, destination: Path, *, preserve: frozenset[str]) -> 
             shutil.copy2(entry, target)
 
 
-def _snapshot(target: Path, *, root: Path, preserve: frozenset[str]) -> dict[str, tuple[int, str]]:
-    """Observe owned regular files only; protected and secret paths stay unread."""
-
-    if not target.exists():
-        return {}
-    observed: dict[str, tuple[int, str]] = {}
-    for entry in _walk_regular_files(target):
-        relative = entry.relative_to(target)
-        if relative.parts[0] in preserve:
-            continue
-        try:
-            payload = entry.read_bytes()
-            mode = stat.S_IMODE(entry.stat().st_mode)
-        except OSError as error:
-            raise LocalReleaseError("local-release-snapshot-failed") from error
-        observed[entry.relative_to(root).as_posix()] = (mode, hashlib.sha256(payload).hexdigest())
-    return observed
-
-
-def _compiled_snapshot(root: Path) -> dict[str, str]:
-    if root.is_symlink() or not root.is_dir():
-        raise LocalReleaseError("local-release-compiled-output-invalid")
-    observed: dict[str, str] = {}
-    for entry in _walk_regular_files(root):
-        try:
-            observed[entry.relative_to(root).as_posix()] = hashlib.sha256(entry.read_bytes()).hexdigest()
-        except OSError as error:
-            raise LocalReleaseError("local-release-compiled-output-invalid") from error
-    return observed
-
-
-def _require_matching_compiled_output(candidate_output: Path, product_output: Path) -> None:
-    if _compiled_snapshot(candidate_output) != _compiled_snapshot(product_output):
-        raise LocalReleaseError("local-release-compiled-output-mismatch")
-
-
-def _checkpoint(hooks: Mapping[str, Callable[..., Any]], *, project_root: Path, message: str,
-                before: Mapping[str, tuple[int, str]], after: Mapping[str, tuple[int, str]]) -> tuple[str, ...]:
-    paths = tuple(sorted(path for path in set(before) | set(after) if before.get(path) != after.get(path)))
-    if paths:
-        _invoke(hooks, "commit", project_root=project_root, paths=paths, message=message)
-    return paths
-
-
-def _invoke(hooks: Mapping[str, Callable[..., Any]], name: str, **kwargs: Any) -> None:
-    result = hooks[name](**kwargs)
-    if result is False or (isinstance(result, Mapping) and result.get("passed") is False):
-        raise RuntimeError(f"{name} returned false")
-
-
-def _event(run_id: str, phase: str, outcome: str, **details: Any) -> dict[str, Any]:
-    return {"run_id": run_id, "phase": phase, "outcome": outcome, **details}
-
-
-def run_local_release(project_root: Path | str, *, run_id: str, hooks: Mapping[str, Callable[..., Any]] | LocalReleaseHooks,
-                      config: Mapping[str, Any] | None = None) -> dict[str, Any]:
-    """Run the five local filesystem transitions after private compile and test.
-
-    The ``test`` hook is the configured full test command.  It runs on the
-    private candidate before this function clears either target tree.
-    """
+def run_local_release(project_root: Path | str, *, run_id: str,
+                      runner: Callable[[tuple[str, ...], Path], Any] | None = None) -> dict[str, object]:
+    """Run the direct local release without candidate selection or recovery state."""
 
     if not isinstance(run_id, str) or not _RUN_ID.fullmatch(run_id):
         raise LocalReleaseError("local-release-run-id-invalid")
-    if config is None:
-        config = {}
-    if not isinstance(config, Mapping):
-        raise LocalReleaseError("local-release-config-invalid")
     root = _root(project_root)
-    callbacks = _require_hooks(hooks)
-    sources = _read_structure(root, config)
-    product_relative = _relative(config.get("product_root", _DEFAULT_PRODUCT), label="product-root")
-    installed_relative = _relative(config.get("installed_root", _DEFAULT_INSTALLED), label="installed-root")
-    product_root = _target(root, product_relative, label="product-root")
-    installed_root = _target(root, installed_relative, label="installed-root")
-    if product_root == installed_root:
+    if runner is None:
+        runner = lambda argv, cwd: subprocess.run(argv, cwd=cwd, text=True, capture_output=True, check=False)
+
+    product = _target(root, Path(_DEFAULT_PRODUCT), label="product-root")
+    installed = _target(root, Path(_DEFAULT_INSTALLED), label="installed-root")
+    package = _target(root, Path(".caprmedio_install/simple_local_release/package"), label="simple-package")
+    runtime = _target(root, Path(".caprmedio_runtime/simple_local_release/package"), label="simple-runtime")
+    if product == installed:
         raise LocalReleaseError("local-release-target-invalid")
-    product_preserve = _protected_paths(config, "preserve_product_paths")
-    installed_preserve = _protected_paths(config, "preserve_installed_paths")
-    candidate_root = _project_path(
-        root,
-        Path(".caprmedio_tmp") / "local_release" / run_id / "candidate",
-        label="candidate-root",
-    )
-    if candidate_root.exists():
-        raise LocalReleaseError("local-release-candidate-exists")
-    phase = "private_copy"
+
+    prior_image: str | None = None
+    prior_project: str | None = None
+    state_root = root / ".caprmedio_install/project_mcp"
     try:
-        _invoke(callbacks, "journal", event=_event(run_id, phase, "started"))
-        candidate_sources = candidate_root / "sources"
-        candidate_sources.mkdir(parents=True, exist_ok=False)
-        active_atoms = _copy_active_sources(sources, candidate_sources)
-        _invoke(callbacks, "journal", event=_event(run_id, phase, "completed", active_atoms=active_atoms))
+        records: list[tuple[str, str]] = []
+        if state_root.is_dir() and not state_root.is_symlink():
+            for state in state_root.iterdir():
+                record = state / "last_launch.json"
+                if (not re.fullmatch(r"[0-9a-f]{64}", state.name) or state.is_symlink()
+                        or not state.is_dir() or record.is_symlink() or not record.is_file()):
+                    continue
+                payload = json.loads(record.read_text(encoding="utf-8"))
+                image = payload.get("image_id") if isinstance(payload, dict) else None
+                if (
+                    isinstance(payload, dict)
+                    and payload.get("project_root") == str(root)
+                    and payload.get("control_root") == str(root / ".caprmedio_caprmedio")
+                    and payload.get("project_id") == state.name
+                    and isinstance(image, str)
+                    and re.fullmatch(r"sha256:[0-9a-f]{64}", image)
+                ):
+                    records.append((state.name, image))
+        if len(records) == 1:
+            prior_project, prior_image = records[0]
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+        pass
 
-        phase = "private_compile"
-        candidate_output = candidate_root / "applicable_methodology"
-        _invoke(callbacks, "compile", source_root=candidate_sources, output_root=candidate_output, project_root=root)
-        _invoke(callbacks, "journal", event=_event(run_id, phase, "completed"))
+    failed_step = "tests"
+    mcp: Any = None
+    receipt_path: str | None = None
+    cleanup_note = "No proven superseded Project-owned image identity was available; none was removed."
+    cleanup_pending = False
+    phases = (
+        "tests", "copy active sources", "compile product", "copy product to installed framework",
+        "build package", "install project runtime", "start mcp", "final",
+    )
+    try:
+        for phase in phases:
+            failed_step = f"git_before_{phase.replace(' ', '_')}"
+            try:
+                result = runner((
+                    "git", "add", "-A", "--", ".", ":(exclude,glob)**/.env*", ":(exclude,glob)**/*.env",
+                ), root)
+            except OSError as error:
+                raise LocalReleaseError("local-release-git-failed") from error
+            if getattr(result, "returncode", 0) != 0:
+                raise LocalReleaseError("local-release-git-failed")
+            try:
+                result = runner(("git", "diff", "--cached", "--quiet"), root)
+            except OSError as error:
+                raise LocalReleaseError("local-release-git-failed") from error
+            if getattr(result, "returncode", 0) == 1:
+                try:
+                    result = runner(("git", "commit", "-m", f"chore(release): simple local {phase}"), root)
+                except OSError as error:
+                    raise LocalReleaseError("local-release-git-failed") from error
+                if getattr(result, "returncode", 0) != 0:
+                    raise LocalReleaseError("local-release-git-failed")
+            elif getattr(result, "returncode", 0) != 0:
+                raise LocalReleaseError("local-release-git-failed")
 
-        phase = "full_test"
-        _invoke(callbacks, "test", project_root=root, candidate_root=candidate_root)
-        _invoke(callbacks, "journal", event=_event(run_id, phase, "completed"))
-
-        phase = "clear_product"
-        before = _snapshot(product_root, root=root, preserve=product_preserve)
-        _clear_target(product_root, root=root, preserve=product_preserve, label="product-root")
-        paths = _checkpoint(callbacks, project_root=root, message=f"local release {run_id}: clear product", before=before,
-                            after=_snapshot(product_root, root=root, preserve=product_preserve))
-        _invoke(callbacks, "journal", event=_event(run_id, phase, "completed", paths=paths))
-
-        phase = "copy_product_sources"
-        before = _snapshot(product_root, root=root, preserve=product_preserve)
-        product_sources = product_root / "sources"
-        product_sources.mkdir(parents=True, exist_ok=False)
-        _copy_tree(candidate_sources, product_sources, preserve=frozenset())
-        active_atoms = len(_walk_regular_files(candidate_sources))
-        paths = _checkpoint(callbacks, project_root=root, message=f"local release {run_id}: copy active sources", before=before,
-                            after=_snapshot(product_root, root=root, preserve=product_preserve))
-        _invoke(callbacks, "journal", event=_event(run_id, phase, "completed", active_atoms=active_atoms, paths=paths))
-
-        phase = "compile_product"
-        before = _snapshot(product_root, root=root, preserve=product_preserve)
-        product_output = product_root / "applicable_methodology"
-        _invoke(callbacks, "compile", source_root=product_sources, output_root=product_output, project_root=root)
-        _require_matching_compiled_output(candidate_output, product_output)
-        paths = _checkpoint(callbacks, project_root=root, message=f"local release {run_id}: compile product", before=before,
-                            after=_snapshot(product_root, root=root, preserve=product_preserve))
-        _invoke(callbacks, "journal", event=_event(run_id, phase, "completed", paths=paths))
-
-        phase = "clear_installed"
-        before = _snapshot(installed_root, root=root, preserve=installed_preserve)
-        _clear_target(installed_root, root=root, preserve=installed_preserve, label="installed-root")
-        paths = _checkpoint(callbacks, project_root=root, message=f"local release {run_id}: clear installed framework", before=before,
-                            after=_snapshot(installed_root, root=root, preserve=installed_preserve))
-        _invoke(callbacks, "journal", event=_event(run_id, phase, "completed", paths=paths))
-
-        phase = "copy_installed"
-        before = _snapshot(installed_root, root=root, preserve=installed_preserve)
-        _copy_tree(product_root, installed_root, preserve=installed_preserve)
-        paths = _checkpoint(callbacks, project_root=root, message=f"local release {run_id}: copy product to installed framework", before=before,
-                            after=_snapshot(installed_root, root=root, preserve=installed_preserve))
-        _invoke(callbacks, "journal", event=_event(run_id, phase, "completed", paths=paths))
-
-        phase = "install_engine"
-        _invoke(callbacks, "install_engine", project_root=root, candidate_root=candidate_root)
-        _invoke(callbacks, "journal", event=_event(run_id, phase, "completed"))
-
-        phase = "start_mcp"
-        _invoke(callbacks, "start_mcp", project_root=root)
-        _invoke(callbacks, "journal", event=_event(run_id, phase, "completed"))
+            if phase == "final":
+                continue
+            if phase == "tests":
+                failed_step = "tests"
+                try:
+                    result = runner((
+                        "uv", "run", "--project", str(root), "--locked", "--no-sync", "--python", "3.14",
+                        "--managed-python", "--no-env-file", "--group", "rmed-workflow-mcp", "--group",
+                        "workflow-orchestrator", "python", "-B", "-m", "unittest",
+                        "PROJECT_TOOLS/tests/test_simple_local_release.py",
+                        "PROJECT_TOOLS/tests/test_simple_public_release.py",
+                        "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/test_simple_local_release_route.py",
+                    ), root)
+                except OSError as error:
+                    raise LocalReleaseError("local-release-command-unavailable") from error
+                if getattr(result, "returncode", 0) != 0:
+                    raise LocalReleaseError("local-release-command-failed")
+            elif phase == "copy active sources":
+                failed_step = "copy_active_sources"
+                version_path = root / "version.toml"
+                try:
+                    version_text = version_path.read_text(encoding="utf-8")
+                    version = tomllib.loads(version_text)["framework"]["version"]
+                except (OSError, KeyError, TypeError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+                    raise LocalReleaseError("local-release-version-invalid") from error
+                match = re.fullmatch(r"([0-9]+)\.([0-9]+)\.([0-9]+)(?:\.([0-9]+))?", version) if isinstance(version, str) else None
+                if match is None:
+                    raise LocalReleaseError("local-release-version-invalid")
+                next_version = ".".join((*match.groups()[:3], str(int(match.group(4) or "0") + 1)))
+                version_path.write_text(version_text.replace(f'"{version}"', f'"{next_version}"', 1), encoding="utf-8")
+                _clear_target(product, root=root, preserve=_PRESERVED_NAMES, label="product-root")
+                product_sources = product / "sources"
+                product_sources.mkdir(parents=True, exist_ok=False)
+                for name, source in _read_structure(root, {}):
+                    target_root = product_sources / source.name
+                    target_root.mkdir(parents=True, exist_ok=False)
+                    for entry in _walk_regular_files(source, excluded_directories=_NON_SOURCE_DIRECTORIES):
+                        if entry.suffix == ".md" and not _active_atom(entry):
+                            continue
+                        target = target_root / entry.relative_to(source)
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        shutil.copy2(entry, target)
+                    if name == "CORE_META_MODEL" and not any(target_root.rglob("*")):
+                        raise LocalReleaseError("local-release-source-empty:CORE_META_MODEL")
+            elif phase == "compile product":
+                failed_step = "compile_product"
+                tools_root = root / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS"
+                if tools_root.is_symlink() or not tools_root.is_dir():
+                    raise LocalReleaseError("local-release-compiler-unavailable")
+                if str(tools_root) not in sys.path:
+                    sys.path.insert(0, str(tools_root))
+                try:
+                    from COMPILE_APPLICABLE_METHODOLOGY.compile_applicable_methodology import (
+                        CompileError, MethodologyPaths, compile_report, replace_outputs_atomically, stage_outputs,
+                    )
+                    places = MethodologyPaths(
+                        source=Path("101_FRAMEWORK_METHODOLOGY/sources"),
+                        output=Path("101_FRAMEWORK_METHODOLOGY/applicable_methodology"),
+                        control_root=Path(".caprmedio_caprmedio"),
+                    )
+                    report, candidates, snapshot = compile_report(root, places)
+                    if report.get("can_apply") is not True:
+                        raise LocalReleaseError("local-release-product-compile-blocked")
+                    replace_outputs_atomically(root, stage_outputs(root, candidates, snapshot, places), places)
+                except ImportError as error:
+                    raise LocalReleaseError("local-release-compiler-unavailable") from error
+                except CompileError as error:
+                    raise LocalReleaseError("local-release-product-compile-blocked") from error
+            elif phase == "copy product to installed framework":
+                failed_step = "copy_product_to_installed_framework"
+                _clear_target(installed, root=root, preserve=_PRESERVED_NAMES, label="installed-root")
+                _copy_tree(product, installed, preserve=_PRESERVED_NAMES)
+            elif phase == "build package":
+                failed_step = "build_package"
+                _clear_target(package, root=root, preserve=frozenset(), label="simple-package")
+                for source, destination in (
+                    (root / "102_FRAMEWORK_ENGINE", package / "102_FRAMEWORK_ENGINE"),
+                    (product / "sources", package / "METHODOLOGY/sources"),
+                    (product / "applicable_methodology", package / "METHODOLOGY/compiled"),
+                    (root / "102_FRAMEWORK_ENGINE/202_AGENTIC/205_SKILLS/ca", package / "SKILLS/ca"),
+                ):
+                    if source.is_symlink() or not source.is_dir():
+                        raise LocalReleaseError("local-release-package-source-unavailable")
+                    destination.mkdir(parents=True, exist_ok=False)
+                    for entry in _walk_regular_files(source, excluded_directories=frozenset({
+                        ".git", ".caprmedio_tmp", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv",
+                    })):
+                        target = destination / entry.relative_to(source)
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        shutil.copy2(entry, target)
+                for name in ("pyproject.toml", "uv.lock", "version.toml"):
+                    source = root / name
+                    if source.is_symlink() or not source.is_file() or _ignored(source.name):
+                        raise LocalReleaseError("local-release-package-source-unavailable")
+                    shutil.copy2(source, package / name)
+            elif phase == "install project runtime":
+                failed_step = "install_project_runtime"
+                _clear_target(runtime, root=root, preserve=frozenset(), label="simple-runtime")
+                _copy_tree(package, runtime, preserve=frozenset())
+                ca = _target(root, Path(".agents/skills/ca"), label="project-ca")
+                _clear_target(ca, root=root, preserve=frozenset(), label="project-ca")
+                _copy_tree(runtime / "SKILLS/ca", ca, preserve=frozenset())
+            else:
+                failed_step = "start_mcp"
+                launcher = runtime / "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/203_APPS/WORKFLOW_ORCHESTRATOR/docker/runtime.py"
+                if prior_project is not None:
+                    try:
+                        result = runner((
+                            "docker", "ps", "--all", "--filter", f"label=org.caprmedio.project={prior_project}",
+                            "--format", "{{.ID}}",
+                        ), root)
+                    except OSError:
+                        result = None
+                    identifiers = (
+                        [value for value in getattr(result, "stdout", "").splitlines() if re.fullmatch(r"[0-9a-f]{12,64}", value)]
+                        if getattr(result, "returncode", 1) == 0 and isinstance(getattr(result, "stdout", ""), str) else []
+                    )
+                    if getattr(result, "returncode", 1) != 0:
+                        cleanup_note = "A prior Project MCP container was retained because discovery was unavailable."
+                        cleanup_pending = True
+                    elif len(identifiers) > 1:
+                        cleanup_note = "Prior Project MCP containers were retained because ownership was ambiguous."
+                        cleanup_pending = True
+                    elif len(identifiers) == 1:
+                        try:
+                            inspected = runner((
+                                "docker", "container", "inspect", "--format",
+                                '{"Image":{{json .Image}},"State":{"Running":{{json .State.Running}}},'
+                                '"Config":{"Labels":{{json .Config.Labels}}}}', identifiers[0],
+                            ), root)
+                            row = json.loads(getattr(inspected, "stdout", ""))
+                            labels = row.get("Config", {}).get("Labels") if isinstance(row, dict) else None
+                            if (
+                                getattr(inspected, "returncode", 1) == 0
+                                and isinstance(labels, dict)
+                                and labels.get("org.caprmedio.project") == prior_project
+                                and labels.get("org.caprmedio.service") == "mcp-http"
+                                and labels.get("org.caprmedio.control_root") == ".caprmedio_caprmedio"
+                                and labels.get("org.caprmedio.host_project_root") == str(root)
+                                and isinstance(row.get("State"), dict)
+                                and isinstance(row["State"].get("Running"), bool)
+                            ):
+                                if row["State"]["Running"]:
+                                    stopped = runner(("docker", "container", "stop", identifiers[0]), root)
+                                    if getattr(stopped, "returncode", 1) != 0:
+                                        cleanup_note = "The proven prior Project MCP container was retained because stop failed."
+                                        cleanup_pending = True
+                                if not cleanup_pending:
+                                    removed = runner(("docker", "container", "rm", identifiers[0]), root)
+                                    if getattr(removed, "returncode", 1) == 0:
+                                        cleanup_note = "Stopped and removed one prior Project MCP container with exact Project labels."
+                                    else:
+                                        cleanup_note = "A proven prior Project MCP container was retained because removal failed."
+                                        cleanup_pending = True
+                            else:
+                                cleanup_note = "A prior Project MCP container was retained because its exact stopped ownership was not proven."
+                                cleanup_pending = True
+                        except (OSError, TypeError, ValueError, json.JSONDecodeError):
+                            cleanup_note = "A prior Project MCP container was retained because inspection was unavailable."
+                            cleanup_pending = True
+                try:
+                    mcp = runner((
+                        "uv", "run", "--project", str(runtime), "--locked", "--no-sync", "--python", "3.14",
+                        "--managed-python", "--no-env-file", "--group", "rmed-workflow-mcp", "python", str(launcher),
+                        "--project-root", str(root), "--source-root", str(runtime), "--output", "url", "project-mcp",
+                    ), root)
+                except OSError as error:
+                    raise LocalReleaseError("local-release-command-unavailable") from error
+                if getattr(mcp, "returncode", 0) != 0:
+                    raise LocalReleaseError("local-release-command-failed")
+                try:
+                    records = []
+                    if state_root.is_dir() and not state_root.is_symlink():
+                        for state in state_root.iterdir():
+                            record = state / "last_launch.json"
+                            if (state.is_symlink() or not state.is_dir() or record.is_symlink() or not record.is_file()):
+                                continue
+                            payload = json.loads(record.read_text(encoding="utf-8"))
+                            image = payload.get("image_id") if isinstance(payload, dict) else None
+                            if (
+                                isinstance(payload, dict)
+                                and payload.get("project_root") == str(root)
+                                and payload.get("control_root") == str(root / ".caprmedio_caprmedio")
+                                and payload.get("project_id") == state.name
+                                and isinstance(image, str)
+                                and re.fullmatch(r"sha256:[0-9a-f]{64}", image)
+                            ):
+                                records.append(image)
+                    current_image = records[0] if len(records) == 1 else None
+                except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+                    current_image = None
+                if prior_image is not None and current_image is not None and prior_image != current_image:
+                    try:
+                        result = runner(("docker", "container", "ls", "--all", "--filter", f"ancestor={prior_image}", "--quiet"), root)
+                    except OSError:
+                        result = None
+                    references = (
+                        [value for value in getattr(result, "stdout", "").splitlines() if re.fullmatch(r"[0-9a-f]{12,64}", value)]
+                        if getattr(result, "returncode", 1) == 0 and isinstance(getattr(result, "stdout", ""), str) else None
+                    )
+                    if references == []:
+                        try:
+                            result = runner(("docker", "image", "rm", prior_image), root)
+                        except OSError:
+                            result = None
+                        if getattr(result, "returncode", 1) == 0:
+                            cleanup_note = f"Removed the exact prior Project-owned image `{prior_image}` after replacement."
+                        else:
+                            cleanup_note = "The proven prior Project-owned image was retained because removal failed."
+                            cleanup_pending = True
+                    else:
+                        cleanup_note = "The proven prior Project-owned image was retained because container use was present or unknown."
+                        cleanup_pending = True
+                elif prior_image is not None and current_image is None:
+                    cleanup_note = "The prior Project-owned image was retained because the new launcher state was unavailable."
+                    cleanup_pending = True
+                receipt = _project_path(
+                    root, Path(".caprmedio_runtime/simple_local_release/reports") / f"{run_id}.md",
+                    label="simple-receipt",
+                )
+                receipt.parent.mkdir(parents=True, exist_ok=True)
+                endpoint = getattr(mcp, "stdout", None)
+                receipt.write_text(
+                    "# Simple local release receipt\n\n"
+                    f"Run: `{run_id}`\n\n"
+                    f"Endpoint: `{endpoint.strip() if isinstance(endpoint, str) else 'not reported'}`\n\n"
+                    f"Image cleanup: {cleanup_note}\n",
+                    encoding="utf-8",
+                )
+                receipt_path = receipt.relative_to(root).as_posix()
     except Exception as error:
-        failure = _event(run_id, phase, "failed", error=str(error))
+        relative = Path(".caprmedio_runtime/simple_local_release/reports") / f"{run_id}.md"
+        report_path: str | None = None
         try:
-            _invoke(callbacks, "journal", event=failure)
-        except Exception:
+            report = _project_path(root, relative, label="simple-report")
+            report.parent.mkdir(parents=True, exist_ok=True)
+            report.write_text(
+                "# Simple local release failed\n\n"
+                f"Run: `{run_id}`\n\nStopped at: `{failed_step}`\n\n"
+                f"Error class: `{type(error).__name__}`\n\n"
+                "Manual action required: inspect the current project state before any retry.\n",
+                encoding="utf-8",
+            )
+            report_path = relative.as_posix()
+        except (LocalReleaseError, OSError):
             pass
-        return {"run_id": run_id, "outcome": "failed", "phase": phase, "error": str(error),
-                "candidate_root": str(candidate_root)}
-    return {"run_id": run_id, "outcome": "completed", "candidate_root": str(candidate_root),
-            "product_root": str(product_root), "installed_root": str(installed_root), "active_atoms": active_atoms}
+        return {"outcome": "failed", "failed_step": failed_step, "report_path": report_path, "endpoint": None}
+
+    endpoint = getattr(mcp, "stdout", None)
+    return {
+        "outcome": "completed_with_cleanup_pending" if cleanup_pending else "completed",
+        "failed_step": None, "report_path": None, "receipt_path": receipt_path,
+        "endpoint": endpoint.strip() if isinstance(endpoint, str) else None,
+    }

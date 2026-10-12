@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 1
-updated_at: "2026-10-12 04:02:18 +0400"
+version: 2
+updated_at: "2026-10-12 04:12:42 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1966, CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -39,19 +39,23 @@ This group grants no live Core effects. CA-P-1909–1912 retain the sole accepte
 
 The derived Terms compiler stays in Step 2 under CA-P-1970/1974: RMEDO review/update and independent contract verification, affected Tool alignment and independent fixtures, then affected content/consumer usage. This group does not start Terms compilation or premature Core adoption.
 
-The application transport choice remains pending. Current CA-R-866/CA-O-030/CA-D-531/CA-R-1827 require the admitted MCP boundary, which has no admitted Subjects-only route yet. Do not infer a local exception or route implementation authority. This does not delay independent preview/graph packet verification or their disjoint implementation; final Tool readiness still requires the application work.
+The Operator chose extending the existing admitted MCP update action with Subjects-only application. CA-P-2170 aligns the chosen route's current contracts, then independent packet acceptance gates bounded CA-P-2173 implementation. No local exception, completed capability or live packet approval follows from the choice. Final Tool readiness still requires actual application implementation and independent fixtures.
 
 One integration owner controls shared state and Git. Parallel edit scopes must be disjoint; overlapping contract/source changes are serialized and re-pinned. Each own-work leaf fits 15 minutes; split a larger packet before execution. Preparation alone never completes an implementation group.
 
 ### Decomposing Plans
 
-- [CA-P-2168 — Align Subject preview currentness contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/01-CA-P-2168-TASK--align-subject-preview-currentness-contracts.md)
-- [CA-P-2169 — Align public graph notation contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/02-CA-P-2169-TASK--align-public-graph-notation-contracts.md)
+- [CA-P-2168 — Align Subject preview currentness contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/01-CA-P-2168-TASK--align-subject-preview-currentness-contracts.md)
+- [CA-P-2169 — Align public graph notation contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/02-CA-P-2169-TASK--align-public-graph-notation-contracts.md)
 - [CA-P-2170 — Align admitted Subject application contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/03-CA-P-2170-TASK--align-admitted-subject-application-contracts.md)
 - [CA-P-2171 — Verify updated Tool contracts independently](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/04-CA-P-2171-TASK--verify-updated-tool-contracts-independently.md)
 - [CA-P-2172 — Align Subject preview and public graph Tools](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/05-CA-P-2172-TASK--align-subject-preview-and-public-graph-tools.md)
 - [CA-P-2173 — Implement the admitted Subject application route](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/06-CA-P-2173-TASK--implement-the-admitted-subject-application-route.md)
 - [CA-P-2174 — Verify remaining Tools on isolated fixtures](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/07-CA-P-2174-TASK--verify-remaining-tools-on-isolated-fixtures.md)
+
+### Contract checkpoint
+
+CA-P-2168/2169 are Done after actual source alignment and [independent contract acceptance](../../_projection/core-entity-review/stage2/tools-first/contract-acceptance.md). Only their bounded implementation Tasks are released. CA-P-2171 remains Active for the chosen MCP application packet; overlapping UPDATE revisions require fresh pins and independent acceptance. No implementation or full Tool-readiness completion is claimed.
 
 ### Definition of Done
 

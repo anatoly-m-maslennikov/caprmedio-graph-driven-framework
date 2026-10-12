@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Journal, Plan, Operator]
-version: 1
-updated_at: "2026-10-12 04:02:18 +0400"
+version: 2
+updated_at: "2026-10-12 04:12:42 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2174]
@@ -35,6 +35,12 @@ Estimated own work: 15 minutes. Assignee: AI Agent. Check each packet after its 
 Check non-archived eligible currentness and intended Status, explicit public notation profile with legacy/default preservation, and the admitted exact Subjects-only application boundary. Verify sealed approval/currentness, effect-time binding, Version/history/Journal obligations, preservation and refusal cases without weakening the existing guard. Check packets agree and use the declared Engine owners, while Core content and the sole CA-P-1909–1912 route stay behind their gates.
 
 Deliver source-pinned per-packet acceptance and one complete contract receipt, with any concrete blockers. Split further independent checks if they exceed 15 minutes. A failed, missing or stale packet blocks its affected implementation; unrelated accepted packets need not wait. Plan prose and review proposals are not actual revised-source evidence.
+
+### Per-packet progress
+
+Preview/currentness and public graph profile passed actual independent source verification in [the contract receipt](../../../_projection/core-entity-review/stage2/tools-first/contract-acceptance.md). CA-P-2168/2169 are Done and only CA-P-2175/2176's bounded implementations are released under those pins. The receipt's pending-route wording records the state before the later Operator choice; preserve it as history.
+
+The Operator has now chosen extending the existing admitted MCP update action with Subjects-only application. Its actual updated contract packet remains unverified here, so this Task stays Active. Any overlapping UPDATE revision invalidates affected prior pins and requires re-pinning/re-verification. No implementation completion, live migration approval or complete CA-P-2167 pass is recorded.
 
 ### Definition of Done
 

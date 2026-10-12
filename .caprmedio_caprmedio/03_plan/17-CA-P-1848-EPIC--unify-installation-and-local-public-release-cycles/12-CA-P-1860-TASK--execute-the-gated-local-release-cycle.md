@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-10 18:58:38 +0400"
+version: 6
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Framework Package, Methodology Source, Applicable Methodology, Version, Tool, Workflow, Action, Workflow Run, Journal, Projection]
@@ -25,18 +25,15 @@ Execute the gated local release cycle
 
 ## Objective
 
-the AI Agent executes the one programmatic Local release command, whose internal complete preflight passes before its first destructive product wipe.
+Execute Local release with commit-all before every step and at completion.
 
 ## Details
 
-1. Verify the corrected registry maps Methodology Sources to the Project Methodology unit and that `project_structure.toml` agrees before any wipe. The installed target remains read-only and is not authoring authority before its later replacement step.
-2. Prepare active Core Meta-Model, selected extensions, Project Configuration, Engine/package candidate, image and non-live test inputs without changing product or installed contents. Run the complete Local suite before the first destructive product wipe.
-3. On the preflight pass, clear product contents in root `101_FRAMEWORK_METHODOLOGY`; replace them from the selected active source; compile applicable Methodology; clear replaceable installed contents; and copy the product directory as-is to `.caprmedio_caprmedio/000_CAPRMEDIO_framework`. Do not repeat the full suite solely for this deterministic generated copy.
-4. Preserve `caprmedio_framework_settings.toml`, authoritative configuration, Project Structure, Operator registry and support settings, while refreshing generated manifests/selectors. Commit each completed source/product/installed step separately and stage only its owned changes.
-5. Migrate state, replace only the selected installed package, install the same sealed package into the selected Project runtime, install `ca`, then start/reuse its selected image and smoke the returned MCP endpoint.
-6. Execute Local release as the concrete Project Operation in `.caprmedio_caprmedio/09_operations` with helper tools from `PROJECT_TOOLS`; reusable compiler/installer, shared package/gate models/codecs, detached readers and generic O200 install/bootstrap/restore capability remain in `TOOLS`. Plan required code relocation/exclusion without performing it here.
-7. Record exact Run/Step/Action/Tool evidence and failures. Do not rebuild after the gate, replay uncertain effects, or expose stale success; this command creates no extra Operator command.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** an authoring source is wiped, product/install ordering or protected-settings preservation fails, a step commits unrelated changes, Local release/helper delivery is not Project-owned, reusable generic capability leaves `TOOLS`, the promotion differs from gated bytes, or runtime/image/MCP evidence is incomplete.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

@@ -1,0 +1,46 @@
+schema_version = 1
+
+[source.core-meta-model]
+kind = "methodology"
+revision = "5a97c837930f616bee44db1df1d3beea45ae66e9dd7bd6c3c2165f14cf656a8f"
+sha256 = "5a97c837930f616bee44db1df1d3beea45ae66e9dd7bd6c3c2165f14cf656a8f"
+admission_receipt_sha256 = "b9db86c11ce9956b8476644dc0407ea8332d30cfdd3f6adb7188631e208d8628"
+visibility = "public"
+selection_default = false
+path = "methodology/active/001_CORE_META_MODEL"
+
+[source.delivery-bindings]
+kind = "binding"
+revision = "dbbd06e4658dad448776ae068efba32892bedb7ae4e9b1dc477c3161bf73c6a4"
+sha256 = "dbbd06e4658dad448776ae068efba32892bedb7ae4e9b1dc477c3161bf73c6a4"
+admission_receipt_sha256 = "b9db86c11ce9956b8476644dc0407ea8332d30cfdd3f6adb7188631e208d8628"
+visibility = "public"
+selection_default = false
+path = "methodology/bindings"
+
+[source.local-core]
+kind = "core"
+revision = "4373d8d674760f22ac7caa92825b0c6318f34a5137a29c771ea3f7e13b01b681"
+sha256 = "4373d8d674760f22ac7caa92825b0c6318f34a5137a29c771ea3f7e13b01b681"
+admission_receipt_sha256 = "b9db86c11ce9956b8476644dc0407ea8332d30cfdd3f6adb7188631e208d8628"
+visibility = "public"
+selection_default = false
+path = "102_FRAMEWORK_ENGINE"
+
+[source.methodology-support]
+kind = "support"
+revision = "ac773e8c563f54d43e84a73eae9f6c8b295a8a09c530e853354aaaf1dd3d3620"
+sha256 = "ac773e8c563f54d43e84a73eae9f6c8b295a8a09c530e853354aaaf1dd3d3620"
+admission_receipt_sha256 = "b9db86c11ce9956b8476644dc0407ea8332d30cfdd3f6adb7188631e208d8628"
+visibility = "public"
+selection_default = false
+path = "methodology/support"
+
+[source.project-configuration]
+kind = "configuration"
+revision = "f5f29f9cb7d6c0794b755c3bc4d809b8dc5f6bf7a19f112d3056d52241a18444"
+sha256 = "f5f29f9cb7d6c0794b755c3bc4d809b8dc5f6bf7a19f112d3056d52241a18444"
+admission_receipt_sha256 = "b9db86c11ce9956b8476644dc0407ea8332d30cfdd3f6adb7188631e208d8628"
+visibility = "public"
+selection_default = false
+path = "methodology/active/003_PROJECT_CONFIGURATION"

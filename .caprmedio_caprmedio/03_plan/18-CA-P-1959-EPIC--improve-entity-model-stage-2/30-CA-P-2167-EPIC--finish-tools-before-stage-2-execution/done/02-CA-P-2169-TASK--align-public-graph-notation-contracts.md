@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
+status: Done
 subjects:
   governs: Tool
   depends_on: [Subject, Entity, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-12 04:02:18 +0400"
+version: 2
+updated_at: "2026-10-12 04:12:42 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2171, CA-P-2176]
@@ -37,6 +37,10 @@ Review and update required same-Summary revisions for an explicit approved profi
 Deliver actual before/after contract pins, predecessor evidence and the profile/legacy/negative cases to CA-P-2171. Split a larger or identity-replacing packet before effect. No graph generation, implementation, Core content, native admission or source migration occurs here.
 
 Inherit CA-P-1959/2167's preservation and shared-route boundaries.
+
+### Completion receipt
+
+The actual public graph profile packet passed [independent source verification](../../../../_projection/core-entity-review/stage2/tools-first/contract-acceptance.md). It admits an explicit `approved` profile while retaining legacy/default semantics. Reviewed grammar pins/evidence participate in output and are checked before parsing, after construction and before publication/no-op. Current predecessor archives, Version increments, identities, Subjects and unrelated metadata were verified. Profile/case/stale-source checks do not grant native fact admission or selector resolution. This completes contract alignment and releases bounded CA-P-2176 implementation; no implementation or production graph completion is asserted.
 
 ### Definition of Done
 

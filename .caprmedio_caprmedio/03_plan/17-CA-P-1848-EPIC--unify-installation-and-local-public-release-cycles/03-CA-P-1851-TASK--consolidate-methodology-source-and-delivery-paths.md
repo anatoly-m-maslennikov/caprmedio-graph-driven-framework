@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-10 18:08:27 +0400"
+version: 3
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Methodology Source, Applicable Methodology, Scope Unit, Project Structure, Atom, Projection, Carrier]
@@ -25,16 +25,15 @@ Consolidate Methodology source **and** delivery paths
 
 ## Objective
 
-the AI Agent establishes a source-preserving path migration that separates authoritative Methodology Atoms **from** the product and installed Methodology.
+Use the declared source, product and installed Methodology folders without compatibility migration.
 
 ## Details
 
-1. Verify the corrected registrations point authoring Methodology Sources to the Project Methodology unit and that `project_structure.toml` agrees before any installed-target wipe. The installed target remains read-only and is not source authority until Local release copies the product into it.
-2. Limit the replacement source to active Methodology-source atoms: Core Meta-Model, selected extensions and Project Configuration. Exclude Project Engine, Plans and other Project atoms.
-3. Make root `101_FRAMEWORK_METHODOLOGY` the product boundary, not a draft, archive or authoring authority. Prepare the selected active source as non-live test input and pass the Local full preflight before it is cleared and replaced, then compile applicable Methodology.
-4. Treat `.caprmedio_caprmedio/000_CAPRMEDIO_framework` as the installed current Methodology. After product compilation, clear only replaceable installed contents and copy the product directory as-is while preserving `caprmedio_framework_settings.toml`, authoritative configuration, Project Structure, Operator registry and support settings.
-5. Commit each source, product and installed step separately, staging only its owned changes. Do not perform this migration by authoring the Plan.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** a stale source registration remains, the active source set includes non-Methodology atoms, product or installed paths have an ambiguous role, protected settings are replaced, or a transition lacks its scoped commit boundary.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

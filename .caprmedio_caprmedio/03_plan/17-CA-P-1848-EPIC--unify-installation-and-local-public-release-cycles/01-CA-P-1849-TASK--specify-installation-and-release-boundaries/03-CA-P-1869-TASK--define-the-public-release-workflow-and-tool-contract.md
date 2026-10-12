@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-10 18:58:38 +0400"
+version: 3
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: CAPRMEDIO Framework Instance
   depends_on: [Project, Plan, AI Agent, Operator, Framework Package, Methodology Source, Applicable Methodology, Project Structure, Requirement, Method, Evaluation, Delivery, Workflow, Step, Action, Tool, Journal, Version]
@@ -25,16 +25,15 @@ Define the public-release Workflow **and** Tool contract
 
 ## Objective
 
-the AI Agent defines the one reusable Operator-invoked Public release Workflow **and** its governing Tool RMED.
+Specify Public release, its one content prompt, version bump and GitHub publication.
 
 ## Details
 
-1. Under CA-R-1799, bind automatic README/documentation preparation, exactly one content prompt, complete public suite, safe commit/push, PR discovery/create/update and actual-URL metadata follow-up into one Public release command.
-2. The one prompt returns the complete PR description with “What's new” and “What's fixed” plus concise Version History bullets. No prompt is used for README text or approval retries.
-3. Publish only after the complete suite passes; update/reuse a matching `amm/dev`→`main` PR without merge. A URL-only follow-up needs no second suite.
-4. Define Public release as the concrete Project Operation in `.caprmedio_caprmedio/09_operations` and its helper Tool RMED in `205_FEATURE_PROJECT_TOOLS`/delivered `PROJECT_TOOLS`, outside the reusable Engine/package and general Methodology. Reusable compiler/installer, shared package/gate models/codecs, detached readers and generic O200 install/bootstrap/restore capability remain in `TOOLS`; register ProjectTools D declarations as excluded delivery-boundary content.
-5. Preserve Summary identity, source authority and unrelated edits.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** more than one Public command or content prompt is required, Public release/helper placement is outside its Project-owned boundary, reusable generic capability leaves `TOOLS`, ProjectTools D declarations ship in or fault the exporter frontier, a material publishable change bypasses the complete suite, PR/URL behavior is unspecified, or the contract permits merge.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

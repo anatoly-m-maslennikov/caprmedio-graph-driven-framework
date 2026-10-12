@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 5
-updated_at: "2026-10-10 18:08:27 +0400"
+version: 6
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -40,16 +40,15 @@ Test installation across fresh Projects
 
 ## Objective
 
-the AI Agent provides golden **and** end-to-end evidence that the Local release command installs the selected reusable package safely into fresh independent Projects.
+Test installation and configuration preservation in disposable Project fixtures.
 
 ## Details
 
-1. Exercise at least two fixture Project roots, separate repositories, a non-Git Project, a relocated package and execution without the development checkout.
-2. Assert no cross-Project state, settings, endpoint, image-selection or mutable-authority leakage; fixtures provide their own settings, structure and registry bytes.
-3. Cover active-only Methodology, original-source relations, complete support closure, renamed paths, `.DS_Store`, stale/tampered pins, interrupted migration, idempotent reinstall, destructive replacement and honest unavailable state after removal.
-4. Preserve customized `.caprmedio_runtime/config.toml` bytes through reinstall, replacement and failure. An incompatible setting requires explicit migration or blocks activation.
-5. Run this coverage as the Local release command's complete preflight suite before the first destructive product wipe. Conformance is validated inside that command; no separately commanded review, approval or handover is added.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** required golden/e2e evidence is missing, a fresh, relocated or isolated Project scenario fails, recovery loses records, required Docker/host coverage is absent, or a material release-contract divergence remains unresolved.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

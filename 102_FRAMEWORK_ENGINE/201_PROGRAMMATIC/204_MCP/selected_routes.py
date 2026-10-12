@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import importlib
+import importlib.util
 import json
 import os
 import re
@@ -1481,45 +1482,159 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
 
 
 def register_selected_routes(server: Any, root: str | Path) -> SelectedRouteAdapter:
-    """Register only source-admitted routes, retaining the stable MCP gateway.
-
-    The fifteen established route names remain the public fallback.  Release is
-    registered only when the canonical binding projection loads successfully as
-    its exact D572-admitted additive successor.  A missing, stale, or malformed
-    projection therefore cannot expose an unadmitted Release entry point.
-    """
+    """Register selected routes plus the Project-owned direct local Release."""
     from mcp.types import ToolAnnotations
 
     adapter = SelectedRouteAdapter(root, strict_manifest=False)
     selected_annotations = ToolAnnotations(read_only_hint=False, destructive_hint=False, idempotent_hint=True, open_world_hint=False)
     query_annotations = ToolAnnotations(read_only_hint=True, destructive_hint=False, idempotent_hint=True, open_world_hint=False)
     observation_annotations = ToolAnnotations(read_only_hint=True, destructive_hint=False, idempotent_hint=True, open_world_hint=False)
+    release_annotations = ToolAnnotations(read_only_hint=False, destructive_hint=True, idempotent_hint=False, open_world_hint=False)
 
-    try:
-        manifest = load_selected_manifest(root)
-        admitted_names = tuple(
-            entry.get("route") for entry in manifest.get("routes", [])
-            if isinstance(entry, Mapping)
-        )
-    except (OSError, ValueError, SelectedRouteError):
-        admitted_names = SELECTED_ROUTE_NAMES
-    if admitted_names in {
-        (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME),
-        (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME),
-    }:
-        public_route_names = admitted_names
-    else:
-        public_route_names = SELECTED_ROUTE_NAMES
-    # Local Release admission is independent of unrelated historical portfolio
-    # pins.  Its current active graph and implementation sources still fail
-    # closed before this actual public endpoint is registered.
-    try:
-        load_release_execution_manifest(root)
-        if _OPTIONAL_RELEASE_ROUTE_NAME not in public_route_names:
-            public_route_names = (*public_route_names, _OPTIONAL_RELEASE_ROUTE_NAME)
-    except (OSError, ValueError, RuntimeError):
-        public_route_names = tuple(name for name in public_route_names if name != _OPTIONAL_RELEASE_ROUTE_NAME)
-    adapter.public_route_names = frozenset(public_route_names)
+    @server.tool(name=_OPTIONAL_RELEASE_ROUTE_NAME, structured_output=True, annotations=release_annotations)
+    def release_version(request: dict[str, Any]) -> dict[str, Any]:
+        """Run the Project-owned local release; effects are destructive and non-idempotent."""
+        if not isinstance(request, Mapping) or set(request) != {"project_root", "run_id"}:
+            return {"outcome": "failed", "diagnostics": ["request requires only project_root and run_id"]}
+        project_root, run_id = request["project_root"], request["run_id"]
+        if not isinstance(run_id, str) or not _REQUEST_ID.fullmatch(run_id):
+            return {"outcome": "failed", "run_id": run_id if isinstance(run_id, str) else None,
+                    "diagnostics": ["run_id is invalid"]}
+        if not isinstance(project_root, str):
+            return {"outcome": "failed", "run_id": run_id,
+                    "diagnostics": ["project_root is invalid"]}
+        try:
+            supplied_root = Path(project_root).resolve(strict=True)
+        except OSError:
+            return {"outcome": "failed", "run_id": run_id,
+                    "diagnostics": ["project_root is unavailable"]}
+        if supplied_root != adapter.root:
+            return {"outcome": "failed", "run_id": run_id,
+                    "diagnostics": ["project_root does not match the bound Project root"]}
+        try:
+            from work_journal import append_record, event_record
+            started = event_record(
+                root=adapter.root, event="started", action_id=run_id, kind="workflow", scope="project",
+                operation=_OPTIONAL_RELEASE_ROUTE_NAME, session_id=run_id, subjects=[], outputs=[],
+                preceding_event=None, details={},
+            )
+            append_record(adapter.root, started)
+        except (ImportError, OSError, RuntimeError, ValueError) as error:
+            return {"outcome": "recording_failed", "run_id": run_id,
+                    "project_root": str(adapter.root), "diagnostics": [f"Release start recording failed: {error}"]}
+        entrypoint = adapter.root / "PROJECT_TOOLS/RELEASE_VERSION/local_release.py"
+        try:
+            if entrypoint.is_symlink() or not entrypoint.is_file():
+                raise SelectedRouteError("local Release implementation is unavailable")
+            spec = importlib.util.spec_from_file_location("_caprmedio_local_release", entrypoint)
+            if spec is None or spec.loader is None:
+                raise SelectedRouteError("local Release implementation is unavailable")
+            module = importlib.util.module_from_spec(spec)
+            sys.modules[spec.name] = module
+            try:
+                spec.loader.exec_module(module)
+                result = getattr(module, "run_local_release")(adapter.root, run_id=run_id)
+            finally:
+                sys.modules.pop(spec.name, None)
+            if not isinstance(result, Mapping):
+                raise SelectedRouteError("local Release returned an invalid result")
+        except (AttributeError, ImportError, OSError, RuntimeError, TypeError, ValueError) as error:
+            result = {"outcome": "failed", "diagnostics": [str(error)]}
+        outcome = result.get("outcome") if isinstance(result.get("outcome"), str) else "failed"
+        try:
+            append_record(adapter.root, event_record(
+                root=adapter.root, event="completed" if outcome == "completed" else "failed",
+                action_id=run_id, kind="workflow", scope="project", operation=_OPTIONAL_RELEASE_ROUTE_NAME,
+                session_id=run_id, subjects=[], outputs=[], preceding_event=str(started["event_id"]),
+                details={"outcome": outcome},
+            ))
+        except (OSError, RuntimeError, ValueError) as error:
+            return {"outcome": "recording_failed", "actual_outcome": outcome, "run_id": run_id,
+                    "project_root": str(adapter.root), "diagnostics": [f"Release terminal recording failed: {error}"]}
+        result["run_id"] = run_id
+        result["project_root"] = str(adapter.root)
+        return result
+
+    @server.tool(name=_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME, structured_output=True, annotations=release_annotations)
+    def public_release(request: dict[str, Any]) -> dict[str, Any]:
+        """Run the Project-owned public release after the required content draft is supplied."""
+        if not isinstance(request, Mapping) or set(request) not in (
+            {"project_root", "run_id"}, {"project_root", "run_id", "content_draft"},
+        ):
+            return {"outcome": "failed", "diagnostics": ["request requires only project_root, run_id, and optional content_draft"]}
+        project_root, run_id = request["project_root"], request["run_id"]
+        if not isinstance(run_id, str) or not _REQUEST_ID.fullmatch(run_id):
+            return {"outcome": "failed", "run_id": run_id if isinstance(run_id, str) else None,
+                    "diagnostics": ["run_id is invalid"]}
+        if not isinstance(project_root, str):
+            return {"outcome": "failed", "run_id": run_id,
+                    "diagnostics": ["project_root is invalid"]}
+        try:
+            supplied_root = Path(project_root).resolve(strict=True)
+        except OSError:
+            return {"outcome": "failed", "run_id": run_id,
+                    "diagnostics": ["project_root is unavailable"]}
+        if supplied_root != adapter.root:
+            return {"outcome": "failed", "run_id": run_id,
+                    "diagnostics": ["project_root does not match the bound Project root"]}
+        if "content_draft" not in request:
+            return {"outcome": "input_required", "run_id": run_id,
+                    "project_root": str(adapter.root),
+                    "prompt": "Provide content_draft with description and summary."}
+        content_draft = request["content_draft"]
+        if (not isinstance(content_draft, Mapping) or set(content_draft) != {"description", "summary"}
+                or not isinstance(content_draft["description"], str)
+                or not isinstance(content_draft["summary"], list)
+                or not all(isinstance(item, str) for item in content_draft["summary"])):
+            return {"outcome": "failed", "run_id": run_id,
+                    "project_root": str(adapter.root), "diagnostics": ["content_draft is invalid"]}
+        try:
+            from work_journal import append_record, event_record
+            started = event_record(
+                root=adapter.root, event="started", action_id=run_id, kind="workflow", scope="project",
+                operation=_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME, session_id=run_id, subjects=[], outputs=[],
+                preceding_event=None, details={},
+            )
+            append_record(adapter.root, started)
+        except (ImportError, OSError, RuntimeError, ValueError) as error:
+            return {"outcome": "recording_failed", "run_id": run_id,
+                    "project_root": str(adapter.root), "diagnostics": [f"Public Release start recording failed: {error}"]}
+        entrypoint = adapter.root / "PROJECT_TOOLS/PUBLIC_RELEASE/public_release.py"
+        try:
+            if entrypoint.is_symlink() or not entrypoint.is_file():
+                raise SelectedRouteError("public Release implementation is unavailable")
+            spec = importlib.util.spec_from_file_location("_caprmedio_public_release", entrypoint)
+            if spec is None or spec.loader is None:
+                raise SelectedRouteError("public Release implementation is unavailable")
+            module = importlib.util.module_from_spec(spec)
+            sys.modules[spec.name] = module
+            try:
+                spec.loader.exec_module(module)
+                result = getattr(module, "run_public_release")(
+                    adapter.root, run_id=run_id, content_draft=content_draft)
+            finally:
+                sys.modules.pop(spec.name, None)
+            if not isinstance(result, Mapping):
+                raise SelectedRouteError("public Release returned an invalid result")
+        except (AttributeError, ImportError, OSError, RuntimeError, TypeError, ValueError) as error:
+            result = {"outcome": "failed", "diagnostics": [str(error)]}
+        outcome = result.get("outcome") if isinstance(result.get("outcome"), str) else "failed"
+        try:
+            append_record(adapter.root, event_record(
+                root=adapter.root, event="completed" if outcome == "completed" else "failed",
+                action_id=run_id, kind="workflow", scope="project", operation=_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME,
+                session_id=run_id, subjects=[], outputs=[], preceding_event=str(started["event_id"]),
+                details={"outcome": outcome},
+            ))
+        except (OSError, RuntimeError, ValueError) as error:
+            return {"outcome": "recording_failed", "actual_outcome": outcome, "run_id": run_id,
+                    "project_root": str(adapter.root), "diagnostics": [f"Public Release terminal recording failed: {error}"]}
+        result["run_id"] = run_id
+        result["project_root"] = str(adapter.root)
+        return result
+
+    public_route_names = SELECTED_ROUTE_NAMES
+    adapter.public_route_names = frozenset((*public_route_names, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME))
 
     for route_name in public_route_names:
         def add_route(route: str) -> None:
@@ -1544,19 +1659,5 @@ def register_selected_routes(server: Any, root: str | Path) -> SelectedRouteAdap
     def recover_selected_run_recording(request: dict[str, Any]) -> dict[str, Any]:
         """Retry one pending shared event append; never replay an Action or Workflow."""
         return adapter.recover_recording(request)
-
-    if public_route_names in {
-        (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME),
-        (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME),
-    }:
-        @server.tool(name="recover_selected_release", structured_output=True, annotations=selected_annotations)
-        def recover_selected_release(request: dict[str, Any]) -> dict[str, Any]:
-            """Recover only one existing frozen admitted Release Run."""
-            return adapter.recover_release(request)
-
-        @server.tool(name="recover_selected_release_status", structured_output=True, annotations=observation_annotations)
-        def recover_selected_release_status(request: dict[str, Any]) -> dict[str, Any]:
-            """Read one returned Release recovery scheduler handle without dispatch."""
-            return adapter.recover_release_status(request)
 
     return adapter

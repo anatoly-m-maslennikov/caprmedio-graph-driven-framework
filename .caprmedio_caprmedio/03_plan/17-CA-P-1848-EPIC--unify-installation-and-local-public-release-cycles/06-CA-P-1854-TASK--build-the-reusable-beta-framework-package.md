@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-10 18:58:38 +0400"
+version: 4
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Framework Package, Methodology Source, Applicable Methodology, Tool, Carrier, Version, Journal]
@@ -25,15 +25,15 @@ Build the reusable beta Framework package
 
 ## Objective
 
-the AI Agent implements a portable beta Framework Package under `.caprmedio_install` that can be installed into another Project.
+Build the reusable installation folder from Engine code, Methodology, locked dependencies and the ca Skill.
 
 ## Details
 
-1. Deliver reusable Engine, Methodology, Skill/default-settings payload and compiler/installer capabilities from `TOOLS` in the Framework Package.
-2. Exclude CAPRMEDIO-specific Local/Public Release Operations and release helper Tool implementations/RMED from the reusable Engine/package and from general Methodology delivery.
-3. Relocate those concrete project features to Project-owned delivery: Operations under `.caprmedio_caprmedio/09_operations`; helper tools under delivery root `PROJECT_TOOLS`, outside the reusable Engine. Preserve package/source identities and fail closed for an excluded or misplaced release feature.
-4. Seal and test the package candidate through the Local non-live preflight before the first product wipe; do not execute this Plan as a package build or installation.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** a reusable compiler/installer capability leaves `TOOLS`, a project-specific release Operation/helper is packaged as general framework/Methodology content, package identity is incomplete, or portability requires the development checkout.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

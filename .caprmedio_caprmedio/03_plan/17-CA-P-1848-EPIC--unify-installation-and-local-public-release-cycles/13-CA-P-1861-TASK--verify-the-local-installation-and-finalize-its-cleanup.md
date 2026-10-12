@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-10 18:08:27 +0400"
+version: 5
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Framework Package, Applicable Methodology, Tool, Workflow, Action, Workflow Run, Journal, Carrier, Evaluation]
@@ -25,15 +25,15 @@ Verify the local installation **and** finalize its cleanup
 
 ## Objective
 
-the AI Agent verifies Local release evidence and only its declared cleanup within the same programmatic command.
+Verify Methodology, runtime, ca Skill and live MCP; remove only safely identified superseded Project-owned images.
 
 ## Details
 
-1. Verify the installed Project runs the selected reusable package, installed Methodology is the as-is product copy subject only to declared preserved settings, `ca` resolves from the installed runtime, and the selected image/restart returns the expected MCP endpoint.
-2. Verify source/product/installed provenance, package/image/lock identity, preserved configuration/state and isolated Project resources.
-3. Retain root `101_FRAMEWORK_METHODOLOGY` as the product boundary. Do not retire it as a legacy copy or delete authoring/recovery evidence. Cleanup remains limited to declared replaced installed/package content.
-4. Record the honest terminal result without a separate handover or review command.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** installed execution/discovery fails, product and installed identities conflict outside an allowed exception, configuration or Project-owned evidence is absent, cleanup exceeds declared targets, or endpoint evidence is unverified.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

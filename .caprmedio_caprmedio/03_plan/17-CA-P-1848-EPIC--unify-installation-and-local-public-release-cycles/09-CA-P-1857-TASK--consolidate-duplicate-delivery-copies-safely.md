@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 2
-updated_at: "2026-10-10 18:08:27 +0400"
+version: 3
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Framework Package, Methodology Source, Applicable Methodology, Atom, Carrier, Journal, Projection]
@@ -25,15 +25,15 @@ Consolidate duplicate delivery copies safely
 
 ## Objective
 
-the AI Agent supplies a verified consolidation plan for redundant delivery/staging copies without losing source history **or** rollback evidence.
+Report obsolete delivery copies for manual handling without making cleanup a release prerequisite.
 
 ## Details
 
-1. Treat root `101_FRAMEWORK_METHODOLOGY` as the current release product, not a duplicate candidate. The Project Methodology unit is source authority and `.caprmedio_caprmedio/000_CAPRMEDIO_framework` is installed current Methodology.
-2. Examine only actual duplicate/staging candidates such as `.release-sources-*`, `_release_materialized`, package copies, nested control roots and empty legacy directories. Record path, role, identity, consumers and retention before any cleanup.
-3. Preserve protected configuration/settings, authoring sources, selected/rollback evidence, current Run evidence and other Project resources. A Local release may only clear the product/installed contents explicitly owned by its ordered replacement stages.
-4. Perform actual cleanup only after the Local command's complete suite and verification, with honest blocked/failure outcomes and no blanket prune.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** the product is misclassified as a duplicate, a candidate lacks consumer/identity/retention evidence, unique data or recovery evidence is lost, or cleanup affects unrelated Project resources.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

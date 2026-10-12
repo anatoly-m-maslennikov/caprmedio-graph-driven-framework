@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-10 18:58:38 +0400"
+version: 5
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Requirement, Method, Evaluation, Delivery, Workflow, Action, Framework Package, Applicable Methodology, Journal, Version]
@@ -24,16 +24,15 @@ Review both release cycles against their authority
 
 ## Objective
 
-the AI Agent embeds authority conformance assertions in the two implemented release commands.
+Verify both direct release workflows against the current Epic and report manual issues.
 
 ## Details
 
-1. Local release asserts active-source selection, the Project→product→installed boundary, its complete preflight before the first destructive product wipe, package/runtime isolation, protected-setting preservation and honest Journal outcomes.
-2. Public release asserts its one-prompt description/history output, complete-suite frontier, safe commit/push, correct `amm/dev`→`main` PR, actual URL and no merge.
-3. Fail a command for an unresolved material authority, RMED, Operations, portability, isolation or traceability divergence. Record the disposition with that command's evidence.
-4. Assert concrete release Operations are Project-root `.caprmedio_caprmedio/09_operations`, release helpers are `PROJECT_TOOLS` deliveries outside the reusable Engine, and reusable compiler/installer, shared package/gate models/codecs, detached readers and generic O200 install/bootstrap/restore capability remain in `TOOLS`. Require ProjectTools D declaration exclusion from the exporter frontier and relocation/exclusion evidence for project-specific release code.
-5. Do not add a separately requested post-public review, handover or approval workflow.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** either command omits its integrated conformance assertions, release placement/exclusion is wrong, reusable generic capability leaves `TOOLS`, ProjectTools D declarations ship in or fault the exporter frontier, required full-suite evidence is absent, source traceability or isolation is broken, or an essential divergence remains unresolved.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

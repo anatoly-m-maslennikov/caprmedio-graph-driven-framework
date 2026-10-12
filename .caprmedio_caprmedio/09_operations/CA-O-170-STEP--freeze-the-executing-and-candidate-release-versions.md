@@ -8,22 +8,22 @@ global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Release Version/Step: freeze local boundary"
-  depends_on: [Workflow, Step, Action, Version, Methodology Source, Journal]
-version: 2
-updated_at: "2026-10-10 19:05:19 +0400"
+  governs: "Release Version/Step: validate local inputs"
+  depends_on: [Workflow, Step, Action, Methodology Source]
+version: 3
+updated_at: "2026-10-12 00:00:51 +0000"
 relations:
   part_of: [CA-O-164]
   invokes: [CA-O-165]
 ---
 # Summary
 
-Freeze the executing and candidate release Versions
+Validate local release inputs
 
 ## Step
 
-This Step invokes CA-O-165 once with phase `freeze`, binding the selected Version and active Core Meta-Model, installed extension, and Project Configuration source identities and digests. It returns that exact result unchanged.
+This Step invokes CA-O-165 once with phase `validate` to check current active Core Meta-Model, installed extension, Project Configuration sources, and delivery paths.
 
 ## Details
 
-Missing, mutable, stale, inactive, or unjournalable inputs stop before any test or delivery effect. This Step does not copy, compile, install, test, publish, or retry. Its Step Run and referenced Action Run retain their exact parent, input, and Journal evidence.
+Missing, inactive, ambiguous, or mismatched inputs stop before tests or delivery effects and are reported for manual handling. This Step does not copy, compile, install, publish, or retry.

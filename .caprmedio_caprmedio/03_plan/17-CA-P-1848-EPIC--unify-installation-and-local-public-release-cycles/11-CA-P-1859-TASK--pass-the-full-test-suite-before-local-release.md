@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-10 18:08:27 +0400"
+version: 4
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Evaluation, Framework Package, Methodology Source, Version, Workflow Run, Journal]
@@ -25,15 +25,15 @@ Pass the full test suite before local release
 
 ## Objective
 
-the AI Agent obtains a fresh complete full-suite preflight for the exact Local release closure before its first destructive product wipe.
+Pass the intended Local release tool tests before live copy and installation.
 
 ## Details
 
-1. Seal the active Methodology-source selection, Engine/package candidate, image, configuration/catalog/lock and expected product/install/runtime replacement without altering product or installed contents.
-2. Run the complete current suite, including required host, Docker and MCP end-to-end checks, before the first destructive product wipe. Record expected/executed coverage, identities, commands, exit states and full results; do not repeat it solely for the deterministic generated product/install copy.
-3. A failed, missing, skipped or incomplete check blocks Local release. Focused, mock or old evidence does not substitute, and a repaired product closure requires a new full pass.
-4. Perform contract conformance checks inside the Local command; do not require a separately commanded review, approval or handover.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** a required suite fails, skips or lacks coverage, frozen inputs changed, results cannot prove the complete local gate, or runtime effects could precede the pass.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

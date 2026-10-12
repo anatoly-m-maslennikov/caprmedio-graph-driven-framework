@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Revision, Journal, Plan, Operator]
-version: 1
-updated_at: "2026-10-12 04:02:18 +0400"
+version: 2
+updated_at: "2026-10-12 04:12:42 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2174]
@@ -31,7 +31,7 @@ The existing governed mutation boundary can apply an exact sealed Subjects-only 
 
 Own work: none. Required prerequisite: CA-P-2170's actual current application contract packet independently accepted under CA-P-2171; unrelated preview/graph packets need not delay it. CA-P-2177 binds the concrete implementation scope and creates bounded implementation/check children here. Those children and their actual isolated outputs must complete; preparation alone cannot finish this group.
 
-The application transport choice is pending. Current MCP-only authority has no admitted Subjects-only path; neither local-route admission nor implementation authority is inferred. Record the Operator's concrete route decision and align/verify its contract packet before implementation.
+The Operator chose extending the existing admitted MCP update action with Subjects-only application. Implement that route only after its actual current contract packet passes independent acceptance. No local transport exception, completed capability or live migration approval is inferred; the exact CA-P-1910 sealed packet still needs separate approval.
 
 Implement only the accepted application contracts through the existing boundary. Retain the standalone apply guard until the intended admitted route enforces exact approval, pins, source eligibility, Subjects-only bytes, Version/time/history and truthful Journal effects. Do not create a raw internal bypass, broad repair engine or invented runtime/MCP binding. Root owns shared state and Git; one owner controls each mutation scope.
 

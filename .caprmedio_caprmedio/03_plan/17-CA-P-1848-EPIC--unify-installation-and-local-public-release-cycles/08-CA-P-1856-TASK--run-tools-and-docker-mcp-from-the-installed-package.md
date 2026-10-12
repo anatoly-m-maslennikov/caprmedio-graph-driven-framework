@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-10 18:58:38 +0400"
+version: 4
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Framework Package, Tool, Action, Workflow, Workflow Run, Carrier]
@@ -25,16 +25,15 @@ Run Tools **and** Docker MCP **from** the installed package
 
 ## Objective
 
-the AI Agent connects reusable Tools, ca **and** Docker MCP to the selected installed package rather than an implicit source checkout.
+Start Docker MCP from the installed runtime and verify its actual endpoint.
 
 ## Details
 
-1. Keep reusable compiler, installer, shared package/gate models/codecs, detached readers and generic O200 install/bootstrap/restore capability currently in `RELEASE_VERSION` in `TOOLS`, so a fresh arbitrary or non-Git target does not need the project-development checkout.
-2. Relocate/exclude CAPRMEDIO-specific Local/Public Release Operations and helper-tool code from general Methodology and the reusable Engine/package. Their delivery is Project-owned: Operations in `.caprmedio_caprmedio/09_operations` and helper tools in root `PROJECT_TOOLS` outside the reusable Engine.
-3. Register a delivery boundary that excludes ProjectTools D declarations from the exporter frontier rather than treating them as an outside-Engine error or shipping them in the generic package.
-4. Bind the two Project release Workflows to these Project-owned deliveries while retaining package/runtime selection, Journal evidence and Docker/MCP smoke from the installed package. No additional Operator Workflow is introduced.
-5. Prove the boundaries with focused contract tests before real invocation; full preflight remains the Local/Public release gate.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** an installed entrypoint uses checkout code, reusable package/gate/O200 capability leaves `TOOLS`, a project-specific release feature is delivered as general framework/Methodology/package content, ProjectTools D declarations ship in or fault the generic exporter frontier, package/image/context mismatch is accepted, or required MCP discovery fails.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

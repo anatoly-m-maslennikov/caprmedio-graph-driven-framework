@@ -111,59 +111,8 @@ class SelectedNativeProviders:
     def _dispatch_selected_public_release(
         self, selected: SelectedExecution, frozen: Mapping[str, Any], session: Any,
     ) -> None:
-        """Run public release in the one shared Session before generic dispatch.
-
-        ``_revalidate`` is the current SelectedExecution loader: it reopens the
-        canonical seventeen-route source-admitted manifest and proves the
-        frozen graph has not changed.  This branch never constructs a second
-        tracker/session and never falls through to ``_execute_graph``.
-        """
-        try:
-            graph = selected._revalidate(frozen)
-        except SelectedExecutionError as error:
-            raise SelectedExecutionError("public Release has no current canonical source admission") from error
-        request = frozen.get("request")
-        execution = request.get("execution") if isinstance(request, Mapping) else None
-        if (not isinstance(execution, Mapping) or execution.get("operation_route") != "public.release"
-                or not self._public_graph_is_exact(graph)):
-            raise SelectedExecutionError("public Release frozen route is not the exact D613-selected graph")
-        public_root = Path(__file__).resolve().parents[2] / "201_TOOLS" / "PUBLIC_RELEASE"
-        if str(public_root) not in sys.path:
-            sys.path.insert(0, str(public_root))
-        try:
-            from selected_host import SelectedPublicHostError, create_selected_public_bindings
-            from public_release import PublicReleaseError, SelectedPublicSessionPhases
-        except ImportError as error:
-            raise SelectedExecutionError("public Release private selected host is unavailable") from error
-        try:
-            host = create_selected_public_bindings(self.root, frozen, session)
-            hooks = self._project_release_module("PUBLIC_RELEASE")
-            parameters = execution.get("parameters")
-            source = parameters.get("source") if isinstance(parameters, Mapping) else None
-            if not isinstance(source, Mapping):
-                raise SelectedExecutionError("public Release requires its frozen document paths")
-            paths = [source.get(key) for key in ("readme_ref", "pr_body_ref", "version_history_ref")]
-            phases = SelectedPublicSessionPhases(self.root, session)
-            changes = self._public_release_changes()
-            workflow = session.start_run(frozen["request"]["run_id"])
-            result = hooks.run_selected_public_release(
-                self.root, run_id=workflow["run_id"], bindings=host, phases=phases,
-                parameters=parameters, prompt=self._public_release_prompt,
-                config={"branch": "amm/dev", "base": "main", "release_paths": paths,
-                        "readme_path": paths[0], "notes_path": paths[1],
-                        "version_history_path": paths[2], "candidate_root": ".", "changes": changes},
-            )
-            result_path = selected.run_directory(frozen["request"]["run_id"]) / "graph_result.json"
-            selected._write(result_path, self._json_value(result))
-            result_ref = result_path.relative_to(self.root).as_posix()
-            effects = sorted({ref for terminal in session.terminal.values()
-                              for ref in terminal.get("effect_refs", [])})
-            if result.get("status") != "published":
-                raise SelectedExecutionError("public Release returned no observed terminal result")
-            session.finish_run(workflow["run_id"], outcome="completed", result_ref=result_ref,
-                               effect_refs=effects, report_ref=result_ref)
-        except (SelectedPublicHostError, PublicReleaseError) as error:
-            raise SelectedExecutionError(str(error)) from error
+        """Refuse the retired selected-session path; use the direct MCP tool."""
+        raise SelectedExecutionError("public Release selected-session provider is disabled; use direct public.release")
 
     def _project_release_module(self, kind: str) -> Any:
         """Load this Project's helper without shadowing reusable proof modules."""

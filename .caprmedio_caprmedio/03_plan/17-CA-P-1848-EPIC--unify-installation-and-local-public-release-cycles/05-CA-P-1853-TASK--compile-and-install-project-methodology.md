@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-10 18:08:27 +0400"
+version: 4
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Applicable Methodology, Methodology Source, Projection, Atom, Project Settings, Workflow, Evaluation]
@@ -25,15 +25,15 @@ Compile **and** install Project Methodology
 
 ## Objective
 
-the AI Agent compiles the applicable product Methodology and installs it as the selected Project's current Methodology.
+Compile Applicable Methodology in the product and copy the product as-is to the installed framework, preserving configuration.
 
 ## Details
 
-1. Prepare compilation inputs non-live and use the Local full preflight before the product wipe. After its pass, compile applicable Methodology in root `101_FRAMEWORK_METHODOLOGY` from its selected active-source product contents without repeating the suite solely for the deterministic copy.
-2. After compilation, clear only replaceable installed Methodology contents and copy the product directory as-is to `.caprmedio_caprmedio/000_CAPRMEDIO_framework`.
-3. Preserve `caprmedio_framework_settings.toml`, authoritative configuration, Project Structure, Operator registry and support settings; generated manifests and selectors refresh.
-4. Verify source/product/installed identity and commit only the compilation-and-installed-copy step. Do not create a separate Operator command.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** compilation changes source authority, installed Methodology differs from the product copy without an allowed exception, protected settings are replaced, or identity/provenance is missing.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

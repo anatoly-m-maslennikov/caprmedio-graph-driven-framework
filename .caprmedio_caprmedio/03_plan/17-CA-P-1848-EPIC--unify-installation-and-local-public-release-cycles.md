@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 10
-updated_at: "2026-10-11 17:34:07 +0000"
+version: 11
+updated_at: "2026-10-12 03:32:38 +0400"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -49,73 +49,48 @@ Unify installation **and** local/public release cycles
 
 ## Objective
 
-the caprmedio Project delivers a reusable beta Framework Package **and** an isolated per-Project runtime **through** complete, tested local **and** public release cycles.
+The caprmedio Project provides simple, tested Local and Public release workflows and a reusable Framework package with an isolated runtime for each Project.
 
 ## Details
 
-### Approved boundaries
+### Current Operator-approved scope
 
-- **=1** source authority: editable Methodology Atoms belong to declared Project Methodology Scope Units; editable Engine implementation belongs to root `102_FRAMEWORK_ENGINE`.
-- Methodology local flow: verify the corrected registrations map authoring Methodology Sources to the Project Methodology unit and that `project_structure.toml` agrees before any installed-target wipe. The installed target is not authoring authority and remains read-only until Local release. From the Project authority, only selected active Methodology-source Atoms (Core Meta-Model, selected extensions and Project Configuration) form non-live preflight inputs. After the full preflight passes, they replace root `101_FRAMEWORK_METHODOLOGY` product contents (no drafts or archive); applicable Methodology compiles there; then only `.caprmedio_caprmedio/000_CAPRMEDIO_framework` is wiped and replaced from the product directory as-is. Preserve `caprmedio_framework_settings.toml`, authoritative configuration, `project_structure.toml`, Operator registry and support settings; generated manifests and selectors refresh. A missing selected revision fails before effects.
-- Engine/package local flow: root `102_FRAMEWORK_ENGINE` **plus** delivered Methodology, ca Skill/defaults **and** locked dependencies → reusable beta package under `.caprmedio_install` → runtime execution/state/environments for this Project under `.caprmedio_runtime`. an installed runtime executes its selected package, **not** an implicit development checkout.
-- concrete CAPRMEDIO Local/Public Release Operations belong only in the Project root `.caprmedio_caprmedio/09_operations`. Their release helper Tool RMED is authored in `205_FEATURE_PROJECT_TOOLS`, a `PROGRAMMATIC` sibling of `TOOLS`, and delivered at root `PROJECT_TOOLS` outside the reusable Engine. Reusable compiler/installer, shared package/gate models/codecs, detached readers and generic O200 install/bootstrap/restore capability remain in `TOOLS`; no release Operation or helper is delivered as general Methodology or Framework Package content.
-- **all** mutable runtime settings belong **in** this Project's `.caprmedio_runtime/config.toml`, outside versioned package bytes. first installation creates admitted defaults **only if** the file is absent; reinstall, replacement **and** failure recovery preserve an existing file byte-for-byte. an incompatible configuration requires an explicit migration **or** an identified blocked result, **not** silent replacement. this runtime configuration does **not** duplicate Project Settings, Framework Instance Settings, generated selectors **or** Journal records.
-- the package can install into another Project, including a non-Git Project **or** another root **in** the same repository. Project settings, configuration, runtime records **and** endpoints remain isolated. reuse the same package schema instead of independent Tool-only/full-Engine layouts.
-- current `.caprmedio_install` contains operational state; preserve **and** migrate that state **before** package replacement. the destructive phase deletes only the selected installed package tree, never the whole folder: protected/private contents, exact owned migration roots, configuration, Project authority, Journal and transaction evidence are outside that boundary.
-- root `101_FRAMEWORK_METHODOLOGY` is the product boundary, not a draft, archive or authoring authority. Its contents are replaced only from the Project's migrated active Methodology authority; account for distinct data and preserve referenced rollback evidence before any affected product replacement.
-- other known copies include `.release-sources-*`, `_release_materialized`, nested repeated control roots, older installed package trees **and** empty legacy roots. compare identity, consumers **and** retention **before** consolidation; immutable selected/rollback snapshots are intentional artifacts, **not** extra editable authorities.
+This direct happy path replaces the earlier release-sealing design. Release hashes, snapshots, admission records, package selectors, rollback, compatibility migration and recovery machinery are not prerequisites for these workflows. Preserve existing historical records; do not replay their Runs.
 
-### Current implementation scope
+There are two Operator-invoked workflows. Neither runs automatically.
 
-- Keep both release Workflows callable through the existing Project MCP. Local release remains programmatic; Public release has exactly one content prompt.
-- Keep configuration preservation, existing pre-release test gates, scoped Git checkpoints, canonical Journal records and MCP startup/smoke verification.
-- Defer automatic rollback, retry/resume and uncertain-effect recovery. A failed step stops and reports the actual state for manual Operator handling.
-- Defer automatic migration of legacy layouts and compatibility paths. Implement the agreed current Project/source/product/installed layout only; retain old files without treating compatibility work as a release prerequisite.
-- Defer additional release CLI launchers and command/configuration wrappers. Reuse existing MCP entrypoints and runtime settings instead of introducing a parallel release command surface.
-- Deferred portions of existing Tasks remain recorded for later work and do not block this current vertical cut. This deferral does not turn incomplete work into a pass or weaken the required tests before destructive replacement.
+### Local release
 
-### Release cycles and gates
+Commit **everything** in Git before **every** step below, and once more at the end. Respect Git ignore rules and secret exclusions. Stop on a failed commit or step and write an issue report for manual handling; do not continue or roll back automatically.
 
-There are exactly two Operator commands. Each performs its internal preparation automatically; source admission, candidate construction, validation, handover and conformance checks are stages, not separately commanded Workflows. Local release automatically discovers the current registered Workflow, Step, Action and Action-to-Tool bindings and captures the current active Methodology-source Atoms at Run start into one consistent snapshot. The Operator does not supply revision bindings or perform a separately maintained revision refresh. All later local phases consume that captured snapshot. Internal release numbering increments the fourth numeric component. Public release numbering increments the third numeric component and drops the fourth/internal suffix, producing exactly three numeric components: `0.4.1.xxx` becomes `0.4.2`. The increment has no rollover: `0.4.9.x` becomes `0.4.10`. This current implementation work remains Local release only; public numbering implementation is deferred. CA-R-1799 authorizes one complete public Workflow. Completion of a prior command, a receipt or this Plan never authorizes the other command.
+1. Test the tools used by this release path.
+2. Clear the product contents in `101_FRAMEWORK_METHODOLOGY`, preserving configuration, then copy the active Methodology-source Atoms from the Project's declared source folders. Exclude drafts and archives; ignore `.DS_Store`. Copy the supporting files needed by the compiler.
+3. Compile Applicable Methodology in the product directory.
+4. Replace the installed Methodology at `.caprmedio_caprmedio/000_CAPRMEDIO_framework` with the product as-is, preserving existing configuration.
+5. Copy the Engine, delivered Methodology, locked dependencies and `ca` Skill into the reusable `.caprmedio_install` package; install that package into this Project's `.caprmedio_runtime` and install the project-local `ca` Skill. Preserve runtime configuration and existing Project records.
+6. Build and start the Docker runtime; verify the actual returned MCP endpoint.
+7. Remove only superseded images proven to belong to this Project. Retain current, unrelated and in-use images; report anything that cannot safely be removed.
 
-1. **Local release.** First verify the corrected Project source registrations and `project_structure.toml`; treat `.caprmedio_caprmedio/000_CAPRMEDIO_framework` as read-only installed content until the command's later replacement step. Prepare the selected active Methodology-source inputs (Core Meta-Model, selected extensions and Project Configuration), Engine/package candidate, image and required non-live test inputs without changing product or installed contents. Run the complete current suite for this sealed preflight, including required host, image, Docker and MCP end-to-end checks, **before the first destructive product wipe**. On a pass, in this order, wipe product contents in root `101_FRAMEWORK_METHODOLOGY`; replace them from the selected active source; compile applicable Methodology; wipe installed contents under `.caprmedio_caprmedio/000_CAPRMEDIO_framework`; and copy the product directory there as-is. Commit each completed source/product/installed transition to Git, staging only that step's owned changes and never unrelated graph edits. Do not repeat the full suite solely for that deterministic generated product/install copy. Preserve `caprmedio_framework_settings.toml`, authoritative configuration, Project structure, Operator registry and support settings; generated manifests and selectors refresh. Then preserve/migrate Project configuration and state, replace only the selected installed package, install the `ca` skill, install the same sealed package into that Project's `.caprmedio_runtime`, start or reuse its selected image and smoke its returned MCP endpoint. A runtime uses the installed package, never an implicit checkout; another Project remains isolated. No rebuild is permitted between the gate and replacement. After verified installation and successful Project-MCP startup/smoke, the same final local Step/Action removes all superseded CAPRMEDIO release-owned images whose exact identities and ownership are proven for this Project. Preserve the promoted candidate, unrelated images, other-Project or otherwise protected images, and images retained by containers. Use actual retained Project release, build, launcher or start evidence with exact immutable image IDs and Project-root identity; a tag prefix alone is not ownership proof. Do not force-delete containers or prune globally. Record each removed, protected, in-use or unproven disposition and report cleanup blockers without claiming that all old images were removed.
-2. **Public release.** Use the canonical public Version under the third-component numbering policy and produce README/documentation updates automatically. Ask one content prompt only: it returns the complete PR description with full “What's new” and “What's fixed” lists and the concise Version History bullet summary. Run the complete current suite for the final publishable closure before effects. On a complete pass, commit and push the safe validated closure to `amm/dev`, then create or update its PR to `main` with that full description; do not merge. Reuse a matching PR URL when known. If a newly created PR returns its URL after push, append the actual URL in a mechanical metadata-only follow-up commit/push; this link-only update needs no second full suite. A product, package, source, configuration or documentation change still requires a fresh complete suite before publication.
-3. Every required gate has complete identity and coverage evidence. Failed, blocked, skipped or incomplete checks stop the corresponding command; focused, mock or old receipts do not substitute. Failed effects retain configuration and Project-owned Journal/transaction evidence and report the actual state without an automatic replay or a stale-success claim. `.DS_Store` is ignored, not a gate failure.
-4. The two Project Operations Workflows retain their bound Steps, Actions, Project helper Tools and shared-Journal evidence, with parentage and exact input/output identities. Their concrete Operations are in `.caprmedio_caprmedio/09_operations`; release helpers are in `PROJECT_TOOLS`, while reusable compiler/installer and generic package/install capabilities remain in `TOOLS`. The exporter registers ProjectTools D declarations as excluded delivery-boundary content rather than shipping them or rejecting them as outside-Engine. Their internal stages use inherited Framework Instance Settings and the authorized Operator input; they do not add approval, review or retry rituals.
+The Project's editable Atoms remain in `.caprmedio_caprmedio`; `101_FRAMEWORK_METHODOLOGY` is the product; `000_CAPRMEDIO_framework` is the installed version. Project settings, structure, Operator registry and existing runtime configuration are not replaced. Other Projects and their runtimes remain separate.
 
-### Work organization
+### Public release
 
-- The five Methodology transitions have separate scoped Git checkpoints: product clear, active-source copy, compilation, installed clear, and installed product copy. Grouping transitions within one Workflow Step does not combine their commits; unchanged or read-only work does not create an empty commit.
-- this file **and** its matching folder are Carriers of **=1** Epic Plan. children explicitly store `is_decomposition_of`; prerequisite Plans store `blocks`. navigation numbers/listing order are **not** a separate execution schedule.
-- own work for **=1** AI Agent **must** fit **<=15** minutes. larger Plans **must** be decomposed **before** execution. independent ready work may run **in** parallel; source/Git/shared-state integration remains under **=1** owner.
-- reuse the existing release/compiler/installer/startup Tools where their contracts remain valid. update RMED **and** O definitions, tests and implementation in the two command contracts; complete-suite validation provides the required release gate without a separately commanded review or handover.
-- relocate CAPRMEDIO-specific release Operations/helper code out of general Methodology and Framework Package delivery, preserving reusable compiler/installer, shared package/gate model/codec, detached-reader and generic O200 install/bootstrap/restore capability in `TOOLS`. Register ProjectTools D declarations outside the exporter frontier. This is planned work only, not a code, structure, runtime or Git mutation by this Epic.
-- creating this Epic **only** creates planned work. no implementation, migration, deletion, dependency installation, release, push, PR, image/container start **or** merge is executed now.
+Test the intended release tools. Use one prompt for the full PR description, including What's new and What's fixed, and its concise bullet summary for Version History. Update README as needed. Version History contains only the summary and the actual PR link. Commit everything before each step and at the end, push to `amm/dev`, and create or update the PR to `main`; do not merge.
 
-### Decomposing Plans
+Local numbering adds/increments the fourth numeric component. Public numbering increments the third component and removes the fourth. Neither has a digit rollover.
 
-Plans 01–19 retain their useful boundary, package, migration, test and public-documentation responsibilities as internal stages of the two commands; they do not create additional Operator commands or approval/review workflows. Explicit blocking Relations remain authoritative.
+### Implementation and work organization
 
-- [01-CA-P-1849-TASK--specify-installation-and-release-boundaries](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/01-CA-P-1849-TASK--specify-installation-and-release-boundaries.md)
-- [02-CA-P-1850-TASK--protect-existing-state-during-installation-migration](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/02-CA-P-1850-TASK--protect-existing-state-during-installation-migration.md)
-- [03-CA-P-1851-TASK--consolidate-methodology-source-and-delivery-paths](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/03-CA-P-1851-TASK--consolidate-methodology-source-and-delivery-paths.md)
-- [04-CA-P-1852-TASK--export-only-active-methodology](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/04-CA-P-1852-TASK--export-only-active-methodology.md)
-- [05-CA-P-1853-TASK--compile-and-install-project-methodology](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/05-CA-P-1853-TASK--compile-and-install-project-methodology.md)
-- [06-CA-P-1854-TASK--build-the-reusable-beta-framework-package](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/06-CA-P-1854-TASK--build-the-reusable-beta-framework-package.md)
-- [07-CA-P-1855-TASK--install-an-isolated-runtime-for-a-selected-project](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/07-CA-P-1855-TASK--install-an-isolated-runtime-for-a-selected-project.md)
-- [08-CA-P-1856-TASK--run-tools-and-docker-mcp-from-the-installed-package](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/08-CA-P-1856-TASK--run-tools-and-docker-mcp-from-the-installed-package.md)
-- [09-CA-P-1857-TASK--consolidate-duplicate-delivery-copies-safely](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/09-CA-P-1857-TASK--consolidate-duplicate-delivery-copies-safely.md)
-- [10-CA-P-1858-TASK--test-installation-across-fresh-projects](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/10-CA-P-1858-TASK--test-installation-across-fresh-projects.md)
-- [11-CA-P-1859-TASK--pass-the-full-test-suite-before-local-release](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/11-CA-P-1859-TASK--pass-the-full-test-suite-before-local-release.md)
-- [12-CA-P-1860-TASK--execute-the-gated-local-release-cycle](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/12-CA-P-1860-TASK--execute-the-gated-local-release-cycle.md)
-- [13-CA-P-1861-TASK--verify-the-local-installation-and-finalize-its-cleanup](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/13-CA-P-1861-TASK--verify-the-local-installation-and-finalize-its-cleanup.md)
-- [14-CA-P-1862-TASK--prepare-public-release-documentation-and-notes](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/14-CA-P-1862-TASK--prepare-public-release-documentation-and-notes.md)
-- [15-CA-P-1863-TASK--pass-the-full-test-suite-before-public-release](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/15-CA-P-1863-TASK--pass-the-full-test-suite-before-public-release.md)
-- [16-CA-P-1864-TASK--commit-and-push-the-validated-release-to-amm-dev](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/16-CA-P-1864-TASK--commit-and-push-the-validated-release-to-amm-dev.md)
-- [17-CA-P-1865-TASK--open-the-release-pr-from-amm-dev-to-main](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/17-CA-P-1865-TASK--open-the-release-pr-from-amm-dev-to-main.md)
-- [19-CA-P-1871-TASK--finalize-version-history-with-the-verified-release-pr-link](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/19-CA-P-1871-TASK--finalize-version-history-with-the-verified-release-pr-link.md)
-- [18-CA-P-1866-TASK--review-both-release-cycles-against-their-authority](17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles/18-CA-P-1866-TASK--review-both-release-cycles-against-their-authority.md)
+- Keep both workflows available through Project MCP.
+- Local release is programmatic; Public release has one content prompt.
+- Concrete release Operations are Project-local. Their helper specifications and implementation belong to PROJECT_TOOLS; do not ship Project release procedures as general Methodology.
+- Reuse existing compiler, installer and startup code only where it does not reintroduce the removed release prerequisites.
+- Refactor the existing release entrypoints rather than adding parallel functions or capabilities. Disable release behavior outside the steps listed here.
+- Journal actual workflow/action outcomes and keep a readable report. A queued Run, mock test or historical pass is not completed live execution.
+- The existing decomposing Plans retain useful implementation responsibilities. Their snapshot, admission, recovery and complete-corpus test obligations are superseded by this current scope.
+- Git and live effects have one owner; independent code, tests and documentation can be delegated.
+- A workflow failure records its step and error. Further handling is manual.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** ((**any** in-scope direct decomposing Plan is **not** Done) **or** (a required full-suite gate lacks a complete current pass for sealed bytes) **or** (the beta package cannot install/run **without** the development checkout) **or** (Methodology source/projection/package/runtime boundaries conflict) **or** (installation replaces existing runtime configuration) **or** (state/history/another Project is lost **or** leaked) **or** (the local installation/MCP handoff is unverified) **or** (`amm/dev` **and** its PR to `main` are unconfirmed) **or** (an essential RMED/Operations/principle finding remains)).
+The Epic is Done only when both updated workflow implementations and their intended tests are complete, the Local release has actually copied and compiled active Methodology, preserved configuration, installed the reusable package and Project runtime/Skill, and demonstrated Docker MCP operation. Public release must produce the requested description/history format, push to amm/dev and create or update its PR to main without merging. Before marking completion, record actual evidence for each in-scope decomposing Plan and report remaining manual issues. Do not claim a release or PR that was not executed.

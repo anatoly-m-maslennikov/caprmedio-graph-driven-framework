@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 3
-updated_at: "2026-10-10 18:08:27 +0400"
+version: 4
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Version, Framework Package, Evaluation, Workflow Run, Workflow, Action, Tool, Journal]
@@ -25,15 +25,15 @@ Commit **and** push the validated release **to** amm/dev
 
 ## Objective
 
-the AI Agent commits **and** pushes **all** safe validated release changes to `amm/dev` as an internal Public release stage.
+Commit all safe nonignored changes and push to amm/dev.
 
 ## Details
 
-1. After the Public command's complete suite passes, check branch, personal remote identity and safe change inventory; preserve unrelated work and exclude credentials, private state, environments, caches and unreviewed generated installation state.
-2. Create the descriptive validated commit and push it to `amm/dev` through the command's bound native action without rewriting unrelated history.
-3. Record exact workflow evidence and remote confirmation. A local commit or attempted push is not publication evidence.
-4. A material staged-input change returns to the Public full-suite gate. This internal stage is not an additional Operator command.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** scope/safety fails, the test frontier is stale, remote identity is wrong, or `amm/dev` lacks the verified release commit.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

@@ -1,316 +1,206 @@
-"""Small, callback-wired public-release flow for this Project.
+"""Direct Project-owned public release.
 
-The caller supplies the concrete GitHub, test, prompt, and journal adapters.
-This module only orders their work and writes the three declared release
-documents.  It deliberately never invokes Git, GitHub, or a test runner by
-itself.
+The selected MCP route supplies a bound Project root, run id, and one complete
+content draft. This module deliberately has no selector, admission, or recovery API.
 """
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+import json
 from pathlib import Path
-from typing import Mapping, Protocol, Sequence
+import re
+import subprocess
 import tomllib
+from typing import Any, Callable, Mapping
 
 
 class PublicReleaseError(ValueError):
-    """A release input or callback result cannot safely continue."""
+    """A direct public release input or command could not continue."""
 
 
-class PublicReleaseHooks(Protocol):
-    def prompt(self, project_root: Path, version: str, changes: Sequence[str]) -> Mapping[str, object]: ...
+def run_public_release(
+    project_root: Path | str,
+    *,
+    run_id: str,
+    content_draft: Mapping[str, object] | None = None,
+    runner: Callable[[tuple[str, ...], Path], Any] | None = None,
+) -> dict[str, object]:
+    """Test, bump, document, push, upsert the PR, and link its real URL."""
 
-    def test(self, project_root: Path, candidate_root: Path) -> object: ...
-
-    def commit(self, project_root: Path, paths: Sequence[str], message: str) -> object: ...
-
-    def push(self, project_root: Path, branch: str) -> object: ...
-
-    def pr(self, project_root: Path, branch: str, base: str, body: str) -> Mapping[str, object]: ...
-
-    def journal(self, event: Mapping[str, object]) -> None: ...
-
-
-@dataclass(frozen=True)
-class _Config:
-    branch: str
-    base: str
-    release_paths: tuple[str, ...]
-    readme_path: str
-    notes_path: str
-    version_history_path: str
-    candidate_root: str
-    changes: tuple[str, ...]
-
-
-def _non_empty_string(value: object, label: str) -> str:
-    if not isinstance(value, str) or not value.strip() or value != value.strip() or "\n" in value or "\r" in value:
-        raise PublicReleaseError(f"{label} must be one non-empty line")
-    return value
-
-
-def _relative_path(value: object, label: str) -> str:
-    text = _non_empty_string(value, label)
-    path = Path(text)
-    if path.is_absolute() or ".." in path.parts:
-        raise PublicReleaseError(f"{label} must stay under the Project root")
-    return path.as_posix()
-
-
-def _string_list(value: object, label: str, *, allow_empty: bool = False) -> tuple[str, ...]:
-    if not isinstance(value, (list, tuple)) or (not value and not allow_empty):
-        raise PublicReleaseError(f"{label} must be a non-empty list")
-    result = tuple(_non_empty_string(item, f"{label}[{index}]") for index, item in enumerate(value))
-    if len(set(result)) != len(result):
-        raise PublicReleaseError(f"{label} must not repeat values")
-    return result
-
-
-def _config(value: Mapping[str, object]) -> _Config:
-    required = {
-        "branch",
-        "base",
-        "release_paths",
-        "readme_path",
-        "notes_path",
-        "version_history_path",
-        "candidate_root",
-        "changes",
-    }
-    if set(value) != required:
-        raise PublicReleaseError(f"config must contain exactly: {', '.join(sorted(required))}")
-    branch = _non_empty_string(value["branch"], "config.branch")
-    base = _non_empty_string(value["base"], "config.base")
-    if branch != "amm/dev" or base != "main":
-        raise PublicReleaseError("public release requires branch amm/dev and base main")
-    release_paths = tuple(_relative_path(item, f"config.release_paths[{index}]")
-                          for index, item in enumerate(value["release_paths"] if isinstance(value["release_paths"], (list, tuple)) else ()))
-    if not release_paths or len(set(release_paths)) != len(release_paths):
-        raise PublicReleaseError("config.release_paths must be a non-empty unique list")
-    readme_path = _relative_path(value["readme_path"], "config.readme_path")
-    notes_path = _relative_path(value["notes_path"], "config.notes_path")
-    version_history_path = _relative_path(value["version_history_path"], "config.version_history_path")
-    if {readme_path, notes_path, version_history_path} - set(release_paths):
-        raise PublicReleaseError("release_paths must include the README, notes, and Version History paths")
-    return _Config(
-        branch=branch,
-        base=base,
-        release_paths=release_paths,
-        readme_path=readme_path,
-        notes_path=notes_path,
-        version_history_path=version_history_path,
-        candidate_root=_relative_path(value["candidate_root"], "config.candidate_root"),
-        changes=_string_list(value["changes"], "config.changes", allow_empty=True),
+    prompt = (
+        "Provide content_draft as one object with exactly description and summary. "
+        "description is the full Markdown PR body with non-empty ## New and ## Fixed sections; "
+        "summary is a non-empty list of concise Version History bullets."
     )
-
-
-def _inside(root: Path, relative: str, label: str) -> Path:
-    root = root.resolve()
-    path = (root / relative).resolve()
-    if root != path and root not in path.parents:
-        raise PublicReleaseError(f"{label} escapes the Project root")
-    return path
-
-
-def _read_version(project_root: Path) -> str:
-    version_path = _inside(project_root, "version.toml", "version.toml")
+    if content_draft is None:
+        return {
+            "outcome": "input_required",
+            "run_id": run_id,
+            "project_root": str(Path(project_root)),
+            "prompt": prompt,
+            "content_draft_schema": {
+                "description": "Markdown with ## New and ## Fixed",
+                "summary": ["concise Version History bullet"],
+            },
+        }
+    if not isinstance(run_id, str) or re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._:-]*", run_id) is None:
+        raise PublicReleaseError("public-release-run-id-invalid")
     try:
-        document = tomllib.loads(version_path.read_text(encoding="utf-8"))
-        version = document["framework"]["version"]
-    except (FileNotFoundError, KeyError, TypeError, tomllib.TOMLDecodeError) as error:
-        raise PublicReleaseError("version.toml must declare [framework].version") from error
-    return _non_empty_string(version, "version.toml [framework].version")
+        root = Path(project_root).resolve(strict=True)
+    except OSError as error:
+        raise PublicReleaseError("public-release-project-root-invalid") from error
+    if not root.is_dir() or root == Path(root.anchor):
+        raise PublicReleaseError("public-release-project-root-invalid")
 
+    step = "content_draft"
 
-def _prompt_result(value: Mapping[str, object]) -> tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...]]:
-    if set(value) != {"whats_new", "whats_fixed", "version_history_bullets"}:
-        raise PublicReleaseError("prompt result must contain exactly whats_new, whats_fixed, and version_history_bullets")
-    return (
-        _string_list(value["whats_new"], "prompt.whats_new"),
-        _string_list(value["whats_fixed"], "prompt.whats_fixed"),
-        _string_list(value["version_history_bullets"], "prompt.version_history_bullets"),
-    )
+    def command(argv: tuple[str, ...], *, allow_dirty_status: bool = False) -> Any:
+        result = runner(argv, root) if runner is not None else subprocess.run(
+            argv, cwd=root, text=True, capture_output=True, check=False,
+        )
+        returncode = getattr(result, "returncode", None)
+        if not isinstance(returncode, int) or (returncode != 0 and not allow_dirty_status):
+            raise PublicReleaseError(f"public-release-command-failed: {' '.join(argv[:2])}")
+        return result
 
+    def git_all(before: str) -> None:
+        command((
+            "git", "add", "-A", "--", ".", ":(exclude,glob)**/.env", ":(exclude,glob)**/.env*",
+            ":(exclude,glob)**/*.env",
+        ))
+        staged = command(("git", "diff", "--cached", "--quiet"), allow_dirty_status=True)
+        if staged.returncode == 1:
+            command(("git", "commit", "-m", f"chore(release): checkpoint before public {before}"))
+        elif staged.returncode != 0:
+            raise PublicReleaseError("public-release-git-status-failed")
 
-def _bullet_section(title: str, lines: Sequence[str]) -> str:
-    return "\n".join((f"## {title}", *(f"- {line}" for line in lines)))
-
-
-def _body(whats_new: Sequence[str], whats_fixed: Sequence[str]) -> str:
-    return _bullet_section("What's new", whats_new) + "\n\n" + _bullet_section("What's fixed", whats_fixed) + "\n"
-
-
-def _require_passed(result: object) -> None:
-    if result is True or (isinstance(result, Mapping) and result.get("passed") is True):
-        return
-    if (getattr(result, "call", None) is not None and getattr(result, "binding", None) is not None):
-        return
-    raise PublicReleaseError("configured full test suite did not report passed")
-
-
-def _pr_url(value: Mapping[str, object]) -> str:
-    url = value.get("url")
-    if not isinstance(url, str) or not url.startswith("https://") or any(char in url for char in "\r\n"):
-        raise PublicReleaseError("PR hook must return an https url")
-    return url
-
-
-def _write(path: Path, value: str) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(value, encoding="utf-8")
-
-
-def _require_hooks(hooks: PublicReleaseHooks) -> None:
-    missing = tuple(
-        name for name in ("prompt", "test", "commit", "push", "pr", "journal")
-        if not callable(getattr(hooks, name, None))
-    )
-    if missing:
-        raise PublicReleaseError(f"hooks must provide callable: {', '.join(missing)}")
-
-
-def _journal(hooks: PublicReleaseHooks, run_id: str, phase: str, **details: object) -> None:
-    hooks.journal({"run_id": run_id, "phase": phase, **details})
-
-
-def _optional_hook(hooks: PublicReleaseHooks, name: str):
-    callback = getattr(hooks, name, None)
-    if callback is not None and not callable(callback):
-        raise PublicReleaseError(f"optional hook {name} must be callable")
-    return callback
-
-
-def run_public_release(project_root: Path, *, run_id: str, hooks: PublicReleaseHooks,
-                       config: Mapping[str, object]) -> dict[str, object]:
-    """Run one Public release, stopping at the first failed callback.
-
-    The only permitted post-PR mutation writes the verified PR URL into the
-    pre-existing Version History entry, then commits and pushes that one file.
-    A typed finalizer may prove that the exact URL was already linked; that is
-    a no-op.  Neither branch invokes the full suite again.
-    """
-    root = Path(project_root).resolve()
-    if not root.is_dir():
-        raise PublicReleaseError("project_root must be an existing directory")
-    release_run_id = _non_empty_string(run_id, "run_id")
-    parsed = _config(config)
-    _require_hooks(hooks)
-    version = _read_version(root)
-    candidate_root = _inside(root, parsed.candidate_root, "config.candidate_root")
-    if not candidate_root.is_dir():
-        raise PublicReleaseError("config.candidate_root must be an existing directory")
-    readme = _inside(root, parsed.readme_path, "config.readme_path")
-    notes = _inside(root, parsed.notes_path, "config.notes_path")
-    history = _inside(root, parsed.version_history_path, "config.version_history_path")
-    if not readme.is_file() or not history.is_file():
-        raise PublicReleaseError("configured README and Version History files must already exist")
-
-    existing_pr_url = _optional_hook(hooks, "existing_history_pr_url")
-    finalize_history = _optional_hook(hooks, "finalize_history_link")
-    finish_history = _optional_hook(hooks, "finish_history_finalization")
-    abort_history = _optional_hook(hooks, "abort_history_finalization")
-    known_pr_url: str | None = None
-    if existing_pr_url is not None:
-        candidate_url = existing_pr_url(root, version)
-        if candidate_url is not None:
-            known_pr_url = _pr_url({"url": candidate_url})
-    if known_pr_url is not None and finalize_history is None:
-        raise PublicReleaseError("an existing PR history link needs a typed history finalizer")
-    if finalize_history is not None and finish_history is None:
-        raise PublicReleaseError("history finalizer needs a finish hook")
-
-    begin_documents = _optional_hook(hooks, "begin_document_admission")
-    capture_documents = _optional_hook(hooks, "capture_document_admission")
-    abort_documents = _optional_hook(hooks, "abort_document_admission")
-    document_token = begin_documents(root, version, parsed.changes) if begin_documents else None
     try:
-        prompted = hooks.prompt(root, version, parsed.changes)
-        if not isinstance(prompted, Mapping):
-            raise PublicReleaseError("prompt hook must return a mapping")
-        whats_new, whats_fixed, history_bullets = _prompt_result(prompted)
-        body = _body(whats_new, whats_fixed)
-        release_marker = f"<!-- public-release:{release_run_id} -->"
-        if release_marker in readme.read_text(encoding="utf-8"):
-            raise PublicReleaseError("run_id already appears in the configured README")
-        history_marker = f"<!-- public-release:{release_run_id} -->"
-        if history_marker in history.read_text(encoding="utf-8"):
-            raise PublicReleaseError("run_id already appears in Version History")
+        if not isinstance(content_draft, Mapping) or set(content_draft) != {"description", "summary"}:
+            raise PublicReleaseError("content_draft must contain exactly description and summary")
+        description = content_draft["description"]
+        summary = content_draft["summary"]
+        if not isinstance(description, str) or not description.strip():
+            raise PublicReleaseError("content_draft.description must be non-empty Markdown")
+        description = description.strip() + "\n"
+        _, new_heading, after_new = description.partition("## New\n")
+        new_section, fixed_heading, fixed_section = after_new.partition("\n## Fixed\n")
+        if (not new_heading or not fixed_heading
+                or not any(line.startswith("- ") and line[2:].strip() for line in new_section.splitlines())
+                or not any(line.startswith("- ") and line[2:].strip() for line in fixed_section.splitlines())):
+            raise PublicReleaseError("content_draft.description needs non-empty ## New and ## Fixed sections")
+        if not isinstance(summary, list) or not summary or any(
+            not isinstance(item, str) or not item.strip() or "\n" in item or len(item) > 240 for item in summary
+        ):
+            raise PublicReleaseError("content_draft.summary must be concise non-empty bullets")
 
-        _write(notes, f"# Public release {version}\n\n{body}")
-        _write(readme, readme.read_text(encoding="utf-8").rstrip() +
-               f"\n\n{release_marker}\nLatest public release: **{version}**. See [{notes.name}]({parsed.notes_path}).\n")
-        history_heading = f"## {version}" + (f" [PR]({known_pr_url})" if known_pr_url else "")
-        history_entry = "\n".join(f"- {bullet}" for bullet in history_bullets)
-        _write(history, history.read_text(encoding="utf-8").rstrip() +
-               f"\n\n{history_marker}\n{history_heading}\n{history_entry}\n")
-        if document_token is not None:
-            if capture_documents is None:
-                raise PublicReleaseError("document admission needs a capture hook")
-            capture_documents(document_token)
-    except BaseException:
-        if document_token is not None and abort_documents is not None:
-            abort_documents(document_token)
-        raise
-    _journal(hooks, release_run_id, "documents_applied", version=version, paths=list(parsed.release_paths))
-    finish_documents = _optional_hook(hooks, "finish_document_admission")
-    if document_token is not None:
-        if finish_documents is None:
-            raise PublicReleaseError("document admission needs a finish hook")
-        finish_documents(document_token)
-
-    _require_passed(hooks.test(root, candidate_root))
-    _journal(hooks, release_run_id, "full_suite_passed", version=version)
-    hooks.commit(root, parsed.release_paths, f"release: public v{version}")
-    hooks.push(root, parsed.branch)
-    pr = hooks.pr(root, parsed.branch, parsed.base, body)
-    if not isinstance(pr, Mapping):
-        raise PublicReleaseError("PR hook must return a mapping")
-    url = _pr_url(pr)
-    _journal(hooks, release_run_id, "pr_upserted", url=url)
-
-    if finalize_history is not None:
-        finalization = finalize_history(root, version, url)
-        changed = getattr(finalization, "changed", None)
-        if type(changed) is not bool:
-            if abort_history is not None:
-                abort_history(finalization)
-            raise PublicReleaseError("history finalizer must return an explicit changed flag")
+        version_path = root / "version.toml"
         try:
-            if changed:
-                hooks.commit(root, (parsed.version_history_path,), f"docs: record public v{version} PR URL")
-                hooks.push(root, parsed.branch)
-            finish_history(finalization)
-        except BaseException:
-            if abort_history is not None:
-                abort_history(finalization)
-            raise
-    else:
-        history_contents = history.read_text(encoding="utf-8")
-        original = f"{history_marker}\n{history_heading}"
-        finalized = f"{history_marker}\n{history_heading} [PR]({url})"
-        if history_contents.count(original) != 1:
-            raise PublicReleaseError("Version History entry changed before PR URL insertion")
-        begin_history = _optional_hook(hooks, "begin_history_finalization")
-        history_token = begin_history(root, version, url) if begin_history else None
+            version_text = version_path.read_text(encoding="utf-8")
+            old_version = tomllib.loads(version_text)["framework"]["version"]
+        except (FileNotFoundError, KeyError, TypeError, tomllib.TOMLDecodeError) as error:
+            raise PublicReleaseError("version.toml must declare [framework].version") from error
+        match = re.fullmatch(
+            r"(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:\.(0|[1-9][0-9]*))?",
+            old_version,
+        ) if isinstance(old_version, str) else None
+        if match is None:
+            raise PublicReleaseError("public release requires a numeric framework version")
+        version = f"{match.group(1)}.{match.group(2)}.{int(match.group(3)) + 1}"
+        branch = command(("git", "branch", "--show-current"))
+        if getattr(branch, "stdout", "").strip() != "amm/dev":
+            raise PublicReleaseError("public-release-requires-amm-dev")
+
+        step = "tests"
+        git_all(step)
+        command((
+            "uv", "run", "--locked", "--no-sync", "--no-env-file", "--group", "rmed-workflow-mcp",
+            "--group", "workflow-orchestrator", "python", "-B", "-m", "unittest",
+            "PROJECT_TOOLS/tests/test_simple_local_release.py",
+            "PROJECT_TOOLS/tests/test_simple_public_release.py",
+            "102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/204_MCP/tests/test_simple_local_release_route.py",
+        ))
+
+        step = "bump_version"
+        git_all(step)
+        version_path.write_text(version_text.replace(f'"{old_version}"', f'"{version}"', 1), encoding="utf-8")
+
+        step = "write_docs"
+        git_all(step)
+        readme = root / "README.md"
+        history = root / "VERSION_HISTORY.md"
+        marker = f"<!-- public-release:{run_id} -->"
+        latest_marker = "<!-- latest-public-release -->"
+        if not readme.is_file() or not history.is_file():
+            raise PublicReleaseError("public-release-documents-missing")
+        if marker in history.read_text(encoding="utf-8"):
+            raise PublicReleaseError("public-release-run-id-already-recorded")
+        latest = f"{latest_marker}\nLatest public release: **{version}**. See [Version History](VERSION_HISTORY.md)."
+        readme_text = readme.read_text(encoding="utf-8")
+        if latest_marker in readme_text:
+            readme_text, changed = re.subn(
+                r"(?m)^<!-- latest-public-release -->\nLatest public release: \*\*[^*\n]+\*\*\. See \[Version History\]\(VERSION_HISTORY\.md\)\.$",
+                latest, readme_text,
+            )
+            if changed != 1:
+                raise PublicReleaseError("public-release-readme-block-invalid")
+        else:
+            readme_text = readme_text.rstrip() + f"\n\n{latest}\n"
+        readme.write_text(readme_text, encoding="utf-8")
+        history.write_text(
+            history.read_text(encoding="utf-8").rstrip()
+            + f"\n\n{marker}\n## {version}\n"
+            + "\n".join(f"- {item.strip()}" for item in summary)
+            + "\n",
+            encoding="utf-8",
+        )
+
+        step = "push"
+        git_all(step)
+        command(("git", "push", "origin", "amm/dev"))
+
+        step = "upsert_pr"
+        git_all(step)
+        discovered = command((
+            "gh", "pr", "list", "--head", "amm/dev", "--base", "main", "--state", "open", "--json", "url", "--limit", "2",
+        ))
         try:
-            _write(history, history_contents.replace(original, finalized, 1))
-            hooks.commit(root, (parsed.version_history_path,), f"docs: record public v{version} PR URL")
-            hooks.push(root, parsed.branch)
-            if history_token is not None:
-                if finish_history is None:
-                    raise PublicReleaseError("history admission needs a finish hook")
-                finish_history(history_token)
-        except BaseException:
-            if history_token is not None and abort_history is not None:
-                abort_history(history_token)
-            raise
-    _journal(hooks, release_run_id, "published", url=url)
+            matches = json.loads(getattr(discovered, "stdout", ""))
+        except (TypeError, json.JSONDecodeError) as error:
+            raise PublicReleaseError("public-release-pr-discovery-invalid") from error
+        title = f"CAPRMEDIO {version} public release"
+        if not isinstance(matches, list) or len(matches) > 1:
+            raise PublicReleaseError("public-release-pr-discovery-invalid")
+        if matches:
+            pr_url = matches[0].get("url") if isinstance(matches[0], Mapping) else None
+            if not isinstance(pr_url, str) or re.fullmatch(r"https://github\.com/[^/\s]+/[^/\s]+/pull/[1-9][0-9]*", pr_url) is None:
+                raise PublicReleaseError("public-release-pr-discovery-invalid")
+            command(("gh", "pr", "edit", pr_url, "--title", title, "--body", description))
+        else:
+            created = command(("gh", "pr", "create", "--head", "amm/dev", "--base", "main", "--title", title, "--body", description))
+            pr_url = getattr(created, "stdout", "").strip()
+            if not isinstance(pr_url, str) or re.fullmatch(r"https://github\.com/[^/\s]+/[^/\s]+/pull/[1-9][0-9]*", pr_url) is None:
+                raise PublicReleaseError("public-release-pr-create-invalid")
+
+        step = "link_history"
+        git_all(step)
+        entry = f"{marker}\n## {version}"
+        history_text = history.read_text(encoding="utf-8")
+        if history_text.count(entry) != 1:
+            raise PublicReleaseError("public-release-history-entry-missing")
+        history.write_text(history_text.replace(entry, f"{entry} [PR]({pr_url})", 1), encoding="utf-8")
+
+        step = "final_commit_push"
+        git_all(step)
+        command(("git", "push", "origin", "amm/dev"))
+    except Exception as error:
+        report = root / ".caprmedio_tmp" / "public_release" / run_id / "issue.md"
+        report.parent.mkdir(parents=True, exist_ok=True)
+        report.write_text(f"# Public release issue\n\n- Run: `{run_id}`\n- Step: `{step}`\n- Error: {error}\n", encoding="utf-8")
+        return {
+            "outcome": "failed", "run_id": run_id, "project_root": str(root), "failed_step": step,
+            "report_path": report.relative_to(root).as_posix(), "error": str(error),
+        }
     return {
-        "run_id": release_run_id,
-        "version": version,
-        "branch": parsed.branch,
-        "base": parsed.base,
-        "url": url,
-        "status": "published",
+        "outcome": "completed", "run_id": run_id, "project_root": str(root), "version": version,
+        "pr_url": pr_url, "failed_step": None, "report_path": None,
     }

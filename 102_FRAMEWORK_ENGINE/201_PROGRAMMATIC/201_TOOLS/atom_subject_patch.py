@@ -448,8 +448,8 @@ def _snapshot_identity(
     control = operations.control_root(root)
     if path.suffix.lower() != ".md" or operations._role_directory(path, control) is None:
         _fail(operations, "not-markdown-atom", "Subject selector is not a CAPRMEDIO Markdown Atom carrier")
-    if operations._lifecycle(path, control) != "active":
-        _fail(operations, "atom-not-active", "Subject patch source must be an active Atom carrier", {"selector": selector})
+    if operations._lifecycle(path, control) in {"draft", "archived"}:
+        _fail(operations, "atom-not-active", "Subject patch source must be a non-Draft, non-archived original Atom carrier", {"selector": selector})
     if "projection" in metadata:
         _fail(operations, "subject-selector-projection", "Subject selector cannot address a projection carrier")
     atom_id = metadata.get("atom_id")
@@ -461,8 +461,9 @@ def _snapshot_identity(
     version = metadata.get("version")
     if isinstance(version, bool) or not isinstance(version, int) or version < 1:
         _fail(operations, "atom-version-invalid", "Subject patch source has no positive integer Version")
-    if metadata.get("status") != "Active":
-        _fail(operations, "atom-not-active", "Subject patch source metadata status must be Active", {"selector": selector})
+    status = metadata.get("status")
+    if not isinstance(status, str) or status.casefold() in {"draft", "archived"}:
+        _fail(operations, "atom-not-active", "Subject patch source must carry a non-Draft, non-archived Status", {"selector": selector})
     return atom_id, version
 
 

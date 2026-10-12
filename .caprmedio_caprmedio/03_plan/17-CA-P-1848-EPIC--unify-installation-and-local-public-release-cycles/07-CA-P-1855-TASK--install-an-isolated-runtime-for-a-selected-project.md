@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-10 01:12:42 +0400"
+version: 5
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on:
@@ -38,20 +38,15 @@ Install an isolated runtime for a selected Project
 
 ## Objective
 
-the AI Agent implements installation of the selected beta Framework Package into a runtime isolated to the requested Project.
+Install the package into the selected Project runtime without replacing configuration or records.
 
 ## Details
 
-- scope: the installation/release contribution of the CAPRMEDIO Framework Instance delivered by the caprmedio Project.
-- input: an explicit package root/release **and** explicit Operator-supplied target Project settings, Project Structure **and** registry Carrier bytes containing its directly nested `.caprmedio_<project>` settings/control folder.
-- output: this Project's `.caprmedio_runtime`, selected package execution binding, uv-managed isolated environment, configured Methodology installation, installed ca Skill **and** attributable initialization result; bootstrap/adoption never fabricates a Project identity, metadata, settings, structure **or** registry.
-- support relocation, Git **and** non-Git Projects, separate repositories **and** multiple Project root folders **in** one repository. package inputs can be reusable; runtime databases, locks, Runs, dependency environments **and** endpoint selection remain per-Project.
-- store **all** runtime settings **in** `.caprmedio_runtime/config.toml`, separate **from** immutable package contents **and** generated installation selectors. create admitted defaults **only if** absent; preserve an existing file byte-for-byte during reinstall, upgrade **and** rollback. configuration compatibility checks **must** precede activation; an incompatible file requires explicit migration **or** blocks activation, **not** replacement. keep Project/Framework Instance Settings authoritative **in** their own existing carriers.
-- bootstrap dependencies **through** uv **and** the lockfile. installed execution **must not** silently fall back to system Python, system libraries, another Project **or** the development checkout. distinguish an explicit development mode **from** normal installed execution.
-- integrate the reviewed legacy-state migration without deleting historical evidence. Persist =1 per-Project installation lock that binds package/version, selected extensions/configuration/catalog revisions, package manifest and runtime state; every selector, wrapper and service reads the same lock. After staged validation and explicit quiescence, remove only the selected installed package, install the verified replacement and publish selectors last. Test first install from fixture Project inputs, same-version reinstall, replacement, missing uv/input, missing selected revision, interruption and recovery; a post-removal failure is unavailable with configuration and Project-owned evidence intact, not rollback to a removed package. Real cutover occurs only after the local full-suite gate.
-- effort: own work for **=1** AI Agent **must** fit **<=15** minutes. **if** this Plan needs larger own work, decompose it **before** execution **and** preserve its Objective **and** acceptance.
-- control: use applicable Operator input **and** inherited Framework Instance Settings for permission, confidence **and** retry gates. creation is planned work **only**, **not** permission to execute the local/public cycle immediately.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** a fresh Project cannot install **without** the checkout, a runtime uses another Project's state/configuration, installation replaces an existing runtime configuration, dependencies escape uv isolation, **or** installation cannot recover **without** losing evidence.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

@@ -6,7 +6,6 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
-from types import SimpleNamespace
 from unittest.mock import patch
 
 
@@ -16,8 +15,6 @@ for path in (APP, PUBLIC_RELEASE):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
-import public_release  # noqa: E402
-import selected_host  # noqa: E402
 from selected_execution import SelectedExecution, SelectedExecutionError  # noqa: E402
 from selected_native_providers import SelectedNativeProviders  # noqa: E402
 
@@ -63,27 +60,15 @@ class SelectedPublicDispatchTests(unittest.TestCase):
     def execution(self) -> SelectedExecution:
         return self.providers.execution(copy.deepcopy(self.frozen))
 
-    def test_dispatches_the_existing_session_once_without_generic_workflow_start(self) -> None:
+    def test_retired_selected_session_provider_refuses_without_starting_a_run(self) -> None:
         selected = self.execution()
         session = _Session()
-        host = object()
-        calls = []
-        hooks = SimpleNamespace(run_selected_public_release=lambda *args, **kwargs: calls.append((args, kwargs)) or {"status": "published"})
-        with patch.object(selected, "_revalidate", return_value=copy.deepcopy(self.graph)) as revalidate, \
-                patch.object(selected_host, "create_selected_public_bindings", return_value=host) as create, \
-                patch.object(public_release, "SelectedPublicSessionPhases", return_value="phases"), \
-                patch.object(self.providers, "_project_release_module", return_value=hooks), \
-                patch.object(self.providers, "_public_release_changes", return_value=["fix: selected change"]), \
-                patch.object(SelectedExecution, "_execute_graph", side_effect=AssertionError("generic start")) as generic:
-            self.assertIsNone(selected._execute_admitted_session(self.frozen, session))
+        with patch.object(SelectedExecution, "_execute_graph", side_effect=AssertionError("generic start")) as generic:
+            with self.assertRaisesRegex(SelectedExecutionError, "selected-session provider is disabled"):
+                selected._execute_admitted_session(self.frozen, session)
 
-        revalidate.assert_called_once_with(self.frozen)
-        create.assert_called_once_with(self.root, self.frozen, session)
-        self.assertEqual(len(calls), 1)
-        self.assertIs(calls[0][1]["bindings"], host)
-        self.assertEqual(calls[0][1]["phases"], "phases")
-        self.assertEqual(session.finished[1]["outcome"], "completed")
-        self.assertTrue((self.root / session.finished[1]["result_ref"]).is_file())
+        self.assertFalse(hasattr(session, "started"))
+        self.assertFalse(hasattr(session, "finished"))
         generic.assert_not_called()
 
     def test_one_text_prompt_has_no_project_write_workspace(self) -> None:
@@ -106,34 +91,6 @@ class SelectedPublicDispatchTests(unittest.TestCase):
         self.providers.implementation_agent = lambda *_: {"result": "blocked", "outputs": {}, "blockers": ["missing evidence"]}
         with self.assertRaisesRegex(SelectedExecutionError, "did not complete"):
             self.providers._public_release_prompt(self.root, "0.4.2", ["fix"])
-
-    def test_missing_current_admission_refuses_before_private_host_creation(self) -> None:
-        selected = self.execution()
-        with patch.object(selected, "_revalidate", side_effect=SelectedExecutionError("missing admission")), \
-                patch.object(selected_host, "create_selected_public_bindings") as create:
-            with self.assertRaisesRegex(SelectedExecutionError, "no current canonical source admission"):
-                selected._execute_admitted_session(self.frozen, _Session())
-        create.assert_not_called()
-
-    def test_noncanonical_public_graph_refuses_before_private_host_creation(self) -> None:
-        selected = self.execution()
-        graph = copy.deepcopy(self.graph)
-        graph["steps"][0]["actions"][0]["atom_id"] = "CA-O-999"
-        with patch.object(selected, "_revalidate", return_value=graph), \
-                patch.object(selected_host, "create_selected_public_bindings") as create:
-            with self.assertRaisesRegex(SelectedExecutionError, "exact D613-selected graph"):
-                selected._execute_admitted_session(self.frozen, _Session())
-        create.assert_not_called()
-
-    def test_missing_private_host_refuses_before_generic_workflow_start(self) -> None:
-        selected = self.execution()
-        with patch.object(selected, "_revalidate", return_value=copy.deepcopy(self.graph)), \
-                patch.dict(sys.modules, {"selected_host": None}), \
-                patch.object(SelectedExecution, "_execute_graph", side_effect=AssertionError("generic start")) as generic:
-            with self.assertRaisesRegex(SelectedExecutionError, "private selected host is unavailable"):
-                selected._execute_admitted_session(self.frozen, _Session())
-        generic.assert_not_called()
-
 
 if __name__ == "__main__":
     unittest.main()

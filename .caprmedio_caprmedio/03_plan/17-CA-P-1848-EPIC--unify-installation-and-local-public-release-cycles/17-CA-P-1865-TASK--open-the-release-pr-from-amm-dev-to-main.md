@@ -10,8 +10,8 @@ local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-version: 4
-updated_at: "2026-10-10 18:08:27 +0400"
+version: 5
+updated_at: "2026-10-11 23:48:54 +0000"
 subjects:
   governs: "CAPRMEDIO Framework Instance"
   depends_on: [Project, Plan, AI Agent, Operator, Framework Instance Settings, Version, Framework Package, Evaluation, Workflow Run, Workflow, Action, Tool, Journal]
@@ -25,15 +25,15 @@ Open the release PR **from** amm/dev **to** main
 
 ## Objective
 
-the AI Agent creates **or** updates the release PR **from** `amm/dev` to `main` **with** the full description as an internal Public release stage.
+Create or update the Public PR from amm/dev to main with the complete description; do not merge.
 
 ## Details
 
-1. Verify the personal repository, base `main`, head `amm/dev` and whether a matching PR exists. Reuse/update the matching PR rather than create a duplicate.
-2. Use the one-prompt full description with complete “What's new” and “What's fixed” lists; retain only concise history bullets and the actual URL in Version History.
-3. Confirm the PR URL, head commit, base branch and rendered description against the actual diff, then record exact command evidence. If the URL is new, the command's metadata-only follow-up appends it and pushes; no second full suite is needed solely for that link.
-4. Do not merge, alter CI/branch protection or claim that `main` shipped. This stage is not a separate handover command.
+- Follow CA-P-1848's current direct happy path. Earlier snapshot, admission, selector, recovery and complete-corpus gate requirements are superseded.
+- Commit everything before every release step and at the end, respecting Git ignore rules and secret exclusions.
+- Stop and report a failed step for manual handling; no automatic rollback or retry.
+- Preserve configuration, Project records and other Projects. Ignore .DS_Store.
 
-### Definition of Done
+## Definition of Done
 
-the Plan is **not** Done **if** the PR is missing or targets wrong branches/commit, has an inadequate or stale description, duplicates a matching PR, or its actual URL is unconfirmed.
+The Objective is implemented and verified with actual evidence appropriate to this task. Record remaining manual issues. Mock tests do not prove live release, installation, MCP or PR completion.

@@ -8,22 +8,22 @@ global_tier: 2
 status: Active
 author: Anatoly Maslennikov
 subjects:
-  governs: "Release Version/Step: compile candidate Methodology"
-  depends_on: [Workflow, Step, Action, Applicable Methodology, Compiler, Delivery, Journal]
-version: 6
-updated_at: "2026-10-10 19:05:19 +0400"
+  governs: "Release Version/Step: compile applicable Methodology"
+  depends_on: [Workflow, Step, Action, Applicable Methodology, Compiler, Delivery]
+version: 7
+updated_at: "2026-10-12 00:00:51 +0000"
 relations:
   part_of: [CA-O-164]
   invokes: [CA-O-166]
 ---
 # Summary
 
-Compile the candidate Applicable Methodology
+Compile applicable Methodology
 
 ## Step
 
-This Step invokes CA-O-166 once with phase `compile`, binding the verified `101_FRAMEWORK_METHODOLOGY/` source product and canonical compiler. Its output remains in that derived product; it does not write the installed Framework.
+This Step invokes CA-O-166 once with phase `compile` for `101_FRAMEWORK_METHODOLOGY/` and the canonical compiler. Its output remains in that derived product; it does not write the installed Framework.
 
 ## Details
 
-This is not another compiler graph. A changed frontier, incomplete product, unbound Tool/layout, output mismatch, or source mutation stops before installation. Compilation does not require a repeated full suite.
+This is not another compiler graph. An incomplete product, unavailable Tool/layout, or output mismatch stops before installation and is reported for manual handling.
