@@ -76,7 +76,7 @@ class SubjectApplyProject:
         self.golden._semantic_update_parameters = self.parameters
         self.archive = None if noop else root / self.prepared["subject_intent"]["predecessorArchive"]["path"]
 
-    def execution(self, run_id: str):
+    def execution(self, run_id: str, *, request_transform=None):
         from selected_execution import SelectedExecution
 
         request = self.golden.request(request_id=run_id)
@@ -92,6 +92,8 @@ class SubjectApplyProject:
                  "subject_intent_sha256": self.parameters["subject_intent_sha256"]},
                 {"type": "predecessorArchive", **archive},
             ]
+        if request_transform is not None:
+            request_transform(request)
         request["target_frontier_digest"] = digest(request["target_frontier"])
         request["effects_digest"] = digest(request["effects"])
         runner = SelectedExecution(self.root)

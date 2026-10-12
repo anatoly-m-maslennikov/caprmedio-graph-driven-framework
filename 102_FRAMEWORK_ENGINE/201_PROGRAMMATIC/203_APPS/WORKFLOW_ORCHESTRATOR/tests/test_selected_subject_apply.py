@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+import copy
 import json
 import sys
 import tempfile
+import types
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -21,7 +23,7 @@ import atom_subject_patch as subject_patch  # noqa: E402
 import work_journal  # noqa: E402
 from lifecycle_intents import LifecycleError  # noqa: E402
 from test_subject_apply_portfolio import REPOSITORY, SubjectApplyProject  # noqa: E402
-from workflow_run_support import RunExecutionSession  # noqa: E402
+from workflow_run_support import RunExecutionSession, SelectedRunError  # noqa: E402
 
 
 TEST_TEMP_ROOT = REPOSITORY / ".caprmedio_tmp/tests/test_selected_subject_apply"
@@ -34,8 +36,8 @@ class SelectedSubjectApplyTests(unittest.TestCase):
         self.addCleanup(self.directory.cleanup)
         self.fixture = SubjectApplyProject(Path(self.directory.name))
 
-    def dispatch_observed(self, run_id: str, *, mutate=None):
-        runner, frozen = self.fixture.execution(run_id)
+    def dispatch_observed(self, run_id: str, *, mutate=None, request_transform=None):
+        runner, frozen = self.fixture.execution(run_id, request_transform=request_transform)
         original = native.subject_update_action
         calls = []
         codes = []
@@ -58,6 +60,73 @@ class SelectedSubjectApplyTests(unittest.TestCase):
         writer.assert_not_called()
         self.fixture.assert_unchanged(self)
         return result, runner, frozen, calls, codes
+
+    def test_sealed_subject_frontier_and_ordered_effect_variants_are_refused(self) -> None:
+        duplicate = "target_frontier must not contain duplicate references"
+        nonempty = "target_frontier must be a non-empty ordered list"
+        variants = (
+            ("frontier-missing-current", lambda request: request["target_frontier"].pop(0), None),
+            ("frontier-missing-history", lambda request: request["target_frontier"].pop(), None),
+            ("frontier-extra", lambda request: request["target_frontier"].append("fixture/unrequested.md"), None),
+            ("frontier-duplicate-current", lambda request: request["target_frontier"].append(request["target_frontier"][0]), duplicate),
+            ("frontier-duplicate-history", lambda request: request["target_frontier"].append(request["target_frontier"][1]), duplicate),
+            ("frontier-reordered", lambda request: request["target_frontier"].reverse(), None),
+            ("frontier-empty", lambda request: request["target_frontier"].clear(), nonempty),
+            ("effects-missing-current", lambda request: request["effects"].pop(0), None),
+            ("effects-missing-history", lambda request: request["effects"].pop(), None),
+            ("effects-empty", lambda request: request["effects"].clear(), None),
+            ("effects-extra", lambda request: request["effects"].append({"type": "unrequested", "path": "fixture/unrequested.md"}), None),
+            ("effects-duplicate-current", lambda request: request["effects"].append(copy.deepcopy(request["effects"][0])), None),
+            ("effects-duplicate-history", lambda request: request["effects"].append(copy.deepcopy(request["effects"][1])), None),
+            ("effects-reordered", lambda request: request["effects"].reverse(), None),
+            ("effect-current-target", lambda request: request["effects"][0].update(path="fixture/unrequested.md"), None),
+            ("effect-history-target", lambda request: request["effects"][1].update(path="fixture/unrequested.md"), None),
+            ("effect-current-identity", lambda request: request["effects"][0].update(atom_id="CA-R-9999"), None),
+            ("effect-history-identity", lambda request: request["effects"][1].update(atom_id="CA-R-9999"), None),
+            ("effect-intent-hash", lambda request: request["effects"][0].update(subject_intent_sha256="0" * 64), None),
+            ("effect-current-extra-field", lambda request: request["effects"][0].update(unrequested=True), None),
+            ("effect-history-missing-hash", lambda request: request["effects"][1].pop("sha256"), None),
+        )
+        for name, transform, earlier_message in variants:
+            with self.subTest(case=name), patch.object(
+                native.operations, "write_raw_atom_revision", wraps=native.operations.write_raw_atom_revision,
+            ) as writer:
+                if earlier_message is not None:
+                    with self.assertRaises(SelectedRunError) as refused:
+                        self.fixture.execution(f"subject-{name}", request_transform=transform)
+                    self.assertEqual("invalid-request", refused.exception.code)
+                    self.assertEqual(f"invalid-request: {earlier_message}", str(refused.exception))
+                else:
+                    result, _, frozen, calls, codes = self.dispatch_observed(
+                        f"subject-{name}", request_transform=transform,
+                    )
+                    sealed = frozen["request"]["execution"]
+                    self.assertEqual(sealed["target_frontier_digest"], sealed["operator_authorization"]["target_frontier_digest"])
+                    self.assertEqual(sealed["effects_digest"], sealed["operator_authorization"]["effects_digest"])
+                    self.assertEqual(["subject-frontier-mismatch"], codes)
+                    self.assertEqual(1, len(calls))
+                    self.assertFalse(any(row["run_id"] == calls[0]["action_run_id"] and row["outcome"] == "completed"
+                                         for row in result["terminal_runs"]))
+                writer.assert_not_called()
+                self.fixture.assert_unchanged(self)
+
+    def test_frontier_guard_mutant_produces_a_detectable_wrong_diagnostic(self) -> None:
+        source = Path(native.__file__).read_text(encoding="utf-8")
+        guard = (
+            '        if sealed["target_frontier"] != frontier or sealed["effects"] != effects:\n'
+            '            _fail("subject-frontier-mismatch", "Subject frontier and effects differ from the exact intent")\n'
+        )
+        self.assertEqual(1, source.count(guard))
+        mutant = types.ModuleType("subject_frontier_guard_mutant")
+        exec(compile(source.replace(guard, "", 1), "<disposable Subject frontier mutant>", "exec"), mutant.__dict__)
+        probe = SelectedSubjectApplyTests("test_sealed_subject_frontier_and_ordered_effect_variants_are_refused")
+        probe.fixture = self.fixture
+        with patch.object(native, "subject_update_action", mutant.subject_update_action):
+            with self.assertRaises(AssertionError) as wrong_output:
+                probe.test_sealed_subject_frontier_and_ordered_effect_variants_are_refused()
+        self.assertIn("subject-frontier-mismatch", str(wrong_output.exception))
+        self.assertIn("subject-publication-deferred", str(wrong_output.exception))
+        self.fixture.assert_unchanged(self)
 
     def test_real_completed_assessment_and_actual_o030_start_reach_deferred_boundary(self) -> None:
         original_start = RunExecutionSession.start_run
