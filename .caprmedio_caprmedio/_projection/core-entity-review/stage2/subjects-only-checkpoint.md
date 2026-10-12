@@ -38,6 +38,14 @@ still deferred.
   checks and a real no-op preview. Installed copies are not original
   competitors; selecting an installed copy and genuine duplicate originals
   still fail. See [the acceptance record](tools-first/installed-copy-identity-acceptance.md).
+- Tool/inventory leaf closure was committed as `177b337d3`; the parent Epics
+  remain Active. The new CA-P-2193 group has 48 Active review Tasks covering
+  all 907 sources / 4,534 occurrences. Independent partition, input-pin,
+  history and link checks passed; this is not semantic acceptance.
+- Six further frozen reports (R004–R008 and O002) cover 120 additional Atoms
+  and 542 occurrences. Independent reviews have found corrections and pending
+  choices; these reports do not grant staging permission. Other review and
+  correction lanes may still be running. Frozen earlier reports are preserved.
 
 ## Gates still open
 
@@ -78,6 +86,18 @@ The latest clarification distinguishes three concepts:
 
 The old combined lookup context is a Selection, not a fourth scope. These
 meanings guide Subject review; content fields and storage keys remain unchanged.
+
+The old literal `Atom/Scope` is overloaded. CA-R-1287 refers to the breadth of
+Claim Scope (Substance Scope); CA-R-1294 refers to the Consumer's owning Scope
+Unit. Neither is the combined lookup Selection used by CA-R-1014. Each mapping
+must follow its own source content, not a global string replacement.
+
+One representation question is pending: use `Atom.Owning Scope Unit`,
+`Atom.Target Scope Unit`, and `Atom.Substance Scope`, with the first two naming
+Atom references, or retain the first two as the actual addressed units? The
+three meanings are approved; the reference-versus-referent distinction is not
+yet settled. Affected rows remain withheld. No storage/content change follows
+from either answer during this Epic.
 
 ## Local evidence
 
