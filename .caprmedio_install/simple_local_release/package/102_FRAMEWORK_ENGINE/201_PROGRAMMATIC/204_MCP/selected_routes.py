@@ -1,0 +1,1663 @@
+"""Closed selected-Workflow MCP projection; execution remains in shared support."""
+from __future__ import annotations
+
+import hashlib
+import importlib
+import importlib.util
+import json
+import os
+import re
+import stat
+import sys
+import tomllib
+import copy
+from pathlib import Path
+from typing import Any, Callable, Mapping
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / '201_TOOLS'))
+from project_selection import bound_selection
+
+
+DEFAULT_CONTROL_ROOT = Path(".caprmedio_caprmedio")
+MANIFEST_FILENAME = "selected_workflow_bindings.json"
+PROJECT_SETTINGS_REF = DEFAULT_CONTROL_ROOT / "caprmedio_project_settings.toml"
+ORIGINAL_SELECTED_ROUTE_NAMES = (
+    "create_atom", "update_atom", "replace_atom", "change_atom_status",
+    "create_scope_unit", "rename_scope_unit", "move_scope_unit", "remove_scope_unit",
+    "run_implementation_workflow", "revert_changes", "build_entities_graph",
+    "build_terms_graph", "build_applicable_methodology",
+)
+QUERY_ROUTE_NAMES = ("find_and_fetch_artifacts", "find_and_fetch_journal_events")
+SELECTED_ROUTE_NAMES = (*ORIGINAL_SELECTED_ROUTE_NAMES, *QUERY_ROUTE_NAMES)
+_OPTIONAL_RELEASE_ROUTE_NAME = "release_version"
+_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME = "public.release"
+_DIGEST = re.compile(r"^[0-9a-f]{64}$")
+_ATOM_ID = re.compile(r"^CA-[A-Z]+-[0-9]+$")
+_REQUEST_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$")
+_FRESHNESS_FIELDS = {
+    "selected_source_registry_ref", "selected_source_registry_version",
+    "selected_source_registry_digest", "selected_binding_ref", "selected_binding_digest",
+}
+_ORIGINAL_SELECTED_SOURCE_REGISTRY_REF = (
+    ".caprmedio_caprmedio/02_analysis/"
+    "CA-A-1142-ANALYSIS_RPRT--prepare-the-selected-source-to-rmed-handoff.md"
+)
+_ORIGINAL_SELECTED_SOURCE_REGISTRY_VERSION = 2
+_QUERY_SOURCE_ADMISSION_FIELDS = {
+    "route", "acceptance_frontier", "workflow", "ordered_steps", "ordered_actions",
+}
+_QUERY_SOURCE_ADMISSION_SPECS = (
+    {
+        "route": "find_and_fetch_artifacts",
+        "acceptance_frontier": {
+            "atom_id": "CA-P-1618", "version": 1,
+            "source_path": ".caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/08-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/29-CA-P-1618-TASK--accept-current-artifact-query-source-frontier.md",
+            "digest": "bdf10c928c10c102dc489c8e3e526ffe73e8a33d492f4dabc8b5d0129c453b1f",
+        },
+        "workflow": {
+            "atom_id": "CA-O-158", "version": 4,
+            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-158-CORE_META_MODEL-WORKFLOW--find-and-fetch-artifacts.md",
+            "digest": "d7fdaebdd1d0c6ca7dac9aced25552c487336f2a51f18c0f03ef65d16ff4618a",
+        },
+        "ordered_steps": [{
+            "step": {
+                "atom_id": "CA-O-160", "version": 2,
+                "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-160-CORE_META_MODEL-STEP--run-the-artifact-query-and-fetch.md",
+                "digest": "a743a84fd24db32123ac8162e7a2178e6d83b1b727cbe54477b6020914537384",
+            },
+            "action": {
+                "atom_id": "CA-O-159", "version": 2,
+                "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
+                "digest": "3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08",
+            },
+        }],
+        "ordered_actions": [{
+            "atom_id": "CA-O-159", "version": 2,
+            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-159-CORE_META_MODEL-ACTION--query-and-fetch-artifacts.md",
+            "digest": "3fd33badbff039e58c1c0b31dfbf3608c37a58d779a1b3ebc14d7bb5ee27dc08",
+        }],
+    },
+    {
+        "route": "find_and_fetch_journal_events",
+        "acceptance_frontier": {
+            "atom_id": "CA-P-1535", "version": 2,
+            "source_path": ".caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/08-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/15-CA-P-1535-TASK--accept-final-journal-query-source.md",
+            "digest": "6246b46d2961d795e29eeb224f01b14979434d4ad24cf3f4913c490268cf52dc",
+        },
+        "workflow": {
+            "atom_id": "CA-O-161", "version": 2,
+            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-161-CORE_META_MODEL-WORKFLOW--find-and-fetch-journal-events.md",
+            "digest": "362b9d3848a796a14e7374cfa0bf0b561c4f2035b7b2bf87bd9b56fc97a6724d",
+        },
+        "ordered_steps": [{
+            "step": {
+                "atom_id": "CA-O-163", "version": 2,
+                "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/FIND_AND_FETCH_JOURNAL_EVENTS/CA-O-163-CORE_META_MODEL-STEP--query-the-stable-journal-event-snapshot.md",
+                "digest": "8d0238a1614f5888f2aa486038d271cc58db1d3f0d7014dece0baa53004a489c",
+            },
+            "action": {
+                "atom_id": "CA-O-162", "version": 2,
+                "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md",
+                "digest": "71301ecf9531c70adeba03d6cf7f39761a237a081cee43eb0f9f7ce40e12f9fe",
+            },
+        }],
+        "ordered_actions": [{
+            "atom_id": "CA-O-162", "version": 2,
+            "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/09_operations/CA-O-162-CORE_META_MODEL-ACTION--query-journal-events.md",
+            "digest": "71301ecf9531c70adeba03d6cf7f39761a237a081cee43eb0f9f7ce40e12f9fe",
+        }],
+    },
+)
+
+
+class SelectedRouteError(ValueError):
+    """A rejected MCP projection request or stale source binding."""
+
+
+def canonical_json(value: Any) -> str:
+    """RFC 8785-compatible canonical JSON for the closed manifest schema."""
+    return json.dumps(value, ensure_ascii=False, allow_nan=False, sort_keys=True, separators=(",", ":"))
+
+
+def canonical_digest(value: Any) -> str:
+    return hashlib.sha256(canonical_json(value).encode("utf-8")).hexdigest()
+
+
+def _configured_control_root(root: Path) -> Path:
+    """Read the Project-local control root, retaining caprmedio as the default."""
+    selection = bound_selection(root)
+    if selection is not None:
+        return selection.control_relative
+    settings_path = root / PROJECT_SETTINGS_REF
+    if settings_path.is_symlink():
+        raise SelectedRouteError("project settings carrier is unavailable")
+    if not settings_path.exists():
+        return DEFAULT_CONTROL_ROOT
+    if not settings_path.is_file():
+        raise SelectedRouteError("project settings carrier is unavailable")
+    try:
+        settings = tomllib.loads(settings_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
+        raise SelectedRouteError("project settings carrier is invalid") from error
+    paths = settings.get("paths")
+    value = paths.get("control_root") if isinstance(paths, Mapping) else None
+    if value is None:
+        return DEFAULT_CONTROL_ROOT
+    if not isinstance(value, str) or not value:
+        raise SelectedRouteError("paths.control_root must be a safe repository-relative path")
+    candidate = Path(value)
+    if candidate.is_absolute() or candidate == Path(".") or ".." in candidate.parts:
+        raise SelectedRouteError("paths.control_root must be a safe repository-relative path")
+    resolved = (root / candidate).resolve()
+    if root != resolved and root not in resolved.parents:
+        raise SelectedRouteError("paths.control_root escapes project root")
+    return candidate
+
+
+def _selected_authority_ref(root: Path, reference: str) -> str:
+    """Bind a trusted authority location without changing its exact byte pin."""
+    selection = bound_selection(root)
+    path = Path(reference)
+    if selection is not None and path.is_relative_to(DEFAULT_CONTROL_ROOT):
+        return (selection.control_relative / path.relative_to(DEFAULT_CONTROL_ROOT)).as_posix()
+    return reference
+
+
+def _query_admission_specs(root: Path) -> tuple[dict[str, Any], ...]:
+    specifications = copy.deepcopy(_QUERY_SOURCE_ADMISSION_SPECS)
+    def bind(value):
+        if isinstance(value, dict):
+            for key, child in value.items():
+                if key == 'source_path':
+                    value[key] = _selected_authority_ref(root, child)
+                else:
+                    bind(child)
+        elif isinstance(value, list):
+            for child in value:
+                bind(child)
+    bind(list(specifications))
+    return specifications
+
+
+def selected_manifest_ref(root: str | Path | None = None) -> str:
+    """Return the one derived binding projection for this Project authority root."""
+    if root is None:
+        control_root = DEFAULT_CONTROL_ROOT
+    else:
+        project_root = Path(root).resolve(strict=True)
+        control_root = _configured_control_root(project_root)
+    return (control_root / "_projection" / MANIFEST_FILENAME).as_posix()
+
+
+def release_execution_manifest_ref(root: str | Path) -> str:
+    """Name the virtual Release source snapshot, never the stored portfolio."""
+    project_root = Path(root).resolve(strict=True)
+    return (_configured_control_root(project_root) / "_projection" / "release_execution_snapshot.json").as_posix()
+
+
+def _release_executing_implementation_root() -> Path:
+    """Use the program-owned import tree, never a Project or caller override."""
+    return Path(__file__).resolve().parents[3]
+
+
+def _release_implementation_snapshot(root: Path) -> dict[str, Any]:
+    """Capture persisted Engine source bytes and modes without historical pins.
+
+    The source scope is the complete FRAMEWORK_ENGINE used by native candidate
+    preparation.  The existing inventory policy excludes transient files and
+    refuses secret-shaped names and symlinks before any member is opened.
+    """
+    release_tools = Path(__file__).resolve().parents[1] / "201_TOOLS/RELEASE_VERSION"
+    if str(release_tools) not in sys.path:
+        sys.path.insert(0, str(release_tools))
+    from release_inventory import persistent_regular_files
+    from VALIDATE_ATOMS.validate_atoms_workers.read_io import open_regular
+
+    engine = root / "102_FRAMEWORK_ENGINE"
+    if not engine.is_dir() or engine.is_symlink():
+        raise SelectedRouteError("Release implementation source root is unavailable or unsafe")
+    files = persistent_regular_files(root, engine)
+    if not files:
+        raise SelectedRouteError("Release implementation source inventory is empty")
+    mapped_tool = engine / "201_PROGRAMMATIC/201_TOOLS/RELEASE_VERSION/release_version.py"
+    if mapped_tool not in files:
+        raise SelectedRouteError("the mapped native Release Tool entrypoint is unavailable")
+    rows = []
+    captured_stats = []
+    for path in files:
+        with os.fdopen(open_regular(path), "rb") as stream:
+            before = os.fstat(stream.fileno())
+            if not stat.S_ISREG(before.st_mode):
+                raise SelectedRouteError("Release implementation source is not a regular file")
+            digest = hashlib.sha256()
+            for chunk in iter(lambda: stream.read(65536), b""):
+                digest.update(chunk)
+            after = os.fstat(stream.fileno())
+            fields = ("st_dev", "st_ino", "st_size", "st_mtime_ns", "st_ctime_ns", "st_mode")
+            if any(getattr(before, field) != getattr(after, field) for field in fields):
+                raise SelectedRouteError("Release implementation source changed during capture")
+        rows.append({"source_path": path.relative_to(root).as_posix(),
+                     "sha256": digest.hexdigest(), "mode": stat.S_IMODE(before.st_mode)})
+        captured_stats.append(tuple(getattr(after, field) for field in fields))
+    if files != persistent_regular_files(root, engine):
+        raise SelectedRouteError("Release implementation inventory changed during capture")
+    for path, captured in zip(files, captured_stats, strict=True):
+        descriptor = open_regular(path)
+        try:
+            current = os.fstat(descriptor)
+            if tuple(getattr(current, field) for field in fields) != captured:
+                raise SelectedRouteError("Release implementation source changed during capture")
+        finally:
+            os.close(descriptor)
+    return {"source_root": "102_FRAMEWORK_ENGINE", "file_count": len(rows),
+            "sha256": canonical_digest(rows)}
+
+
+def load_release_execution_manifest(
+    root: str | Path, *, implementation_root: str | Path | None = None,
+) -> dict[str, Any]:
+    """Capture one read-only current-source Release execution snapshot.
+
+    No historical portfolio file is read or rewritten.  The snapshot's virtual
+    reference is included in its self-excluding digest and names these derived
+    bytes, not the raw seventeen-route manifest.  Native private-control
+    preflight may supply its already-known candidate source root separately;
+    this program-owned option is never a caller request parameter and never
+    selects the executing implementation. Both the candidate Project Engine
+    and the program-owned import tree are captured before the snapshot seals.
+    """
+    project_root = Path(root).resolve(strict=True)
+    source_root = project_root if implementation_root is None else Path(implementation_root).resolve(strict=True)
+    try:
+        from release_source_admission import derive_release_execution_source_snapshot
+        route, admission, authority = derive_release_execution_source_snapshot(project_root)
+        route = _validate_route(project_root, route, allowed_routes=(_OPTIONAL_RELEASE_ROUTE_NAME,))
+        reference = release_execution_manifest_ref(project_root)
+        executing_root = _release_executing_implementation_root()
+        implementation = _release_implementation_snapshot(source_root)
+        executing_implementation = (dict(implementation) if executing_root == source_root
+                                    else _release_implementation_snapshot(executing_root))
+        manifest = {
+            "manifest_ref": reference,
+            "schema_version": 1,
+            "source_freshness": {
+                "selected_source_registry_ref": authority["source_path"],
+                "selected_source_registry_version": authority["version"],
+                "selected_source_registry_digest": authority["digest"],
+                "selected_binding_ref": f"{reference}#/routes",
+                "selected_binding_digest": canonical_digest([route]),
+            },
+            "query_source_admissions": [], "routes": [route],
+            "release_source_admissions": [admission],
+            "release_execution_snapshot": {
+                "authority": authority,
+                "implementation": implementation,
+                "executing_implementation": executing_implementation,
+            },
+        }
+        # The implementation tree may take longer to read than definition
+        # headers. Reopen the exact earlier captures before sealing both.
+        current_route, current_admission, current_authority = derive_release_execution_source_snapshot(project_root)
+        if (route != current_route or admission != current_admission or authority != current_authority):
+            raise SelectedRouteError("Release definitions changed during snapshot capture")
+        manifest["canonical_manifest_sha256"] = canonical_digest(manifest)
+        return manifest
+    except (ImportError, OSError, ValueError, RuntimeError) as error:
+        raise SelectedRouteError(f"Release current-source snapshot is unavailable: {error}") from error
+
+
+def selected_manifest_contract(root: str | Path | None = None) -> dict[str, Any]:
+    """Publish the immutable manifest boundary consumed by queue and Docker callers.
+
+    ``load_selected_manifest`` is the only loader: it validates this schema,
+    the manifest self-digest, and every live source pin before returning data.
+    The returned contract contains no mutable project state.
+    """
+    return {
+        "manifest_ref": selected_manifest_ref(root),
+        "schema_version": 1,
+        "canonical_digest": {
+            "algorithm": "sha256",
+            "serialization": "RFC8785",
+            "self_field": "canonical_manifest_sha256",
+            "self_field_omitted_from_digest": True,
+        },
+        "outer_fields": ["schema_version", "source_freshness", "query_source_admissions", "routes", "canonical_manifest_sha256"],
+        "source_freshness_fields": sorted(_FRESHNESS_FIELDS),
+        "query_source_admission_fields": ["route", "acceptance_frontier", "workflow", "ordered_steps", "ordered_actions"],
+        "route_fields": [
+            "route", "workflow", "ordered_steps", "ordered_actions", "native_action_calls",
+            "entry_step", "on_result", "mutation_capable",
+        ],
+        "definition_pin_fields": ["atom_id", "version", "source_path", "digest"],
+        "on_result_fields": ["from", "condition", "to"],
+        "on_result_terminal_target": "complete",
+        "route_names": list(SELECTED_ROUTE_NAMES),
+    }
+
+
+def _safe_path(root: Path, relative: str) -> Path:
+    bound_selection(root)
+    if not isinstance(relative, str) or not relative or relative.startswith("/") or "\\" in relative:
+        raise SelectedRouteError("source_path must be a safe repository-relative path")
+    path = (root / relative).resolve()
+    if root != path and root not in path.parents:
+        raise SelectedRouteError("source_path escapes project root")
+    return path
+
+
+def _frontmatter_value(contents: str, field: str) -> str | None:
+    match = re.search(rf"(?m)^{re.escape(field)}:\s*[\"']?([^\n\"']+)", contents)
+    return match.group(1).strip() if match else None
+
+
+def _validate_pin(root: Path, pin: Any) -> dict[str, Any]:
+    if not isinstance(pin, Mapping) or set(pin) != {"atom_id", "version", "source_path", "digest"}:
+        raise SelectedRouteError("definition pin must contain atom_id, version, source_path, and digest")
+    atom_id, version, source_path, digest = (pin["atom_id"], pin["version"], pin["source_path"], pin["digest"])
+    if not isinstance(atom_id, str) or not atom_id or not isinstance(version, int) or version < 1:
+        raise SelectedRouteError("definition pin has invalid identity or version")
+    if not isinstance(digest, str) or not _DIGEST.fullmatch(digest):
+        raise SelectedRouteError("definition pin has invalid digest")
+    path = _safe_path(root, source_path)
+    selection = bound_selection(root)
+    relative_parts = path.relative_to(root).parts
+    if (selection is not None and relative_parts and relative_parts[0].startswith('.caprmedio_')
+            and not path.is_relative_to(selection.control_root)):
+        raise SelectedRouteError("source pin belongs to another Project authority")
+    if not path.is_file():
+        raise SelectedRouteError(f"source pin is unavailable: {source_path}")
+    contents = path.read_bytes()
+    if hashlib.sha256(contents).hexdigest() != digest:
+        raise SelectedRouteError(f"source pin is stale: {source_path}")
+    try:
+        text = contents.decode("utf-8")
+    except UnicodeDecodeError as error:
+        raise SelectedRouteError(f"source pin is not UTF-8: {source_path}") from error
+    if _frontmatter_value(text, "atom_id") != atom_id or _frontmatter_value(text, "version") != str(version):
+        raise SelectedRouteError(f"source pin metadata differs: {source_path}")
+    return dict(pin)
+
+
+def _validate_pin_shape(root: Path, pin: Any) -> dict[str, Any]:
+    """Accept one stale Release pin only as a safe, closed comparison input.
+
+    Its source identity is compared to the freshly derived D572 route before
+    the publisher may replace it.  This intentionally does not reopen stale
+    bytes or metadata: the first fifteen routes still use ``_validate_pin``.
+    """
+    shaped = _refresh_pin_shape(pin)
+    _safe_path(root, shaped["source_path"])
+    return shaped
+
+
+def _manifest_path(root: Path) -> Path:
+    return _safe_path(root, selected_manifest_ref(root))
+
+
+def _definition_sequence(route: Mapping[str, Any]) -> list[dict[str, Any]]:
+    return [route["workflow"], *[item["step"] for item in route["ordered_steps"]], *route["ordered_actions"]]
+
+
+def _validate_route(
+    root: Path, entry: Any, *, allowed_routes: tuple[str, ...] = SELECTED_ROUTE_NAMES,
+    verify_source_pins: bool = True,
+) -> dict[str, Any]:
+    if not verify_source_pins and allowed_routes not in {
+        (_OPTIONAL_RELEASE_ROUTE_NAME,),
+        (_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME,),
+    }:
+        raise SelectedRouteError("stale source pin validation is limited to release routes")
+    required = {"route", "workflow", "ordered_steps", "ordered_actions", "native_action_calls",
+                "entry_step", "on_result", "mutation_capable"}
+    if not isinstance(entry, Mapping) or set(entry) != required:
+        raise SelectedRouteError("route binding has an incomplete or unknown schema")
+    if entry["route"] not in allowed_routes or not isinstance(entry["entry_step"], str):
+        raise SelectedRouteError("route binding has an unsupported route or entry step")
+    if not isinstance(entry["mutation_capable"], bool) or not isinstance(entry["ordered_steps"], list) or not entry["ordered_steps"]:
+        raise SelectedRouteError("route binding has no ordered step graph")
+    if not isinstance(entry["ordered_actions"], list) or not isinstance(entry["native_action_calls"], list):
+        raise SelectedRouteError("route binding has an invalid ordered Action list")
+    pin_validator = _validate_pin if verify_source_pins else _validate_pin_shape
+    result = dict(entry)
+    result["workflow"] = pin_validator(root, entry["workflow"])
+    steps: list[dict[str, Any]] = []
+    for item in entry["ordered_steps"]:
+        if not isinstance(item, Mapping) or set(item) != {"step", "action"}:
+            raise SelectedRouteError("ordered step binding must have one Step and one Action")
+        steps.append({"step": pin_validator(root, item["step"]), "action": pin_validator(root, item["action"])})
+    step_ids = {item["step"]["atom_id"] for item in steps}
+    if entry["entry_step"] not in step_ids:
+        raise SelectedRouteError("route entry step is not in its ordered Step list")
+    actions = [pin_validator(root, item) for item in entry["ordered_actions"]]
+    if [item["action"]["atom_id"] for item in steps] != [item["atom_id"] for item in actions]:
+        raise SelectedRouteError("ordered Action list differs from Step Action bindings")
+    if not isinstance(entry["on_result"], list):
+        raise SelectedRouteError("route on_result must be an ordered list")
+    for edge in entry["on_result"]:
+        if not isinstance(edge, Mapping) or set(edge) != {"from", "condition", "to"} or not all(
+                isinstance(edge[key], str) and edge[key] for key in ("from", "condition", "to")):
+            raise SelectedRouteError("route on_result edge is malformed")
+        if edge["from"] not in step_ids:
+            raise SelectedRouteError("route on_result source is not in its ordered Step list")
+        if edge["to"] != "complete" and edge["to"] not in step_ids:
+            raise SelectedRouteError("route on_result target is not in its ordered Step list or complete")
+    result.update(ordered_steps=steps, ordered_actions=actions,
+                  native_action_calls=[pin_validator(root, item) for item in entry["native_action_calls"]])
+    return result
+
+
+def _validate_query_source_admissions(
+    root: Path, admissions: Any, routes: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Validate the two admission-frontier proofs without creating a registry."""
+    specifications = _query_admission_specs(root)
+    if not isinstance(admissions, list) or len(admissions) != len(specifications):
+        raise SelectedRouteError("selected query-source admissions must contain exactly two routes")
+    by_route = {entry["route"]: entry for entry in routes}
+    validated: list[dict[str, Any]] = []
+    for value, expected in zip(admissions, specifications, strict=True):
+        if not isinstance(value, Mapping) or set(value) != _QUERY_SOURCE_ADMISSION_FIELDS:
+            raise SelectedRouteError("query-source admission has an incomplete or unknown schema")
+        if value.get("route") != expected["route"]:
+            raise SelectedRouteError("query-source admission route order or identity differs")
+        route = by_route.get(value["route"])
+        if route is None or route["route"] not in QUERY_ROUTE_NAMES or route["mutation_capable"]:
+            raise SelectedRouteError("query-source admission does not bind one read-only selected route")
+        if not isinstance(value.get("ordered_steps"), list) or not isinstance(value.get("ordered_actions"), list):
+            raise SelectedRouteError("query-source admission definitions are malformed")
+        admission = {
+            "route": value["route"],
+            "acceptance_frontier": _validate_pin(root, value["acceptance_frontier"]),
+            "workflow": _validate_pin(root, value["workflow"]),
+            "ordered_steps": [],
+            "ordered_actions": [],
+        }
+        for item in value["ordered_steps"]:
+            if not isinstance(item, Mapping) or set(item) != {"step", "action"}:
+                raise SelectedRouteError("query-source admission Step binding is malformed")
+            admission["ordered_steps"].append({
+                "step": _validate_pin(root, item["step"]),
+                "action": _validate_pin(root, item["action"]),
+            })
+        admission["ordered_actions"] = [_validate_pin(root, item) for item in value["ordered_actions"]]
+        if admission != expected:
+            raise SelectedRouteError("query-source admission differs from the accepted source frontier")
+        for key in ("workflow", "ordered_steps", "ordered_actions"):
+            if admission[key] != route[key]:
+                raise SelectedRouteError("query-source admission definitions differ from the selected route")
+        validated.append(admission)
+    return validated
+
+
+def _validate_public_release_source_admissions(
+    root: Path, admissions: Any, routes: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Bind the additive public route to D613's one closed source record."""
+    if not isinstance(admissions, list) or len(admissions) != 1:
+        raise SelectedRouteError("public Release requires exactly one source admission")
+    public_route = next((route for route in routes
+                         if route["route"] == _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME), None)
+    if public_route is None:
+        raise SelectedRouteError("public Release source admission has no selected route")
+
+    public_release = Path(__file__).resolve().parents[1] / "201_TOOLS" / "PUBLIC_RELEASE"
+    if str(public_release) not in sys.path:
+        sys.path.insert(0, str(public_release))
+    try:
+        from selected_admission import (  # type: ignore[import-not-found]
+            PublicReleaseSourceAdmissionError,
+            validate_public_release_source_admission,
+        )
+    except ImportError as error:
+        raise SelectedRouteError(f"public Release source admission is unavailable: {error}") from error
+    try:
+        admission = validate_public_release_source_admission(root, admissions[0])
+    except PublicReleaseSourceAdmissionError as error:
+        raise SelectedRouteError(str(error)) from error
+    except (OSError, TypeError, ValueError) as error:
+        raise SelectedRouteError(f"public Release source admission is unavailable: {error}") from error
+
+    expected_edges = _public_release_workflow_edges(root, admission)
+    if (public_route["workflow"] != admission["workflow"]
+            or [item["step"] for item in public_route["ordered_steps"]] != admission["ordered_steps"]
+            or [item["action"] for item in public_route["ordered_steps"]] != admission["ordered_actions"]
+            or public_route["ordered_actions"] != admission["ordered_actions"]
+            or public_route["native_action_calls"] != admission["native_action_calls"]
+            or public_route["mutation_capable"] is not admission["mutation_capable"]
+            or public_route["entry_step"] != admission["ordered_steps"][0]["atom_id"]
+            or public_route["on_result"] != expected_edges):
+        raise SelectedRouteError("public Release route definitions differ from the accepted source frontier")
+    return [admission]
+
+
+def _public_release_workflow_edges(root: Path, admission: Mapping[str, Any]) -> list[dict[str, str]]:
+    """Derive O188's five successful Step edges from its currently pinned bytes."""
+    workflow = _validate_pin(root, admission["workflow"])
+    try:
+        text = _safe_path(root, workflow["source_path"]).read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError) as error:
+        raise SelectedRouteError("public Release workflow source is unavailable") from error
+
+    tables: list[list[list[str]]] = []
+    current: list[list[str]] = []
+    for line in text.splitlines():
+        if line.startswith("|"):
+            current.append([cell.strip() for cell in line.strip("|").split("|")])
+        elif current:
+            tables.append(current)
+            current = []
+    if current:
+        tables.append(current)
+    step_tables = [table for table in tables if table and table[0] == ["Step", "Action", "Result boundary"]]
+    transition_tables = [table for table in tables if table and table[0] == ["Step result", "Next result"]]
+    if len(step_tables) != 1 or len(transition_tables) != 1:
+        raise SelectedRouteError("public Release workflow graph cannot be parsed")
+    step_rows, transition_rows = step_tables[0][2:], transition_tables[0][2:]
+    pairs = [(step["atom_id"], action["atom_id"])
+             for step, action in zip(admission["ordered_steps"], admission["ordered_actions"], strict=True)]
+    if (len(step_rows) != len(pairs) or len(transition_rows) != len(pairs) + 1
+            or any(len(row) != 3 for row in step_rows)
+            or [(row[0], row[1]) for row in step_rows] != pairs):
+        raise SelectedRouteError("public Release workflow graph differs from its admitted Step/Action frontier")
+    edges: list[dict[str, str]] = []
+    for index, row in enumerate(transition_rows[:-1]):
+        if len(row) != 2 or not row[0] or row[1] != (pairs[index + 1][0] if index + 1 < len(pairs) else "complete"):
+            raise SelectedRouteError("public Release workflow success transitions are invalid")
+        edges.append({"from": pairs[index][0], "condition": row[0], "to": row[1]})
+    stop = transition_rows[-1]
+    if len(stop) != 2 or stop[1] != "stop with actual evidence; do not merge or replay remote effects":
+        raise SelectedRouteError("public Release workflow stop transition is invalid")
+    return edges
+
+
+def _derive_current_public_release_graph_admission(root: Path) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Derive D613's one current public route without publishing it.
+
+    The stale-manifest refresh reader needs the same source-owned route that a
+    normal seventeenth-route loader will later validate.  Keep that derivation
+    here so the refresh boundary cannot accept a caller-supplied public graph.
+    """
+    public_release = Path(__file__).resolve().parents[1] / "201_TOOLS" / "PUBLIC_RELEASE"
+    if str(public_release) not in sys.path:
+        sys.path.insert(0, str(public_release))
+    try:
+        from selected_admission import (  # type: ignore[import-not-found]
+            PublicReleaseSourceAdmissionError,
+            derive_public_release_source_admission,
+            validate_public_release_source_admission,
+        )
+        derived = derive_public_release_source_admission(root)
+        admission = validate_public_release_source_admission(root, derived)
+    except PublicReleaseSourceAdmissionError as error:
+        raise SelectedRouteError(str(error)) from error
+    except (ImportError, OSError, TypeError, ValueError) as error:
+        raise SelectedRouteError(f"public Release source admission is unavailable: {error}") from error
+    if not isinstance(admission, Mapping) or admission.get("route") != _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME:
+        raise SelectedRouteError("public Release source admission returned an invalid contract")
+    steps, actions = admission.get("ordered_steps"), admission.get("ordered_actions")
+    if (not isinstance(steps, list) or not steps or not isinstance(actions, list)
+            or len(steps) != len(actions)):
+        raise SelectedRouteError("public Release source admission has an invalid ordered definition")
+    route = {
+        "route": _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME,
+        "workflow": copy.deepcopy(admission["workflow"]),
+        "ordered_steps": [
+            {"step": copy.deepcopy(step), "action": copy.deepcopy(action)}
+            for step, action in zip(steps, actions, strict=True)
+        ],
+        "ordered_actions": copy.deepcopy(actions),
+        "native_action_calls": copy.deepcopy(admission["native_action_calls"]),
+        "entry_step": steps[0]["atom_id"],
+        "on_result": _public_release_workflow_edges(root, admission),
+        "mutation_capable": admission["mutation_capable"],
+    }
+    return route, copy.deepcopy(dict(admission))
+
+
+def _unique_manifest_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    """Reject duplicate JSON members before the parser silently collapses them."""
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise SelectedRouteError(f"selected workflow binding manifest has duplicate JSON member: {key}")
+        result[key] = value
+    return result
+
+
+_RELEASE_ADMISSION_FIELDS = frozenset({
+    "route", "acceptance_frontier", "workflow", "ordered_steps",
+    "ordered_actions", "rmed_frontier", "mutation_capable", "native_action_calls",
+})
+_RELEASE_PIN_FIELDS = frozenset({"atom_id", "version", "source_path", "digest"})
+
+
+def _refresh_pin_shape(value: Any) -> dict[str, Any]:
+    """Validate one stale Release pin without reopening its historical carrier."""
+    if not isinstance(value, Mapping) or set(value) != _RELEASE_PIN_FIELDS:
+        raise SelectedRouteError("Release refresh pin has an incomplete or unknown schema")
+    atom_id, version, source_path, digest = (
+        value["atom_id"], value["version"], value["source_path"], value["digest"]
+    )
+    if not isinstance(atom_id, str) or _ATOM_ID.fullmatch(atom_id) is None:
+        raise SelectedRouteError("Release refresh pin has an invalid Atom identity")
+    if type(version) is not int or version < 1:
+        raise SelectedRouteError("Release refresh pin version must be a positive integer")
+    if not isinstance(source_path, str) or not source_path or "\\" in source_path or ":" in source_path:
+        raise SelectedRouteError("Release refresh pin path is unsafe")
+    path = Path(source_path)
+    if path.is_absolute() or str(path) != source_path or any(part in {".", ".."} for part in path.parts):
+        raise SelectedRouteError("Release refresh pin path is unsafe")
+    if not isinstance(digest, str) or _DIGEST.fullmatch(digest) is None:
+        raise SelectedRouteError("Release refresh pin digest must be lowercase SHA-256")
+    return {
+        "atom_id": atom_id, "version": version,
+        "source_path": source_path, "digest": digest,
+    }
+
+
+def _refresh_admission_shape(value: Any) -> dict[str, Any]:
+    """Validate the closed D572 admission shape while retaining stale pin bytes."""
+    if not isinstance(value, Mapping) or set(value) != _RELEASE_ADMISSION_FIELDS:
+        raise SelectedRouteError("Release refresh admission has an incomplete or unknown schema")
+    if value["route"] != _OPTIONAL_RELEASE_ROUTE_NAME:
+        raise SelectedRouteError("Release refresh admission is not release_version")
+    if type(value["mutation_capable"]) is not bool or value["native_action_calls"] != []:
+        raise SelectedRouteError("Release refresh admission typed metadata is invalid")
+    steps = value["ordered_steps"]
+    actions = value["ordered_actions"]
+    rmed = value["rmed_frontier"]
+    if not isinstance(steps, list) or len(steps) != 10:
+        raise SelectedRouteError("Release refresh admission must contain ten ordered Steps")
+    if not isinstance(actions, list) or len(actions) != 10:
+        raise SelectedRouteError("Release refresh admission must contain ten ordered Actions")
+    if not isinstance(rmed, list) or not rmed:
+        raise SelectedRouteError("Release refresh admission RMED frontier is empty")
+    validated_steps: list[dict[str, dict[str, Any]]] = []
+    for item in steps:
+        if not isinstance(item, Mapping) or set(item) != {"step", "action"}:
+            raise SelectedRouteError("Release refresh admission Step occurrence is malformed")
+        validated_steps.append({
+            "step": _refresh_pin_shape(item["step"]),
+            "action": _refresh_pin_shape(item["action"]),
+        })
+    return {
+        "route": _OPTIONAL_RELEASE_ROUTE_NAME,
+        "acceptance_frontier": _refresh_pin_shape(value["acceptance_frontier"]),
+        "workflow": _refresh_pin_shape(value["workflow"]),
+        "ordered_steps": validated_steps,
+        "ordered_actions": [_refresh_pin_shape(item) for item in actions],
+        "rmed_frontier": [_refresh_pin_shape(item) for item in rmed],
+        "mutation_capable": value["mutation_capable"],
+        "native_action_calls": [],
+    }
+
+
+def _compare_refresh_pin(old: Mapping[str, Any], current: Mapping[str, Any], label: str) -> bool:
+    """Compare a legal pin site, permitting only its actual version/digest drift."""
+    if old["atom_id"] != current["atom_id"] or old["source_path"] != current["source_path"]:
+        raise SelectedRouteError(f"Release refresh pin identity differs at {label}")
+    return old["version"] != current["version"] or old["digest"] != current["digest"]
+
+
+def _compare_refresh_admission(old: Mapping[str, Any], current: Mapping[str, Any]) -> None:
+    """Require identical schema/occurrences/roles and observe at least one legal drift."""
+    if old["route"] != current["route"] or old["mutation_capable"] != current["mutation_capable"]:
+        raise SelectedRouteError("Release refresh admission roles differ from current D572")
+    if old["native_action_calls"] != current["native_action_calls"]:
+        raise SelectedRouteError("Release refresh admission native Action roles differ from current D572")
+    drift = _compare_refresh_pin(old["acceptance_frontier"], current["acceptance_frontier"], "acceptance_frontier")
+    drift |= _compare_refresh_pin(old["workflow"], current["workflow"], "workflow")
+    if len(old["ordered_steps"]) != len(current["ordered_steps"]):
+        raise SelectedRouteError("Release refresh Step occurrence count differs from current D572")
+    for ordinal, (old_item, current_item) in enumerate(zip(old["ordered_steps"], current["ordered_steps"], strict=True), 1):
+        drift |= _compare_refresh_pin(old_item["step"], current_item["step"], f"ordered_steps[{ordinal}].step")
+        drift |= _compare_refresh_pin(old_item["action"], current_item["action"], f"ordered_steps[{ordinal}].action")
+    if len(old["ordered_actions"]) != len(current["ordered_actions"]):
+        raise SelectedRouteError("Release refresh Action occurrence count differs from current D572")
+    for ordinal, (old_pin, current_pin) in enumerate(zip(old["ordered_actions"], current["ordered_actions"], strict=True), 1):
+        drift |= _compare_refresh_pin(old_pin, current_pin, f"ordered_actions[{ordinal}]")
+    if len(old["rmed_frontier"]) != len(current["rmed_frontier"]):
+        raise SelectedRouteError("Release refresh RMED frontier occurrence count differs from current D572")
+    for ordinal, (old_pin, current_pin) in enumerate(zip(old["rmed_frontier"], current["rmed_frontier"], strict=True), 1):
+        drift |= _compare_refresh_pin(old_pin, current_pin, f"rmed_frontier[{ordinal}]")
+    if not drift:
+        raise SelectedRouteError("Release manifest has no admission drift to refresh")
+
+
+def _compare_refresh_route(old: Mapping[str, Any], current: Mapping[str, Any]) -> None:
+    """Require the stale Release route to differ only at its source pins."""
+    if set(old) != set(current):
+        raise SelectedRouteError("Release route schema differs from the current D572-derived route")
+    for field in ("route", "entry_step", "on_result", "mutation_capable"):
+        if old[field] != current[field]:
+            raise SelectedRouteError("Release route graph or metadata differs from the current D572-derived route")
+    _compare_refresh_pin(old["workflow"], current["workflow"], "workflow")
+    if len(old["ordered_steps"]) != len(current["ordered_steps"]):
+        raise SelectedRouteError("Release route Step occurrence count differs from the current D572-derived route")
+    for ordinal, (old_item, current_item) in enumerate(zip(old["ordered_steps"], current["ordered_steps"], strict=True), 1):
+        _compare_refresh_pin(old_item["step"], current_item["step"], f"ordered_steps[{ordinal}].step")
+        _compare_refresh_pin(old_item["action"], current_item["action"], f"ordered_steps[{ordinal}].action")
+    if len(old["ordered_actions"]) != len(current["ordered_actions"]):
+        raise SelectedRouteError("Release route Action occurrence count differs from the current D572-derived route")
+    for ordinal, (old_pin, current_pin) in enumerate(zip(old["ordered_actions"], current["ordered_actions"], strict=True), 1):
+        _compare_refresh_pin(old_pin, current_pin, f"ordered_actions[{ordinal}]")
+    if len(old["native_action_calls"]) != len(current["native_action_calls"]):
+        raise SelectedRouteError("Release route native Action occurrence count differs from the current D572-derived route")
+    for ordinal, (old_pin, current_pin) in enumerate(zip(old["native_action_calls"], current["native_action_calls"], strict=True), 1):
+        _compare_refresh_pin(old_pin, current_pin, f"native_action_calls[{ordinal}]")
+
+
+def _refresh_public_admission_shape(value: Any, current: Any, *, label: str = "public Release admission") -> Any:
+    """Validate a stale D613 record against its current closed structure.
+
+    Unlike a normal manifest read, the stale record's pin bytes cannot be
+    reopened.  Its complete recursive shape, collection ordering and every
+    non-pin value must still equal the current D613 derivation.  Only a pin's
+    revision and digest may differ.
+    """
+    if isinstance(current, Mapping):
+        if not isinstance(value, Mapping) or set(value) != set(current):
+            raise SelectedRouteError(f"{label} schema differs from current D613")
+        if set(current) == _RELEASE_PIN_FIELDS:
+            stale = _refresh_pin_shape(value)
+            _compare_refresh_pin(stale, current, label)
+            return stale
+        return {
+            key: _refresh_public_admission_shape(value[key], current[key], label=f"{label}.{key}")
+            for key in current
+        }
+    if isinstance(current, list):
+        if not isinstance(value, list) or len(value) != len(current):
+            raise SelectedRouteError(f"{label} occurrence count differs from current D613")
+        return [
+            _refresh_public_admission_shape(stale, fresh, label=f"{label}[{ordinal}]")
+            for ordinal, (stale, fresh) in enumerate(zip(value, current, strict=True), 1)
+        ]
+    if type(value) is not type(current) or value != current:
+        raise SelectedRouteError(f"{label} metadata differs from current D613")
+    return copy.deepcopy(value)
+
+
+def load_release_manifest_refresh_base(root: str | Path) -> dict[str, Any]:
+    """Validate one stale, schema-valid sixteen- or seventeen-route manifest.
+
+    This is a private publisher input boundary.  It accepts no route or schema
+    drift: only the version/digest values of the explicit D572 pin sites in the
+    stale Release admission may differ from the current source-derived record.
+    Historical stale carriers are never reopened; the publisher replaces the
+    retained admission with the current record after this read-only check.
+    """
+    project_root = Path(root).resolve(strict=True)
+    manifest_ref = selected_manifest_ref(project_root)
+    manifest_candidate = project_root / manifest_ref
+    probe = manifest_candidate
+    while probe == project_root or project_root in probe.parents:
+        if probe.is_symlink():
+            raise SelectedRouteError("Release refresh manifest path must not contain symlinks")
+        if probe == project_root:
+            break
+        probe = probe.parent
+    manifest_path = _manifest_path(project_root)
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"),
+                              object_pairs_hook=_unique_manifest_object)
+    except (OSError, json.JSONDecodeError) as error:
+        raise SelectedRouteError("selected workflow binding manifest is unreadable") from error
+    required = {
+        "schema_version", "source_freshness", "query_source_admissions", "routes",
+        "canonical_manifest_sha256", "release_source_admissions",
+    }
+    if (not isinstance(manifest, Mapping) or not required <= set(manifest)
+            or set(manifest) - required - {"public_release_source_admissions"}
+            or type(manifest["schema_version"]) is not int or manifest["schema_version"] != 1):
+        raise SelectedRouteError("Release refresh requires the exact selected manifest schema")
+    digest = manifest["canonical_manifest_sha256"]
+    if not isinstance(digest, str) or not _DIGEST.fullmatch(digest):
+        raise SelectedRouteError("selected workflow binding manifest digest is invalid")
+    without_self = {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"}
+    if canonical_digest(without_self) != digest:
+        raise SelectedRouteError("selected workflow binding manifest canonical digest differs")
+    freshness = manifest["source_freshness"]
+    if not isinstance(freshness, Mapping) or set(freshness) != _FRESHNESS_FIELDS:
+        raise SelectedRouteError("selected workflow binding manifest source freshness is invalid")
+    if (not all(isinstance(freshness[key], str) and freshness[key]
+                for key in _FRESHNESS_FIELDS - {"selected_source_registry_version"})
+            or type(freshness["selected_source_registry_version"]) is not int
+            or freshness["selected_source_registry_version"] < 1):
+        raise SelectedRouteError("selected workflow binding manifest source freshness is incomplete")
+    if (not _DIGEST.fullmatch(freshness["selected_source_registry_digest"])
+            or not _DIGEST.fullmatch(freshness["selected_binding_digest"])):
+        raise SelectedRouteError("selected workflow binding manifest freshness digest is invalid")
+    if (freshness["selected_source_registry_ref"] != _selected_authority_ref(project_root, _ORIGINAL_SELECTED_SOURCE_REGISTRY_REF)
+            or freshness["selected_source_registry_version"] != _ORIGINAL_SELECTED_SOURCE_REGISTRY_VERSION):
+        raise SelectedRouteError("selected workflow binding manifest does not retain the CA-A-1142 registry authority")
+    if freshness["selected_binding_ref"] != f"{manifest_ref}#/routes":
+        raise SelectedRouteError("selected workflow binding manifest does not retain its binding reference")
+    registry = _safe_path(project_root, freshness["selected_source_registry_ref"])
+    if not registry.is_file() or hashlib.sha256(registry.read_bytes()).hexdigest() != freshness["selected_source_registry_digest"]:
+        raise SelectedRouteError("selected source registry pin is stale")
+    routes = manifest["routes"]
+    expected_sixteen = (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME)
+    expected_seventeen = (*expected_sixteen, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME)
+    if not isinstance(routes, list) or tuple(row.get("route") for row in routes if isinstance(row, Mapping)) not in {
+        expected_sixteen, expected_seventeen,
+    } or len(routes) not in {len(expected_sixteen), len(expected_seventeen)}:
+        raise SelectedRouteError("Release refresh requires the exact admitted sixteen- or seventeen-route manifest")
+    has_public = len(routes) == len(expected_seventeen)
+    validated = [
+        *[_validate_route(project_root, entry) for entry in routes[:len(SELECTED_ROUTE_NAMES)]],
+        _validate_route(
+            project_root,
+            routes[len(SELECTED_ROUTE_NAMES)],
+            allowed_routes=(_OPTIONAL_RELEASE_ROUTE_NAME,),
+            verify_source_pins=False,
+        ),
+    ]
+    if has_public:
+        validated.append(_validate_route(
+            project_root,
+            routes[-1],
+            allowed_routes=(_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME,),
+            verify_source_pins=False,
+        ))
+    expected_names = expected_seventeen if has_public else expected_sixteen
+    if (tuple(entry["route"] for entry in validated) != expected_names
+            or len({entry["route"] for entry in validated}) != len(expected_names)):
+        raise SelectedRouteError("Release refresh route registry is incomplete, duplicate, or out of order")
+    admissions = _validate_query_source_admissions(project_root, manifest["query_source_admissions"], validated)
+    if canonical_digest(validated) != freshness["selected_binding_digest"]:
+        raise SelectedRouteError("selected workflow route binding digest differs")
+    from release_source_admission import derive_release_graph_admission
+
+    try:
+        current_route, current_admission = derive_release_graph_admission(project_root)
+    except (OSError, TypeError, ValueError) as error:
+        raise SelectedRouteError(f"current Release source admission is unavailable: {error}") from error
+    _compare_refresh_route(validated[len(SELECTED_ROUTE_NAMES)], current_route)
+    if not isinstance(manifest["release_source_admissions"], list) or len(manifest["release_source_admissions"]) != 1:
+        raise SelectedRouteError("Release refresh requires exactly one source admission")
+    stale_admission = _refresh_admission_shape(manifest["release_source_admissions"][0])
+    current_admission = _refresh_admission_shape(current_admission)
+    _compare_refresh_admission(stale_admission, current_admission)
+    result = {
+        "manifest_ref": manifest_ref,
+        "schema_version": 1,
+        "source_freshness": dict(freshness),
+        "query_source_admissions": admissions,
+        "routes": validated,
+        "canonical_manifest_sha256": digest,
+        "release_source_admissions": [stale_admission],
+    }
+    if has_public:
+        admissions = manifest.get("public_release_source_admissions")
+        if not isinstance(admissions, list) or len(admissions) != 1:
+            raise SelectedRouteError("Release refresh requires exactly one public Release source admission")
+        current_public_route, current_public_admission = _derive_current_public_release_graph_admission(project_root)
+        _compare_refresh_route(validated[-1], current_public_route)
+        result["public_release_source_admissions"] = [
+            _refresh_public_admission_shape(admissions[0], current_public_admission)
+        ]
+    elif "public_release_source_admissions" in manifest:
+        raise SelectedRouteError("public Release source admission requires the seventeenth route")
+    return result
+
+
+def validate_selected_manifest_document(root: str | Path, manifest: Any) -> dict[str, Any]:
+    """Validate one in-memory selected binding document without touching its carrier."""
+    project_root = Path(root).resolve(strict=True)
+    manifest_ref = selected_manifest_ref(project_root)
+    required = {"schema_version", "source_freshness", "query_source_admissions", "routes", "canonical_manifest_sha256"}
+    if (not isinstance(manifest, Mapping) or not required <= set(manifest)
+            or set(manifest) - required - {"release_source_admissions", "public_release_source_admissions"}
+            or manifest["schema_version"] != 1):
+        raise SelectedRouteError("selected workflow binding manifest schema is invalid")
+    if not isinstance(manifest["canonical_manifest_sha256"], str) or not _DIGEST.fullmatch(manifest["canonical_manifest_sha256"]):
+        raise SelectedRouteError("selected workflow binding manifest digest is invalid")
+    without_self = {key: value for key, value in manifest.items() if key != "canonical_manifest_sha256"}
+    if canonical_digest(without_self) != manifest["canonical_manifest_sha256"]:
+        raise SelectedRouteError("selected workflow binding manifest canonical digest differs")
+    freshness = manifest["source_freshness"]
+    if not isinstance(freshness, Mapping) or set(freshness) != _FRESHNESS_FIELDS:
+        raise SelectedRouteError("selected workflow binding manifest source freshness is invalid")
+    if not all(isinstance(freshness[key], str) and freshness[key] for key in _FRESHNESS_FIELDS - {"selected_source_registry_version"}) or type(freshness["selected_source_registry_version"]) is not int or freshness["selected_source_registry_version"] < 1:
+        raise SelectedRouteError("selected workflow binding manifest source freshness is incomplete")
+    if not _DIGEST.fullmatch(freshness["selected_source_registry_digest"]) or not _DIGEST.fullmatch(freshness["selected_binding_digest"]):
+        raise SelectedRouteError("selected workflow binding manifest freshness digest is invalid")
+    if (freshness["selected_source_registry_ref"] != _selected_authority_ref(project_root, _ORIGINAL_SELECTED_SOURCE_REGISTRY_REF)
+            or freshness["selected_source_registry_version"] != _ORIGINAL_SELECTED_SOURCE_REGISTRY_VERSION):
+        raise SelectedRouteError("selected workflow binding manifest does not retain the CA-A-1142 registry authority")
+    if freshness["selected_binding_ref"] != f"{manifest_ref}#/routes":
+        raise SelectedRouteError("selected workflow binding manifest does not retain its binding reference")
+    registry = _safe_path(project_root, freshness["selected_source_registry_ref"])
+    if not registry.is_file() or hashlib.sha256(registry.read_bytes()).hexdigest() != freshness["selected_source_registry_digest"]:
+        raise SelectedRouteError("selected source registry pin is stale")
+    routes = manifest["routes"]
+    if not isinstance(routes, list) or len(routes) not in {
+        len(SELECTED_ROUTE_NAMES), len(SELECTED_ROUTE_NAMES) + 1, len(SELECTED_ROUTE_NAMES) + 2,
+    }:
+        raise SelectedRouteError(
+            "selected workflow binding manifest must contain fifteen routes or its additive Release successors"
+        )
+    expected_names = (
+        SELECTED_ROUTE_NAMES if len(routes) == len(SELECTED_ROUTE_NAMES)
+        else (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME)
+        if len(routes) == len(SELECTED_ROUTE_NAMES) + 1
+        else (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME)
+    )
+    validated = [_validate_route(project_root, entry, allowed_routes=expected_names) for entry in routes]
+    if tuple(entry["route"] for entry in validated) != expected_names or len({entry["route"] for entry in validated}) != len(expected_names):
+        raise SelectedRouteError("selected workflow route registry is incomplete or duplicate")
+    admissions = _validate_query_source_admissions(project_root, manifest["query_source_admissions"], validated)
+    if canonical_digest(validated) != freshness["selected_binding_digest"]:
+        raise SelectedRouteError("selected workflow route binding digest differs")
+    from release_source_admission import ReleaseSourceAdmissionError, validate_release_source_admissions
+
+    try:
+        # D572 deliberately owns only the predecessor additive portfolio.  The
+        # seventeenth D613 route is checked below by its own source reader.
+        release_admissions = validate_release_source_admissions(
+            project_root, {**manifest, "routes": validated[:len(SELECTED_ROUTE_NAMES) + 1]},
+        )
+    except ReleaseSourceAdmissionError as error:
+        raise SelectedRouteError(str(error)) from error
+    result = {"manifest_ref": manifest_ref, "schema_version": 1, "source_freshness": dict(freshness),
+              "query_source_admissions": admissions, "routes": validated,
+              "canonical_manifest_sha256": manifest["canonical_manifest_sha256"]}
+    if release_admissions:
+        result["release_source_admissions"] = release_admissions
+    if len(validated) == len(SELECTED_ROUTE_NAMES) + 2:
+        public_admissions = _validate_public_release_source_admissions(
+            project_root, manifest.get("public_release_source_admissions"), validated,
+        )
+        result["public_release_source_admissions"] = public_admissions
+    elif "public_release_source_admissions" in manifest:
+        raise SelectedRouteError("public Release source admission requires the additive public.release route")
+    return result
+
+
+def load_selected_manifest(root: str | Path) -> dict[str, Any]:
+    """Verify the current15 or source-admitted additive Release successor, without dispatch.
+
+    Optional Release evidence belongs only to this canonical file. It does not
+    alter D527 request bindings or ``SELECTED_ROUTE_NAMES``.
+    """
+    project_root = Path(root).resolve(strict=True)
+    try:
+        manifest = json.loads(_manifest_path(project_root).read_text(encoding="utf-8"),
+                              object_pairs_hook=_unique_manifest_object)
+    except (OSError, json.JSONDecodeError) as error:
+        raise SelectedRouteError("selected workflow binding manifest is unreadable") from error
+    return validate_selected_manifest_document(project_root, manifest)
+
+
+def _find_shadow_manifest_fields(
+    value: Any, *, allowed_definition_manifest: bool = False, _path: tuple[str | int, ...] = ()
+) -> bool:
+    if isinstance(value, Mapping):
+        for key, child in value.items():
+            if key in {"definition_manifest_ref", "definition_manifest_digest"}:
+                return True
+            if key == "definition_manifest" and not (
+                allowed_definition_manifest
+                and _path in {(), ("operator_authorization",), ("proposal_receipt",)}
+            ):
+                return True
+            if _find_shadow_manifest_fields(
+                child, allowed_definition_manifest=allowed_definition_manifest, _path=(*_path, key)
+            ):
+                return True
+    elif isinstance(value, list):
+        return any(_find_shadow_manifest_fields(
+            item, allowed_definition_manifest=allowed_definition_manifest, _path=(*_path, index)
+        ) for index, item in enumerate(value))
+    return False
+
+
+def _require_digest(value: Any, message: str) -> str:
+    if not isinstance(value, str) or not _DIGEST.fullmatch(value):
+        raise SelectedRouteError(message)
+    return value
+
+
+class _SelectedRouteAdapterBase:
+    """Validates the closed projection then calls the shared selected-run service once."""
+
+    def __init__(self, root: str | Path, service: Any | None = None, *, strict_manifest: bool = True) -> None:
+        self.root = Path(root).resolve(strict=True)
+        self.manifest: dict[str, Any] | None = None
+        self.routes: dict[str, dict[str, Any]] = {}
+        if strict_manifest:
+            self.manifest = load_selected_manifest(self.root)
+            self.routes = {entry["route"]: entry for entry in self.manifest["routes"]}
+        self.service = service
+
+    def _result(self, request: Any, disposition: str, outcome: str, diagnostic: str) -> dict[str, Any]:
+        value = {"disposition": disposition, "outcome": outcome, "diagnostics": [diagnostic]}
+        if isinstance(request, Mapping) and isinstance(request.get("request_id"), str):
+            value["request_id"] = request["request_id"]
+        return value
+
+    def _support(self) -> Any | None:
+        if self.service is not None:
+            return self.service
+        return _QueueBackedSelectedSupport(self.root, self)
+
+
+class _QueueBackedSelectedSupport:
+    """Thin MCP composition of shared preview support and the existing queue APP.
+
+    It deliberately does not execute Actions.  Preview uses the shared
+    ``RunTracker`` admission implementation; execute only forwards the exact
+    request to the already-owned ``enqueue_selected`` APP variant.
+    """
+
+    def __init__(self, root: Path, adapter: "SelectedRouteAdapter") -> None:
+        self.root, self.adapter = root, adapter
+
+    def _tracker(self) -> Any:
+        # Code is loaded from the immutable MCP image; ``root`` is only the
+        # caller's Project authority/data root and need not contain code.
+        tools = Path(__file__).resolve().parents[1] / "201_TOOLS"
+        if str(tools) not in sys.path:
+            sys.path.insert(0, str(tools))
+        module = importlib.import_module("workflow_run_support")
+
+        def observe(request: dict[str, Any]) -> dict[str, Any]:
+            try:
+                manifest = (load_release_execution_manifest(self.root)
+                            if request.get("operation_route") == _OPTIONAL_RELEASE_ROUTE_NAME
+                            else load_selected_manifest(self.root))
+                selected = request.get("operation_route") in {entry["route"] for entry in manifest["routes"]}
+                current = dict(request.get("definition_manifest", {})) == {
+                    "manifest_ref": manifest["manifest_ref"], "manifest_digest": manifest["canonical_manifest_sha256"]
+                } and dict(request.get("source_freshness", {})) == manifest["source_freshness"]
+                lifecycle_admission = None
+                if request.get("operation_route") == "change_atom_status":
+                    app = Path(__file__).resolve().parents[1] / "203_APPS/WORKFLOW_ORCHESTRATOR"
+                    if str(app) not in sys.path:
+                        sys.path.insert(0, str(app))
+                    selected_execution = importlib.import_module("selected_execution")
+                    lifecycle_admission = selected_execution.preflight_selected_lifecycle(
+                        self.root, "change_atom_status", request.get("parameters"),
+                    )
+            except (ImportError, SelectedRouteError, TypeError, ValueError, RuntimeError):
+                selected, current, lifecycle_admission = False, False, None
+            return {"selected": selected, "current": current, "observed": {
+                "manifest_ref": request.get("definition_manifest", {}).get("manifest_ref") if isinstance(request.get("definition_manifest"), Mapping) else None,
+                "manifest_digest": request.get("definition_manifest", {}).get("manifest_digest") if isinstance(request.get("definition_manifest"), Mapping) else None,
+                **({"lifecycle_admission": lifecycle_admission}
+                   if lifecycle_admission is not None else {}),
+            }}
+
+        def never_execute(_request: dict[str, Any], _session: Any) -> Mapping[str, Any]:
+            raise RuntimeError("MCP delegates selected execution to enqueue_selected")
+
+        return module.RunTracker(self.root, source_observer=observe, executor=never_execute)
+
+    @staticmethod
+    def _workflow_run_id(request: Mapping[str, Any]) -> str:
+        rows = request.get("requested_runs")
+        if not isinstance(rows, list):
+            raise SelectedRouteError("execute has no requested Workflow Run identity")
+        workflow = [row for row in rows if isinstance(row, Mapping) and row.get("kind") == "workflow"]
+        if len(workflow) != 1 or not isinstance(workflow[0].get("requested_run_id"), str):
+            raise SelectedRouteError("execute must carry one requested Workflow Run identity")
+        return str(workflow[0]["requested_run_id"])
+
+    def run_selected_operation(self, request: dict[str, Any]) -> dict[str, Any]:
+        if request["mode"] == "preview":
+            return self._tracker().run_selected_operation(request)
+        preview = {key: value for key, value in request.items() if key not in {
+            "proposal_receipt", "proposal_receipt_digest", "assigned_action_id", "operator_authorization", "requested_runs"
+        }}
+        preview["mode"] = "preview"
+        prepared = self._tracker().run_selected_operation(preview)
+        if prepared.get("disposition") != "preview" or request.get("proposal_receipt") != prepared.get("proposal_receipt") or request.get("proposal_receipt_digest") != prepared.get("proposal_receipt_digest"):
+            return {"request_id": request["request_id"], "disposition": "blocked", "outcome": "blocked",
+                    "source_freshness": prepared.get("source_freshness"), "diagnostics": ["exact current preview receipt is required before enqueue"]}
+        try:
+            app = Path(__file__).resolve().parents[1] / "203_APPS/WORKFLOW_ORCHESTRATOR"
+            if str(app) not in sys.path:
+                sys.path.insert(0, str(app))
+            orchestrator = importlib.import_module("orchestrator")
+            return orchestrator.run(self.root, {"operation": "enqueue_selected", "run_id": self._workflow_run_id(request), "execution": request})
+        except (ImportError, SelectedRouteError, ValueError, RuntimeError, OSError) as error:
+            return {"request_id": request["request_id"], "disposition": "blocked", "outcome": "blocked",
+                    "source_freshness": prepared.get("source_freshness"),
+                    "diagnostics": [f"enqueue_selected did not admit the exact request: {error}"]}
+
+    def get_selected_workflow_run(self, request: dict[str, Any]) -> dict[str, Any]:
+        try:
+            app = Path(__file__).resolve().parents[1] / "203_APPS/WORKFLOW_ORCHESTRATOR"
+            if str(app) not in sys.path:
+                sys.path.insert(0, str(app))
+            return importlib.import_module("orchestrator").run(self.root, {"operation": "status", "run_id": request["run_id"]})
+        except (ImportError, ValueError, RuntimeError, OSError) as error:
+            return {"disposition": "blocked", "outcome": "blocked", "diagnostics": [f"selected Run observation unavailable: {error}"]}
+
+    def get_selected_action_run(self, request: dict[str, Any]) -> dict[str, Any]:
+        try:
+            app = Path(__file__).resolve().parents[1] / "203_APPS/WORKFLOW_ORCHESTRATOR"
+            if str(app) not in sys.path:
+                sys.path.insert(0, str(app))
+            manifest = load_selected_manifest(self.root)
+            observer = importlib.import_module("selected_action_observation")
+            return observer.observe_selected_action(self.root, request["action_run_id"], manifest)
+        except (ImportError, ValueError, RuntimeError, OSError) as error:
+            return {"action_run_id": request["action_run_id"], "disposition": "blocked", "outcome": "blocked",
+                    "diagnostics": [f"selected Action observation is unavailable: {error}"]}
+
+    def recover_selected_run_recording(self, request: dict[str, Any]) -> dict[str, Any]:
+        try:
+            return self._tracker().recover_recording(request["pending_event_ref"])
+        except (ImportError, ValueError, RuntimeError, OSError) as error:
+            return {"disposition": "blocked", "outcome": "blocked", "diagnostics": [f"shared recording recovery failed: {error}"]}
+
+    def recover_selected_release(self, request: dict[str, Any]) -> dict[str, Any]:
+        """Forward a closed recovery carrier to the orchestrator transport."""
+        try:
+            app = Path(__file__).resolve().parents[1] / "203_APPS/WORKFLOW_ORCHESTRATOR"
+            if str(app) not in sys.path:
+                sys.path.insert(0, str(app))
+            return importlib.import_module("orchestrator").run(self.root, request)
+        except (ImportError, ValueError, RuntimeError, OSError) as error:
+            return {"run_id": request.get("run_id"), "disposition": "blocked", "outcome": "blocked",
+                    "diagnostics": [f"selected Release recovery transport is unavailable: {error}"]}
+
+    def recover_selected_release_status(self, request: dict[str, Any]) -> dict[str, Any]:
+        try:
+            app = Path(__file__).resolve().parents[1] / "203_APPS/WORKFLOW_ORCHESTRATOR"
+            if str(app) not in sys.path:
+                sys.path.insert(0, str(app))
+            return importlib.import_module("orchestrator").run(self.root, request)
+        except (ImportError, ValueError, RuntimeError, OSError) as error:
+            return {"run_id": request.get("run_id"), "disposition": "blocked", "outcome": "blocked",
+                    "diagnostics": [f"selected Release recovery observation is unavailable: {error}"]}
+
+
+class SelectedRouteAdapter(_SelectedRouteAdapterBase):
+
+    def _preflight_lifecycle(self, request: Mapping[str, Any]) -> dict[str, Any] | None:
+        """Reject one source-invalid status request before shared preview admission."""
+        if request.get("operation_route") != "change_atom_status":
+            return None
+        app = Path(__file__).resolve().parents[1] / "203_APPS/WORKFLOW_ORCHESTRATOR"
+        if str(app) not in sys.path:
+            sys.path.insert(0, str(app))
+        try:
+            selected_execution = importlib.import_module("selected_execution")
+        except (ImportError, AttributeError, TypeError, ValueError, RuntimeError) as error:
+            return self._result(request, "blocked", "blocked", f"source-derived lifecycle admission unavailable: {error}")
+        try:
+            current = selected_execution.preflight_selected_lifecycle(
+                self.root, "change_atom_status", request.get("parameters"),
+            )
+            if request.get("mode") == "execute":
+                receipt = request.get("proposal_receipt")
+                freshness = receipt.get("source_freshness") if isinstance(receipt, Mapping) else None
+                observed = freshness.get("observed") if isinstance(freshness, Mapping) else None
+                expected = observed.get("lifecycle_admission") if isinstance(observed, Mapping) else None
+                if not isinstance(expected, Mapping):
+                    raise selected_execution.LifecycleAdmissionError(
+                        "status-preview-admission-missing",
+                        "status execution requires the source-derived preview admission",
+                    )
+                if canonical_digest(dict(expected)) != canonical_digest(current):
+                    raise selected_execution.LifecycleAdmissionError(
+                        "status-model-stale",
+                        "authoritative status-model source changed after lifecycle admission",
+                    )
+        except selected_execution.LifecycleAdmissionError as error:
+            result = self._result(request, "blocked", "blocked", str(error))
+            result["effect_refs"] = []
+            result["lifecycle_error"] = error.record()
+            return result
+        except (AttributeError, TypeError, ValueError, RuntimeError) as error:
+            return self._result(request, "blocked", "blocked", f"source-derived lifecycle admission unavailable: {error}")
+        return None
+
+    def _validate_request(self, route: str, request: Any) -> dict[str, Any]:
+        if not isinstance(request, Mapping):
+            raise SelectedRouteError("request must be an object")
+        allowed = {"operation_route", "mode", "request_id", "parameters", "parameters_digest", "target_frontier",
+                   "target_frontier_digest", "effects", "effects_digest", "definition_manifest", "source_freshness",
+                   "expected_definition_revisions", "initiative", "lineage", "proposal_receipt",
+                   "proposal_receipt_digest", "assigned_action_id", "requested_runs", "operator_authorization"}
+        unknown = set(request) - allowed
+        if unknown or _find_shadow_manifest_fields(request, allowed_definition_manifest=True):
+            raise SelectedRouteError("request contains unknown or shadow manifest fields")
+        normalized = dict(request)
+        normalized.setdefault("mode", "preview")
+        if normalized.get("operation_route") != route or route not in self.routes:
+            raise SelectedRouteError("request route is not the selected MCP route")
+        if normalized["mode"] not in {"preview", "execute"}:
+            raise SelectedRouteError("mode must be preview or execute")
+        if not isinstance(normalized.get("request_id"), str) or not _REQUEST_ID.fullmatch(normalized["request_id"]):
+            raise SelectedRouteError("request_id must be a stable safe identity")
+        if not isinstance(normalized.get("parameters"), Mapping) or canonical_digest(normalized["parameters"]) != _require_digest(normalized.get("parameters_digest"), "parameters_digest differs"):
+            raise SelectedRouteError("parameters or parameters_digest differs")
+        frontier = normalized.get("target_frontier")
+        if not isinstance(frontier, list) or not frontier or not all(isinstance(ref, str) and ref and not ref.startswith("/") and ".." not in Path(ref).parts for ref in frontier):
+            raise SelectedRouteError("target_frontier is invalid")
+        if len(set(frontier)) != len(frontier) or canonical_digest(frontier) != _require_digest(normalized.get("target_frontier_digest"), "target_frontier_digest differs"):
+            raise SelectedRouteError("target_frontier_digest differs")
+        effects = normalized.get("effects")
+        if not isinstance(effects, list) or any(not isinstance(effect, Mapping) or not isinstance(effect.get("type"), str) or not effect["type"] for effect in effects):
+            raise SelectedRouteError("effects are invalid")
+        if canonical_digest(effects) != _require_digest(normalized.get("effects_digest"), "effects_digest differs"):
+            raise SelectedRouteError("effects_digest differs")
+        manifest = normalized.get("definition_manifest")
+        if not isinstance(manifest, Mapping) or set(manifest) != {"manifest_ref", "manifest_digest"}:
+            raise SelectedRouteError("definition_manifest is invalid")
+        if manifest != {"manifest_ref": self.manifest["manifest_ref"], "manifest_digest": self.manifest["canonical_manifest_sha256"]}:
+            raise SelectedRouteError("definition_manifest is stale or does not identify the canonical binding")
+        freshness = normalized.get("source_freshness")
+        if not isinstance(freshness, Mapping) or dict(freshness) != self.manifest["source_freshness"]:
+            raise SelectedRouteError("source_freshness is stale or incomplete")
+        initiative = normalized.get("initiative")
+        if not isinstance(initiative, Mapping) or not set(initiative) <= {"initiative_id", "instruction_summary", "initiative_ref"} or not all(isinstance(initiative.get(key), str) and initiative[key] for key in ("initiative_id", "instruction_summary")) or ("initiative_ref" in initiative and (not isinstance(initiative["initiative_ref"], str) or not initiative["initiative_ref"] or initiative["initiative_ref"].startswith("/") or ".." in Path(initiative["initiative_ref"]).parts)):
+            raise SelectedRouteError("initiative must be an explicit sealed authorization boundary")
+        if "lineage" in normalized:
+            lineage = normalized["lineage"]
+            if not isinstance(lineage, list) or any(not isinstance(value, str) or not value for value in lineage):
+                raise SelectedRouteError("lineage must contain only actual parent Run references")
+        if "expected_definition_revisions" in normalized:
+            expected = normalized["expected_definition_revisions"]
+            source = self._expected_revisions(route)
+            if not isinstance(expected, list) or expected != source:
+                raise SelectedRouteError("expected definition revisions differ from the selected route binding")
+        return normalized
+
+    def _expected_revisions(self, route: str) -> list[dict[str, Any]]:
+        entry = self.routes[route]
+        rows: list[dict[str, Any]] = []
+        for kind, pin in [("workflow", entry["workflow"]), *[("step", item["step"]) for item in entry["ordered_steps"]], *[("action", item) for item in entry["ordered_actions"]]]:
+            row = {"kind": kind, "atom_id": pin["atom_id"], "version": pin["version"], "path": pin["source_path"], "digest": pin["digest"]}
+            if row not in rows:
+                rows.append(row)
+        return sorted(rows, key=lambda item: (item["kind"], item["atom_id"], item["version"], item["path"]))
+
+    def _validate_execute(self, request: Mapping[str, Any]) -> str | None:
+        required = {"proposal_receipt", "proposal_receipt_digest", "assigned_action_id", "requested_runs", "operator_authorization"}
+        missing = [name for name in sorted(required) if name not in request]
+        if missing:
+            return "execute requires exact preview receipt and Operator authorization"
+        receipt = request["proposal_receipt"]
+        if not isinstance(receipt, Mapping) or not receipt or not _DIGEST.fullmatch(str(request["proposal_receipt_digest"])):
+            return "execute proposal receipt is invalid"
+        if canonical_digest(receipt) != request["proposal_receipt_digest"]:
+            return "execute proposal receipt digest differs"
+        if not isinstance(request["assigned_action_id"], str) or not request["assigned_action_id"]:
+            return "execute assigned_action_id is invalid"
+        requested = request["requested_runs"]
+        if not isinstance(requested, list) or not requested:
+            return "execute requested Run identities are invalid"
+        authorization = request["operator_authorization"]
+        if not isinstance(authorization, Mapping) or not isinstance(authorization.get("authorization_ref"), str) or not authorization["authorization_ref"]:
+            return "execute lacks explicit sealed Operator authorization"
+        required_bindings = {
+            "request_id": request["request_id"], "operation_route": request["operation_route"],
+            "proposal_receipt_digest": request["proposal_receipt_digest"], "parameters_digest": request["parameters_digest"],
+            "target_frontier_digest": request["target_frontier_digest"],
+            "effects_digest": request["effects_digest"], "definition_manifest": request["definition_manifest"],
+            "source_freshness": request["source_freshness"],
+        }
+        if any(authorization.get(key) != value for key, value in required_bindings.items()):
+            return "Operator authorization is not bound to the exact preview and current source frontier"
+        freshness = authorization.get("authorization_freshness")
+        if not isinstance(freshness, Mapping) or set(freshness) != {"state", "digest"} or freshness.get("state") != "current" or not isinstance(freshness.get("digest"), str) or not _DIGEST.fullmatch(freshness["digest"]):
+            return "Operator authorization freshness is invalid"
+        if set(authorization) != {"authorization_ref", "authorization_freshness", *required_bindings}:
+            return "Operator authorization contains unknown or incomplete bindings"
+        return None
+
+    @staticmethod
+    def _release_request_module() -> Any:
+        # Load the implementation from the MCP image, never caller Project code.
+        release_tools = Path(__file__).resolve().parents[1] / "201_TOOLS/RELEASE_VERSION"
+        if str(release_tools) not in sys.path:
+            sys.path.insert(0, str(release_tools))
+        return importlib.import_module("release_version")
+
+    def _prepare_release_parameters(self, request: Mapping[str, Any]) -> dict[str, Any]:
+        """Resolve intent before preview sealing, or validate frozen native inputs.
+
+        The caller's original parameter digest has already been checked.  A
+        preparation produces a new digest and never carries an old authorization
+        over to the expanded candidate boundary.  Execution only validates the
+        supplied frozen boundary; it cannot prepare replacement parameters.
+        """
+        normalized = dict(request)
+        parameters = normalized["parameters"]
+        selection = bound_selection(self.root)
+        # Container startup admits the host identity separately from the local
+        # mount.  Never resolve or read a caller-supplied external path here.
+        worker_root = str(selection.host_root) if selection is not None and selection.host_root is not None else str(self.root)
+        if parameters.get("project_root") != worker_root:
+            raise SelectedRouteError("Release parameters must identify the selected Project host root")
+        observed_parameters = dict(parameters)
+        observed_parameters["project_root"] = str(self.root)
+        native = self._release_request_module()
+        if "candidateSnapshotManifest" not in parameters:
+            if normalized["mode"] != "preview":
+                raise SelectedRouteError("Release execution requires resolved parameters from the exact preview")
+            prepared = dict(native.prepare_release_request(self.root, observed_parameters))
+            prepared["project_root"] = worker_root
+            normalized["parameters"] = prepared
+            normalized["parameters_digest"] = canonical_digest(normalized["parameters"])
+        else:
+            native.validate_prepared_release_request(self.root, observed_parameters)
+        return normalized
+
+    def invoke(self, route: str, request: Any) -> dict[str, Any]:
+        try:
+            self.manifest = (load_release_execution_manifest(self.root)
+                             if route == _OPTIONAL_RELEASE_ROUTE_NAME else load_selected_manifest(self.root))
+            self.routes = {entry["route"]: entry for entry in self.manifest["routes"]}
+            normalized = self._validate_request(route, request)
+        except SelectedRouteError as error:
+            return self._result(request, "rejected", "rejected", str(error))
+        if normalized["mode"] == "execute":
+            if route == _OPTIONAL_RELEASE_ROUTE_NAME and "candidateSnapshotManifest" not in normalized["parameters"]:
+                return self._result(normalized, "blocked", "blocked", "Release execution requires resolved parameters from the exact preview")
+            blocked = self._validate_execute(normalized)
+            if blocked:
+                return self._result(normalized, "blocked", "blocked", blocked)
+        if route == _OPTIONAL_RELEASE_ROUTE_NAME:
+            try:
+                normalized = self._prepare_release_parameters(normalized)
+            except (ImportError, AttributeError, TypeError, ValueError, RuntimeError, OSError) as error:
+                return self._result(normalized, "blocked", "blocked", f"Release preparation refused the current source boundary: {error}")
+        lifecycle_refusal = self._preflight_lifecycle(normalized)
+        if lifecycle_refusal is not None:
+            return lifecycle_refusal
+        support = self._support()
+        if support is None:
+            return {"request_id": normalized["request_id"], "disposition": "blocked", "outcome": "implementation_gap",
+                    "source_freshness": normalized["source_freshness"], "diagnostics": ["shared implement_run_support is unavailable"]}
+        try:
+            handler: Callable[[dict[str, Any]], dict[str, Any]] = getattr(support, "run_selected_operation")
+            result = handler(normalized)
+            if route == _OPTIONAL_RELEASE_ROUTE_NAME and normalized["mode"] == "preview" and result.get("disposition") == "preview":
+                result = {**result, "resolved_parameters": copy.deepcopy(normalized["parameters"]),
+                          "resolved_parameters_digest": normalized["parameters_digest"]}
+            return result
+        except (AttributeError, TypeError, ValueError, RuntimeError) as error:
+            return self._result(normalized, "blocked", "blocked", f"shared support rejected request: {error}")
+
+    def _observe(self, method: str, request: Any, required_key: str) -> dict[str, Any]:
+        if not isinstance(request, Mapping) or set(request) != {required_key} or not isinstance(request[required_key], str) or not request[required_key]:
+            return self._result(request, "rejected", "rejected", f"{method} requires one exact {required_key}")
+        support = self._support()
+        if support is None or not hasattr(support, method):
+            return self._result(request, "blocked", "implementation_gap", "shared implement_run_support observation is unavailable")
+        try:
+            return getattr(support, method)(dict(request))
+        except (TypeError, ValueError, RuntimeError) as error:
+            return self._result(request, "blocked", "blocked", f"shared support rejected observation: {error}")
+
+    def get_workflow_run(self, request: Any) -> dict[str, Any]:
+        return self._observe("get_selected_workflow_run", request, "run_id")
+
+    def get_action_run(self, request: Any) -> dict[str, Any]:
+        return self._observe("get_selected_action_run", request, "action_run_id")
+
+    def recover_recording(self, request: Any) -> dict[str, Any]:
+        if not isinstance(request, Mapping) or not set(request) <= {"pending_event_ref", "request_id"} or "pending_event_ref" not in request or not isinstance(request["pending_event_ref"], str) or not request["pending_event_ref"] or ("request_id" in request and (not isinstance(request["request_id"], str) or not _REQUEST_ID.fullmatch(request["request_id"]))):
+            return self._result(request, "rejected", "rejected", "recovery requires one exact pending event reference and optional request_id")
+        support = self._support()
+        if support is None or not hasattr(support, "recover_selected_run_recording"):
+            return self._result(request, "blocked", "implementation_gap", "shared implement_run_support recording recovery is unavailable")
+        try:
+            return support.recover_selected_run_recording(dict(request))
+        except (TypeError, ValueError, RuntimeError) as error:
+            return self._result(request, "blocked", "blocked", f"shared support rejected recording recovery: {error}")
+
+    def recover_release(self, request: Any) -> dict[str, Any]:
+        recovery_keys = {"operation", "run_id", "request_identity"}
+        resolution_keys = {
+            "operation", "run_id", "request_identity", "authorization_ref",
+            "authorization_sha256", "expected_checkpoint_sha256",
+        }
+        ordinary = (isinstance(request, Mapping) and set(request) == recovery_keys
+                    and request.get("operation") == "recover_selected_release"
+                    and isinstance(request.get("run_id"), str) and _REQUEST_ID.fullmatch(request["run_id"])
+                    and isinstance(request.get("request_identity"), str) and _DIGEST.fullmatch(request["request_identity"]))
+        resolution = (isinstance(request, Mapping) and set(request) == resolution_keys
+                      and request.get("operation") == "resolve_release_unknown_effect"
+                      and request.get("run_id") == "release-epic-resume-20261006-N15"
+                      and isinstance(request.get("request_identity"), str) and _DIGEST.fullmatch(request["request_identity"])
+                      and isinstance(request.get("authorization_ref"), str) and request["authorization_ref"]
+                      and isinstance(request.get("authorization_sha256"), str) and _DIGEST.fullmatch(request["authorization_sha256"])
+                      and isinstance(request.get("expected_checkpoint_sha256"), str) and _DIGEST.fullmatch(request["expected_checkpoint_sha256"]))
+        if not ordinary and not resolution:
+            return self._result(request, "rejected", "rejected", "Release recovery requires its exact ordinary or unknown-effect carrier")
+        try:
+            manifest = (load_release_execution_manifest(self.root) if ordinary
+                        else load_selected_manifest(self.root))
+            routes = tuple(entry.get("route") for entry in manifest.get("routes", []) if isinstance(entry, Mapping))
+        except (OSError, ValueError, SelectedRouteError) as error:
+            return self._result(request, "blocked", "blocked", f"Release recovery admission is unavailable: {error}")
+        if routes not in {
+            (_OPTIONAL_RELEASE_ROUTE_NAME,),
+            (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME),
+            (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME),
+        }:
+            return self._result(request, "blocked", "blocked", "Release recovery requires the admitted additive Release manifest")
+        support = self._support()
+        if support is None or not hasattr(support, "recover_selected_release"):
+            return self._result(request, "blocked", "implementation_gap", "selected Release recovery transport is unavailable")
+        try:
+            return support.recover_selected_release(dict(request))
+        except (TypeError, ValueError, RuntimeError, OSError) as error:
+            return self._result(request, "blocked", "blocked", f"selected Release recovery rejected request: {error}")
+
+    def recover_release_status(self, request: Any) -> dict[str, Any]:
+        required = {"operation", "run_id", "recovery_transport_handle"}
+        if (not isinstance(request, Mapping) or set(request) != required
+                or request.get("operation") != "recover_selected_release_status"
+                or not isinstance(request.get("run_id"), str) or not _REQUEST_ID.fullmatch(request["run_id"])
+                or not isinstance(request.get("recovery_transport_handle"), str)
+                or not re.fullmatch(r"[0-9a-f]{32}", request["recovery_transport_handle"])):
+            return self._result(request, "rejected", "rejected", "Release recovery observation requires only operation, existing run_id, and returned transport handle")
+        try:
+            manifest = load_release_execution_manifest(self.root)
+            routes = tuple(entry.get("route") for entry in manifest.get("routes", []) if isinstance(entry, Mapping))
+        except (OSError, ValueError, SelectedRouteError) as error:
+            return self._result(request, "blocked", "blocked", f"Release recovery admission is unavailable: {error}")
+        if routes not in {
+            (_OPTIONAL_RELEASE_ROUTE_NAME,),
+            (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME),
+            (*SELECTED_ROUTE_NAMES, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME),
+        }:
+            return self._result(request, "blocked", "blocked", "Release recovery requires the admitted additive Release manifest")
+        support = self._support()
+        if support is None or not hasattr(support, "recover_selected_release_status"):
+            return self._result(request, "blocked", "implementation_gap", "selected Release recovery observation is unavailable")
+        try:
+            return support.recover_selected_release_status(dict(request))
+        except (TypeError, ValueError, RuntimeError, OSError) as error:
+            return self._result(request, "blocked", "blocked", f"selected Release recovery observation rejected request: {error}")
+
+
+def register_selected_routes(server: Any, root: str | Path) -> SelectedRouteAdapter:
+    """Register selected routes plus the Project-owned direct local Release."""
+    from mcp.types import ToolAnnotations
+
+    adapter = SelectedRouteAdapter(root, strict_manifest=False)
+    selected_annotations = ToolAnnotations(read_only_hint=False, destructive_hint=False, idempotent_hint=True, open_world_hint=False)
+    query_annotations = ToolAnnotations(read_only_hint=True, destructive_hint=False, idempotent_hint=True, open_world_hint=False)
+    observation_annotations = ToolAnnotations(read_only_hint=True, destructive_hint=False, idempotent_hint=True, open_world_hint=False)
+    release_annotations = ToolAnnotations(read_only_hint=False, destructive_hint=True, idempotent_hint=False, open_world_hint=False)
+
+    @server.tool(name=_OPTIONAL_RELEASE_ROUTE_NAME, structured_output=True, annotations=release_annotations)
+    def release_version(request: dict[str, Any]) -> dict[str, Any]:
+        """Run the Project-owned local release; effects are destructive and non-idempotent."""
+        if not isinstance(request, Mapping) or set(request) != {"project_root", "run_id"}:
+            return {"outcome": "failed", "diagnostics": ["request requires only project_root and run_id"]}
+        project_root, run_id = request["project_root"], request["run_id"]
+        if not isinstance(run_id, str) or not _REQUEST_ID.fullmatch(run_id):
+            return {"outcome": "failed", "run_id": run_id if isinstance(run_id, str) else None,
+                    "diagnostics": ["run_id is invalid"]}
+        if not isinstance(project_root, str):
+            return {"outcome": "failed", "run_id": run_id,
+                    "diagnostics": ["project_root is invalid"]}
+        try:
+            supplied_root = Path(project_root).resolve(strict=True)
+        except OSError:
+            return {"outcome": "failed", "run_id": run_id,
+                    "diagnostics": ["project_root is unavailable"]}
+        if supplied_root != adapter.root:
+            return {"outcome": "failed", "run_id": run_id,
+                    "diagnostics": ["project_root does not match the bound Project root"]}
+        try:
+            from work_journal import append_record, event_record
+            started = event_record(
+                root=adapter.root, event="started", action_id=run_id, kind="workflow", scope="project",
+                operation=_OPTIONAL_RELEASE_ROUTE_NAME, session_id=run_id, subjects=[], outputs=[],
+                preceding_event=None, details={},
+            )
+            append_record(adapter.root, started)
+        except (ImportError, OSError, RuntimeError, ValueError) as error:
+            return {"outcome": "recording_failed", "run_id": run_id,
+                    "project_root": str(adapter.root), "diagnostics": [f"Release start recording failed: {error}"]}
+        entrypoint = adapter.root / "PROJECT_TOOLS/RELEASE_VERSION/local_release.py"
+        try:
+            if entrypoint.is_symlink() or not entrypoint.is_file():
+                raise SelectedRouteError("local Release implementation is unavailable")
+            spec = importlib.util.spec_from_file_location("_caprmedio_local_release", entrypoint)
+            if spec is None or spec.loader is None:
+                raise SelectedRouteError("local Release implementation is unavailable")
+            module = importlib.util.module_from_spec(spec)
+            sys.modules[spec.name] = module
+            try:
+                spec.loader.exec_module(module)
+                result = getattr(module, "run_local_release")(adapter.root, run_id=run_id)
+            finally:
+                sys.modules.pop(spec.name, None)
+            if not isinstance(result, Mapping):
+                raise SelectedRouteError("local Release returned an invalid result")
+        except (AttributeError, ImportError, OSError, RuntimeError, TypeError, ValueError) as error:
+            result = {"outcome": "failed", "diagnostics": [str(error)]}
+        outcome = result.get("outcome") if isinstance(result.get("outcome"), str) else "failed"
+        try:
+            append_record(adapter.root, event_record(
+                root=adapter.root, event="completed" if outcome == "completed" else "failed",
+                action_id=run_id, kind="workflow", scope="project", operation=_OPTIONAL_RELEASE_ROUTE_NAME,
+                session_id=run_id, subjects=[], outputs=[], preceding_event=str(started["event_id"]),
+                details={"outcome": outcome},
+            ))
+        except (OSError, RuntimeError, ValueError) as error:
+            return {"outcome": "recording_failed", "actual_outcome": outcome, "run_id": run_id,
+                    "project_root": str(adapter.root), "diagnostics": [f"Release terminal recording failed: {error}"]}
+        result["run_id"] = run_id
+        result["project_root"] = str(adapter.root)
+        return result
+
+    @server.tool(name=_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME, structured_output=True, annotations=release_annotations)
+    def public_release(request: dict[str, Any]) -> dict[str, Any]:
+        """Run the Project-owned public release after the required content draft is supplied."""
+        if not isinstance(request, Mapping) or set(request) not in (
+            {"project_root", "run_id"}, {"project_root", "run_id", "content_draft"},
+        ):
+            return {"outcome": "failed", "diagnostics": ["request requires only project_root, run_id, and optional content_draft"]}
+        project_root, run_id = request["project_root"], request["run_id"]
+        if not isinstance(run_id, str) or not _REQUEST_ID.fullmatch(run_id):
+            return {"outcome": "failed", "run_id": run_id if isinstance(run_id, str) else None,
+                    "diagnostics": ["run_id is invalid"]}
+        if not isinstance(project_root, str):
+            return {"outcome": "failed", "run_id": run_id,
+                    "diagnostics": ["project_root is invalid"]}
+        try:
+            supplied_root = Path(project_root).resolve(strict=True)
+        except OSError:
+            return {"outcome": "failed", "run_id": run_id,
+                    "diagnostics": ["project_root is unavailable"]}
+        if supplied_root != adapter.root:
+            return {"outcome": "failed", "run_id": run_id,
+                    "diagnostics": ["project_root does not match the bound Project root"]}
+        if "content_draft" not in request:
+            return {"outcome": "input_required", "run_id": run_id,
+                    "project_root": str(adapter.root),
+                    "prompt": "Provide content_draft with description and summary."}
+        content_draft = request["content_draft"]
+        if (not isinstance(content_draft, Mapping) or set(content_draft) != {"description", "summary"}
+                or not isinstance(content_draft["description"], str)
+                or not isinstance(content_draft["summary"], list)
+                or not all(isinstance(item, str) for item in content_draft["summary"])):
+            return {"outcome": "failed", "run_id": run_id,
+                    "project_root": str(adapter.root), "diagnostics": ["content_draft is invalid"]}
+        try:
+            from work_journal import append_record, event_record
+            started = event_record(
+                root=adapter.root, event="started", action_id=run_id, kind="workflow", scope="project",
+                operation=_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME, session_id=run_id, subjects=[], outputs=[],
+                preceding_event=None, details={},
+            )
+            append_record(adapter.root, started)
+        except (ImportError, OSError, RuntimeError, ValueError) as error:
+            return {"outcome": "recording_failed", "run_id": run_id,
+                    "project_root": str(adapter.root), "diagnostics": [f"Public Release start recording failed: {error}"]}
+        entrypoint = adapter.root / "PROJECT_TOOLS/PUBLIC_RELEASE/public_release.py"
+        try:
+            if entrypoint.is_symlink() or not entrypoint.is_file():
+                raise SelectedRouteError("public Release implementation is unavailable")
+            spec = importlib.util.spec_from_file_location("_caprmedio_public_release", entrypoint)
+            if spec is None or spec.loader is None:
+                raise SelectedRouteError("public Release implementation is unavailable")
+            module = importlib.util.module_from_spec(spec)
+            sys.modules[spec.name] = module
+            try:
+                spec.loader.exec_module(module)
+                result = getattr(module, "run_public_release")(
+                    adapter.root, run_id=run_id, content_draft=content_draft)
+            finally:
+                sys.modules.pop(spec.name, None)
+            if not isinstance(result, Mapping):
+                raise SelectedRouteError("public Release returned an invalid result")
+        except (AttributeError, ImportError, OSError, RuntimeError, TypeError, ValueError) as error:
+            result = {"outcome": "failed", "diagnostics": [str(error)]}
+        outcome = result.get("outcome") if isinstance(result.get("outcome"), str) else "failed"
+        try:
+            append_record(adapter.root, event_record(
+                root=adapter.root, event="completed" if outcome == "completed" else "failed",
+                action_id=run_id, kind="workflow", scope="project", operation=_OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME,
+                session_id=run_id, subjects=[], outputs=[], preceding_event=str(started["event_id"]),
+                details={"outcome": outcome},
+            ))
+        except (OSError, RuntimeError, ValueError) as error:
+            return {"outcome": "recording_failed", "actual_outcome": outcome, "run_id": run_id,
+                    "project_root": str(adapter.root), "diagnostics": [f"Public Release terminal recording failed: {error}"]}
+        result["run_id"] = run_id
+        result["project_root"] = str(adapter.root)
+        return result
+
+    public_route_names = SELECTED_ROUTE_NAMES
+    adapter.public_route_names = frozenset((*public_route_names, _OPTIONAL_RELEASE_ROUTE_NAME, _OPTIONAL_PUBLIC_RELEASE_ROUTE_NAME))
+
+    for route_name in public_route_names:
+        def add_route(route: str) -> None:
+            @server.tool(name=route, structured_output=True,
+                         annotations=query_annotations if route in QUERY_ROUTE_NAMES else selected_annotations)
+            def selected_route(request: dict[str, Any]) -> dict[str, Any]:
+                """Preview by default; execute requires exact sealed Operator authorization and never starts a worker."""
+                return adapter.invoke(route, request)
+        add_route(route_name)
+
+    @server.tool(name="get_selected_workflow_run", structured_output=True, annotations=observation_annotations)
+    def get_selected_workflow_run(request: dict[str, Any]) -> dict[str, Any]:
+        """Read one saved selected Workflow Run without dispatch."""
+        return adapter.get_workflow_run(request)
+
+    @server.tool(name="get_selected_action_run", structured_output=True, annotations=observation_annotations)
+    def get_selected_action_run(request: dict[str, Any]) -> dict[str, Any]:
+        """Read one saved selected Action Run without dispatch."""
+        return adapter.get_action_run(request)
+
+    @server.tool(name="recover_selected_run_recording", structured_output=True, annotations=selected_annotations)
+    def recover_selected_run_recording(request: dict[str, Any]) -> dict[str, Any]:
+        """Retry one pending shared event append; never replay an Action or Workflow."""
+        return adapter.recover_recording(request)
+
+    return adapter
