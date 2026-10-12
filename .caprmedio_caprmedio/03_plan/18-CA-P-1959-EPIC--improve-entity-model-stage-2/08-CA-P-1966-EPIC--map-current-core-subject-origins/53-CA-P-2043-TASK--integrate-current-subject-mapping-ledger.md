@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 5
-updated_at: "2026-10-11 03:01:46 +0400"
+version: 6
+updated_at: "2026-10-12 14:55:39 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   depends_on: ["CA-P-1972", "CA-P-1988", "CA-P-1989", "CA-P-1990", "CA-P-1992", "CA-P-1993", "CA-P-1994", "CA-P-1995", "CA-P-1996", "CA-P-1997", "CA-P-1998", "CA-P-1999", "CA-P-2000", "CA-P-2001", "CA-P-2002", "CA-P-2003", "CA-P-2004", "CA-P-2005", "CA-P-2006", "CA-P-2007", "CA-P-2008", "CA-P-2009", "CA-P-2010", "CA-P-2011", "CA-P-2012", "CA-P-2013", "CA-P-2014", "CA-P-2015", "CA-P-2016", "CA-P-2017", "CA-P-2018", "CA-P-2019", "CA-P-2020", "CA-P-2021", "CA-P-2022", "CA-P-2023", "CA-P-2024", "CA-P-2025", "CA-P-2026", "CA-P-2027", "CA-P-2028", "CA-P-2029", "CA-P-2030", "CA-P-2031", "CA-P-2032", "CA-P-2033", "CA-P-2034", "CA-P-2035", "CA-P-2036", "CA-P-2037", "CA-P-2038", "CA-P-2039", "CA-P-2040", "CA-P-2041", "CA-P-2042"]
@@ -30,6 +30,10 @@ Integrate current Subject mapping ledger
 Produce one complete, source-pinned occurrence ledger with every unresolved finding visible.
 
 ## Details
+
+Fresh Candidate-3 continuation uses CA-P-2187's independently checked current inventory and new disjoint per-source review receipts, not the old pins below. CA-P-2045 remains the single integrated-ledger owner; CA-P-2188 builds the current derived ledger and CA-P-2189 independently verifies it. All new semantic batch Tasks and their exact coverage must finish before integration. Independent read-only preparation is not blocked by that completion gate. No staging or source effect is inferred from this group.
+
+Historical initial-ledger branch (the following pins and receipts are not fresh acceptance):
 
 Own work: none. This group delegates checker preparation and later ledger integration to its children. Its all-review prerequisite applies to ledger integration, not independent checker/test preparation. Required prerequisites: CA-P-1972, CA-P-1988, CA-P-1989, CA-P-1990 and all 51 direct review Tasks Done. Read and pin `.caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.contract.md` SHA-256 `5eb0d90022b68a7d1d2cd27cf60a147deaf4161cb9b2e1c8bdf6c4ef8f2a10bf` and `.caprmedio_caprmedio/_projection/core-entity-review/stage2/current-subjects.review.contract.md` SHA-256 `b7c9c065f997d5bae1409f5c09b4223d08327a523decab6d26c2e4425fd2c28b`. Recheck the inventory SHA-256 `e284dbe4943568bc75b7f9ba63ebf583372a60813e62eee3d43b5b75b270220a`, all batch/source/input pins and each receipt. Verify every selected source/finding and occurrence exactly once, no overlap, unchanged/proposed/unresolved states, evidence spans and confidence. An incomplete review cannot count as Done.
 

@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 7
-updated_at: "2026-10-12 05:58:19 +0400"
+version: 8
+updated_at: "2026-10-12 14:55:39 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -37,13 +37,13 @@ Reusable Tools operate valid files only. Reuse the existing lookup, sealed previ
 
 This group grants no live Core effects. CA-P-1909–1912 retain the sole final accepted graph, sealed preview, application and reproduction route. CA-P-1966's read-only current-source adaptation/re-pin for staged candidates requires CA-P-1963 and CA-P-2183's receipt, not the full publication gate. Live application needs CA-P-1910's separately Operator-approved exact packet; changed pins require a new preview. No ordinary Core content, carrier rename, native Relation admission, release or runtime activation is included.
 
-The derived Terms compiler stays in Step 2 under CA-P-1970/1974: RMEDO review/update and independent contract verification, affected Tool alignment and independent fixtures, then affected content/consumer usage. This group does not start Terms compilation or premature Core adoption.
+The latest scope is Subject migration only. Terms compilation, identity/filename and Applicable Methodology adoption belong to the separate deferred CA-P-1970 Epic; they are not this group's work or completion gates. The staged branch changes only Subjects and required illustrative Version/time in candidate copies, never source content.
 
 The Operator chose extending the existing admitted MCP update action with Subjects-only application. CA-P-2170 aligns the chosen route's current contracts, then independent packet acceptance gates bounded CA-P-2173 implementation. No local exception, completed capability or live packet approval follows from the choice. Final Tool readiness still requires actual application implementation and independent fixtures.
 
 The later concurrency safety choice is deferred, not approved. Live changed-Subject writes remain blocked pending a later publication design and actual acceptance/verification under CA-P-2179. No exclusive-access requirement, quarantine policy or atomic exchange is inferred. Completed safe preview, pure materialization, no-op and isolated integration evidence do not complete successful publication, the application portfolio or this Tool gate; accepted RMEDO remains binding.
 
-CA-P-2183 adds a bounded non-publishing staging path: opt-in local `ATOM_UPDATE run --stage-preview`, existing `proposed_carrier`, a fresh generated `.caprmedio_tmp/subject-preview/<id>/`, and re-read/validation. Its independent receipt plus CA-P-1963 release read-only current-source adaptation/re-pinning/mapping solely to create and review staged candidates; they do not require this group's publication receipt. Full source implementation still requires this group, and final accepted graph/sealed live packet, effect-time execution and Step 2 retain their gates. Tool RMEDO and Plans are updated normally; migration candidates stay staged. Actual implementation waits for independent verification of the updated, accepted governing RMEDO.
+CA-P-2183 adds a bounded non-publishing staging path: opt-in local `ATOM_UPDATE run --stage-preview`, existing `proposed_carrier`, a fresh generated `.caprmedio_tmp/subject-preview/<id>/`, and re-read/validation. Its independent receipt plus CA-P-1963 release read-only current-source adaptation/re-pinning/mapping solely to create and review staged candidates; they do not require this group's publication receipt. Full source implementation still requires this group, and final accepted graph/sealed live packet, effect-time execution and separate content work retain their own gates. Tool RMEDO and Plans are updated normally; migration candidates stay staged. Actual implementation waits for independent verification of the updated, accepted governing RMEDO.
 
 One integration owner controls shared state and Git. Parallel edit scopes must be disjoint; overlapping contract/source changes are serialized and re-pinned. Each own-work leaf fits 15 minutes; split a larger packet before execution. Preparation alone never completes an implementation group.
 
@@ -64,7 +64,7 @@ CA-P-2168/2169 are Done after actual source alignment and [independent contract 
 
 CA-P-2178 is Done in [independent intent verification and deferred application status](../../_projection/core-entity-review/stage2/tools-first/intent-and-application-status.md). Final UPDATE 66 supersedes the earlier 59; SEARCH 49, dispatch five and selected golden-request five passed in their declared scopes. The native deferred-publication gate has independent static verification; those refusal/no-op/integration checks do not accept publication. Only pure intent/materialization is closed by that receipt. CA-P-2179/2180/2181/2182, CA-P-2173/2174 and this group remain Active where successful concurrent-safe publication is still unaccepted. Live changed-Subject writes are blocked, regardless of otherwise valid packet approval.
 
-CA-P-2183–2186 are Done after [actual contract acceptance](../../_projection/core-entity-review/stage2/tools-first/staged-preview-contract-acceptance.md) at `15d2373db` and [independent staging verification](../../_projection/core-entity-review/stage2/tools-first/staged-preview-verification.md) at `ef39bf1fd`. The independently reviewed staging path and 14-case portfolio passed Root's final UPDATE 80, SEARCH 49, generic lifecycle 30 and selected-Subject eight checks. With CA-P-1963, this releases read-only current-source adaptation/re-pinning/mapping solely to create and review staged candidates. No Core migration or current re-pin is claimed; this group, its full publication gate, shared CA-P-1909–1912 and Step 2 remain pending.
+CA-P-2183–2186 are Done after [actual contract acceptance](../../_projection/core-entity-review/stage2/tools-first/staged-preview-contract-acceptance.md) at `15d2373db` and [independent staging verification](../../_projection/core-entity-review/stage2/tools-first/staged-preview-verification.md) at `ef39bf1fd`. The independently reviewed staging path and 14-case portfolio passed Root's final UPDATE 80, SEARCH 49, generic lifecycle 30 and selected-Subject eight checks. With CA-P-1963, this releases read-only current-source adaptation/re-pinning/mapping solely to create and review staged candidates. No Core migration or current re-pin is claimed; this group, its full publication gate, shared CA-P-1909–1912 and the separate content Epic remain pending.
 
 ### Definition of Done
 
