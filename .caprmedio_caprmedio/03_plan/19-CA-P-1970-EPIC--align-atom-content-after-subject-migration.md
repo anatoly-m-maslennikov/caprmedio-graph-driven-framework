@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 7
-updated_at: "2026-10-12 14:55:39 +0400"
+version: 8
+updated_at: "2026-10-12 16:31:39 +0400"
 relations: {}
 ---
 # Summary
@@ -28,6 +28,8 @@ Align Summary, Substance, Substance Scope and Details with the verified Subject 
 ## Details
 
 This is the separate retained content Epic, no longer a decomposition of CA-P-1959. It remains Active and deferred. The current Operator request authorizes only staged Subject migration; it does not authorize preparing or applying this Epic's content/consumer changes. Obtain separate execution authority and the relevant Subject/live gates before its future work.
+
+Receive the explicit future-work queue required by the [approved content-conflict exclusions](../../.caprmedio_tmp/stage2-migration-20261012/model/content-conflict-decision.md), SHA-256 `6f5bdf81ae3861bd2141df69ba7ffa936f78cf7fef0ac0b8f2ae8290c17d09fc`: each whole original Atom whose content is independently confirmed to contradict the new model remains unchanged during Subjects-only staging and retains its ID, Version, source hash, contradictory source and candidate/Operator evidence, and reason. The complete Subject ledger must keep those owners visible in inventory/graph coverage and distinguish them from uncertain mappings or unreviewed omissions. Listing that queue does not start this Epic, prepare its deferred child work, authorize body changes or waive CA-P-1969 and separate execution authority. Reopen current source pins and the additive compact scope-reference decision before any later content review; old queue/report acceptance is not current content-patch approval.
 
 The detailed identity/Terms planning formerly embedded in the parent remains in [historical CA-P-1959 v54](archive/18-CA-P-1959-EPIC--improve-entity-model-stage-2@54.md). Retain that context for this Epic's future review alongside current governing RMEDO and later Operator decisions; historical scope wording grants no execution authority.
 
@@ -73,4 +75,4 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 ### Definition of Done
 
-The Plan is **not** Done if work starts before CA-P-1969 passes, affected content/consumer use precedes updated independently verified RMEDO and Tool fixture readiness, content changes lack their required review/authority, meaning or constraints are lost, Scope is confused with ownership, or unrelated migrations enter the batches; ordinary-update versus new-Atom lifecycle rules, D/consumer adoption, Applicable Methodology lifecycle or positive and negative checks remain unplanned or unverified; Terms Graph contracts, affected consumers or required acceptance cases remain unaligned or unverified; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if work starts before CA-P-1969 passes, affected content/consumer use precedes updated independently verified RMEDO and Tool fixture readiness, content changes lack their required review/authority, meaning or constraints are lost, Scope is confused with ownership, queued content-conflict owners/evidence are hidden or their Subjects-stage exclusion is treated as a completed content repair, or unrelated migrations enter the batches; ordinary-update versus new-Atom lifecycle rules, D/consumer adoption, Applicable Methodology lifecycle or positive and negative checks remain unplanned or unverified; Terms Graph contracts, affected consumers or required acceptance cases remain unaligned or unverified; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

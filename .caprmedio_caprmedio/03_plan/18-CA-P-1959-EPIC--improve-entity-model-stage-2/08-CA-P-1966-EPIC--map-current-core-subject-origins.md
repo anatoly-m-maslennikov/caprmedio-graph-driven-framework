@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 154
-updated_at: "2026-10-12 15:53:50 +0400"
+version: 155
+updated_at: "2026-10-12 16:31:39 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -25,7 +25,7 @@ Map current Core Subject origins
 
 ## Objective
 
-Map every selected current RMEDO Subject occurrence to its supported candidate Entity without guessing.
+Review every selected current RMEDO Subject occurrence and record its supported mapping or explicit evidenced disposition without guessing.
 
 ## Details
 
@@ -43,9 +43,11 @@ CA-P-1972's preparation alone cannot complete this group. The generated review/i
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
 
-Current continuation is Subjects-only staging. CA-P-2187 checked the fresh inventory; CA-P-2193 assigns all 48 exact whole-source review packets to fresh bounded Tasks. Every Task re-reads current sources against Candidate #3 and the latest Operator decisions, preserving distinct Owning Scope Unit, relational Target Scope Unit and exact governed Substance Scope. The old combined lookup context is a Selection, not a fourth scope. CA-P-2188/2189 integrate and independently verify the new ledger; CA-P-2190/2191 cover a frozen bounded staging tranche and its independent file/graph review. Allocate continuation Tasks for every remaining tranche before execution. Preserve Summary, Substance, scope, Semantics, body and unrelated metadata; only required illustrative Version/time may accompany Subject changes in candidates.
+Current continuation is Subjects-only staging. CA-P-2187 checked the fresh inventory; CA-P-2193 assigns all 48 exact whole-source packets to review Plans with bounded execution Tasks and any required zero-own-work roll-ups. Every Task re-reads current sources against Candidate #3 and the latest Operator decisions, preserving distinct Owning Scope Unit, relational Target Scope Unit and exact governed Substance Scope. The old combined lookup context is a Selection, not a fourth scope. CA-P-2188/2189 integrate and independently verify the new ledger; CA-P-2190/2191 cover a frozen bounded staging tranche and its independent file/graph review. Allocate continuation Tasks for every remaining tranche before execution. Preserve Summary, Substance, scope, Semantics, body and unrelated metadata; only required illustrative Version/time may accompany Subject changes in candidates.
 
 The fresh inventory reports 907 sources and 4534 occurrences with zero errors; independent inventory acceptance passed; fresh semantic coverage remains pending. Old CA-P-2049/2050–2056 domain assignments and prior ledgers remain historical research, not current source partitions or approval. Reuse CA-P-2043/2045 for one Root-owned integrated ledger. Do not mark a group complete from preparation, a partial tranche or unchanged historical bytes.
+
+Bind the additive [compact scope-reference decision](../../../.caprmedio_tmp/stage2-migration-20261012/model/scope-reference-decision.md), SHA-256 `df2303d0128ca9b882e2877f41ebc2f17f2c9fc2ce4a3a7ffefa394000d249c0` alongside the unchanged base decisions: the first two compact names are Atom references, not Scope Unit kinds; combined lookup remains a source-specific Selection. Under the [approved content-conflict exclusions](../../../.caprmedio_tmp/stage2-migration-20261012/model/content-conflict-decision.md), SHA-256 `6f5bdf81ae3861bd2141df69ba7ffa936f78cf7fef0ac0b8f2ae8290c17d09fc`, review all 907 owners/4534 occurrences and independently reconcile every disposition before staging. A confirmed content conflict excludes the whole Atom, preserves its original bytes and inventory/graph presence, and records ID, Version, source hash, contradictory source/model/Operator evidence, reason and CA-P-1970 destination. Supported changes to other whole owners may be staged only after CA-P-2188/2189. Missing sources, uncertainty or weak evidence are not conflict exemptions; no content work or partial unreviewed coverage is approved.
 
 ### Decomposing Plans
 
@@ -261,4 +263,4 @@ CA-P-2187 is Done after [independent current inventory acceptance](../../../.cap
 
 ### Definition of Done
 
-The Plan is **not** Done if any selected occurrence is missing or guessed, a mapping lacks current source evidence, unresolved cases are hidden, captured outputs change, or source Atoms are edited; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if any selected occurrence is missing or guessed, a mapping lacks current source evidence, unresolved cases are hidden, confirmed content-conflict exclusions lack whole-owner evidence/preservation or an explicit CA-P-1970 queue, uncertainty is used as a conflict exemption, captured outputs change, or source Atoms are edited; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

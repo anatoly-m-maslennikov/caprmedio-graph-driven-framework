@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Subject
   depends_on: [Atom, Entity, Term, Property, Scope Unit, Projection, Plan, Operator]
-version: 1
-updated_at: "2026-10-12 15:53:50 +0400"
+version: 2
+updated_at: "2026-10-12 16:31:39 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   blocks: [CA-P-2188]
@@ -29,13 +29,15 @@ Obtain independently accepted fresh whole-source reviews for the complete curren
 
 ## Details
 
-This grouping Plan has zero own work. Its 48 disjoint leaf Tasks own at most 20 whole source Atoms each and estimate at most 15 minutes of producer work; a separate reviewer supplies each independent semantic acceptance. Split a concrete overrun before execution and preserve complete coverage. Historical mapping Tasks and the first seven reports are context only, not completion of these new Tasks.
+This grouping Plan has zero own work. Its 48 disjoint packet Plans retain exact whole-source ownership; semantic-review leaves own at most 20 source Atoms and estimate at most 15 minutes of producer work, with separate independent semantic acceptance. A packet needing a split becomes a zero-own-work roll-up whose bounded review/assembly descendants must finish before the packet is complete; CA-P-2203 retains review-r-010's exact ownership through that nested route. Preserve complete coverage, and split any further concrete overrun before execution. Historical mapping Tasks and the first seven reports are context only, not completion of these new Plans.
 
 The [exact packet index](../../../../.caprmedio_tmp/stage2-migration-20261012/inventory/batches/batches-index.json), SHA-256 `972355bf40d739611ecc465695e19722eb9fabfeac20c67306216551ce0c8878`, partitions [the independently checked inventory](../../../../.caprmedio_tmp/stage2-migration-20261012/inventory/current-subjects.inventory.json), SHA-256 `0b2f217e8ebf541cc84322d18be81073bfdbb54342f248cbf9928583678455c7`: 907 source Atoms and 4534 Subject occurrences. Assign each whole source once. Required read-only branch prerequisites remain CA-P-1963 and CA-P-2183's verified staging receipt; CA-P-2187 is Done. This group blocks CA-P-2188 integration until every leaf and its separate independent receipt are complete. Independent preparation may proceed; no partial coverage admits staging.
 
 Read [Candidate #3](../../../_projection/core-entity-review/presentation/operator.model.candidate-3.md), SHA-256 `ff34c4d75d64766543f397024b0d003e9f8c6e2293e97a8a51e56b8f737be7a2`, plus [the latest Operator decision record](../../../../.caprmedio_tmp/stage2-migration-20261012/model/operator-subject-decisions.md), SHA-256 `ce28c370232ae43829036714eb24957987d11453fd94a76c4794997b088ecfb5`, then each whole current source. Re-pin actual source bytes before review and preserve every governs/dependency occurrence, owner/target/applicability distinction and qualifier. A named Selection is not an Object; Owned Atoms and Targeting Atoms have different predicates. Owning Scope Unit is where the Atom belongs; Target Scope Unit is the unit addressed by a relational Atom; Substance Scope is the exact governed boundary. Preserve all three; the old combined lookup context is a Selection, not a fourth scope. This permission adds no selector grammar or native endpoint admission.
 
 Each leaf delivers fresh occurrence-level supported change/unchanged/unresolved decisions with exact current source/field/index/old-value pins, source-specific passages, candidate/decision basis, prospective value and confidence. Investigate below 90%; if still uncertain ask the Operator through Root before adopting or staging that mapping. Do not substitute literal equality, generic Entity labels, role values or guessed bearers for semantic evidence.
+
+Bind the additive [compact scope-reference decision](../../../../.caprmedio_tmp/stage2-migration-20261012/model/scope-reference-decision.md), SHA-256 `df2303d0128ca9b882e2877f41ebc2f17f2c9fc2ce4a3a7ffefa394000d249c0` separately from the unchanged base decision record: `Atom.Owning Scope Unit` and `Atom.Target Scope Unit` are Atom-borne references; `Atom.Substance Scope` is exact applicability. Apply the [approved content-conflict exclusions](../../../../.caprmedio_tmp/stage2-migration-20261012/model/content-conflict-decision.md), SHA-256 `6f5bdf81ae3861bd2141df69ba7ffa936f78cf7fef0ac0b8f2ae8290c17d09fc` per whole source. A confirmed contradiction records a whole-Atom staging exclusion with ID, Version, source hash, contradictory source and candidate/Operator evidence, reason and CA-P-1970 queue. Keep excluded originals unchanged and visible in inventory/graph coverage. Review every owner and occurrence; missing evidence, uncertainty or omissions are not content conflicts. Only independently accepted, fully supported other whole owners become eligible after complete CA-P-2188/2189 reconciliation; no partial unreviewed coverage or content execution is approved.
 
 A separate reviewer verifies every owner/occurrence, current pins, semantic passages, exact proposed values and preserved distinctions. Root owns the complete ledger and CA-P-2188/2189 integration/verification. Freeze actual raw-report and independent-receipt paths/hashes; do not overwrite prior evidence. No Core/Tool/content edits, staging exports, native/final graph acceptance, sealed live packet or source publication are included. CA-P-1970 owns content; CA-P-1909–1912 retain their shared final gates.
 
@@ -92,4 +94,4 @@ A separate reviewer verifies every owner/occurrence, current pins, semantic pass
 
 ### Definition of Done
 
-Not Done until all 48 bounded leaves have actual complete fresh reports and separate independent semantic acceptance against the pinned current frontier/model/decisions. Missing/stale/overlapping coverage, unresolved adopted mappings, partial historical reuse, source effects or unplanned producer overruns keep this group open.
+Not Done until all 48 packet Plans and their bounded review/assembly descendants have actual complete fresh reports, separate independent semantic acceptance of every reviewed meaning and exact accepted-content/coverage checks for assembly against the pinned current frontier/model and all current decision records. Confirmed content-conflict exclusions require exact whole-owner evidence, unchanged originals, visible coverage and an explicit CA-P-1970 queue; uncertainty or unreviewed omissions are not exemptions. Missing/stale/overlapping coverage, unresolved adopted mappings, partial historical reuse, source effects or unplanned producer overruns keep this group open.
