@@ -174,9 +174,10 @@ def run_public_release(
             pr_url = matches[0].get("url") if isinstance(matches[0], Mapping) else None
             if not isinstance(pr_url, str) or re.fullmatch(r"https://github\.com/[^/\s]+/[^/\s]+/pull/[1-9][0-9]*", pr_url) is None:
                 raise PublicReleaseError("public-release-pr-discovery-invalid")
+            command(("gh", "pr", "ready", pr_url, "--undo"))
             command(("gh", "pr", "edit", pr_url, "--title", title, "--body", description))
         else:
-            created = command(("gh", "pr", "create", "--head", "amm/dev", "--base", "main", "--title", title, "--body", description))
+            created = command(("gh", "pr", "create", "--draft", "--head", "amm/dev", "--base", "main", "--title", title, "--body", description))
             pr_url = getattr(created, "stdout", "").strip()
             if not isinstance(pr_url, str) or re.fullmatch(r"https://github\.com/[^/\s]+/[^/\s]+/pull/[1-9][0-9]*", pr_url) is None:
                 raise PublicReleaseError("public-release-pr-create-invalid")

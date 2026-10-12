@@ -62,7 +62,7 @@ Selected version milestones from committed declarations:
   - Recorded a source-version milestone without replacing or promoting the installed runtime.
 
 <!-- public-release:epic1848-direct-public-20261012-001 -->
-## 0.4.3
+## 0.4.3 [PR](https://github.com/anatoly-m-maslennikov/caprmedio-graph-driven-framework/pull/27)
 - Add isolated Project-root Docker MCP startup and uv-managed runtimes with preserved configuration.
 - Simplify Operator-invoked Local/Public releases, with active Methodology copies, intended tests, Git checkpoints, and PR-linked release notes.
 - Improve Tool discovery, Subject validation/patching, graph projection foundations, and Methodology authority; retain non-authoritative research separately.

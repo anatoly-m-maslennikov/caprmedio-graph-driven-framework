@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 import hashlib
+import shutil
 import sys
 import tempfile
 import unittest
@@ -10,6 +11,7 @@ from unittest.mock import patch
 
 
 TOOLS = Path(__file__).resolve().parents[2]
+REPOSITORY = TOOLS.parents[2]
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 if str(TOOLS) not in sys.path:
@@ -35,6 +37,12 @@ class SubjectPatchPreviewTests(unittest.TestCase):
         self.path = self.requirements / "CA-R-501-FRAMEWORK_METHODOLOGY-REQUIREMENT--subject-fixture.md"
         self.path.write_bytes(self._carrier("\n"))
         self.selector = self.path.relative_to(self.root).as_posix()
+        for profile in ("legacy", "approved"):
+            for pin in get_profile(profile).grammar_pins:
+                destination = self.root / pin.path
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(REPOSITORY / pin.path, destination)
+                self.assertEqual(pin.sha256, hashlib.sha256(destination.read_bytes()).hexdigest())
 
     def tearDown(self) -> None:
         self.temporary.cleanup()

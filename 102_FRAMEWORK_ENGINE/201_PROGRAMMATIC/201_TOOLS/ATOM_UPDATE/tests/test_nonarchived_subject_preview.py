@@ -18,6 +18,7 @@ import atom_operations as operations  # noqa: E402
 import atom_subject_patch as subject_patch  # noqa: E402
 from atom_subject_lookup import run_subject_search  # noqa: E402
 from atom_subject_patch import preview_subject_patches  # noqa: E402
+from subject_notation import get_profile  # noqa: E402
 import test_selected_atom_lifecycle as lifecycle_fixture  # noqa: E402
 
 
@@ -36,6 +37,12 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
         )
         destination = self.root / plan_status.relative_to(lifecycle_fixture.REPOSITORY)
         shutil.copyfile(plan_status, destination)
+        for profile in ("legacy", "approved"):
+            for pin in get_profile(profile).grammar_pins:
+                destination = self.root / pin.path
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(lifecycle_fixture.REPOSITORY / pin.path, destination)
+                self.assertEqual(pin.sha256, hashlib.sha256(destination.read_bytes()).hexdigest())
 
     def _plan(self, status: str, *, number: int = 501, folder: str | None = None) -> Path:
         directory = self.fixture.requirements.parent / "03_plan"

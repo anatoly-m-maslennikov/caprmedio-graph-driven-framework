@@ -94,11 +94,11 @@ def _assessment(root: Path, request: Mapping[str, Any], target: operations.Atom,
 def _gate(root: Path, request: Mapping[str, Any], intent: Mapping[str, Any], *,
           authorized: bool, session: object, action_run_id: object, prior: object) -> None:
     from workflow_run_support import RunExecutionSession, SelectedRunError, _canonical_digest, _proposal, _validate_common
-    from selected_lifecycle_journal import _fresh_prior_receipt
     from work_journal import validate_sealed_event
     if authorized is not True or not isinstance(session, RunExecutionSession) or Path(session.tracker.root).resolve() != root:
         _fail("subject-session-required", "Subject publication requires the actual selected execution Session")
     try:
+        from selected_lifecycle_journal import _fresh_prior_receipt
         sealed = _validate_common(session.request)
         if sealed["mode"] != "execute" or sealed["operation_route"] != "update_atom" or sealed["parameters"] != request:
             _fail("subject-request-mismatch", "Subject publication differs from the sealed selected request")
@@ -127,7 +127,11 @@ def _gate(root: Path, request: Mapping[str, Any], intent: Mapping[str, Any], *,
             _fail("subject-action-start-invalid", "Subject Action is not a fresh effect-free O030 start")
         session.read_recorded_action_start(action_run_id)
         for binding in session.workflow_definition_bindings:
-            _pin(root, {"path": binding["path"], "digest": binding["digest"]})
+            definition_raw = _pin(root, {"path": binding["path"], "digest": binding["digest"]})
+            definition_frontmatter, _ = operations.split_frontmatter(definition_raw.decode("utf-8"))
+            if (operations.frontmatter_scalar(definition_frontmatter, "atom_id") != binding["atom_id"]
+                    or operations.frontmatter_scalar(definition_frontmatter, "version") != str(binding["version"])):
+                _fail("subject-definition-stale", "Subject Run definition differs from its exact identity and version")
         if not isinstance(prior, Mapping) or set(prior) != {"state", "event", "receipt"} or prior["state"] != "admitted":
             _fail("subject-prior-required", "Subject publication requires the admitted canonical lifecycle prior")
         event = validate_sealed_event(prior["event"])
@@ -135,7 +139,7 @@ def _gate(root: Path, request: Mapping[str, Any], intent: Mapping[str, Any], *,
                     "path": before["path"], "sha256": before["digest"]}
         if event["result"] != expected or prior["receipt"] != _fresh_prior_receipt(root, event):
             _fail("subject-prior-stale", "Subject lifecycle prior differs from the exact current target")
-    except (SelectedRunError, OSError, RuntimeError, KeyError, TypeError) as error:
+    except (SelectedRunError, OSError, RuntimeError, KeyError, TypeError, ImportError) as error:
         from lifecycle_intents import LifecycleError
         if isinstance(error, LifecycleError):
             raise
