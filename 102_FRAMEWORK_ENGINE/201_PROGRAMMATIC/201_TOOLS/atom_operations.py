@@ -933,6 +933,9 @@ def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
 
 def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
+    staging = getattr(args, "stage_preview", False)
+    if staging and args.apply:
+        raise ToolError("subject-stage-apply-rejected", "staged preview cannot be combined with --apply")
     payload = _load_payload(args.input)
     raw_items = _items(payload)
     subject_items = ["subject_patches" in item for item in raw_items]
@@ -949,7 +952,13 @@ def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         if not isinstance(profile, str) or profile not in {"legacy", "approved"}:
             raise ToolError("subject-profile-invalid", "subject_profile must be legacy or approved")
 
+        if staging:
+            from atom_subject_stage import stage_subject_preview
+
+            return stage_subject_preview(root, raw_items, subject_profile=profile)
         return preview_subject_patches(root, raw_items, subject_profile=profile)
+    if staging:
+        raise ToolError("subject-stage-input-invalid", "staged preview requires Subject-only update items")
     if "subject_profile" in payload:
         raise ToolError("input-invalid", "subject_profile requires Subject-only update items")
     selectors = [item.get("selector") for item in raw_items]
@@ -1352,6 +1361,7 @@ def describe(tool_id: str) -> dict[str, Any]:
             "expected_fields": ["atom_id", "version", "sha256"],
             "patch_fields": ["field", "index (depends_on only)", "old", "new"],
             "selector": "exact repository-relative file path", "apply_supported": False,
+            "staging_option": "--stage-preview", "staging_only": True,
             "mcp_binding": None,
         }
     return result
@@ -1382,6 +1392,8 @@ def parser(tool_id: str) -> argparse.ArgumentParser:
     elif tool_id in {"ATOM_CREATE", "ATOM_UPDATE", "ATOM_PROMOTE", "ATOM_UPGRADE"}:
         run.add_argument("--input", required=True)
         run.add_argument("--apply", action="store_true")
+        if tool_id == "ATOM_UPDATE":
+            run.add_argument("--stage-preview", action="store_true")
     elif tool_id == "ATOM_ARCHIVE":
         run.add_argument("--atom", action="append", required=True)
         run.add_argument("--apply", action="store_true")
@@ -1397,7 +1409,7 @@ def parser(tool_id: str) -> argparse.ArgumentParser:
 def cli(tool_id: str) -> int:
     args = parser(tool_id).parse_args()
     kind = "finder" if tool_id in {"ATOM_SEARCH", "ATOM_READ"} else "doer"
-    mode = "describe" if args.command == "describe" else "apply" if getattr(args, "apply", False) else "read-only" if kind == "finder" else "dry-run"
+    mode = "describe" if args.command == "describe" else "apply" if getattr(args, "apply", False) else "staged-preview" if getattr(args, "stage_preview", False) else "read-only" if kind == "finder" else "dry-run"
     try:
         if (args.command == "run" and getattr(args, "apply", False)
                 and tool_id in {"ATOM_CREATE", "ATOM_UPDATE"}):
