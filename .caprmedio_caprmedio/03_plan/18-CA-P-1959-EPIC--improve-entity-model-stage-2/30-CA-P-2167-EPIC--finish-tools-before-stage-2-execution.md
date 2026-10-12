@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 4
-updated_at: "2026-10-12 04:30:14 +0400"
+version: 5
+updated_at: "2026-10-12 04:49:28 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1966, CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -41,6 +41,8 @@ The derived Terms compiler stays in Step 2 under CA-P-1970/1974: RMEDO review/up
 
 The Operator chose extending the existing admitted MCP update action with Subjects-only application. CA-P-2170 aligns the chosen route's current contracts, then independent packet acceptance gates bounded CA-P-2173 implementation. No local exception, completed capability or live packet approval follows from the choice. Final Tool readiness still requires actual application implementation and independent fixtures.
 
+The later concurrency safety choice is deferred, not approved. Live changed-Subject writes remain blocked pending a later publication design and actual acceptance/verification under CA-P-2179. No exclusive-access requirement, quarantine policy or atomic exchange is inferred. Completed safe preview, pure materialization, no-op and isolated integration evidence do not complete successful publication, the application portfolio or this Tool gate; accepted RMEDO remains binding.
+
 One integration owner controls shared state and Git. Parallel edit scopes must be disjoint; overlapping contract/source changes are serialized and re-pinned. Each own-work leaf fits 15 minutes; split a larger packet before execution. Preparation alone never completes an implementation group.
 
 ### Decomposing Plans
@@ -57,6 +59,8 @@ One integration owner controls shared state and Git. Parallel edit scopes must b
 
 CA-P-2168/2169 are Done after actual source alignment and [independent contract acceptance](../../_projection/core-entity-review/stage2/tools-first/contract-acceptance.md). CA-P-2170/2171 are Done after [fresh seven-source MCP application acceptance](../../_projection/core-entity-review/stage2/tools-first/application-contract-acceptance.md) at commit `89da2e93d`; the overlapping UPDATE packet was independently re-accepted. All three contract packets now pass. CA-P-2178–2180 are released only as their concrete dependencies become ready. Later source changes require renewed acceptance. CA-P-2172/2175/2176 complete the bounded preview/graph snapshot in [independent implementation verification](../../_projection/core-entity-review/stage2/tools-first/preview-graph-verification.md). Application work, CA-P-2174 and this group's complete Tool-readiness gate remain pending; subsequent intent/materialization edits need their own verification.
 
+CA-P-2178 is Done in [independent intent verification and deferred application status](../../_projection/core-entity-review/stage2/tools-first/intent-and-application-status.md). Final UPDATE 66 supersedes the earlier 59; SEARCH 49, dispatch five and selected golden-request five passed in their declared scopes. The native deferred-publication gate has independent static verification; those refusal/no-op/integration checks do not accept publication. Only pure intent/materialization is closed by that receipt. CA-P-2179/2180/2181/2182, CA-P-2173/2174 and this group remain Active where successful concurrent-safe publication is still unaccepted. Live changed-Subject writes are blocked, regardless of otherwise valid packet approval.
+
 ### Definition of Done
 
-The Plan is **not** Done if a direct child is not Done; actual contracts lack independent current verification; a remaining implementation is represented by preparation only; required isolated positive/negative checks are missing; the producer verifies its own output; an existing guard is bypassed; live source effects are inferred from Tool readiness; or affected use begins before the complete Tool receipt.
+The Plan is **not** Done if a direct child is not Done; actual contracts lack independent current verification; a remaining implementation is represented by preparation only; concurrent-publication design remains deferred or successful publication/full portfolio is unaccepted; required isolated positive/negative checks are missing; the producer verifies its own output; an existing guard is bypassed; live source effects are inferred from safe preview/integration or Tool readiness; or affected use begins before the complete Tool receipt.

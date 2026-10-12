@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Revision, Journal, Plan]
-version: 1
-updated_at: "2026-10-12 04:16:55 +0400"
+version: 2
+updated_at: "2026-10-12 04:49:28 +0400"
 relations:
   is_decomposition_of: [CA-P-2173]
   blocks: [CA-P-2180, CA-P-2182]
@@ -38,6 +38,14 @@ Reuse the existing governed mutation validation/publication mechanism for one el
 
 Bind publication ownership and failure disposition to the accepted contracts. Failed restoration or uncertain publication cannot report success or imply automatic replay. Expose truthful effects for the existing route's recording/recovery owner; do not fabricate Journal/Run completion. Check happy/no-op/refusal/publication/restoration paths on isolated valid fixtures and deliver exact code/effect pins. If this one-target scope cannot fit 15 minutes, split the concrete remainder before executing it.
 
+### Deferred publication follow-up
+
+The Operator deferred the concurrency safety choice. [Independent review](../../../../_projection/core-entity-review/stage2/tools-first/intent-and-application-status.md) reproduced an edit overwritten between the last fingerprint check and replacement; history removal has the same ownership window. Earlier validation does not close it. No exclusive-access requirement, quarantine policy or atomic exchange was approved. Live changed-Subject writes remain blocked even with otherwise valid packet approval, and this Task stays Active.
+
+The native route now unconditionally refuses changed-Subject execution with `subject-publication-deferred` after actual admission and before materialization/current/history/rollback writes; preview and exact no-op return earlier. That ordering received independent static verification. Root's UPDATE 66, raw-helper four, selected-lifecycle 30 and dispatch five checks passed within their declared scopes. Raw mechanics and refusal checks do not accept the disabled publication/recovery prototype or prove concurrency safety.
+
+Keep the follow-up here: later review a bounded publication design covering current/history ownership through publication and failed restoration; record the actual Operator choice, align any affected RMEDO and independently verify concurrent-edit controls before opening the live gate. Do not infer authority or implement a new concurrency framework from the deferral. Safe preview/materialization/no-op checks do not satisfy successful publication or restoration acceptance.
+
 ### Definition of Done
 
-The Plan is **not** Done if contracts/API are missing/stale, frontier or identity/history preservation weakens, unauthorized bytes are published, failure/recovery ownership is ambiguous, actual fixture effects differ, direct apply is unguarded, or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if concurrent-publication design remains deferred or successful publication/concurrent restoration is unaccepted, contracts/API are missing/stale, frontier or identity/history preservation weakens, unauthorized bytes are published, failure/recovery ownership is ambiguous, actual fixture effects differ, direct apply is unguarded, or own work exceeds 15 minutes without decomposition.

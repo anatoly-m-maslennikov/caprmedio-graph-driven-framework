@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Revision, Journal, Plan, Operator]
-version: 1
-updated_at: "2026-10-12 04:16:55 +0400"
+version: 2
+updated_at: "2026-10-12 04:49:28 +0400"
 relations:
   is_decomposition_of: [CA-P-2173]
   blocks: [CA-P-2174]
@@ -38,6 +38,8 @@ Check deterministic intent and actual-time materialization, exact current/histor
 
 Deliver exact contract/code/test/result hashes, actual positive/negative checks and limitations to CA-P-2173/2174. A failed, missing, stale or uncertain effect blocks acceptance. Split a concrete verification overrun before execution. This receipt does not approve a live migration packet, install/publish an MCP runtime or claim current image/manifest readiness.
 
+The Operator deferred concurrent-publication design. This Task stays Active because successful publication, concurrent restoration/history ownership and the full application portfolio remain unaccepted. Preserve bounded safe preview/materialization/integration evidence without calling it live capability. Live changed-Subject writes are explicitly blocked pending CA-P-2179's later design and actual acceptance/verification; no mechanism or authority is inferred from deferral.
+
 ### Definition of Done
 
-The Plan is **not** Done if a prerequisite or actual pin/check is missing/stale, self-authored output substitutes for independent evidence, unauthorized/unexpected bytes or replay occur, required actual records are absent, forbidden surfaces change, live readiness is inferred, or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if concurrent-publication design remains deferred or successful publication/full portfolio is unaccepted, a prerequisite or actual pin/check is missing/stale, self-authored output substitutes for independent evidence, unauthorized/unexpected bytes or replay occur, required actual records are absent, forbidden surfaces change, live readiness is inferred, or own work exceeds 15 minutes without decomposition.
