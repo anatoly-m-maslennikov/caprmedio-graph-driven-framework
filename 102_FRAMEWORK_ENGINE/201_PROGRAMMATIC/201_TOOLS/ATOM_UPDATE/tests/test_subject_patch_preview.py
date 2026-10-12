@@ -335,7 +335,7 @@ class SubjectPatchPreviewTests(unittest.TestCase):
             with self.assertRaises(operations.ToolError) as context:
                 subject_patch.preview_subject_patches(self.root, payload, timestamp="2026-10-11 10:20:30 +0400")
         self.assertEqual(context.exception.code, "subject-source-changed")
-        self.assertEqual(validate.call_count, 2)
+        self.assertEqual(validate.call_count, 1)
 
     def test_rejects_changed_same_path_snapshot_before_returning_preview(self) -> None:
         payload = self._payload([{"field": "governs", "old": "Atom/Status", "new": "Atom/State"}])
@@ -347,7 +347,7 @@ class SubjectPatchPreviewTests(unittest.TestCase):
             with self.assertRaises(operations.ToolError) as context:
                 subject_patch.preview_subject_patches(self.root, payload, timestamp="2026-10-11 10:20:30 +0400")
         self.assertEqual(context.exception.code, "subject-source-changed")
-        self.assertEqual(validate.call_count, 2)
+        self.assertEqual(validate.call_count, 1)
 
     def test_rejects_symlink_swap_after_the_pinned_snapshot(self) -> None:
         payload = self._payload([{"field": "governs", "old": "Atom/Status", "new": "Atom/State"}])
@@ -362,7 +362,7 @@ class SubjectPatchPreviewTests(unittest.TestCase):
             with self.assertRaises(operations.ToolError) as context:
                 subject_patch.preview_subject_patches(self.root, payload, timestamp="2026-10-11 10:20:30 +0400")
         self.assertEqual(context.exception.code, "subject-selector-symlink")
-        self.assertEqual(validate.call_count, 2)
+        self.assertEqual(validate.call_count, 1)
 
 
 if __name__ == "__main__":

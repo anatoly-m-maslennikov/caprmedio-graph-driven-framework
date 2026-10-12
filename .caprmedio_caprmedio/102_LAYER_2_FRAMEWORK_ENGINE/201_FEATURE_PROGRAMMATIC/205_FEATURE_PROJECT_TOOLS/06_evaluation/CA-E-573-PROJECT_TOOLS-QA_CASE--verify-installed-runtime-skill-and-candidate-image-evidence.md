@@ -7,26 +7,26 @@ local_tier: Standard
 global_tier: 11
 status: Active
 author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-10 19:05:35 +0400"
+version: 2
+updated_at: "2026-10-12 00:00:00 +0000"
 subjects:
   governs: "Tool/RELEASE_VERSION/Installed-delivery QA"
-  depends_on: [Tool, Runtime, Methodology, Skill, Image, Manifest]
+  depends_on: [Tool, Runtime, Skill, Image]
 relations:
   evaluation_for: [CA-R-1877, CA-R-1878, CA-M-332]
 ---
 # Summary
 
-Verify installed runtime, Skill, and candidate-image evidence
+Verify direct installed delivery
 
 ## Scope
 
-Post-suite-gate evidence for a separately retained complete derived runtime, project-local `ca` Skill without hooks, and actual candidate image before public promotion.
+The installed project runtime and `ca` Skill after a direct Local release.
 
 ## Claim
 
-After CA-E-572 passes, the QA case **must** prove exact separately installed N+1 package and runtime Methodology bytes against the sealed manifest, one staged reviewed project-local `ca` Skill copy without host-hook change, and execution of the actual candidate image by immutable image identity; active runtime selection and public Skill remain N until every promotion gate passes. File presence, image build success, or an Engine-only install is insufficient.
+The QA case verifies the installed package/runtime and project-local `ca` Skill, then runs the intended Docker/MCP smoke behavior. A failed check stops the release and is reported for manual handling.
 
 ## Details
 
-The case separately records unsupported client target, unavailable image runtime, or missing full Framework installer surface as blockers. It does not infer a successful installation from a dry run.
+This case does not require a sealed manifest, candidate identity, full-suite aggregation, or promotion state.

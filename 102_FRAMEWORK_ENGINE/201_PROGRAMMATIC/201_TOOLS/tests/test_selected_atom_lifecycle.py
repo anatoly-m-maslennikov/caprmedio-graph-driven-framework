@@ -116,6 +116,10 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             source_path = sources[atom_id]["source_path"]
             self.assertIsInstance(source_path, str)
             source = REPOSITORY / source_path
+            if not source.is_file():
+                legacy_sources = Path(".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources")
+                current_sources = Path(".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES")
+                source = REPOSITORY / current_sources / Path(source_path).relative_to(legacy_sources)
             destination = self.root / source_path
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(source, destination)

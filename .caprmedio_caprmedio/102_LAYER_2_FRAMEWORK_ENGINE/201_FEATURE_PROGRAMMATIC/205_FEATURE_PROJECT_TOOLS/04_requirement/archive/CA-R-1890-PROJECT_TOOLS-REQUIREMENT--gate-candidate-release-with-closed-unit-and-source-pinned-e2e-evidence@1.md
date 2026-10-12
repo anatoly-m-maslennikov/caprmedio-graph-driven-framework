@@ -4,7 +4,7 @@ content_role: Requirement
 current_scope_unit: PROJECT_TOOLS
 local_tier: Standard
 global_tier: 11
-status: Active
+status: Archived
 author: Anatoly Maslennikov
 version: 1
 updated_at: "2026-10-10 19:05:35 +0400"

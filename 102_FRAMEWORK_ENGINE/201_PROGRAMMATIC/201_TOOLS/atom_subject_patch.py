@@ -22,6 +22,8 @@ import yaml
 from yaml.nodes import MappingNode, Node, ScalarNode, SequenceNode
 
 from subject_notation import SubjectNotationError, get_profile, parse_subject, profile_evidence
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import LimitReached, ReadContext
+from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 
 _SHA256 = re.compile(r"[0-9a-f]{64}")
@@ -97,12 +99,16 @@ def preview_subject_patches(
         planned.append(result)
         has_change = has_change or not result["noop"]
 
+    for item in planned:
+        _assert_snapshot_current(operations, project_root, item["snapshot"], item["selector"])
+    _assert_original_identity_unique(operations, project_root, atom_ids)
     illustrative_at = _preview_timestamp(operations, project_root, timestamp) if has_change else None
     atoms: list[dict[str, Any]] = []
     for item in planned:
         atoms.append(_materialize_item(operations, project_root, item, illustrative_at))
     for item in planned:
         _assert_snapshot_current(operations, project_root, item["snapshot"], item["selector"])
+    _assert_original_identity_unique(operations, project_root, atom_ids)
 
     preview: dict[str, Any] = {
         "count": len(atoms),
@@ -116,6 +122,74 @@ def preview_subject_patches(
         operations.canonical_json(preview).encode("utf-8")
     ).hexdigest()
     return preview
+
+
+def _assert_original_identity_unique(operations: Any, root: Path, atom_ids: set[str]) -> None:
+    """Reject competing current identity claims, including outside the payload."""
+
+    control = operations.control_root(root)
+    reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
+    matches: dict[str, list[str]] = {atom_id: [] for atom_id in atom_ids}
+
+    def candidates() -> tuple[Path, ...]:
+        found: list[Path] = []
+        for path in reader.inventory(control, remember=False):
+            if (operations._role_directory(path, control) is None
+                    or "_projection" in path.relative_to(control).parts
+                    or operations._lifecycle(path, control) in {"draft", "archived"}):
+                continue
+            if path.is_symlink() and path.is_dir():
+                _fail(operations, "subject-identity-inventory-unavailable", "an original role directory is a symlink")
+            if path.suffix.lower() == ".md":
+                found.append(path)
+        return tuple(found)
+
+    try:
+        paths_before = candidates()
+        for path in paths_before:
+            filename = operations.ATOM_ID.search(path.name)
+            filename_id = filename.group(1) if filename else None
+            if path.is_symlink():
+                if filename_id in atom_ids:
+                    _fail(operations, "subject-identity-inventory-unavailable", "a selected identity has an unsupported original source")
+                continue
+            raw = reader.read(path)
+            try:
+                metadata = operations.parse_carrier(raw, path).metadata
+            except operations.CarrierError:
+                normalized = raw.replace(b"\r\n", b"\n")
+                header = (normalized.split(b"\n---\n", 1)[0] if normalized.startswith(b"---\n") else b"").decode("utf-8", errors="replace")
+                claims = re.findall(r"(?m)^(?:atom_id|\"atom_id\"|'atom_id'):\s*([^\n]*)$", header)
+                try:
+                    identities = [yaml.safe_load(claim) for claim in claims]
+                except yaml.YAMLError:
+                    _fail(operations, "subject-identity-inventory-unavailable", "an original identity claim cannot be resolved")
+                if (filename_id in atom_ids or any(value in atom_ids for value in identities if isinstance(value, str))
+                        or any(re.search(r"(?<![A-Za-z0-9_-])" + re.escape(atom_id) + r"(?![A-Za-z0-9_-])", header) for atom_id in atom_ids)
+                        or ("atom_id" in header and not claims)):
+                    _fail(operations, "subject-identity-inventory-unavailable", "a selected identity has a malformed original source")
+                continue
+            if "projection" in metadata:
+                continue
+            status = metadata.get("status")
+            if isinstance(status, str) and status.casefold() in {"draft", "archived"}:
+                continue
+            atom_id = metadata.get("atom_id")
+            if filename_id in atom_ids and atom_id != filename_id:
+                _fail(operations, "subject-identity-inventory-unavailable", "a selected identity has an ambiguous original source")
+            if isinstance(atom_id, str) and atom_id in atom_ids:
+                if not isinstance(status, str) or not status:
+                    _fail(operations, "subject-identity-inventory-unavailable", "a selected identity has an unresolved original Status")
+                matches[atom_id].append(path.relative_to(root).as_posix())
+        if reader.currentness()["state"] != "unchanged" or candidates() != paths_before:
+            _fail(operations, "subject-source-changed", "original identity sources changed during preview inventory")
+    except (OSError, LimitReached) as error:
+        raise operations.ToolError("subject-identity-inventory-unavailable", "original identity inventory is incomplete or unavailable") from error
+    for atom_id, paths in matches.items():
+        if len(paths) > 1:
+            _fail(operations, "subject-identity-duplicate", "selected Atom identity has more than one original carrier", {"atom_id": atom_id, "paths": paths})
+        if not paths:
+            _fail(operations, "subject-identity-inventory-unavailable", "selected Atom identity has no current original carrier", {"atom_id": atom_id})
 
 
 def _validate_subject_values(operations: Any, values: Sequence[str], subject_profile: str) -> None:
