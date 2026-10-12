@@ -340,10 +340,10 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                 version_path.write_text(version_text.replace(f'"{version}"', f'"{next_version}"', 1), encoding="utf-8")
                 _clear_target(product, root=root, preserve=_PRESERVED_NAMES, label="product-root")
                 product_sources = product / "sources"
-                product_sources.mkdir(parents=True, exist_ok=False)
+                product_sources.mkdir(parents=True, exist_ok=True)
                 for name, source in _read_structure(root, {}):
                     target_root = product_sources / source.name
-                    target_root.mkdir(parents=True, exist_ok=False)
+                    target_root.mkdir(parents=True, exist_ok=True)
                     for entry in _walk_regular_files(source, excluded_directories=_NON_SOURCE_DIRECTORIES):
                         if entry.suffix == ".md" and not _active_atom(entry):
                             continue
@@ -391,7 +391,7 @@ def run_local_release(project_root: Path | str, *, run_id: str,
                 ):
                     if source.is_symlink() or not source.is_dir():
                         raise LocalReleaseError("local-release-package-source-unavailable")
-                    destination.mkdir(parents=True, exist_ok=False)
+                    destination.mkdir(parents=True, exist_ok=True)
                     for entry in _walk_regular_files(source, excluded_directories=frozenset({
                         ".git", ".caprmedio_tmp", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv",
                     })):

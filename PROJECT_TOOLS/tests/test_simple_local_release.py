@@ -107,6 +107,25 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual("completed", result["outcome"])
         self.assertIn('version = "0.4.1.10"', (self.root / "version.toml").read_text())
 
+    def test_preserved_ds_store_directories_do_not_block_replacement(self):
+        retained = (
+            self.product / "sources",
+            self.product / "sources/001_CORE_META_MODEL",
+            self.root / ".caprmedio_install/simple_local_release/package/102_FRAMEWORK_ENGINE",
+        )
+        for directory in retained:
+            directory.mkdir(parents=True, exist_ok=True)
+            (directory / ".DS_Store").write_bytes(b"ignored")
+            (directory / "obsolete.txt").write_text("old", encoding="utf-8")
+        runner, _ = self._runner()
+        with self._compiler():
+            result = run_local_release(self.root, run_id="ds-store", runner=runner)
+        self.assertEqual("completed", result["outcome"])
+        for directory in retained:
+            self.assertEqual(b"ignored", (directory / ".DS_Store").read_bytes())
+            self.assertFalse((directory / "obsolete.txt").exists())
+        self.assertTrue((self.product / "sources/001_CORE_META_MODEL/active.md").is_file())
+
     def test_compiler_failure_stops_before_install_or_docker_and_reports(self):
         runner, calls = self._runner()
         with self._compiler(fail=True):
