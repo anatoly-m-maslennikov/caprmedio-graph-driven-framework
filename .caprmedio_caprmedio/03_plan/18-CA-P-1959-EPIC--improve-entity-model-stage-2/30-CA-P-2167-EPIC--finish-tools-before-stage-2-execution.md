@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 8
-updated_at: "2026-10-12 14:55:39 +0400"
+version: 9
+updated_at: "2026-10-12 15:19:09 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -47,8 +47,11 @@ CA-P-2183 adds a bounded non-publishing staging path: opt-in local `ATOM_UPDATE 
 
 One integration owner controls shared state and Git. Parallel edit scopes must be disjoint; overlapping contract/source changes are serialized and re-pinned. Each own-work leaf fits 15 minutes; split a larger packet before execution. Preparation alone never completes an implementation group.
 
+CA-P-2192 corrects only original-identity competitor classification: existing MethodologyLayout/ProjectStructure distinguish installed framework copies from authored originals. It adds no currentness exemption, installed-target admission or new policy. Actual contract adequacy, focused preservation/duplicate regressions and separate independent verification must pass before affected preview/staging use. No installed-source cleanup/mutation or live publication is included.
+
 ### Decomposing Plans
 
+- [CA-P-2192 — Exclude installed copies from Subject currentness](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/09-CA-P-2192-TASK--exclude-installed-copies-from-subject-currentness.md)
 - [CA-P-2183 — Stage and validate Subject preview candidates](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/08-CA-P-2183-TASK--stage-and-validate-subject-preview-candidates.md)
 - [CA-P-2168 — Align Subject preview currentness contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/01-CA-P-2168-TASK--align-subject-preview-currentness-contracts.md)
 - [CA-P-2169 — Align public graph notation contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/02-CA-P-2169-TASK--align-public-graph-notation-contracts.md)
