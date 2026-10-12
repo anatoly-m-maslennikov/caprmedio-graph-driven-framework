@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 5
-updated_at: "2026-10-12 04:02:18 +0400"
+version: 6
+updated_at: "2026-10-12 19:56:47 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1968, CA-P-1973, CA-P-1910]
@@ -34,7 +34,7 @@ Estimated own work: 15 minutes. Assignee: AI Agent. Required prerequisites: CA-P
 
 Use the verified tools, current occurrence ledger and approved grammar candidate. Classify patches as Subjects, required Version/updated_at/history maintenance, or the exact minimum governing grammar exception. Other body or metadata changes are outside Step 1.
 
-Bind every patch and unchanged/excluded source to current pins. Record verified current source hashes and the Candidate #3 version/reference used by CA-P-1966's pending re-review; no old ledger acceptance or frozen pin is inherited. Include exact before/after bytes, canonical packet hash, ordered effects, revision/archive and Journal plan, implementation/profile pins, expected graph and failure handling. Reproduce the candidate graph from isolated preview bytes; do not rewrite authority to make it pass.
+Bind every patch and unchanged/excluded source to current pins. Record verified current source hashes and the [Candidate #4](../../_projection/core-entity-review/presentation/operator.model.candidate-4.md), SHA-256 `cc5cfd0854c351d0524a50fe124f6392edb372dc7ea4b43687c8c8a3627c44d7` version/reference used by CA-P-1966's pending re-review; no old ledger acceptance or frozen pin is inherited. Include exact before/after bytes, canonical packet hash, ordered effects, revision/archive and Journal plan, implementation/profile pins, expected graph and failure handling. Reproduce the candidate graph from isolated preview bytes; do not rewrite authority to make it pass. Before execution, inherit CA-P-1959's Candidate #4 FPF review gate: show the new review Plan, obtain approval, run and validate the different-question review, and resolve concrete findings before application. This gate is pending; no new FPF analysis, acceptance or migration is claimed.
 
 Use the approved effect-time metadata materialization contract: pin ID/old Version, specify exactly old Version +1 and bind actual updated_at/final after hash at execution. An ordinary same-ID update preserves intended status. A type-change discovery is excluded from this Subject-only preview and is reported/routed to Step 2. No other generated slot is admitted. Distinguish sealed intended bytes/metadata rule from actual effect receipts.
 

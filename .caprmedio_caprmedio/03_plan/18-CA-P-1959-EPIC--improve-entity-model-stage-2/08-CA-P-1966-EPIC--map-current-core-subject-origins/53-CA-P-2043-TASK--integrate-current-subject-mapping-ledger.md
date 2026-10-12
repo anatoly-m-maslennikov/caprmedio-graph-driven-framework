@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Projection, Plan, Operator]
-version: 6
-updated_at: "2026-10-12 14:55:39 +0400"
+version: 7
+updated_at: "2026-10-12 19:56:47 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   depends_on: ["CA-P-1972", "CA-P-1988", "CA-P-1989", "CA-P-1990", "CA-P-1992", "CA-P-1993", "CA-P-1994", "CA-P-1995", "CA-P-1996", "CA-P-1997", "CA-P-1998", "CA-P-1999", "CA-P-2000", "CA-P-2001", "CA-P-2002", "CA-P-2003", "CA-P-2004", "CA-P-2005", "CA-P-2006", "CA-P-2007", "CA-P-2008", "CA-P-2009", "CA-P-2010", "CA-P-2011", "CA-P-2012", "CA-P-2013", "CA-P-2014", "CA-P-2015", "CA-P-2016", "CA-P-2017", "CA-P-2018", "CA-P-2019", "CA-P-2020", "CA-P-2021", "CA-P-2022", "CA-P-2023", "CA-P-2024", "CA-P-2025", "CA-P-2026", "CA-P-2027", "CA-P-2028", "CA-P-2029", "CA-P-2030", "CA-P-2031", "CA-P-2032", "CA-P-2033", "CA-P-2034", "CA-P-2035", "CA-P-2036", "CA-P-2037", "CA-P-2038", "CA-P-2039", "CA-P-2040", "CA-P-2041", "CA-P-2042"]
@@ -31,7 +31,7 @@ Produce one complete, source-pinned occurrence ledger with every unresolved find
 
 ## Details
 
-Fresh Candidate-3 continuation uses CA-P-2187's independently checked current inventory and new disjoint per-source review receipts, not the old pins below. CA-P-2045 remains the single integrated-ledger owner; CA-P-2188 builds the current derived ledger and CA-P-2189 independently verifies it. All new semantic batch Tasks and their exact coverage must finish before integration. Independent read-only preparation is not blocked by that completion gate. No staging or source effect is inferred from this group.
+Fresh Candidate-4 continuation uses CA-P-2187's independently checked current inventory and new disjoint per-source review receipts, not the old pins below. CA-P-2045 remains the single integrated-ledger owner; CA-P-2188 builds the current derived ledger and CA-P-2189 independently verifies it. All new semantic batch Tasks and their exact coverage must finish before integration. Independent read-only preparation is not blocked by that completion gate. No staging or source effect is inferred from this group. Bind [Candidate #4](../../../_projection/core-entity-review/presentation/operator.model.candidate-4.md), SHA-256 `cc5cfd0854c351d0524a50fe124f6392edb372dc7ea4b43687c8c8a3627c44d7` and inherit CA-P-1959's current model guidance. Before execution, inherit CA-P-1959's Candidate #4 FPF review gate: show the new review Plan, obtain approval, run and validate the different-question review, and resolve concrete findings before application. This gate is pending; no new FPF analysis, acceptance or migration is claimed.
 
 Historical initial-ledger branch (the following pins and receipts are not fresh acceptance):
 
