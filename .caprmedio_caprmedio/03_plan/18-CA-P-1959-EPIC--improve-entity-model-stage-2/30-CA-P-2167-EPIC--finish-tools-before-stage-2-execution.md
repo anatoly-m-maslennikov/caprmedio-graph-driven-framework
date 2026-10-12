@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 14
-updated_at: "2026-10-13 00:32:50 +0400"
+version: 16
+updated_at: "2026-10-13 02:15:39 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -79,7 +79,7 @@ This section is the prospective execution input for this rebuild. It supersedes 
 
 The deferred concurrency/publication follow-up stays with CA-P-2179. No concurrent-write mechanism is chosen or enabled, and valid approval alone does not release the existing live changed-Subject gate. Deferred resume/retry is not an implicit additional implementation policy. Safe preview, no-op, pure materialization and non-publishing staged checks remain bounded evidence.
 
-The Operator now approved actual pending rebuild Tasks CA-P-2249–2278, not their execution. CA-P-2249/2250 first author the missing Scope Unit Query/Read and private carrier operation contracts; each actual packet requires a different independent reviewer and accepted current/predecessor manifest. Packet readiness permits review while its author Task is Active, avoiding a circular Done-before-review prerequisite. Current acceptance of 81 sources under CA-P-2245–2248 is bounded evidence, not all future required RMEDO.
+The Operator authorized completing CA-P-2249/2250 and their separate independent acceptance, then resuming CA-P-2251's retained approved read-only FPF review. Both authoring Tasks are now Done after actual different-reviewer PASS; CA-P-2251 is Active against 98 accepted current RMEDO sources (81 + 10 + 7), with current approved Plan/approval binding at continuation. This records review readiness, not an executed analytical result. This instruction authorizes no implementation, runtime capability, Core/configuration change, migration or live publication; CA-P-2252–2278 remain pending. CA-P-2249/2250 first author the missing Scope Unit Query/Read and private carrier operation contracts; each actual packet requires a different independent reviewer and accepted current/predecessor manifest. Packet readiness permits review while its author Task is Active, avoiding a circular Done-before-review prerequisite. Current acceptance of 81 sources under CA-P-2245–2248 is bounded evidence, not all future required RMEDO.
 
 CA-P-2251 then performs the fresh FPF review only after ALL required rebuilt RMEDO has actual independent acceptance. Show the current review Plan and obtain explicit Operator approval first; bind the final Plan at execution. The intended single `$fpf design challenge` is read-only, without automatic fixes, adoption or report saving. Plan-validation PASS is not analytical execution. Findings require corrections/questions and renewed acceptance/re-review as needed. Split the actual review into <=15-minute executed portions before running if required.
 
@@ -91,13 +91,13 @@ Every own-work leaf remains <=15 minutes, with actual disjoint outputs and fresh
 
 ### Current rebuilt-contract acceptance
 
-CA-P-2245–2248 are Done for their actual independently accepted current authoring/check scope under the [sole combined acceptance receipt](../../_projection/core-entity-review/stage2/tools-first/logical-connector-contract-acceptance.md). This covers the delivered 81-source subset, approved declarations/exact history and expanded Plan packet, not all future operation-specific contracts or implementation. CA-P-2249–2278 remain Backlog; this Epic and the existing publication/verification groups remain Active. The complete-RMEDO and explicitly approved actual FPF review gates, independent fixtures and all deferred publication/live limits remain unchanged.
+CA-P-2245–2248 are Done for their actual independently accepted current authoring/check scope under the [sole combined acceptance receipt](../../_projection/core-entity-review/stage2/tools-first/logical-connector-contract-acceptance.md). This covers the delivered 81-source subset, approved declarations/exact history and expanded Plan packet, not all future operation-specific contracts or implementation. CA-P-2249/2250 are now Done after their actual independent source acceptance: [ten Scope Unit Query/Read sources](../../_projection/core-entity-review/stage2/tools-first/scope-unit-query-read-contract-acceptance.md) and [seven private-carrier v2 sources with final supplemental lexical acceptance](../../_projection/core-entity-review/stage2/tools-first/private-carrier-contract-acceptance-lexical-v2.md). The latter supersedes only the initial receipt's incomplete lexical coverage; prior receipts/pins remain unchanged historical evidence. The accepted current RMEDO input totals 98 sources (81 + 10 + 7). CA-P-2251 is Active to resume approved Plan `plan-3424292c-447b-4d4f-8ef6-3c586d5270c6`; CA-P-2252–2278 remain Backlog, and this Epic and the existing publication/verification groups remain Active. Source PASS and review activation are not FPF execution/PASS or runtime readiness. The complete-RMEDO and explicitly approved actual FPF review gates, independent fixtures and all deferred publication/live limits remain unchanged.
 
 ### Decomposing Plans
 
-- [CA-P-2249 — Align Scope Unit Query and Read contracts](../001_backlog/14-CA-P-2249-TASK--align-scope-unit-query-and-read-contracts.md)
-- [CA-P-2250 — Align private carrier operation contracts](../001_backlog/15-CA-P-2250-TASK--align-private-carrier-operation-contracts.md)
-- [CA-P-2251 — Review complete rebuilt RMEDO with FPF](../001_backlog/16-CA-P-2251-TASK--review-complete-rebuilt-rmedo-with-fpf.md)
+- [CA-P-2249 — Align Scope Unit Query and Read contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/14-CA-P-2249-TASK--align-scope-unit-query-and-read-contracts.md)
+- [CA-P-2250 — Align private carrier operation contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/15-CA-P-2250-TASK--align-private-carrier-operation-contracts.md)
+- [CA-P-2251 — Review complete rebuilt RMEDO with FPF](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/16-CA-P-2251-TASK--review-complete-rebuilt-rmedo-with-fpf.md)
 - [CA-P-2252 — Implement the shared connector contract](../001_backlog/17-CA-P-2252-TASK--implement-the-shared-connector-contract.md)
 - [CA-P-2253 — Adapt Atom Query and independent Read](../001_backlog/18-CA-P-2253-TASK--adapt-atom-query-and-independent-read.md)
 - [CA-P-2254 — Implement Scope Unit Query and Read](../001_backlog/19-CA-P-2254-TASK--implement-scope-unit-query-and-read.md)
