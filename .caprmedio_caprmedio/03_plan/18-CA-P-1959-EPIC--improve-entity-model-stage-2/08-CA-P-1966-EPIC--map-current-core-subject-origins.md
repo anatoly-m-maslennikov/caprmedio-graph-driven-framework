@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 152
-updated_at: "2026-10-12 14:55:39 +0400"
+version: 153
+updated_at: "2026-10-12 15:42:26 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -45,11 +45,11 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 Current continuation is Subjects-only staging. CA-P-2187 checks the fresh inventory; disjoint source review Tasks then re-read every source against Candidate #3 and later decisions. CA-P-2188/2189 integrate and independently verify the new ledger; CA-P-2190/2191 cover a frozen bounded staging tranche and its independent file/graph review. Allocate continuation Tasks for every remaining tranche before execution. Preserve Summary, Substance, scope, Semantics, body and unrelated metadata; only required illustrative Version/time may accompany Subject changes in candidates.
 
-The fresh inventory reports 907 sources and 4534 occurrences with zero errors; independent acceptance and fresh semantic coverage remain pending. Old CA-P-2049/2050–2056 domain assignments and prior ledgers remain historical research, not current source partitions or approval. Reuse CA-P-2043/2045 for one Root-owned integrated ledger. Do not mark a group complete from preparation, a partial tranche or unchanged historical bytes.
+The fresh inventory reports 907 sources and 4534 occurrences with zero errors; independent inventory acceptance passed; fresh semantic coverage remains pending. Old CA-P-2049/2050–2056 domain assignments and prior ledgers remain historical research, not current source partitions or approval. Reuse CA-P-2043/2045 for one Root-owned integrated ledger. Do not mark a group complete from preparation, a partial tranche or unchanged historical bytes.
 
 ### Decomposing Plans
 
-- [CA-P-2187 — Pin the fresh Core Subject inventory](08-CA-P-1966-EPIC--map-current-core-subject-origins/117-CA-P-2187-TASK--pin-the-fresh-core-subject-inventory.md)
+- [CA-P-2187 — Pin the fresh Core Subject inventory](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/117-CA-P-2187-TASK--pin-the-fresh-core-subject-inventory.md)
 - [CA-P-2190 — Stage a bounded Subject migration tranche](08-CA-P-1966-EPIC--map-current-core-subject-origins/118-CA-P-2190-TASK--stage-a-bounded-subject-migration-tranche.md)
 - [CA-P-2191 — Verify staged Subject candidates and graph](08-CA-P-1966-EPIC--map-current-core-subject-origins/119-CA-P-2191-TASK--verify-staged-subject-candidates-and-graph.md)
 
@@ -255,6 +255,8 @@ The prospective mapping target is [Candidate #3 — Object, Term, Selection](../
 CA-P-2166 subsequently completed its bounded approved selector and metadata increment; its completed increment is documented in `_projection/core-entity-review/stage2/approved-implementation/current-increment.md`. The historical CA-P-2144–2155 checkpoint above records eight quarantines, selector grammar and final gates as open at that time. This statement does not claim that a fresh re-pin ran today.
 
 **PENDING — CA-P-1966 owns the required re-review, adaptation and re-pin before CA-P-1909 acceptance or CA-P-1967 sealing.** Re-review every prospective mapping against the current original source and Candidate #3, record verified explicit current source hashes plus the candidate version/reference, and retain semantic source evidence for each mapping. No old ledger row, mapping acceptance or frozen pin is silently inherited; settled Operator selector decisions remain settled. Examples such as `Atom.Atom ID` to prospective `Atom.ID`, `Scope Unit.ID`, `Object`/`Term`/`Selection`, and `History` require source evidence, not blind replacement. The current selected-Subject-tool frontier remains an explicit admitted limitation; do not bypass its safe guards.
+
+CA-P-2187 is Done after [independent current inventory acceptance](../../../.caprmedio_tmp/stage2-migration-20261012/inventory-independent-check.json) for 907 sources / 4534 occurrences and four rejected negative controls. Root rechecked all 12124 captured Core/history hashes: unchanged. Capture is accepted, not Candidate-3 semantics; every current source still needs fresh review and independent acceptance before CA-P-2188/2189 and migration staging. This Epic remains Active.
 
 ### Definition of Done
 
