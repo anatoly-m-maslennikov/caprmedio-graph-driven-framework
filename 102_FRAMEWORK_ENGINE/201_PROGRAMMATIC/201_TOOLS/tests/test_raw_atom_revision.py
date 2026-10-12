@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 from pathlib import Path
 import sys
 import tempfile
@@ -62,6 +61,7 @@ class RawAtomRevisionTests(unittest.TestCase):
         alias.symlink_to(outside, target_is_directory=True)
         with self.assertRaises(ToolError):
             write_raw_atom_revision(self.root, alias / "new.md", b"replacement", expected=None, mode=0o640)
+        (self.root / ".caprmedio_tmp").rename(self.root / "old_tmp")
         (self.root / ".caprmedio_tmp").symlink_to(outside, target_is_directory=True)
         with self.assertRaises(ToolError):
             write_raw_atom_revision(self.root, self.root / "new.md", b"replacement", expected=None, mode=0o640)
