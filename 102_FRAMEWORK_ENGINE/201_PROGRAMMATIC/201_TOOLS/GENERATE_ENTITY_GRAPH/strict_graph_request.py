@@ -10,11 +10,12 @@ import re
 from collections.abc import Mapping
 from pathlib import Path
 from graph_fact_context import FactContextError
+from subject_model_sources import SubjectModelSourceError, _check_current_approved_grammar_pins
 
 
 QUALITY_KEYS = ("coverage", "fidelity", "validity", "currentness", "permission", "persistence", "recording")
 CALLER_FIELDS = {
-    "graph_kind", "source_frontier", "selection", "display_selection",
+    "graph_kind", "source_frontier", "selection", "display_selection", "subject_profile",
     "representation_configuration", "output_destination",
     "existing_projection_evidence", "capability_permission_evidence",
 }
@@ -125,6 +126,11 @@ def build_graph(repository: Path, request, api):
             raise api.EntityGraphError("request-schema-invalid", "Graph request fields are not exact", unknown=sorted(unknown), missing=sorted(missing))
         if graph_kind not in ("entities", "terms"):
             raise api.EntityGraphError("graph-kind-invalid", "graph_kind must be entities or terms")
+        subject_profile = request.get("subject_profile", "legacy")
+        if not isinstance(subject_profile, str) or subject_profile not in ("legacy", "approved"):
+            code = "profile-unknown" if isinstance(subject_profile, str) and subject_profile else "profile-invalid"
+            raise api.EntityGraphError(code, "subject_profile must be legacy or approved")
+        profile = api._subject_profile(subject_profile)
         from graph_fact_context import DerivedFactContext, canonical_bytes, context_evidence, prepare_fact_context, verified_context
 
         supplied = request.get("source_fact_context")
@@ -151,6 +157,7 @@ def build_graph(repository: Path, request, api):
             before = _observed(destination, repository)
         elif existing is not None:
             raise api.EntityGraphError("existing-projection-destination-unbound", "Prior-output evidence requires an explicit destination")
+        _check_current_approved_grammar_pins(repository, profile)
         frontier = api._mapping(request["source_frontier"], "source_frontier")
         selection = api._mapping(request["selection"], "selection")
         folder, actual_frontier, diagnostics = api._validate_frontier(repository, frontier)
@@ -177,7 +184,7 @@ def build_graph(repository: Path, request, api):
         data = context.as_dict()
         incidence = []
         for carrier in selected:
-            rows, errors = api.parse_subject_relations(carrier)
+            rows, errors = api.parse_subject_relations(carrier, subject_profile=subject_profile)
             incidence.extend(row.record() for row in rows)
             diagnostics.extend(errors)
         source_atoms = [{"source": carrier.evidence(), "metadata": api._frontmatter_properties(carrier)} for carrier in selected]
@@ -197,6 +204,9 @@ def build_graph(repository: Path, request, api):
         selection_evidence = {"selection": {"atom_ids": list(selection["atom_ids"]), "scope_unit_names": list(names)}}
         if "display_selection" in request:
             selection_evidence["display_selection"] = dict(request["display_selection"])
+        if subject_profile == "approved":
+            selection_evidence.update(subject_profile=subject_profile,
+                                      subject_profile_evidence=api.subject_notation.profile_evidence(subject_profile))
         result = {"outcome": "incomplete", f"{graph_kind}_graph": namespace,
                   "source_frontier_evidence": actual_frontier, "selection_evidence": selection_evidence,
                   "source_fact_context_evidence": context_evidence(context),
@@ -212,6 +222,7 @@ def build_graph(repository: Path, request, api):
             quality["currentness"] = "fail"
             diagnostics.append(_diagnostic("source-frontier-changed-after-construction", "Bound source bytes changed during construction"))
             return result
+        _check_current_approved_grammar_pins(repository, profile)
         if destination is None:
             return result
         if quality["permission"] != "pass":
@@ -236,6 +247,7 @@ def build_graph(repository: Path, request, api):
             quality["currentness"] = "fail"
             diagnostics.append(_diagnostic("source-frontier-changed-before-publication", "Bound sources changed before publication"))
             return result
+        _check_current_approved_grammar_pins(repository, profile)
         current = _observed(destination, repository)
         if current != before or existing is not None and (current is None or current["carrier_sha256"] != existing["sha256"]):
             result["outcome"] = "stale"
@@ -256,6 +268,7 @@ def build_graph(repository: Path, request, api):
         # Probe path again before mutation; never follow an output symlink.
         if api._publication_path(repository, request["output_destination"]) != destination:
             raise api.EntityGraphError("output-destination-changed", "Output destination changed before publication")
+        _check_current_approved_grammar_pins(repository, profile)
         attempted = True
         api.atomic_write(destination, rendered.decode("utf-8"))
         after = _observed(destination, repository)
@@ -265,13 +278,13 @@ def build_graph(repository: Path, request, api):
         result["projection_revision"] = after_digest
         quality["persistence"] = "pass"
         return result
-    except FactContextError as error:
+    except (FactContextError, SubjectModelSourceError) as error:
         if result is None:
             result = error_result(graph_kind, api.EntityGraphError(error.code, str(error)))
         else:
             result["diagnostics"].append(_diagnostic(error.code, str(error)))
         result["outcome"] = "stale" if "stale" in error.code else "failed"
-        if result["outcome"] == "stale":
+        if result["outcome"] == "stale" or isinstance(error, SubjectModelSourceError):
             result["quality_dispositions"]["currentness"] = "fail"
         if before and not attempted:
             result["output_effects"] = _effects("unchanged", before=before, after=before)

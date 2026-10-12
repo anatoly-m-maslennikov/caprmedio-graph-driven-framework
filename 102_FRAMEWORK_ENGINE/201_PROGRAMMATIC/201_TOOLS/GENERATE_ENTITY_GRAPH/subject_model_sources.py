@@ -141,8 +141,11 @@ def _check_current_approved_grammar_pins(repository: Path, profile: object) -> N
     for pin in actual:
         path = repository / str(pin["path"])
         try:
-            if path.is_symlink():
-                raise SubjectModelSourceError("approved-grammar-pin-symlink")
+            for probe in (path, *path.parents):
+                if probe == repository:
+                    break
+                if probe.is_symlink():
+                    raise SubjectModelSourceError("approved-grammar-pin-symlink")
             if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != pin["sha256"]:
                 raise SubjectModelSourceError("approved-grammar-pin-stale")
         except SubjectModelSourceError:

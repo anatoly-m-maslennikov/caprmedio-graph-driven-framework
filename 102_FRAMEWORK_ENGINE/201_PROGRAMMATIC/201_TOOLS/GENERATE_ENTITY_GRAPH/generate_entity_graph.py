@@ -61,6 +61,7 @@ class _GenerateEntityGraphRequestBody(BaseModel):
     representation_configuration: dict[str, JsonValue]
     capability_permission_evidence: dict[str, JsonValue]
     display_selection: dict[str, JsonValue] | None = None
+    subject_profile: Literal["legacy", "approved"] = "legacy"
     output_destination: str | None = None
     existing_projection_evidence: dict[str, JsonValue] | None = None
 
