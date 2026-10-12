@@ -14,11 +14,11 @@ status: Backlog
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 1
-updated_at: "2026-10-13 00:21:20 +0400"
+version: 2
+updated_at: "2026-10-13 02:50:30 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
-  blocks: [CA-P-2253, CA-P-2254, CA-P-2255, CA-P-2256, CA-P-2257, CA-P-2258, CA-P-2268, CA-P-2269, CA-P-2273]
+  blocks: [CA-P-2253, CA-P-2254, CA-P-2255, CA-P-2256, CA-P-2257, CA-P-2258, CA-P-2268, CA-P-2269, CA-P-2273, CA-P-2280]
 ---
 # Summary
 

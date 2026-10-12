@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 16
-updated_at: "2026-10-13 02:15:39 +0400"
+version: 18
+updated_at: "2026-10-13 02:52:49 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -93,7 +93,18 @@ Every own-work leaf remains <=15 minutes, with actual disjoint outputs and fresh
 
 CA-P-2245–2248 are Done for their actual independently accepted current authoring/check scope under the [sole combined acceptance receipt](../../_projection/core-entity-review/stage2/tools-first/logical-connector-contract-acceptance.md). This covers the delivered 81-source subset, approved declarations/exact history and expanded Plan packet, not all future operation-specific contracts or implementation. CA-P-2249/2250 are now Done after their actual independent source acceptance: [ten Scope Unit Query/Read sources](../../_projection/core-entity-review/stage2/tools-first/scope-unit-query-read-contract-acceptance.md) and [seven private-carrier v2 sources with final supplemental lexical acceptance](../../_projection/core-entity-review/stage2/tools-first/private-carrier-contract-acceptance-lexical-v2.md). The latter supersedes only the initial receipt's incomplete lexical coverage; prior receipts/pins remain unchanged historical evidence. The accepted current RMEDO input totals 98 sources (81 + 10 + 7). CA-P-2251 is Active to resume approved Plan `plan-3424292c-447b-4d4f-8ef6-3c586d5270c6`; CA-P-2252–2278 remain Backlog, and this Epic and the existing publication/verification groups remain Active. Source PASS and review activation are not FPF execution/PASS or runtime readiness. The complete-RMEDO and explicitly approved actual FPF review gates, independent fixtures and all deferred publication/live limits remain unchanged.
 
+### Configuration Read correction
+
+The original approved FPF review has now completed against the accepted 98-source packet. Its I002 finding identified the missing complete Configuration Read producer. The Operator selected F002: add that effect-free Read to the existing shared TOML connector. Earlier review-readiness statements above describe the prior checkpoint, not the current review state.
+
+CA-P-2279 owns the source correction and different-reviewer acceptance. Read and Modify remain independent. Each configuration Workflow gets its own Read Step before its existing patch Step. CA-P-2280 records later bounded Read implementation; CA-P-2266/2267 consume it and CA-P-2275 verifies it. CA-P-2251 remains Active for the affected follow-up FPF review after fresh source acceptance; later implementation stays pending. No live, Core/content or migration gate changes.
+
 ### Decomposing Plans
+
+CA-P-2279 is Done after [independent Configuration Read source acceptance](../../_projection/core-entity-review/stage2/tools-first/configuration-read-contract-acceptance.md). The original review input gains seven new current sources and nine accepted revisions; historical pins remain unchanged. This is source acceptance only: CA-P-2251 stays Active for affected FPF follow-up and implementation remains pending.
+
+- [CA-P-2279 — Define complete configuration Read](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/38-CA-P-2279-TASK--define-complete-configuration-read.md)
+- [CA-P-2280 — Implement complete configuration Read](../001_backlog/39-CA-P-2280-TASK--implement-complete-configuration-read.md)
 
 - [CA-P-2249 — Align Scope Unit Query and Read contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/14-CA-P-2249-TASK--align-scope-unit-query-and-read-contracts.md)
 - [CA-P-2250 — Align private carrier operation contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/15-CA-P-2250-TASK--align-private-carrier-operation-contracts.md)

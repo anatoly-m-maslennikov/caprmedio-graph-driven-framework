@@ -14,8 +14,8 @@ status: Backlog
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 1
-updated_at: "2026-10-13 00:21:20 +0400"
+version: 2
+updated_at: "2026-10-13 02:48:47 +0400"
 relations:
   is_decomposition_of: [CA-P-2174]
   blocks: [CA-P-2278]
@@ -37,6 +37,10 @@ Cover item/full-set add/replace/remove, no-op and unrelated preservation using a
 Assignee: AI Agent independent of implementation authors. Read-only fixture preparation may precede code readiness; actual acceptance waits for applicable current accepted contracts, CA-P-2251 review and stable implemented code pins. Author the oracle independently and record actual cases, pins, effects and limitations.
 
 Deliver the exact changed or reviewed manifest and focused check results to the independent integration/verification owner. Preserve historical receipts. No database build, new transport, Atom deletion, automatic batch retry/resume or publication-concurrency mechanism is included.
+
+### Complete Configuration Read coverage
+
+Independently verify CA-P-2280 for both logical configuration targets: complete values and exact source evidence, unpinned current and supported exact pinned reads, no mutation, and invalid/ambiguous/denied/stale/unsupported/unavailable failures without fabricated empty success. Verify each Read Step precedes its patch Step; failed or incomplete Read prevents patch dispatch, and source drift before Modify is rejected. Read success does not grant write permission. This adds fixture requirements, not executed tests.
 
 ### Definition of Done
 

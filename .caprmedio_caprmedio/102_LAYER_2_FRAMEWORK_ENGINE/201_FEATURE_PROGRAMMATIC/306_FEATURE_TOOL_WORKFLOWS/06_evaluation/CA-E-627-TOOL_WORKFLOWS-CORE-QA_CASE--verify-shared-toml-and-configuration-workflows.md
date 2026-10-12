@@ -11,11 +11,11 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Tool","Workflow","Project Configuration","Scope Unit"]
-version: 2
-updated_at: "2026-10-12 23:54:41 +0400"
+version: 4
+updated_at: "2026-10-13 02:50:00 +0400"
 relations:
   evaluation_for: ["CA-R-1935"]
-  relates_to: ["CA-M-375","CA-O-204","CA-O-205","CA-O-206"]
+  relates_to: ["CA-M-375","CA-O-204","CA-O-205","CA-O-206","CA-O-218","CA-D-631","CA-O-219","CA-O-220","CA-E-634"]
 ---
 # Summary
 
@@ -40,6 +40,8 @@ The shared connector supplies TOML storage mechanics; each configuration workflo
 - Verify Scope Unit Create through the Project Structure schema and workflow. A raw connector write cannot admit an undeclared Scope Unit or bypass structural validation.
 - Return actual effects or explicit failure/uncertainty with the existing shared result/recording contract. No arbitrary configuration path, additional connector or hidden cross-configuration effect is inferred.
 - Treat current file/TOML implementation behavior as the only backend behavior available for later proof. A replaceable backend contract is not a DB implementation or a concurrency/publication guarantee.
+
+- verify CA-O-205 follows CA-O-219 → CA-O-209 **and** CA-O-206 follows CA-O-220 → CA-O-210. the read Steps invoke CA-O-218; patch Steps invoke CA-O-204 on the same shared connector. require complete current Read output **and** matching observed state evidence as explicit patch-Step inputs **before** proposed-schema validation. a missing, denied, stale, partial, schema-invalid **or** failed Read stops **without** Modify. no direct Workflow storage read **or** assumption of implicit Read support passes. change the source **after** a successful Read **and** require the existing Modify stale-state guard **to** reject the outdated evidence. Read success does **not** grant write permission. reuse CA-E-634 for the independent complete Read checks.
 
 ### Acceptance and failure disposition
 

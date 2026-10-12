@@ -1,0 +1,35 @@
+---
+atom_id: CA-R-1942
+content_role: Requirement
+type: Requirement
+current_scope_unit: CONNECTOR_TOOLS
+claim_target_scope_unit: CONNECTOR_TOOLS
+local_tier: Standard
+global_tier: 11
+status: Active
+author: Anatoly Maslennikov
+version: 1
+updated_at: "2026-10-13 02:45:51 +0400"
+subjects:
+  governs: "Tool"
+  depends_on: ["Project", "Project Structure", "Project Settings", "Workflow"]
+relations:
+  relates_to: [CA-R-1942, CA-M-382, CA-E-634, CA-D-631, CA-O-218, CA-R-1936, CA-M-376, CA-D-625, CA-O-204, CA-M-375]
+---
+# Summary
+
+Read one complete TOML configuration
+
+## Scope
+
+effect-free complete Read of one explicit Project Structure **or** Project Settings configuration through the shared TOML connector.
+
+## Claim
+
+the Configuration Read result **must** contain the complete authoritative TOML source **and** its complete parsed values for exactly one logical configuration **in** the bound Project, with exact observed source-state evidence **and** no mutation. Read is independently callable **without** Query, Modify **or** an enclosing Workflow.
+
+an unpinned current Read **must not** require a pre-known source pin. a supplied pin **or** explicit historical view **must** match the exact available admitted source; missing history **or** stale evidence **must not** fall back to the latest source. the caller's context selects source authority **and** schema; the connector checks these bindings **without** choosing them. missing, ambiguous, denied, invalid **or** unreadable sources **must** return a structured failure, **not** a successful empty **or** partial document.
+
+## Details
+
+CA-D-631 fixes the representation **and** CA-O-218 binds Read on the same TOML connector as CA-O-204 Modify. no configuration, Carrier, history, Version, timestamp, lifecycle **or** runtime state is changed by Read. this contract does **not** admit a live route, a new backend **or** new history retention.

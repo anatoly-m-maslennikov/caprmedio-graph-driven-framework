@@ -11,10 +11,10 @@ status: Active
 subjects:
   governs: "Workflow"
   depends_on: ["Project Settings","Project Configuration","Step","Workflow Run","Tool"]
-version: 2
-updated_at: "2026-10-12 23:49:24 +0400"
+version: 4
+updated_at: "2026-10-13 02:50:00 +0400"
 relations:
-  relates_to: [CA-O-210, CA-O-204, CA-R-1143, CA-E-459, CA-R-1935, CA-M-375, CA-M-305]
+  relates_to: [CA-O-220, CA-O-210, CA-O-218, CA-D-631, CA-O-204, CA-R-1143, CA-E-459, CA-R-1935, CA-M-375, CA-M-305]
 ---
 # Summary
 
@@ -22,11 +22,11 @@ Update Project Settings
 
 ## Operation
 
-Update Project Settings **means** the configuration-specific Workflow that checks and submits one explicit authoritative Project Settings TOML patch through Step CA-O-210 using the shared O204 Action.
+Update Project Settings **means** the configuration-specific Workflow that reads its complete current source through Step CA-O-220, **then** checks **and** submits one explicit authoritative TOML patch through Step CA-O-210. the Steps use CA-O-218 Read **and** CA-O-204 Modify on the same shared connector.
 
 ### Workflow graph
 
-Entry: CA-O-210 after its bound settings request and authority checks. On confirmed verified patch success or truthful validated no-op, terminate complete with exact effects or no-effect evidence. On rejected, stale, unsupported, failed, partial, unknown or incomplete-recording outcome, terminate stopped; no failed-action retry/resume edge exists.
+entry: CA-O-220 **after** bound request **and** authority checks. proceed **to** CA-O-210 **only** on complete verified current Read data, matching observed source-state evidence, empty errors **and** no mutation effects. pass the complete document **and** observed state evidence **to** CA-O-210 **before** constructing **or** validating the proposal. **otherwise**, stop **without** Modify. On confirmed verified patch success or truthful validated no-op, terminate complete with exact effects or no-effect evidence. On rejected, stale, unsupported, failed, partial, unknown or incomplete-recording outcome, terminate stopped; no failed-action retry/resume edge exists.
 
 ### Authority and request boundary
 

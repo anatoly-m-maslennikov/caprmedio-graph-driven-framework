@@ -11,11 +11,11 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Atom","Scope Unit","Workflow","Project Configuration"]
-version: 1
-updated_at: "2026-10-12 23:51:44 +0400"
+version: 2
+updated_at: "2026-10-13 02:45:51 +0400"
 relations:
   delivery_for: ["CA-R-1936"]
-  relates_to: ["CA-M-376","CA-D-527","CA-O-046","CA-O-047","CA-O-204"]
+  relates_to: ["CA-M-376","CA-D-527","CA-O-046","CA-O-047","CA-O-204","CA-O-218","CA-D-631"]
 ---
 # Summary
 
@@ -57,7 +57,7 @@ For example, this illustrative unpinned Read contains no authority by itself:
 
 Workflow admission owns schema/domain validation, identity allocation, initial and changed Version/time, Status/lifecycle and replacement decisions. The connector mechanically checks the supplied shape, currentness, permission and validation bindings, then performs only the explicit requested operation. It does not choose defaults, allocate an ID, bump Version, archive/delete an Atom, infer a replacement or rewrite references. The workflow supplies every admitted metadata/content delta. Reject unknown fields, unsupported subsets, unresolved references, stale state and widened scope before the affected operation writes.
 
-Query returns matches, not full content; Read returns the complete identified state. Neither implicitly invokes the other or a mutation. List-entry replacement uses the unique exact current value, not a caller index; whole-set replacement and add/remove use their separately admitted explicit deltas. O204 supplies the shared TOML mechanics; configuration workflows choose schema and source authority.
+Query returns matches, not full content; Read returns the complete identified state. Neither implicitly invokes the other or a mutation. List-entry replacement uses the unique exact current value, not a caller index; whole-set replacement and add/remove use their separately admitted explicit deltas. CA-O-218 supplies complete Configuration Read under CA-D-631; CA-O-204 supplies Modify on the same shared TOML connector. configuration Workflows choose schema **and** source authority.
 
 ### Logical result
 

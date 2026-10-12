@@ -11,10 +11,10 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Tool","Project Configuration","Property","Action"]
-version: 2
-updated_at: "2026-10-12 23:49:24 +0400"
+version: 3
+updated_at: "2026-10-13 02:45:51 +0400"
 relations:
-  relates_to: [CA-R-1936, CA-M-376, CA-D-625, CA-O-205, CA-O-206]
+  relates_to: [CA-R-1936, CA-M-376, CA-D-625, CA-O-205, CA-O-206, CA-O-218, CA-D-631]
 ---
 # Summary
 
@@ -36,6 +36,6 @@ Use D625's closed inner request keys `operation`, `target`, `query`, `delta`, `e
 
 ## Details
 
-O205 and O206 supply different configuration-specific bindings to this same TOML connector; they are not separate connectors. D625 is the common logical inner contract, not a new transport, and D527's outer envelope remains unchanged.
+CA-O-218 is the separate complete Read Action of this same TOML connector under CA-D-631; this Action remains Modify-only. CA-O-205 **and** CA-O-206 supply different configuration-specific bindings; they are **not** separate connectors. D625 is the common logical inner contract, not a new transport, and D527's outer envelope remains unchanged.
 
 No executable binding or runtime admission is created. Current independently verified realization, definition/source pins, permission and shared Run recording remain required. This source move neither edits either configuration nor activates MCP, Core migration or Subject publication.
