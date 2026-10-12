@@ -65,6 +65,20 @@ turn plain Terms, records or performers into Selections. No selector grammar or
 Atom content change is implied. The recorded first-pass counts predate this
 answer; affected mappings still need explicit revision and independent checks.
 
+The Operator also approved keeping the old contextual Atom Scope as a named
+Selection, distinct from Substance Scope. Whether that old concept remains
+needed belongs to the later content Epic; it is not a same-meaning alias here.
+
+The latest clarification distinguishes three concepts:
+
+- Owning Scope Unit: where the Atom belongs.
+- Target Scope Unit: the Scope Unit addressed by a relational Atom, such as
+  a Demand or Goal.
+- Substance Scope: the exact boundary of what the Atom governs.
+
+The old combined lookup context is a Selection, not a fourth scope. These
+meanings guide Subject review; content fields and storage keys remain unchanged.
+
 ## Local evidence
 
 Scratch outputs are under `.caprmedio_tmp/stage2-migration-20261012/` and are

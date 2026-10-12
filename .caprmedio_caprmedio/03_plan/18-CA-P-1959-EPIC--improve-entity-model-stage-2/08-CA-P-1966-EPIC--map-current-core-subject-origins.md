@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 153
-updated_at: "2026-10-12 15:42:26 +0400"
+version: 154
+updated_at: "2026-10-12 15:53:50 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -43,13 +43,14 @@ CA-P-1972's preparation alone cannot complete this group. The generated review/i
 
 Inherit CA-P-1959's source boundary, confidence threshold and preservation rules. Creating this Plan records work; it does not start or complete it.
 
-Current continuation is Subjects-only staging. CA-P-2187 checks the fresh inventory; disjoint source review Tasks then re-read every source against Candidate #3 and later decisions. CA-P-2188/2189 integrate and independently verify the new ledger; CA-P-2190/2191 cover a frozen bounded staging tranche and its independent file/graph review. Allocate continuation Tasks for every remaining tranche before execution. Preserve Summary, Substance, scope, Semantics, body and unrelated metadata; only required illustrative Version/time may accompany Subject changes in candidates.
+Current continuation is Subjects-only staging. CA-P-2187 checked the fresh inventory; CA-P-2193 assigns all 48 exact whole-source review packets to fresh bounded Tasks. Every Task re-reads current sources against Candidate #3 and the latest Operator decisions, preserving distinct Owning Scope Unit, relational Target Scope Unit and exact governed Substance Scope. The old combined lookup context is a Selection, not a fourth scope. CA-P-2188/2189 integrate and independently verify the new ledger; CA-P-2190/2191 cover a frozen bounded staging tranche and its independent file/graph review. Allocate continuation Tasks for every remaining tranche before execution. Preserve Summary, Substance, scope, Semantics, body and unrelated metadata; only required illustrative Version/time may accompany Subject changes in candidates.
 
 The fresh inventory reports 907 sources and 4534 occurrences with zero errors; independent inventory acceptance passed; fresh semantic coverage remains pending. Old CA-P-2049/2050–2056 domain assignments and prior ledgers remain historical research, not current source partitions or approval. Reuse CA-P-2043/2045 for one Root-owned integrated ledger. Do not mark a group complete from preparation, a partial tranche or unchanged historical bytes.
 
 ### Decomposing Plans
 
 - [CA-P-2187 — Pin the fresh Core Subject inventory](08-CA-P-1966-EPIC--map-current-core-subject-origins/done/117-CA-P-2187-TASK--pin-the-fresh-core-subject-inventory.md)
+- [CA-P-2193 — Re-review all current Core Subjects](08-CA-P-1966-EPIC--map-current-core-subject-origins/120-CA-P-2193-EPIC--re-review-all-current-core-subjects.md)
 - [CA-P-2190 — Stage a bounded Subject migration tranche](08-CA-P-1966-EPIC--map-current-core-subject-origins/118-CA-P-2190-TASK--stage-a-bounded-subject-migration-tranche.md)
 - [CA-P-2191 — Verify staged Subject candidates and graph](08-CA-P-1966-EPIC--map-current-core-subject-origins/119-CA-P-2191-TASK--verify-staged-subject-candidates-and-graph.md)
 
