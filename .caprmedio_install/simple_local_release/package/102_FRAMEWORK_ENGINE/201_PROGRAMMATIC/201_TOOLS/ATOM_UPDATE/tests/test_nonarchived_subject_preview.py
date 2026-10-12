@@ -7,6 +7,7 @@ import shutil
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 TOOLS = Path(__file__).resolve().parents[2]
@@ -14,8 +15,10 @@ sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(TOOLS / "tests"))
 
 import atom_operations as operations  # noqa: E402
+import atom_subject_patch as subject_patch  # noqa: E402
 from atom_subject_lookup import run_subject_search  # noqa: E402
 from atom_subject_patch import preview_subject_patches  # noqa: E402
+from subject_notation import get_profile  # noqa: E402
 import test_selected_atom_lifecycle as lifecycle_fixture  # noqa: E402
 
 
@@ -34,6 +37,12 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
         )
         destination = self.root / plan_status.relative_to(lifecycle_fixture.REPOSITORY)
         shutil.copyfile(plan_status, destination)
+        for profile in ("legacy", "approved"):
+            for pin in get_profile(profile).grammar_pins:
+                destination = self.root / pin.path
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(lifecycle_fixture.REPOSITORY / pin.path, destination)
+                self.assertEqual(pin.sha256, hashlib.sha256(destination.read_bytes()).hexdigest())
 
     def _plan(self, status: str, *, number: int = 501, folder: str | None = None) -> Path:
         directory = self.fixture.requirements.parent / "03_plan"
@@ -91,6 +100,16 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
     def _snapshot(self) -> dict[str, bytes]:
         return {path.relative_to(self.root).as_posix(): path.read_bytes()
                 for path in self.root.rglob("*") if path.is_file()}
+
+    def _installed_copy(self, path: Path, *, collection: str | None = None) -> Path:
+        from RELEASE_VERSION.methodology_layout import resolve_methodology_layout
+
+        layout = resolve_methodology_layout(self.root)
+        copied = self.root / layout.installed_root / (collection or Path(layout.source_copy_root).name)
+        destination = copied / "LIFECYCLE_FIXTURE" / path.relative_to(self.fixture.requirements.parent)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(path, destination)
+        return destination
 
     def test_real_complete_validator_accepts_the_status_fixtures(self) -> None:
         self._assert_complete_carrier(self.fixture.target)
@@ -192,6 +211,7 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
             duplicate = self._plan(other_status, number=number)
             self._assert_complete_carrier(selected)
             self._assert_complete_carrier(duplicate)
+            self._installed_copy(selected)
             before = self._snapshot()
             for patches in (True, False):
                 with self.subTest(other_status=other_status, patches=patches):
@@ -199,6 +219,137 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
                         self._preview(self._payload(selected, patches=patches))
                     self.assertEqual("subject-identity-duplicate", invalid.exception.code)
                     self.assertEqual(before, self._snapshot())
+
+    def test_declared_installed_source_copy_does_not_compete_with_original(self) -> None:
+        from lifecycle_intents import carrier_descriptor
+
+        selected = self._plan("Done")
+        self._installed_copy(selected)
+        before = self._snapshot()
+        target = carrier_descriptor(self.root, selected.relative_to(self.root).as_posix())
+        for patches in (True, False):
+            with self.subTest(patches=patches):
+                payload = self._payload(selected, patches=patches)
+                preview = self._preview(payload)
+                self.assertEqual(1, preview["count"])
+                self.assertEqual(not patches, preview["noop"])
+                prepared = subject_patch.prepare_subject_intent(self.root, target, payload[0]["subject_patches"])
+                materialized = subject_patch.materialize_subject_intent(self.root, prepared, "2026-10-12 10:20:30 +0400")
+                self.assertEqual(preview["atoms"][0]["proposed_carrier"].encode(), materialized["carrier_bytes"])
+                self.assertEqual(before, self._snapshot())
+
+    def test_installed_source_copy_cannot_be_selected_as_an_original(self) -> None:
+        selected = self._plan("Done")
+        copied = self._installed_copy(selected)
+        before = self._snapshot()
+        for patches in (True, False):
+            with self.subTest(patches=patches), self.assertRaises(operations.ToolError) as invalid:
+                self._preview(self._payload(copied, patches=patches))
+            self.assertEqual("complete-carrier-invalid", invalid.exception.code)
+            self.assertEqual(before, self._snapshot())
+
+    def test_installed_root_outside_declared_source_copy_collection_still_competes(self) -> None:
+        selected = self._plan("Done")
+        self._installed_copy(selected, collection="unclassified")
+        before = self._snapshot()
+        with self.assertRaises(operations.ToolError) as invalid:
+            self._preview(self._payload(selected))
+        self.assertEqual("subject-identity-duplicate", invalid.exception.code)
+        self.assertEqual(before, self._snapshot())
+
+    def test_absent_or_invalid_release_layout_grants_no_copy_exemption(self) -> None:
+        selected = self._plan("Done")
+        self._installed_copy(selected)
+        registry = operations.control_root(self.root) / "project_structure.toml"
+        original = registry.read_bytes()
+        for declaration in ("missing", "invalid"):
+            with self.subTest(declaration=declaration):
+                if declaration == "missing":
+                    registry.unlink()
+                else:
+                    registry.write_bytes(original.replace(b'scope_unit_name = "METHODOLOGY_SOURCES"',
+                                                          b'scope_unit_name = "UNDECLARED_SOURCES"'))
+                layout = subject_patch._capture_identity_layout(operations, self.root)
+                self.assertIsNone(layout)
+                before = self._snapshot()
+                with self.assertRaises(operations.ToolError) as invalid:
+                    subject_patch._assert_original_identity_unique(operations, self.root, {"CA-P-501"}, layout)
+                self.assertEqual("subject-identity-duplicate", invalid.exception.code)
+                self.assertEqual(before, self._snapshot())
+                registry.write_bytes(original)
+
+    def test_layout_change_after_materialization_blocks_preview_and_intent_materialization(self) -> None:
+        from lifecycle_intents import carrier_descriptor
+
+        selected = self._plan("Done")
+        self._installed_copy(selected)
+        registry = operations.control_root(self.root) / "project_structure.toml"
+        materialize = subject_patch._materialize_item
+        original = registry.read_bytes()
+        for operation in ("preview", "materialize"):
+            payload = self._payload(selected)
+            target = carrier_descriptor(self.root, selected.relative_to(self.root).as_posix())
+            prepared = subject_patch.prepare_subject_intent(self.root, target, payload[0]["subject_patches"])
+            injected: list[dict[str, bytes]] = []
+
+            def materialize_then_change_layout(*args: object, **kwargs: object) -> dict[str, object]:
+                result = materialize(*args, **kwargs)
+                registry.write_bytes(original + b"\n# Changed layout observation.\n")
+                injected.append(self._snapshot())
+                return result
+
+            with self.subTest(operation=operation), patch.object(
+                subject_patch, "_materialize_item", side_effect=materialize_then_change_layout
+            ), self.assertRaises(operations.ToolError) as invalid:
+                if operation == "preview":
+                    self._preview(payload)
+                else:
+                    subject_patch.materialize_subject_intent(self.root, prepared, "2026-10-12 10:20:30 +0400")
+            self.assertEqual("subject-source-changed", invalid.exception.code)
+            self.assertEqual(injected[-1], self._snapshot())
+            registry.write_bytes(original)
+
+    def test_installed_copy_read_remains_fingerprinted_and_currentness_checked(self) -> None:
+        selected = self._plan("Done")
+        copied = self._installed_copy(selected)
+        read = subject_patch.ReadContext.read
+        injected: list[dict[str, bytes]] = []
+
+        def read_then_change_copy(reader: object, path: Path, *, remember: bool = True) -> bytes:
+            raw = read(reader, path, remember=remember)
+            if path == copied and not injected:
+                copied.write_bytes(raw + b"\nChanged delivered copy.\n")
+                injected.append(self._snapshot())
+            return raw
+
+        with patch.object(subject_patch.ReadContext, "read", autospec=True, side_effect=read_then_change_copy), \
+                self.assertRaises(operations.ToolError) as invalid:
+            self._preview(self._payload(selected))
+        self.assertEqual("subject-source-changed", invalid.exception.code)
+        self.assertEqual(injected[-1], self._snapshot())
+
+    def test_installed_source_copy_file_and_collection_symlinks_are_not_exempt(self) -> None:
+        from RELEASE_VERSION.methodology_layout import resolve_methodology_layout
+
+        selected = self._plan("Done")
+        copied = self._installed_copy(selected)
+        copied.unlink()
+        copied.symlink_to(selected)
+        before = self._snapshot()
+        with self.assertRaises(operations.ToolError) as invalid:
+            self._preview(self._payload(selected))
+        self.assertEqual("subject-identity-inventory-unavailable", invalid.exception.code)
+        self.assertEqual(before, self._snapshot())
+        copied.unlink()
+        layout = resolve_methodology_layout(self.root)
+        collection = self.root / layout.installed_root / Path(layout.source_copy_root).name
+        moved = collection.rename(collection.with_name("unclassified"))
+        collection.symlink_to(moved, target_is_directory=True)
+        before = self._snapshot()
+        with self.assertRaises(operations.ToolError) as invalid:
+            self._preview(self._payload(selected))
+        self.assertEqual("subject-identity-inventory-unavailable", invalid.exception.code)
+        self.assertEqual(before, self._snapshot())
 
     def test_archived_historical_revision_does_not_duplicate_the_original(self) -> None:
         selected = self._plan("Done")
@@ -217,6 +368,123 @@ class NonarchivedSubjectPreviewTests(unittest.TestCase):
                 self.assertEqual(7, atom["before_version"])
                 self.assertEqual(8 if patches else 7, atom["after_version"])
                 self.assertEqual(before, self._snapshot())
+
+    def test_malformed_competitor_claims_by_filename_or_frontmatter_block_preview(self) -> None:
+        for number, claim in enumerate(("filename", "frontmatter"), start=520):
+            selected = self._plan("Done", number=number)
+            competitor = self._plan("Active", number=number if claim == "filename" else number + 100)
+            self._assert_complete_carrier(selected)
+            self._assert_complete_carrier(competitor)
+            self._installed_copy(selected)
+            raw = competitor.read_bytes().replace(b'  governs: "Atom/Status"', b"  governs: [unfinished")
+            if claim == "frontmatter":
+                raw = raw.replace(f"atom_id: CA-P-{number + 100}\r\n".encode(),
+                                  f"atom_id: CA-P-{number}\r\n".encode())
+            competitor.write_bytes(raw)
+            before = self._snapshot()
+            for patches in (True, False):
+                with self.subTest(claim=claim, patches=patches):
+                    with self.assertRaises(operations.ToolError) as invalid:
+                        self._preview(self._payload(selected, patches=patches))
+                    self.assertEqual("subject-identity-inventory-unavailable", invalid.exception.code)
+                    self.assertEqual(before, self._snapshot())
+
+    def test_duplicate_inserted_after_materialization_blocks_changed_and_noop_previews(self) -> None:
+        materialize = subject_patch._materialize_item
+        for number, patches in enumerate((True, False), start=530):
+            selected = self._plan("Done", number=number)
+            injected: list[dict[str, bytes]] = []
+
+            def materialize_then_insert(*args: object, **kwargs: object) -> dict[str, object]:
+                result = materialize(*args, **kwargs)
+                self._plan("Backlog", number=number)
+                injected.append(self._snapshot())
+                return result
+
+            with self.subTest(patches=patches), patch.object(
+                subject_patch, "_materialize_item", side_effect=materialize_then_insert
+            ):
+                with self.assertRaises(operations.ToolError) as invalid:
+                    self._preview(self._payload(selected, patches=patches))
+            self.assertEqual("subject-identity-duplicate", invalid.exception.code)
+            self.assertEqual(1, len(injected))
+            self.assertEqual(injected[0], self._snapshot())
+
+    def test_identity_membership_change_during_real_read_blocks_changed_and_noop_previews(self) -> None:
+        read = subject_patch.ReadContext.read
+        for number, patches in enumerate((True, False), start=540):
+            selected = self._plan("Done", number=number)
+            injected: list[dict[str, bytes]] = []
+
+            def read_then_insert(reader: object, path: Path, *, remember: bool = True) -> bytes:
+                raw = read(reader, path, remember=remember)
+                if path == selected and not injected:
+                    self._plan("Active", number=number)
+                    injected.append(self._snapshot())
+                return raw
+
+            with self.subTest(patches=patches), patch.object(
+                subject_patch.ReadContext, "read", autospec=True, side_effect=read_then_insert
+            ):
+                with self.assertRaises(operations.ToolError) as invalid:
+                    self._preview(self._payload(selected, patches=patches))
+            self.assertEqual("subject-source-changed", invalid.exception.code)
+            self.assertEqual(1, len(injected))
+            self.assertEqual(injected[0], self._snapshot())
+
+    def test_existing_identityless_member_gaining_selected_id_during_final_read_blocks_preview(self) -> None:
+        read = subject_patch.ReadContext.read
+        materialize = subject_patch._materialize_item
+        for number, patches in enumerate((True, False), start=550):
+            selected = self._plan("Done", number=number)
+            candidate = self._plan("Active", number=number + 100)
+            candidate = candidate.rename(candidate.with_name(f"identityless-{number}.md"))
+            candidate.write_bytes(candidate.read_bytes().replace(
+                f"atom_id: CA-P-{number + 100}\r\n".encode(), b""
+            ))
+            materialized = [False]
+            injected: list[dict[str, bytes]] = []
+
+            def mark_materialized(*args: object, **kwargs: object) -> dict[str, object]:
+                result = materialize(*args, **kwargs)
+                materialized[0] = True
+                return result
+
+            def read_then_claim_id(reader: object, path: Path, *, remember: bool = True) -> bytes:
+                raw = read(reader, path, remember=remember)
+                if path == candidate and materialized[0] and not injected:
+                    candidate.write_bytes(raw.replace(
+                        b"---\r\n", f"---\r\natom_id: CA-P-{number}\r\n".encode(), 1
+                    ))
+                    injected.append(self._snapshot())
+                return raw
+
+            with self.subTest(patches=patches), \
+                    patch.object(subject_patch, "_materialize_item", side_effect=mark_materialized), \
+                    patch.object(subject_patch.ReadContext, "read", autospec=True, side_effect=read_then_claim_id):
+                with self.assertRaises(operations.ToolError) as invalid:
+                    self._preview(self._payload(selected, patches=patches))
+            self.assertEqual("subject-source-changed", invalid.exception.code)
+            self.assertEqual(1, len(injected))
+            self.assertEqual(injected[0], self._snapshot())
+            self._assert_complete_carrier(candidate)
+
+    def test_original_role_directory_symlink_blocks_identity_inventory(self) -> None:
+        selected = self._plan("Done")
+        competitor = self._plan("Active")
+        self._assert_complete_carrier(selected)
+        self._assert_complete_carrier(competitor)
+        outside = self.root / "outside-control"
+        outside.mkdir()
+        link = competitor.parent / "aliased-originals"
+        competitor.rename(outside / competitor.name)
+        link.symlink_to(outside, target_is_directory=True)
+        before = self._snapshot()
+        with self.assertRaises(operations.ToolError) as invalid:
+            self._preview(self._payload(selected))
+        self.assertEqual("subject-identity-inventory-unavailable", invalid.exception.code)
+        self.assertTrue(link.is_symlink())
+        self.assertEqual(before, self._snapshot())
 
 
 if __name__ == "__main__":

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 import hashlib
+import shutil
 import sys
 import tempfile
 import unittest
@@ -10,6 +11,7 @@ from unittest.mock import patch
 
 
 TOOLS = Path(__file__).resolve().parents[2]
+REPOSITORY = TOOLS.parents[2]
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp" / "tests" / Path(__file__).stem
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
 if str(TOOLS) not in sys.path:
@@ -35,6 +37,12 @@ class SubjectPatchPreviewTests(unittest.TestCase):
         self.path = self.requirements / "CA-R-501-FRAMEWORK_METHODOLOGY-REQUIREMENT--subject-fixture.md"
         self.path.write_bytes(self._carrier("\n"))
         self.selector = self.path.relative_to(self.root).as_posix()
+        for profile in ("legacy", "approved"):
+            for pin in get_profile(profile).grammar_pins:
+                destination = self.root / pin.path
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(REPOSITORY / pin.path, destination)
+                self.assertEqual(pin.sha256, hashlib.sha256(destination.read_bytes()).hexdigest())
 
     def tearDown(self) -> None:
         self.temporary.cleanup()
@@ -335,7 +343,7 @@ class SubjectPatchPreviewTests(unittest.TestCase):
             with self.assertRaises(operations.ToolError) as context:
                 subject_patch.preview_subject_patches(self.root, payload, timestamp="2026-10-11 10:20:30 +0400")
         self.assertEqual(context.exception.code, "subject-source-changed")
-        self.assertEqual(validate.call_count, 2)
+        self.assertEqual(validate.call_count, 1)
 
     def test_rejects_changed_same_path_snapshot_before_returning_preview(self) -> None:
         payload = self._payload([{"field": "governs", "old": "Atom/Status", "new": "Atom/State"}])
@@ -347,7 +355,7 @@ class SubjectPatchPreviewTests(unittest.TestCase):
             with self.assertRaises(operations.ToolError) as context:
                 subject_patch.preview_subject_patches(self.root, payload, timestamp="2026-10-11 10:20:30 +0400")
         self.assertEqual(context.exception.code, "subject-source-changed")
-        self.assertEqual(validate.call_count, 2)
+        self.assertEqual(validate.call_count, 1)
 
     def test_rejects_symlink_swap_after_the_pinned_snapshot(self) -> None:
         payload = self._payload([{"field": "governs", "old": "Atom/Status", "new": "Atom/State"}])
@@ -362,7 +370,7 @@ class SubjectPatchPreviewTests(unittest.TestCase):
             with self.assertRaises(operations.ToolError) as context:
                 subject_patch.preview_subject_patches(self.root, payload, timestamp="2026-10-11 10:20:30 +0400")
         self.assertEqual(context.exception.code, "subject-selector-symlink")
-        self.assertEqual(validate.call_count, 2)
+        self.assertEqual(validate.call_count, 1)
 
 
 if __name__ == "__main__":
