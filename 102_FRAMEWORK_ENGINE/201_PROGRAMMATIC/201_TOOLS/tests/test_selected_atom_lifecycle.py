@@ -292,8 +292,9 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
             execute=True,
             authorized=True,
         )
-        self.assertEqual(carrier_only["observed"]["version"], 1)
+        self.assertEqual(carrier_only["observed"]["version"], 2)
         self.assertEqual(carrier_only["effects"][0]["state"], "changed")
+        self.assertEqual(before, (self.root / carrier_only["history"]["prior_revision"]["path"]).read_bytes())
         self._assert_configured_timestamp(self.target)
 
         before_semantic = self.target.read_bytes()
@@ -313,6 +314,7 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         self.assertEqual(self.target.read_bytes(), before_semantic)
 
         before = self.target.read_bytes()
+        history_before = {path: path.read_bytes() for path in (self.requirements / "archive").glob("*.md")}
         noop = update_atom_action(
             self.root,
             {
@@ -325,6 +327,58 @@ class SelectedAtomLifecycleTest(unittest.TestCase):
         )
         self.assertEqual(noop["outcome"], "no-op")
         self.assertEqual(self.target.read_bytes(), before)
+        self.assertEqual(history_before, {path: path.read_bytes() for path in (self.requirements / "archive").glob("*.md")})
+
+    def test_admitted_equivalent_refinement_increments_and_preserves_exact_prior(self) -> None:
+        before = self.target.read_bytes()
+        prior = carrier_descriptor(self.root, "CA-R-100")
+        proposal = self._proposal(self.target, summary="Stable summary", body_suffix="\nEquivalent acceptance clarification.\n")
+        parameters = {"target": prior, "proposed": proposal, "change_class": "equivalent_refinement",
+                      "semantic_assessment_report": self._semantic_assessment_report(proposal, change_class="equivalent_refinement")}
+        preview = update_atom_action(self.root, parameters)
+        self.assertEqual("preview", preview["outcome"])
+        assessment = update_assessment_seal(parameters, preview["assessment_evidence"])
+        result = update_atom_action(self.root, parameters, execute=True, authorized=True, assessment=assessment)
+        self.assertEqual("applied", result["outcome"])
+        self.assertEqual(prior["version"] + 1, result["observed"]["version"])
+        self.assertEqual(prior["atom_id"], result["observed"]["atom_id"])
+        self.assertEqual(before, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
+        self._assert_configured_timestamp(self.target)
+
+    def test_identified_nonactive_current_carrier_retains_exact_history(self) -> None:
+        status_authority = REQUIREMENT_STATUS_AUTHORITY.with_name(
+            "CA-R-1539-CORE_META_MODEL-GENERAL-REQUIREMENT--register-core-plan-status-values.md")
+        shutil.copyfile(status_authority, self.root / status_authority.relative_to(REPOSITORY))
+        current = self.requirements.parent / "03_plan/done/01-CA-P-200-TASK--completed-fixture-plan.md"
+        current.parent.mkdir(parents=True)
+        current.write_text(
+            "---\natom_id: CA-P-200\ncontent_role: Plan\ntype: Plan\nlabel: Task\n"
+            f"current_scope_unit: {_FIXTURE_SCOPE}\nclaim_target_scope_unit: {_FIXTURE_SCOPE}\n"
+            "work_sequence_number: 1\nlocal_tier: Standard\nglobal_tier: 14\n"
+            "author: Anatoly Maslennikov\nstatus: Done\nversion: 3\n"
+            "updated_at: \"2026-01-01 00:00:00 +0000\"\nsubjects:\n"
+            "  governs: Atom/Test\n  depends_on: []\nrelations: {}\n---\n"
+            "# Summary\n\nCompleted fixture Plan\n\n## Objective\n\nRetain fixture evidence.\n"
+            "\n## Details\n\n### Definition of Done\n\nFixture evidence is retained.\n",
+            encoding="utf-8",
+        )
+        parsed = proposed_carrier.parse_carrier(current.read_bytes(), current)
+        proposed_carrier.validate_proposed_carrier(
+            parsed.metadata, parsed.body, proposed_carrier.source_context_from_project(self.root),
+            current.relative_to(self.root / ".caprmedio_caprmedio"),
+        )
+        before = current.read_bytes()
+        prior = carrier_descriptor(self.root, current.relative_to(self.root).as_posix())
+        self.assertEqual("done", prior["lifecycle"])
+        frontmatter, content = split_frontmatter(current.read_text(encoding="utf-8"))
+        proposal = {"frontmatter": frontmatter, "content": content}
+        proposal["content"] += "\n"
+        result = update_atom_action(self.root, {"target": prior, "proposed": proposal, "change_class": "carrier_only"},
+                                    execute=True, authorized=True)
+        self.assertEqual("applied", result["outcome"])
+        self.assertEqual(prior["version"] + 1, result["observed"]["version"])
+        self.assertEqual(prior["status"], result["observed"]["status"])
+        self.assertEqual(before, (self.root / result["history"]["prior_revision"]["path"]).read_bytes())
 
     def test_update_rejects_unproven_equivalent_refinement(self) -> None:
         before = self.target.read_bytes()

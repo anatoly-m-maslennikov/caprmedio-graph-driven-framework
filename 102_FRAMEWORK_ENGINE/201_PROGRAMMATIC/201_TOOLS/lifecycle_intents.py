@@ -1158,7 +1158,9 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
                 "assessment_evidence": admitted_evidence,
                 "effects": [_effect("unchanged", carrier=prior, reason="preview")], "history": {"prior": prior},
                 **assessment_evidence}
-    next_version = atom_version(target) + 1 if change_class == "semantic_revision" else atom_version(target)
+    identified_current = (not legacy and target.atom_id is not None
+                          and target.lifecycle not in {"draft", "archived"})
+    next_version = atom_version(target) + 1 if identified_current or change_class == "semantic_revision" else atom_version(target)
     prior_revision: Atom | None = None
     prior_revision_owner: tuple[int, int] | None = None
     prior_revision_carrier: dict[str, Any] | None = None
@@ -1185,8 +1187,8 @@ def update_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bo
             history_ref = reserve_history_entry(root)
             frontmatter = replace_draft_revision_lineage(frontmatter, {"history_entry_ref": history_ref})
             draft_history = (history_ref, parent, parent_entry.get("direct_predecessor"))
-        if change_class == "semantic_revision" or legacy:
-            prior_revision = preserve_atom_revision(root, target)
+        if identified_current or change_class == "semantic_revision" or legacy:
+            prior_revision = preserve_atom_revision(root, target, allow_nonactive=identified_current)
             if not mapping:
                 owned = prior_revision.path.lstat()
                 prior_revision_owner = (owned.st_dev, owned.st_ino)
