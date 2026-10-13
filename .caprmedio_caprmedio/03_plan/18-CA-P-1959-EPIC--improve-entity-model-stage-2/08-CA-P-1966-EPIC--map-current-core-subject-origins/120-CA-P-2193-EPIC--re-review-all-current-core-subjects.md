@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Subject
   depends_on: [Atom, Entity, Term, Property, Scope Unit, Projection, Plan, Operator]
-version: 8
-updated_at: "2026-10-14 00:51:17 +0400"
+version: 9
+updated_at: "2026-10-14 01:01:29 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   blocks: [CA-P-2188]
@@ -56,9 +56,9 @@ A separate reviewer verifies every owner/occurrence, current pins, semantic pass
 ### Decomposing Plans
 
 - [CA-P-2194 — Review current Subject packet review-r-001](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/01-CA-P-2194-TASK--review-current-subject-packet-review-r-001.md)
-- [CA-P-2195 — Review current Subject packet review-r-002](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/02-CA-P-2195-TASK--review-current-subject-packet-review-r-002.md)
+- [CA-P-2195 — Review current Subject packet review-r-002](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/done/02-CA-P-2195-TASK--review-current-subject-packet-review-r-002.md)
 - [CA-P-2196 — Review current Subject packet review-r-003](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/03-CA-P-2196-TASK--review-current-subject-packet-review-r-003.md)
-- [CA-P-2197 — Review current Subject packet review-r-004](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/04-CA-P-2197-TASK--review-current-subject-packet-review-r-004.md)
+- [CA-P-2197 — Review current Subject packet review-r-004](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/done/04-CA-P-2197-TASK--review-current-subject-packet-review-r-004.md)
 - [CA-P-2198 — Review current Subject packet review-r-005](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/05-CA-P-2198-TASK--review-current-subject-packet-review-r-005.md)
 - [CA-P-2199 — Review current Subject packet review-r-006](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/06-CA-P-2199-TASK--review-current-subject-packet-review-r-006.md)
 - [CA-P-2200 — Review current Subject packet review-r-007](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/07-CA-P-2200-TASK--review-current-subject-packet-review-r-007.md)
@@ -82,7 +82,7 @@ A separate reviewer verifies every owner/occurrence, current pins, semantic pass
 - [CA-P-2218 — Review current Subject packet review-r-025](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/25-CA-P-2218-TASK--review-current-subject-packet-review-r-025.md)
 - [CA-P-2219 — Review current Subject packet review-r-026](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/26-CA-P-2219-TASK--review-current-subject-packet-review-r-026.md)
 - [CA-P-2220 — Review current Subject packet review-r-027](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/27-CA-P-2220-TASK--review-current-subject-packet-review-r-027.md)
-- [CA-P-2221 — Review current Subject packet review-m-001](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/28-CA-P-2221-TASK--review-current-subject-packet-review-m-001.md)
+- [CA-P-2221 — Review current Subject packet review-m-001](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/done/28-CA-P-2221-TASK--review-current-subject-packet-review-m-001.md)
 - [CA-P-2222 — Review current Subject packet review-m-002](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/29-CA-P-2222-TASK--review-current-subject-packet-review-m-002.md)
 - [CA-P-2223 — Review current Subject packet review-m-003](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/30-CA-P-2223-TASK--review-current-subject-packet-review-m-003.md)
 - [CA-P-2224 — Review current Subject packet review-e-001](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/31-CA-P-2224-TASK--review-current-subject-packet-review-e-001.md)
@@ -99,7 +99,7 @@ A separate reviewer verifies every owner/occurrence, current pins, semantic pass
 - [CA-P-2235 — Review current Subject packet review-d-008](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/42-CA-P-2235-TASK--review-current-subject-packet-review-d-008.md)
 - [CA-P-2236 — Review current Subject packet review-o-001](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/43-CA-P-2236-TASK--review-current-subject-packet-review-o-001.md)
 - [CA-P-2237 — Review current Subject packet review-o-002](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/44-CA-P-2237-TASK--review-current-subject-packet-review-o-002.md)
-- [CA-P-2238 — Review current Subject packet review-o-003](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/45-CA-P-2238-TASK--review-current-subject-packet-review-o-003.md)
+- [CA-P-2238 — Review current Subject packet review-o-003](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/done/45-CA-P-2238-TASK--review-current-subject-packet-review-o-003.md)
 - [CA-P-2239 — Review current Subject packet review-o-004](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/46-CA-P-2239-TASK--review-current-subject-packet-review-o-004.md)
 - [CA-P-2240 — Review current Subject packet review-o-005](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/47-CA-P-2240-TASK--review-current-subject-packet-review-o-005.md)
 - [CA-P-2241 — Review current Subject packet review-o-006](120-CA-P-2193-EPIC--re-review-all-current-core-subjects/48-CA-P-2241-TASK--review-current-subject-packet-review-o-006.md)
