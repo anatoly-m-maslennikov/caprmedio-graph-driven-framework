@@ -548,6 +548,7 @@ def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
     temporary = ".subject-" + uuid.uuid4().hex + ".tmp"
     staged = False
     published: tuple[int, ...] | None = None
+    publication_occurred = False
     try:
         if raw is not None:
             staging = _raw_revision_parent(root, root / ".caprmedio_tmp" / "atom_subject_apply" / "atomic" / temporary, create=True)
@@ -577,12 +578,16 @@ def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
             os.close(fresh_parent)
         if raw is None:
             os.unlink(path.name, dir_fd=parent)
+            publication_occurred = True
         elif expected is None:
             os.link(temporary, path.name, src_dir_fd=staging, dst_dir_fd=parent, follow_symlinks=False)
+            publication_occurred = True
+            published = _raw_revision_fingerprint(os.stat(path.name, dir_fd=parent, follow_symlinks=False))
             os.unlink(temporary, dir_fd=staging)
             staged = False
         else:
             os.replace(temporary, path.name, src_dir_fd=staging, dst_dir_fd=parent)
+            publication_occurred = True
             staged = False
         if raw is not None:
             published = _raw_revision_fingerprint(os.stat(path.name, dir_fd=parent, follow_symlinks=False))
@@ -591,14 +596,31 @@ def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
             return None
         return published
     except OSError as error:
+        # Removing the staging hardlink changes ctime on the published inode.
+        # Retain a post-cleanup fingerprint only while the same bytes/inode remain.
+        if publication_occurred and staged and published is not None:
+            try:
+                os.unlink(temporary, dir_fd=staging)
+                staged = False
+                current = _raw_revision_fingerprint(os.stat(path.name, dir_fd=parent, follow_symlinks=False))
+                published = current if current[:4] + current[5:] == published[:4] + published[5:] else None
+            except OSError:
+                published = None
         raise ToolError("subject-publication-failed", "Subject raw-byte publication failed",
-                        {"publication_fingerprint": published} if published is not None else {}) from error
+                        {"publication_occurred": publication_occurred,
+                         **({"publication_fingerprint": published} if published is not None else {})}) from error
     finally:
-        if staged:
-            os.unlink(temporary, dir_fd=staging)
-        if staging is not None:
-            os.close(staging)
-        os.close(parent)
+        try:
+            if staged:
+                os.unlink(temporary, dir_fd=staging)
+        except OSError as error:
+            raise ToolError("subject-publication-failed", "Subject temporary cleanup failed",
+                            {"publication_occurred": publication_occurred,
+                             **({"publication_fingerprint": published} if published is not None else {})}) from error
+        finally:
+            if staging is not None:
+                os.close(staging)
+            os.close(parent)
 
 
 def _validate_complete_carrier(root: Path, path: Path, frontmatter: str, content: str, *, creating: bool) -> None:
@@ -700,6 +722,127 @@ def move_atom_revision(root: Path, atom: Atom, relative_path: str, frontmatter: 
         _restore(snapshots)
         raise
     return atom_from_path(root, target)
+
+
+def status_bundle_snapshot(root: Path, atom: Atom) -> dict[str, tuple[bytes, tuple[int, ...]] | None]:
+    """Seal this Markdown and its optional matching directory, without following links."""
+    bundle = atom.path.with_suffix("")
+    result = {"markdown": read_raw_atom_revision(root, atom.path)}
+    if bundle.is_symlink():
+        raise ToolError("status-bundle-unsafe", "matching directory must not be a symlink")
+    if bundle.exists():
+        if not bundle.is_dir():
+            raise ToolError("status-bundle-unsafe", "matching carrier is not a directory")
+        role, kind = frontmatter_scalar(atom.frontmatter, "content_role"), frontmatter_scalar(atom.frontmatter, "type")
+        if role != "Plan" and (role != "Operations" or kind not in {"Workflow", "Step"}):
+            raise ToolError("status-bundle-unsupported", "matching directory is not an admitted P/O container")
+        result["directory"] = (b"", _raw_revision_fingerprint(bundle.stat()))
+        for path in sorted(bundle.rglob("*")):
+            if path.is_symlink():
+                raise ToolError("status-bundle-unsafe", "matching directory contains a symlink")
+            key = "directory/" + path.relative_to(bundle).as_posix()
+            result[key] = (b"", _raw_revision_fingerprint(path.stat())) if path.is_dir() else read_raw_atom_revision(root, path)
+    return result
+
+
+def publish_status_atom_revision(root: Path, atom: Atom, relative_path: str, frontmatter: str,
+                                 content: str, *, expected_bundle: Mapping) -> tuple[Atom, Path]:
+    """Publish one identified status bundle under the caller's publication lock."""
+    if frontmatter_scalar(frontmatter, "status") == "Archived":
+        target = safe_path(root, relative_path)
+        _validate_destination(root, target, filename_required=True)
+        base = re.sub(r"@[0-9]+(?=\.md$)", "", target.name)
+        if not CURRENT_FILENAME.fullmatch(base) or not target.name.endswith(f"@{atom_version(atom) + 1}.md"):
+            raise ToolError("filename-invalid", "status archive requires the new Revision suffix")
+        normalized = _normalize_frontmatter(frontmatter)
+        identity = frontmatter_scalar(normalized, "atom_id")
+        _validate_complete_carrier(root, target, normalized, content, creating=False)
+    else:
+        target, normalized, identity = prepare_create_atom_revision(
+            root, relative_path, frontmatter, content, creating=False)
+    if identity != atom.atom_id or identity is None:
+        raise ToolError("atom-frontmatter-id-mismatch", "status publication must retain identity")
+    version = atom_version(atom)
+    if frontmatter_scalar(normalized, "version") != str(version + 1):
+        raise ToolError("atom-version-invalid", "status publication must increment Version exactly once")
+    stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
+    local = atom.path.parent
+    if local.name in {"001_backlog", "done", "canceled", "archived", "resolved", "draft"}:
+        local = local.parent
+    history = local / "archived" / f"{stem}@{version}.md"
+    source_directory, destination_directory = atom.path.with_suffix(""), target.with_suffix("")
+    raw, source_fingerprint = expected_bundle["markdown"]
+    output = render(normalized, content)
+    for path in (target, history, destination_directory):
+        parent = _raw_revision_parent(root, path) if path.parent.exists() else None
+        if parent is not None:
+            os.close(parent)
+        if path not in {atom.path, source_directory} and (path.exists() or path.is_symlink()):
+            raise ToolError("destination-collision", f"status destination exists: {path.relative_to(root)}")
+    if status_bundle_snapshot(root, atom) != expected_bundle:
+        raise ToolError("status-bundle-stale", "status carrier bundle changed after admission")
+    created: dict[Path, tuple[int, ...]] = {}
+    removed = moved = False
+    def publish(path, data, expected):
+        try:
+            created[path] = write_raw_atom_revision(root, path, data, expected=expected,
+                                                    mode=source_fingerprint[-1])
+        except ToolError as error:
+            fingerprint = error.details.get("publication_fingerprint")
+            if fingerprint is not None:
+                created[path] = fingerprint
+            elif error.details.get("publication_occurred"):
+                raise ToolError("status-recovery-uncertain", "status publication occurred without a verified fingerprint; do not replay",
+                                {"automatic_retry": False, "destination": path.relative_to(root).as_posix()}) from error
+            raise
+    try:
+        if history != atom.path:
+            publish(history, raw, None)
+        if target == atom.path:
+            publish(target, output, source_fingerprint)
+        else:
+            publish(target, output, None)
+        if "directory" in expected_bundle and source_directory != destination_directory:
+            if destination_directory.exists() or destination_directory.is_symlink():
+                raise ToolError("destination-collision", "matching destination directory appeared")
+            moved = None  # A failed call can still leave an observed rename effect.
+            source_directory.rename(destination_directory)
+            moved = True
+        if target != atom.path and history != atom.path:
+            try:
+                write_raw_atom_revision(root, atom.path, None, expected=source_fingerprint, mode=source_fingerprint[-1])
+            finally:
+                removed = not atom.path.exists()
+        observed = atom_from_path(root, target)
+        actual = status_bundle_snapshot(root, observed)
+        if actual["markdown"][0] != output or {k: v[0] for k, v in actual.items() if k != "markdown"} != {
+                k: v[0] for k, v in expected_bundle.items() if k != "markdown"}:
+            raise ToolError("status-bundle-verification-failed", "published status bundle differs")
+        if read_raw_atom_revision(root, history)[0] != raw:
+            raise ToolError("status-history-verification-failed", "exact predecessor was not retained")
+        return observed, history
+    except BaseException as error:
+        try:
+            if moved is None:
+                moved = not (source_directory.exists() and not destination_directory.exists()
+                             and _raw_revision_fingerprint(source_directory.stat())[:2]
+                             == expected_bundle["directory"][1][:2])
+            if moved:
+                if (source_directory.exists() or destination_directory.is_symlink()
+                        or _raw_revision_fingerprint(destination_directory.stat())[:2]
+                        != expected_bundle["directory"][1][:2]):
+                    raise ToolError("status-recovery-blocked", "matching directory ownership is unverified")
+                destination_directory.rename(source_directory)
+            if removed:
+                write_raw_atom_revision(root, atom.path, raw, expected=None, mode=source_fingerprint[-1])
+            for path, fingerprint in reversed(list(created.items())):
+                write_raw_atom_revision(root, path, raw if path == atom.path else None,
+                                        expected=fingerprint, mode=source_fingerprint[-1])
+        except BaseException as recovery:
+            raise ToolError("status-recovery-uncertain", "status publication recovery is unverified; do not replay",
+                            {"automatic_retry": False, "source": atom.relative,
+                             "destination": relative_path}) from recovery
+        raise error
 
 
 def migrate_atom_identity_revision(root: Path, atom: Atom, relative_path: str, frontmatter: str, content: str) -> Atom:

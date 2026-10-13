@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Configuration, Workflow, Plan]
-version: 2
-updated_at: "2026-10-13 20:49:49 +0400"
+version: 3
+updated_at: "2026-10-13 21:40:47 +0400"
 relations:
   is_decomposition_of: [CA-P-2264]
 ---
@@ -28,6 +28,10 @@ Compose contained Status actions
 Contained Status changes execute as independent admitted per-Atom actions with truthful observed results.
 
 ## Details
+
+### Verified continuation — 2026-10-13 21:40:47 +0400
+
+P2336/P2337 and P2344/P2345 are Done after final independent publication/placement 33/33 and full validator 433/433. The primitive publishes one Status revision and preserves exact historical bytes; nested containers authenticate namespace, ownership and current source evidence. Current lifecycle definition binding P2338 and explicit Draft identity P2339 remain pending, followed by real independent-Run cascade composition and verification. Primitive success does not complete this parent.
 
 Estimated own work: up to 15 minutes. Split further work before exceeding this bound. Inherit the parent's accepted source, independent review and execution gates. Root owns Plans and Git; assigned file ownership stays disjoint.
 

@@ -25,7 +25,7 @@ class ExplicitReferenceScopeIndependentTests(unittest.TestCase):
         self.root = self.fixture.root
         self.selection = self.fixture.project()
         self.control = self.selection.control_relative
-        for identifier in dict.fromkeys((*admission._FRONTIER_IDS, *admission._GRAPH_IDS)):
+        for identifier in dict.fromkeys((*admission._FRONTIER_IDS, *admission._GRAPH_IDS, "CA-D-378")):
             entry = admission._entry(identifier, graph=identifier in admission._GRAPH_IDS)
             source = fixtures.REPOSITORY / entry["source_path"]
             if not source.is_file():

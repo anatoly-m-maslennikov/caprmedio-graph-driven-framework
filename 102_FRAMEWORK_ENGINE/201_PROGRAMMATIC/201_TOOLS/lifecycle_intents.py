@@ -37,6 +37,8 @@ from atom_operations import (
     preserve_atom_revision,
     project_identity_prefix,
     promote_draft_atom,
+    publish_status_atom_revision,
+    status_bundle_snapshot,
     replace_draft_revision_lineage,
     replace_frontmatter_scalar,
     resolve_repository,
@@ -688,13 +690,15 @@ def _status_destination(root: Path, atom: Atom, status: str) -> str:
     except (ValueError, StopIteration) as error:
         raise LifecycleError("status-location-missing", "target has no content-role status location") from error
     role = control.joinpath(*relative.parts[:index + 1])
-    if frontmatter_scalar(atom.frontmatter, "content_role") == "Plan":
+    if frontmatter_scalar(atom.frontmatter, "content_role") in {"Plan", "Operations"}:
         local = atom.path.parent
         if local.name in {"001_backlog", "done", "canceled", "archived"}:
             local = local.parent
-        folders = {"Active": None, "Backlog": "001_backlog", "Done": "done", "Canceled": "canceled"}
+        folders = {"Active": None, "Backlog": "001_backlog", "Done": "done", "Canceled": "canceled", "Archived": "archived"}
         if status in folders:
-            target = local / folders[status] / atom.filename if folders[status] else local / atom.filename
+            stem = re.sub(r"@[0-9]+$", "", atom.path.stem)
+            filename = f"{stem}@{atom_version(atom) + 1}.md" if status == "Archived" else f"{stem}.md"
+            target = local / folders[status] / filename if folders[status] else local / filename
             return target.relative_to(root).as_posix()
     if status.casefold() == "active":
         target = role / atom.filename
@@ -1305,6 +1309,7 @@ def change_status_atom_action(root: Path, parameters: Mapping[str, Any], *, exec
                 "observed": prior, "status_model": model,
                 "effects": [_effect("unchanged", carrier=prior, reason="status-already-current")], "broken_references": []}
     promotion_head = _draft_promotion_head(root, target) if target.atom_id is None else None
+    bundle = status_bundle_snapshot(root, target) if target.atom_id is not None and requested.casefold() != "draft" else None
     # An ID-free Draft may have a sealed pending promotion.  Its request/head
     # binding must refuse or recover before archive diagnostics dereference an
     # identity that deliberately does not exist yet.
@@ -1319,7 +1324,8 @@ def change_status_atom_action(root: Path, parameters: Mapping[str, Any], *, exec
     prior_revision: Atom | None = None
     try:
         frontmatter = replace_frontmatter_scalar(target.frontmatter, "status", requested)
-        frontmatter = _refresh_frontmatter(root, frontmatter)
+        frontmatter = _refresh_frontmatter(root, frontmatter,
+                                          version=atom_version(target) + 1 if bundle is not None else None)
         if requested.casefold() == "draft":
             from draft_history import append_draft_entry, reserve_history_entry
 
@@ -1389,11 +1395,12 @@ def change_status_atom_action(root: Path, parameters: Mapping[str, Any], *, exec
                         raise LifecycleError("promotion-history-conflict", "finalized promotion did not resolve its output")
                     observed_atom = recovered_atom
         else:
-            observed_atom = (
-                archive_atom_revision(root, target, frontmatter, target.content)
-                if archive
-                else move_atom_revision(root, target, _status_destination(root, target, requested), frontmatter, target.content)
-            )
+            destination = _status_destination(root, target, requested)
+            if archive and frontmatter_scalar(target.frontmatter, "content_role") not in {"Plan", "Operations"}:
+                destination = str(Path(destination).with_name(
+                    re.sub(r"@[0-9]+$", "", target.path.stem) + f"@{atom_version(target) + 1}.md"))
+            observed_atom, history_path = publish_status_atom_revision(
+                root, target, destination, frontmatter, target.content, expected_bundle=bundle)
     except AtomToolError as error:
         if prior_revision is not None:
             prior_revision.path.unlink(missing_ok=True)
@@ -1411,6 +1418,8 @@ def change_status_atom_action(root: Path, parameters: Mapping[str, Any], *, exec
     if archive:
         result["repair_handoff"] = {"operation": "repair_relations", "broken_references": diagnostics,
                                     "automatic_repair": False}
+    if bundle is not None:
+        result["history"] = {"prior": prior, "prior_revision": carrier_descriptor(root, atom_from_path(root, history_path))}
     if requested.casefold() == "draft":
         assert prior_revision is not None
         result["history"] = {"prior": prior, "prior_revision": carrier_descriptor(root, prior_revision)}

@@ -20,7 +20,8 @@ from .support_authority import support_sources
 from .check_support import Check
 from .check_graph_extended import relations_resolution, plan_resolution
 from .check_schema_extended import TYPE_CONTRIBUTIONS
-from .proposed_references import ProposedReferenceError, inventory_proposed_references
+from .proposed_references import ProposedReferenceError, _container_id, inventory_proposed_references
+from .parsing import CarrierError, parse_carrier
 from .graph_authority_refresh import APPROVED_GRAPH_AUTHORITY_IDS
 from artifact_metadata import project_identity
 from authoritative_status_models import StatusModelError, resolve_status_model
@@ -163,6 +164,74 @@ def _frontier_status_folders(context: VerifiedSourceContext, plan_mapping: dict[
     return mappings
 
 
+def _assigned_identity(context: VerifiedSourceContext, metadata: Record) -> None:
+    """Check assigned identity against exact encoding authority and Project Settings."""
+    report: Record = {"bindings": {}, "coverage": {"gaps": []}}
+    with bind_selection(context._selection):
+        source = _source(context.root, "CA-D-378", context._reader, report)
+    letters = dict(re.findall(r"([A-Za-z]+): ([A-Z])(?:,|\))", source["text"]))
+    prefix = context.inputs["_project_identity"]["identity"]["project_prefix"]
+    letter = letters.get(metadata.get("content_role"))
+    identity = metadata.get("atom_id")
+    if (not isinstance(letter, str) or not isinstance(identity, str)
+            or re.fullmatch(rf"{re.escape(prefix)}-{re.escape(letter)}-[0-9]+", identity) is None):
+        raise ProposedCarrierError("assigned Atom identity disagrees with its Project prefix or carried content role")
+
+
+def _operations_placement(
+    context: VerifiedSourceContext, metadata: Record, path: Path, role_root: Path,
+    owner: str, rows: list[Record],
+) -> None:
+    """Authenticate only the Workflow/Step ancestors named by this carrier path."""
+    report: Record = {"bindings": {}, "coverage": {"gaps": []}}
+    try:
+        with bind_selection(context._selection):
+            sources = {
+                identifier: _source(context.root, identifier, context._reader, report)
+                for identifier in ("CA-D-467", "CA-R-1874")
+            }
+        statuses = _domain(sources["CA-R-1874"]["text"])
+        if not statuses:
+            raise ProposedCarrierError("Operations status-directory authority is unavailable")
+        folders = {status: "" if status == "Active" else status.lower() for status in statuses}
+        current, local, nested = role_root, "", False
+        for part in path.relative_to(role_root).parts[:-1]:
+            if not local and part in {folder for folder in folders.values() if folder}:
+                local = part
+                current = current / part
+                continue
+            parent_path = context.root / current / (part + ".md")
+            parent = parse_carrier(context._reader.read(parent_path), parent_path).metadata
+            _assigned_identity(context, parent)
+            if (_container_id(parent, "Operations", owner, folders, local) is None
+                    or nested and parent.get("type") != "Step"):
+                raise ProposedCarrierError("Operations container parent identity, type, owner, or status is unresolved")
+            if parent.get("status") == "Archived":
+                with bind_selection(context._selection):
+                    _source(context.root, "CA-D-289", context._reader, report)
+                if not parent_path.stem.endswith(f"@{parent['version']}"):
+                    raise ProposedCarrierError("Archived Operations parent lacks its carried Version suffix")
+            current = current / part
+            context._reader.allowed(context.root / current)
+            nested, local = True, ""
+        if nested and metadata.get("type") != "Step":
+            raise ProposedCarrierError("Workflow and Step containers admit only Step carriers")
+        if folders.get(metadata.get("status")) != local:
+            raise ProposedCarrierError("carrier path disagrees with its carried status")
+        if metadata.get("status") == "Archived":
+            with bind_selection(context._selection):
+                _source(context.root, "CA-D-289", context._reader, report)
+            if not path.stem.endswith(f"@{metadata['version']}"):
+                raise ProposedCarrierError("Archived Operations carrier lacks its carried Version suffix")
+        if any(row.get("scope_unit_name") != owner and path.is_relative_to(Path(row["authority_path"]))
+               for row in rows):
+            raise ProposedCarrierError("Operations container crosses a declared Scope Unit authority")
+    except (OSError, RuntimeError, CarrierError, ValueError) as error:
+        if isinstance(error, ProposedCarrierError):
+            raise
+        raise ProposedCarrierError("Operations containment authority or parent carrier is unavailable") from error
+
+
 def validate_proposed_carrier(
     metadata: Record, body: str, verified_source_context: VerifiedSourceContext, relative_path: Path,
     *, allow_existing_relations: bool = False, reference_roles: tuple[str, ...] | None = None,
@@ -252,6 +321,7 @@ def validate_proposed_carrier(
             "direct_targets": [],
             "plan_parent_closure": [],
         }
+    inventory = None
     if relations and (not allow_existing_relations or plan_deep or reference_roles is not None):
         targets = list(dict.fromkeys(target for values in relations.values() if isinstance(values, list) for target in values))
         status_folders = _frontier_status_folders(verified_source_context, plan_mapping)
@@ -291,11 +361,15 @@ def validate_proposed_carrier(
             path=verified_source_context.root / control / relative_path,
             references=[
                 {"path": verified_source_context.root / item.path, "metadata": item.metadata}
-                for item in (*inventory.direct_targets, *inventory.plan_parent_closure)
+                for item in (*inventory.direct_targets, *inventory.plan_parent_closure, *inventory.plan_prerequisite_closure)
             ],
         )
+        if (role, metadata.get("type")) == ("Plan", "Plan") and relations.get("blocks"):
+            for item in (*inventory.direct_targets, *inventory.plan_parent_closure, *inventory.plan_prerequisite_closure):
+                if item.metadata.get("content_role") == "Plan":
+                    _assigned_identity(verified_source_context, item.metadata)
         if reference_roles is not None:
-            resolved = (*inventory.direct_targets, *inventory.plan_parent_closure)
+            resolved = (*inventory.direct_targets, *inventory.plan_parent_closure, *inventory.plan_prerequisite_closure)
             target_ids = {item.atom_id for item in resolved}
             if any(source["binding"]["atom_id"] in target_ids
                    and source["metadata"].get("content_role") not in reference_mapping
@@ -312,7 +386,10 @@ def validate_proposed_carrier(
             else {}
         )
         graph_context = AuthorityContext([], 0, 0, 0, [], (), domains, False)
-        for code, adapter in (("relations.resolution", relations_resolution), ("plan.decomposition_resolution", plan_resolution)):
+        adapters = [("relations.resolution", relations_resolution), ("plan.decomposition_resolution", plan_resolution)]
+        if relations.get("blocks"):
+            adapters.append(("plan.blocking_resolution", plan_resolution))
+        for code, adapter in adapters:
             check = Check(Obligation(code, [], True, "verified graph authority"), graph_context, graph_inputs)
             adapter(metadata, body, check)
             if check.findings or check.gaps:
@@ -347,10 +424,25 @@ def validate_proposed_carrier(
         expected_status_directory = "" if status == "Active" else plan_mapping.get(status)
     role_index = relative_path.parts.index(expected_role_directory)
     tail = relative_path.parts[role_index + 1 : -1]
+    if role == "Operations" and len(tail) > (0 if status == "Active" else 1):
+        role_root = control / Path(*relative_path.parts[:role_index + 1])
+        _operations_placement(verified_source_context, metadata, project_relative_path, role_root, owner, rows)
+        _current(verified_source_context._reader, verified_source_context._selection)
+        if inventory is not None:
+            try:
+                inventory.assert_current()
+            except ProposedReferenceError as error:
+                raise ProposedCarrierError("relation inventory changed during admission") from error
+        return result
     if len(tail) > 1 and role != "Plan":
         raise ProposedCarrierError("deeper carrier placement is unsupported")
     actual_status_directory = "" if role == "Plan" and status == "Active" else (tail[-1] if tail else "")
     if expected_status_directory is None or actual_status_directory != expected_status_directory:
         raise ProposedCarrierError("carrier path disagrees with its carried status")
     _current(verified_source_context._reader, verified_source_context._selection)
+    if inventory is not None:
+        try:
+            inventory.assert_current()
+        except ProposedReferenceError as error:
+            raise ProposedCarrierError("relation inventory changed during admission") from error
     return result

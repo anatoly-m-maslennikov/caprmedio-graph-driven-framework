@@ -2,15 +2,16 @@
 
 This module deliberately does not infer Atom identity from a filename.  It is a
 small pre-write helper: callers supply only direct IDs mentioned by a proposed
-carrier and the already-verified Project Structure mapping.  For a nested Plan
-it additionally resolves the one-way ``is_decomposition_of`` parent chain.
+carrier and the already-verified Project Structure mapping. For a nested Plan
+it additionally resolves the one-way ``is_decomposition_of`` parent chain;
+a typed Plan with blocks also retains its reachable prerequisite evidence.
 It does *not* claim to inventory the project's complete graph.
 """
 
 from __future__ import annotations
 
 import os
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
@@ -37,10 +38,18 @@ class TargetCarrier:
 
 @dataclass(frozen=True)
 class ProposedReferenceInventory:
-    """Complete only for ``direct_targets`` and the returned Plan-parent chain."""
+    """Finite direct, parent-placement and reachable prerequisite evidence."""
 
     direct_targets: tuple[TargetCarrier, ...]
     plan_parent_closure: tuple[TargetCarrier, ...]
+    plan_prerequisite_closure: tuple[TargetCarrier, ...] = ()
+    _evidence: _ReferenceEvidence | None = field(default=None, repr=False, compare=False)
+
+    def assert_current(self) -> None:
+        """Recheck captured reference evidence at the caller's admission boundary."""
+        if self._evidence is None:
+            raise ProposedReferenceError("authoritative target currentness evidence is unavailable")
+        self._evidence.assert_current()
 
 
 @dataclass(frozen=True)
@@ -50,6 +59,25 @@ class _FrontierCarrier:
     owner: str
     placement_matches: bool
     archived: bool
+
+
+@dataclass(frozen=True)
+class _ReferenceEvidence:
+    reader: ReadContext
+    roots: dict[Path, str]
+    roles: dict[str, str]
+    statuses: dict[str, dict[str, str]]
+    paths: frozenset[Path]
+    directories: tuple[str, ...]
+
+    def assert_current(self) -> None:
+        try:
+            carriers, directories = _frontier(self.reader, self.roots, self.roles, self.statuses)
+            current = self.reader.currentness()
+        except (OSError, CarrierError, ReadFailure, LimitReached) as error:
+            raise ProposedReferenceError("authoritative target frontier changed during admission") from error
+        if frozenset(carriers) != self.paths or directories != self.directories or current.get("state") != "unchanged":
+            raise ProposedReferenceError("authoritative target frontier changed during admission")
 
 
 def _relative(root: Path, value: str | Path) -> Path:
@@ -279,9 +307,10 @@ def inventory_proposed_references(
 ) -> ProposedReferenceInventory:
     """Return exact current facts for named targets and a nested Plan parent chain.
 
-    ``direct_atom_ids`` is finite and explicit.  Every returned direct target is
-    an active, non-archive carrier found exactly once in Project Structure's
-    authority frontier.  If ``candidate_metadata`` is a Plan with a parent,
+    ``direct_atom_ids`` is finite and explicit. Ordinary targets remain Active.
+    A Plan's blocks-only endpoints instead resolve the current authenticated
+    Plan Revision under the verified complete Plan status/history mapping.
+    If ``candidate_metadata`` is a Plan with a parent,
     ``candidate_path`` is required and each child is checked to reside below the
     *actual authenticated parent carrier*.  A non-Active child Plan additionally
     requires its container folder from ``admitted_plan_status_folders``; callers
@@ -304,9 +333,51 @@ def inventory_proposed_references(
         raise ProposedReferenceError("authoritative carrier frontier is unavailable") from error
 
     requested = set(ids)
+    blocking: set[str] = set()
+    typed_plan = candidate_metadata is not None and (candidate_metadata.get("content_role"), candidate_metadata.get("type")) == ("Plan", "Plan")
+    if typed_plan:
+        relations = candidate_metadata.get("relations", {})
+        if isinstance(relations, Mapping) and isinstance(relations.get("blocks"), list):
+            blocking = {value for value in relations["blocks"] if isinstance(value, str)}
+            blocking.difference_update(
+                value for kind, values in relations.items() if kind != "blocks" and isinstance(values, list)
+                for value in values if isinstance(value, str)
+            )
+            blocking.intersection_update(requested)
+
+    def current_plan(identity: str) -> TargetCarrier:
+        # Keep prerequisite evidence on the same accepted current/history policy.
+        from contained_atom_targets import ContainedAtomTargetsError, _latest_path
+
+        if admitted_plan_status_folders is None or dict(admitted_plan_status_folders) != dict(admitted_status_folders.get("Plan", {})):
+            raise ProposedReferenceError("Plan blocking status-directory authority is unavailable or inconsistent")
+        for carrier in carriers.values():
+            if carrier.metadata.get("atom_id") != identity:
+                continue
+            if carrier.role != "Plan" or (carrier.metadata.get("content_role"), carrier.metadata.get("type")) != ("Plan", "Plan"):
+                raise ProposedReferenceError("Plan blocking target is not a Plan carrier")
+            if not isinstance(carrier.metadata.get("status"), str):
+                raise ProposedReferenceError("Plan blocking target lacks carried Status")
+        plan_carriers = {path: carrier for path, carrier in carriers.items() if carrier.role == "Plan"}
+        try:
+            path = _latest_path(identity, plan_carriers, admitted_status_folders)
+        except ContainedAtomTargetsError as error:
+            raise ProposedReferenceError("Plan blocking target current Revision is unresolved") from error
+        item = _carrier(reader, root, path, {identity}, carriers[path])
+        if item is None:
+            raise ProposedReferenceError("Plan blocking target is missing")
+        return item
+
     active: dict[str, TargetCarrier] = {}
     inactive: set[str] = set()
     for path, carrier in carriers.items():
+        identity = carrier.metadata.get("atom_id")
+        if isinstance(identity, str) and identity in blocking:
+            if carrier.role != "Plan" or (carrier.metadata.get("content_role"), carrier.metadata.get("type")) != ("Plan", "Plan"):
+                raise ProposedReferenceError("Plan blocking target is not a Plan carrier")
+            if not isinstance(carrier.metadata.get("status"), str):
+                raise ProposedReferenceError("Plan blocking target lacks carried Status")
+            continue
         if carrier.archived:
             atom_id = carrier.metadata.get("atom_id")
             if isinstance(atom_id, str) and atom_id in requested:
@@ -321,6 +392,9 @@ def inventory_proposed_references(
         if item.atom_id in active:
             raise ProposedReferenceError("named authoritative target is ambiguous")
         active[item.atom_id] = item
+    if blocking:
+        for identity in blocking:
+            active[identity] = current_plan(identity)
     missing = requested - set(active)
     if missing:
         if missing & inactive:
@@ -360,6 +434,8 @@ def inventory_proposed_references(
                             raise ProposedReferenceError("Plan parent is missing, inactive, or ambiguous")
                         active[parent] = admitted[0][1]
                     item = active[parent]
+                    if not _is_active_status(item.status):
+                        raise ProposedReferenceError("Plan parent is missing, inactive, or ambiguous")
                     if (item.metadata.get("content_role"), item.metadata.get("type")) != ("Plan", "Plan"):
                         raise ProposedReferenceError("Plan parent is not a Plan carrier")
                     closure.append(item)
@@ -374,13 +450,43 @@ def inventory_proposed_references(
                         raise ProposedReferenceError("nested Plan path does not use the authenticated Markdown parent carrier")
                     child_path = parent_path
                     child_status = item.status
-    try:
-        current_carriers, current_directories = _frontier(reader, roots, admitted_role_folders, admitted_status_folders)
-        current = reader.currentness()
-    except (OSError, CarrierError, ReadFailure, LimitReached) as error:
-        raise ProposedReferenceError("authoritative target frontier changed during inventory") from error
-    if current_carriers.keys() != carriers.keys() or current_directories != directories:
-        raise ProposedReferenceError("authoritative target frontier changed during inventory")
-    if current.get("state") != "unchanged":
-        raise ProposedReferenceError("authoritative target frontier changed during inventory")
-    return ProposedReferenceInventory(tuple(active[item] for item in ids), tuple(closure))
+    prerequisites: dict[str, TargetCarrier] = {}
+    candidate_relations = candidate_metadata.get("relations", {}) if typed_plan else {}
+    if typed_plan and isinstance(candidate_relations, Mapping) and candidate_relations.get("blocks"):
+        candidate_id = candidate_metadata.get("atom_id")
+        if not isinstance(candidate_id, str) or not candidate_id:
+            raise ProposedReferenceError("Plan prerequisite closure requires its carried identity")
+        pending = [candidate_metadata]
+        visited = {candidate_id}
+        retained = requested | {item.atom_id for item in closure}
+        try:
+            while pending:
+                reader.checkpoint()
+                metadata = pending.pop()
+                relations = metadata.get("relations", {})
+                if not isinstance(relations, Mapping):
+                    raise ProposedReferenceError("Plan prerequisite relations are malformed")
+                parent = _parent_id(metadata)
+                blocks = relations.get("blocks", [])
+                if not isinstance(blocks, list) or any(not isinstance(value, str) or not value for value in blocks):
+                    raise ProposedReferenceError("Plan prerequisite blocks relation is malformed")
+                for identity in ([parent] if parent is not None else []) + blocks:
+                    reader.checkpoint()
+                    if identity in visited:
+                        continue
+                    visited.add(identity)
+                    item = current_plan(identity)
+                    if identity not in retained:
+                        prerequisites[identity] = item
+                    pending.append(item.metadata)
+        except (OSError, CarrierError, ReadFailure, LimitReached) as error:
+            raise ProposedReferenceError("Plan prerequisite closure exceeds its authenticated read boundary") from error
+    evidence = _ReferenceEvidence(
+        reader, dict(roots), dict(admitted_role_folders),
+        {role: dict(mapping) for role, mapping in admitted_status_folders.items()},
+        frozenset(carriers), directories,
+    )
+    evidence.assert_current()
+    return ProposedReferenceInventory(
+        tuple(active[item] for item in ids), tuple(closure), tuple(prerequisites.values()), evidence,
+    )

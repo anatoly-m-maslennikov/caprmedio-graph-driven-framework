@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 6
-updated_at: "2026-10-13 20:59:20 +0400"
+version: 7
+updated_at: "2026-10-13 21:40:47 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2269, CA-P-2276]
@@ -29,6 +29,10 @@ Bind Atom placement and Status changes
 Atom placement and allowed Status changes use their actual semantic lifecycle adapters.
 
 ## Details
+
+### Verified continuation — 2026-10-13 21:40:47 +0400
+
+P2336/P2337 and P2344/P2345 are Done: real single-Atom publication, exact history, bundle ownership recovery and nested Operations admission passed independent final checks. Plan-reference admission and retained proof also passed against this parent's prior v6. Actual selected source rebinding, Draft promotion identity and cascading independent Runs remain under P2318. This parent remains Active; no live operation was performed.
 
 ### Bounded continuation
 

@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 31
-updated_at: "2026-10-13 20:59:20 +0400"
+version: 32
+updated_at: "2026-10-13 21:40:47 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -29,15 +29,13 @@ The Tools required before affected Stage-2 execution have updated, independently
 
 ## Details
 
-### Current continuation checkpoint — 2026-10-13 20:59:20 +0400
+### Current continuation checkpoint — 2026-10-13 21:40:47 +0400
 
-P2317 contained-target discovery, P2308/P2309 pure TOML materialization, P2310 private writer integration, and P2321–P2323 Project-boundary consumers are Done after independent final-pin verification. Evidence includes 21 contained-target tests, 60 TOML tests, 344 validator tests and actual boundary/Graph/Structure/Scope fixture checks. Commits c42b8d26e, d79b5fa25, c228de1c4 and 5074f77a0 record those bounded outcomes, not installed activation.
+P2336/P2337 single-Atom Status publication, P2344/P2345 nested Operations placement, P2342/P2343 typed Plan blocking admission, P2346/P2347 prerequisite closure and P2352/P2353 retained reference proof are Done after independent final-pin checks. All 433 validator tests and 33 independent publication/placement tests passed. Actual P2264 v6, P2256 v6 and P2272 v7 passed finite admission unchanged. Namespace and after-lookup mutation defects found during review are fixed, not waived.
 
-P2336/P2337 repair and independently test single-Atom Status bundle publication before any cascade. Required nested Operations placement revealed a validator defect; P2344/P2345 own its correction. P2342/P2343 repair typed Plan blocking admission: pending/history Plan endpoints are allowed by current rules, and wrong-role targets must still refuse. Shared proposed_carrier.py edits are serialized.
+P2348/P2349 Settings observation rules and P2350/P2351 graph receipt reading are Done; all 46 graph-generator tests passed. Both Settings files and the live Journal remain unchanged. Actual two-record registration still needs an available admitted route or the Operator's explicitly requested direct-writer choice. A successful reconnect is not yet verified: the observed endpoint still failed initialization.
 
-P2340/P2341 actual Scope Read wiring remains incomplete: complete shared Settings/schema admission is missing, not a new logical-map authority. Existing identity readers must not be presented as complete schema validation. Current graph input values are all present and 29 declared Scope Units parse; no fake Settings edit is justified. Exact current logical Revision records are missing for both Settings files, with Operator disposition pending. Current direct release supersedes the old D572 admission gate; P2270 records that correction while legacy references remain explicit debt.
-
-PROJECT_TOOLS relocation waits for the Operator's choice after unavailable MCP; no root cleanup, live Core migration, release, runtime activation or push is included in these checkpoints. The complete Epic remains Active.
+Next Status work is current selected lifecycle binding review (P2338), explicit Draft identity (P2339), then actual independently executing cascade. Complete Settings/schema receiving admission, other Epic children, PROJECT_TOOLS relocation, runtime activation and live Subject migration are not closed by these checks. The Epic remains Active.
 
 ### Continued independent work — 2026-10-13
 
