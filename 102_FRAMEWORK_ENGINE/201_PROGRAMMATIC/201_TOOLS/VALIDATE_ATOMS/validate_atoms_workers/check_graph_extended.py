@@ -246,17 +246,6 @@ def _relations(metadata: Record, check: Check) -> dict[str, list[str]] | None:
             )
         else:
             valid[kind] = targets
-            if len(targets) > 1:
-                # CA-D-268 requires canonical order but does not select Python's
-                # lexical comparator. Neither sorted nor unsorted input proves
-                # conformance until a source-bound ordering adapter is admitted.
-                _gap(
-                    check,
-                    "relations." + kind,
-                    "Canonical ordering needs a source-bound comparator; lexical sorting "
-                    "is not established by the admitted authority. Endpoint and uniqueness "
-                    "checks are evaluated independently.",
-                )
     return valid
 
 

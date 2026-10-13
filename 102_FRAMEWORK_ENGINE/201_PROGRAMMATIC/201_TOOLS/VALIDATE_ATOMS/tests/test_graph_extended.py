@@ -95,16 +95,19 @@ def check(
 
 
 class GraphExtendedTests(unittest.TestCase):
-    def test_unbound_sort_algorithm_is_a_gap_in_both_orders(self) -> None:
+    def test_relation_target_order_is_nonsemantic(self) -> None:
         for targets in (["X-R-2", "X-R-1"], ["X-R-1", "X-R-2"]):
             with self.subTest(targets=targets):
+                metadata = atom("X-E-1", "Evaluation", relations={"evaluation_for": targets})
+                refs = [reference(atom(target, "Requirement")) for target in targets]
+                before = copy.deepcopy((metadata, refs))
                 result = check(
                     "relations.resolution",
-                    atom("X-M-1", "Method", relations={"method_for": targets}),
-                    [reference(atom(target, "Requirement")) for target in targets],
+                    metadata,
+                    refs,
                 )
-                self.assertFalse(result.findings)
-                self.assertTrue(any("ordering" in gap["reason"] for gap in result.gaps))
+                self.assertFalse(result.findings + result.gaps)
+                self.assertEqual((metadata, refs), before)
 
     def test_method_target_resolves_with_exact_role(self) -> None:
         result = check(
@@ -114,13 +117,13 @@ class GraphExtendedTests(unittest.TestCase):
         )
         self.assertFalse(result.findings + result.gaps)
 
-    def test_ordering_gap_does_not_hide_wrong_target_role(self) -> None:
+    def test_unordered_targets_still_check_each_target_role(self) -> None:
         result = check(
             "relations.resolution",
             atom("X-M-1", "Method", relations={"method_for": ["X-R-1", "X-E-1"]}),
             [reference(atom("X-R-1", "Requirement")), reference(atom("X-E-1", "Evaluation"))],
         )
-        self.assertTrue(any("ordering" in gap["reason"] for gap in result.gaps))
+        self.assertFalse(result.gaps)
         self.assertTrue(any("inadmissible Content Role" in row["reason"] for row in result.findings))
 
     def test_duplicate_targets_remain_a_defect_not_an_ordering_gap(self) -> None:
@@ -238,7 +241,7 @@ class GraphExtendedTests(unittest.TestCase):
         )
         self.assertTrue(result.gaps)
 
-    def test_inverse_is_rejected_and_unbound_direct_order_is_a_gap(self) -> None:
+    def test_inverse_is_rejected_and_direct_target_order_is_nonsemantic(self) -> None:
         inverse = check(
             "relations.resolution",
             atom(relations={"required_by": ["X-P-2"]}),
@@ -247,11 +250,10 @@ class GraphExtendedTests(unittest.TestCase):
         self.assertTrue(inverse.findings)
         direct = check(
             "relations.resolution",
-            atom("X-M-1", "Method", relations={"method_for": ["X-R-2", "X-R-1"]}),
+            atom("X-E-1", "Evaluation", relations={"evaluation_for": ["X-R-2", "X-R-1"]}),
             [reference(atom("X-R-1", "Requirement")), reference(atom("X-R-2", "Requirement"))],
         )
-        self.assertFalse(direct.findings)
-        self.assertTrue(any("ordering" in d["reason"] for d in direct.gaps))
+        self.assertFalse(direct.findings + direct.gaps)
 
     def test_changed_dependency_pin_does_not_execute_its_rule(self) -> None:
         sources = copy.deepcopy(authorities())

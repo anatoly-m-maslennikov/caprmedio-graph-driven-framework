@@ -46,8 +46,8 @@
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md"
     },
     "CA-D-268": {
-      "version": 12,
-      "sha256": "2afc204f59d90286345c9f4b5f74f8fcf2b8b40b992ab5aca734b0ad53e46335",
+      "version": 13,
+      "sha256": "eba35171683bf9219f32d264cc3eaff985bd7939817114135c3a04faccf8df96",
       "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DELIVERY--serialize-authored-direct-relations-on-their-owning-atoms.md"
     },
     "CA-R-1040": {

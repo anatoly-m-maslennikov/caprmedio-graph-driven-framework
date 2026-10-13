@@ -3,8 +3,8 @@ subjects:
   governs: "Atom/Direct Relation Serialization"
   depends_on:
     - "Atom/Relation Owner"
-version: 12
-updated_at: "2026-10-02 18:57:51 +0400"
+version: 13
+updated_at: "2026-10-13 19:56:49 +0400"
 relations: {}
 atom_id: "CA-D-268"
 content_role: "Delivery"
@@ -25,6 +25,6 @@ Authored direct semantic relations.
 
 ## Claim
 
-**every** authored direct semantic relation **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns its declared direction as a nonempty unordered collection of unique canonical target references **in** deterministic canonical order; target position **must not** add, remove, **or** alter a direct relation **or** dependency.
+**every** authored direct semantic relation **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns its declared direction as a nonempty unordered collection of unique canonical target references; target position **must not** add, remove, **or** alter a direct relation **or** dependency. source-file target order is nonsemantic; validation **must not** require canonical sorting **or** order normalization. each Relation Kind's direction, endpoint validity **and** other declared semantics remain applicable.
 
 ## Details
