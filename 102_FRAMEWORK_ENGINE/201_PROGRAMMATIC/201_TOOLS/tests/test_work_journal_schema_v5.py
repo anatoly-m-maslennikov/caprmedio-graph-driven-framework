@@ -155,6 +155,67 @@ class WorkJournalSchemaV5Test(unittest.TestCase):
         self.assertFalse((self.root / ".caprmedio_runtime").exists())
         self.assertEqual([], list(legacy.glob("*.ndjson")))
 
+    def test_orphan_cached_receipt_does_not_replace_a_missing_canonical_event(self) -> None:
+        kwargs = {"author": "test-user", "local_date": "2026-10-04", "timezone": "Asia/Tbilisi"}
+        receipt = work_journal.append_sealed_events(self.root, [self.event], **kwargs)[0]
+        journal = self.root / receipt["carrier"]
+        cache = work_journal._receipt_path(self.root, str(self.event["event_id"]))
+        cached_bytes = cache.read_bytes()
+        journal.unlink()
+
+        with self.assertRaises(work_journal.WorkJournalError) as error:
+            work_journal.append_sealed_events(self.root, [self.event], **kwargs)
+
+        self.assertEqual("invalid-receipt", error.exception.code)
+        self.assertFalse(journal.exists(), "An orphan receipt must not silently reconstruct the Journal")
+        self.assertEqual(cached_bytes, cache.read_bytes())
+
+    def test_orphan_cached_receipt_does_not_replace_a_removed_event_line(self) -> None:
+        kwargs = {"author": "test-user", "local_date": "2026-10-04", "timezone": "Asia/Tbilisi"}
+        receipt = work_journal.append_sealed_events(self.root, [self.event], **kwargs)[0]
+        journal = self.root / receipt["carrier"]
+        cache = work_journal._receipt_path(self.root, str(self.event["event_id"]))
+        cached_bytes = cache.read_bytes()
+        journal.write_bytes(b"")
+
+        with self.assertRaises(work_journal.WorkJournalError) as error:
+            work_journal.append_sealed_events(self.root, [self.event], **kwargs)
+
+        self.assertEqual("invalid-receipt", error.exception.code)
+        self.assertEqual(b"", journal.read_bytes(), "Missing canonical evidence must not be silently appended")
+        self.assertEqual(cached_bytes, cache.read_bytes())
+
+    def test_existing_event_content_must_match_its_declared_canonical_digest(self) -> None:
+        kwargs = {"author": "test-user", "local_date": "2026-10-04", "timezone": "Asia/Tbilisi"}
+        receipt = work_journal.append_sealed_events(self.root, [self.event], **kwargs)[0]
+        journal = self.root / receipt["carrier"]
+        cache = work_journal._receipt_path(self.root, str(self.event["event_id"]))
+        cached_bytes = cache.read_bytes()
+        changed = {**self.event, "result_ref": "results/unreviewed.json"}
+        changed_bytes = work_journal.canonical_json_bytes(changed) + b"\n"
+        journal.write_bytes(changed_bytes)
+
+        with self.assertRaises(work_journal.WorkJournalError) as error:
+            work_journal.append_sealed_events(self.root, [self.event], **kwargs)
+
+        self.assertEqual("identity-collision", error.exception.code)
+        self.assertEqual(changed_bytes, journal.read_bytes())
+        self.assertEqual(cached_bytes, cache.read_bytes())
+
+    def test_existing_canonical_event_remains_idempotent_without_its_cached_receipt(self) -> None:
+        kwargs = {"author": "test-user", "local_date": "2026-10-04", "timezone": "Asia/Tbilisi"}
+        receipt = work_journal.append_sealed_events(self.root, [self.event], **kwargs)[0]
+        journal = self.root / receipt["carrier"]
+        before = journal.read_bytes()
+        cache = work_journal._receipt_path(self.root, str(self.event["event_id"]))
+        cache.unlink()
+
+        repeated = work_journal.append_sealed_events(self.root, [self.event], **kwargs)[0]
+
+        self.assertEqual(receipt, repeated)
+        self.assertEqual(before, journal.read_bytes())
+        self.assertFalse(cache.exists())
+
     def test_global_recovery_reuses_original_context_after_receipt_failure(self) -> None:
         original_atomic = work_journal._atomic_json
         with mock.patch.object(work_journal, "_atomic_json", side_effect=OSError("receipt write interrupted")):

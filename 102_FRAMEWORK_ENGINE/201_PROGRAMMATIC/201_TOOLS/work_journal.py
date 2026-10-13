@@ -832,7 +832,11 @@ def _existing_receipt(root: Path, event: Mapping[str, Any]) -> dict[str, Any] | 
         for line, record in enumerate(records, start=1):
             if record.get("event_id") != event_id:
                 continue
-            if record.get("event_digest") != digest:
+            try:
+                observed_digest = event_digest(record)
+            except (TypeError, ValueError) as error:
+                raise WorkJournalError("identity-collision", f"event_id {event_id} already has different canonical bytes") from error
+            if record.get("event_digest") != digest or observed_digest != digest:
                 raise WorkJournalError("identity-collision", f"event_id {event_id} already has different canonical bytes")
             return _receipt(root, path, data, line, event)
     receipt_path = _receipt_path(root, event_id)
@@ -845,7 +849,7 @@ def _existing_receipt(root: Path, event: Mapping[str, Any]) -> dict[str, Any] | 
             raise WorkJournalError("invalid-receipt", f"receipt for event_id {event_id} is malformed")
         if receipt.get("event_digest") != digest:
             raise WorkJournalError("identity-collision", f"event_id {event_id} already has different canonical bytes")
-        return receipt
+        raise WorkJournalError("invalid-receipt", f"cached receipt for event_id {event_id} has no canonical Journal event")
     return None
 
 
