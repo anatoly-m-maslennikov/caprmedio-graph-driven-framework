@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Revision, Journal, Plan]
-version: 2
-updated_at: "2026-10-12 04:49:28 +0400"
+version: 3
+updated_at: "2026-10-13 04:36:00 +0400"
 relations:
   is_decomposition_of: [CA-P-2173]
   blocks: [CA-P-2180, CA-P-2182]
@@ -45,6 +45,12 @@ The Operator deferred the concurrency safety choice. [Independent review](../../
 The native route now unconditionally refuses changed-Subject execution with `subject-publication-deferred` after actual admission and before materialization/current/history/rollback writes; preview and exact no-op return earlier. That ordering received independent static verification. Root's UPDATE 66, raw-helper four, selected-lifecycle 30 and dispatch five checks passed within their declared scopes. Raw mechanics and refusal checks do not accept the disabled publication/recovery prototype or prove concurrency safety.
 
 Keep the follow-up here: later review a bounded publication design covering current/history ownership through publication and failed restoration; record the actual Operator choice, align any affected RMEDO and independently verify concurrent-edit controls before opening the live gate. Do not infer authority or implement a new concurrency framework from the deferral. Safe preview/materialization/no-op checks do not satisfy successful publication or restoration acceptance.
+
+### Reopened design and testing
+
+The Operator explicitly reopened publication design and testing. The earlier deferral above is the historical decision; it no longer blocks bounded comparison and isolated tests. The concurrency/access mechanism is not yet selected. Compare practical one-Atom choices and present the exact operational constraint to the Operator before enabling changed writes.
+
+Keep the existing publication guard while designing. No live Core migration, automatic replay, new broad recovery framework or unchosen exclusive-access requirement is approved. After the mechanism is chosen, align affected contracts and independently verify current/history ownership, actual effects and failure disposition before enabling any route. Record concrete implementation portions within the existing 15-minute bound and split larger work before execution.
 
 ### Definition of Done
 

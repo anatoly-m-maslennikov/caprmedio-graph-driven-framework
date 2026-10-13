@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 21
-updated_at: "2026-10-13 04:03:51 +0400"
+version: 22
+updated_at: "2026-10-13 04:30:00 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -134,23 +134,31 @@ CA-P-2252 completed the private pure `connector_contract.py` support and its foc
 
 No public API, existing caller, executable binding or backend changed. This is the shared-support prerequisite only. The receiving adapters and their actual schema, permission, source-state and observed-effect checks remain pending; the independent portfolio and runtime/live gates remain open. The next implementation leaves are the existing adapter Tasks, with explicit dependencies and fresh checks retained. This Epic remains Active.
 
+### Parallel adapter execution checkpoint
+
+The Operator requested completion of the whole Epic with parallel implementation, continuing independent work when a blocker appears. This supersedes historical no-implementation-yet checkpoints, but does not approve deferred publication policy or live Core migration.
+
+CA-P-2253–2258/2280 are Active. Their initial bounded private mechanics have focused author tests, not complete receiving/runtime acceptance. Remaining work is decomposed into CA-P-2294–2300 before continuation. Each child retains a 15-minute bound, disjoint edit ownership and independent verification. CA-P-2270/2272 have independent compatibility work; other receiving Workflows remain dependent on actual adapter readiness. Parsing, reading and writing stay separate; no speculative common facade or new public authority protocol is authorized.
+
+The Operator has now reopened CA-P-2179 publication design and testing; the mechanism must still be chosen before changed writes are enabled. Applicable Core Version/history conflicts remain under CA-P-1970. Typed TOML result representation and exact runtime request/schema binding must be resolved against accepted source contracts before claiming complete adapters. Focused helpers and safe refusal cases do not close these gaps.
+
 ### Decomposing Plans
 
 CA-P-2279 is Done after [independent Configuration Read source acceptance](../../_projection/core-entity-review/stage2/tools-first/configuration-read-contract-acceptance.md). The original review input gains seven new current sources and nine accepted revisions; historical pins remain unchanged. The accepted correction subsequently passed the affected FPF follow-up; see the current execution checkpoint above.
 
 - [CA-P-2279 — Define complete configuration Read](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/38-CA-P-2279-TASK--define-complete-configuration-read.md)
-- [CA-P-2280 — Implement complete configuration Read](../001_backlog/39-CA-P-2280-TASK--implement-complete-configuration-read.md)
+- [CA-P-2280 — Implement complete configuration Read](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/39-CA-P-2280-TASK--implement-complete-configuration-read.md)
 
 - [CA-P-2249 — Align Scope Unit Query and Read contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/14-CA-P-2249-TASK--align-scope-unit-query-and-read-contracts.md)
 - [CA-P-2250 — Align private carrier operation contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/15-CA-P-2250-TASK--align-private-carrier-operation-contracts.md)
 - [CA-P-2251 — Review complete rebuilt RMEDO with FPF](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/16-CA-P-2251-TASK--review-complete-rebuilt-rmedo-with-fpf.md)
 - [CA-P-2252 — Implement the shared connector contract](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/17-CA-P-2252-TASK--implement-the-shared-connector-contract.md)
-- [CA-P-2253 — Adapt Atom Query and independent Read](../001_backlog/18-CA-P-2253-TASK--adapt-atom-query-and-independent-read.md)
-- [CA-P-2254 — Implement Scope Unit Query and Read](../001_backlog/19-CA-P-2254-TASK--implement-scope-unit-query-and-read.md)
-- [CA-P-2255 — Implement private carrier edits](../001_backlog/20-CA-P-2255-TASK--implement-private-carrier-edits.md)
-- [CA-P-2256 — Implement TOML item and full-set edits](../001_backlog/21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits.md)
-- [CA-P-2257 — Implement scalar and value-based property edits](../001_backlog/22-CA-P-2257-TASK--implement-scalar-and-value-based-property-edits.md)
-- [CA-P-2258 — Implement the shared section edit family](../001_backlog/23-CA-P-2258-TASK--implement-the-shared-section-edit-family.md)
+- [CA-P-2253 — Adapt Atom Query and independent Read](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/18-CA-P-2253-TASK--adapt-atom-query-and-independent-read.md)
+- [CA-P-2254 — Implement Scope Unit Query and Read](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/19-CA-P-2254-TASK--implement-scope-unit-query-and-read.md)
+- [CA-P-2255 — Implement private carrier edits](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/20-CA-P-2255-TASK--implement-private-carrier-edits.md)
+- [CA-P-2256 — Implement TOML item and full-set edits](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits.md)
+- [CA-P-2257 — Implement scalar and value-based property edits](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/22-CA-P-2257-TASK--implement-scalar-and-value-based-property-edits.md)
+- [CA-P-2258 — Implement the shared section edit family](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/23-CA-P-2258-TASK--implement-the-shared-section-edit-family.md)
 - [CA-P-2259 — Bind independent Find and Modify Workflows](../001_backlog/24-CA-P-2259-TASK--bind-independent-find-and-modify-workflows.md)
 - [CA-P-2260 — Bind Atom creation](../001_backlog/25-CA-P-2260-TASK--bind-atom-creation.md)
 - [CA-P-2261 — Bind Scope Unit creation](../001_backlog/26-CA-P-2261-TASK--bind-scope-unit-creation.md)
