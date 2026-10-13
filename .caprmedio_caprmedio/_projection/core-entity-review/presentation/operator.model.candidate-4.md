@@ -4,9 +4,10 @@ Status: Candidate; not adopted Core authority.
 
 Saved: 2026-10-12, Asia/Tbilisi.
 
-Updated: 2026-10-14 — Content Roles classify Atom subtypes. Use `Atom/Plan`
-and `Atom/Method.Status`, not `Atom.Content Role: Plan` or a Property of a
-Content Role value. This supersedes the earlier role-value mapping decision.
+Updated: 2026-10-14 — use explicit classification labels for Atom subtypes:
+`Atom/Content Role: Requirement/Type: Demand.Status`. Narrower kinds inherit
+parent Properties, rules and allowed values and may add compatible extensions.
+This supersedes both the earlier role-value mapping and abbreviated subtype paths.
 
 Basis update: the Operator agreed exactly three roots: Occurrent, Continuant
 and Carrier. Continuant contains Object, Actor, History, Projection and Selection;
@@ -89,15 +90,28 @@ by this project.
 - `.`: bearer qualification for a dependent entity or component. Source
   Properties are dependent Objects; Projection Properties belong to their
   Projection and remain derived.
-- `:`: Property to allowed value, not assignment.
+- `/<classification>: <value>`: a narrower kind with an explicit classification
+  label, such as `/Content Role: Requirement` or `/Type: Demand`. The label and
+  value describe the narrowing step; they are not intermediate entities or
+  Properties.
+- `.<property>: <value>`: a Property and its allowed value, not assignment.
+  Thus `:` qualifies a narrowing step after `/`, or names an allowed value
+  after `.`. It is not an independent relation in a classification segment.
 - No `@` relation operator. `@<Version Number>` is filename punctuation only;
   it is neither part of an Atom ID nor Subject relation syntax. Delivery
   policies define storage conventions.
 
-Content Role names the classification; each role names an Atom subtype:
-`Atom/Plan`, `Atom/Method`, and so on. `Atom/Plan.Status` means the Status
-of a Plan Atom. `Atom/Plan.Status: Backlog` names an allowed value of that
-Status, not an assignment. It does not make Status depend on Content Role.
+Content Role and Type name classifications of Atom subtypes. Canonical examples:
+
+```text
+Atom/Content Role: Requirement/Type: Demand
+Atom/Content Role: Requirement/Type: Demand.Status
+Atom/Content Role: Plan.Status: Backlog
+```
+
+Status belongs to the classified Atom, not to another Property or classification
+value. Keep classification labels, including repeated names such as
+`Atom/Content Role: Plan/Type: Plan`; do not collapse them to `Atom/Plan`.
 
 Indentation outside a taxonomy is grouping or ownership, not an inferred `/` edge.
 The relation meanings shown here are candidate meanings, not newly admitted
@@ -122,11 +136,12 @@ Continuant
       .ID
       .Summary
       .Status
+        : Active
+        : Archived
       .Substance
       .Substance Scope
       .Semantics
       .Details
-      .Type
       .Governance Locus
       .Global Tier
       .Local Tier
@@ -134,14 +149,15 @@ Continuant
       .Updated At
       .Owning Scope Unit
       .Target Scope Unit
-      /Concern
-      /Analysis
-      /Plan
-      /Requirement
-      /Method
-      /Evaluation
-      /Delivery
-      /Operations
+      /Content Role: Concern
+      /Content Role: Analysis
+      /Content Role: Plan
+      /Content Role: Requirement
+        /Type: Demand
+      /Content Role: Method
+      /Content Role: Evaluation
+      /Content Role: Delivery
+      /Content Role: Operations
     /Governing Configuration
     /Scope Unit
       .ID
@@ -245,23 +261,28 @@ layer of Term-definition Atoms is required by this candidate. See section 3.3
 for compilation, reuse and conflict handling. Existing Definition Atoms are
 not retired or deleted by this candidate update.
 
-An Atom subtype inherits Atom obligations. It does not need duplicate definitions
-of those obligations. Inheriting a Carrier obligation does not mean sharing one
-physical Carrier. General D policies can cover multiple Properties and Objects.
+Every narrower kind inherits the parent Properties, rules and allowed values,
+through every level. It may add compatible Properties, rules and allowed values;
+it does not remove inherited ones or change their meaning. Define only additions
+at the narrower level, rather than copying parent definitions.
 
-`Atom.Status` defines the shared meaning. `Atom/Plan.Status` and
-`Atom/Method.Status` inherit that meaning; their allowed values and rules can
-differ. The Property belongs to the Atom subtype, not to a classification value.
-Do not repeat shared definitions under every subtype.
+`Atom.Status` allows Active and Archived. Every Atom subtype therefore allows
+both. A Plan subtype can add Backlog or Done without losing Active or Archived.
+Its effective allowed set is the inherited set plus its own additions. The same
+inheritance rule applies to other Properties and narrower kinds, not only Status.
+An inherited allowed value is not the current assigned value of an instance.
 
-Content Role is the classification of these Atom subtypes, not an
-`Atom.Content Role` dependent entity in this graph. A stored `content_role`
-field can represent that classification; no storage field is renamed or removed.
-Type, tiers and internal/external/relational Governance Locus remain Properties
-or classifications, not additional Object roots. This decision does not settle
-whether each legacy Type-qualified path should become a further subtype.
+Inheriting a Carrier obligation does not mean sharing one physical Carrier.
+General D policies can cover multiple Properties and Objects.
+
+Content Role and Atom Type classify Atom subtypes, not `Atom.Content Role`
+or `Atom.Type` dependent entities in this graph. Stored `content_role` and `type`
+fields can represent these classifications; no storage field is renamed or removed.
+Tiers and internal/external/relational Governance Locus remain Properties or
+classifications, not additional Object roots. Other uses of Type, such as
+`Scope Unit.Type` and `Actor.Actor Type`, are unchanged by this Atom decision.
 I remains actual Implementation; this candidate creates no Implementation Atoms
-or `Atom/Implementation` subtype.
+or `Atom/Content Role: Implementation` subtype.
 
 #### History and Projection
 
@@ -596,7 +617,7 @@ View and authoring concepts
 ```
 
 For example, `Atom` names an Object kind; `Method` names a Content Role and
-the Atom subtype `Atom/Method`. A particular Method Atom is an Object.
+the Atom subtype `Atom/Content Role: Method`. A particular Method Atom is an Object.
 Naming Method does not create a separate
 Method Object root. A source Atom's content and optional Semantics provide
 evidence of how a Term is used. The Terms Graph derives definitions from those
@@ -852,10 +873,11 @@ A file bearing the Atom or compiled prompt
 - Existing `atom(...)` syntax remains non-enumerating and case-sensitive.
 - `Atom.ID` and `Scope Unit.ID` are candidate semantic display names only;
   storage/selector keys are unchanged.
-- Content Role subtype paths such as `Atom/Plan.Status` replace role-value
-  paths in this candidate. This changes neither stored `content_role` fields
-  nor live Subjects or parsers. Earlier role-value map targets are superseded;
-  deeper Type-qualified paths still need a naming decision.
+- Explicit classification paths such as
+  `Atom/Content Role: Requirement/Type: Demand.Status` are canonical. They
+  replace abbreviated subtype targets and Property-of-classification mappings.
+  Inheritance is additive. Stored `content_role` and `type` fields, live Subjects,
+  schemas and parsers remain unchanged; runtime support is not asserted here.
 - Bare Atom IDs, separate Version Numbers and Atom-filename `@Version`
   punctuation are candidate rules only. Existing archive contents, filenames,
   ID validation, lookup and relation references have not been migrated.
