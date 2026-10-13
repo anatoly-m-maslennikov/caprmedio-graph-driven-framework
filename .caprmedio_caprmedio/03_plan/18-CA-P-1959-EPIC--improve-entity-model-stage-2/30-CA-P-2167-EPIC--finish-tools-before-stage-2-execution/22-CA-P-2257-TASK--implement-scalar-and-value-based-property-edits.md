@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 2
-updated_at: "2026-10-13 04:30:00 +0400"
+version: 3
+updated_at: "2026-10-13 06:06:15 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2259, CA-P-2263, CA-P-2264, CA-P-2269, CA-P-2274]
@@ -40,7 +40,11 @@ Deliver the exact changed or reviewed manifest and focused check results to the 
 
 ### Bounded continuation
 
-The initial private mechanics are implemented or in progress; this is not accepted receiving/runtime capability. Continue through [CA-P-2298 — Preserve carrier bytes during property edits](22-CA-P-2257-TASK--implement-scalar-and-value-based-property-edits/01-CA-P-2298-TASK--preserve-carrier-bytes-during-property-edits.md). This child is limited to 15 minutes and must be split again before larger work. Remaining publication, receiving Workflow and independent portfolio gates are unchanged.
+The initial private mechanics are implemented or in progress; this is not accepted receiving/runtime capability. Continue through [CA-P-2298 — Preserve carrier bytes during property edits](22-CA-P-2257-TASK--implement-scalar-and-value-based-property-edits/done/01-CA-P-2298-TASK--preserve-carrier-bytes-during-property-edits.md). This child is limited to 15 minutes and must be split again before larger work. Remaining publication, receiving Workflow and independent portfolio gates are unchanged.
+
+### Pure-transform completion checkpoint
+
+CA-P-2298 and its CA-P-2305/2306 children are Done after [independent pure-transform acceptance](../../../_projection/core-entity-review/stage2/tools-first/property-carrier-acceptance.md) at code commit `f4f4c6ce6`: 46 focused Property tests and 162 connector tests pass. This parent remains Active because receiving Workflow, lifecycle metadata/history, publication and independent portfolio/runtime gates are not completed by a pure helper. Its original Objective and Definition of Done remain unchanged.
 
 ### Definition of Done
 
