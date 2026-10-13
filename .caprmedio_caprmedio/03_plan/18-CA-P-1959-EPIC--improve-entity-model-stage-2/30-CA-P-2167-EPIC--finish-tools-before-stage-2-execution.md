@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 18
-updated_at: "2026-10-13 02:52:49 +0400"
+version: 20
+updated_at: "2026-10-13 03:59:06 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -89,6 +89,29 @@ Existing CA-P-2173 covers only its admitted Subject application outcome and reus
 
 Every own-work leaf remains <=15 minutes, with actual disjoint outputs and fresh independent positive/negative fixture proof before affected use. These pending Plans grant no implementation execution now, release/runtime activation, live Subject publication or migration approval. Existing shared final migration, content and live gates remain separate.
 
+### Shared implementation modules — approved decisions
+
+The Operator approved separate parsing, reading, writing and CLI responsibilities for every rebuilt connector. This is an internal implementation boundary: keep the same public logical connector API, supported operation subsets and outer execution bindings. Imported helpers are not separate Tools. One TOML connector may expose independent Read and Modify operations while using separate internal modules.
+
+- Parsing accepts supplied content and returns structured data without filesystem access.
+- Reading loads content through the connector's private backend binding and uses parsing helpers. It performs no writes.
+- Writing persists only the explicitly prepared and admitted content or edits. It does not choose lifecycle or Workflow policy.
+- CLI code accepts arguments and dispatches to the admitted operation; it owns no parsing or storage logic.
+- Schema choice, identity allocation, Version/time, archiving, replacement and operation sequencing remain Workflow-owned. Mechanical checks of supplied schema, permission and currentness remain connector responsibilities.
+
+Reuse existing modules where their responsibilities fit. Do not introduce an umbrella facade, one module per Atom, new helper Tools or a new Scope Unit. Migrate existing mixed modules only when the approved rebuild touches them; no repository-wide cleanup is included. TOOLS, CONNECTOR_TOOLS and TOOL_WORKFLOWS remain sibling Features; imports do not transfer authority or prove ancestry.
+
+The completed read-only shared-module reviews recovered existing reuse and compared it with a conditional metadata-helper split. No runtime defect or extraction benefit was established. The Operator's later decisions above govern the rebuild; an exact metadata split remains to be checked when that module is touched.
+
+Execute the following work through the existing bounded children, not as new own work in this Epic:
+
+1. CA-P-2252 checks applicable RMEDO and its effective source bindings before implementing the common interface. Record any required contract clarification separately, with fresh independent acceptance and affected FPF review before dependent implementation. Do not treat these Plan instructions as already updated RMEDO.
+2. CA-P-2269 inventories the exact helper dependencies, callers, exports and tests for each touched mixed module; resolve the canonical Tool binding of any CLI before moving executable ownership. Preserve public signatures, parsing behavior and existing error handling. Document unchanged modules rather than extracting speculative helpers.
+3. CA-P-2252 and affected adapter children CA-P-2253–2258/2280 apply internal separation while preserving the common API. The implementation boundary does not authorize source migration, runtime admission or the deferred publication design.
+4. CA-P-2273, with the affected fixture owners CA-P-2274/2275, independently verifies the separation and public API compatibility. Check parser purity, mutation-free reads, bounded writes and thin CLI dispatch, including invalid input, no-op and failure behavior.
+
+The remaining review gaps are evidence tasks, not open design votes: effective legacy contract bindings (SG001), the metadata CLI's canonical Tool binding (SG002), and complete dependencies/callers plus a concrete need for any extraction (SG003). Resolve them only for the affected implementation; ask the Operator if a concrete conflict changes the agreed API, ownership or scope. Nothing in this section marks those checks, RMEDO updates or implementation Done.
+
 ### Current rebuilt-contract acceptance
 
 CA-P-2245–2248 are Done for their actual independently accepted current authoring/check scope under the [sole combined acceptance receipt](../../_projection/core-entity-review/stage2/tools-first/logical-connector-contract-acceptance.md). This covers the delivered 81-source subset, approved declarations/exact history and expanded Plan packet, not all future operation-specific contracts or implementation. CA-P-2249/2250 are now Done after their actual independent source acceptance: [ten Scope Unit Query/Read sources](../../_projection/core-entity-review/stage2/tools-first/scope-unit-query-read-contract-acceptance.md) and [seven private-carrier v2 sources with final supplemental lexical acceptance](../../_projection/core-entity-review/stage2/tools-first/private-carrier-contract-acceptance-lexical-v2.md). The latter supersedes only the initial receipt's incomplete lexical coverage; prior receipts/pins remain unchanged historical evidence. The accepted current RMEDO input totals 98 sources (81 + 10 + 7). CA-P-2251 is Active to resume approved Plan `plan-3424292c-447b-4d4f-8ef6-3c586d5270c6`; CA-P-2252–2278 remain Backlog, and this Epic and the existing publication/verification groups remain Active. Source PASS and review activation are not FPF execution/PASS or runtime readiness. The complete-RMEDO and explicitly approved actual FPF review gates, independent fixtures and all deferred publication/live limits remain unchanged.
@@ -99,17 +122,23 @@ The original approved FPF review has now completed against the accepted 98-sourc
 
 CA-P-2279 owns the source correction and different-reviewer acceptance. Read and Modify remain independent. Each configuration Workflow gets its own Read Step before its existing patch Step. CA-P-2280 records later bounded Read implementation; CA-P-2266/2267 consume it and CA-P-2275 verifies it. CA-P-2251 remains Active for the affected follow-up FPF review after fresh source acceptance; later implementation stays pending. No live, Core/content or migration gate changes.
 
+### Current execution checkpoint
+
+CA-P-2251 is now Done: the approved affected FPF alignment audit completed after Configuration Read acceptance, with I002/F002 verified and G003 closed. The prior pending-review statements above are historical checkpoints. All 36 accepted correction pins and the common interface sources were independently rechecked before continuation.
+
+The Operator authorized continuing this Epic. CA-P-2252 is Active for bounded pure shared contract support and focused tests; placement, adapters, independent portfolio fixtures and admission remain their own children. No existing MCP route, deferred publication mechanism or live migration is enabled. G004 remains unproven runtime work, not another unresolved source-design question.
+
 ### Decomposing Plans
 
-CA-P-2279 is Done after [independent Configuration Read source acceptance](../../_projection/core-entity-review/stage2/tools-first/configuration-read-contract-acceptance.md). The original review input gains seven new current sources and nine accepted revisions; historical pins remain unchanged. This is source acceptance only: CA-P-2251 stays Active for affected FPF follow-up and implementation remains pending.
+CA-P-2279 is Done after [independent Configuration Read source acceptance](../../_projection/core-entity-review/stage2/tools-first/configuration-read-contract-acceptance.md). The original review input gains seven new current sources and nine accepted revisions; historical pins remain unchanged. The accepted correction subsequently passed the affected FPF follow-up; see the current execution checkpoint above.
 
 - [CA-P-2279 — Define complete configuration Read](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/38-CA-P-2279-TASK--define-complete-configuration-read.md)
 - [CA-P-2280 — Implement complete configuration Read](../001_backlog/39-CA-P-2280-TASK--implement-complete-configuration-read.md)
 
 - [CA-P-2249 — Align Scope Unit Query and Read contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/14-CA-P-2249-TASK--align-scope-unit-query-and-read-contracts.md)
 - [CA-P-2250 — Align private carrier operation contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/15-CA-P-2250-TASK--align-private-carrier-operation-contracts.md)
-- [CA-P-2251 — Review complete rebuilt RMEDO with FPF](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/16-CA-P-2251-TASK--review-complete-rebuilt-rmedo-with-fpf.md)
-- [CA-P-2252 — Implement the shared connector contract](../001_backlog/17-CA-P-2252-TASK--implement-the-shared-connector-contract.md)
+- [CA-P-2251 — Review complete rebuilt RMEDO with FPF](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/16-CA-P-2251-TASK--review-complete-rebuilt-rmedo-with-fpf.md)
+- [CA-P-2252 — Implement the shared connector contract](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/17-CA-P-2252-TASK--implement-the-shared-connector-contract.md)
 - [CA-P-2253 — Adapt Atom Query and independent Read](../001_backlog/18-CA-P-2253-TASK--adapt-atom-query-and-independent-read.md)
 - [CA-P-2254 — Implement Scope Unit Query and Read](../001_backlog/19-CA-P-2254-TASK--implement-scope-unit-query-and-read.md)
 - [CA-P-2255 — Implement private carrier edits](../001_backlog/20-CA-P-2255-TASK--implement-private-carrier-edits.md)

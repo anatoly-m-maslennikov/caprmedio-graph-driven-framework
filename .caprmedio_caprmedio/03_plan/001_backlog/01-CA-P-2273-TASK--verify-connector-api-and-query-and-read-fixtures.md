@@ -14,8 +14,8 @@ status: Backlog
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 1
-updated_at: "2026-10-13 00:21:20 +0400"
+version: 2
+updated_at: "2026-10-13 03:57:14 +0400"
 relations:
   is_decomposition_of: [CA-P-2174]
   blocks: [CA-P-2278]
@@ -37,6 +37,12 @@ Use actual current accepted source/API/code pins and independently authored expe
 Assignee: AI Agent independent of implementation authors. Read-only fixture preparation may precede code readiness; actual acceptance waits for applicable current accepted contracts, CA-P-2251 review and stable implemented code pins. Author the oracle independently and record actual cases, pins, effects and limitations.
 
 Deliver the exact changed or reviewed manifest and focused check results to the independent integration/verification owner. Preserve historical receipts. No database build, new transport, Atom deletion, automatic batch retry/resume or publication-concurrency mechanism is included.
+
+### Approved internal separation checks
+
+Independently verify the internal parsing/reading/writing/CLI boundary in the affected rebuilt connectors while keeping the public request/result API unchanged. Parsing supplied content has no filesystem effects; Read is mutation-free; Write changes only admitted supplied state; CLI dispatch adds no parsing, storage or lifecycle policy. Test invalid input, truthful no-op and error/effect evidence as well as valid requests.
+
+Reuse the existing operation-specific verification owners: CA-P-2274 covers affected carrier/property/section effects and CA-P-2275 covers TOML/configuration behavior. Helpers must not become public Tools, and the test oracle must not accept Workflow policy hidden in a connector. Verify only actual changed implementation pins; no new capability is admitted by these Plan instructions.
 
 ### Definition of Done
 

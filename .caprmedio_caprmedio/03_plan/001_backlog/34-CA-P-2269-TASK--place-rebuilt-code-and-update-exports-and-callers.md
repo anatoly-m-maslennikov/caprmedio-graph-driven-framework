@@ -14,8 +14,8 @@ status: Backlog
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 1
-updated_at: "2026-10-13 00:21:20 +0400"
+version: 2
+updated_at: "2026-10-13 03:57:14 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2278]
@@ -37,6 +37,12 @@ After accepted contracts and FPF review, inventory affected exports/callers and 
 Start only after CA-P-2251's actual accepted FPF review and independently accepted applicable current contracts, not a Plan-validation result or historical pins. Bind actual contract/API/code pins and permissions. Require separately accepted applicable Core alignment under CA-P-1970 where rules conflict; no Core/content work is included here. Source authoring or this pending Task grants no runtime/live authority.
 
 Deliver the exact changed or reviewed manifest and focused check results to the independent integration/verification owner. Preserve historical receipts. No database build, new transport, Atom deletion, automatic batch retry/resume or publication-concurrency mechanism is included.
+
+### Approved internal separation and evidence checks
+
+Separate parsing, reading, writing and CLI code in each mixed module touched by the approved rebuild. Preserve the existing public connector API; helpers are internal modules, not separate Tools. Reuse fitting modules, with no umbrella facade or unrelated legacy cleanup. Keep lifecycle/Workflow policy outside connectors.
+
+Before each move or extraction, resolve effective applicable authority (SG001), the canonical Tool binding of any CLI whose ownership would change (SG002), and the exact internal dependencies, imports, callers, exports and tests (SG003). For artifact_metadata.py, the proposed read-only helper split remains conditional until this bounded check identifies the exact cut and concrete need. Do not silently unify distinct parsing behavior. Preserve existing public entry points, validation, error handling and effect boundaries; report any concrete conflict before changing the agreed API or ownership.
 
 ### Definition of Done
 
