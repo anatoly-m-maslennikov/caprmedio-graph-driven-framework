@@ -10,11 +10,11 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Project Configuration", "Carrier", "Implementation", "Method", "Evaluation"]
-version: 2
-updated_at: "2026-10-13 19:35:54 +0400"
+version: 3
+updated_at: "2026-10-13 20:15:34 +0400"
 relations:
   delivery_for: [CA-R-1936]
-  relates_to: [CA-M-383, CA-M-110, CA-M-281, CA-D-250, CA-D-625, CA-O-204, CA-E-635, CA-E-254]
+  depends_on: [CA-M-383, CA-D-250, CA-E-635, CA-E-254]
 ---
 # Summary
 

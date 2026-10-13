@@ -10,11 +10,11 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Project Configuration", "Property", "Carrier", "Workflow"]
-version: 2
-updated_at: "2026-10-13 19:35:54 +0400"
+version: 3
+updated_at: "2026-10-13 20:15:34 +0400"
 relations:
   method_for: [CA-R-1936]
-  relates_to: [CA-R-1935, CA-M-110, CA-M-281, CA-M-376, CA-O-204, CA-D-632, CA-E-635, CA-E-254]
+  depends_on: [CA-M-110, CA-O-204]
 ---
 # Summary
 
