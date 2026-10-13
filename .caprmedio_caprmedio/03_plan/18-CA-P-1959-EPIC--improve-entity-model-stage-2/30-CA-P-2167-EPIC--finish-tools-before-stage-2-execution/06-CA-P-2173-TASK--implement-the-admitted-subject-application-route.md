@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Revision, Journal, Plan, Operator]
-version: 8
-updated_at: "2026-10-13 05:18:39 +0400"
+version: 9
+updated_at: "2026-10-13 14:30:29 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2174]
@@ -28,6 +28,14 @@ Implement the admitted Subject application route
 The existing governed mutation boundary can apply an exact sealed Subjects-only packet through its admitted route.
 
 ## Details
+
+### Approved failure handling and authorization binding
+
+The Operator selected Option 1 after the bounded publication FPF review: caught errors attempt Action-local restoration, with observed failed/partial results; abrupt process interruption or crash is not crash-atomic and may leave partial state. Retain interruption evidence, inspect actual current/history/Run state before another change, and never automatically replay the Atom effect. This explicitly clarifies the earlier all-or-nothing wording; it does not permit false success, predecessor loss, or rollback of earlier independent actions.
+
+The Operator authorized the narrow rule updates, shared-lock/exclusive-window implementation and full-path isolated tests. The existing authorization reference must bind explicit Operator confirmation for the exact reviewed change and affected current/history/authority files. Its purpose-specific internal trusted-host binding keeps public request fields unchanged; request data cannot manufacture confirmation. Missing, stale or mismatched confirmation refuses effects. No installed runtime provider or live Core migration is activated by this approval.
+
+Implementation is divided into bounded responsibilities: source clarification and independent acceptance; internal authorization and Subject publication; shared locking of cooperating Engine writers; current selected-route fixtures; and independent contention/failure verification. Completed raw-helper checks alone cannot close publication acceptance. The existing publication Tasks and this Plan remain Active until their actual checks pass. This checkpoint supersedes conflicting historical deferral statements below without changing their past evidence.
 
 ### Current publication decision
 

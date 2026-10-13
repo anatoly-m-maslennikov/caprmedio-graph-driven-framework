@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Atom","Workflow"]
-version: 2
-updated_at: "2026-10-12 23:54:41 +0400"
+version: 3
+updated_at: "2026-10-13 14:31:30 +0400"
 relations:
   evaluation_for: ["CA-R-1093","CA-R-1041","CA-R-1067"]
   relates_to: ["CA-M-372","CA-O-201","CA-O-202","CA-E-247","CA-E-546"]
@@ -29,12 +29,14 @@ Required future checks for ordered independent Atom workflows, fresh-ID Summary 
 
 ## Claim
 
-A workflow stops at its first failed Atom action, retains earlier completed actions and leaves the remaining targets untouched. Safety/all-or-nothing within one admitted Atom action remains required; there is no cross-Atom transaction.
+A workflow stops at its first failed Atom action, retains earlier completed actions and leaves the remaining targets untouched. All-or-nothing successful completion within one admitted Atom action remains required; there is no cross-Atom transaction. The selected Subject publication failure envelope below is not crash-atomic and does not change other Actions' safety boundaries.
 
 ## Details
 
 1. Prepare ordered explicit targets A, B and C with exact ID/Version/source pins. Complete A, then make B fail validation, currentness, permission or publication. Independently observe A's retained effect, B's truthful failure/uncertainty and C's unchanged bytes with no invocation.
 2. Test successful actions and truthful no-ops without implicit rollback, widened selection or invented results. An action-local failure must honor that action's admitted restoration boundary; it cannot undo A. A claimed restoration needs observed proof.
+For selected one-target Subject publication under CA-R-866/CA-O-030, inject caught publication/postcondition errors while the shared lock is held. Require an attempt to restore the verified mutable before-frontier and remove attempt-owned history, preserving pre-existing history and accepted Journal evidence. Observed exact restoration reports a failed attempt, not update success; failed or unverified restoration is partial/unknown. Abrupt process crash or interruption may leave partial files: retain interrupted disposition and inspect actual affected current/history files and Run evidence before any separately admitted continuation. Never automatically replay an Atom effect or claim crash-atomic publication.
+
 3. Apply a wording-only Summary replacement using full Atom IDs corresponding to illustrative target 100 and successor 200. Require a fresh ID and predecessor archival; ordinary same-ID Modify fails. Completed output identifies target 100, created 200 and archived 100 with exact observed state evidence. A changed predecessor archival state is N+1; exact prior history remains at N. A fresh successor starts at its admitted initial Version.
 4. Make independent successor Create complete and predecessor Archive fail. Retain the observed created successor and report incomplete replacement; do not serialize a proposed archive as completed or erase the earlier action.
 5. Keep incoming references to 100 unchanged. Use a separate Find workflow for actual referrers and a separate Modify workflow for explicit referrer targets with their own source pins/permission. A replacement result alone cannot authorize those changes.

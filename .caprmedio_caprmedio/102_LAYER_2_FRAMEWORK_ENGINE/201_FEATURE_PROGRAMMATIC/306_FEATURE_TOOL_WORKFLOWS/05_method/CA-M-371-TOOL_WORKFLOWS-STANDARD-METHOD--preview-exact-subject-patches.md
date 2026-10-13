@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: [Atom, Subject, Artifact/Carrier, Atom/Revision]
-version: 9
-updated_at: "2026-10-13 05:22:20 +0400"
+version: 10
+updated_at: "2026-10-13 14:31:30 +0400"
 relations:
   relates_to: [CA-R-866, CA-O-030, CA-E-304, CA-D-425]
 ---
@@ -58,7 +58,7 @@ Existing sealed generic update admission and its standalone-apply guard remain
 unchanged. Do not repair legacy carriers, select a migration, infer relations,
 create Journal/history effects, or add an apply path from the preview.
 
-Property add/replace/remove, list entry add/remove and complete-set replacement follow CA-R-1934-TOOL_WORKFLOWS-CORE-REQUIREMENT--edit-atom-properties-by-current-values. The by-current-value contract requires new implementation and validation; historical index-based fixtures are not current acceptance. For the selected Subject publication model under CA-R-866/CA-O-030, prepare source-bound intended change and staged review evidence before the exclusive affected-file window and shared cooperative Engine lock. Candidate timestamps remain illustrative; intended metadata rules remain sealed and actual metadata are still materialized at the effect. This pure preparation neither acquires effect permission nor performs publication or restoration. Live changed-Subject publication remains blocked until the selected access binding and combined checks are independently accepted; preview, staging or this Method cannot remove its guard. The
+Property add/replace/remove, list entry add/remove and complete-set replacement follow CA-R-1934-TOOL_WORKFLOWS-CORE-REQUIREMENT--edit-atom-properties-by-current-values. The by-current-value contract requires new implementation and validation; historical index-based fixtures are not current acceptance. For the selected Subject publication model under CA-R-866/CA-O-030, prepare source-bound intended change and staged review evidence before the exclusive affected-file window and shared cooperative Engine lock. Candidate timestamps remain illustrative; intended metadata rules remain sealed and actual metadata are still materialized at the effect. This pure preparation neither acquires effect permission nor performs publication or restoration. Its candidate, manifest or hash cannot mint the trusted-host review/window confirmation required behind the existing `authorization_ref` by CA-R-866/CA-O-030. Live changed-Subject publication remains blocked until the selected access binding and combined checks are independently accepted; preview, staging or this Method cannot remove its guard. The
 historical `@<version>` archive filename convention is Delivery-owned and does
 not give `@` a Subject role.
 

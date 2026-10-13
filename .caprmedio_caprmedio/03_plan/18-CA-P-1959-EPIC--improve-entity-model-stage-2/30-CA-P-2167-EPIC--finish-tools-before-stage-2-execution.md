@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 25
-updated_at: "2026-10-13 05:18:39 +0400"
+version: 26
+updated_at: "2026-10-13 14:30:29 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -149,6 +149,14 @@ The Operator separately authorized only the two Core Version/history rules and d
 CA-P-2270/2272 are Active with bounded independently reviewed implementation. A missing current CA-D-572 is a source-authority gap, not a digest refresh opportunity. The graph's legacy folder-derived Scope topology is a separate existing R1070/M149/E295 defect; CA-P-2302–2304 repair it in bounded portions without source/Subject migration or graph publication. Concrete Atom/Scope receiving mapping remains missing under CA-P-2301; generic callbacks and source-only descriptors do not complete it.
 
 ### Decomposing Plans
+
+### Approved failure handling and authorization binding
+
+The Operator selected Option 1 after the bounded publication FPF review: caught errors attempt Action-local restoration, with observed failed/partial results; abrupt process interruption or crash is not crash-atomic and may leave partial state. Retain interruption evidence, inspect actual current/history/Run state before another change, and never automatically replay the Atom effect. This explicitly clarifies the earlier all-or-nothing wording; it does not permit false success, predecessor loss, or rollback of earlier independent actions.
+
+The Operator authorized the narrow rule updates, shared-lock/exclusive-window implementation and full-path isolated tests. The existing authorization reference must bind explicit Operator confirmation for the exact reviewed change and affected current/history/authority files. Its purpose-specific internal trusted-host binding keeps public request fields unchanged; request data cannot manufacture confirmation. Missing, stale or mismatched confirmation refuses effects. No installed runtime provider or live Core migration is activated by this approval.
+
+Implementation is divided into bounded responsibilities: source clarification and independent acceptance; internal authorization and Subject publication; shared locking of cooperating Engine writers; current selected-route fixtures; and independent contention/failure verification. Completed raw-helper checks alone cannot close publication acceptance. The existing publication Tasks and this Plan remain Active until their actual checks pass. This checkpoint supersedes conflicting historical deferral statements below without changing their past evidence.
 
 ### Current publication decision
 

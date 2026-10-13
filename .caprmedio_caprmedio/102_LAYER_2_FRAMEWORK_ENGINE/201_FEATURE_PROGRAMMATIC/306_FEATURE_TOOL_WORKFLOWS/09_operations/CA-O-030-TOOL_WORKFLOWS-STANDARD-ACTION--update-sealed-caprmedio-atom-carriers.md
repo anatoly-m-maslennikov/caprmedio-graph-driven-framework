@@ -19,8 +19,8 @@ subjects:
     - "Atom/Revision/Updated At"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 14
-updated_at: "2026-10-13 05:22:20 +0400"
+version: 15
+updated_at: "2026-10-13 14:31:30 +0400"
 relations: {}
 ---
 # Summary
@@ -71,11 +71,17 @@ The existing selected update route retains its completed current Analysis Report
 ### Selected staged-review publication access
 
 1. Before the publication window, stage and review the exact admitted source-bound change, retaining the existing sealed source/delta/intent, completed assessment, permission and Run evidence. Reopen the review evidence; a candidate or manifest is not an approval token. Candidate time remains illustrative and the existing actual-effect metadata materialization rule is unchanged.
-2. Establish a short exclusive window over the affected current Carrier, predecessor-history destination and governing authority sources. No manual editing, Git operation or synchronization may change that frontier during the window. Acquire the one shared cooperative Engine publication lock before the final complete revalidation; inability to establish the window or lock stops before effects.
+The existing `authorization_ref` must resolve a fresh purpose-specific trusted-host record of the Operator's explicit review of the exact source-bound intended change and manual editing/maintenance-script/Git/sync pause confirmation for the affected frontier. Bind the record to the exact existing request, source/delta/intent, selected Session/Run and affected files through a private host-to-dispatch binding. Request parsing, caller-written JSON/hash and arbitrary callbacks cannot mint it; no default runtime provider or new public request field is introduced. Missing issuer/resolver or missing, stale or mismatched confirmation stops before effects.
+
+2. Establish a short exclusive window over the affected current Carrier, predecessor-history destination and governing authority sources. No manual editing, maintenance/script write, Git operation or synchronization may change that frontier during the window. Acquire the one shared cooperative Engine publication lock before the final complete revalidation; inability to establish the window or lock stops before effects.
 3. While holding the lock, reopen and revalidate the exact source, ownership, grammar, report, complete-carrier, definition, permission, intent and current/history destination evidence. Apply only the already admitted one-target effect; materialize actual metadata once, retain exact predecessor bytes and independently read back current/history facts.
 4. Hold the same lock and window through those effects and readback and any invoked existing Action-local restoration. Retain the exact verified mutable-frontier and attempt-owned-history rules, pre-existing history and accepted Journal evidence. Unknown effects, failed restoration or incomplete required recording retain their existing truthful disposition; never infer success or replay the effect.
 
 This model excludes only writers respecting the exclusive window and cooperative lock. It does not itself establish crash-atomic multi-Carrier publication or a stronger guarantee and cannot protect against outside writers ignoring the window. Existing safety requirements remain unchanged. The model adds no public request fields, Boolean approval, local writer, transport or new retry/recovery framework.
+
+### Selected Subject publication failure envelope
+
+Successful completion requires all admitted current/history postconditions and required recording. For caught publication/postcondition errors, hold the lock while attempting exact restoration of the verified mutable before-frontier and removal of attempt-owned history; preserve pre-existing history and accepted Journal evidence. Confirmed restoration reports a failed attempt, not update success. Failed or unverified restoration is partial/unknown. Abrupt crash or interruption is not crash-atomic and remains interrupted: inspect actual affected current/history files and Run evidence before any separately admitted continuation. Never automatically replay an Atom effect. This adds no crash-recovery framework and changes no other Action's safety boundary.
 
 Live changed-Subject publication remains blocked under its existing explicit guard until this selected access binding and combined verification are independently accepted. This definition is not implementation or readiness, does not remove that guard, activate MCP, alter native meaning or authorize Core migration.
 
