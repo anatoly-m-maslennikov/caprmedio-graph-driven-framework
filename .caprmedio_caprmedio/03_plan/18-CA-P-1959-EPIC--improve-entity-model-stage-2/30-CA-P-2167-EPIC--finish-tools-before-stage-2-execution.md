@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 22
-updated_at: "2026-10-13 04:30:00 +0400"
+version: 23
+updated_at: "2026-10-13 04:51:49 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -142,6 +142,12 @@ CA-P-2253–2258/2280 are Active. Their initial bounded private mechanics have f
 
 The Operator has now reopened CA-P-2179 publication design and testing; the mechanism must still be chosen before changed writes are enabled. Applicable Core Version/history conflicts remain under CA-P-1970. Typed TOML result representation and exact runtime request/schema binding must be resolved against accepted source contracts before claiming complete adapters. Focused helpers and safe refusal cases do not close these gaps.
 
+### Compatibility and narrow Core follow-up
+
+The Operator separately authorized only the two Core Version/history rules and directly contradictory consumers to be aligned now; CA-P-1970 records that exception while broader content migration stays deferred. Independent source acceptance and affected analytical/consumer checks remain required before use.
+
+CA-P-2270/2272 are Active with bounded independently reviewed implementation. A missing current CA-D-572 is a source-authority gap, not a digest refresh opportunity. The graph's legacy folder-derived Scope topology is a separate existing R1070/M149/E295 defect; CA-P-2302–2304 repair it in bounded portions without source/Subject migration or graph publication. Concrete Atom/Scope receiving mapping remains missing under CA-P-2301; generic callbacks and source-only descriptors do not complete it.
+
 ### Decomposing Plans
 
 CA-P-2279 is Done after [independent Configuration Read source acceptance](../../_projection/core-entity-review/stage2/tools-first/configuration-read-contract-acceptance.md). The original review input gains seven new current sources and nine accepted revisions; historical pins remain unchanged. The accepted correction subsequently passed the affected FPF follow-up; see the current execution checkpoint above.
@@ -170,9 +176,12 @@ CA-P-2279 is Done after [independent Configuration Read source acceptance](../..
 - [CA-P-2267 — Bind Project Settings updates](../001_backlog/32-CA-P-2267-TASK--bind-project-settings-updates.md)
 - [CA-P-2268 — Bind explicit change recording and commit](../001_backlog/33-CA-P-2268-TASK--bind-explicit-change-recording-and-commit.md)
 - [CA-P-2269 — Place rebuilt code and update exports and callers](../001_backlog/34-CA-P-2269-TASK--place-rebuilt-code-and-update-exports-and-callers.md)
-- [CA-P-2270 — Refresh authority consumers and release admission](../001_backlog/35-CA-P-2270-TASK--refresh-authority-consumers-and-release-admission.md)
+- [CA-P-2270 — Refresh authority consumers and release admission](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/35-CA-P-2270-TASK--refresh-authority-consumers-and-release-admission.md)
 - [CA-P-2271 — Refresh selected definition pins and seals](../001_backlog/36-CA-P-2271-TASK--refresh-selected-definition-pins-and-seals.md)
-- [CA-P-2272 — Use explicit graph Delivery bindings](../001_backlog/37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings.md)
+- [CA-P-2272 — Use explicit graph Delivery bindings](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings.md)
+- [CA-P-2302 — Build graph Scope rows from declarations](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/40-CA-P-2302-TASK--build-graph-scope-rows-from-declarations.md)
+- [CA-P-2303 — Separate graph observations and source attribution](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/41-CA-P-2303-TASK--separate-graph-observations-and-source-attribution.md)
+- [CA-P-2304 — Verify declaration driven graph discovery](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/42-CA-P-2304-TASK--verify-declaration-driven-graph-discovery.md)
 - [CA-P-2273 — Verify connector API and Query and Read fixtures](../001_backlog/01-CA-P-2273-TASK--verify-connector-api-and-query-and-read-fixtures.md)
 - [CA-P-2274 — Verify carrier property and section fixtures](../001_backlog/02-CA-P-2274-TASK--verify-carrier-property-and-section-fixtures.md)
 - [CA-P-2275 — Verify TOML and config Workflow fixtures](../001_backlog/03-CA-P-2275-TASK--verify-toml-and-config-workflow-fixtures.md)
