@@ -11,10 +11,10 @@ status: Active
 subjects:
   governs: "Tool"
   depends_on: ["Artifact/Carrier","Action","Workflow","Atom","Operator"]
-version: 3
-updated_at: "2026-10-13 23:27:54 +0400"
+version: 4
+updated_at: "2026-10-13 23:51:12 +0400"
 relations:
-  relates_to: [CA-R-1936, CA-R-1093, CA-M-381, CA-E-633, CA-D-630, CA-O-215, CA-O-216, CA-O-217, CA-O-040]
+  depends_on: [CA-R-1936]
 ---
 # Summary
 
