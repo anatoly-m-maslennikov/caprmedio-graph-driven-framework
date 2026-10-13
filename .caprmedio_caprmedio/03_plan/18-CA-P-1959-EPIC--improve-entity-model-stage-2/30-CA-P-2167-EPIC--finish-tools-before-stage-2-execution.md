@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 23
-updated_at: "2026-10-13 04:51:49 +0400"
+version: 24
+updated_at: "2026-10-13 05:11:55 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -149,6 +149,10 @@ The Operator separately authorized only the two Core Version/history rules and d
 CA-P-2270/2272 are Active with bounded independently reviewed implementation. A missing current CA-D-572 is a source-authority gap, not a digest refresh opportunity. The graph's legacy folder-derived Scope topology is a separate existing R1070/M149/E295 defect; CA-P-2302–2304 repair it in bounded portions without source/Subject migration or graph publication. Concrete Atom/Scope receiving mapping remains missing under CA-P-2301; generic callbacks and source-only descriptors do not complete it.
 
 ### Decomposing Plans
+
+The narrow Version/history packet has [independent source acceptance](../../_projection/core-entity-review/stage2/tools-first/version-history-rule-alignment-acceptance.md); [actual runtime mismatches](../../_projection/core-entity-review/stage2/tools-first/version-history-runtime-gaps.md) remain, and affected FPF/use gates are not waived. The connector suite passed 135 tests, without whole-portfolio or admitted publication acceptance.
+
+CA-P-2302–2304 now have [bounded graph implementation acceptance](../../_projection/core-entity-review/stage2/tools-first/declaration-graph-acceptance.md): 30 tests and a read-only current checkout probe (29 declared Scope Units). The legacy folder-topology refusal is fixed. Complete path-policy refusal remains unaccepted because the shared validator admits another Project control root; these Tasks and CA-P-2272 remain Active. Unresolved Settings revision receipts separately block full generation. No production graph or source/Subject migration was published.
 
 CA-P-2279 is Done after [independent Configuration Read source acceptance](../../_projection/core-entity-review/stage2/tools-first/configuration-read-contract-acceptance.md). The original review input gains seven new current sources and nine accepted revisions; historical pins remain unchanged. The accepted correction subsequently passed the affected FPF follow-up; see the current execution checkpoint above.
 

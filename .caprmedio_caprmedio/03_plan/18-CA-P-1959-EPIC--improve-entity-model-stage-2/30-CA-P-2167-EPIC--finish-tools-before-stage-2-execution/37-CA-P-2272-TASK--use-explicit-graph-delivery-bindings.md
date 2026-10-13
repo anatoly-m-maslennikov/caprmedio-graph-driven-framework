@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 2
-updated_at: "2026-10-13 04:51:49 +0400"
+version: 3
+updated_at: "2026-10-13 05:09:14 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2278]
@@ -38,9 +38,13 @@ Start only after CA-P-2251's actual accepted FPF review and independently accept
 
 Deliver the exact changed or reviewed manifest and focused check results to the independent integration/verification owner. Preserve historical receipts. No database build, new transport, Atom deletion, automatic batch retry/resume or publication-concurrency mechanism is included.
 
-### Current checkpoint
+### Earlier Delivery-only checkpoint
 
-Explicit Delivery binding and terminal-slash compatibility passed bounded independent checks (20 focused tests plus independent invalid/alias controls). Live graph discovery still infers topology from folder names and fails on the legacy 201 prefix. CA-P-2302–2304 separately repair and verify that existing R1070/M149/E295 obligation; this delivery-only receipt does not accept the broader repair.
+Explicit Delivery binding and terminal-slash compatibility passed bounded independent checks (20 focused tests plus independent invalid/alias controls). At that checkpoint, live graph discovery still inferred topology from folder names and failed on the legacy 201 prefix. CA-P-2302–2304 separately repair and verify that existing R1070/M149/E295 obligation; the delivery-only receipt does not accept the broader repair.
+
+### Bounded acceptance and remaining gate
+
+The [bounded independent graph receipt](../../../_projection/core-entity-review/stage2/tools-first/declaration-graph-acceptance.md) accepts the topology/observation implementation and exact pins: 30 tests passed and the current read-only declaration probe returned 29 Scope Units. The shared cross-Project path guard remains incomplete, so complete invalid-declaration refusal is not yet accepted and this Task stays Active. Settings revision resolution also blocks full graph/runtime readiness. No publication is authorized by the bounded receipt.
 
 ### Definition of Done
 
