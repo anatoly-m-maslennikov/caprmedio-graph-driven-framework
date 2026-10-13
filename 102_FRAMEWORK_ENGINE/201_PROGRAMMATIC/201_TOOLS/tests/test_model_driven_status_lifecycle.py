@@ -15,7 +15,7 @@ from unittest.mock import patch
 TOOLS = Path(__file__).resolve().parents[1]
 REPOSITORY = TOOLS.parents[2]
 CONTROL = Path(".caprmedio_caprmedio")
-SOURCE = CONTROL / "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
+SOURCE = CONTROL / "101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES"
 sys.path.insert(0, str(TOOLS))
 
 from atom_operations import atom_from_path, frontmatter_scalar, ToolError  # noqa: E402
@@ -82,6 +82,8 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
             shutil.copyfile(source, destination)
             self.assertEqual(source.read_bytes(), destination.read_bytes())
             self.sources[atom_id] = destination
+        with lifecycle_intents.engine_publication_lock(self.root, timeout_seconds=0):
+            pass
 
     def tearDown(self) -> None:
         self.temporary.cleanup()
