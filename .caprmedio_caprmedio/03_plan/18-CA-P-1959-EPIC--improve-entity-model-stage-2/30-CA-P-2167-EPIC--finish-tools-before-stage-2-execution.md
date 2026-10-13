@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 24
-updated_at: "2026-10-13 05:11:55 +0400"
+version: 25
+updated_at: "2026-10-13 05:18:39 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -140,7 +140,7 @@ The Operator requested completion of the whole Epic with parallel implementation
 
 CA-P-2253–2258/2280 are Active. Their initial bounded private mechanics have focused author tests, not complete receiving/runtime acceptance. Remaining work is decomposed into CA-P-2294–2300 before continuation. Each child retains a 15-minute bound, disjoint edit ownership and independent verification. CA-P-2270/2272 have independent compatibility work; other receiving Workflows remain dependent on actual adapter readiness. Parsing, reading and writing stay separate; no speculative common facade or new public authority protocol is authorized.
 
-The Operator has now reopened CA-P-2179 publication design and testing; the mechanism must still be chosen before changed writes are enabled. Applicable Core Version/history conflicts remain under CA-P-1970. Typed TOML result representation and exact runtime request/schema binding must be resolved against accepted source contracts before claiming complete adapters. Focused helpers and safe refusal cases do not close these gaps.
+The Operator reopened CA-P-2179 design and testing and then selected staged review plus an exclusive window; changed writes still require the remaining contract, implementation and independent acceptance gates. Applicable Core Version/history conflicts remain under CA-P-1970. Typed TOML result representation and exact runtime request/schema binding must be resolved against accepted source contracts before claiming complete adapters. Focused helpers and safe refusal cases do not close these gaps.
 
 ### Compatibility and narrow Core follow-up
 
@@ -149,6 +149,10 @@ The Operator separately authorized only the two Core Version/history rules and d
 CA-P-2270/2272 are Active with bounded independently reviewed implementation. A missing current CA-D-572 is a source-authority gap, not a digest refresh opportunity. The graph's legacy folder-derived Scope topology is a separate existing R1070/M149/E295 defect; CA-P-2302–2304 repair it in bounded portions without source/Subject migration or graph publication. Concrete Atom/Scope receiving mapping remains missing under CA-P-2301; generic callbacks and source-only descriptors do not complete it.
 
 ### Decomposing Plans
+
+### Current publication decision
+
+CA-P-2179 records the Operator's selected staged-review plus exclusive-window model, with a shared lock for Engine writers and affected-file manual/Git/sync exclusion. This supersedes earlier statements in this Plan that the access/concurrency choice itself remains deferred. It does not waive source/FPF review, implementation, independent verification, actual route admission or separate live migration approval. The changed-Subject guard remains until those gates pass.
 
 The narrow Version/history packet has [independent source acceptance](../../_projection/core-entity-review/stage2/tools-first/version-history-rule-alignment-acceptance.md); [actual runtime mismatches](../../_projection/core-entity-review/stage2/tools-first/version-history-runtime-gaps.md) remain, and affected FPF/use gates are not waived. The connector suite passed 135 tests, without whole-portfolio or admitted publication acceptance.
 

@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Revision, Journal, Plan]
-version: 3
-updated_at: "2026-10-13 04:36:00 +0400"
+version: 4
+updated_at: "2026-10-13 05:18:39 +0400"
 relations:
   is_decomposition_of: [CA-P-2173]
   blocks: [CA-P-2180, CA-P-2182]
@@ -30,6 +30,12 @@ Publish one contract-approved Subject effect with exact prior history and truthf
 
 ## Details
 
+### Selected publication model
+
+The Operator selected staged review followed by a short exclusive publication window. Manual edits, Git operations and sync writes to affected files must be paused; participating Engine writers use one shared lock. Outside writers that ignore this constraint are not protected by the model. Review the approved change and source state before entering the window; preserve the existing distinction between reviewed intent/delta and governed effect-time metadata. Final revalidation, publication, readback and any existing action-local restoration must remain inside the protected interval.
+
+This supersedes the earlier choice deferral below, not the remaining source/API/FPF, implementation, independent proof or route-admission gates. Keep the current changed-Subject guard until those gates pass. Do not infer a stronger crash-atomic guarantee, relax existing safety requirements, invent public approval fields, add automatic retry/replay, or apply live Core migration. The unresolved interpretation of existing all-or-nothing wording must be reviewed, not silently weakened.
+
 Estimated own work: 15 minutes. Assignee: AI Agent. Prerequisites: CA-P-2178's actual API and CA-P-2170's current application packet independently accepted under CA-P-2171. No code starts from a proposed or stale packet.
 
 Exclusive edits: new `102_FRAMEWORK_ENGINE/201_PROGRAMMATIC/201_TOOLS/atom_subject_apply.py`, only its required guarded raw-byte helper in `atom_operations.py`, and new `ATOM_UPDATE/tests/test_subject_apply_native.py` under Tools. Reopen every affected helper caller. Other workers own planner, route integration and independent fixtures; shared state/Git have one integration owner.
@@ -38,7 +44,7 @@ Reuse the existing governed mutation validation/publication mechanism for one el
 
 Bind publication ownership and failure disposition to the accepted contracts. Failed restoration or uncertain publication cannot report success or imply automatic replay. Expose truthful effects for the existing route's recording/recovery owner; do not fabricate Journal/Run completion. Check happy/no-op/refusal/publication/restoration paths on isolated valid fixtures and deliver exact code/effect pins. If this one-target scope cannot fit 15 minutes, split the concrete remainder before executing it.
 
-### Deferred publication follow-up
+### Earlier deferred publication follow-up
 
 The Operator deferred the concurrency safety choice. [Independent review](../../../../_projection/core-entity-review/stage2/tools-first/intent-and-application-status.md) reproduced an edit overwritten between the last fingerprint check and replacement; history removal has the same ownership window. Earlier validation does not close it. No exclusive-access requirement, quarantine policy or atomic exchange was approved. Live changed-Subject writes remain blocked even with otherwise valid packet approval, and this Task stays Active.
 
@@ -46,9 +52,9 @@ The native route now unconditionally refuses changed-Subject execution with `sub
 
 Keep the follow-up here: later review a bounded publication design covering current/history ownership through publication and failed restoration; record the actual Operator choice, align any affected RMEDO and independently verify concurrent-edit controls before opening the live gate. Do not infer authority or implement a new concurrency framework from the deferral. Safe preview/materialization/no-op checks do not satisfy successful publication or restoration acceptance.
 
-### Reopened design and testing
+### Earlier reopening of design and testing
 
-The Operator explicitly reopened publication design and testing. The earlier deferral above is the historical decision; it no longer blocks bounded comparison and isolated tests. The concurrency/access mechanism is not yet selected. Compare practical one-Atom choices and present the exact operational constraint to the Operator before enabling changed writes.
+The Operator explicitly reopened publication design and testing. The earlier deferral above is the historical decision; it no longer blocks bounded comparison and isolated tests. At that reopening checkpoint the concurrency/access mechanism was not yet selected; the current decision above supersedes this. Compare practical one-Atom choices and present the exact operational constraint to the Operator before enabling changed writes.
 
 Keep the existing publication guard while designing. No live Core migration, automatic replay, new broad recovery framework or unchosen exclusive-access requirement is approved. After the mechanism is chosen, align affected contracts and independently verify current/history ownership, actual effects and failure disposition before enabling any route. Record concrete implementation portions within the existing 15-minute bound and split larger work before execution.
 

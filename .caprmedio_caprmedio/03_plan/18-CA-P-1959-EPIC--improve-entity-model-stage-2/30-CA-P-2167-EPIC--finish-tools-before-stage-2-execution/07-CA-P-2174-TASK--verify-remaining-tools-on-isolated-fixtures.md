@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Revision, Journal, Plan, Operator]
-version: 5
-updated_at: "2026-10-13 00:21:20 +0400"
+version: 6
+updated_at: "2026-10-13 05:18:39 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
 ---
@@ -28,6 +28,10 @@ Verify remaining Tools on isolated fixtures
 Independently prove the actual remaining Tools satisfy the accepted contracts before affected Stage-2 use.
 
 ## Details
+
+### Current publication decision
+
+CA-P-2179 records the Operator's selected staged-review plus exclusive-window model, with a shared lock for Engine writers and affected-file manual/Git/sync exclusion. This supersedes earlier statements in this Plan that the access/concurrency choice itself remains deferred. It does not waive source/FPF review, implementation, independent verification, actual route admission or separate live migration approval. The changed-Subject guard remains until those gates pass.
 
 ### Prospective rebuilt-contract verification gate
 

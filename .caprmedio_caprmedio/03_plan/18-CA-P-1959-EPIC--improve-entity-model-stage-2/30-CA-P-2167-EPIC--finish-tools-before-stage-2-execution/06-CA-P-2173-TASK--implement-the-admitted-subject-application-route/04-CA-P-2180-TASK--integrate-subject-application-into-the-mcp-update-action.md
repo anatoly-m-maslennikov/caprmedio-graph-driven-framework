@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Journal, Plan, Operator]
-version: 2
-updated_at: "2026-10-12 04:49:28 +0400"
+version: 3
+updated_at: "2026-10-13 05:18:39 +0400"
 relations:
   is_decomposition_of: [CA-P-2173]
   blocks: [CA-P-2182]
@@ -29,6 +29,10 @@ Integrate Subject application into the MCP update action
 The existing admitted MCP update action carries the closed one-target Subject variant through its current approval and recording boundary.
 
 ## Details
+
+### Current publication decision
+
+CA-P-2179 records the Operator's selected staged-review plus exclusive-window model, with a shared lock for Engine writers and affected-file manual/Git/sync exclusion. This supersedes earlier statements in this Plan that the access/concurrency choice itself remains deferred. It does not waive source/FPF review, implementation, independent verification, actual route admission or separate live migration approval. The changed-Subject guard remains until those gates pass.
 
 Estimated own work: 15 minutes. Assignee: AI Agent. Full application prerequisites: CA-P-2178, CA-P-2179 and CA-P-2170's corresponding current packet independently accepted under CA-P-2171. Bounded closed-request/dispatch and Report fixture work can proceed without enabling publication; successful application and live capability cannot precede these gates.
 
