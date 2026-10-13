@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 4
-updated_at: "2026-10-13 19:25:32 +0400"
+version: 5
+updated_at: "2026-10-13 20:51:38 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2278]
@@ -49,3 +49,7 @@ The registered-owner resolver passed bounded independent checks (11 focused test
 ### Definition of Done
 
 The Plan is **not** Done if applicable accepted contracts/FPF gates or current pins are missing; focused valid, refusal and no-op/error/effect checks fail or lack actual results; unrelated behavior regresses; implementation is claimed from preparation; or deferred/unauthorized capability is enabled. Own work must not exceed 15 minutes without prior decomposition.
+
+### Superseded release gate — 2026-10-13
+
+The earlier missing-D572 statements above are historical, not a current release prerequisite. The Operator's completed P1848 v12 direct happy path explicitly supersedes release admission/snapshot/seal gates; current M332 v6 and O164 v14 define that path. The registered release_version route dispatches directly to PROJECT_TOOLS/RELEASE_VERSION/local_release.py rather than the legacy D572 admission flow. Do not restore D572, invent a successor or revive the old ten-Step gate. Verify affected current direct-route behavior and current rebuilt consumers; preserve fail-closed legacy code/history separately. Active references in R1847/D521/R1882/D589 remain explicit reconciliation debt, not evidence that D572 is current. This correction does not authorize a release, folder relocation or runtime activation and does not complete the parent.

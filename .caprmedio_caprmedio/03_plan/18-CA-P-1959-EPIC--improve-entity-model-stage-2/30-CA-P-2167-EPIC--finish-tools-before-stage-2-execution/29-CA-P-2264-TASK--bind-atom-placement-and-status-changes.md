@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 5
-updated_at: "2026-10-13 20:40:12 +0400"
+version: 6
+updated_at: "2026-10-13 20:59:20 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2269, CA-P-2276]
@@ -36,7 +36,7 @@ The Operator requested continued implementation. Execute through these children;
 
 - [CA-P-2316 — Align contained Status receiving contracts](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/01-CA-P-2316-TASK--align-contained-status-receiving-contracts.md)
 - [CA-P-2317 — Discover current contained Atom targets](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/done/02-CA-P-2317-TASK--discover-current-contained-atom-targets.md)
-- [CA-P-2318 — Compose contained Status actions](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/001_backlog/03-CA-P-2318-TASK--compose-contained-status-actions.md)
+- [CA-P-2318 — Compose contained Status actions](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/03-CA-P-2318-TASK--compose-contained-status-actions.md)
 - [CA-P-2319 — Verify contained Status cascades](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/001_backlog/04-CA-P-2319-TASK--verify-contained-status-cascades.md)
 
 ### Contained P/O Status cascade
@@ -66,3 +66,7 @@ The Plan is **not** Done if applicable accepted contracts/FPF gates or current p
 ### Discovery acceptance — 2026-10-13
 
 P2317 is Done: independently reviewed read-only discovery passed current nested P/O, canonical history, ambiguity, stale-source and no-write checks. It selects the latest admitted carrier, including a final Archived version, without rewriting stored Status or suppressing targets through invalid newer carriers. P2318 remains separate and requires actual receiving/publication binding before effects. Boundary-consumer integration is tested separately; this checkpoint does not enable a live cascade.
+
+### Publication prerequisites — 2026-10-13
+
+P2318 is Active through P2336/P2337 one-Atom publication and independent failure checks, followed by P2338 current selected definition admission and P2339 explicit Draft identity. Nested O archive placement is an existing validator mismatch; P2344/P2345 repair it without bypass. P2318 cannot complete from helper-only positives, callbacks or a skipped supported case. Actual selected-Run/Journal and outer independent-action cascade proof remain required.

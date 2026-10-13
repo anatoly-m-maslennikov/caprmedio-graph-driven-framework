@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 30
-updated_at: "2026-10-13 19:01:00 +0400"
+version: 31
+updated_at: "2026-10-13 20:59:20 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,16 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Current continuation checkpoint — 2026-10-13 20:59:20 +0400
+
+P2317 contained-target discovery, P2308/P2309 pure TOML materialization, P2310 private writer integration, and P2321–P2323 Project-boundary consumers are Done after independent final-pin verification. Evidence includes 21 contained-target tests, 60 TOML tests, 344 validator tests and actual boundary/Graph/Structure/Scope fixture checks. Commits c42b8d26e, d79b5fa25, c228de1c4 and 5074f77a0 record those bounded outcomes, not installed activation.
+
+P2336/P2337 repair and independently test single-Atom Status bundle publication before any cascade. Required nested Operations placement revealed a validator defect; P2344/P2345 own its correction. P2342/P2343 repair typed Plan blocking admission: pending/history Plan endpoints are allowed by current rules, and wrong-role targets must still refuse. Shared proposed_carrier.py edits are serialized.
+
+P2340/P2341 actual Scope Read wiring remains incomplete: complete shared Settings/schema admission is missing, not a new logical-map authority. Existing identity readers must not be presented as complete schema validation. Current graph input values are all present and 29 declared Scope Units parse; no fake Settings edit is justified. Exact current logical Revision records are missing for both Settings files, with Operator disposition pending. Current direct release supersedes the old D572 admission gate; P2270 records that correction while legacy references remain explicit debt.
+
+PROJECT_TOOLS relocation waits for the Operator's choice after unavailable MCP; no root cleanup, live Core migration, release, runtime activation or push is included in these checkpoints. The complete Epic remains Active.
 
 ### Continued independent work — 2026-10-13
 

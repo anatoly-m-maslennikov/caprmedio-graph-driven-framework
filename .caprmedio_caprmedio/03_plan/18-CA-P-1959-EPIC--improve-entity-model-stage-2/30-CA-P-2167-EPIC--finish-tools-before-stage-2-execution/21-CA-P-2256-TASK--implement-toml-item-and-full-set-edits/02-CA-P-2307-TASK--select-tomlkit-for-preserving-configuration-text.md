@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Configuration, Method, Evaluation, Delivery, Plan]
-version: 8
-updated_at: "2026-10-13 20:06:42 +0400"
+version: 9
+updated_at: "2026-10-13 20:59:20 +0400"
 relations:
   is_decomposition_of: [CA-P-2256]
 ---
@@ -68,3 +68,7 @@ The Operator rejected mandatory target ordering. [CA-P-2333](02-CA-P-2307-TASK--
 Further discovery work follows [CA-P-2314 — Restrict reference discovery to admitted Atom containers](02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/done/04-CA-P-2314-TASK--restrict-reference-discovery-to-admitted-atom-containers.md). The Operator chose a positive folder whitelist, not exclusion Settings, and a recursive Plan-style sibling-file/optional-folder convention for Workflows, Steps and substeps. Actions stay separate outside that tree. The approved read-only FPF design challenge completed under Plan `workflow-carrier-whitelist-d96b9733`. Follow-up decisions require all parent Status changes to cascade through latest contained P/O Atoms only, preserving history and external references; read-time lookup still checks each carried Status. CA-P-2314 implements the admitted-container lookup after the affected source amendments are independently accepted. Actual lifecycle cascade implementation remains under CA-P-2264; legacy `archive/` migration is deferred. No old carriers are moved automatically.
 
 The bounded outcome has exact source/implementation pins, actual relevant checks and a different reviewer's acceptance. Preparation is not implementation; a Plan is not an executed FPF review. The parent and CA-P-2297 remain Active until their separate receiving/publication requirements pass.
+
+### Current acceptance checkpoint — 2026-10-13
+
+The earlier typed-relation decision is resolved: approved contextual/redundant links were removed and supported typed relations retained. M383v3/D632v3/E635v2 and this Plan v8 passed real finite PRMEDO admission. Pure TOML implementation, independent verification and private writer integration completed under P2308/P2309/P2310. Later parent-Plan admission exposed a separate reference-validator bug: typed blocks endpoints were incorrectly restricted to Active and complete-carrier checking omitted blocking-domain validation. P2342/P2343 own that narrow source-aligned repair. No source-rule bypass, broad C/A migration, live writes or runtime readiness is inferred.
