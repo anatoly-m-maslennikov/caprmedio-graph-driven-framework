@@ -250,7 +250,7 @@ def validate_proposed_carrier(
             "plan_parent_closure": [],
         }
     if relations and (not allow_existing_relations or plan_deep or reference_roles is not None):
-        targets = [target for values in relations.values() if isinstance(values, list) for target in values]
+        targets = list(dict.fromkeys(target for values in relations.values() if isinstance(values, list) for target in values))
         status_folders = _frontier_status_folders(verified_source_context, plan_mapping)
         try:
             inventory = inventory_proposed_references(
