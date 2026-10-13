@@ -21,6 +21,7 @@ sys.path.insert(0, str(TOOLS))
 from atom_operations import atom_from_path, frontmatter_scalar, ToolError  # noqa: E402
 from authoritative_status_models import resolve_status_model, StatusModelError  # noqa: E402
 import lifecycle_intents  # noqa: E402
+import test_selected_atom_lifecycle as lifecycle_fixture  # noqa: E402
 from lifecycle_intents import carrier_descriptor, change_status_atom_action, LifecycleError, preflight_atom_lifecycle  # noqa: E402
 
 
@@ -66,8 +67,10 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         (self.root / ".git").mkdir()
         control = self.root / CONTROL
         control.mkdir()
+        lifecycle_fixture.SelectedAtomLifecycleTest._copy_complete_carrier_authority(self)
         (control / "caprmedio_project_settings.toml").write_text(
-            '[project]\nname = "caprmedio"\n'
+            '[project]\nkey = "status-fixture"\nname = "caprmedio"\nrepository_slug = "status-fixture"\n'
+            '[artifacts.identity]\nproject_prefix = "CA"\n'
             '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
             'journal_root = ".caprmedio_caprmedio/_journal"\n', encoding="utf-8",
         )
