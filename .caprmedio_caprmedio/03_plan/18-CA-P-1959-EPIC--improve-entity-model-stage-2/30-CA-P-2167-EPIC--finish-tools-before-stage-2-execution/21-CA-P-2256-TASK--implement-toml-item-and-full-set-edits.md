@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 2
-updated_at: "2026-10-13 04:30:00 +0400"
+version: 3
+updated_at: "2026-10-13 15:37:10 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2266, CA-P-2267, CA-P-2269, CA-P-2275]
@@ -41,6 +41,17 @@ Deliver the exact changed or reviewed manifest and focused check results to the 
 ### Bounded continuation
 
 The initial private mechanics are implemented or in progress; this is not accepted receiving/runtime capability. Continue through [CA-P-2297 — Bind TOML modifications to receiving schemas](21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/01-CA-P-2297-TASK--bind-toml-modifications-to-receiving-schemas.md). This child is limited to 15 minutes and must be split again before larger work. Remaining publication, receiving Workflow and independent portfolio gates are unchanged.
+
+### TOML text preservation
+
+The Operator approved a narrowly scoped TOMLKit dependency, its M/D/E selection and the private connector implementation. It does not enable live writes or migration. Complete the bounded work through:
+
+- [CA-P-2307 — Select TOMLKit for preserving configuration text](21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/02-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text.md)
+- [CA-P-2308 — Preserve TOML text during pure edits](21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/001_backlog/03-CA-P-2308-TASK--preserve-toml-text-during-pure-edits.md)
+- [CA-P-2309 — Verify TOML text preservation independently](21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/001_backlog/04-CA-P-2309-TASK--verify-toml-text-preservation-independently.md)
+- [CA-P-2310 — Integrate preserving TOML materialization](21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/001_backlog/05-CA-P-2310-TASK--integrate-preserving-toml-materialization.md)
+
+The existing receiving-schema Task CA-P-2297 remains separate. The additional Markdown/YAML library question is assessment-only, not dependency approval.
 
 ### Definition of Done
 
