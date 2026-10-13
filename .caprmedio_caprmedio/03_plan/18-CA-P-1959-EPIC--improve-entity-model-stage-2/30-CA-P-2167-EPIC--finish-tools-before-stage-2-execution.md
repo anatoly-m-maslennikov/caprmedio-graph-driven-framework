@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 33
-updated_at: "2026-10-13 22:13:02 +0400"
+version: 34
+updated_at: "2026-10-13 23:02:40 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,16 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Current continuation checkpoint — 2026-10-13 23:02:40 +0400
+
+The latest Operator decision is an ordinary Settings file reader: read the supplied file, parse it and validate the admitted schema. It does not scan Journal or expose or gate on history/currentness. This supersedes the earlier inspection/history model; existing Settings files and callers are not migrated.
+
+The narrow source packet and header normalization were independently reviewed. Standalone reader implementation is committed as `e91eb8b44`; all 20 author and independent reader checks passed. P2354–P2356 and P2300 remain Active until final integration. Port-schema alignment still awaits the Operator's decision, so this checkpoint does not claim complete schema or receiving integration.
+
+The shared exact connector-state digest guard is committed as `fa69890e3`. Private O211 Scope Query receiving was independently reviewed and committed as `35093e276`; existing O212 behavior is preserved. Atom O047/O046 private receiving is committed as `5d60b9053` after independent review: altered same-ID/version source bytes are refused. Ten author tests and eleven final independent tests pass; all five source-substitution cases are covered. These results accept the bounded private receivers, not public-route or runtime activation.
+
+Keep this Epic Active. These are bounded local source/code/test results, with no live Settings/caller migration, new public route/manifest, runtime activation or live Core migration. Broader complete Configuration Read and the remaining Epic gates stay open.
 
 ### Current continuation checkpoint — 2026-10-13 22:13:02 +0400
 
