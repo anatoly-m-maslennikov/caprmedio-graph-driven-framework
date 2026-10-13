@@ -124,6 +124,18 @@ Indentation outside a taxonomy is grouping or ownership, not an inferred `/` edg
 The relation meanings shown here are candidate meanings, not newly admitted
 native relation names.
 
+Entities are endpoints; relations connect them. For example:
+
+- Plan is narrower than Atom.
+- Status is a Property of Atom.
+- Active is an allowed value of Status.
+
+“Is narrower than”, “is a Property of” and “is an allowed value of” name
+relations, not intermediate nodes. Status remains a dependent entity; it is
+not the “Property of” relation. Read the compact path from broader to narrower,
+bearer to Property, and Property to value; the sentences above name the inverse
+directions. Classification labels still qualify narrowing steps as defined above.
+
 ## 2. Occurrents, Continuants and Carriers
 
 ### 2.1 General model
