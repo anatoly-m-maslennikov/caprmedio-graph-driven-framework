@@ -7,8 +7,8 @@ subjects:
     - "Artifact/Carrier"
     - "Atom/Content Role: Operations/Type: Workflow"
     - "Atom/Content Role: Operations/Type: Step"
-version: 4
-updated_at: "2026-10-01 21:24:33 +0400"
+version: 5
+updated_at: "2026-10-13 17:24:28 +0400"
 relations: {"delivery_for": ["CA-R-1570", "CA-R-1569"], "relates_to": ["CA-D-457", "CA-D-285"]}
 atom_id: "CA-D-467"
 content_role: "Delivery"
@@ -25,14 +25,17 @@ Store Workflow graphs **and** Steps in separate carriers
 
 ## Scope
 
-folder-backed Workflows.
+folder-backed Workflows **and** their nested Step Carriers.
 
 ## Claim
 
-a folder-backed Workflow **must** use a Directory Carrier containing **`=1`** Workflow Atom Markdown Carrier **and** separate Markdown Carriers for its Step Atoms.
+a folder-backed Workflow **must** use **`=1`** Workflow Atom Markdown Carrier **and** **`<=1`** optional sibling Directory Carrier with the same filename stem. the Directory Carrier contains separate Markdown Carriers for its Step Atoms; it **must not** contain a second Workflow definition.
 
 ## Details
 
 - the Workflow Atom's main content carries the graph scheme; a Step Atom's main content carries that Step's Action reference **and** parameter/input bindings.
+- a Step Markdown Carrier **may** have **`<=1`** optional sibling Directory Carrier with the same filename stem containing subordinate Step Markdown Carriers. this placement rule applies recursively at **every** nested Step level; **every** folder-backed Step retains its own Markdown Carrier.
+- Action Atom Carriers **must** remain separately outside the entire Workflow **and** nested Step directory tree. Steps reference reusable Actions **without** copying their behavior.
+- folder nesting organizes Carriers; it **must not** establish a Step Relation, execution inheritance, **or** execution order. the Workflow graph defines control flow, **and** **every** Step retains its own invocation of **`=1`** referenced Action.
 - the Atom files retain the existing Atom filename, frontmatter, **and** main-content rules; the folder is a grouping Carrier, **not** another Workflow definition **or** owning Scope Unit.
-- grouping is optional: separately placed Workflow **and** Step Carriers remain permitted **when** their references resolve unambiguously. moving them into a grouping folder does **not** redefine their graph.
+- grouping is optional: separately placed Workflow **and** Step Carriers remain permitted **when** their references resolve unambiguously. moving a Workflow **or** Step Directory Carrier does **not** redefine the graph **or** change any Step Atom's Status; a Status cascade requires an explicit authorized change for **every** affected Step.
