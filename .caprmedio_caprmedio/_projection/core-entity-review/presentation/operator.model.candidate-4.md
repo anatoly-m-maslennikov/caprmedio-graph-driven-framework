@@ -4,6 +4,10 @@ Status: Candidate; not adopted Core authority.
 
 Saved: 2026-10-12, Asia/Tbilisi.
 
+Updated: 2026-10-14 — Content Roles classify Atom subtypes. Use `Atom/Plan`
+and `Atom/Method.Status`, not `Atom.Content Role: Plan` or a Property of a
+Content Role value. This supersedes the earlier role-value mapping decision.
+
 Basis update: the Operator agreed exactly three roots: Occurrent, Continuant
 and Carrier. Continuant contains Object, Actor, History, Projection and Selection;
 it explicitly excludes Carrier. Earlier identity, content, Terms and source-authority
@@ -90,6 +94,11 @@ by this project.
   it is neither part of an Atom ID nor Subject relation syntax. Delivery
   policies define storage conventions.
 
+Content Role names the classification; each role names an Atom subtype:
+`Atom/Plan`, `Atom/Method`, and so on. `Atom/Plan.Status` means the Status
+of a Plan Atom. `Atom/Plan.Status: Backlog` names an allowed value of that
+Status, not an assignment. It does not make Status depend on Content Role.
+
 Indentation outside a taxonomy is grouping or ownership, not an inferred `/` edge.
 The relation meanings shown here are candidate meanings, not newly admitted
 native relation names.
@@ -117,7 +126,6 @@ Continuant
       .Substance Scope
       .Semantics
       .Details
-      .Content Role
       .Type
       .Governance Locus
       .Global Tier
@@ -126,6 +134,14 @@ Continuant
       .Updated At
       .Owning Scope Unit
       .Target Scope Unit
+      /Concern
+      /Analysis
+      /Plan
+      /Requirement
+      /Method
+      /Evaluation
+      /Delivery
+      /Operations
     /Governing Configuration
     /Scope Unit
       .ID
@@ -233,9 +249,19 @@ An Atom subtype inherits Atom obligations. It does not need duplicate definition
 of those obligations. Inheriting a Carrier obligation does not mean sharing one
 physical Carrier. General D policies can cover multiple Properties and Objects.
 
-Content Role, Type, tiers and internal/external/relational Governance Locus remain
-Properties or classifications, not additional Object roots. I remains actual
-Implementation; this candidate creates no Implementation Atoms.
+`Atom.Status` defines the shared meaning. `Atom/Plan.Status` and
+`Atom/Method.Status` inherit that meaning; their allowed values and rules can
+differ. The Property belongs to the Atom subtype, not to a classification value.
+Do not repeat shared definitions under every subtype.
+
+Content Role is the classification of these Atom subtypes, not an
+`Atom.Content Role` dependent entity in this graph. A stored `content_role`
+field can represent that classification; no storage field is renamed or removed.
+Type, tiers and internal/external/relational Governance Locus remain Properties
+or classifications, not additional Object roots. This decision does not settle
+whether each legacy Type-qualified path should become a further subtype.
+I remains actual Implementation; this candidate creates no Implementation Atoms
+or `Atom/Implementation` subtype.
 
 #### History and Projection
 
@@ -569,8 +595,9 @@ View and authoring concepts
   notation and serialization conventions
 ```
 
-For example, `Atom` names an Object kind; `Method` names a Content Role/concept.
-A particular Method Atom is an Object. Naming Method does not create a separate
+For example, `Atom` names an Object kind; `Method` names a Content Role and
+the Atom subtype `Atom/Method`. A particular Method Atom is an Object.
+Naming Method does not create a separate
 Method Object root. A source Atom's content and optional Semantics provide
 evidence of how a Term is used. The Terms Graph derives definitions from those
 cases without making the Term and any source Atom the same instance.
@@ -825,6 +852,10 @@ A file bearing the Atom or compiled prompt
 - Existing `atom(...)` syntax remains non-enumerating and case-sensitive.
 - `Atom.ID` and `Scope Unit.ID` are candidate semantic display names only;
   storage/selector keys are unchanged.
+- Content Role subtype paths such as `Atom/Plan.Status` replace role-value
+  paths in this candidate. This changes neither stored `content_role` fields
+  nor live Subjects or parsers. Earlier role-value map targets are superseded;
+  deeper Type-qualified paths still need a naming decision.
 - Bare Atom IDs, separate Version Numbers and Atom-filename `@Version`
   punctuation are candidate rules only. Existing archive contents, filenames,
   ID validation, lookup and relation references have not been migrated.
