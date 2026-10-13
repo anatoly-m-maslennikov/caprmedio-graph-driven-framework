@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 27
-updated_at: "2026-10-13 15:00:47 +0400"
+version: 28
+updated_at: "2026-10-13 15:25:45 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,12 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Local Subject application completed — 2026-10-13
+
+CA-P-2179–2182 and their parent CA-P-2173 are Done after independent local acceptance. The remaining byte/effect ledger and actual recording-only recovery checks passed. Broader regression tests found and then verified the fix for a forbidden standalone update creating a lock file before refusal. Final evidence: 119 distinct Subject checks and 26 generic Atom Operations checks passed. [Completion receipt](../../_projection/core-entity-review/stage2/tools-first/subject-publication-local-completion.md).
+
+This Epic and CA-P-2174 remain Active. The completed Tasks excluded installed runtime/image/manifest activation; provider absence is not unfinished work in those local Tasks. Installed readiness, other connector/Workflow work and separately approved Core migration remain open. Earlier local Active/deferral statements below are historical and are superseded by this checkpoint.
 
 Own work: none. Complete this group through its bounded children. Historical Done Tool Tasks remain Done; this group covers only the remaining gaps.
 
@@ -221,7 +227,7 @@ CA-P-2279 is Done after [independent Configuration Read source acceptance](../..
 - [CA-P-2170 — Align admitted Subject application contracts](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/03-CA-P-2170-TASK--align-admitted-subject-application-contracts.md)
 - [CA-P-2171 — Verify updated Tool contracts independently](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/04-CA-P-2171-TASK--verify-updated-tool-contracts-independently.md)
 - [CA-P-2172 — Align Subject preview and public graph Tools](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/05-CA-P-2172-TASK--align-subject-preview-and-public-graph-tools.md)
-- [CA-P-2173 — Implement the admitted Subject application route](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/06-CA-P-2173-TASK--implement-the-admitted-subject-application-route.md)
+- [CA-P-2173 — Implement the admitted Subject application route](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/06-CA-P-2173-TASK--implement-the-admitted-subject-application-route.md)
 - [CA-P-2174 — Verify remaining Tools on isolated fixtures](30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/07-CA-P-2174-TASK--verify-remaining-tools-on-isolated-fixtures.md)
 
 ### Historical contract checkpoints

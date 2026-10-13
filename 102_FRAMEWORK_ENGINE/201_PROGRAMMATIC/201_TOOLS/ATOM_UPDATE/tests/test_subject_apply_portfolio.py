@@ -91,7 +91,8 @@ class CurrentSubjectGoldenProject(GoldenProject):
 class SubjectApplyProject:
     """One current-contract W02 fixture, retaining real admission and validation."""
 
-    def __init__(self, root: Path, *, noop: bool = False, newline: str = "\n", subject_profile: str = "approved") -> None:
+    def __init__(self, root: Path, *, noop: bool = False, newline: str = "\n", subject_profile: str = "approved",
+                 role: str = "Requirement", status: str = "Active") -> None:
         self.root = root
         self.golden = CurrentSubjectGoldenProject(REPOSITORY, root, GoldenCase("W02", "update_atom"))
         self.manifest = self.golden.prepare()
@@ -103,7 +104,7 @@ class SubjectApplyProject:
             destination = root / grammar_pin.path
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(original, destination)
-        self.path = self.golden.status_atom("Requirement", "Active", number=8100)
+        self.path = self.golden.status_atom(role, status, number=8100)
         assert newline in {"\n", "\r\n"}
         if newline == "\r\n":
             self.path.write_bytes(self.path.read_bytes().replace(b"\n", b"\r\n"))

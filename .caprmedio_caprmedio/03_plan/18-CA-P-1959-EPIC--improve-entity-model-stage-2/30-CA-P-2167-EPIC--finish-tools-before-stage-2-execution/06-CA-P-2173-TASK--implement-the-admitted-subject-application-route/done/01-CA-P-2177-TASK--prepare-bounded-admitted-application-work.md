@@ -14,8 +14,8 @@ status: Done
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Revision, Journal, Plan, Operator]
-version: 4
-updated_at: "2026-10-12 04:49:28 +0400"
+version: 5
+updated_at: "2026-10-13 15:25:45 +0400"
 relations:
   is_decomposition_of: [CA-P-2173]
   blocks: [CA-P-2178, CA-P-2179, CA-P-2180, CA-P-2181, CA-P-2182]
@@ -40,7 +40,7 @@ Preparation writes Plans only. It does not implement or apply the route, complet
 
 ### Completion receipt
 
-Prepared five bounded child contracts under CA-P-2173: [intent/materialization](02-CA-P-2178-TASK--define-subject-intent-and-effect-materialization.md), [guarded publication/recovery](../03-CA-P-2179-TASK--publish-and-recover-guarded-subject-effects.md), [existing MCP action integration](../04-CA-P-2180-TASK--integrate-subject-application-into-the-mcp-update-action.md), [independent fixtures](../05-CA-P-2181-TASK--author-independent-subject-application-fixtures.md) and [combined verification](../06-CA-P-2182-TASK--verify-the-combined-subject-application-route.md). The proposal came from the application-boundary review; exact paths, exclusive owners, acyclic dependencies, acceptance checks and 15-minute limits are recorded. Fixture preparation can precede code; production code requires current independent contract acceptance. Shared state/Git stay with integration. No extra IDs, implementation effect or live capability is claimed.
+Prepared five bounded child contracts under CA-P-2173: [intent/materialization](02-CA-P-2178-TASK--define-subject-intent-and-effect-materialization.md), [guarded publication/recovery](03-CA-P-2179-TASK--publish-and-recover-guarded-subject-effects.md), [existing MCP action integration](04-CA-P-2180-TASK--integrate-subject-application-into-the-mcp-update-action.md), [independent fixtures](05-CA-P-2181-TASK--author-independent-subject-application-fixtures.md) and [combined verification](06-CA-P-2182-TASK--verify-the-combined-subject-application-route.md). The proposal came from the application-boundary review; exact paths, exclusive owners, acyclic dependencies, acceptance checks and 15-minute limits are recorded. Fixture preparation can precede code; production code requires current independent contract acceptance. Shared state/Git stay with integration. No extra IDs, implementation effect or live capability is claimed.
 
 ### Definition of Done
 

@@ -48,15 +48,15 @@ class ToolError(RuntimeError):
 
 def _locked_apply(operation):
     @wraps(operation)
-    def call(root, args):
+    def call(root, args, *operation_args, **operation_kwargs):
         if not getattr(args, "apply", False):
-            return operation(root, args)
+            return operation(root, args, *operation_args, **operation_kwargs)
         entered = False
         result = None
         try:
             with engine_publication_lock(root):
                 entered = True
-                result = operation(root, args)
+                result = operation(root, args, *operation_args, **operation_kwargs)
         except EnginePublicationLockError as error:
             if not entered:
                 raise ToolError(error.code, str(error)) from error
@@ -978,7 +978,6 @@ def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     return result
 
 
-@_locked_apply
 def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
     staging = getattr(args, "stage_preview", False)
@@ -1009,6 +1008,11 @@ def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
         raise ToolError("subject-stage-input-invalid", "staged preview requires Subject-only update items")
     if "subject_profile" in payload:
         raise ToolError("input-invalid", "subject_profile requires Subject-only update items")
+    return _run_generic_update(root, args, raw_items)
+
+
+@_locked_apply
+def _run_generic_update(root: Path, args: argparse.Namespace, raw_items: list[dict[str, Any]]) -> dict[str, Any]:
     selectors = [item.get("selector") for item in raw_items]
     if any(not isinstance(selector, str) for selector in selectors):
         raise ToolError("input-invalid", "every update item requires selector")
