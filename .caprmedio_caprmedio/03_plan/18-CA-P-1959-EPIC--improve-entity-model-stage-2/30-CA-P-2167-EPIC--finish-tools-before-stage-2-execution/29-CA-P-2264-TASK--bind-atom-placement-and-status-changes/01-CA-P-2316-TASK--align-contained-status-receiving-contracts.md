@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Configuration, Workflow, Plan]
-version: 2
-updated_at: "2026-10-13 19:48:07 +0400"
+version: 3
+updated_at: "2026-10-13 20:00:52 +0400"
 relations:
   is_decomposition_of: [CA-P-2264]
 ---
@@ -37,7 +37,7 @@ Align only O127, O129, O029 and O066 with caller-owned independent cascade compo
 
 The approved FPF alignment audit completed under plan-c410a7a2-3cf9-4d12-9f25-24f0835e491b; its step and final sets each passed independent validation at attempt 1. The final result was released in the conversation, not saved as a report. The six-source receiving/Settings packet has five boundedly supported claims and one unresolved classification, RR-I1: whether an ancestor-only directory move revises an otherwise unchanged current child under the path-change rules. RR-F1 requires the Operator decision and then only a targeted source check; do not repeat the full unchanged audit.
 
-This Task remains Active. No child-revision exception, new source amendment, cascade implementation, runtime activation or migration follows from the review. The Operator question is outstanding; independent connector work may continue.
+The Operator resolved RR-I1: an ancestor-only relocation does not revise an Atom whose own bytes, metadata, direct owner and placement relative to that owner remain unchanged. P2332 records the targeted R1432 v11 / R1788 v3 clarification, independently accepted by connector_binding_review. Actual own-Atom changes still revise; historical bytes remain immutable. This resolves the source ambiguity, not runtime admission. The Task remains Active while affected current consumers and cascade implementation are reconciled; the known stale legacy R1432 binding remains separately blocked.
 
 ### Definition of Done
 
