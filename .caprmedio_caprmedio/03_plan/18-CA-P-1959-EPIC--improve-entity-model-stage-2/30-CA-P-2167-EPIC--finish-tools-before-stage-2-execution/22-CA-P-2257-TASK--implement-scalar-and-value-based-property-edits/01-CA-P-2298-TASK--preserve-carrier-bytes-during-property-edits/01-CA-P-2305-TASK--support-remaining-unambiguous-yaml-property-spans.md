@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Property, Plan]
-version: 1
-updated_at: "2026-10-13 05:41:07 +0400"
+version: 2
+updated_at: "2026-10-13 05:57:40 +0400"
 relations:
   is_decomposition_of: [CA-P-2298]
 ---
@@ -32,6 +32,12 @@ Pure Property preparation supports admitted unambiguous flow-mapping Property ed
 Estimated own work: 15 minutes. Split larger work before further execution. Retain CA-P-2298's full outcome, accepted R1934/M374/D623/E628 contracts and complete-result validation. Reuse existing YAML token/node spans; do not add another parser, public request schema or dependency. Cover first/middle/last/sole flow-map removal, lawful trailing delimiters, folded/literal multiline scalar entries, comments and LF/CRLF. Refuse genuinely ambiguous or invalid inputs; unsupported syntax alone must not hide required valid cases.
 
 The implementation owner edits only the pure property carrier helper and existing focused tests. A different reviewer owns independent regression fixtures and accepts exact final pins. Root owns Plans and Git. No storage writer, Version/time materialization, receiving admission, live Atom or migration effects belong here.
+
+### Remaining bounded work
+
+The first implementation period repaired the flow-map, multiline-value and comment-loss cases, but independent checks still reproduce one valid failure: a list indicator on the line before its value. This Task remains Active and keeps its full Objective.
+
+Continue through [CA-P-2306 — Resolve separate-line YAML list indicators](01-CA-P-2305-TASK--support-remaining-unambiguous-yaml-property-spans/01-CA-P-2306-TASK--resolve-separate-line-yaml-list-indicators.md) before closure. The existing independent regression is failing evidence, not an accepted limitation.
 
 ### Definition of Done
 
