@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 37
-updated_at: "2026-10-14 00:05:19 +0400"
+version: 38
+updated_at: "2026-10-14 00:22:57 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -28,6 +28,10 @@ Finish Tools before Stage 2 execution
 The Tools required before affected Stage-2 execution have updated, independently verified connector/Workflow RMEDO with a coherent common logical connector interface, bounded implementation and fresh independent fixture proof.
 
 ## Details
+
+### Current continuation checkpoint — 2026-10-14 00:22:57 +0400
+
+The Operator deferred Tools for Content Roles, Types and Labels, including a YAML source of truth for allowed Types, allowed and mandatory Properties, fractal nesting and Status models. No implementation, adoption or executed FPF review is claimed. The current work is only what is necessary for Subjects migration: current-source mapping, Subjects-only preview/staging, independent diff and graph verification, and separately approved exact application. Unrelated connector rebuilding, Draft lifecycle work and configuration/catalog changes are deferred; they must not be treated as migration prerequisites without a demonstrated dependency. Preserve the unfinished Draft repair without claiming acceptance. The broader Epic remains incomplete; its original DoD and prior checkpoints remain unchanged. Atom content migration remains separate.
 
 ### Current continuation checkpoint — 2026-10-14 00:05:19 +0400
 
