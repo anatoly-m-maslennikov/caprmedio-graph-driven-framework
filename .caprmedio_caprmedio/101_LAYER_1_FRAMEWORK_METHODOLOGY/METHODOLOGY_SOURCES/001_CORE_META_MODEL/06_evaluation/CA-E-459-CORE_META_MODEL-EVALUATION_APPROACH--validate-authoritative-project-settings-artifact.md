@@ -9,8 +9,8 @@ subjects:
     - "Atom/Identifier/Project Prefix"
     - "Framework Instance Settings"
     - "CORE_META_MODEL"
-version: 18
-updated_at: "2026-10-13 22:23:39 +0400"
+version: 19
+updated_at: "2026-10-13 22:52:30 +0400"
 relations:
   evaluation_for:
     - CA-R-1738
@@ -57,10 +57,10 @@ the Evaluation **must** reject Project Settings **if**
 - lacks an Operator-selected Project Name,
 - lacks an Operator-selected Project Atom prefix,
 - treats a Methodology Atom, Framework Instance Settings, **or** a Projection as an independent authoritative source of either selected value,
-- **or** lacks an exact current Revision, SHA-256 Digest, **and** Work Journal receipt admitted by CA-D-365.
+- **or**, for history-binding evaluation under CA-D-365, lacks an exact current Revision, SHA-256 Digest, **and** admitted Work Journal receipt.
 
 ## Details
 
-schema-valid read observation **and** authoritative Settings conformance **must** remain distinct. a Reader **may** return a complete immutable schema-valid snapshot with the exact selected Project, physical Carrier path, raw SHA-256 Digest, **and** declared schema marker **while** explicitly reporting unknown logical Revision **and** currentness **if** CA-D-365 history is absent, ambiguous, **or** mismatched. return a structured history diagnostic; do **not** guess a Revision **or** receipt. this observation is **not** a passing result of the authoritative conformance Evaluation above **and** is insufficient for **any** operation requiring verified history. neither a read observation **nor** its refusal authorizes Carrier **or** Journal writes, compatibility fallback, **or** migration.
+ordinary Settings Read **must** validate the complete actual Carrier **and** return immutable values with the exact selected Project, physical Carrier path, raw SHA-256 Digest, **and** declared schema marker. it **must not** query the Work Journal **or** determine logical Revision **or** currentness; Journal history is **not** an admission condition for ordinary Read. history-binding evaluation **and** recovered baseline registration under CA-D-365 remain separate operations. neither Read **nor** its refusal authorizes Carrier **or** Journal writes, compatibility fallback, **or** migration.
 
 for recovered baseline registration, the Evaluation **must** check the exact selected Project, Carrier path, lineage-derived logical Revision, **and** Digest binding required by CA-D-365. verify that registration leaves Settings bytes unchanged **and** records the actual observation time **and** evidence-backed observer Run **or** session. reject an absent **or** ambiguous binding, a stale Carrier Digest, a path-based Revision reset **or** guessed allocation, **or** a fabricated Settings write, past mutation, author, **or** history. an admitted baseline receipt **must not** replace any Settings schema **or** ownership check above **or** authorize another operation.
