@@ -19,8 +19,8 @@ subjects:
     - "Atom/Revision/Updated At"
     - "Artifact/Carrier"
     - "Journal/Record"
-version: 13
-updated_at: "2026-10-12 23:49:24 +0400"
+version: 14
+updated_at: "2026-10-13 05:22:20 +0400"
 relations: {}
 ---
 # Summary
@@ -68,7 +68,16 @@ Staging performs no authoritative, archive/history, Journal, promotion or MCP ef
 
 The existing selected update route retains its completed current Analysis Report and exact O067/O145 assessment, O129 lineage, actual selected Session and canonically recorded O030 Action start. Reopen those persisted bindings; a matching assessment hash alone is insufficient. For the one admitted target, bind deterministic intended Subject bytes with old Version/time, execution-time metadata rule and exact predecessor destination; no-op preserves them. Effect-time materialization and actual current/history readback remain distinct from illustrative preview and intent.
 
-Changed-Subject publication remains deferred under its existing explicit gate. This definition neither implements publication nor admits a new local writer, activates MCP, alters native meaning or authorizes Core migration.
+### Selected staged-review publication access
+
+1. Before the publication window, stage and review the exact admitted source-bound change, retaining the existing sealed source/delta/intent, completed assessment, permission and Run evidence. Reopen the review evidence; a candidate or manifest is not an approval token. Candidate time remains illustrative and the existing actual-effect metadata materialization rule is unchanged.
+2. Establish a short exclusive window over the affected current Carrier, predecessor-history destination and governing authority sources. No manual editing, Git operation or synchronization may change that frontier during the window. Acquire the one shared cooperative Engine publication lock before the final complete revalidation; inability to establish the window or lock stops before effects.
+3. While holding the lock, reopen and revalidate the exact source, ownership, grammar, report, complete-carrier, definition, permission, intent and current/history destination evidence. Apply only the already admitted one-target effect; materialize actual metadata once, retain exact predecessor bytes and independently read back current/history facts.
+4. Hold the same lock and window through those effects and readback and any invoked existing Action-local restoration. Retain the exact verified mutable-frontier and attempt-owned-history rules, pre-existing history and accepted Journal evidence. Unknown effects, failed restoration or incomplete required recording retain their existing truthful disposition; never infer success or replay the effect.
+
+This model excludes only writers respecting the exclusive window and cooperative lock. It does not itself establish crash-atomic multi-Carrier publication or a stronger guarantee and cannot protect against outside writers ignoring the window. Existing safety requirements remain unchanged. The model adds no public request fields, Boolean approval, local writer, transport or new retry/recovery framework.
+
+Live changed-Subject publication remains blocked under its existing explicit guard until this selected access binding and combined verification are independently accepted. This definition is not implementation or readiness, does not remove that guard, activate MCP, alter native meaning or authorize Core migration.
 
 ### Run recording
 

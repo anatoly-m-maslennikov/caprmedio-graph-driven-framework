@@ -10,8 +10,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Artifact/Carrier", "Atom Change Classification", "Atom/Revision/Updated At"]
-version: 20
-updated_at: "2026-10-12 23:58:28 +0400"
+version: 21
+updated_at: "2026-10-13 05:22:20 +0400"
 relations:
   relates_to: [CA-O-030, CA-E-304, CA-O-067, CA-R-1432, CA-R-1788, CA-R-1464, CA-R-1415, CA-R-1371]
 ---
@@ -90,4 +90,12 @@ Application **must** consume CA-D-527's exact authorized execute envelope throug
 
 A changed current Carrier **must** retain ID, Summary, Status, path, filename, every unrelated byte and line ending; set Version exactly to `N+1`; and materialize Updated At once from actual Project time at the effect. Preserve the exact predecessor bytes at Version `N` in the existing Delivery-governed history location, classified as archived history by placement, without a second Version increment or invented status/time edit. Verify actual after bytes and hash and bind them to the intended hash in the shared result. No-op creates no Carrier/history/change event; its actual Run still requires recording. Publication/postcondition failure restores the verified mutable before-frontier and attempt-owned history only; uncertain restoration or missing required recording is not success and never permits automatic effect replay. The local `ATOM_UPDATE --apply` guard and generic request behavior remain unchanged.
 
-The by-current-value, Property and section contracts state required behavior; previous scalar-index fixtures are historical evidence and do not establish acceptance of this behavior. Subject-only live publication remains deferred until the approved publication concurrency/access design and combined verification admit it. This source revision is neither implementation nor an execution receipt. Resume and retry policy for independent multi-Atom Actions remains deferred.
+### Selected Subject publication access model
+
+For admitted one-target Subject publication, stage and review the exact source-bound change before a short exclusive window over the affected current Carrier, predecessor-history destination and governing authority sources. Reuse the existing sealed source/delta/intent, assessment, permission and Run bindings; review is not effect permission. Staged candidate metadata remain illustrative. Actual Version and Updated At are materialized under the existing effect-time rule, not fixed by candidate review.
+
+During that window, no manual editing, Git operation or synchronization may change the affected sources, history or authority. One shared cooperative Engine publication lock **must** be held from before final complete revalidation through current/history effects, independent readback and any existing Action-local restoration. Recheck the exact admitted frontier after acquiring the lock; unavailable window or lock, stale evidence or failed admission stops before effects. Retain all existing identity, complete-carrier, byte-preservation, ownership, restoration and truthful failure requirements.
+
+This access model cannot protect against writers ignoring the exclusive window or shared lock and does not itself establish crash-atomic multi-Carrier publication or a stronger guarantee. It does not waive an existing safety requirement, add effect permission or introduce retry/recovery policy. Live changed-Subject publication remains blocked until the selected model's actual binding and combined checks are independently accepted; choosing this model or revising sources does not remove the existing guard.
+
+The by-current-value, Property and section contracts state required behavior; previous scalar-index fixtures are historical evidence and do not establish acceptance of this behavior. This source revision is neither implementation nor an execution receipt. Resume and retry policy for independent multi-Atom Actions remains deferred.

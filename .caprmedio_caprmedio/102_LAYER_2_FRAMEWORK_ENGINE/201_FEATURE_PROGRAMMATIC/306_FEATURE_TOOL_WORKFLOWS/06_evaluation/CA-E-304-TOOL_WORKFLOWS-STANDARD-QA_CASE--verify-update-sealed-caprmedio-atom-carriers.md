@@ -11,8 +11,8 @@ status: Active
 subjects:
   governs: "Tool/ATOM_UPDATE"
   depends_on: ["Atom", "Atom/Revision", "Atom/Summary", "Atom/Revision/Updated At", "Update Sealed Atom Carriers", "Artifact/Carrier", "Journal/Record"]
-version: 19
-updated_at: "2026-10-12 23:54:41 +0400"
+version: 20
+updated_at: "2026-10-13 05:22:20 +0400"
 relations:
   evaluation_for: [CA-R-866, CA-O-030, CA-R-1464, CA-R-1415, CA-R-1371]
   relates_to: [CA-O-067, CA-R-1432, CA-R-1788, CA-R-1662]
@@ -75,6 +75,17 @@ For a non-no-op, verify the existing Done Analysis Report binds the Subject-only
 Verify actual canonical O030 start and exact selected execute authorization precede effects; no direct call with an authorization Boolean can write. Require current Version `N+1`, one actual Project-time Updated At within the observed effect interval, exact intended Status/placement/identity/Summary/unrelated-byte preservation, exact predecessor bytes at `N` classified archived by placement, no second predecessor bump/time/status edit, and actual readback hashes bound to the intended hash. Require real prior/change/Run receipts and actual current/history effect references; queue acceptance alone is not completion.
 
 Inject failure after history publication, after current publication and during post-write validation, then prove exact current byte/mode restoration and removal of attempt-owned history while preserving pre-existing history and accepted Journal evidence. Inject failed restoration and verify partial/unknown recovery, retained evidence and no automatic replay. Inject change or terminal recording failure after a real effect; verify visible pending/partial disposition and that recording-only recovery preserves the same event payload without invoking publication again. Repeating the same admitted request never creates another update. Default local Subject preview remains mutation-free, staged preview changes no authoritative source, history or Journal, and standalone `ATOM_UPDATE --apply` remains rejected; none of these cases admits a new MCP route or bulk effect.
+
+### Selected publication access cases
+
+These are required checks of the staged-review and exclusive-window model, not observed passes or permission to remove the live publication guard:
+
+1. Stage and review the exact bound source/delta/intent through existing admission. Reopen source, candidate and intent evidence rather than treating a staging manifest as approval. Preserve illustrative candidate time and governed effect-time materialization; changing only illustrative time does not alter the sealed intent. A no-op remains byte-identical and creates no current/history effect.
+2. Establish the short exclusive window for the exact affected current/history/authority frontier, with no manual editing, Git or synchronization changes to it. Acquire the shared cooperative Engine publication lock before final revalidation. Missing access or lock and drift after review must refuse before effects; existing sealed permission, recorded Action start and complete-carrier checks remain required.
+3. Exercise real cooperative competing Engine publication attempts. Verify the second attempt cannot enter effects while the first holds the same lock. Observe uninterrupted lock ownership through final source/authority/destination checks, current/history effects, independent readback and every invoked existing Action-local restoration, including restoration failure. Releasing before these phases finish fails the Evaluation.
+4. Inject the already required publication and postcondition faults while the lock and window remain in force. Independently compare current/history bytes and modes, preserving pre-existing history and accepted Journal evidence. Retain the existing exact restoration requirements; failed or unverified restoration is partial/unknown, not success. Recording-only recovery must not replay an effect.
+5. Demonstrate the declared limit: a writer ignoring the window or cooperative lock is not excluded by this mechanism. Do not report universal concurrent-writer protection, crash-atomic multi-Carrier publication or an additional safety guarantee from lock acquisition. Observed violated preconditions or uncertain effects retain the existing truthful refusal/failure disposition; this limit does not relax any required safety case.
+6. Recheck existing closed API/admission/recording, local standalone-apply rejection and generic-route regressions. Source authoring or isolated preparation checks cannot establish current runtime acceptance, live Core migration permission, a new retry/recovery framework or unconditional guard removal.
 
 ### Opt-in staged-preview cases
 
