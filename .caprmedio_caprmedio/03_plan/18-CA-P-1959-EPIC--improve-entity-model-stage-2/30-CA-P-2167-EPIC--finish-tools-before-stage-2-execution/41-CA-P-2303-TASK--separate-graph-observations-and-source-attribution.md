@@ -10,12 +10,12 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Backlog
+status: Active
 subjects:
   governs: Tool
   depends_on: [Scope Unit, Projection, Plan, Project Structure]
-version: 1
-updated_at: "2026-10-13 04:51:49 +0400"
+version: 2
+updated_at: "2026-10-13 05:00:38 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2304]
