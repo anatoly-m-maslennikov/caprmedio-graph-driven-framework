@@ -102,7 +102,8 @@ by this project.
 - `.<property>: <value>`: a Property and its allowed value, not assignment.
   Thus `:` qualifies a narrowing step after `/`, or names an allowed value
   after `.`. It is not an independent relation in a classification segment.
-- No `@` relation operator. `@<Version Number>` is filename punctuation only;
+- No `@` relation operator. `@<Version Number>` is Carrier-name punctuation only
+  (Atom filenames and matching folder names);
   it is neither part of an Atom ID nor Subject relation syntax. Delivery
   policies define storage conventions.
 
@@ -238,7 +239,8 @@ does not add a storage schema or require a Carrier node for every field.
 - An Atom may be represented by one folder and one file with different roles:
   the folder organizes children; the file contains its classic content. This
   does not require every Atom to have both.
-- Each Object instance has one representation. A Projection instance is not
+- Each Object instance has one representation, which may span the paired file
+  and folder described above. A Projection instance is not
   another representation of its source instance.
 
 The tree shows available fields, not a new universal mandatory schema. Summary
@@ -286,7 +288,7 @@ it does not remove inherited ones or change their meaning. Define only additions
 at the narrower level, rather than copying parent definitions.
 
 `Atom.Status` allows Active and Archived. Every Atom subtype therefore allows
-both. A Plan subtype can add Backlog or Done without losing Active or Archived.
+both. Plan adds only Backlog, without losing Active or Archived.
 Its effective allowed set is the inherited set plus its own additions. The same
 inheritance rule applies to other Properties and narrower kinds, not only Status.
 An inherited allowed value is not the current assigned value of an instance.
@@ -304,6 +306,25 @@ classifications, not additional Object roots. Other uses of Type, such as
 `Scope Unit.Type` and `Actor.Actor Type`, are unchanged by this Atom decision.
 I remains actual Implementation; this candidate creates no Implementation Atoms
 or `Atom/Content Role: Implementation` subtype.
+
+#### Plan labels, containment and Carriers
+
+There is one Plan Atom model. Task, Subtask, Epic, Superepic, Version and
+Version Group are examples of Labels, not separate Atom kinds. A Plan Atom can
+contain other Atoms, including other Plan Atoms. This can repeat at further levels.
+Do not add a separate Decomposition entity or dependent Property. Rules about
+this containment concern the Plan Atom; its old decomposition rules remain
+content-review work, not a new naming decision.
+
+All Plan Labels share the same Status model: inherited Active and Archived,
+plus Backlog. A Label does not introduce extra Status values.
+
+When a Plan Atom contains Plan Atoms, the parent has two paired Carriers: its
+Atom file and a folder with exactly the file's name before the extension.
+For example, `CA-P-123@2-SCOPE--summary.md` pairs with
+`CA-P-123@2-SCOPE--summary/`. Child Plan Atoms live in that folder. The folder
+organizes the parent Atom's children; it is not another Atom or a second ID.
+This is a candidate Delivery convention; no files or folders are renamed here.
 
 #### History and Projection
 
@@ -372,7 +393,7 @@ storage keys or the `atom_id` selector argument.
 Current non-archived Atom
   Atom.ID = CA-P-123
   Version Number = 4
-  Status = Done
+  Status = Backlog
 
 Archived version 3
   Atom.ID = CA-P-123
@@ -384,7 +405,7 @@ Atom filename for version 4
 
 The bare ID is the stable lineage ID and remains the stored `Atom.ID`. Historical
 references carry that ID and the separate Version Number. `@<Version Number>`
-appears only in Atom filenames. All Atom filenames use the required form
+appears in Atom filenames and their matching folder names. All Atom filenames use the required form
 `AtomID@Version-SCOPE_NAME--summary.md`; `SCOPE_NAME` is the Scope Unit Name,
 not its Label or full path.
 
@@ -392,7 +413,7 @@ Every Summary change, including wording-only edits, creates a new Atom with a
 new ID and archives the previous Atom. A Type change follows the same replacement
 rule. Other ordinary identity-preserving updates increment Version Number by 1
 and archive the older version without incrementing it again. The new non-archived
-version preserves its intended Status (for example, Done or Backlog); it is not
+version preserves its intended Status (for example, Backlog); it is not
 forced to Active.
 
 Across non-archived original authoritative Atom folders together, at most one
