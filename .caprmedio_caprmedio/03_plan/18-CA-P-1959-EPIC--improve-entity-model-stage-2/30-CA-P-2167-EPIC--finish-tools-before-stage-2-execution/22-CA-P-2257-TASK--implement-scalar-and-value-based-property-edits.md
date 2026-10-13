@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 3
-updated_at: "2026-10-13 06:06:15 +0400"
+version: 4
+updated_at: "2026-10-13 23:14:39 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2259, CA-P-2263, CA-P-2264, CA-P-2269, CA-P-2274]
@@ -45,6 +45,10 @@ The initial private mechanics are implemented or in progress; this is not accept
 ### Pure-transform completion checkpoint
 
 CA-P-2298 and its CA-P-2305/2306 children are Done after [independent pure-transform acceptance](../../../_projection/core-entity-review/stage2/tools-first/property-carrier-acceptance.md) at code commit `f4f4c6ce6`: 46 focused Property tests and 162 connector tests pass. This parent remains Active because receiving Workflow, lifecycle metadata/history, publication and independent portfolio/runtime gates are not completed by a pure helper. Its original Objective and Definition of Done remain unchanged.
+
+### Shared Update metadata/history continuation
+
+Continue the existing shared lifecycle_intents Update path through [CA-P-2361 — Fix shared current Atom Update Version and history](22-CA-P-2257-TASK--implement-scalar-and-value-based-property-edits/02-CA-P-2361-TASK--fix-shared-current-atom-update-version-and-history.md) and [CA-P-2362 — Verify shared current Atom Update Version and history](22-CA-P-2257-TASK--implement-scalar-and-value-based-property-edits/03-CA-P-2362-TASK--verify-shared-current-atom-update-version-and-history.md). Each child is bounded to 15 minutes and requires splitting before larger work. Current CA-R-1432 v11 requires Version +1 for every real same-ID update, exact predecessor preservation and unchanged no-op metadata; this continuation fixes and independently checks that shared behavior for admitted identified non-Draft current Atoms, needed by Property and Section integration. Existing authorization, classification and rollback gates remain unchanged. Draft updates/promotion/identity, legacy migration, renderer redesign, public routes and live effects are not authorized; report any Draft/legacy policy contradiction separately. The parent remains Active with its original Objective and Definition of Done, including broader receiving/publication/runtime gates.
 
 ### Definition of Done
 
