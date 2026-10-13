@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 5
-updated_at: "2026-10-13 20:11:07 +0400"
+version: 6
+updated_at: "2026-10-13 20:30:21 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2278]
@@ -52,12 +52,16 @@ The Operator chose caprmedio_project_settings.toml as the canonical Settings fil
 
 - [CA-P-2320 — Align canonical Settings filename](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/done/01-CA-P-2320-TASK--align-canonical-settings-filename.md)
 - [CA-P-2321 — Verify declaration path Project boundaries](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/02-CA-P-2321-TASK--verify-declaration-path-project-boundaries.md)
-- [CA-P-2322 — Bind declaration boundary consumers](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/001_backlog/03-CA-P-2322-TASK--bind-declaration-boundary-consumers.md)
+- [CA-P-2322 — Bind declaration boundary consumers](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/03-CA-P-2322-TASK--bind-declaration-boundary-consumers.md)
 - [CA-P-2323 — Verify Project boundary refusal](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/04-CA-P-2323-TASK--verify-project-boundary-refusal.md)
 
 ### Private boundary implementation checkpoint
 
 P2320 is Done after independent source acceptance and the completed affected FPF review. P2321 and P2323 are Active: implement the existing private shared boundary check and prepare independent fixtures. P2322 waits for the stable helper contract. Exact marker bytes and absence observations prove boundary/currentness only; they are not synthetic logical Settings revision evidence. Settings revision resolution, complete graph readiness and public activation remain separate gates.
+
+### Boundary helper checkpoint
+
+The private P2321 helper passed ten author tests, eight independent tests and separate code review. P2322 is now Active to retain the proof at Selection time and wire actual consumers, including operation-scoped revalidation for long-lived selections without recapturing original pins. P2323 continues actual caller tests. See declaration-boundary-helper-acceptance.md for the bounded checkpoint; no complete caller/runtime acceptance is claimed yet.
 
 ### Definition of Done
 

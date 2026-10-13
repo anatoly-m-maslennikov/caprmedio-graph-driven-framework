@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 3
-updated_at: "2026-10-13 19:01:00 +0400"
+version: 4
+updated_at: "2026-10-13 20:30:21 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2269, CA-P-2276]
@@ -35,7 +35,7 @@ Atom placement and allowed Status changes use their actual semantic lifecycle ad
 The Operator requested continued implementation. Execute through these children; source alignment, discovery, mutation and independent acceptance remain ordered.
 
 - [CA-P-2316 — Align contained Status receiving contracts](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/01-CA-P-2316-TASK--align-contained-status-receiving-contracts.md)
-- [CA-P-2317 — Discover current contained Atom targets](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/001_backlog/02-CA-P-2317-TASK--discover-current-contained-atom-targets.md)
+- [CA-P-2317 — Discover current contained Atom targets](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/02-CA-P-2317-TASK--discover-current-contained-atom-targets.md)
 - [CA-P-2318 — Compose contained Status actions](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/001_backlog/03-CA-P-2318-TASK--compose-contained-status-actions.md)
 - [CA-P-2319 — Verify contained Status cascades](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/001_backlog/04-CA-P-2319-TASK--verify-contained-status-cascades.md)
 
@@ -54,6 +54,10 @@ Adapt CA-R-867/CA-M-187 placement separately from generic carrier move. Enforce 
 Start only after CA-P-2251's actual accepted FPF review and independently accepted applicable current contracts, not a Plan-validation result or historical pins. Bind actual contract/API/code pins and permissions. Require separately accepted applicable Core alignment under CA-P-1970 where rules conflict; no Core/content work is included here. Source authoring or this pending Task grants no runtime/live authority.
 
 Deliver the exact changed or reviewed manifest and focused check results to the independent integration/verification owner. Preserve historical receipts. No database build, new transport, Atom deletion, automatic batch retry/resume or publication-concurrency mechanism is included.
+
+### Discovery continuation
+
+P2317 is Active for the independently admissible read-only contained-target inventory after the accepted receiving rules and ancestor-movement clarification. It must select latest current P/O across all statuses without treating archived ancestry as inherited Status, and must preserve older history. P2318 effects wait for discovery and actual receiving/current-source admission. No cascade mutation is enabled by this continuation.
 
 ### Definition of Done
 
