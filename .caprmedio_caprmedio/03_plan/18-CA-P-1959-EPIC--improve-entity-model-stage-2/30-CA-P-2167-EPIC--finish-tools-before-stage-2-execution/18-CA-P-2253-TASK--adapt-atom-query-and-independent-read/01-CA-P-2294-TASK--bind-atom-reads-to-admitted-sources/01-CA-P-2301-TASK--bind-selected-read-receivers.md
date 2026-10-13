@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Plan]
-version: 1
-updated_at: "2026-10-13 04:40:03 +0400"
+version: 2
+updated_at: "2026-10-13 22:46:01 +0400"
 relations:
   is_decomposition_of: [CA-P-2294]
   blocks: [CA-P-2259]
@@ -29,6 +29,12 @@ Bind selected Read receivers
 Existing selected execution supplies concrete request, source, schema and permission bindings to the implemented Atom and Scope Unit Read/Query adapters.
 
 ## Details
+
+### Bounded receiving decomposition — 2026-10-13 22:46:01 +0400
+
+CA-P-2357 implements only the private O047 Atom Read and O046 Atom Query receiving bindings; CA-P-2358 independently verifies that same bounded outcome. Use the accepted RMEDO and current actual source context, genuine recorded Action/Session, and exact selected source/schema frontier. Implementation is assigned to the publication_checks lane and independent checks to settings_reader_checks. Source-bound acceptance waits for final reviewed pins; independent fixture preparation may proceed while implementation runs. Scope Unit receiving, complete selected-manifest/runtime acceptance and this parent's remaining broader work stay separate. Keep this parent Active.
+
+Each new child has an own-work bound of up to 15 minutes and must be split before exceeding it. Root owns Plans and Git; workers preserve unrelated edits. No new public route, manifest, runtime activation, live Settings change or existing-caller migration is authorized by this decomposition.
 
 Estimated own work: 15 minutes. Split larger work before execution. Reopen the accepted O046/O047/O201/O207/O211/O212 and Delivery contracts. Reuse genuine RunExecutionSession context and ProjectSelection, preserving exact current source pins and complete original-identity frontiers. Do not substitute the unrelated Artifact/Journal Query bindings. Find and Read remain independent; effects are empty.
 

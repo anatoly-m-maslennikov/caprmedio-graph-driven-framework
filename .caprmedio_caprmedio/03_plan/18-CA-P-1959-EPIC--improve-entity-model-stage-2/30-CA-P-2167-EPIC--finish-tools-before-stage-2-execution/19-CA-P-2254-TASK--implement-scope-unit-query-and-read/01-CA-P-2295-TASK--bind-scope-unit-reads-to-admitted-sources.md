@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Workflow, Configuration, Plan]
-version: 2
-updated_at: "2026-10-13 20:49:49 +0400"
+version: 3
+updated_at: "2026-10-13 22:46:01 +0400"
 relations:
   is_decomposition_of: [CA-P-2254]
 ---
@@ -28,6 +28,12 @@ Bind Scope Unit reads to admitted sources
 Bind the pure Scope Unit parser and selectors to the accepted Structure/Settings sources and existing receiving admission. Prove full independent Read, query frontier, missing/ambiguous/stale/denied behavior and zero effects. Reuse current schema authority rather than a guessed partial schema.
 
 ## Details
+
+### Bounded receiving decomposition — 2026-10-13 22:46:01 +0400
+
+CA-P-2359 implements only the private O211 Scope Unit Query receiving binding; CA-P-2360 independently verifies that bounded outcome. Implementation is assigned to the settings_rules lane and independent checks to nested_ops. Reuse the accepted current Structure/Settings declaration schema and actual selected Action/Session/source context. Preserve existing O212 implementation and its separate P2340/P2341 acceptance; these children do not duplicate or complete that Read work. Source-bound acceptance waits for final reviewed pins; independent fixture preparation may proceed while implementation runs. Broader Read/Query parent acceptance and runtime readiness remain separate. Keep this parent Active.
+
+Each new child has an own-work bound of up to 15 minutes and must be split before exceeding it. Root owns Plans and Git; workers preserve unrelated edits. No new public route, manifest, runtime activation, live Settings change or existing-caller migration is authorized by this decomposition.
 
 Estimated own work: 15 minutes. Split larger work into bounded children before execution. Inherit the parent Task's accepted contracts, current-source checks and authority boundaries. Internal helpers are not newly admitted Tools. Keep parsing, reading, writing and CLI responsibilities separate. The integration owner controls Plans and Git; parallel implementation owns disjoint files only.
 

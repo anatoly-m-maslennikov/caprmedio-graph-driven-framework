@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Workflow, Configuration, Plan]
-version: 3
-updated_at: "2026-10-13 22:24:17 +0400"
+version: 4
+updated_at: "2026-10-13 22:57:09 +0400"
 relations:
   is_decomposition_of: [CA-P-2280]
 ---
@@ -27,16 +27,16 @@ Bind complete configuration Read to receiving context
 
 Bind complete Project Structure and Project Settings Read to actual schema/source/permission context. Prove complete source text, structured data and state with no effects. Resolve or explicitly report typed TOML representation gaps; do not silently stringify or claim partial Read as complete.
 
-For remaining Project Settings work, the accepted boundary is a standalone inspection Read of a complete schema-valid document whose history may be unknown. Such a Read does not admit the document for operations requiring verified history. Existing Settings documents, existing callers, Journal and runtime remain unchanged by this work.
+The remaining bounded Settings reader slice is an ordinary file reader: read the supplied file, parse it and validate the admitted Settings schema. It does not scan Journal or report or gate on history/currentness. Existing Settings documents and callers are not changed by this work; broader receiving integration remains separate.
 
 ## Details
 
-### Current continuation checkpoint — 2026-10-13 22:24:17 +0400
+### Current continuation checkpoint — 2026-10-13 22:57:09 +0400
 
-The current Project Structure branch has a private O218 receiver using a genuine recorded Action, exact schema/selection pins, complete supplied Settings validation and native full text/document/state results. Ten author checks, independent receiving tests and all 264 connector tests passed. Evidence is selected-read-receivers-checkpoint.md under the tools-first projection. The remaining new Settings inspection branch is decomposed into three Active Tasks in this Task's matching Directory Carrier: CA-P-2354 aligns its narrowly scoped schema/source authority; CA-P-2355 implements the standalone no-legacy inspection reader returning a typed immutable Settings snapshot and provenance; CA-P-2356 independently verifies that bounded outcome. The latest Operator choice permits schema-valid Read with unknown history and does not confer admission for verified-history operations. These children do not require a generic native TOML text/document result API. Broader complete Project Settings Configuration Read remains open after their acceptance. Historical views, existing-caller migration and runtime activation remain separate. Keep this Task Active and accept the children only against their narrow snapshot/provenance definitions of done.
+The current Project Structure branch has a private O218 receiver using a genuine recorded Action, exact schema/selection pins, complete supplied Settings validation and native full text/document/state results. Ten author checks, independent receiving tests and all 264 connector tests passed. Evidence is selected-read-receivers-checkpoint.md under the tools-first projection. CA-P-2354 aligns only the ordinary file reader's schema/source description; CA-P-2355 implements that standalone reader; CA-P-2356 independently verifies it. The latest Operator decision supersedes the earlier inspection/history model: this reader just reads and validates a file, with no Journal scan, history/currentness output or gate. These children add no receiving or Session route and do not migrate callers or register runtime capability. Broader complete Project Settings Configuration Read remains open after their acceptance. Keep this Task and its children Active until final integration and accept the children only against their ordinary file-reader definitions of done.
 
-Each child has an own-work bound of up to 15 minutes; split any larger responsibility before exceeding that bound. CA-P-2355 uses CA-P-2354's accepted schema/source result; CA-P-2356 verifies the connected implementation after those inputs are ready. Inherit the parent Task's accepted contracts, current-source checks and authority boundaries. Internal helpers are not newly admitted Tools. Keep parsing, reading, writing and CLI responsibilities separate. The integration owner controls Plans and Git; parallel implementation owns disjoint files only.
+Each child has an own-work bound of up to 15 minutes; split any larger responsibility before exceeding that bound. CA-P-2355 uses CA-P-2354's accepted schema/source result; CA-P-2356 verifies the connected implementation after those inputs are ready. Inherit the parent Task's accepted contracts and authority boundaries. Internal helpers are not newly admitted Tools. Keep parsing, reading, writing and CLI responsibilities separate. The integration owner controls Plans and Git; parallel implementation owns disjoint files only.
 
 ### Definition of Done
 
-The Plan is not Done until exact implementation/source pins, focused positive/refusal/no-op checks and an independent review establish this child's bounded outcome. Preparation alone, invented public bindings, source-policy changes, deferred publication or live Core migration do not satisfy it. Parent-wide and runtime completion remain separate.
+The Plan is not Done until exact implementation/source pins, focused positive/refusal/no-op checks and an independent review establish its bounded outcome. The ordinary file reader must read and validate the admitted schema with precise errors and no writes. Its result contains no Journal, history or currentness protocol or admission gate. Preparation alone, invented public bindings, deferred publication or live Core migration do not satisfy broader receiving acceptance. Parent-wide and runtime completion remain separate.

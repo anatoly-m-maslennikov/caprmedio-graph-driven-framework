@@ -13,26 +13,26 @@ assignee: AI Agent
 status: Active
 subjects:
   governs: Tool
-  depends_on: [Atom, Configuration, Workflow, Journal, Plan]
-version: 1
-updated_at: "2026-10-13 22:24:17 +0400"
+  depends_on: [Atom, Configuration, Plan]
+version: 2
+updated_at: "2026-10-13 22:57:09 +0400"
 relations:
   is_decomposition_of: [CA-P-2300]
 ---
 # Summary
 
-Align Settings inspection schema and source
+Align ordinary Settings reader schema and source
 
 ## Objective
 
-Define the complete Project Settings schema and the narrow source bindings consumed by the new standalone inspection reader. Preserve the Operator-approved distinction between schema-valid Read with unknown history and admission for operations requiring verified history.
+Align only the complete Project Settings schema and narrow source description used by an ordinary standalone file reader that reads, parses and validates the supplied file.
 
 ## Details
 
-Own only the new inspection schema and its necessary source alignment/pins. Inspect the selected authority before amendments and keep unrelated policy unchanged. Accept the complete document according to the explicit admitted schema; reject missing, unknown or wrong-typed fields rather than repair, select defaults or trim the document. Do not migrate existing Settings, existing callers, Journal or runtime. Coordinate the accepted schema/source contract with CA-P-2355.
+Own only the necessary ordinary-reader schema/source alignment and pins. Inspect selected authority before amendments and preserve unrelated policy and existing schema constraints. The reader validates admitted fields and reports missing required fields, unknown fields and invalid supplied types accurately. It does not repair content or migrate existing Settings/callers. Remove the superseded inspection/history/currentness model from this reader's contract: no Journal scan, history/currentness output or gate. Coordinate the accepted schema with CA-P-2355.
 
-Estimated own work: up to 15 minutes. Split before exceeding this bound. Root owns Plans and Git. Parallel workers own disjoint files; preserve unrelated changes. This Task does not authorize changes to existing Settings documents, existing callers, Journal or runtime.
+Estimated own work: up to 15 minutes. Split before exceeding this bound. Root owns Plans and Git. Parallel workers own disjoint files; preserve unrelated changes. This Task does not authorize changes to existing Settings documents, existing callers, Journal or runtime. Keep Active until final integration.
 
 ### Definition of Done
 
-Exact schema/source paths, Versions and digests plus focused valid/invalid whole-document cases establish complete coverage. An unknown-history but schema-valid inspection document is admissible for Read; the result must not satisfy a verified-history operation gate. Scope and independent review must establish that this work does not change existing Settings/callers or Journal/runtime, preserving unrelated pre-existing edits. Parent-wide and runtime completion remain separate.
+Exact schema/source paths, Versions and digests plus focused valid/invalid schema cases establish this ordinary reader contract. Independent review confirms that no Journal lookup, history/currentness result or admission gate is required and existing schema constraints remain intact. This work does not change existing Settings/callers or Journal/runtime; preserve unrelated pre-existing edits. Broader receiving, parent-wide and runtime completion remain separate.

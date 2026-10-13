@@ -13,26 +13,26 @@ assignee: AI Agent
 status: Active
 subjects:
   governs: Tool
-  depends_on: [Atom, Configuration, Workflow, Journal, Plan]
-version: 1
-updated_at: "2026-10-13 22:24:17 +0400"
+  depends_on: [Atom, Configuration, Plan]
+version: 2
+updated_at: "2026-10-13 22:57:09 +0400"
 relations:
   is_decomposition_of: [CA-P-2300]
 ---
 # Summary
 
-Implement standalone Settings inspection Read
+Implement ordinary Settings file reader
 
 ## Objective
 
-Implement a standalone no-legacy Project Settings inspection reader using CA-P-2354's accepted complete schema/source bindings. Return the accepted typed immutable Settings snapshot and exact provenance with no effects.
+Implement a standalone no-legacy reader that reads the supplied Settings file, parses it and validates CA-P-2354's accepted schema. Return the accepted typed immutable Settings value and precise validation/read errors.
 
 ## Details
 
-Own only the new standalone inspection path and its focused tests. Preserve exact observed source evidence in the typed immutable snapshot and provenance. Accept schema-valid supplied Settings with unknown history without migrating existing Settings or callers. Unknown logical Revision or currentness must remain explicit; a digest or successful parse does not establish them. Preserve the history distinction and require separate admission for any operation that needs verified history. Do not add a generic native TOML text/document API, a new receiving or Session route, legacy recovery, history inference, publication, Journal writes or runtime changes.
+Own only the ordinary file reader and focused author tests. Reuse existing read/parsing support where it fits and validate the supplied file against the admitted schema. Handle valid minimal and complete configurations, malformed TOML, missing required fields, unsupported legacy/unknown fields, invalid types and unavailable input with accurate results. The reader performs no Journal scan and exposes no history/currentness fields, protocol or gate. Do not require a Session, selected receiving admission, source-history lookup or a new public envelope. Existing Settings and callers are not migrated or rewritten.
 
-Estimated own work: up to 15 minutes. Split before exceeding this bound. Root owns Plans and Git. Parallel workers own disjoint files; preserve unrelated changes. This Task does not authorize changes to existing Settings documents, existing callers, Journal or runtime.
+Estimated own work: up to 15 minutes. Split before exceeding this bound. Root owns Plans and Git. Parallel workers own disjoint files; preserve unrelated changes. This Task does not authorize changes to existing Settings documents, existing callers, Journal or runtime. Keep Active until final integration.
 
 ### Definition of Done
 
-Focused checks prove the accepted complete typed immutable Settings snapshot and exact source provenance, schema/source refusals, stale-state refusal and zero effects. A schema-valid unknown-history document reads successfully; malformed/partial data refuse, and inspection success cannot grant verified-history operation permission. Exact implementation/test evidence and independent review establish this bounded path. Complete Configuration Read receiving integration, parent-wide and runtime completion remain separate.
+Actual focused tests prove ordinary file reading/parsing, accepted typed immutable data, schema-valid results and precise schema/read failures with zero writes. Tests establish that no Journal/history/currentness protocol or gate is invoked or returned. Exact final implementation/source/test evidence and independent review establish this bounded path. Complete Configuration Read receiving integration, parent-wide and runtime completion remain separate.
