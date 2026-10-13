@@ -138,7 +138,7 @@
     "CA-D-471": {
       "version": 5,
       "sha256": "bc4762a7fe3c01b9f8750c31bc98c1e3acba0c4fc4b78b53ff27aebddb9230a3",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL--serialize-explicit-plan-blocking.md",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL--serialize-explicit-plan-blocking.md",
       "required": true,
       "obligations": [
         "plan.blocking",
@@ -177,7 +177,7 @@
     "CA-D-305": {
       "version": 10,
       "sha256": "34745d90e00d208a3874fead3267912663d6c922b2231ee2d6f87684bff64b9f",
-      "source_path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
+      "source_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/07_delivery/CA-D-305-CORE_META_MODEL-CORE--carry-projected-atoms-without-new-identity.md",
       "required": true,
       "obligations": [
         "projection.fidelity"

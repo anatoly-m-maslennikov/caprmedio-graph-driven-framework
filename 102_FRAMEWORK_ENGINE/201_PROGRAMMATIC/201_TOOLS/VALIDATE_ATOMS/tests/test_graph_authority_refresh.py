@@ -5,6 +5,7 @@ from __future__ import annotations
 import copy
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
@@ -15,10 +16,13 @@ TESTS = Path(__file__).resolve().parent
 TOOL = TESTS.parent
 PROJECT = TOOL.parents[3]
 sys.path.insert(0, str(TOOL))
+sys.path.insert(0, str(TOOL.parent))
+
+from project_selection import bind_selection, resolve_project  # noqa: E402
 
 from validate_atoms_workers.graph_authority_refresh import (  # noqa: E402
     APPROVED_GRAPH_AUTHORITY_IDS,
-    CURRENT_SOURCE_ROOTS,
+    _source_roots,
     refresh_entries,
     verify_entries,
 )
@@ -40,22 +44,44 @@ class GraphAuthorityRefreshTests(unittest.TestCase):
         }
 
     def test_authority_roots_are_the_finite_authored_source_roots(self) -> None:
+        selection = resolve_project(PROJECT)
+        owner = next(row["authority_path"] for row in selection.structure["scope_units"]
+                     if row["scope_unit_name"] == "CORE_META_MODEL")
         self.assertEqual(
-            CURRENT_SOURCE_ROOTS,
-            (
-                Path(
-                    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/"
-                    "00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/"
-                    "001_CORE_META_MODEL/04_requirement"
-                ),
-                Path(
-                    ".caprmedio_caprmedio/000_CAPRMEDIO_framework/"
-                    "00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/"
-                    "001_CORE_META_MODEL/07_delivery"
-                ),
-            ),
+            _source_roots(PROJECT),
+            (PROJECT / owner / "04_requirement", PROJECT / owner / "07_delivery"),
         )
-        self.assertFalse(any("_projection" in str(path) for path in CURRENT_SOURCE_ROOTS))
+
+    def test_relocated_declared_owner_and_foreign_selection(self) -> None:
+        temporary = PROJECT / ".caprmedio_tmp" / "tests" / "graph_authority_refresh"
+        temporary.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=temporary) as directory:
+            root = Path(directory)
+            control = root / ".caprmedio_example"
+            owner = control / "declared_core"
+            for role in ("04_requirement", "07_delivery"):
+                (owner / role).mkdir(parents=True)
+            (control / "caprmedio_project_settings.toml").write_text(
+                '[project]\nname = "example"\n[paths]\ncontrol_root = ".caprmedio_example"\n'
+            )
+            structure = control / "project_structure.toml"
+            declaration = (
+                '[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
+                'authority_path = ".caprmedio_example/declared_core"\n'
+            )
+            structure.write_text("schema_version = 1\n" + declaration)
+            selection = resolve_project(root)
+            with bind_selection(selection):
+                self.assertEqual(_source_roots(root),
+                                 (owner / "04_requirement", owner / "07_delivery"))
+                with self.assertRaisesRegex(ValueError, "another root"):
+                    _source_roots(PROJECT)
+            structure.write_text("schema_version = 1\n")
+            with self.assertRaisesRegex(ValueError, "owner is absent or ambiguous"):
+                _source_roots(root)
+            structure.write_text("schema_version = 1\n" + declaration * 2)
+            with self.assertRaisesRegex(ValueError, "unique"):
+                _source_roots(root)
 
     def test_shared_graph_and_registry_pins_are_the_same_canonical_tuples(self) -> None:
         graph_entries = json.loads(GRAPH_AUTHORITY.read_text(encoding="utf-8"))["sources"]
@@ -82,6 +108,7 @@ class GraphAuthorityRefreshTests(unittest.TestCase):
 
     def test_stale_pin_is_refused(self) -> None:
         entries = json.loads(GRAPH_AUTHORITY.read_text(encoding="utf-8"))["sources"]
+        entries = refresh_entries(PROJECT, entries)
         entries["CA-D-268"]["sha256"] = "0" * 64
 
         with self.assertRaisesRegex(ValueError, "graph authority source is stale: CA-D-268"):
