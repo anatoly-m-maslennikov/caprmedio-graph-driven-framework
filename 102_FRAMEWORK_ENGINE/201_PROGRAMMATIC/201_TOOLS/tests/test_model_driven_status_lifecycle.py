@@ -67,12 +67,18 @@ class ModelDrivenStatusLifecycleTest(unittest.TestCase):
         control = self.root / CONTROL
         control.mkdir()
         (control / "caprmedio_project_settings.toml").write_text(
+            '[project]\nname = "caprmedio"\n'
             '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n'
             'journal_root = ".caprmedio_caprmedio/_journal"\n', encoding="utf-8",
         )
         (control / "project_structure.toml").write_text(
+            'schema_version = 1\n\n'
             '[[scope_units]]\nscope_unit_name = "METHODOLOGY_SOURCES"\n'
-            f'authority_path = "{SOURCE.as_posix()}"\n', encoding="utf-8",
+            'parent = "PROJECT"\nscope_unit_type = "Unordered"\n'
+            'scope_unit_label = "METHODOLOGY"\nstructural_level = 1\n'
+            'navigational_order_number = 0\n'
+            f'authority_path = "{SOURCE.as_posix()}"\n'
+            f'delivery_path = "{SOURCE.as_posix()}"\n', encoding="utf-8",
         )
         self.sources: dict[str, Path] = {}
         for atom_id in AUTHORITY_IDS:
