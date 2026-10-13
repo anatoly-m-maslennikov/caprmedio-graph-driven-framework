@@ -7,8 +7,8 @@ subjects:
     - "Entity"
     - "Atom/Revision/Status"
     - "Artifact/Carrier Placement"
-version: 1
-updated_at: "2026-10-03 03:47:16 +0400"
+version: 2
+updated_at: "2026-10-13 04:36:41 +0400"
 claim_target_scope_unit: "CORE_META_MODEL"
 relations:
   child_of:
@@ -31,8 +31,8 @@ accepted Markdown Atom Carrier edits.
 
 ## Claim
 
-**every** accepted edit **to** an Atom Carrier **must** refresh that Atom Revision's `updated_at` **to** the actual Project-time edit instant, including a formatting, lossless serialization, Entity-name, Status, **or** archive-placement edit.
+**every** actual accepted edit **to** an Atom Carrier **must** refresh that Atom Revision's `updated_at` **to** the actual Project-time edit instant, including a formatting, lossless serialization, Entity-name, Status, **or** current-Atom placement edit. an exact no-op **must** retain Updated At. retaining exact predecessor bytes as history **must not** change that predecessor's Updated At.
 
 ## Details
 
-this requirement covers formatting, lossless representation, Entity-name, Status, **and** archive-placement edits. timestamp encoding follows `CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter`.
+changing the current Atom's Status **to** Archived is an actual update governed by CA-R-1432. preserving an earlier Version **in** history is a different operation: copy its exact prior bytes, including Version, Status **and** Updated At, **without** another metadata update. timestamp encoding follows `CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter`.

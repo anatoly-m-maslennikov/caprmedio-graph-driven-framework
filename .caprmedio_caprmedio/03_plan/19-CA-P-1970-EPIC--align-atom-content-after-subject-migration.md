@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 11
-updated_at: "2026-10-12 21:18:53 +0400"
+version: 12
+updated_at: "2026-10-13 04:48:31 +0400"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,13 @@ Align Atom content after Subject migration
 Align Summary, Substance, Substance Scope and Details with the verified Subject model, only after Step 1.
 
 ## Details
+
+### Narrow Tools prerequisite authorized separately
+
+The Operator separately authorized alignment of only two existing rules needed by the rebuilt Tools: every actual same-ID update increments Version by exactly +1 (an exact no-op preserves Version/time), and retained predecessor history preserves its exact old bytes. This permits the directly contradictory Core Requirements, Operations and Evaluation clauses to be aligned, including retiring the obsolete carrier-only Version-preservation exception. It does not authorize Candidate #4 content adoption, Subject migration, Terms work, filename/schema migration or the rest of this Epic. Independent source acceptance and affected review/consumer verification remain required before use.
+
+The deferred gates below continue to apply to all broader content work; this narrow prerequisite is not completion of CA-P-1969 or this Epic.
+
 
 This is the separate retained content Epic, no longer a decomposition of CA-P-1959. It remains Active and deferred. The current Operator request authorizes only staged Subject migration; it does not authorize preparing or applying this Epic's content/consumer changes. Obtain separate execution authority and the relevant Subject/live gates before its future work.
 
@@ -77,4 +84,4 @@ Inherit CA-P-1959's source boundary, confidence threshold and preservation rules
 
 ### Definition of Done
 
-The Plan is **not** Done if work starts before CA-P-1969 passes, affected content/consumer use precedes updated independently verified RMEDO and Tool fixture readiness, content changes lack their required review/authority, meaning or constraints are lost, Scope is confused with ownership, queued content-conflict owners/evidence are hidden or their Subjects-stage exclusion is treated as a completed content repair, or unrelated migrations enter the batches; ordinary-update versus new-Atom lifecycle rules, D/consumer adoption, Applicable Methodology lifecycle or positive and negative checks remain unplanned or unverified; Terms Graph contracts, affected consumers or required acceptance cases remain unaligned or unverified; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if broader content work starts before CA-P-1969 passes, affected content/consumer use precedes updated independently verified RMEDO and Tool fixture readiness, content changes lack their required review/authority, meaning or constraints are lost, Scope is confused with ownership, queued content-conflict owners/evidence are hidden or their Subjects-stage exclusion is treated as a completed content repair, or unrelated migrations enter the batches; ordinary-update versus new-Atom lifecycle rules, D/consumer adoption, Applicable Methodology lifecycle or positive and negative checks remain unplanned or unverified; Terms Graph contracts, affected consumers or required acceptance cases remain unaligned or unverified; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.

@@ -14,8 +14,8 @@ subjects:
     - "Atom/Content Role: Evaluation"
     - "Framework Instance Settings"
     - "Project Settings"
-version: 11
-updated_at: "2026-10-04 16:46:08 +0000"
+version: 12
+updated_at: "2026-10-13 04:46:56 +0400"
 relations: {}
 atom_id: "CA-O-008"
 content_role: "Operations"
@@ -37,7 +37,7 @@ Apply Approved Source Corrections **means** the reusable Action that applies **o
 
 1. **before** mutation, revalidate the actual Operator authorization **and** relevant current source state. authorization **may** be an explicit decision recorded under CA-O-007 **or** an active Operator delegation that covers **every** proposed action, subject **to** CA-R-1551 **and** the calling Workflow's stricter approval requirements. missing, rejected, stale, partial, ambiguous, **or** mismatched authorization blocks mutation.
 2. apply the authorized correction through the owning source's governed change workflow. resulting Claims remain **in** their owning source Atoms; resulting selections remain **in** their owning settings. compilation **and** an approval record do **not** themselves grant source-change authority.
-3. for archival, verify CA-O-006's coverage conditions against live sources, complete prerequisite repairs, **and** preserve the predecessor under CA-O-051: retain its body, Summary, identity, Version, and all metadata except archived Status and archive-time Updated At. apply replacement **or** absorption recording under CA-R-807 **when** applicable; a withdrawn obsolete Claim does **not** require an invented successor.
+3. for archival, verify CA-O-006's coverage conditions against live sources, complete prerequisite repairs, **and** preserve the predecessor under CA-O-051: retain its exact prior Revision bytes as history **without** changing prior Version, Status **or** Updated At; retain the current predecessor's body, Summary, identity **and** all metadata except Version, archived Status **and** archive-time Updated At, incrementing Version by exactly **`1`** for that actual update. apply replacement **or** absorption recording under CA-R-807 **when** applicable; a withdrawn obsolete Claim does **not** require an invented successor.
 4. record actual execution, changes, failures, **and** partial effects **in** the Journal. report the resulting source frontier **or** exact failure; a Journal record describes those effects **without** replacing current source authority.
 5. return changed sources for renewed selection, conflict assessment, Principle alignment, **and** affected coverage checks. do **not** report completion **until** required checks confirm no remaining conflict **or** coverage gap **in** the affected authority.
 
