@@ -18,7 +18,7 @@ from pathlib import Path
 from connector_contract import ERROR_CODES, validate_request
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import open_regular, protected
 from workflow_run_support import (
-    RunTracker, SelectedRunError, _canonical_digest, _common_bytes, _proposal, _validate_common,
+    RunExecutionSession, RunTracker, SelectedRunError, _canonical_digest, _common_bytes, _proposal, _validate_common,
 )
 
 
@@ -149,6 +149,87 @@ class SelectedOperationAdmission:
             if isinstance(error, ConnectorBindingError):
                 raise
             raise ConnectorBindingError("backend_failure", "Receiving binding could not be resolved.", "context") from error
+
+
+class _StartedActionAdmission(SelectedOperationAdmission):
+    """Retain the actual Session/start behind the existing logical admission."""
+
+    def __init__(self, session, action_run_id, *, root, action_definition, action_atom_id, action_version, map_request):
+        if not isinstance(session, RunExecutionSession) or not isinstance(session.tracker, RunTracker):
+            raise ConnectorBindingError("permission_denied", "Actual selected execution Session is required.", "authorization")
+        if not callable(map_request):
+            raise ConnectorBindingError("input_invalid", "Receiving request/context mapping is unavailable.", "context")
+        if (not isinstance(action_run_id, str) or not action_run_id or not isinstance(action_definition, FileSource)
+                or action_definition.sha256 is None or not isinstance(action_atom_id, str) or not action_atom_id
+                or type(action_version) is not int or action_version < 1):
+            raise ConnectorBindingError("input_invalid", "Exact Action definition and actual Run are required.", "context")
+        self._session, self._action_run_id = session, action_run_id
+        self._root, self._definition_source = Path(root).resolve(strict=True), action_definition
+        self._definition = {"atom_id": action_atom_id, "version": action_version,
+                            "path": action_definition.relative_path.as_posix(), "digest": action_definition.sha256}
+        super().__init__(session.tracker, session.request, map_request=map_request)
+
+    def _check_started_action(self) -> None:
+        session = self._session
+        if Path(session.tracker.root).resolve() != self._root or self._definition_source.root != self._root:
+            raise ConnectorBindingError("permission_denied", "Action Session belongs to a different Project.", "context")
+        if _canonical_digest(session.request) != _canonical_digest(self._outer_request):
+            raise ConnectorBindingError("permission_denied", "Session request changed after binding.", "context")
+        requested_id, actual = session._actual_by_id(self._action_run_id)
+        declared = next((item for item in self._outer_request.get("requested_runs", [])
+                         if item.get("requested_run_id") == requested_id), None)
+        if (actual.get("kind") != "action" or actual.get("definition") != self._definition
+                or declared is None or declared.get("kind") != "action" or declared.get("definition") != self._definition
+                or requested_id in session.terminal or requested_id in session.interrupted or session.pending):
+            raise ConnectorBindingError("permission_denied", "Required Action is not an actual nonterminal started Run.", "context")
+        self._definition_source.revalidate()
+        session.read_recorded_action_start(self._action_run_id)
+        event = session._reopen_started_event(session._started_receipts[requested_id])
+        if (event.get("action_id") != self._outer_request.get("assigned_action_id")
+                or event.get("llm_session", {}).get("uuid") != self._outer_request.get("request_id")
+                or event.get("initiative") != self._outer_request.get("initiative")):
+            raise ConnectorBindingError("permission_denied", "Action start belongs to another selected request.", "context")
+
+    def check(self, request: dict) -> None:
+        try:
+            self._check_started_action()
+            super().check(request)
+            self._check_started_action()
+        except SelectedRunError as error:
+            raise ConnectorBindingError("permission_denied", "Actual Action start evidence is unresolved.", "context") from error
+        except (KeyError, TypeError, ValueError, OSError) as error:
+            if isinstance(error, ConnectorBindingError):
+                raise
+            raise ConnectorBindingError("backend_failure", "Action Session binding could not be resolved.", "context") from error
+
+
+def admission_for_started_action(
+    session: RunExecutionSession, action_run_id: str, *, root: Path, action_definition: FileSource,
+    action_atom_id: str, action_version: int, map_request: Callable[[dict], tuple[dict, object]],
+) -> tuple[SelectedOperationAdmission, dict]:
+    """Derive a receiver's logical request from sealed, already-started execution.
+
+    Source/schema selection and the independent context-reference mapping stay
+    receiver-owned. This helper neither starts a Run nor appends Journal data.
+    """
+    try:
+        admission = _StartedActionAdmission(
+            session, action_run_id, root=root, action_definition=action_definition,
+            action_atom_id=action_atom_id, action_version=action_version, map_request=map_request,
+        )
+        outer = _validate_common(admission._outer_request)
+        mapped = map_request(copy.deepcopy(outer))
+        if not isinstance(mapped, tuple) or len(mapped) != 2 or not isinstance(mapped[0], dict):
+            raise ConnectorBindingError("input_invalid", "Receiving request/context mapping is invalid.", "context")
+        request = copy.deepcopy(mapped[0])
+        admission.check(request)
+        return admission, request
+    except SelectedRunError as error:
+        raise ConnectorBindingError("permission_denied", "Session request is not admitted.", "authorization") from error
+    except (KeyError, TypeError, ValueError, OSError) as error:
+        if isinstance(error, ConnectorBindingError):
+            raise
+        raise ConnectorBindingError("backend_failure", "Receiving Session parameters could not be resolved.", "context") from error
 
 
 class ConnectorBindings:
