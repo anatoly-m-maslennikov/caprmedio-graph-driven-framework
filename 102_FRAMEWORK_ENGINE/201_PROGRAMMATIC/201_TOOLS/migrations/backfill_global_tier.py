@@ -118,6 +118,21 @@ def build_plan(request: dict[str, Any], request_path: Path, raw: bytes) -> dict[
 def apply_plan(plan: dict[str, Any]) -> dict[str, Any]:
     if plan.get("kind") != KIND or plan.get("schema_version") != 1:
         raise safe.MigrationError("Unsupported Global Tier migration plan.")
+    root = safe._absolute(plan["property_plan"]["source_root"])
+    result = None
+    try:
+        with safe._publication_lock(root):
+            result = _apply_plan(plan)
+    except safe.EnginePublicationLockError as error:
+        if result is None:
+            raise
+        raise safe._lock_exit_failure(error, result) from error
+    return result
+
+
+def _apply_plan(plan: dict[str, Any]) -> dict[str, Any]:
+    if plan.get("kind") != KIND or plan.get("schema_version") != 1:
+        raise safe.MigrationError("Unsupported Global Tier migration plan.")
     raw, request = safe._json_read(safe._absolute(plan["request_path"]))
     if safe._digest(raw) != plan["request_sha256"] or request["scope_context"] != plan["scope_context"]:
         raise safe.MigrationError("Migration scope context changed after preview.")
@@ -153,7 +168,7 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(result["counts"]))
         return 2 if result["counts"].get("blockers") else 0
     except (ValueError, OSError, KeyError, TypeError, AttributeError, yaml.YAMLError) as error:
-        print(json.dumps({"error": str(error), "kind": KIND}), file=sys.stderr)
+        print(json.dumps(safe._error_record(error, KIND)), file=sys.stderr)
         return 2
 
 

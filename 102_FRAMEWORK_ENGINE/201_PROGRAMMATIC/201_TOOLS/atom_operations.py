@@ -12,11 +12,13 @@ import sys
 import tomllib
 import uuid
 from dataclasses import dataclass, replace
+from functools import wraps
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from project_runtime import atomic_tempfile
 from project_selection import bound_selection
+from engine_publication_lock import EnginePublicationLockError, engine_publication_lock
 from artifact_metadata import current_timestamp
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
     ProposedCarrierError,
@@ -42,6 +44,49 @@ class ToolError(RuntimeError):
         self.message = message
         self.details = dict(details or {})
         super().__init__(message)
+
+
+def _locked_apply(operation):
+    @wraps(operation)
+    def call(root, args):
+        if not getattr(args, "apply", False):
+            return operation(root, args)
+        entered = False
+        result = None
+        try:
+            with engine_publication_lock(root):
+                entered = True
+                result = operation(root, args)
+        except EnginePublicationLockError as error:
+            if not entered:
+                raise ToolError(error.code, str(error)) from error
+            if result is None:
+                raise
+            raise ToolError(error.code, "Publication lock exit is uncertain; inspect effects before any replay.",
+                            {"observed_result": result, "verification": "unknown", "automatic_retry": False}) from error
+        return result
+    return call
+
+
+def _locked_revision(operation):
+    @wraps(operation)
+    def call(root, *args, **kwargs):
+        entered = returned = False
+        result = None
+        try:
+            with engine_publication_lock(root):
+                entered = True
+                result = operation(root, *args, **kwargs)
+                returned = True
+        except EnginePublicationLockError as error:
+            if not entered:
+                raise ToolError(error.code, str(error)) from error
+            if not returned:
+                raise
+            raise ToolError(error.code, "Publication lock exit is uncertain; inspect the returned write observation.",
+                            {"publication_fingerprint": result, "verification": "unknown", "automatic_retry": False}) from error
+        return result
+    return call
 
 
 @dataclass(frozen=True)
@@ -493,6 +538,7 @@ def read_raw_atom_revision(root: Path, path: Path) -> tuple[bytes, tuple[int, ..
         os.close(parent)
 
 
+@_locked_revision
 def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
                             expected: tuple[int, ...] | None, mode: int) -> tuple[int, ...] | None:
     """Prototype raw publication; final compare-to-replace/remove is not concurrency-safe."""
@@ -883,6 +929,7 @@ def run_read(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     return {"count": len(atoms), "atoms": [present(atom, args.view) for atom in atoms]}
 
 
+@_locked_apply
 def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
     plans: list[tuple[Path, bytes]] = []
@@ -931,6 +978,7 @@ def run_create(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     return result
 
 
+@_locked_apply
 def run_update(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
     staging = getattr(args, "stage_preview", False)
@@ -1023,6 +1071,7 @@ def _execute_move_plans(
     return result
 
 
+@_locked_apply
 def run_move(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
     atoms = resolve_selectors(root, args.atom) if args.atom else []
@@ -1051,6 +1100,7 @@ def run_move(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     return _execute_move_plans(root, plans, operation="move", apply=args.apply)
 
 
+@_locked_apply
 def run_archive(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
     atoms = resolve_selectors(root, args.atom)
@@ -1068,6 +1118,7 @@ def run_archive(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     return _execute_move_plans(root, plans, operation="archive", apply=args.apply)
 
 
+@_locked_apply
 def run_promote(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
     raw_items = _items(_load_payload(args.input))
@@ -1258,6 +1309,7 @@ def _is_same_or_ancestor(rows: Mapping[str, Mapping[str, Any]], current: str, ta
         cursor = parent
 
 
+@_locked_apply
 def run_upgrade(root: Path, args: argparse.Namespace) -> dict[str, Any]:
     root = root.resolve()
     raw_items = _items(_load_payload(args.input))

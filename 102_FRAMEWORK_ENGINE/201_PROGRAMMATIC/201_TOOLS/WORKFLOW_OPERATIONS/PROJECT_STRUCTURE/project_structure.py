@@ -10,6 +10,7 @@ preview/authorization checks.  Each Action here accepts only the route-owned
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import wraps
 import hashlib
 import json
 import os
@@ -21,6 +22,7 @@ from typing import Any, Callable, Iterable, Mapping
 
 from atom_operations import ToolError as AtomToolError
 from atom_operations import frontmatter_scalar
+from engine_publication_lock import EnginePublicationLockError, engine_publication_lock
 
 
 CONTROL_ROOT = ".caprmedio_caprmedio"
@@ -66,6 +68,34 @@ SECRET_CONTENT = re.compile(
 
 class StructuralConflict(ValueError):
     """A domain proposal is not a valid authoritative structural change."""
+
+
+def _locked_structure(action):
+    @wraps(action)
+    def call(project_root, *args, **kwargs):
+        entered = False
+        result = None
+        try:
+            with engine_publication_lock(project_root):
+                entered = True
+                result = action(project_root, *args, **kwargs)
+        except EnginePublicationLockError as error:
+            if not entered:
+                if action.__name__ == "rollback_scope_unit_change":
+                    return {"state": "conflict", "operation": "Rollback",
+                            "validation_errors": [str(error)], "actual_effects": []}
+                parameters = args[0] if args else kwargs.get("parameters")
+                operation = str(parameters.get("operation", "unknown")) if isinstance(parameters, Mapping) else "unknown"
+                return _result(state="conflict", operation=operation, pre_revision=None,
+                               post_revision=None, errors=[str(error)])
+            if result is None:
+                raise
+            return {**result, "state": "partial", "validation_errors": [
+                *result.get("validation_errors", []),
+                f"Publication lock exit verification is unknown; inspect retained effects; no automatic replay: {error}",
+            ]}
+        return result
+    return call
 
 
 @dataclass(frozen=True)
@@ -922,6 +952,7 @@ def _observed_coverage(
     }
 
 
+@_locked_structure
 def apply_scope_unit_action(
     project_root: Path | str,
     parameters: Mapping[str, Any],
@@ -1032,6 +1063,7 @@ def _effect(change: SourceChange) -> dict[str, str]:
     return {"path": change.relative_path, "before_sha256": change.before_sha256, "after_sha256": change.after_sha256}
 
 
+@_locked_structure
 def rollback_scope_unit_change(project_root: Path | str, recovery_boundary: Mapping[str, Any]) -> dict[str, Any]:
     """Restore only an exact, still-current partial cutover boundary."""
     root = Path(project_root).resolve()

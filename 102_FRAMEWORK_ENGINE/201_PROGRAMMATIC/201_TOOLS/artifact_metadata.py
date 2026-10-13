@@ -15,7 +15,9 @@ metadata, preserves YAML or TOML frontmatter syntax, and writes atomically.
 from __future__ import annotations
 
 import argparse
+from contextlib import nullcontext
 import datetime as dt
+import hashlib
 import os
 import re
 import tomllib
@@ -24,6 +26,7 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from project_runtime import atomic_tempfile
 from project_selection import bound_selection
+from engine_publication_lock import EnginePublicationLockError, engine_publication_lock
 from collections.abc import Mapping
 
 
@@ -218,18 +221,34 @@ def main() -> int:
     args = parse_args()
     path = args.path.resolve()
     root = repository_root(path)
-    delimiter, frontmatter, body = split_frontmatter(path.read_text(encoding="utf-8"), path)
-    timestamp = current_timestamp(root)
-    if args.kind == "atom":
-        revised_frontmatter = update_atom(frontmatter, delimiter, timestamp, args.new)
-    else:
-        if args.new:
-            raise RuntimeError("--new applies only to Atoms")
-        revised_frontmatter = update_projection(frontmatter, delimiter, timestamp)
-    revised = f"{delimiter}\n{revised_frontmatter}\n{delimiter}\n{body}"
-    print(f"path={path.relative_to(root)} kind={args.kind} updated_at={timestamp} apply={args.apply}")
-    if args.apply:
-        atomic_write(path, revised)
+    entered = returned = False
+    effect = None
+    try:
+        with engine_publication_lock(root) if args.apply else nullcontext():
+            entered = True
+            delimiter, frontmatter, body = split_frontmatter(path.read_text(encoding="utf-8"), path)
+            timestamp = current_timestamp(root)
+            if args.kind == "atom":
+                revised_frontmatter = update_atom(frontmatter, delimiter, timestamp, args.new)
+            else:
+                if args.new:
+                    raise RuntimeError("--new applies only to Atoms")
+                revised_frontmatter = update_projection(frontmatter, delimiter, timestamp)
+            revised = f"{delimiter}\n{revised_frontmatter}\n{delimiter}\n{body}"
+            print(f"path={path.relative_to(root)} kind={args.kind} updated_at={timestamp} apply={args.apply}")
+            if args.apply:
+                atomic_write(path, revised)
+                effect = {"path": path.relative_to(root).as_posix(), "write_returned": True,
+                          "proposed_sha256": hashlib.sha256(revised.encode("utf-8")).hexdigest()}
+            returned = True
+    except EnginePublicationLockError as error:
+        if entered and not returned:
+            raise
+        failure = RuntimeError(str(error) if not entered else
+                               f"Publication lock exit verification is unknown; inspect {effect}; no automatic replay: {error}")
+        if entered:
+            failure.details = {"observed_result": effect, "verification": "unknown", "automatic_retry": False}
+        raise failure from error
     return 0
 
 

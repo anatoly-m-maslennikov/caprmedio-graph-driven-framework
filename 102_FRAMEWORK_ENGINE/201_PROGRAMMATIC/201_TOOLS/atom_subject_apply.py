@@ -11,6 +11,10 @@ from typing import Any
 
 import atom_operations as operations
 from artifact_metadata import current_timestamp
+from subject_publication_authorization import (
+    SubjectPublicationAuthorizationError, require_subject_publication_window,
+    revalidate_subject_publication_authority, with_subject_publication_window,
+)
 
 
 def _fail(code: str, message: str) -> None:
@@ -210,6 +214,7 @@ def _gate(root: Path, request: Mapping[str, Any], intent: Mapping[str, Any], *,
         raise LifecycleError("subject-execution-unadmitted", "Subject selected execution evidence cannot be revalidated") from error
 
 
+@with_subject_publication_window
 def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute: bool = False,
                           authorized: bool = False, assessment: Mapping[str, Any] | None = None,
                           session: object | None = None, action_run_id: str | None = None,
@@ -255,8 +260,11 @@ def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute:
         if assessment is None:
             _fail("assessment-invalid", "Subject execution requires completed O145 assessment")
         _gate(root, request, intent, authorized=authorized, session=session, action_run_id=action_run_id, prior=prior, assessment=assessment)
-        # shortcut: compare-to-replace/unlink races remain; require approved publication design and combined verification before enabling.
-        _fail("subject-publication-deferred", "Subject-only live publication is deferred; current and history are unchanged")
+        try:
+            require_subject_publication_window(root, request, intent)
+        except SubjectPublicationAuthorizationError as error:
+            _fail(error.code, str(error))
+        # shortcut: cooperative lock/window excludes participants, not outside writers or abrupt interruption.
         actual_at = current_timestamp(root)
         materialized = materialize_subject_intent(root, prepared, actual_at)
         archive = intent["predecessorArchive"]
@@ -287,6 +295,11 @@ def subject_update_action(root: Path, parameters: Mapping[str, Any], *, execute:
             actual_raw, actual_fingerprint = operations.read_raw_atom_revision(root, path)
             if actual_raw != after_raw or actual_fingerprint != current_owner:
                 _fail("subject-publication-unconfirmed", "Subject current revision readback differs")
+            actual = _atom(root, after, actual_raw)
+            operations._validate_complete_carrier(root, path, actual.frontmatter, actual.content, creating=False)
+            _gate(root, request, intent, authorized=authorized, session=session, action_run_id=action_run_id,
+                  prior=prior, assessment=assessment)
+            revalidate_subject_publication_authority(root, request, intent)
             return {**base, "outcome": "applied", "observed": after,
                     "materialization": materialized["materialization"],
                     "effects": [{"state": "changed", "carrier": after}, {"state": "changed", "carrier": archived}],

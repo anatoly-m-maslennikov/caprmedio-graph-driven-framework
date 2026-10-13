@@ -21,6 +21,14 @@ from yaml.events import SequenceEndEvent, SequenceStartEvent
 from yaml.nodes import MappingNode, Node, ScalarNode, SequenceNode
 
 
+TOOLS_ROOT = Path(__file__).resolve().parents[1]
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
+
+from engine_publication_lock import EnginePublicationLockError, engine_publication_lock
+from project_runtime import TemporaryBoundaryError, repository_root
+
+
 RETIRED_PROPERTIES = frozenset({"cce_form", "cce_version", "llm_session_ids"})
 PLAN_KIND = "remove_retired_atom_properties"
 EXCLUDED_PARTS = frozenset({"history", "archive", "archives", "archived", "draft", "drafts",
@@ -33,6 +41,37 @@ SAFE_TAGS = frozenset("tag:yaml.org,2002:" + name for name in (
 
 class MigrationError(ValueError):
     """Unsafe, stale, or unsupported input; no guessed transformation."""
+
+
+@contextmanager
+def _publication_lock(source_root: Path):
+    try:
+        project_root = repository_root(source_root)
+    except TemporaryBoundaryError as error:
+        raise MigrationError(str(error)) from error
+    entered = False
+    try:
+        with engine_publication_lock(project_root):
+            entered = True
+            yield
+    except EnginePublicationLockError as error:
+        if entered:
+            raise
+        raise MigrationError(str(error)) from error
+
+
+def _lock_exit_failure(error: EnginePublicationLockError, result: dict[str, Any]) -> MigrationError:
+    failure = MigrationError(f"Publication lock exit verification is unknown; inspect retained effects; no automatic replay: {error}")
+    failure.observed_result = result
+    return failure
+
+
+def _error_record(error: BaseException, kind: str) -> dict[str, Any]:
+    record = {"error": str(error), "kind": kind}
+    if hasattr(error, "observed_result"):
+        record.update(outcome="partial", verification="unknown", automatic_retry=False,
+                      observed_result=error.observed_result)
+    return record
 
 
 def _digest(raw: bytes) -> str:
@@ -462,6 +501,18 @@ def _apply_change(change: dict[str, Any]) -> bool:
 
 
 def apply_plan(plan: dict[str, Any], root: Path) -> dict[str, Any]:
+    result = None
+    try:
+        with _publication_lock(root):
+            result = _apply_plan(plan, root)
+    except EnginePublicationLockError as error:
+        if result is None:
+            raise
+        raise _lock_exit_failure(error, result) from error
+    return result
+
+
+def _apply_plan(plan: dict[str, Any], root: Path) -> dict[str, Any]:
     changes = _plan_changes(plan, root)
     completed = _preflight(plan, root, changes)
     applied = []
@@ -549,7 +600,7 @@ def main(argv: list[str] | None = None) -> int:
         _output(args.output, result)
         return 2 if result.get("blockers") else 0
     except (MigrationError, OSError, ValueError, KeyError, TypeError, AttributeError) as error:
-        print(json.dumps({"error": str(error), "kind": PLAN_KIND}), file=sys.stderr)
+        print(json.dumps(_error_record(error, PLAN_KIND)), file=sys.stderr)
         return 2
 
 

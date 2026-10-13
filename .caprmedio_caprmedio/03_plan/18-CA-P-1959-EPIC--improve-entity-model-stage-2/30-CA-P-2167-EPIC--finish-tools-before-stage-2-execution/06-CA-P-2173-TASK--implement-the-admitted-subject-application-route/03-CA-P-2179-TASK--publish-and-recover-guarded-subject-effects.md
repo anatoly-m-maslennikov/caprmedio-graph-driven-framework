@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Revision, Journal, Plan]
-version: 5
-updated_at: "2026-10-13 14:30:29 +0400"
+version: 6
+updated_at: "2026-10-13 15:00:47 +0400"
 relations:
   is_decomposition_of: [CA-P-2173]
   blocks: [CA-P-2180, CA-P-2182]
@@ -29,6 +29,12 @@ Publish and recover guarded Subject effects
 Publish one contract-approved Subject effect with exact prior history and truthful bounded failure/recovery.
 
 ## Details
+
+### Local implementation checkpoint — 2026-10-13
+
+The approved Option 1 publication and private exact-change confirmation are implemented and independently reviewed. The public request is unchanged. Shared locking covers the selected Action and declared cooperating Engine writers. Final scoped verification passed 192 distinct checks, including real selected-route execution, caught restoration, interruption evidence, no replay, contention and truthful lock-error outcomes. [Exact evidence and limits](../../../../_projection/core-entity-review/stage2/tools-first/subject-publication-option-1-implementation-acceptance.md).
+
+This is local implementation acceptance only. The installed trusted-host confirmation provider and runtime activation remain unconfigured; ordinary changed-Subject execution still refuses without actual confirmation. Six older composition tests remain blocked by pre-existing stale fixture pins. No live Core migration or full tools-Epic completion is claimed. This Plan remains Active for the remaining route/runtime gates. This checkpoint supersedes historical unconditional-prototype-deferral descriptions below, not their historical evidence.
 
 ### Approved failure handling and authorization binding
 

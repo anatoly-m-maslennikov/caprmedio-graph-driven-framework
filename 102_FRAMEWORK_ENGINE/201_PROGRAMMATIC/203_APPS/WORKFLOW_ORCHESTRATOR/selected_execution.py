@@ -3240,6 +3240,16 @@ class SelectedExecution:
                 or terminal.get("effect_refs") != effects):
             raise SelectedExecutionError("canonical Release final differs from its saved graph result")
 
+    def _dispatch_confirmed_subject(self, frozen: Mapping[str, Any], confirmation: object) -> dict[str, Any]:
+        """Trusted host only; serializable selected routes cannot mint confirmation."""
+        from subject_publication_authorization import bind_subject_publication_confirmation
+
+        execution = frozen.get("request", {}).get("execution", {})
+        if execution.get("operation_route") != "update_atom" or "subject_patches" not in execution.get("parameters", {}):
+            raise SelectedExecutionError("confirmed Subject dispatch requires the exact Subject route")
+        with bind_subject_publication_confirmation(confirmation):
+            return self.dispatch(frozen)
+
     def dispatch(self, frozen: Mapping[str, Any], *, run_support: Callable[[Path, dict[str, Any], Callable[[Any], dict[str, Any]]], Mapping[str, Any]] | None = None) -> dict[str, Any]:
         request = frozen.get("request") if isinstance(frozen, Mapping) else None
         if not isinstance(request, Mapping) or not isinstance(request.get("run_id"), str):

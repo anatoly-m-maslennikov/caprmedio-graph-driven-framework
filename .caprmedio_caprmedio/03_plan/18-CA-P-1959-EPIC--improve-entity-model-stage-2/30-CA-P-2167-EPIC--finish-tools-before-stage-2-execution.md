@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Subject, Projection, Plan, Journal, Operator]
-version: 26
-updated_at: "2026-10-13 14:30:29 +0400"
+version: 27
+updated_at: "2026-10-13 15:00:47 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1968, CA-P-1969, CA-P-1909, CA-P-1910, CA-P-1911, CA-P-1912]
@@ -149,6 +149,12 @@ The Operator separately authorized only the two Core Version/history rules and d
 CA-P-2270/2272 are Active with bounded independently reviewed implementation. A missing current CA-D-572 is a source-authority gap, not a digest refresh opportunity. The graph's legacy folder-derived Scope topology is a separate existing R1070/M149/E295 defect; CA-P-2302–2304 repair it in bounded portions without source/Subject migration or graph publication. Concrete Atom/Scope receiving mapping remains missing under CA-P-2301; generic callbacks and source-only descriptors do not complete it.
 
 ### Decomposing Plans
+
+### Local implementation checkpoint — 2026-10-13
+
+The approved Option 1 publication and private exact-change confirmation are implemented and independently reviewed. The public request is unchanged. Shared locking covers the selected Action and declared cooperating Engine writers. Final scoped verification passed 192 distinct checks, including real selected-route execution, caught restoration, interruption evidence, no replay, contention and truthful lock-error outcomes. [Exact evidence and limits](../../_projection/core-entity-review/stage2/tools-first/subject-publication-option-1-implementation-acceptance.md).
+
+This is local implementation acceptance only. The installed trusted-host confirmation provider and runtime activation remain unconfigured; ordinary changed-Subject execution still refuses without actual confirmation. Six older composition tests remain blocked by pre-existing stale fixture pins. No live Core migration or full tools-Epic completion is claimed. This Plan remains Active for the remaining route/runtime gates. This checkpoint supersedes historical unconditional-prototype-deferral descriptions below, not their historical evidence.
 
 ### Approved failure handling and authorization binding
 

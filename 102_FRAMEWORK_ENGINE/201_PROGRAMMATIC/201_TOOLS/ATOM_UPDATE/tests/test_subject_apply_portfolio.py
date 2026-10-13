@@ -23,53 +23,100 @@ import atom_operations as operations  # noqa: E402
 import atom_subject_apply as native  # noqa: E402
 import atom_subject_patch as subject_patch  # noqa: E402
 from lifecycle_intents import LifecycleError, carrier_descriptor, update_assessment_seal  # noqa: E402
-from selected_workflows_docker_fixture import GoldenCase, GoldenProject, digest  # noqa: E402
+from selected_workflows_docker_fixture import GoldenCase, GoldenProject, MANIFEST_REF, digest  # noqa: E402
 from subject_notation import get_profile  # noqa: E402
 
 
 TEST_TEMP_ROOT = REPOSITORY / ".caprmedio_tmp/tests/test_subject_apply_portfolio"
 TEST_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-O030_V7_SHA256 = "c2d70fa275a075d2fbc978cab246158cfd8413cec88716521336736d0bf060cc"
+CORE_OPERATIONS = ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/001_CORE_META_MODEL/09_operations/"
+TOOL_WORKFLOWS = ".caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/306_FEATURE_TOOL_WORKFLOWS/"
+CURRENT_W02_PINS = {
+    "CA-O-067": (CORE_OPERATIONS + "CA-O-067-CORE_META_MODEL-ACTION--assess-atom-update-identity.md", 7,
+                 "5c2098027094df1837b3b48b112a56866e3bee927699a58156e51b53925e998d"),
+    "CA-O-127": (CORE_OPERATIONS + "CA-O-127-CORE_META_MODEL-WORKFLOW--manage-atom-lifecycle.md", 3,
+                 "6daf77356ac8bac44e252a546aa1e34a7c02558dc1aa4e6b428cb0b15283fd67"),
+    "CA-O-128": (CORE_OPERATIONS + "CA-O-128-CORE_META_MODEL-ACTION--apply-authorized-atom-lifecycle-changes.md", 5,
+                 "bb7973711e651b21805b47148078c77329789cbe0651ccd7f396c5cfaa3516c4"),
+    "CA-O-129": (CORE_OPERATIONS + "CA-O-129-CORE_META_MODEL-STEP--apply-an-admitted-atom-lifecycle-change.md", 3,
+                 "e3e7917b1b7f76b60f87259ab1e6d6e6270fd3d31985a873d65b0d2b76501758"),
+    "CA-O-145": (CORE_OPERATIONS + "CA-O-145-CORE_META_MODEL-STEP--assess-update-identity-for-atom-lifecycle.md", 2,
+                 "e1da6f807f965d94bb2f6b829767fb23d34ea6dc600408f78408378caf208f89"),
+}
+PUBLICATION_PINS = {
+    "CA-R-866": (TOOL_WORKFLOWS + "04_requirement/CA-R-866-TOOL_WORKFLOWS-STANDARD-REQUIREMENT--update-caprmedio-markdown-atoms.md", 22,
+                 "23389a042e3b5553f73d806ab0455ab38c930f74fca32ba41c34efcf9f47d0f9"),
+    "CA-M-371": (TOOL_WORKFLOWS + "05_method/CA-M-371-TOOL_WORKFLOWS-STANDARD-METHOD--preview-exact-subject-patches.md", 10,
+                 "b102780741f9701d7095f1adeb2368b05eb6230eb20b1316829613cbcbef6774"),
+    "CA-E-304": (TOOL_WORKFLOWS + "06_evaluation/CA-E-304-TOOL_WORKFLOWS-STANDARD-QA_CASE--verify-update-sealed-caprmedio-atom-carriers.md", 21,
+                 "f77b56c343e7ad2f6d6e1b765da10ce5a0c92ff7436487aba766f841ce07b2de"),
+    "CA-O-030": (TOOL_WORKFLOWS + "09_operations/CA-O-030-TOOL_WORKFLOWS-STANDARD-ACTION--update-sealed-caprmedio-atom-carriers.md", 15,
+                 "a53bf60a93f9afff6da80f9d657009bb294420d8b2bf98eb6ab36c6895fb0dd1"),
+    "CA-E-626": (TOOL_WORKFLOWS + "06_evaluation/CA-E-626-TOOL_WORKFLOWS-CORE-QA_CASE--verify-independent-atom-workflow-effects.md", 3,
+                 "8cd555ffefdc8f59b80a5120b6b5e4fbe90fb9ea46396bea6d0bcbd1e7d081c5"),
+}
+
+
+class CurrentSubjectGoldenProject(GoldenProject):
+    """New isolated W02 manifest; not a refresh of accepted release evidence."""
+
+    def _copy_reviewed_manifest(self):
+        original = json.loads((self.source_root / MANIFEST_REF).read_bytes())
+        route = copy.deepcopy(next(row for row in original["routes"] if row["route"] == "update_atom"))
+        pins = [route["workflow"], *route["ordered_actions"], *route["native_action_calls"]]
+        pins.extend(pin for pair in route["ordered_steps"] for pin in pair.values())
+        current = {**CURRENT_W02_PINS, "CA-O-030": PUBLICATION_PINS["CA-O-030"]}
+        assert {pin["atom_id"] for pin in pins} == set(current)
+        for pin in pins:
+            path, version, sha256 = current[pin["atom_id"]]
+            self._copy_pinned(Path(path), sha256)
+            frontmatter, _ = operations.split_frontmatter((self.root / path).read_text())
+            assert operations.frontmatter_scalar(frontmatter, "atom_id") == pin["atom_id"]
+            assert operations.frontmatter_scalar(frontmatter, "version") == str(version)
+            pin.update(source_path=path, version=version, digest=sha256)
+        for path, version, sha256 in PUBLICATION_PINS.values():
+            self._copy_pinned(Path(path), sha256)
+            frontmatter, _ = operations.split_frontmatter((self.root / path).read_text())
+            assert operations.frontmatter_scalar(frontmatter, "version") == str(version)
+        freshness = copy.deepcopy(original["source_freshness"])
+        self._copy_pinned(Path(freshness["selected_source_registry_ref"]), freshness["selected_source_registry_digest"])
+        freshness["selected_binding_digest"] = digest([route])
+        manifest = {"routes": [route], "source_freshness": freshness}
+        manifest["canonical_manifest_sha256"] = digest(manifest)
+        self.manifest_path.parent.mkdir(parents=True, exist_ok=True)
+        self.manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+        return manifest
 
 
 class SubjectApplyProject:
-    """One reviewed W02 fixture with only its O030 native binding resealed."""
+    """One current-contract W02 fixture, retaining real admission and validation."""
 
-    def __init__(self, root: Path, *, noop: bool = False) -> None:
+    def __init__(self, root: Path, *, noop: bool = False, newline: str = "\n", subject_profile: str = "approved") -> None:
         self.root = root
-        self.golden = GoldenProject(REPOSITORY, root, GoldenCase("W02", "update_atom"))
+        self.golden = CurrentSubjectGoldenProject(REPOSITORY, root, GoldenCase("W02", "update_atom"))
         self.manifest = self.golden.prepare()
         self.golden._write_complete_carrier_project_structure()
         self.golden._copy_complete_carrier_authority()
-        route = next(row for row in self.manifest["routes"] if row["route"] == "update_atom")
-        pin = route["native_action_calls"][0]
-        assert pin["atom_id"] == "CA-O-030" and pin["version"] == 7 and pin["digest"] == O030_V7_SHA256
-        source = REPOSITORY / pin["source_path"]
-        current_raw = source.read_bytes()
-        assert "version: 11\n" in current_raw.decode("utf-8")
-        shutil.copyfile(source, root / pin["source_path"])
-        pin.update(version=11, digest=hashlib.sha256(current_raw).hexdigest())
-        self.manifest["source_freshness"]["selected_binding_digest"] = digest(self.manifest["routes"])
-        self.manifest["canonical_manifest_sha256"] = digest({
-            key: value for key, value in self.manifest.items() if key != "canonical_manifest_sha256"
-        })
-        self.golden.manifest_path.write_text(json.dumps(self.manifest), encoding="utf-8")
-        for grammar_pin in get_profile("approved").grammar_pins:
+        for grammar_pin in get_profile(subject_profile).grammar_pins:
             original = REPOSITORY / grammar_pin.path
             assert hashlib.sha256(original.read_bytes()).hexdigest() == grammar_pin.sha256
             destination = root / grammar_pin.path
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(original, destination)
         self.path = self.golden.status_atom("Requirement", "Active", number=8100)
+        assert newline in {"\n", "\r\n"}
+        if newline == "\r\n":
+            self.path.write_bytes(self.path.read_bytes().replace(b"\n", b"\r\n"))
         self.path.chmod(0o640)
         self.before = self.path.read_bytes()
         self.before_mode = self.path.stat().st_mode & 0o777
         self.target = carrier_descriptor(root, self.path.relative_to(root).as_posix())
-        self.patches = [] if noop else [{"field": "governs", "old": "Atom/Test", "new": "Atom.State"}]
-        self.prepared = subject_patch.prepare_subject_intent(root, self.target, self.patches, subject_profile="approved")
+        self.patches = [] if noop else [{"field": "governs", "old": "Atom/Test",
+                                        "new": "Atom.State" if subject_profile == "approved" else "Atom/State"}]
+        self.prepared = subject_patch.prepare_subject_intent(root, self.target, self.patches, subject_profile=subject_profile)
         self.parameters = {
             "target": self.target, "subject_patches": self.patches,
-            "subject_intent_sha256": self.prepared["subject_intent_sha256"], "subject_profile": "approved",
+            "subject_intent_sha256": self.prepared["subject_intent_sha256"], "subject_profile": subject_profile,
         }
         if not noop:
             self.parameters["semantic_assessment_report"] = self.golden._semantic_assessment_report(self.target, self.prepared["proposed"])
@@ -109,6 +156,20 @@ class SubjectApplyProject:
             execute["operator_authorization"][field] = request[field]
         frozen = runner.freeze({"operation": "enqueue_selected", "run_id": run_id, "execution": execute})
         return runner, frozen
+
+    def confirmation(self, frozen):
+        from atom_subject_stage import stage_subject_preview
+        from subject_publication_authorization import authorize_subject_publication
+
+        staged = stage_subject_preview(self.root, [{"selector": self.target["path"],
+            "expected": {"atom_id": self.target["atom_id"], "version": self.target["version"],
+                         "sha256": self.target["digest"]}, "subject_patches": self.patches}],
+            timestamp="2026-10-13 14:00:00 +0400", subject_profile=self.parameters.get("subject_profile", "legacy"))
+        self.staged = staged
+        execution = frozen["request"]["execution"]
+        return authorize_subject_publication(self.root, execution, operator_name="golden-operator",
+            llm_session={"app": "run-support", "uuid": execution["request_id"]},
+            staged_manifest={"path": staged["manifest_path"], "digest": staged["manifest_sha256"]})
 
     def assert_unchanged(self, case: unittest.TestCase) -> None:
         case.assertEqual(self.before, self.path.read_bytes())
