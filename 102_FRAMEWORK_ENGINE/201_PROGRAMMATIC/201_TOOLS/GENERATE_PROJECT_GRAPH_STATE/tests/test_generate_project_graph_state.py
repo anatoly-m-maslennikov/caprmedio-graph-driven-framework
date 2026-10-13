@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import importlib.util
 import json
 import sys
@@ -120,7 +121,135 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         self.mkdir("101_LAYER_1_FRAMEWORK/201_FEATURE_PROGRAMMATIC")
         self.mkdir("101_LAYER_1_FRAMEWORK/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS")
         self.mkdir("102_LAYER_2_OPERATIONS")
+        self.declarations = [
+            {"scope_unit_name": name, "parent": parent, "scope_unit_type": kind,
+             "scope_unit_label": label, "structural_level": level,
+             "navigational_order_number": navigation, "authority_path": f".caprmedio_caprmedio/{authority}",
+             "delivery_path": delivery, **({"local_order": order} if order is not None else {})}
+            for name, parent, kind, label, level, navigation, order, authority, delivery in (
+                ("FRAMEWORK", "PROJECT", "Ordered", "LAYER", 1, 1, 1,
+                 "101_LAYER_1_FRAMEWORK", "101_FRAMEWORK"),
+                ("PROGRAMMATIC", "FRAMEWORK", "Unordered", "FEATURE", 2, 1, None,
+                 "101_LAYER_1_FRAMEWORK/201_FEATURE_PROGRAMMATIC", "101_FRAMEWORK/201_PROGRAMMATIC"),
+                ("TOOLS", "PROGRAMMATIC", "Unordered", "FEATURE", 3, 1, None,
+                 "101_LAYER_1_FRAMEWORK/201_FEATURE_PROGRAMMATIC/301_FEATURE_TOOLS", "101_FRAMEWORK/201_PROGRAMMATIC/301_TOOLS"),
+                ("OPERATIONS", "PROJECT", "Ordered", "LAYER", 1, 2, 2,
+                 "102_LAYER_2_OPERATIONS", "102_OPERATIONS"),
+            )
+        ]
+        self.write_structure(self.declarations)
         return generate_project_graph_state.scope_units(self.control, self.root, self.modes)
+
+    def write_structure(self, declarations: list[dict[str, object]], *, schema_version: object = 1) -> None:
+        lines = [f"schema_version = {json.dumps(schema_version)}"]
+        for declaration in declarations:
+            lines += ["", "[[scope_units]]"]
+            lines += [f"{field} = {json.dumps(value)}" for field, value in declaration.items()]
+        (self.control / "project_structure.toml").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    def test_delivery_paths_use_explicit_bindings_without_materializing_folders(self) -> None:
+        self.fixture_scope_units()
+        self.mkdir("101_LAYER_1_FRAMEWORK/201_FEATURE_PROGRAMMATIC/302_FEATURE_PROJECT_TOOLS")
+        self.declarations[2]["delivery_path"] = "native/kept-tools"
+        self.declarations.append(
+            {"scope_unit_name": "PROJECT_TOOLS", "parent": "PROGRAMMATIC",
+             "scope_unit_type": "Unordered", "scope_unit_label": "FEATURE",
+             "structural_level": 3, "navigational_order_number": 2,
+             "authority_path": ".caprmedio_caprmedio/101_LAYER_1_FRAMEWORK/201_FEATURE_PROGRAMMATIC/302_FEATURE_PROJECT_TOOLS",
+             "delivery_path": "PROJECT_TOOLS"}
+        )
+        self.write_structure(self.declarations)
+        before = (self.control / "project_structure.toml").read_bytes()
+        rows = generate_project_graph_state.bind_scope_unit_structure(
+            generate_project_graph_state.scope_units(self.control, self.root, self.modes)
+        )
+        deliveries = {row["scope_unit_name"]: row["delivery_path"] for row in rows}
+        self.assertEqual("native/kept-tools", deliveries["TOOLS"])
+        self.assertEqual("PROJECT_TOOLS", deliveries["PROJECT_TOOLS"])
+        self.assertEqual("101_FRAMEWORK", deliveries["FRAMEWORK"])
+        self.assertEqual("102_OPERATIONS", deliveries["OPERATIONS"])
+        self.assertFalse((self.root / "native").exists())
+        self.assertFalse((self.root / "PROJECT_TOOLS").exists())
+        self.assertEqual(before, (self.control / "project_structure.toml").read_bytes())
+        self.assertFalse(generate_project_graph_state.OUTPUT.exists())
+        self.assertFalse(generate_project_graph_state.SOURCE_MAP.exists())
+
+    def test_missing_duplicate_mismatched_and_unsafe_structure_bindings_refuse_without_rows_changed(self) -> None:
+        rows = self.fixture_scope_units()
+        originals = copy.deepcopy(rows)
+        cases = []
+        cases.append(self.declarations[:2] + self.declarations[3:])
+        cases.append(self.declarations + [self.declarations[2]])
+        duplicate_authority = copy.deepcopy(self.declarations)
+        duplicate_authority.append({**self.declarations[2], "scope_unit_name": "OTHER"})
+        cases.append(duplicate_authority)
+        mismatch = copy.deepcopy(self.declarations)
+        mismatch[2]["scope_unit_name"] = "OTHER"
+        cases.append(mismatch)
+        for field in ("authority_path", "delivery_path"):
+            for value in (".", "", 1, True, "../outside", "/outside", "native/../outside", "native//tools", "native/./tools", "C:/outside", "native\\tools"):
+                invalid = copy.deepcopy(self.declarations)
+                invalid[2][field] = value
+                cases.append(invalid)
+        for field, value in (("scope_unit_type", True), ("structural_level", 0),
+                             ("parent", ""), ("navigational_order_number", True)):
+            invalid = copy.deepcopy(self.declarations)
+            invalid[2][field] = value
+            cases.append(invalid)
+        for declarations in cases:
+            with self.subTest(declarations=declarations):
+                self.write_structure(declarations)
+                with self.assertRaises(SystemExit):
+                    generate_project_graph_state.bind_scope_unit_structure(rows)
+                self.assertEqual(originals, rows)
+                self.assertFalse(generate_project_graph_state.OUTPUT.exists())
+                self.assertFalse(generate_project_graph_state.SOURCE_MAP.exists())
+
+    def test_declared_folder_beneath_an_ordinary_file_refuses(self) -> None:
+        rows = self.fixture_scope_units()
+        original_rows = copy.deepcopy(rows)
+        (self.root / "file-parent").write_text("ordinary file", encoding="utf-8")
+        for field in ("authority_path", "delivery_path"):
+            with self.subTest(field=field):
+                declarations = copy.deepcopy(self.declarations)
+                declarations[2][field] = "file-parent/tools"
+                self.write_structure(declarations)
+                with self.assertRaisesRegex(SystemExit, "not a directory"):
+                    generate_project_graph_state.bind_scope_unit_structure(rows)
+                self.assertEqual(original_rows, rows)
+                self.assertFalse(generate_project_graph_state.OUTPUT.exists())
+                self.assertFalse(generate_project_graph_state.SOURCE_MAP.exists())
+
+    def test_structure_source_and_binding_symlinks_and_invalid_schema_refuse(self) -> None:
+        rows = self.fixture_scope_units()
+        for version in (2, True, "1"):
+            with self.subTest(schema_version=version):
+                self.write_structure(self.declarations, schema_version=version)
+                with self.assertRaisesRegex(SystemExit, "schema"):
+                    generate_project_graph_state.bind_scope_unit_structure(rows)
+        self.write_structure(self.declarations)
+        source = self.control / "project_structure.toml"
+        original = source.read_bytes()
+        for payload in ("not TOML", "schema_version = 1\n", source.read_text() + "\nunknown = 1\n"):
+            source.write_text(payload, encoding="utf-8")
+            with self.assertRaises(SystemExit):
+                generate_project_graph_state.bind_scope_unit_structure(rows)
+        source.write_bytes(original)
+        saved = self.root / "saved.toml"
+        source.rename(saved)
+        source.symlink_to(saved)
+        with self.assertRaisesRegex(SystemExit, "missing or invalid"):
+            generate_project_graph_state.bind_scope_unit_structure(rows)
+        source.unlink()
+        saved.rename(source)
+        (self.root / "native").symlink_to(self.control, target_is_directory=True)
+        self.declarations[2]["delivery_path"] = "native/tools"
+        self.write_structure(self.declarations)
+        with self.assertRaisesRegex(SystemExit, "unsafe"):
+            generate_project_graph_state.bind_scope_unit_structure(rows)
+        source.unlink()
+        with self.assertRaisesRegex(SystemExit, "missing or invalid"):
+            generate_project_graph_state.bind_scope_unit_structure(rows)
 
     def test_fixture_topology_derives_typed_scope_unit_structure(self) -> None:
         rows = self.fixture_scope_units()
@@ -400,8 +529,10 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
                 if item["output_path"] == prefix + "delivery_path"
             ]
             self.assertEqual(1, len(structure_bindings))
-            self.assertEqual("scope_unit_directory_structure", structure_bindings[0]["source_kind"])
-            self.assertEqual(row["structure_sha256"], structure_bindings[0]["source_sha256"])
+            self.assertEqual("project_structure", structure_bindings[0]["source_kind"])
+            self.assertEqual(".caprmedio_caprmedio/project_structure.toml", structure_bindings[0]["source_carrier"])
+            self.assertEqual(generate_project_graph_state.sha(self.control / "project_structure.toml"), structure_bindings[0]["source_sha256"])
+            self.assertEqual("sha256:" + structure_bindings[0]["source_sha256"], structure_bindings[0]["source_revision"])
 
     def test_canonical_projection_bytes_do_not_depend_on_executed_generator_carrier(self) -> None:
         config = generate_project_graph_state.configuration()

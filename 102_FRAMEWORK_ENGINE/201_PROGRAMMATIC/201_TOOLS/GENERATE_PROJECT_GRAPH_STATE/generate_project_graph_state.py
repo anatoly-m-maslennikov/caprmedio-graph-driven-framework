@@ -9,7 +9,7 @@ import json
 import os
 import re
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import tomllib
 
 
@@ -21,6 +21,7 @@ if str(TOOLS_ROOT) not in sys.path:
 from framework_installation import InstallationError, installation_status  # noqa: E402
 from artifact_metadata import SETTINGS_PATH, atom_identifier, project_identity  # noqa: E402
 from project_runtime import atomic_tempfile, repository_root  # noqa: E402
+from WORKFLOW_OPERATIONS.PROJECT_STRUCTURE import project_structure  # noqa: E402
 
 
 ROOT = repository_root(SCRIPT)
@@ -499,23 +500,53 @@ def delivery_atom_binding(directory: Path, receipt: dict[str, str]) -> dict[str,
     return candidates[0]
 
 
-def delivery_path_from_scope_unit(row: dict[str, object]) -> str:
-    """Derive one Delivery path from the typed Scope Unit directory coordinate."""
-
-    segments: list[str] = []
-    for segment in str(row["node_id"]).split("/"):
-        parsed = parse_scope_unit_name(segment)
-        if parsed is None:
-            raise SystemExit(f"Scope Unit Directory Carrier is not typed: {segment}")
-        segments.append(str(parsed["numeric_prefix"]) + "_" + str(parsed["scope_unit_name"]))
-    return "/".join(segments) + "/"
-
-
 def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[dict[str, object]]:
-    """Attach deterministic Delivery paths without treating Project folders as authority."""
+    """Bind Delivery paths to exact authoritative Project Structure declarations."""
 
+    carrier = CONTROL / "project_structure.toml"
+    try:
+        if carrier.is_symlink() or not carrier.is_file():
+            raise ValueError("Project Structure is missing or invalid")
+        raw = carrier.read_bytes()
+        document = tomllib.loads(raw.decode("utf-8"))
+        if (set(document) != {"schema_version", "scope_units"}
+                or type(document["schema_version"]) is not int or document["schema_version"] != 1
+                or not isinstance(document["scope_units"], list)):
+            raise ValueError("Project Structure schema is invalid")
+        declarations = document["scope_units"]
+        project_structure._validate_tree(declarations, ROOT)
+        by_authority: dict[str, dict[str, object]] = {}
+        for declaration in declarations:
+            for field in ("authority_path", "delivery_path"):
+                value = declaration[field]
+                if not isinstance(value, str) or not value or "\\" in value or "\x00" in value:
+                    raise ValueError(f"unsafe Project Structure {field}: {value}")
+                relative = PurePosixPath(value)
+                if (relative.is_absolute() or value in {".", ".."} or relative.as_posix() != value or ":" in value
+                        or any(part in {".", ".."} for part in relative.parts)):
+                    raise ValueError(f"unsafe Project Structure {field}: {value}")
+                cursor = ROOT
+                for part in relative.parts:
+                    cursor /= part
+                    if cursor.is_symlink():
+                        raise ValueError(f"unsafe Project Structure {field}: {value}")
+                    if cursor.exists() and not cursor.is_dir():
+                        raise ValueError(f"Project Structure {field} is not a directory: {value}")
+            authority = declaration["authority_path"]
+            if authority in by_authority:
+                raise ValueError(f"duplicate Project Structure authority binding: {authority}")
+            by_authority[authority] = declaration
+        for row in scope_unit_rows:
+            declaration = by_authority.get(str(row["authority_path"]))
+            if declaration is None or declaration["scope_unit_name"] != row["scope_unit_name"]:
+                raise ValueError(f"missing or mismatched Project Structure binding: {row['authority_path']}")
+    except (OSError, UnicodeDecodeError, ValueError, RuntimeError) as error:
+        raise SystemExit(str(error)) from error
+
+    source_digest = hashlib.sha256(raw).hexdigest()
     for row in scope_unit_rows:
-        row["delivery_path"] = delivery_path_from_scope_unit(row)
+        row["delivery_path"] = by_authority[str(row["authority_path"])]["delivery_path"]
+        row["delivery_source_sha256"] = source_digest
         row["structure_sha256"] = canonical_json_digest(
             {key: row[key] for key in SCOPE_UNIT_GRAPH_FIELDS if key != "delivery_path"}
         )
@@ -735,6 +766,14 @@ def project_scope_unit_graph_sources(
         structure_sha256 = str(row["structure_sha256"])
         for field in SCOPE_UNIT_GRAPH_FIELDS:
             if row[field] is None:
+                continue
+            if field == "delivery_path":
+                digest = str(row["delivery_source_sha256"])
+                append_binding(
+                    node_path + "." + field, "project_structure",
+                    project_relative(CONTROL / "project_structure.toml"),
+                    "sha256:" + digest, digest,
+                )
                 continue
             if field == "authority_mode":
                 kind = "framework_settings"
