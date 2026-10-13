@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Action, Workflow, Configuration, Revision, Journal, Plan, Operator]
-version: 6
-updated_at: "2026-10-13 20:30:21 +0400"
+version: 7
+updated_at: "2026-10-13 20:44:13 +0400"
 relations:
   is_decomposition_of: [CA-P-2167]
   blocks: [CA-P-2278]
@@ -51,9 +51,9 @@ The [bounded independent graph receipt](../../../_projection/core-entity-review/
 The Operator chose caprmedio_project_settings.toml as the canonical Settings filename; align the conflicting rules without renaming current Settings. Separate foreign-boundary refusal from graph Settings revision evidence. No synthetic receipts, broad legacy migration or installed activation.
 
 - [CA-P-2320 — Align canonical Settings filename](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/done/01-CA-P-2320-TASK--align-canonical-settings-filename.md)
-- [CA-P-2321 — Verify declaration path Project boundaries](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/02-CA-P-2321-TASK--verify-declaration-path-project-boundaries.md)
-- [CA-P-2322 — Bind declaration boundary consumers](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/03-CA-P-2322-TASK--bind-declaration-boundary-consumers.md)
-- [CA-P-2323 — Verify Project boundary refusal](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/04-CA-P-2323-TASK--verify-project-boundary-refusal.md)
+- [CA-P-2321 — Verify declaration path Project boundaries](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/done/02-CA-P-2321-TASK--verify-declaration-path-project-boundaries.md)
+- [CA-P-2322 — Bind declaration boundary consumers](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/done/03-CA-P-2322-TASK--bind-declaration-boundary-consumers.md)
+- [CA-P-2323 — Verify Project boundary refusal](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/done/04-CA-P-2323-TASK--verify-project-boundary-refusal.md)
 
 ### Private boundary implementation checkpoint
 
@@ -66,3 +66,7 @@ The private P2321 helper passed ten author tests, eight independent tests and se
 ### Definition of Done
 
 The Plan is **not** Done if applicable accepted contracts/FPF gates or current pins are missing; focused valid, refusal and no-op/error/effect checks fail or lack actual results; unrelated behavior regresses; implementation is claimed from preparation; or deferred/unauthorized capability is enabled. Own work must not exceed 15 minutes without prior decomposition.
+
+### Boundary consumer acceptance — 2026-10-13
+
+P2321, P2322 and P2323 are Done after final-pin independent review, 22 independent boundary tests, Graph 36, Structure 23, Scope 12 and full Atom validation 344 passed. Both declaration paths retain original Settings marker hashes and absence evidence through Selection, Graph, Scope, Structure and complete-carrier validation; drift and late proof reconstruction refuse. The normal Structure fixture executes the shared service, mutation and Journal path. This closes the foreign-boundary refusal gap, not the missing Settings logical Revision evidence. The parent remains Active until its remaining graph requirements are met. MCP registration still lacks an offline dependency; no installed activation is claimed.

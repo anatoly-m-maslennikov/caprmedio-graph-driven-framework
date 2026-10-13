@@ -34,6 +34,7 @@ class DeclarationGraphIndependentTests(unittest.TestCase):
         self.control.mkdir()
         self.settings = self.root / graph.SETTINGS_PATH
         self.settings.write_text("[project]\nkey='independent'\nname='independent'\nrepository_slug='independent'\n"
+                                 "[paths]\ncontrol_root='.caprmedio_caprmedio'\n"
                                  "[artifacts.identity]\nproject_prefix='TEST'\n", encoding="utf-8")
         self.framework = self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"
         self.framework.parent.mkdir()

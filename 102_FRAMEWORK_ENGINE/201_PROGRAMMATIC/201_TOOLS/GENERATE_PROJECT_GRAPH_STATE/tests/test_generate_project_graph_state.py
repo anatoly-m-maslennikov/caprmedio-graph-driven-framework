@@ -62,6 +62,7 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         self.project_settings = self.root / generate_project_graph_state.SETTINGS_PATH
         self.project_settings.write_text(
             "[project]\nkey = 'fixture_project'\nname = 'fixture_project'\nrepository_slug = 'test'\n"
+            "[paths]\ncontrol_root = '.caprmedio_caprmedio'\n"
             "[artifacts.identity]\nproject_prefix = 'TEST'\n", encoding="utf-8",
         )
         self.framework_settings = self.control / "000_CAPRMEDIO_framework/caprmedio_framework_settings.toml"

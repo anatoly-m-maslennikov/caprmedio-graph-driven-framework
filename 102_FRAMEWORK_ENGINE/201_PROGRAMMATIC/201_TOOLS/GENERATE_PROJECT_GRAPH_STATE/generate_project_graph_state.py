@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import os
@@ -22,6 +23,7 @@ from framework_installation import InstallationError, installation_status  # noq
 from artifact_metadata import SETTINGS_PATH, atom_identifier, project_identity  # noqa: E402
 from project_runtime import atomic_tempfile, repository_root  # noqa: E402
 from WORKFLOW_OPERATIONS.PROJECT_STRUCTURE import project_structure  # noqa: E402
+from project_selection import ProjectSelectionError, _DeclarationBoundaryProof, _declaration_boundary_proof, bound_selection  # noqa: E402
 
 
 ROOT = repository_root(SCRIPT)
@@ -290,6 +292,26 @@ def navigational_order_number(
     return navigational_order
 
 
+class _BoundaryRows(list):
+    """Keep non-serialized admission evidence with its projected row payload."""
+
+    def __init__(self, values, proof: _DeclarationBoundaryProof):
+        super().__init__(values)
+        self._boundary_proof = proof
+
+    def __deepcopy__(self, memo):
+        return _BoundaryRows(copy.deepcopy(list(self), memo), self._boundary_proof)
+
+
+def _revalidate_scope_boundary(rows: list[dict[str, object]]) -> None:
+    if not isinstance(rows, _BoundaryRows):
+        raise SystemExit("Scope rows lack their captured declaration boundary proof")
+    try:
+        rows._boundary_proof.revalidate()
+    except ProjectSelectionError as error:
+        raise SystemExit(str(error)) from error
+
+
 def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dict[str, object]]:
     """Project complete accepted declarations, independently of folder naming."""
 
@@ -300,7 +322,7 @@ def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dic
     default_mode = modes.get("default")
     if default_mode not in {"strict", "casual"}:
         raise SystemExit("Project Configuration lacks authority_modes.default")
-    declarations, digest = _delivery_bindings(control, root)
+    declarations, digest, proof = _delivery_bindings(control, root)
     nodes: dict[str, str] = {}
     for authority, declaration in declarations.items():
         path = root / authority
@@ -311,7 +333,7 @@ def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dic
         if node in nodes.values():
             raise SystemExit(f"duplicate projected Scope Unit node ID: {node}")
         nodes[str(declaration["scope_unit_name"])] = node
-    rows: list[dict[str, object]] = []
+    rows: list[dict[str, object]] = _BoundaryRows([], proof)
     for authority, declaration in sorted(declarations.items()):
         carrier = root / authority
         name = str(declaration["scope_unit_name"])
@@ -343,6 +365,7 @@ def scope_units(control: Path, root: Path, modes: dict[str, object]) -> list[dic
             row["child_composition"] = "UNORDERED"
         else:
             row["child_composition"] = "MIXED"
+    _revalidate_scope_boundary(rows)
     return rows
 
 
@@ -539,10 +562,15 @@ def delivery_atom_binding(directory: Path, receipt: dict[str, str]) -> dict[str,
     return candidates[0]
 
 
-def _delivery_bindings(control: Path, root: Path) -> tuple[dict[str, dict[str, object]], str]:
+def _delivery_bindings(control: Path, root: Path) -> tuple[dict[str, dict[str, object]], str, _DeclarationBoundaryProof]:
     """Read and validate exact declarations and their concrete directory bindings."""
     carrier = control / "project_structure.toml"
     try:
+        selection = bound_selection(root)
+        if selection is not None:
+            if control != selection.control_root:
+                raise ProjectSelectionError("Graph control differs from the selected Project")
+            selection._revalidate_boundary()
         if carrier.parent.is_symlink() or carrier.is_symlink() or not carrier.is_file():
             raise ValueError("Project Structure is missing or invalid")
         raw = carrier.read_bytes()
@@ -552,7 +580,6 @@ def _delivery_bindings(control: Path, root: Path) -> tuple[dict[str, dict[str, o
                 or not isinstance(document["scope_units"], list)):
             raise ValueError("Project Structure schema is invalid")
         declarations = document["scope_units"]
-        project_structure._validate_tree(declarations, root)
         by_authority: dict[str, dict[str, object]] = {}
         for declaration in declarations:
             for field in ("authority_path", "delivery_path"):
@@ -575,14 +602,18 @@ def _delivery_bindings(control: Path, root: Path) -> tuple[dict[str, dict[str, o
             if authority in by_authority:
                 raise ValueError(f"duplicate Project Structure authority binding: {authority}")
             by_authority[authority] = declaration
+        proof = _declaration_boundary_proof(root, control.relative_to(root), declarations)
+        project_structure._validate_tree(declarations, root, control_root=control.relative_to(root))
+        proof.revalidate()
     except (OSError, UnicodeDecodeError, ValueError, TypeError, RuntimeError) as error:
         raise SystemExit(str(error)) from error
-    return by_authority, hashlib.sha256(raw).hexdigest()
+    return by_authority, hashlib.sha256(raw).hexdigest(), proof
 
 
 def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[dict[str, object]]:
     """Bind Delivery paths to exact authoritative Project Structure declarations."""
-    by_authority, source_digest = _delivery_bindings(CONTROL, ROOT)
+    _revalidate_scope_boundary(scope_unit_rows)
+    by_authority, source_digest, _ = _delivery_bindings(CONTROL, ROOT)
     for row in scope_unit_rows:
         if row.get("delivery_source_sha256", source_digest) != source_digest:
             raise SystemExit("Project Structure changed after Scope rows were captured")
@@ -595,6 +626,7 @@ def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[
         row["structure_sha256"] = canonical_json_digest(
             {key: row[key] for key in SCOPE_UNIT_GRAPH_FIELDS if key != "delivery_path"}
         )
+    _revalidate_scope_boundary(scope_unit_rows)
     return scope_unit_rows
 
 
@@ -695,6 +727,7 @@ def project_scope_unit_graph(
     executed_generator: Path | None = None,
     *, observations: list[dict[str, object]] | None = None,
 ) -> str:
+    _revalidate_scope_boundary(scope_unit_rows)
     project = config["project"]
     identity = config["artifacts"]["identity"]
     modes = config["authority_modes"]
@@ -762,6 +795,7 @@ def project_scope_unit_graph_sources(
     executed_generator: Path | None = None,
     *, observations: list[dict[str, object]] | None = None,
 ) -> str:
+    _revalidate_scope_boundary(scope_unit_rows)
     generator = generator_metadata(executed_generator)
     lines = [
         "# Generated source bindings. Delete and regenerate; do not edit directly.",
@@ -910,11 +944,14 @@ def main() -> None:
     changed = (not OUTPUT.is_file() or OUTPUT.read_text(encoding="utf-8") != graph_payload) or (
         not SOURCE_MAP.is_file() or SOURCE_MAP.read_text(encoding="utf-8") != sources_payload
     )
+    _revalidate_scope_boundary(rows)
     print(json.dumps({"apply": args.apply, "changed": changed, "methodology_source_atoms": len(source_atoms), "outputs": [project_relative(OUTPUT), project_relative(SOURCE_MAP)], "scope_units": len(rows)}, sort_keys=True))
     if not args.apply:
         return
     installed_generator()
+    _revalidate_scope_boundary(rows)
     write_output(OUTPUT, graph_payload)
+    _revalidate_scope_boundary(rows)
     write_output(SOURCE_MAP, sources_payload)
 
 

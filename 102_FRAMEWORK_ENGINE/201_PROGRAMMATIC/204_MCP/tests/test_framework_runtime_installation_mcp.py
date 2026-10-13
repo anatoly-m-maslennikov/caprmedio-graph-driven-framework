@@ -34,7 +34,7 @@ from framework_runtime_installation_mcp import (  # noqa: E402
     input_schema,
     register_framework_runtime_installation,
 )
-from project_selection import ProjectSelection  # noqa: E402
+from project_selection import resolve_project  # noqa: E402
 from retained_full_gate_packet import RetainedNativeFullGatePacket  # noqa: E402
 
 
@@ -69,14 +69,7 @@ class FrameworkRuntimeInstallationMcpTests(unittest.TestCase):
             'journal_author = "fixture-operator"\n',
             encoding="utf-8",
         )
-        self.selection = ProjectSelection(
-            root=self.root.resolve(),
-            control_root=control,
-            control_relative=Path(".caprmedio_caprmedio"),
-            instance_id="f" * 64,
-            settings={"paths": {"control_root": ".caprmedio_caprmedio"}, "project": {"name": "Fixture Project"}},
-            structure={"schema_version": 1, "scope_units": []},
-        )
+        self.selection = resolve_project(project_root=self.root, control_root=".caprmedio_caprmedio")
 
     @staticmethod
     def _binding() -> dict[str, object]:

@@ -68,6 +68,7 @@ class GraphAuthorityRefreshTests(unittest.TestCase):
             declaration = (
                 '[[scope_units]]\nscope_unit_name = "CORE_META_MODEL"\n'
                 'authority_path = ".caprmedio_example/declared_core"\n'
+                'delivery_path = ".caprmedio_example/declared_core"\n'
             )
             structure.write_text("schema_version = 1\n" + declaration)
             selection = resolve_project(root)

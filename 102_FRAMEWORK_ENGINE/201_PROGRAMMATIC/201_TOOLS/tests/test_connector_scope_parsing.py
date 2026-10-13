@@ -31,7 +31,8 @@ def rows():
     return [row("ALPHA"), row("BETA"), row("CHILD", "ALPHA", 2, "Ordered")]
 
 
-SETTINGS = '[project]\nname = "demo"\nkey = "demo"\nobsolete_names = ["old"]\n'
+SETTINGS = ('[project]\nname = "demo"\nkey = "demo"\nobsolete_names = ["old"]\n'
+            '[paths]\ncontrol_root = ".caprmedio_demo"\n')
 
 
 def filters(identity="demo", self=True, descendants=True, predicates=None, fields=None):

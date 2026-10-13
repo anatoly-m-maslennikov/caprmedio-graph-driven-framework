@@ -23,6 +23,7 @@ from typing import Any, Callable, Iterable, Mapping
 from atom_operations import ToolError as AtomToolError
 from atom_operations import frontmatter_scalar
 from engine_publication_lock import EnginePublicationLockError, engine_publication_lock
+from project_selection import ProjectSelectionError, _DeclarationBoundaryProof, _declaration_boundary_proof, bound_selection
 
 
 CONTROL_ROOT = ".caprmedio_caprmedio"
@@ -172,7 +173,26 @@ def _canonical_name(value: object, field: str) -> str:
     return value
 
 
-def _normalise_declaration(value: object, root: Path) -> dict[str, Any]:
+def _boundary(root: Path, rows: Iterable[Mapping[str, Any]], control_root: str | Path = CONTROL_ROOT) -> _DeclarationBoundaryProof:
+    try:
+        selection = bound_selection(root)
+        if selection is not None:
+            if Path(control_root) != selection.control_relative:
+                raise ProjectSelectionError("Project Structure control differs from the selected Project")
+            selection._revalidate_boundary()
+        return _declaration_boundary_proof(root, control_root, rows)
+    except ProjectSelectionError as error:
+        raise StructuralConflict(str(error)) from error
+
+
+def _revalidate_boundary(proof: _DeclarationBoundaryProof) -> None:
+    try:
+        proof.revalidate()
+    except ProjectSelectionError as error:
+        raise StructuralConflict(str(error)) from error
+
+
+def _normalise_declaration(value: object, root: Path, *, control_root: str | Path = CONTROL_ROOT) -> dict[str, Any]:
     row = _require_mapping(value, "declaration")
     unknown = set(row) - set(DECLARATION_FIELDS)
     missing = REQUIRED_DECLARATION_FIELDS - set(row)
@@ -218,6 +238,7 @@ def _normalise_declaration(value: object, root: Path) -> dict[str, Any]:
         if mode not in {"strict", "casual"}:
             raise StructuralConflict("authority_mode must be strict or casual when specified")
         normalised["authority_mode"] = mode
+    _boundary(root, [normalised], control_root)
     return normalised
 
 
@@ -236,11 +257,11 @@ def _default_authority_mode(root: Path) -> str:
     raise StructuralConflict("Framework Instance Settings lacks authority_modes.default")
 
 
-def _validate_tree(rows: Iterable[Mapping[str, Any]], root: Path) -> dict[str, str]:
+def _validate_tree(rows: Iterable[Mapping[str, Any]], root: Path, *, control_root: str | Path = CONTROL_ROOT) -> dict[str, str]:
     names: set[str] = set()
     materialized: list[dict[str, Any]] = []
     for row in rows:
-        candidate = _normalise_declaration(row, root)
+        candidate = _normalise_declaration(row, root, control_root=control_root)
         if candidate["scope_unit_name"] in names:
             raise StructuralConflict(f"duplicate Scope Unit name: {candidate['scope_unit_name']}")
         names.add(candidate["scope_unit_name"])
@@ -958,6 +979,7 @@ def apply_scope_unit_action(
     parameters: Mapping[str, Any],
     *,
     after_declaration: Callable[[], None] | None = None,
+    _boundary_proof: _DeclarationBoundaryProof | None = None,
 ) -> dict[str, Any]:
     """Apply one already-admitted structural Action without owning a Workflow Run.
 
@@ -970,6 +992,8 @@ def apply_scope_unit_action(
     pre_revision: str | None = None
     normalised: dict[str, Any] | None = None
     try:
+        if _boundary_proof is not None:
+            _revalidate_boundary(_boundary_proof)
         normalised = _normalise_parameters(parameters, root)
         operation = normalised["operation"]
         source, before = _parse_structure(structure_path, root)
@@ -980,6 +1004,8 @@ def apply_scope_unit_action(
                 parameters=normalised, errors=["authoritative Project Structure revision changed"],
             )
         after, target_name, target_row = _resulting_structure(before, normalised)
+        if _boundary_proof is None:
+            _boundary_proof = _boundary(root, [*before, *after])
         effective_modes = _validate_tree(after, root)
         direct_parent_goals = _validate_goal_disposition(root, before, normalised, target_row)
         _validate_present_goal_pins(normalised, direct_parent_goals)
@@ -997,6 +1023,7 @@ def apply_scope_unit_action(
         rendered = _render_resulting_source(source, before, after)
         toml_change = SourceChange(structure_path, STRUCTURE_RELATIVE_PATH, source, rendered)
         changes = ([toml_change] if toml_change.before != toml_change.after else []) + reference_changes
+        _revalidate_boundary(_boundary_proof)
         if not changes:
             return _result(
                 state="no_op", operation=operation, pre_revision=pre_revision, post_revision=pre_revision,
@@ -1010,9 +1037,11 @@ def apply_scope_unit_action(
             if after_declaration is not None:
                 after_declaration()
             for change in reference_changes:
+                _revalidate_boundary(_boundary_proof)
                 _atomic_write(change.path, change.after)
                 applied.append(change)
-        except (OSError, RuntimeError) as error:
+            _revalidate_boundary(_boundary_proof)
+        except (OSError, RuntimeError, StructuralConflict) as error:
             recovery = {
                 "authorized_boundary": normalised["recovery_disposition"]["boundary"],
                 "toml": _boundary_entry(toml_change) if toml_change in applied else None,
@@ -1154,6 +1183,12 @@ def queue_action_handlers(repository: Path | str) -> dict[str, Callable[[Mapping
     receipt, Run, Journal event, or transition.
     """
     root = Path(repository).resolve()
+    boundary_proofs: dict[str, _DeclarationBoundaryProof] = {}
+
+    def proposal_key(context: Mapping[str, Any]) -> str:
+        return _digest_text(json.dumps(
+            [context.get("workflow_run_id"), context["parameters"]], sort_keys=True, separators=(",", ":"),
+        ))
 
     def post_cutover_assessment(
         context: Mapping[str, Any], normalised: Mapping[str, Any], rows: list[dict[str, Any]], observed_revision: str,
@@ -1299,6 +1334,7 @@ def queue_action_handlers(repository: Path | str) -> dict[str, Callable[[Mapping
 
     def candidate(
         context: Mapping[str, Any], *, shared_source_action: bool = False, post_cutover: bool = False,
+        capture_boundary: bool = False,
     ) -> tuple[dict[str, Any] | None, dict[str, Any] | None]:
         if not isinstance(context, Mapping):
             return None, {"result": "blocked", "effect_refs": [], "reason": "queue context is invalid"}
@@ -1311,6 +1347,12 @@ def queue_action_handlers(repository: Path | str) -> dict[str, Callable[[Mapping
         if parameters.get("operation") != _QUEUE_ROUTES[route]:
             return None, {"result": "blocked", "effect_refs": [], "reason": "route and structural operation differ"}
         try:
+            key = proposal_key(context)
+            proof = boundary_proofs.get(key)
+            if proof is None and not capture_boundary:
+                raise StructuralConflict("retained proposal declaration boundary proof is unavailable")
+            if proof is not None:
+                _revalidate_boundary(proof)
             normalised = _normalise_parameters(parameters, root)
             source, rows = _parse_structure(root / STRUCTURE_RELATIVE_PATH, root)
             observed = _digest_text(source)
@@ -1318,6 +1360,9 @@ def queue_action_handlers(repository: Path | str) -> dict[str, Callable[[Mapping
                 if post_cutover:
                     assessment = post_cutover_assessment(context, normalised, rows, observed)
                     if assessment is None:
+                        if proof is None:
+                            raise StructuralConflict("post-cutover declaration boundary proof is unavailable")
+                        _revalidate_boundary(proof)
                         return normalised, None
                     return None, assessment
                 return None, {
@@ -1325,6 +1370,9 @@ def queue_action_handlers(repository: Path | str) -> dict[str, Callable[[Mapping
                     "native_result": {"state": "stale", "pre_toml_revision": observed},
                 }
             after, _, target_row = _resulting_structure(rows, normalised)
+            if proof is None:
+                proof = _boundary(root, [*rows, *after])
+                boundary_proofs[key] = proof
             _validate_tree(after, root)
             direct_parent_goals = _validate_goal_disposition(root, rows, normalised, target_row)
             _validate_present_goal_pins(normalised, direct_parent_goals)
@@ -1336,15 +1384,16 @@ def queue_action_handlers(repository: Path | str) -> dict[str, Callable[[Mapping
             )
             mechanical_repairs = _validate_authoritative_scope_coverage(root, rows, normalised)
             _reference_changes(root, normalised["reference_frontier"], mechanical_repairs=mechanical_repairs)
+            _revalidate_boundary(proof)
             return normalised, None
-        except StructuralConflict as error:
+        except (StructuralConflict, TypeError, ValueError) as error:
             return None, {
                 "result": "conflict", "effect_refs": [],
                 "native_result": {"state": "conflict", "validation_errors": [str(error)]},
             }
 
     def select(context: Mapping[str, Any]) -> dict[str, Any]:
-        normalised, failure = candidate(context, shared_source_action=True)
+        normalised, failure = candidate(context, shared_source_action=True, capture_boundary=True)
         if failure is not None:
             return failure
         return {
@@ -1357,7 +1406,7 @@ def queue_action_handlers(repository: Path | str) -> dict[str, Callable[[Mapping
         }
 
     def prepare(context: Mapping[str, Any]) -> dict[str, Any]:
-        normalised, failure = candidate(context)
+        normalised, failure = candidate(context, capture_boundary=True)
         if failure is not None:
             return failure
         return {
@@ -1396,17 +1445,11 @@ def queue_action_handlers(repository: Path | str) -> dict[str, Callable[[Mapping
             return failure
         if context.get("sealed_outer_admission") is not True:
             return {"result": "blocked", "effect_refs": [], "reason": "D527 admission is absent"}
-        action = {
-            "Create": create_scope_unit,
-            "Rename": rename_scope_unit,
-            "Move": move_scope_unit,
-            "Remove": remove_scope_unit,
-        }[normalised["operation"]]
         # ``candidate`` deliberately normalizes a copy for read-only checks.
         # The bounded domain Action owns its one canonical normalization of the
         # sealed literal request; feeding it helper-only Path/relative_path
         # fields would turn a valid reference frontier into a false conflict.
-        result = action(root, context["parameters"])
+        result = apply_scope_unit_action(root, context["parameters"], _boundary_proof=boundary_proofs[proposal_key(context)])
         effects = [effect["path"] for effect in result["actual_effects"]]
         return {"result": result["state"], "effect_refs": effects, "native_result": result}
 

@@ -105,6 +105,7 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
     report: Record = {"bindings": {}, "coverage": {"gaps": []}}
     try:
         selection = active_selection(root)
+        selection._revalidate_boundary(reader=reader)
         control = selection.control_relative
         for path in (selection.settings_path, selection.structure_path):
             raw = reader.read(path)
@@ -129,15 +130,17 @@ def source_context_from_project(root: Path) -> VerifiedSourceContext:
             reader,
         ),
     }
-    _current(reader)
+    _current(reader, selection)
     return VerifiedSourceContext(root, resolve_context(sources), inputs, selection, reader)
 
 
-def _current(reader: ReadContext) -> None:
+def _current(reader: ReadContext, selection: ProjectSelection | None = None) -> None:
     try:
+        if selection is not None:
+            selection._revalidate_boundary(reader=reader)
         if reader.currentness()["state"] != "unchanged":
             raise ProposedCarrierError("selected Project inputs changed during admission")
-    except (OSError, RuntimeError) as error:
+    except (OSError, RuntimeError, ValueError) as error:
         raise ProposedCarrierError("selected Project inputs are unavailable") from error
 
 
@@ -172,7 +175,7 @@ def validate_proposed_carrier(
 
     if relative_path.is_absolute() or ".." in relative_path.parts:
         raise ProposedCarrierError("carrier path is outside the selected Project")
-    _current(verified_source_context._reader)
+    _current(verified_source_context._reader, verified_source_context._selection)
     selected = tuple(item for item in verified_source_context.authority.obligations if item.code in _CODES)
     if {item.code for item in selected} != _CODES or any(not item.supported for item in selected):
         raise ProposedCarrierError("complete-carrier authority is unsupported or incomplete")
@@ -314,7 +317,7 @@ def validate_proposed_carrier(
             adapter(metadata, body, check)
             if check.findings or check.gaps:
                 raise ProposedCarrierError("relation or Plan decomposition admission failed or is unresolved")
-        _current(graph_reader)
+        _current(graph_reader, verified_source_context._selection)
     role = metadata.get("content_role")
     status = metadata.get("status")
     expected_role_directory = mapping.get(role)
@@ -349,5 +352,5 @@ def validate_proposed_carrier(
     actual_status_directory = "" if role == "Plan" and status == "Active" else (tail[-1] if tail else "")
     if expected_status_directory is None or actual_status_directory != expected_status_directory:
         raise ProposedCarrierError("carrier path disagrees with its carried status")
-    _current(verified_source_context._reader)
+    _current(verified_source_context._reader, verified_source_context._selection)
     return result
