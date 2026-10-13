@@ -11,7 +11,7 @@ from pathlib import Path
 
 import yaml
 from yaml.nodes import MappingNode, SequenceNode
-from yaml.tokens import ScalarToken
+from yaml.tokens import BlockEntryToken, FlowEntryToken, KeyToken, ScalarToken
 
 from connector_property_parse import PropertyEditError, _entry_index, _parent, _same, apply_property_edits
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError, parse_carrier
@@ -56,25 +56,52 @@ def _json(value: object) -> str:
 
 
 def _comments(frontmatter: str, start: int, end: int, newline: str) -> str:
-    scalar_spans = [(token.start_mark.index, token.end_mark.index)
+    scalar_spans = [(frontmatter.find("\n", token.start_mark.index) + 1
+                     if token.style in {"|", ">"} else token.start_mark.index,
+                     token.end_mark.index)
                     for token in yaml.scan(frontmatter, Loader=yaml.SafeLoader)
                     if isinstance(token, ScalarToken)]
     comments = []
-    for match in re.finditer(r"#[^\r\n]*", frontmatter[start:end]):
+    comment_end = start
+    for match in re.finditer(r"#", frontmatter[start:end]):
         offset = start + match.start()
-        if any(left <= offset < right for left, right in scalar_spans):
+        if offset < comment_end or any(left <= offset < right for left, right in scalar_spans):
             continue
         line_start = frontmatter.rfind("\n", 0, offset) + 1
         indent = re.match(r"[ \t]*", frontmatter[line_start:offset]).group()
-        comments.append(indent + match.group() + newline)
+        comment = re.match(r"#[^\r\n]*", frontmatter[offset:end]).group()
+        comment_end = offset + len(comment)
+        comments.append(indent + comment + newline)
     return "".join(comments)
 
 
+def _span_end(frontmatter: str, node) -> int:
+    end = node.end_mark.index
+    if isinstance(node, (MappingNode, SequenceNode)) and not node.flow_style:
+        # Block end marks may include the next key's indentation, not its bytes.
+        line_start = frontmatter.rfind("\n", 0, end) + 1
+        if not frontmatter[line_start:end].strip():
+            return line_start
+    return end
+
+
+def _flow_commas(frontmatter: str, start: int, end: int):
+    return [token for token in yaml.scan(frontmatter, Loader=yaml.SafeLoader)
+            if isinstance(token, FlowEntryToken) and start <= token.start_mark.index < end]
+
+
+def _flow_separator(frontmatter: str, node) -> str:
+    if not node.value:
+        return ""
+    last = node.value[-1][1] if isinstance(node, MappingNode) else node.value[-1]
+    return " " if _flow_commas(frontmatter, last.end_mark.index, node.end_mark.index - 1) else ", "
+
+
 def _replace_value(frontmatter: str, node, value: object, newline: str) -> str:
-    start, end = node.start_mark.index, node.end_mark.index
+    start, end = node.start_mark.index, _span_end(frontmatter, node)
     comments = _comments(frontmatter, start, end, newline)
     replacement = _json(value)
-    if node.end_mark.column == 0:
+    if node.end_mark.column == 0 or end != node.end_mark.index:
         replacement += newline
     if comments:
         if not replacement.endswith(newline):
@@ -91,18 +118,29 @@ def _transform(frontmatter: str, document: MappingNode, path: tuple[str, ...],
     if pair is None:
         if parent_node.flow_style:
             position = parent_node.end_mark.index - 1
-            addition = (", " if parent_node.value else "") + _json(key) + ": " + _json(new_parent[key])
+            addition = _flow_separator(frontmatter, parent_node) + _json(key) + ": " + _json(new_parent[key])
         else:
-            position = parent_node.end_mark.index
+            position = _span_end(frontmatter, parent_node)
             indent = parent_node.value[0][0].start_mark.column if parent_node.value else 0
             addition = " " * indent + _json(key) + ": " + _json(new_parent[key]) + newline
         return frontmatter[:position] + addition + frontmatter[position:]
     key_node, node = pair
     if key not in new_parent:
+        start, end = key_node.start_mark.index, _span_end(frontmatter, node)
         if parent_node.flow_style:
-            # shortcut: flow-map key removal is refused, extend when an admitted carrier needs it.
-            raise PropertyEditError("schema_invalid", "Flow mapping Property removal has an unsupported source span.")
-        start, end = key_node.start_mark.index, node.end_mark.index
+            index = parent_node.value.index(pair)
+            previous = parent_node.value[index - 1][1].end_mark.index if index else parent_node.start_mark.index + 1
+            keys = [token for token in yaml.scan(frontmatter, Loader=yaml.SafeLoader)
+                    if isinstance(token, KeyToken) and previous <= token.start_mark.index <= start]
+            start = keys[-1].start_mark.index
+            if index < len(parent_node.value) - 1 or index == 0:
+                following = parent_node.value[index + 1][0].start_mark.index if index + 1 < len(parent_node.value) else parent_node.end_mark.index - 1
+                commas = _flow_commas(frontmatter, end, following)
+                if commas:
+                    end = commas[0].end_mark.index
+                    end += len(re.match(r"[ \t]*", frontmatter[end:]).group())
+            else:
+                start = _flow_commas(frontmatter, previous, start)[-1].start_mark.index
         return frontmatter[:start] + _comments(frontmatter, start, end, newline) + frontmatter[end:]
     operation = edit["operation"]
     if is_entry and isinstance(node, SequenceNode):
@@ -113,25 +151,32 @@ def _transform(frontmatter: str, document: MappingNode, path: tuple[str, ...],
         if operation == "add":
             if node.flow_style:
                 position = node.end_mark.index - 1
-                addition = (", " if node.value else "") + _json(edit["value"])
+                addition = _flow_separator(frontmatter, node) + _json(edit["value"])
             else:
-                position = node.end_mark.index
+                position = _span_end(frontmatter, node)
                 indent = node.value[0].start_mark.column - 2
                 addition = " " * indent + "- " + _json(edit["value"]) + newline
             return frontmatter[:position] + addition + frontmatter[position:]
         if operation == "remove" and not node.flow_style:
-            selected = node.value[_entry_index(values, edit["value"])]
-            line_start = frontmatter.rfind("\n", 0, selected.start_mark.index) + 1
-            prefix = frontmatter[line_start:selected.start_mark.index]
-            if not re.fullmatch(r" *- +", prefix) or selected.start_mark.line != selected.end_mark.line:
-                # shortcut: multiline block-entry removal is refused, extend with exact span fixtures.
-                raise PropertyEditError("schema_invalid", "List removal has an unsupported or ambiguous entry span.")
+            index = _entry_index(values, edit["value"])
+            selected = node.value[index]
+            markers = [token for token in yaml.scan(frontmatter, Loader=yaml.SafeLoader)
+                       if isinstance(token, BlockEntryToken)
+                       and node.start_mark.index <= token.start_mark.index < node.end_mark.index]
+            markers = [token for token in markers if token.start_mark.column == markers[0].start_mark.column]
+            if len(markers) != len(node.value):
+                raise PropertyEditError("schema_invalid", "List entries have no unique indicator spans.")
+            marker = markers[index]
+            line_start = frontmatter.rfind("\n", 0, marker.start_mark.index) + 1
             if len(values) == 1:
                 return _replace_value(frontmatter, node, [], newline)
-            remainder = frontmatter[selected.end_mark.index:]
-            if remainder.startswith(" #"):
-                remainder = remainder[1:]
-            return frontmatter[:line_start] + " " * (len(prefix) - 2) + remainder
+            end = _span_end(frontmatter, selected)
+            if end == selected.end_mark.index and selected.end_mark.column != 0:
+                closing_line = frontmatter.find("\n", end)
+                end = closing_line + 1 if closing_line >= 0 else len(frontmatter)
+            comments = _comments(frontmatter, line_start, end, newline)
+            comments = re.sub(r"(?m)^[ \t]*(?=#)", " " * marker.start_mark.column, comments)
+            return frontmatter[:line_start] + comments + frontmatter[end:]
     return _replace_value(frontmatter, node, new_parent[key], newline)
 
 
