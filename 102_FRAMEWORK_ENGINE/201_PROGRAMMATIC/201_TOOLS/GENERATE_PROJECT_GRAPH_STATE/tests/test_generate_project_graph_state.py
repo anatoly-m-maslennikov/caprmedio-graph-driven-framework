@@ -187,11 +187,11 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
         mismatch[2]["scope_unit_name"] = "OTHER"
         cases.append(mismatch)
         for field in ("authority_path", "delivery_path"):
-            for value in (".", "", 1, True, "../outside", "/outside", "native/../outside", "native//tools", "native/./tools", "C:/outside", "native\\tools"):
+            for value in (".", "", 1, True, "../outside", "/outside", "native/../outside", "native//tools", "native/tools//", "native/./tools", "C:/outside", "native\\tools"):
                 invalid = copy.deepcopy(self.declarations)
                 invalid[2][field] = value
                 cases.append(invalid)
-        for field, value in (("scope_unit_type", True), ("structural_level", 0),
+        for field, value in (("scope_unit_type", True), ("scope_unit_type", ["Unordered"]), ("structural_level", 0),
                              ("parent", ""), ("navigational_order_number", True)):
             invalid = copy.deepcopy(self.declarations)
             invalid[2][field] = value
@@ -204,6 +204,30 @@ class GenerateProjectGraphStateTests(unittest.TestCase):
                 self.assertEqual(originals, rows)
                 self.assertFalse(generate_project_graph_state.OUTPUT.exists())
                 self.assertFalse(generate_project_graph_state.SOURCE_MAP.exists())
+
+    def test_terminal_slash_alias_preserves_delivery_and_rejects_duplicate_authority(self) -> None:
+        rows = self.fixture_scope_units()
+        declaration = self.declarations[2]
+        declaration["authority_path"] += "/"
+        declaration["delivery_path"] += "/"
+        self.write_structure(self.declarations)
+        source = self.control / "project_structure.toml"
+        before = source.read_bytes()
+        bound = generate_project_graph_state.bind_scope_unit_structure(rows)
+        tools = next(row for row in bound if row["scope_unit_name"] == "TOOLS")
+        self.assertEqual("101_FRAMEWORK/201_PROGRAMMATIC/301_TOOLS/", tools["delivery_path"])
+        self.assertEqual(before, source.read_bytes())
+        original_rows = copy.deepcopy(rows)
+        duplicate = {**declaration, "scope_unit_name": "OTHER",
+                     "authority_path": declaration["authority_path"].removesuffix("/")}
+        self.write_structure([*self.declarations, duplicate])
+        before = source.read_bytes()
+        with self.assertRaisesRegex(SystemExit, "duplicate Project Structure authority binding"):
+            generate_project_graph_state.bind_scope_unit_structure(rows)
+        self.assertEqual(original_rows, rows)
+        self.assertEqual(before, source.read_bytes())
+        self.assertFalse(generate_project_graph_state.OUTPUT.exists())
+        self.assertFalse(generate_project_graph_state.SOURCE_MAP.exists())
 
     def test_declared_folder_beneath_an_ordinary_file_refuses(self) -> None:
         rows = self.fixture_scope_units()

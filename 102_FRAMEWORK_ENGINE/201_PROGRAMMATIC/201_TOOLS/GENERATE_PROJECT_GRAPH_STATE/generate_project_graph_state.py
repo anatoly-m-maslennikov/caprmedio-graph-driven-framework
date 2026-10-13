@@ -521,8 +521,9 @@ def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[
                 value = declaration[field]
                 if not isinstance(value, str) or not value or "\\" in value or "\x00" in value:
                     raise ValueError(f"unsafe Project Structure {field}: {value}")
-                relative = PurePosixPath(value)
-                if (relative.is_absolute() or value in {".", ".."} or relative.as_posix() != value or ":" in value
+                canonical = value.removesuffix("/")
+                relative = PurePosixPath(canonical)
+                if (relative.is_absolute() or canonical in {"", ".", ".."} or relative.as_posix() != canonical or ":" in value
                         or any(part in {".", ".."} for part in relative.parts)):
                     raise ValueError(f"unsafe Project Structure {field}: {value}")
                 cursor = ROOT
@@ -532,7 +533,7 @@ def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[
                         raise ValueError(f"unsafe Project Structure {field}: {value}")
                     if cursor.exists() and not cursor.is_dir():
                         raise ValueError(f"Project Structure {field} is not a directory: {value}")
-            authority = declaration["authority_path"]
+            authority = declaration["authority_path"].removesuffix("/")
             if authority in by_authority:
                 raise ValueError(f"duplicate Project Structure authority binding: {authority}")
             by_authority[authority] = declaration
@@ -540,7 +541,7 @@ def bind_scope_unit_structure(scope_unit_rows: list[dict[str, object]]) -> list[
             declaration = by_authority.get(str(row["authority_path"]))
             if declaration is None or declaration["scope_unit_name"] != row["scope_unit_name"]:
                 raise ValueError(f"missing or mismatched Project Structure binding: {row['authority_path']}")
-    except (OSError, UnicodeDecodeError, ValueError, RuntimeError) as error:
+    except (OSError, UnicodeDecodeError, ValueError, TypeError, RuntimeError) as error:
         raise SystemExit(str(error)) from error
 
     source_digest = hashlib.sha256(raw).hexdigest()
