@@ -41,5 +41,6 @@ def modify(request: dict, *, bindings: ConnectorBindings,
     except (ConnectorBindingError, CarrierError, ValueError, TypeError, OSError) as error:
         return {"data": None, "current_state": None, "effects": [], "errors": [
             {"code": error.code if isinstance(error, (ConnectorBindingError, CarrierError)) else "backend_failure",
-             "message": "Private receiving binding or admission could not be established.", "field": "context"}
+             "message": "Private receiving binding or admission could not be established.",
+             "field": getattr(error, "field", "context") if isinstance(error, (ConnectorBindingError, CarrierError)) else "context"}
         ]}

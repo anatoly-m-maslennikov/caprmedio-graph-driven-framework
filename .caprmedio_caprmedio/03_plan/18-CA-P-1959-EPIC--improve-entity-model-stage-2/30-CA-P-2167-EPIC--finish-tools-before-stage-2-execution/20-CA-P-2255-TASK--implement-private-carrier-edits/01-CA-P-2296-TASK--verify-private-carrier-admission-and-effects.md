@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Workflow, Configuration, Plan]
-version: 1
-updated_at: "2026-10-13 04:30:00 +0400"
+version: 2
+updated_at: "2026-10-13 06:35:27 +0400"
 relations:
   is_decomposition_of: [CA-P-2255]
 ---
@@ -30,6 +30,17 @@ Bind private carrier mechanics to exact existing admission and source/destinatio
 ## Details
 
 Estimated own work: 15 minutes. Split larger work into bounded children before execution. Inherit the parent Task's accepted contracts, current-source checks and authority boundaries. Internal helpers are not newly admitted Tools. Keep parsing, reading, writing and CLI responsibilities separate. The integration owner controls Plans and Git; parallel implementation owns disjoint files only.
+
+### Field-only verification checkpoint
+
+The private carrier adapter now preserves the field supplied by a structured admission error, including null; unstructured failures retain the generic message and context field. This does not change admission, enable a carrier write or repair publication concurrency.
+
+The five new isolated tests exercise actual RunTracker and SelectedOperationAdmission mechanisms for preview refusal, permission-reference mismatch, stale authority, a structured null field and a nonstructured diagnostic. The old adapter fails four field assertions; the corrected adapter passes all five. Carrier checks pass 20 tests; the complete connector suite passes 167. Independent review accepted these exact pins after 38 focused tests and eight additional refusal checks; this is not live receiver acceptance.
+
+- Adapter: `connector_carrier_adapter.py`, SHA256 `dc28172f24917f7267896b3fef280ed5bbd44ac4a67e83fece2aa87ec9d9e9ca`.
+- Regression: `tests/test_connector_carrier_admission.py`, SHA256 `60e55b3e20cd64291065316e4e65889584e57a618642f4018dde29609426c0c0`.
+
+This Task remains Active. Actual positive receiving admission and effect-boundary safety are not accepted: source substitution immediately before unlink can delete an unapproved Atom and report success; move detects a substituted source only after the effect. Another last-moment check is not a concurrency guarantee. The selected publication model still needs its own accepted binding and proof; no live Core migration is included.
 
 ### Definition of Done
 
