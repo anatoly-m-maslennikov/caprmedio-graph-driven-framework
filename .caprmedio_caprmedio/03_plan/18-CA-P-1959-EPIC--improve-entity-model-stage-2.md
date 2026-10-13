@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 63
-updated_at: "2026-10-13 00:21:20 +0400"
+version: 64
+updated_at: "2026-10-14 01:16:39 +0400"
 relations: {}
 ---
 # Summary
@@ -23,9 +23,17 @@ Improve entity model — Stage 2
 
 ## Objective
 
-Review and stage consistent Core Meta-model RMEDO Subject origins, preserving authoritative sources and all ordinary content.
+Build and resolve the current Core Meta-model RMEDO Subject map, then carry out safeguarded Subjects-only migration while preserving authoritative sources and all ordinary content. Later content review/update grouped by Subject belongs to CA-P-1970.
 
 ## Details
+
+### Latest Operator process override — 2026-10-14
+
+Build the complete current old-Subject → prospective-Subject map first, resolve unmapped or ambiguous old Subjects with the Operator, then perform the separately safeguarded Subjects-only migration. Review/update content grouped by Subject only after Subject migration, under CA-P-1970. This is a process requirement, not a claim that the map or migration is complete.
+
+For this sequence, earlier requirements below for all 48 deep per-Atom/full-owner semantic reviews, separate per-packet independent review receipts and completion of all review descendants are superseded as prerequisites to Subject mapping or migration. Existing reports, whole-owner holds and other review outputs remain preserved historical evidence and useful suggestions, not automatic current gates or permission to migrate. This override applies to the inherited process in the linked mapping/integration/staging descendants, without changing their statuses or rewriting their evidence.
+
+Retain complete current frontier/occurrence coverage, explicit unmapped/ambiguous values, current source pins and stale-source refusal, Subjects-only staged-diff checks and preservation of ordinary content, originals, history and Journal. Existing exact approved-publication and live-mutation safeguards remain binding; the map and old reviews grant no publication authority. No content change, new policy or completion cascade is authorized.
 
 ### Candidate #4 review gate
 
@@ -243,4 +251,4 @@ Fresh staged-Subject workflow: CA-P-2187's independent inventory capture is acce
 
 The completed review and Operator dispositions above satisfy the review/disposition portion only. Affected work requires the bounded independent consistency verification of the authorized repairs against the revised target recorded above; historical FPF PASS does not validate revised bytes.
 
-The Epic is **not** Done if any current decomposing Plan is not Done; affected Tool implementation/use preceded its independently verified contracts/fixtures; current source coverage or Candidate-4 meaning checks are missing/stale; a below-90% mapping was silently adopted or staged; unresolved/excluded cases or failed checks are hidden, the separate unresolved-owner list lacks exact pins/occurrences/reason/open question or an unresolved owner is partially staged, content-conflict evidence/whole-owner preservation or the CA-P-1970 queue is missing, or uncertainty is mislabeled as a content conflict; a candidate changes anything beyond Subjects and required illustrative Version/time; originals/history/Journal change without their separate live authority; staged graph evidence is treated as final acceptance or publication; full publication or shared final gates are incomplete; content migration from the separate CA-P-1970 Epic is treated as this Epic's work or completion prerequisite; or completion exceeds actual evidence.
+The Epic is **not** Done if current Subject-map/occurrence coverage is missing or stale, an unmapped or ambiguous old Subject is silently adopted or migrated, required Subjects-only migration or its existing final acceptance/publication safeguards are incomplete, affected Tool use exceeds its verified capability, a candidate changes anything beyond Subjects and required illustrative Version/time, ordinary content or originals/history/Journal change without separate authority, staged evidence is treated as live acceptance, or completion exceeds actual evidence. All 48 deep per-Atom reviews and their descendant Done statuses are not completion prerequisites for this map-first sequence. Later content review/update under CA-P-1970 is separate and not this Epic's completion prerequisite.

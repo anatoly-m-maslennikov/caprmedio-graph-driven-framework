@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 159
-updated_at: "2026-10-12 21:18:53 +0400"
+version: 160
+updated_at: "2026-10-14 01:16:39 +0400"
 relations:
   is_decomposition_of: [CA-P-1959]
   blocks: [CA-P-1967, CA-P-1909]
@@ -25,9 +25,17 @@ Map current Core Subject origins
 
 ## Objective
 
-Review every selected current RMEDO Subject occurrence and record its supported mapping or explicit evidenced disposition without guessing.
+Build a complete current old-Subject → prospective-Subject map covering the selected RMEDO Subject occurrences, and resolve unmapped or ambiguous old Subjects before their Subjects-only migration without guessing.
 
 ## Details
+
+### Latest Operator process override — 2026-10-14
+
+Build the complete current old-Subject → prospective-Subject map first, resolve unmapped or ambiguous old Subjects with the Operator, then perform the separately safeguarded Subjects-only migration. Review/update content grouped by Subject only after Subject migration, under CA-P-1970. This is a process requirement, not a claim that the map or migration is complete.
+
+For this sequence, earlier requirements below for all 48 deep per-Atom/full-owner semantic reviews, separate per-packet independent review receipts and completion of all review descendants are superseded as prerequisites to Subject mapping or migration. Existing reports, whole-owner holds and other review outputs remain preserved historical evidence and useful suggestions, not automatic current gates or permission to migrate. This override applies to the inherited process in the linked mapping/integration/staging descendants, without changing their statuses or rewriting their evidence.
+
+Retain complete current frontier/occurrence coverage, explicit unmapped/ambiguous values, current source pins and stale-source refusal, Subjects-only staged-diff checks and preservation of ordinary content, originals, history and Journal. Existing exact approved-publication and live-mutation safeguards remain binding; the map and old reviews grant no publication authority. No content change, new policy or completion cascade is authorized.
 
 This grouping Plan has no own implementation work. Before execution, create disjoint child Tasks of at most 15 minutes each.
 
@@ -267,4 +275,4 @@ CA-P-2187 is Done after [independent current inventory acceptance](../../../.cap
 
 ### Definition of Done
 
-The Plan is **not** Done if any selected occurrence is missing or guessed, a mapping lacks current source evidence, unresolved cases are hidden or their separate whole-owner disposition lacks exact pins/occurrences/reason/open question and unchanged BEFORE/AFTER coverage, confirmed content-conflict exclusions lack whole-owner evidence/preservation or an explicit CA-P-1970 queue, uncertainty is used as a conflict exemption, captured outputs change, or source Atoms are edited; any direct decomposing Plan is not Done; or own work exceeds 15 minutes without decomposition.
+The Plan is **not** Done if any selected occurrence is missing from the current Subject map, a mapping is guessed or lacks current pins, unmapped or ambiguous old Subjects remain hidden or unresolved for migration, captured inputs are overwritten, source Atoms are edited by this mapping work, or own work exceeds 15 minutes without decomposition. Deep per-Atom reviews, separate per-packet semantic receipts and all review descendants being Done are not prerequisites. Mapping completion alone does not accept a staged diff or grant publication authority.

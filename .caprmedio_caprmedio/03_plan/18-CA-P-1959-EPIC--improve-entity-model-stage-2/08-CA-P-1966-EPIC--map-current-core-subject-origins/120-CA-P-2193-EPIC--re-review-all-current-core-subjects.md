@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Subject
   depends_on: [Atom, Entity, Term, Property, Scope Unit, Projection, Plan, Operator]
-version: 9
-updated_at: "2026-10-14 01:01:29 +0400"
+version: 10
+updated_at: "2026-10-14 01:16:39 +0400"
 relations:
   is_decomposition_of: [CA-P-1966]
   blocks: [CA-P-2188]
@@ -25,9 +25,17 @@ Re-review all current Core Subjects
 
 ## Objective
 
-Obtain independently accepted fresh whole-source reviews for the complete current Subject frontier.
+Check complete current Subject-map coverage and resolve unmapped or ambiguous old Subjects against current source pins without requiring deep per-Atom review.
 
 ## Details
+
+### Latest Operator process override — 2026-10-14
+
+Build the complete current old-Subject → prospective-Subject map first, resolve unmapped or ambiguous old Subjects with the Operator, then perform the separately safeguarded Subjects-only migration. Review/update content grouped by Subject only after Subject migration, under CA-P-1970. This is a process requirement, not a claim that the map or migration is complete.
+
+For this sequence, earlier requirements below for all 48 deep per-Atom/full-owner semantic reviews, separate per-packet independent review receipts and completion of all review descendants are superseded as prerequisites to Subject mapping or migration. Existing reports, whole-owner holds and other review outputs remain preserved historical evidence and useful suggestions, not automatic current gates or permission to migrate. This override applies to the inherited process in the linked mapping/integration/staging descendants, without changing their statuses or rewriting their evidence.
+
+Retain complete current frontier/occurrence coverage, explicit unmapped/ambiguous values, current source pins and stale-source refusal, Subjects-only staged-diff checks and preservation of ordinary content, originals, history and Journal. Existing exact approved-publication and live-mutation safeguards remain binding; the map and old reviews grant no publication authority. No content change, new policy or completion cascade is authorized.
 
 ### Current frontier and inherited destinations — 2026-10-14
 
@@ -106,4 +114,4 @@ A separate reviewer verifies every owner/occurrence, current pins, semantic pass
 
 ### Definition of Done
 
-Not Done until all 48 packet Plans and their bounded review/assembly descendants have actual complete fresh reports, separate independent acceptance of supported meanings and every explicit whole-owner disposition and exact accepted-content/coverage checks for assembly against the pinned current frontier/model and all current decision records. Confirmed content-conflict exclusions require exact whole-owner evidence, unchanged originals, visible coverage and an explicit CA-P-1970 queue; unreviewed omissions are never exemptions; reviewed unresolved owners require the separate evidenced unchanged-owner list, exact pins/occurrences/reason/open question and unchanged BEFORE/AFTER coverage. Missing/stale/overlapping coverage, unresolved adopted mappings, partial historical reuse, source effects or unplanned producer overruns keep this group open.
+Not Done until the current frontier's Subject occurrences have complete non-overlapping map coverage against current source pins and unmapped or ambiguous old Subjects are explicit and resolved for migration. Missing/stale coverage, guessed or unresolved adopted mappings, overwritten captured inputs or source effects keep this read-only group open. All 48 deep per-Atom reviews, separate per-packet semantic receipts and descendant Done statuses are not prerequisites; old reports remain suggestions/evidence, not migration permission. Subjects-only staged-diff verification remains with CA-P-2190/2191 after map integration, not a completion prerequisite here; this map check does not replace existing exact approved-publication/live safeguards or complete a parent.
