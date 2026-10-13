@@ -1,4 +1,4 @@
-"""Private one-source TOML write mechanics; pure transforms live in the parser."""
+"""Private one-source TOML writes using the pure byte-preserving materializer."""
 
 from __future__ import annotations
 
@@ -9,7 +9,8 @@ from pathlib import Path
 
 from connector_bindings import BoundRequest, ConnectorBindingError, capture_source
 from connector_contract import validate_result
-from connector_toml_parse import apply_edits, equal_values, render_document
+from connector_toml_carrier import materialize_toml
+from connector_toml_parse import equal_values
 from connector_toml_read import TomlFailure, failure, observe
 from project_runtime import TemporaryBoundaryError, atomic_tempfile
 
@@ -45,11 +46,10 @@ def modify_configuration(
         source = bound.sources[0]
         arguments = {"identity": request["target"]["identity"], "project": project, "source_view": source_view,
                      "validate_document": validate_document, "expected_state": request["expected_state"]}
-        before, document, data, state = observe(source.read_bytes, **arguments)
-        proposed, diff = apply_edits(document, request["delta"], keys)
+        before, _, data, state = observe(source.read_bytes, **arguments)
+        payload, proposed, diff = materialize_toml(before, request["delta"], keys)
         if validate_document(proposed) is not None:
             raise TomlFailure("schema_invalid", "The supplied complete validator returned a flag.", "context")
-        payload = before if equal_values(document, proposed) else render_document(proposed)
         bound.revalidate_before_effect()
         if source.read_bytes() != before:
             raise TomlFailure("stale_state", "Source changed before the requested effect.", "expected_state")
