@@ -14,8 +14,8 @@ status: Active
 subjects:
   governs: Tool
   depends_on: [Atom, Scope Unit, Workflow, Configuration, Plan]
-version: 1
-updated_at: "2026-10-13 04:30:00 +0400"
+version: 2
+updated_at: "2026-10-13 20:49:49 +0400"
 relations:
   is_decomposition_of: [CA-P-2254]
 ---
@@ -34,3 +34,7 @@ Estimated own work: 15 minutes. Split larger work into bounded children before e
 ### Definition of Done
 
 The Plan is not Done until exact implementation/source pins, focused positive/refusal/no-op checks and an independent review establish this child's bounded outcome. Preparation alone, invented public bindings, source-policy changes, deferred publication or live Core migration do not satisfy it. Parent-wide and runtime completion remain separate.
+
+### Concrete receiving continuation — 2026-10-13
+
+Current D625/D626/D627/D527 and O211/O212 already define the logical map and receiving responsibilities. The missing work is production wiring, not a new map-authority decision. P2340 implements the actual private O212 receiver and P2341 independently tests genuine admission and source preservation. O211 Query and Atom O047/O046 are following bounded slices; this parent remains Active until complete Read/query receiving evidence exists.
