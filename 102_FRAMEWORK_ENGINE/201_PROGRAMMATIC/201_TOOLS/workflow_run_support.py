@@ -108,17 +108,23 @@ def _safe_ref(value: object, key: str) -> str:
     return value
 
 
-def _reject_secrets(value: object, location: str = "parameters") -> None:
+def _reject_secrets(value: object, location: str = "parameters", *, _expected_state: bool = False) -> None:
     if isinstance(value, Mapping):
         for key, item in value.items():
             if not isinstance(key, str):
                 raise SelectedRunError("invalid-request", f"{location} keys must be strings")
+            if _expected_state and key == "source_token":
+                # Connector state carries a source digest here, not a credential.
+                _require_digest(item, f"{location}.{key}")
+                continue
             if any(word in key.lower() for word in ("secret", "password", "token", "credential")):
                 raise SelectedRunError("secret-input", f"{location}.{key} is not admitted in selected-run input")
-            _reject_secrets(item, f"{location}.{key}")
+            _reject_secrets(item, f"{location}.{key}",
+                            _expected_state=location == "parameters" and key == "expected_state")
     elif isinstance(value, list):
         for index, item in enumerate(value):
-            _reject_secrets(item, f"{location}[{index}]")
+            _reject_secrets(item, f"{location}[{index}]",
+                            _expected_state=_expected_state and isinstance(item, Mapping))
 
 
 def _definition(value: object, *, location: str = "definition") -> dict[str, Any]:
