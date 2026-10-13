@@ -95,6 +95,11 @@ by this project.
 - `.`: bearer qualification for a dependent entity or component. Source
   Properties are dependent Objects; Projection Properties belong to their
   Projection and remain derived.
+- Preserve explicit property chains: `Project.Operator Registry` and
+  `Framework Instance.Settings.Parameter Resolution`. Use
+  `Framework Instance.Settings` consistently as the Settings bearer path.
+  Do not flatten these properties into compound names. Each further segment
+  still needs its actual relation; this does not turn every old slash into a dot.
 - `/<classification>: <value>`: a narrower kind with an explicit classification
   label, such as `/Content Role: Requirement` or `/Type: Demand`. The label and
   value describe the narrowing step; they are not intermediate entities or
@@ -486,7 +491,7 @@ Source-authoritative Objects
   Governing Configurations (not Atoms)
     Project Settings
     Project Structure (project_structure.toml)
-    Framework Instance Settings
+    Framework Instance.Settings
   Original project Atoms
     Core Meta-model Atoms
     Extension Atoms
