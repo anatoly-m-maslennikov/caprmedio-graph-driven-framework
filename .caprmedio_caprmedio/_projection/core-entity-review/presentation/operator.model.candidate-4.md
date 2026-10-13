@@ -99,6 +99,11 @@ by this project.
   label, such as `/Content Role: Requirement` or `/Type: Demand`. The label and
   value describe the narrowing step; they are not intermediate entities or
   Properties.
+- Classification paths apply throughout the entity graph, not only to Atoms.
+  Use the label `Type` under the named parent: `Actor/Type: AI Agent`, not
+  `Actor/Actor Type: AI Agent`. Likewise, use `Scope Unit/Type: Ordered`
+  and `Projection/Type: Terms Graph`. Do not repeat the parent's name in
+  the classification label. Stored field names remain unchanged.
 - `.<property>: <value>`: a Property and its allowed value, not assignment.
   Thus `:` qualifies a narrowing step after `/`, or names an allowed value
   after `.`. It is not an independent relation in a classification segment.
@@ -184,19 +189,17 @@ Continuant
       .Name
       .Label
       .Structural Level
-      .Type
-        : Ordered
-        : Unordered
+      /Type: Ordered
+      /Type: Unordered
       .Local Order
       .Navigational Order Number
     /Relation
-      .Relation Type
+      /Type
       .Source Reference
       .Target Reference
   /Actor
-    .Actor Type
-      : Operator
-      : AI Agent
+    /Type: Operator
+    /Type: AI Agent
     .Name
   /History
     /Revision
@@ -204,6 +207,7 @@ Continuant
       .Record
   /Projection
     .Source References
+    /Type: Terms Graph
   /Selection
 
 Carrier
@@ -302,8 +306,9 @@ fields can represent these classifications; no storage field is renamed or remov
 Unqualified classification Subjects retain `/Content Role` or `/Type`; they
 do not need separate names such as `Content Role` or `Atom Type`.
 Tiers and internal/external/relational Governance Locus remain Properties or
-classifications, not additional Object roots. Other uses of Type, such as
-`Scope Unit.Type` and `Actor.Actor Type`, are unchanged by this Atom decision.
+classifications, not additional Object roots. The same classification syntax
+applies to every entity kind: Scope Unit, Projection and Actor Types also use
+`/Type` and `/Type: <value>`, not dependent Type Properties.
 I remains actual Implementation; this candidate creates no Implementation Atoms
 or `Atom/Content Role: Implementation` subtype.
 
@@ -590,9 +595,8 @@ Executions shown here.
 
 ```text
 Actor
-  .Actor Type
-    : Operator
-    : AI Agent
+  /Type: Operator
+  /Type: AI Agent
   .Name
 ```
 
@@ -600,10 +604,9 @@ Actor identifies who performs work. It is a Continuant branch alongside Object,
 History, Projection and Selection, not an Object subtype.
 The work performed can be an Occurrent Execution; its performer remains an Actor.
 
-Actor Type and Name remain dependent Objects borne by the Actor. Their dot
-qualification does not place the Actor under Object or introduce another
-Property class. Operator and AI Agent remain Actor Type allowed values, not
-new Object kinds or additional Actor subtypes.
+Name remains a dependent entity borne by Actor. Type classifies narrower Actors:
+`Actor/Type: Operator` and `Actor/Type: AI Agent`. These are Actor subtypes,
+not Object subtypes or dependent Type Properties. Each inherits the Actor rules.
 
 Actor Type is required; Name is optional. The naming convention remains Actor
 Type + optional Name. Unnamed AI Agents need not be individually distinguished.
@@ -633,7 +636,7 @@ Entity and kind names
 
 Actor vocabulary
   Actor, Actor Type
-  Operator, AI Agent (Actor Type allowed values)
+  Operator, AI Agent (Actor Types)
 
 Content concepts
   issue, question, objective, rationale
