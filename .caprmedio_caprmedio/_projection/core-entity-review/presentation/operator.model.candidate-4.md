@@ -350,6 +350,7 @@ This is a candidate Delivery convention; no files or folders are renamed here.
 ```text
 History
   /Revision
+    /Type: Atom
   /Journal
     .Record
 
@@ -359,6 +360,11 @@ Projection
 
 - History means preserved information, not the events themselves.
 - Revision is a preserved historical state, not the change that produced it.
+- `Revision/Type: Atom` names an Atom's historical revision under History.
+  Current source fields remain `Atom.Version Number`, `Atom.Updated At` and
+  `Atom.Status`. Do not introduce `Atom.Revision` or `Atom/Revision` as a
+  property or subtype. Old Subjects that mix current and historical states
+  require separate mapping dispositions; this name does not merge them.
 - Journal contains records about actual happened changes, Executions, decisions
   and outcomes. Executions themselves are never Journal contents.
 - A Journal is a History lifecycle unit. Describing it as an Artifact does not
