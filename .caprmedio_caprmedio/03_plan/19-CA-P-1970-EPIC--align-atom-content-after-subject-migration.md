@@ -13,8 +13,8 @@ status: Active
 subjects:
   governs: Entity
   depends_on: [Atom, Subject, Term, Property, Carrier, Revision, Scope Unit, Projection, Plan, Tool, Journal, Operator]
-version: 12
-updated_at: "2026-10-13 04:48:31 +0400"
+version: 13
+updated_at: "2026-10-14 03:10:47 +0400"
 relations: {}
 ---
 # Summary
@@ -26,6 +26,20 @@ Align Atom content after Subject migration
 Align Summary, Substance, Substance Scope and Details with the verified Subject model, only after Step 1.
 
 ## Details
+
+### Shared storage policies — Operator decision, 2026-10-14
+
+Use the carried property as the Subject of its D storage rule: `Atom.Status`
+plus Content Role D means how Status is represented, for example `status` in
+YAML. A per-property Carrier Subject or entity is unnecessary. Keep Carrier
+Subjects for rules about actual files, folders and their components.
+
+After the Subject-migration gate, consolidate repeated storage definitions
+into shared D policies for YAML frontmatter in Markdown. Do not require one
+D Atom for each Property, Content Role or Type. Preserve real exceptions and
+constraints; identify redundant rules before any authorized retirement. This
+records the requested direction, not new storage syntax, immediate deletions
+or permission to start the deferred content migration.
 
 ### Narrow Tools prerequisite authorized separately
 

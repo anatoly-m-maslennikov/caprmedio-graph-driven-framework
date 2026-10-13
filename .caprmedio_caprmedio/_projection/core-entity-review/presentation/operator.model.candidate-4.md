@@ -305,6 +305,15 @@ An inherited allowed value is not the current assigned value of an instance.
 Inheriting a Carrier obligation does not mean sharing one physical Carrier.
 General D policies can cover multiple Properties and Objects.
 
+For a storage rule, name the carried property directly: Subject `Atom.Status`
+plus Content Role D means how that property is stored, such as `status` in YAML.
+Do not add a separate `Atom.Status.Carrier` entity or `/Carrier` Subject wrapper
+just to express that obligation. Rules about actual files and folders still
+use Carrier Subjects, such as `File Carrier.Filename`.
+Use shared D policies for YAML frontmatter in Markdown, not one storage rule
+for every Property, Content Role or Type. Consolidate redundant D content in
+the later content Epic; Subject mapping alone does not delete or rewrite it.
+
 Content Role and Atom Type classify Atom subtypes, not `Atom.Content Role`
 or `Atom.Type` dependent entities in this graph. Stored `content_role` and `type`
 fields can represent these classifications; no storage field is renamed or removed.
